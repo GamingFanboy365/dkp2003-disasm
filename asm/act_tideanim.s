@@ -104,7 +104,7 @@ _0801299C:
 	.2byte 0xEFFF @ debug trap
 	b _0801290E
 _080129B4:
-	.4byte 0x0884E334
+	.4byte gUnk_0884E334
 _080129B8:
 	.4byte 0x040000D4
 _080129BC:
@@ -112,13 +112,13 @@ _080129BC:
 _080129C0:
 	.4byte 0x0201BAF0
 _080129C4:
-	.4byte 0x08050BA0
+	.4byte gUnk_08050BA0
 _080129C8:
-	.4byte 0x08050BAC
+	.4byte gUnk_08050BAC
 _080129CC:
-	.4byte 0x08050BC0
+	.4byte gUnk_08050BC0
 _080129D0:
-	.4byte 0x08050BD0
+	.4byte gUnk_08050BD0
 
 	.global init_tideanim
 	.thumb_func
@@ -155,10 +155,10 @@ _080129F8:
 	.2byte 0xEFFF @ debug trap
 	b _080129DE
 _08012A10:
-	.4byte 0x08050BA0
+	.4byte gUnk_08050BA0
 _08012A14:
-	.4byte 0x08050BAC
+	.4byte gUnk_08050BAC
 _08012A18:
-	.4byte 0x08050C0C
+	.4byte gUnk_08050C0C
 _08012A1C:
-	.4byte 0x08050BD0
+	.4byte gUnk_08050BD0

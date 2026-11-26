@@ -148,13 +148,13 @@ _08029304:
 _08029308:
 	.4byte sub_03000134
 _0802930C:
-	.4byte 0x08052DF0
+	.4byte gUnk_08052DF0
 _08029310:
-	.4byte 0x08052DFC
+	.4byte gUnk_08052DFC
 _08029314:
-	.4byte 0x08052E14
+	.4byte gUnk_08052E14
 _08029318:
-	.4byte 0x08052E50
+	.4byte gUnk_08052E50
 
 	.global act_red_zinger
 	.thumb_func
@@ -641,11 +641,11 @@ _080296D4:
 _080296D8:
 	.4byte 0x0202D74C
 _080296DC:
-	.4byte 0x0202EC04
+	.4byte gRedZingerBuzzOwner
 _080296E0:
 	.4byte 0x00000513
 _080296E4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080296E8:
 	.4byte 0xFFFFB000
 _080296EC:
@@ -657,7 +657,7 @@ _080296F4:
 _080296F8:
 	.4byte 0x02004298
 _080296FC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08029700:
 	.4byte sub_08029E4C
 _08029704:
@@ -1132,7 +1132,7 @@ _08029A44:
 	b _08029362
 	.byte 0x00, 0x00
 _08029AC0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08029AC4:
 	.4byte sub_03000134
 _08029AC8:
@@ -1304,7 +1304,7 @@ _08029C00:
 	.byte 0x0C, 0x48, 0x0D, 0x4A, 0x63, 0x00, 0x08, 0xF0, 0x17, 0xFC, 0x08, 0xF0, 0xAB, 0xFC, 0xFF, 0xEF
 	.byte 0xFF, 0xF7, 0x7E, 0xFB
 _08029C38:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08029C3C:
 	.4byte sub_08029E8C
 _08029C40:
@@ -1314,8 +1314,11 @@ _08029C44:
 _08029C48:
 	.4byte 0x03000814
 _08029C4C:
-	.4byte 0x08052E60
-	.byte 0xF0, 0x2D, 0x05, 0x08, 0xFC, 0x2D, 0x05, 0x08, 0x14, 0x2E, 0x05, 0x08, 0x78, 0x2E, 0x05, 0x08
+	.4byte gUnk_08052E60
+	.4byte gUnk_08052DF0
+	.4byte gUnk_08052DFC
+	.4byte gUnk_08052E14
+	.4byte gUnk_08052E78
 
 	.global react_red_zinger
 	.thumb_func
@@ -1513,23 +1516,23 @@ _08029DCE:
 	b _08029C72
 	.byte 0x00, 0x00
 _08029DE8:
-	.4byte 0x0202EC04
+	.4byte gRedZingerBuzzOwner
 _08029DEC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08029DF0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08029DF4:
-	.4byte 0x08052E88
+	.4byte gUnk_08052E88
 _08029DF8:
-	.4byte 0x08052DFC
+	.4byte gUnk_08052DFC
 _08029DFC:
-	.4byte 0x08052E94
+	.4byte gUnk_08052E94
 _08029E00:
-	.4byte 0x08052E14
+	.4byte gUnk_08052E14
 _08029E04:
 	.4byte 0x00000387
 _08029E08:
-	.4byte 0x08052DF0
+	.4byte gUnk_08052DF0
 _08029E0C:
 	.4byte 0x00000386
 
@@ -1548,7 +1551,7 @@ sub_08029E10: @ 08029E10
 _08029E20:
 	.4byte 0x0202EC00
 _08029E24:
-	.4byte 0x0202EC04
+	.4byte gRedZingerBuzzOwner
 
 	.global sub_08029E28
 	.thumb_func
@@ -1568,9 +1571,9 @@ sub_08029E28: @ 08029E28
 	bx r1
 	.byte 0x00, 0x00
 _08029E44:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08029E48:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_08029E4C
 	.thumb_func
@@ -1814,9 +1817,9 @@ _08029FDE:
 _08029FF0:
 	.4byte 0x02018F34
 _08029FF4:
-	.4byte 0x0202EC0C
+	.4byte gBlueZingerBuzzOwner
 _08029FF8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08029FFC:
 	.4byte 0x0202D74C
 
@@ -2042,9 +2045,9 @@ _0802A18C:
 _0802A194:
 	.4byte 0x0202D74C
 _0802A198:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802A19C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802A1A0:
 	.4byte 0x0202EC08
 _0802A1A4:
@@ -2086,6 +2089,7 @@ _0802A1D6:
 	ldr r1, [r4, r0]
 	mov pc, r1
 	.byte 0x00, 0x00
+	.global _0802A1E8
 _0802A1E8:
 	.4byte _0802A1FC
 	.4byte _0802A4C4
@@ -2420,7 +2424,7 @@ _0802A478:
 	b _0802A25E
 	.byte 0x00, 0x00
 _0802A484:
-	.4byte 0x0802A1E8
+	.4byte _0802A1E8
 _0802A488:
 	.4byte sub_03000138
 _0802A48C:
@@ -2430,11 +2434,11 @@ _0802A490:
 _0802A494:
 	.4byte 0x0202D74C
 _0802A498:
-	.4byte 0x0202EC0C
+	.4byte gBlueZingerBuzzOwner
 _0802A49C:
 	.4byte 0x00000513
 _0802A4A0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802A4A4:
 	.4byte 0xFFFFB000
 _0802A4A8:
@@ -2446,7 +2450,7 @@ _0802A4B0:
 _0802A4B4:
 	.4byte 0x02004298
 _0802A4B8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802A4BC:
 	.4byte sub_0802AC28
 _0802A4C0:
@@ -2925,13 +2929,13 @@ _0802A874:
 _0802A878:
 	.4byte sub_03000134
 _0802A87C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802A880:
 	.4byte sub_03000744
 _0802A884:
 	.4byte sub_030001E8
 _0802A888:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802A88C:
 	.4byte sub_0802AC8C
 _0802A890:
@@ -3134,7 +3138,7 @@ _0802AA10:
 	b _0802A262
 	.byte 0x00, 0x21, 0x41, 0x60, 0xFF, 0xF7, 0xDB, 0xFB
 _0802AA20:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802AA24:
 	.4byte sub_03000134
 _0802AA28:

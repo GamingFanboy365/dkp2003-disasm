@@ -61,7 +61,7 @@ _08012564:
 _08012568:
 	.4byte 0x0202D74C
 _0801256C:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _08012570:
 	bl sub_080189E4
 	adds r4, r0, #0
@@ -167,7 +167,7 @@ _08012638:
 _0801263C:
 	.4byte 0x00000000
 _08012640:
-	.4byte 0x0863FDD8
+	.4byte gUnk_0863FDD8
 _08012644:
 	.4byte 0x0000FFFF
 _08012648:
@@ -216,13 +216,13 @@ _08012688:
 	.2byte 0xEFFF @ debug trap
 	b _08012522
 _080126A0:
-	.4byte 0x08050B24
+	.4byte gUnk_08050B24
 _080126A4:
-	.4byte 0x08050B30
+	.4byte gUnk_08050B30
 _080126A8:
-	.4byte 0x08050B44
+	.4byte gUnk_08050B44
 _080126AC:
-	.4byte 0x08050B54
+	.4byte gUnk_08050B54
 
 	.global act_hud_flyby
 	.thumb_func
@@ -389,9 +389,9 @@ _080127E4:
 _080127E8:
 	.4byte 0x0202D74C
 _080127EC:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _080127F0:
-	.4byte 0x0863FDD8
+	.4byte gUnk_0863FDD8
 _080127F4:
 	.4byte 0x0000FFFF
 _080127F8:
@@ -530,10 +530,10 @@ _080128EC:
 _080128F0:
 	.4byte 0x02023F90
 _080128F4:
-	.4byte 0x08050B24
+	.4byte gUnk_08050B24
 _080128F8:
-	.4byte 0x08050B30
+	.4byte gUnk_08050B30
 _080128FC:
-	.4byte 0x08050B90
+	.4byte gUnk_08050B90
 _08012900:
-	.4byte 0x08050B54
+	.4byte gUnk_08050B54

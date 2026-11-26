@@ -108,13 +108,13 @@ _08010D74:
 	.2byte 0xEFFF @ debug trap
 	b _08010CD6
 _08010D8C:
-	.4byte 0x08050818
+	.4byte gUnk_08050818
 _08010D90:
-	.4byte 0x08050824
+	.4byte gUnk_08050824
 _08010D94:
-	.4byte 0x0805083C
+	.4byte gUnk_0805083C
 _08010D98:
-	.4byte 0x0805084C
+	.4byte gUnk_0805084C
 
 	.global act_silvercoin
 	.thumb_func
@@ -269,13 +269,13 @@ _08010EA0:
 	.2byte 0xEFFF @ debug trap
 	b _08010DA8
 _08010EB8:
-	.4byte 0x08050818
+	.4byte gUnk_08050818
 _08010EBC:
-	.4byte 0x08050824
+	.4byte gUnk_08050824
 _08010EC0:
-	.4byte 0x08050888
+	.4byte gUnk_08050888
 _08010EC4:
-	.4byte 0x0805084C
+	.4byte gUnk_0805084C
 
 	.global react_silvercoin
 	.thumb_func
@@ -417,15 +417,15 @@ _08010FD0:
 _08010FD4:
 	.4byte 0x0202D74C
 _08010FD8:
-	.4byte 0x08050898
+	.4byte gUnk_08050898
 _08010FDC:
-	.4byte 0x08050824
+	.4byte gUnk_08050824
 _08010FE0:
-	.4byte 0x080508A4
+	.4byte gUnk_080508A4
 _08010FE4:
-	.4byte 0x0805084C
+	.4byte gUnk_0805084C
 _08010FE8:
-	.4byte 0x08050818
+	.4byte gUnk_08050818
 
 	.global act_hud_silvercoin
 	.thumb_func
@@ -565,13 +565,13 @@ _080110E4:
 _080110E8:
 	.4byte 0xFFFFF900
 _080110EC:
-	.4byte 0x080508B8
+	.4byte gUnk_080508B8
 _080110F0:
-	.4byte 0x0805084C
+	.4byte gUnk_0805084C
 _080110F4:
-	.4byte 0x08050824
+	.4byte gUnk_08050824
 _080110F8:
-	.4byte 0x08050818
+	.4byte gUnk_08050818
 
 	.global init_hud_silvercoin
 	.thumb_func
@@ -636,10 +636,10 @@ _08011158:
 	.2byte 0xEFFF @ debug trap
 	b _08011106
 _08011170:
-	.4byte 0x08050818
+	.4byte gUnk_08050818
 _08011174:
-	.4byte 0x08050824
+	.4byte gUnk_08050824
 _08011178:
-	.4byte 0x080508CC
+	.4byte gUnk_080508CC
 _0801117C:
-	.4byte 0x0805084C
+	.4byte gUnk_0805084C

@@ -99,13 +99,13 @@ _08020E68:
 	.2byte 0xEFFF @ debug trap
 	b _08020DE6
 _08020E80:
-	.4byte 0x080526E8
+	.4byte gUnk_080526E8
 _08020E84:
-	.4byte 0x080526F4
+	.4byte gUnk_080526F4
 _08020E88:
-	.4byte 0x08052710
+	.4byte gUnk_08052710
 _08020E8C:
-	.4byte 0x08052728
+	.4byte gUnk_08052728
 
 	.global act_booster_autopilot
 	.thumb_func
@@ -186,9 +186,9 @@ _08020F1C:
 _08020F20:
 	.4byte 0x0202E43C
 _08020F24:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08020F28:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08020F2C:
 	ldr r2, _08020F8C
 	ldr r0, [r5]
@@ -253,13 +253,13 @@ _08020F96:
 	b _08020E9C
 	.byte 0x00, 0x00
 _08020FB0:
-	.4byte 0x080526E8
+	.4byte gUnk_080526E8
 _08020FB4:
-	.4byte 0x080526F4
+	.4byte gUnk_080526F4
 _08020FB8:
-	.4byte 0x08052764
+	.4byte gUnk_08052764
 _08020FBC:
-	.4byte 0x08052728
+	.4byte gUnk_08052728
 
 	.global react_booster_autopilot
 	.thumb_func
@@ -356,19 +356,19 @@ _08021054:
 _0802106C:
 	.4byte 0x0202E43C
 _08021070:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08021074:
 	.4byte 0x0202E438
 _08021078:
-	.4byte 0x0805277C
+	.4byte gUnk_0805277C
 _0802107C:
-	.4byte 0x080526F4
+	.4byte gUnk_080526F4
 _08021080:
-	.4byte 0x08052788
+	.4byte gUnk_08052788
 _08021084:
-	.4byte 0x08052728
+	.4byte gUnk_08052728
 _08021088:
-	.4byte 0x080526E8
+	.4byte gUnk_080526E8
 
 	.global sub_0802108C
 	.thumb_func

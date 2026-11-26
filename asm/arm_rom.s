@@ -1,4 +1,4 @@
-@ asm/arm_rom.s: ROM 0x03C5C4-0x03EC00 (rom, VMA 0x0803C5C4)
+@ asm/arm_rom.s: ROM 0x03C5C4-0x03EA90 (rom, VMA 0x0803C5C4)
 
 	.include "asm/macros.inc"
 
@@ -387,9 +387,9 @@ _0803CAC8:
 _0803CB18:
 	.4byte 0x020042A4
 _0803CB1C:
-	.4byte 0x081108A0
+	.4byte gUnk_081108A0
 _0803CB20:
-	.4byte 0x081136E0
+	.4byte gUnk_081136E0
 
 	.global sub_0803CB24
 	.type sub_0803CB24, %function
@@ -1533,11 +1533,11 @@ _0803DB88:
 _0803DB8C:
 	.4byte 0x0200082E
 _0803DB90:
-	.4byte 0x0803F49C
+	.4byte gUnk_0803F49C
 _0803DB94:
 	.4byte 0x02001220
 _0803DB98:
-	.4byte 0x081136E0
+	.4byte gUnk_081136E0
 _0803DB9C:
 	.4byte 0x02001760
 	.incbin "baserom.gba", 0x3DBA0, 0x7C
@@ -1804,7 +1804,7 @@ _0803DF74:
 _0803DFC4:
 	.4byte 0x02004320
 _0803DFC8:
-	.4byte 0x081136E0
+	.4byte gUnk_081136E0
 
 	.global sub_0803DFCC
 	.type sub_0803DFCC, %function
@@ -2503,7 +2503,7 @@ _0803E9E0:
 _0803E9E4:
 	.4byte 0x02002620
 _0803E9E8:
-	.4byte 0x0803F49C
+	.4byte gUnk_0803F49C
 _0803E9EC:
 	.4byte 0x0300566C
 _0803E9F0:
@@ -2553,4 +2553,3 @@ _0803EA88:
 	.4byte 0x02001C20
 _0803EA8C:
 	.4byte 0x02023FA4
-	.incbin "baserom.gba", 0x3EA90, 0x170

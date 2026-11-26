@@ -109,15 +109,15 @@ _0802B6F6:
 _0802B710:
 	.4byte 0x0201A734
 _0802B714:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802B718:
-	.4byte 0x08053004
+	.4byte gUnk_08053004
 _0802B71C:
-	.4byte 0x08053010
+	.4byte gUnk_08053010
 _0802B720:
-	.4byte 0x08053028
+	.4byte gUnk_08053028
 _0802B724:
-	.4byte 0x08053038
+	.4byte gUnk_08053038
 
 	.global act_tnt_barrel
 	.thumb_func
@@ -474,7 +474,7 @@ _0802B9BC:
 	b _0802B764
 	.byte 0x00, 0x00
 _0802B9D0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802B9D4:
 	.4byte 0x0201A734
 _0802B9D8:
@@ -484,7 +484,7 @@ _0802B9DC:
 _0802B9E0:
 	.4byte 0x0201AA4C
 _0802B9E4:
-	.4byte 0x0884F034
+	.4byte gUnk_0884F034
 _0802B9E8:
 	.4byte 0x0202D74C
 _0802B9EC:

@@ -1,0 +1,15 @@
+# RAM variables: <address> <name>   (exact-match pool constants become symbols)
+0x02004348 gFrameCount              # gamesfx_update uses bit 1 for every-other-frame work
+0x0200434C gRacerObjects            # racer index -> object pointer
+0x02004374 gObjProcessList          # object_process_list head (next at +4)
+0x02004378 gObjStaticHitList        # object_hit_static_list head (next at +0x14)
+0x0201838C gObjFreeList             # object_free_list head
+0x02021E18 gRacerData               # per-racer data, stride 0x208
+0x0202DE58 gLocalPlayerIndex        # racer index of the human player
+0x0202DECC gSfxVoices               # gamesfx: 4 hardware voices, stride 0x30
+0x0202DF8C gSfxPendingPool          # gamesfx: 16 request entries, stride 0x40
+0x0202E38C gSfxPendingList          # gamesfx: pending list head (sorted by priority)
+0x0202E390 gSfxPendingMask          # gamesfx: allocated-entry bitmask
+0x0202E394 gSfxNextId               # gamesfx: next handle id
+0x0202EC04 gRedZingerBuzzOwner      # id of the red zinger owning the "on your plane" buzz, -1 = none
+0x0202EC0C gBlueZingerBuzzOwner     # same for blue zingers

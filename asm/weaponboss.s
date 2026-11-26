@@ -88,31 +88,31 @@ _0802C4E8:
 _0802C4EC:
 	.4byte 0x0202EC48
 _0802C4F0:
-	.4byte 0x08051654
+	.4byte gUnk_08051654
 _0802C4F4:
-	.4byte 0x0884FA7C
+	.4byte gUnk_0884FA7C
 _0802C4F8:
-	.4byte 0x080534A0
+	.4byte gUnk_080534A0
 _0802C4FC:
-	.4byte 0x080534D4
+	.4byte gUnk_080534D4
 _0802C500:
-	.4byte 0x080534EC
+	.4byte gUnk_080534EC
 _0802C504:
-	.4byte 0x08053528
+	.4byte gUnk_08053528
 _0802C508:
-	.4byte 0x0805353C
+	.4byte gUnk_0805353C
 _0802C50C:
-	.4byte 0x0884FB9C
+	.4byte gUnk_0884FB9C
 _0802C510:
-	.4byte 0x0805354C
+	.4byte gUnk_0805354C
 _0802C514:
-	.4byte 0x0884FDDC
+	.4byte gUnk_0884FDDC
 _0802C518:
-	.4byte 0x08053580
+	.4byte gUnk_08053580
 _0802C51C:
-	.4byte 0x0884FCBC
+	.4byte gUnk_0884FCBC
 _0802C520:
-	.4byte 0x080535B0
+	.4byte gUnk_080535B0
 
 	.global weaponbossAllocate
 	.thumb_func
@@ -228,15 +228,15 @@ _0802C5F8:
 _0802C5FC:
 	.4byte 0x0202EC48
 _0802C600:
-	.4byte 0x080535E0
+	.4byte gUnk_080535E0
 _0802C604:
-	.4byte 0x080534EC
+	.4byte gUnk_080534EC
 _0802C608:
-	.4byte 0x08053528
+	.4byte gUnk_08053528
 _0802C60C:
-	.4byte 0x080535EC
+	.4byte gUnk_080535EC
 _0802C610:
-	.4byte 0x08053600
+	.4byte gUnk_08053600
 
 	.global weaponbossManager
 	.thumb_func
@@ -317,13 +317,13 @@ _0802C68C:
 _0802C69C:
 	.4byte 0x00000000
 _0802C6A0:
-	.4byte 0x08053604
+	.4byte gUnk_08053604
 _0802C6A4:
-	.4byte 0x08053528
+	.4byte gUnk_08053528
 _0802C6A8:
-	.4byte 0x080534EC
+	.4byte gUnk_080534EC
 _0802C6AC:
-	.4byte 0x08053648
+	.4byte gUnk_08053648
 _0802C6B0:
 	.4byte 0x0000219E
 _0802C6B4:
@@ -335,6 +335,7 @@ _0802C6B4:
 	lsls r1, r3, #2
 	ldr r0, [r1, r2]
 	mov pc, r0
+	.global _0802C6C4
 _0802C6C4:
 	.4byte _0802C6F0
 	.4byte _0802C712
@@ -382,7 +383,7 @@ _0802C720:
 _0802C724:
 	.4byte 0x00000009
 _0802C728:
-	.4byte 0x0802C6C4
+	.4byte _0802C6C4
 	.global _0802C72C
 _0802C72C:
 	adds r0, r4, #0
@@ -513,13 +514,13 @@ _0802C80C:
 _0802C810:
 	.4byte 0x0000219E
 _0802C814:
-	.4byte 0x0805365C
+	.4byte gUnk_0805365C
 _0802C818:
-	.4byte 0x08053528
+	.4byte gUnk_08053528
 _0802C81C:
-	.4byte 0x08053648
+	.4byte gUnk_08053648
 _0802C820:
-	.4byte 0x080534EC
+	.4byte gUnk_080534EC
 _0802C824:
 	.4byte 0x0000010B
 
@@ -666,7 +667,7 @@ _0802C944:
 _0802C948:
 	.4byte 0x0202D74C
 _0802C94C:
-	.4byte 0x0885003C
+	.4byte gUnk_0885003C
 
 	.global sub_0802C950
 	.thumb_func
@@ -730,11 +731,11 @@ _0802C9B2:
 	ldr r0, [r2, r1]
 	b _0802C980
 _0802C9BC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802C9C0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802C9C4:
-	.4byte 0x0884FF9C
+	.4byte gUnk_0884FF9C
 
 	.global sub_0802C9C8
 	.thumb_func
@@ -838,7 +839,7 @@ _0802CA64:
 	bl obj_initialise
 	b _0802CA32
 _0802CA8C:
-	.4byte 0x0884FF1C
+	.4byte gUnk_0884FF1C
 _0802CA90:
 	.4byte 0x02018F34
 _0802CA94:

@@ -133,13 +133,13 @@ _080133CC:
 	.2byte 0xEFFF @ debug trap
 	b _0801330C
 _080133E4:
-	.4byte 0x08050EC0
+	.4byte gUnk_08050EC0
 _080133E8:
-	.4byte 0x08050ECC
+	.4byte gUnk_08050ECC
 _080133EC:
-	.4byte 0x08050EDC
+	.4byte gUnk_08050EDC
 _080133F0:
-	.4byte 0x08050EE8
+	.4byte gUnk_08050EE8
 
 	.global act_kong
 	.thumb_func
@@ -430,15 +430,15 @@ _08013600:
 	.2byte 0xEFFF @ debug trap
 	b _080134B6
 _08013618:
-	.4byte 0x08050F24
+	.4byte gUnk_08050F24
 _0801361C:
-	.4byte 0x08050ECC
+	.4byte gUnk_08050ECC
 _08013620:
-	.4byte 0x08050F30
+	.4byte gUnk_08050F30
 _08013624:
-	.4byte 0x08050EE8
+	.4byte gUnk_08050EE8
 _08013628:
-	.4byte 0x08050EC0
+	.4byte gUnk_08050EC0
 
 	.global init_hud_kong
 	.thumb_func
@@ -547,13 +547,13 @@ _080136DC:
 _080136F4:
 	.4byte 0x02018F34
 _080136F8:
-	.4byte 0x08050EC0
+	.4byte gUnk_08050EC0
 _080136FC:
-	.4byte 0x08050ECC
+	.4byte gUnk_08050ECC
 _08013700:
-	.4byte 0x08050F3C
+	.4byte gUnk_08050F3C
 _08013704:
-	.4byte 0x08050EE8
+	.4byte gUnk_08050EE8
 
 	.global act_hud_kong
 	.thumb_func
@@ -586,6 +586,7 @@ _0801371E:
 	ldr r0, [r3, r2]
 	mov pc, r0
 	.byte 0x00, 0x00
+	.global _0801373C
 _0801373C:
 	.4byte _08013754
 	.4byte _080137A8
@@ -762,15 +763,15 @@ _08013874:
 _08013880:
 	.4byte 0x00000080
 _08013884:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08013888:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0801388C:
-	.4byte 0x0801373C
+	.4byte _0801373C
 _08013890:
 	.4byte 0xFFFFF000
 _08013894:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08013898:
 	.4byte 0x0201A734
 _0801389C:
@@ -953,13 +954,13 @@ _080139D8:
 _080139DC:
 	.4byte 0x02018F34
 _080139E0:
-	.4byte 0x08050EC0
+	.4byte gUnk_08050EC0
 _080139E4:
-	.4byte 0x08050ECC
+	.4byte gUnk_08050ECC
 _080139E8:
-	.4byte 0x08050F4C
+	.4byte gUnk_08050F4C
 _080139EC:
-	.4byte 0x08050EE8
+	.4byte gUnk_08050EE8
 
 	.global sub_080139F0
 	.thumb_func
@@ -1009,7 +1010,7 @@ _08013A38:
 _08013A40:
 	.4byte 0x0202D74C
 _08013A44:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08013A48:
 	.4byte 0x02004284
 _08013A4C:
@@ -1023,4 +1024,4 @@ _08013A58:
 _08013A5C:
 	.4byte 0x02004298
 _08013A60:
-	.4byte 0x08050F5C
+	.4byte gUnk_08050F5C

@@ -40,13 +40,13 @@ _08013A84:
 	.2byte 0xEFFF @ debug trap
 	b _08013A6E
 _08013A9C:
-	.4byte 0x08050FA4
+	.4byte gUnk_08050FA4
 _08013AA0:
-	.4byte 0x08050FB0
+	.4byte gUnk_08050FB0
 _08013AA4:
-	.4byte 0x08050FC0
+	.4byte gUnk_08050FC0
 _08013AA8:
-	.4byte 0x08050FCC
+	.4byte gUnk_08050FCC
 
 	.global act_hits
 	.thumb_func
@@ -81,17 +81,17 @@ _08013ACC:
 	.2byte 0xEFFF @ debug trap
 	b _08013AB4
 _08013AE4:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08013AE8:
 	.4byte sub_030028D8
 _08013AEC:
-	.4byte 0x08050FA4
+	.4byte gUnk_08050FA4
 _08013AF0:
-	.4byte 0x08050FB0
+	.4byte gUnk_08050FB0
 _08013AF4:
-	.4byte 0x08051008
+	.4byte gUnk_08051008
 _08013AF8:
-	.4byte 0x08050FCC
+	.4byte gUnk_08050FCC
 
 	.global act_sfx
 	.thumb_func
@@ -239,6 +239,6 @@ _08013C00:
 _08013C04:
 	.4byte 0x0200436C
 _08013C08:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08013C0C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects

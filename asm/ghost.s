@@ -98,13 +98,13 @@ _080042DC:
 _080042E0:
 	.4byte 0x0201C58C
 _080042E4:
-	.4byte 0x0804FDF8
+	.4byte gUnk_0804FDF8
 _080042E8:
-	.4byte 0x0804FE18
+	.4byte gUnk_0804FE18
 _080042EC:
-	.4byte 0x0804FE54
+	.4byte gUnk_0804FE54
 _080042F0:
-	.4byte 0x0804FE60
+	.4byte gUnk_0804FE60
 
 	.global sub_080042F4
 	.thumb_func
@@ -265,13 +265,13 @@ _08004400:
 	.2byte 0xEFFF @ debug trap
 	b _080043AC
 _08004418:
-	.4byte 0x0804FE70
+	.4byte gUnk_0804FE70
 _0800441C:
-	.4byte 0x0804FE54
+	.4byte gUnk_0804FE54
 _08004420:
-	.4byte 0x0804FE7C
+	.4byte gUnk_0804FE7C
 _08004424:
-	.4byte 0x0804FE18
+	.4byte gUnk_0804FE18
 
 	.global sub_08004428
 	.thumb_func
@@ -595,23 +595,23 @@ _0800464A:
 	pop {r0}
 	bx r0
 _08004650:
-	.4byte 0x0804FE8C
+	.4byte gUnk_0804FE8C
 _08004654:
 	.4byte 0x02021D70
 _08004658:
 	.4byte 0x020219F0
 _0800465C:
-	.4byte 0x0804FE9C
+	.4byte gUnk_0804FE9C
 _08004660:
-	.4byte 0x0804FEA4
+	.4byte gUnk_0804FEA4
 _08004664:
-	.4byte 0x0804FEAC
+	.4byte gUnk_0804FEAC
 _08004668:
-	.4byte 0x0804FEB4
+	.4byte gUnk_0804FEB4
 _0800466C:
-	.4byte 0x0804FEBC
+	.4byte gUnk_0804FEBC
 _08004670:
-	.4byte 0x0804FECC
+	.4byte gUnk_0804FECC
 
 	.global sub_08004674
 	.thumb_func
@@ -718,6 +718,7 @@ _080046A6:
 	ldr r5, [r7, r2]
 	mov pc, r5
 	.byte 0x00, 0x00
+	.global _08004740
 _08004740:
 	.4byte _08004758
 	.4byte _080047A8
@@ -830,10 +831,10 @@ _08004800:
 _08004804:
 	.4byte 0x02021D7C
 _08004808:
-	.4byte 0x08004740
+	.4byte _08004740
 _0800480C:
 	.4byte 0x020219F0
 _08004810:
 	.4byte 0x02021D78
 _08004814:
-	.4byte 0x0804FEDC
+	.4byte gUnk_0804FEDC

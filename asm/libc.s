@@ -31,7 +31,7 @@ sub_080325E0: @ 080325E0
 _080325F4:
 	.4byte 0x02000000
 _080325F8:
-	.4byte 0x0884CCB8
+	.4byte gUnk_0884CCB8
 _080325FC:
 	cmp r0, #0x40
 	bne _08032610
@@ -42,7 +42,7 @@ _080325FC:
 _08032608:
 	.4byte 0x02000000
 _0803260C:
-	.4byte 0x0884CCC4
+	.4byte gUnk_0884CCC4
 _08032610:
 	ldr r1, _0803261C
 	ldr r0, _08032620
@@ -54,7 +54,7 @@ _08032618:
 _0803261C:
 	.4byte 0x02000000
 _08032620:
-	.4byte 0x0884CCB8
+	.4byte gUnk_0884CCB8
 
 	.global sub_08032624
 	.thumb_func
@@ -509,7 +509,7 @@ _08032940:
 _08032948:
 	.4byte 0x02000000
 _0803294C:
-	.4byte 0x0884CCD0
+	.4byte gUnk_0884CCD0
 _08032950:
 	.4byte 0x0202F024
 _08032954:
@@ -636,7 +636,7 @@ vsprintf: @ 080329F0
 _08032A20:
 	.4byte 0x7FFFFFFF
 _08032A24:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 
 	.global sub_08032A28
 	.thumb_func
@@ -801,7 +801,7 @@ _08032B32:
 _08032B44:
 	.4byte 0xFFFFFDE0
 _08032B48:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08032B4C:
 	movs r0, #0x1a
 	ldr r1, [sp, #0x1e0]
@@ -933,13 +933,14 @@ _08032C38:
 	mov pc, r0
 	.byte 0x00, 0x00
 _08032C44:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08032C48:
-	.4byte 0x08BB5288
+	.4byte gUnk_08BB5288
 _08032C4C:
 	.4byte 0x000001C9
 _08032C50:
-	.4byte 0x08032C54
+	.4byte _08032C54
+	.global _08032C54
 _08032C54:
 	.4byte _08032DB8
 	.4byte _080332EA
@@ -1314,7 +1315,7 @@ _08032F80:
 _08032F84:
 	.4byte 0x000001C9
 _08032F88:
-	.4byte 0x0884CD54
+	.4byte gUnk_0884CD54
 _08032F8C:
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
@@ -1326,7 +1327,7 @@ _08032F8C:
 	movs r3, #3
 	b _08033302
 _08032FA0:
-	.4byte 0x0884CD58
+	.4byte gUnk_0884CD58
 _08032FA4:
 	movs r0, #0x80
 	lsls r0, r0, #1
@@ -1546,7 +1547,7 @@ _08033108:
 	str r1, [sp, #0x1e8]
 	b _080331F6
 _08033124:
-	.4byte 0x0884CD5C
+	.4byte gUnk_0884CD5C
 	.global _08033128
 _08033128:
 	movs r2, #4
@@ -1577,7 +1578,7 @@ _08033158:
 	adds r3, r6, #0
 	b _080332FA
 _0803315C:
-	.4byte 0x0884CD70
+	.4byte gUnk_0884CD70
 _08033160:
 	mov r0, r8
 	bl sub_080364E4
@@ -1627,7 +1628,7 @@ _080331A6:
 	str r0, [sp, #0x210]
 	b _080331B4
 _080331AC:
-	.4byte 0x0884CD78
+	.4byte gUnk_0884CD78
 	.global _080331B0
 _080331B0:
 	ldr r1, _080331D4
@@ -1650,7 +1651,7 @@ _080331B4:
 	ldrh r4, [r0]
 	b _080331E2
 _080331D4:
-	.4byte 0x0884CD5C
+	.4byte gUnk_0884CD5C
 _080331D8:
 	movs r4, #4
 	add sl, r4
@@ -1711,7 +1712,7 @@ _08033224:
 _08033240:
 	.4byte 0x000001C9
 _08033244:
-	.4byte 0x0884CD8C
+	.4byte gUnk_0884CD8C
 _08033248:
 	adds r7, r5, #0
 	adds r7, #8
@@ -1939,7 +1940,7 @@ _080333B8:
 	b _0803341C
 	.byte 0x00, 0x00
 _080333E4:
-	.4byte 0x0884CD34
+	.4byte gUnk_0884CD34
 _080333E8:
 	.4byte 0x000001C9
 _080333EC:
@@ -2127,7 +2128,7 @@ _0803353E:
 	b _08033954
 	.byte 0x00, 0x00
 _08033544:
-	.4byte 0x0884CD44
+	.4byte gUnk_0884CD44
 _08033548:
 	ldr r2, [sp, #0x1e8]
 	cmp r2, #0x65
@@ -2245,9 +2246,9 @@ _08033618:
 _0803361C:
 	.4byte 0x00000000
 _08033620:
-	.4byte 0x0884CDA8
+	.4byte gUnk_0884CDA8
 _08033624:
-	.4byte 0x0884CD44
+	.4byte gUnk_0884CD44
 _08033628:
 	add r6, sp, #0x1d4
 	ldr r2, [r6]
@@ -2368,9 +2369,9 @@ _080336EA:
 	b _0803394C
 	.byte 0x00, 0x00
 _08033708:
-	.4byte 0x0884CDA8
+	.4byte gUnk_0884CDA8
 _0803370C:
-	.4byte 0x0884CD44
+	.4byte gUnk_0884CD44
 _08033710:
 	add r4, sp, #0x1d8
 	ldr r1, [r4]
@@ -2469,9 +2470,9 @@ _080337B6:
 	adds r0, #1
 	b _08033942
 _080337C4:
-	.4byte 0x0884CD44
+	.4byte gUnk_0884CD44
 _080337C8:
-	.4byte 0x0884CDAC
+	.4byte gUnk_0884CDAC
 _080337CC:
 	mov r0, r8
 	str r0, [r5]
@@ -2526,7 +2527,7 @@ _08033824:
 	subs r1, r1, r0
 	b _0803393A
 _08033830:
-	.4byte 0x0884CDAC
+	.4byte gUnk_0884CDAC
 _08033834:
 	add r4, sp, #0x1d8
 	ldr r0, [r4]
@@ -2640,7 +2641,7 @@ _080338EC:
 	ldr r0, [sp, #0x1e0]
 	b _0803392A
 _08033908:
-	.4byte 0x0884CD44
+	.4byte gUnk_0884CD44
 _0803390C:
 	mov r2, r8
 	str r2, [r5]
@@ -2771,7 +2772,7 @@ _080339EE:
 	bl _08032B94
 	.byte 0x00, 0x00
 _080339FC:
-	.4byte 0x0884CD34
+	.4byte gUnk_0884CD34
 
 	.global sub_08033A00
 	.thumb_func
@@ -3061,7 +3062,7 @@ _08033BCA:
 	b _08033C56
 	.byte 0x00, 0x00
 _08033BE8:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08033BEC:
 	movs r0, #4
 	ands r0, r1
@@ -3407,11 +3408,11 @@ _08033E54:
 _08033E58:
 	.4byte 0x0000270F
 _08033E5C:
-	.4byte 0x0884CDBC
+	.4byte gUnk_0884CDBC
 _08033E60:
 	.4byte 0x000FFFFF
 _08033E64:
-	.4byte 0x0884CDB0
+	.4byte gUnk_0884CDB0
 _08033E68:
 	ldr r3, _08033E98
 	ldr r2, _08033E94
@@ -3439,7 +3440,7 @@ _08033E94:
 _08033E98:
 	.4byte 0x00000000
 _08033E9C:
-	.4byte 0x0884CDC0
+	.4byte gUnk_0884CDC0
 _08033EA0:
 	add r0, sp, #8
 	str r0, [sp]
@@ -3638,7 +3639,7 @@ _0803402C:
 _08034030:
 	.4byte 0x00000000
 _08034034:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _08034038:
 	rsbs r4, r4, #0
 	str r4, [sp, #0x10]
@@ -3690,7 +3691,8 @@ _0803407C:
 	ldr r0, [r0]
 	mov pc, r0
 _08034090:
-	.4byte 0x08034094
+	.4byte _08034094
+	.global _08034094
 _08034094:
 	.4byte _080340AC
 	.4byte _080340AC
@@ -3851,9 +3853,9 @@ _080341A8:
 	b _08034210
 	.byte 0x00, 0x00
 _080341BC:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _080341C0:
-	.4byte 0x0884CED4
+	.4byte gUnk_0884CED4
 _080341C4:
 	ldr r2, [sp, #0x24]
 	rsbs r6, r2, #0
@@ -3974,9 +3976,9 @@ _0803429C:
 _080342B6:
 	b _0803448C
 _080342B8:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _080342BC:
-	.4byte 0x0884CED4
+	.4byte gUnk_0884CED4
 _080342C0:
 	.4byte 0x3FF00000
 _080342C4:
@@ -4019,7 +4021,7 @@ _080342E4:
 	b _08034340
 	.byte 0x00, 0x00
 _08034314:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _08034318:
 	.4byte 0x3FE00000
 _0803431C:
@@ -4111,7 +4113,7 @@ _080343B4:
 	mov r8, r2
 	b _080343EC
 _080343D4:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _080343D8:
 	movs r3, #1
 	add r8, r3
@@ -4259,7 +4261,7 @@ _080344F8:
 	b _08034816
 	.byte 0x00, 0x00
 _080344FC:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _08034500:
 	.4byte 0x40140000
 _08034504:
@@ -5038,7 +5040,7 @@ sub_08034AB8: @ 08034AB8
 	bl sub_08035178
 	b _08034B4A
 _08034ACC:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08034AD0:
 	.4byte sub_08034AB8
 _08034AD4:
@@ -5076,7 +5078,7 @@ _08034AEE:
 	b _08034B28
 	.byte 0x00, 0x00
 _08034B14:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08034B18:
 	movs r0, #0x40
 	ldrh r1, [r4, #0xc]
@@ -5271,7 +5273,7 @@ sub_08034C48: @ 08034C48
 	bx r0
 	.byte 0x00, 0x00
 _08034C58:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 
 	.global sub_08034C5C
 	.thumb_func
@@ -5388,11 +5390,11 @@ _08034D2A:
 	b _08034E76
 	.byte 0x00, 0x00
 _08034D34:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08034D38:
-	.4byte 0x08BB56A4
+	.4byte gUnk_08BB56A4
 _08034D3C:
-	.4byte 0x08BB56A8
+	.4byte gUnk_08BB56A8
 _08034D40:
 	str r4, [r7, #4]
 	movs r0, #0
@@ -5441,7 +5443,7 @@ _08034D6C:
 	b _08034DA4
 	.byte 0x00, 0x00
 _08034D98:
-	.4byte 0x08BB52A4
+	.4byte gUnk_08BB52A4
 _08034D9C:
 	ldr r3, [r7, #0xc]
 	adds r2, r1, #0
@@ -5475,7 +5477,7 @@ _08034DA4:
 _08034DD4:
 	.4byte 0x000001FF
 _08034DD8:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08034DDC:
 	lsrs r1, r6, #9
 	cmp r1, #0
@@ -5541,7 +5543,7 @@ _08034E2E:
 	b _08034E68
 	.byte 0x00, 0x00
 _08034E4C:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08034E50:
 	ldr r0, [r2, #4]
 	movs r1, #4
@@ -5643,13 +5645,13 @@ _08034F02:
 	movs r0, #0
 	b _08034F38
 _08034F0C:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08034F10:
 	.4byte 0x00000FEF
 _08034F14:
-	.4byte 0x08BB56B8
+	.4byte gUnk_08BB56B8
 _08034F18:
-	.4byte 0x08BB56AC
+	.4byte gUnk_08BB56AC
 _08034F1C:
 	mov r1, r8
 	ldr r2, [r1, #8]
@@ -5672,7 +5674,7 @@ _08034F38:
 	bx r1
 	.byte 0x00, 0x00
 _08034F44:
-	.4byte 0x08BB56B8
+	.4byte gUnk_08BB56B8
 
 	.global sub_08034F48
 	.thumb_func
@@ -6046,9 +6048,9 @@ sub_080351BC: @ 080351BC
 	movs r0, #0
 	b _080351F2
 _080351E4:
-	.4byte 0x0884CDFC
+	.4byte gUnk_0884CDFC
 _080351E8:
-	.4byte 0x0884CDF4
+	.4byte gUnk_0884CDF4
 _080351EC:
 	str r6, [r5, #0x30]
 	str r4, [r5, #0x34]
@@ -6059,7 +6061,7 @@ _080351F2:
 	pop {r1}
 	bx r1
 _080351F8:
-	.4byte 0x0884CDFC
+	.4byte gUnk_0884CDFC
 
 	.global sub_080351FC
 	.thumb_func
@@ -6068,7 +6070,7 @@ sub_080351FC: @ 080351FC
 	ldr r0, _08035200
 	bx lr
 _08035200:
-	.4byte 0x0884CDC4
+	.4byte gUnk_0884CDC4
 
 	.global sub_08035204
 	.thumb_func
@@ -6084,7 +6086,7 @@ sub_08035204: @ 08035204
 	pop {r1}
 	bx r1
 _08035218:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 
 	.global sub_0803521C
 	.thumb_func
@@ -6098,7 +6100,7 @@ sub_0803521C: @ 0803521C
 	bx r1
 	.byte 0x00, 0x00
 _0803522C:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 
 	.global sub_08035230
 	.thumb_func
@@ -6287,17 +6289,17 @@ _0803536A:
 	str r2, [r1, #4]
 	b _0803543C
 _08035384:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08035388:
-	.4byte 0x08BB56A8
+	.4byte gUnk_08BB56A8
 _0803538C:
-	.4byte 0x08BB56AC
+	.4byte gUnk_08BB56AC
 _08035390:
 	.4byte 0x0000100F
 _08035394:
 	.4byte 0xFFFFF000
 _08035398:
-	.4byte 0x08BB56B8
+	.4byte gUnk_08BB56B8
 _0803539C:
 	mov r3, sl
 	ldr r0, [r3]
@@ -6359,9 +6361,9 @@ _080353C4:
 	b _08035454
 	.byte 0x00, 0x00
 _0803540C:
-	.4byte 0x08BB56B8
+	.4byte gUnk_08BB56B8
 _08035410:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08035414:
 	subs r7, #0xc
 	movs r0, #8
@@ -6406,11 +6408,11 @@ _08035454:
 	pop {r0}
 	bx r0
 _08035464:
-	.4byte 0x08BB56B8
+	.4byte gUnk_08BB56B8
 _08035468:
-	.4byte 0x08BB56B0
+	.4byte gUnk_08BB56B0
 _0803546C:
-	.4byte 0x08BB56B4
+	.4byte gUnk_08BB56B4
 
 	.global sub_08035470
 	.thumb_func
@@ -6475,7 +6477,7 @@ _080354BE:
 _080354DC:
 	.4byte 0x000001F7
 _080354E0:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _080354E4:
 	movs r0, #2
 	add ip, r0
@@ -6555,7 +6557,7 @@ _08035548:
 	add ip, r0
 	b _08035592
 _0803556C:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08035570:
 	cmp r3, #0
 	blt _08035576
@@ -6612,7 +6614,7 @@ _080355A2:
 	b _08035816
 	.byte 0x00, 0x00
 _080355D4:
-	.4byte 0x08BB52A4
+	.4byte gUnk_08BB52A4
 _080355D8:
 	mov r7, sl
 	str r7, [r7, #0xc]
@@ -6708,7 +6710,7 @@ _08035662:
 	str r0, [r7, #4]
 	b _0803569C
 _08035680:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08035684:
 	ldr r0, [r4, #4]
 	movs r2, #4
@@ -6755,7 +6757,7 @@ _080356AC:
 	mov ip, r0
 	b _080356D8
 _080356D0:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _080356D4:
 	movs r3, #4
 	add ip, r3
@@ -6837,7 +6839,7 @@ _08035750:
 	beq _08035750
 	b _080356E6
 _08035760:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _08035764:
 	mov r1, sb
 	ldr r0, [r1, #4]
@@ -6877,7 +6879,7 @@ _080357A2:
 	movs r0, #0
 	b _08035820
 _080357AC:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 _080357B0:
 	ldr r6, [r5, #0xc]
 	ldr r4, [r5, #8]
@@ -6948,7 +6950,7 @@ _08035820:
 	pop {r1}
 	bx r1
 _08035830:
-	.4byte 0x08BB529C
+	.4byte gUnk_08BB529C
 
 	.global sub_08035834
 	.thumb_func
@@ -7900,7 +7902,7 @@ _08035E5A:
 	b _08035E9C
 	.byte 0x00, 0x00
 _08035E7C:
-	.4byte 0x0884CE00
+	.4byte gUnk_0884CE00
 _08035E80:
 	.4byte 0x00000271
 _08035E84:
@@ -8562,7 +8564,7 @@ _08036310:
 _08036314:
 	.4byte 0x00000000
 _08036318:
-	.4byte 0x0884CE0C
+	.4byte gUnk_0884CE0C
 _0803631C:
 	cmp r4, #0
 	ble _0803632E
@@ -8924,7 +8926,7 @@ sub_0803654C: @ 0803654C
 	ldr r0, _08036564
 	b _0803658E
 _08036560:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 _08036564:
 	.4byte 0x0202F034
 _08036568:
@@ -9011,7 +9013,7 @@ _080365DA:
 	pop {r0}
 	bx r0
 _080365F8:
-	.4byte 0x0884CF24
+	.4byte gUnk_0884CF24
 _080365FC:
 	.4byte 0x0202F034
 _08036600:
@@ -9475,7 +9477,7 @@ _08036954:
 _08036958:
 	.4byte 0x0202F108
 _0803695C:
-	.4byte 0x0884CF28
+	.4byte gUnk_0884CF28
 
 	.global sub_08036960
 	.thumb_func
@@ -9668,7 +9670,7 @@ sub_08036A90: @ 08036A90
 	bx lr
 	.byte 0x00, 0x00
 _08036A98:
-	.4byte 0x08BB5284
+	.4byte gUnk_08BB5284
 
 	.global sub_08036A9C
 	.thumb_func

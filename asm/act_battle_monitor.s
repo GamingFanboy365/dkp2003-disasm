@@ -39,7 +39,7 @@ _08013F08:
 _08013F0C:
 	.4byte 0x0202D74C
 _08013F10:
-	.4byte 0x0884E370
+	.4byte gUnk_0884E370
 _08013F14:
 	movs r0, #0x37
 	bl sub_08001F58
@@ -108,15 +108,15 @@ _08013F82:
 _08013F9C:
 	.4byte 0x0202D74C
 _08013FA0:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08013FA4:
-	.4byte 0x08051078
+	.4byte gUnk_08051078
 _08013FA8:
-	.4byte 0x08051084
+	.4byte gUnk_08051084
 _08013FAC:
-	.4byte 0x080510A0
+	.4byte gUnk_080510A0
 _08013FB0:
-	.4byte 0x080510B4
+	.4byte gUnk_080510B4
 
 	.global act_battle_monitor
 	.thumb_func
@@ -155,6 +155,7 @@ _08013FE2:
 	lsls r1, r3, #2
 	ldr r0, [r1, r2]
 	mov pc, r0
+	.global _08013FF4
 _08013FF4:
 	.4byte _08014020
 	.4byte _0801404C
@@ -449,27 +450,27 @@ _0801421C:
 _08014234:
 	.4byte 0x0202D74C
 _08014238:
-	.4byte 0x08013FF4
+	.4byte _08013FF4
 _0801423C:
 	.4byte 0x0300566C
 _08014240:
 	.4byte 0x0300565E
 _08014244:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08014248:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0801424C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08014250:
 	.4byte 0x0000030F
 _08014254:
-	.4byte 0x08051078
+	.4byte gUnk_08051078
 _08014258:
-	.4byte 0x08051084
+	.4byte gUnk_08051084
 _0801425C:
-	.4byte 0x080510F0
+	.4byte gUnk_080510F0
 _08014260:
-	.4byte 0x080510B4
+	.4byte gUnk_080510B4
 
 	.global sub_08014264
 	.thumb_func
@@ -502,7 +503,7 @@ sub_08014264: @ 08014264
 _08014294:
 	.4byte 0x0202D74C
 _08014298:
-	.4byte 0x0884E34C
+	.4byte gUnk_0884E34C
 
 	.global sub_0801429C
 	.thumb_func
@@ -520,6 +521,7 @@ sub_0801429C: @ 0801429C
 	lsls r1, r3, #2
 	ldr r0, [r1, r2]
 	mov pc, r0
+	.global _080142B8
 _080142B8:
 	.4byte _080142D4
 	.4byte _08014316
@@ -734,40 +736,40 @@ _08014446:
 _08014450:
 	.4byte 0x02023F98
 _08014454:
-	.4byte 0x080142B8
+	.4byte _080142B8
 _08014458:
 	.4byte 0x040000D4
 _0801445C:
-	.4byte 0x080E1AE0
+	.4byte gUnk_080E1AE0
 _08014460:
 	.4byte 0x06004000
 _08014464:
-	.4byte 0x082934F8
+	.4byte gUnk_082934F8
 _08014468:
 	.4byte 0x80000400
 _0801446C:
-	.4byte 0x0805A650
+	.4byte gUnk_0805A650
 _08014470:
 	.4byte 0x0300566C
 _08014474:
-	.4byte 0x08447820
+	.4byte gUnk_08447820
 _08014478:
-	.4byte 0x0863F780
+	.4byte gUnk_0863F780
 _0801447C:
-	.4byte 0x084490C0
+	.4byte gUnk_084490C0
 _08014480:
-	.4byte 0x0863F7A0
+	.4byte gUnk_0863F7A0
 _08014484:
-	.4byte 0x080E2AC2
+	.4byte gUnk_080E2AC2
 _08014488:
-	.4byte 0x082939FC
+	.4byte gUnk_082939FC
 _0801448C:
-	.4byte 0x0805A850
+	.4byte gUnk_0805A850
 _08014490:
-	.4byte 0x0843FB00
+	.4byte gUnk_0843FB00
 _08014494:
-	.4byte 0x0863F740
+	.4byte gUnk_0863F740
 _08014498:
-	.4byte 0x084424F0
+	.4byte gUnk_084424F0
 _0801449C:
-	.4byte 0x0863F760
+	.4byte gUnk_0863F760

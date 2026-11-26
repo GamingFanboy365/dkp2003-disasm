@@ -120,13 +120,13 @@ _08020B66:
 	b _08020ABE
 	.byte 0x00, 0x00
 _08020B80:
-	.4byte 0x08052640
+	.4byte gUnk_08052640
 _08020B84:
-	.4byte 0x0805264C
+	.4byte gUnk_0805264C
 _08020B88:
-	.4byte 0x08052664
+	.4byte gUnk_08052664
 _08020B8C:
-	.4byte 0x08052678
+	.4byte gUnk_08052678
 
 	.global act_booster_blue
 	.thumb_func
@@ -207,9 +207,9 @@ _08020C1C:
 _08020C20:
 	.4byte 0x0202E434
 _08020C24:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08020C28:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08020C2C:
 	ldr r2, _08020C8C
 	ldr r0, [r5]
@@ -274,13 +274,13 @@ _08020C96:
 	b _08020B9C
 	.byte 0x00, 0x00
 _08020CB0:
-	.4byte 0x08052640
+	.4byte gUnk_08052640
 _08020CB4:
-	.4byte 0x0805264C
+	.4byte gUnk_0805264C
 _08020CB8:
-	.4byte 0x080526B4
+	.4byte gUnk_080526B4
 _08020CBC:
-	.4byte 0x08052678
+	.4byte gUnk_08052678
 
 	.global react_booster_blue
 	.thumb_func
@@ -360,7 +360,7 @@ _08020D44:
 _08020D48:
 	.4byte 0x0202E434
 _08020D4C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08020D50:
 	adds r6, r4, #0
 	ldr r2, _08020DB0
@@ -409,15 +409,15 @@ _08020D96:
 _08020DB0:
 	.4byte 0x0202E434
 _08020DB4:
-	.4byte 0x080526C8
+	.4byte gUnk_080526C8
 _08020DB8:
-	.4byte 0x0805264C
+	.4byte gUnk_0805264C
 _08020DBC:
-	.4byte 0x080526D4
+	.4byte gUnk_080526D4
 _08020DC0:
-	.4byte 0x08052678
+	.4byte gUnk_08052678
 _08020DC4:
-	.4byte 0x08052640
+	.4byte gUnk_08052640
 
 	.global sub_08020DC8
 	.thumb_func

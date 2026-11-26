@@ -93,15 +93,15 @@ _08025F4C:
 _08025F64:
 	.4byte 0x0202D74C
 _08025F68:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08025F6C:
-	.4byte 0x08052A60
+	.4byte gUnk_08052A60
 _08025F70:
-	.4byte 0x08052A6C
+	.4byte gUnk_08052A6C
 _08025F74:
-	.4byte 0x08052A84
+	.4byte gUnk_08052A84
 _08025F78:
-	.4byte 0x08052A98
+	.4byte gUnk_08052A98
 
 	.global act_boss_monitor
 	.thumb_func
@@ -137,6 +137,7 @@ _08025F9E:
 	ldr r1, [r0, r2]
 	mov pc, r1
 	.byte 0x00, 0x00
+	.global _08025FB8
 _08025FB8:
 	.4byte _08025FE4
 	.4byte _08026050
@@ -450,26 +451,26 @@ _08026208:
 _08026220:
 	.4byte 0x0202D74C
 _08026224:
-	.4byte 0x08025FB8
+	.4byte _08025FB8
 _08026228:
 	.4byte sub_03000744
 _0802622C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08026230:
 	.4byte 0x0300566C
 _08026234:
 	.4byte 0x0300565E
 _08026238:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _0802623C:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08026240:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08026244:
-	.4byte 0x08052A60
+	.4byte gUnk_08052A60
 _08026248:
-	.4byte 0x08052A6C
+	.4byte gUnk_08052A6C
 _0802624C:
-	.4byte 0x08052AD4
+	.4byte gUnk_08052AD4
 _08026250:
-	.4byte 0x08052A98
+	.4byte gUnk_08052A98

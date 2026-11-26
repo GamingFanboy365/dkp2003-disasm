@@ -379,7 +379,7 @@ _08028810:
 	.2byte 0xEFFF @ debug trap
 	b _0802859E
 _08028828:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802882C:
 	.4byte sub_03000744
 _08028830:
@@ -389,13 +389,13 @@ _08028834:
 _08028838:
 	.4byte sub_03003750
 _0802883C:
-	.4byte 0x08052C68
+	.4byte gUnk_08052C68
 _08028840:
-	.4byte 0x08052C74
+	.4byte gUnk_08052C74
 _08028844:
-	.4byte 0x08052C88
+	.4byte gUnk_08052C88
 _08028848:
-	.4byte 0x08052C94
+	.4byte gUnk_08052C94
 
 	.global init_pellet
 	.thumb_func
@@ -467,13 +467,13 @@ _080288B6:
 	b _08028856
 	.byte 0x00, 0x00
 _080288D0:
-	.4byte 0x08052C68
+	.4byte gUnk_08052C68
 _080288D4:
-	.4byte 0x08052C74
+	.4byte gUnk_08052C74
 _080288D8:
-	.4byte 0x08052CD0
+	.4byte gUnk_08052CD0
 _080288DC:
-	.4byte 0x08052C94
+	.4byte gUnk_08052C94
 
 	.global react_pellet
 	.thumb_func
@@ -538,14 +538,14 @@ _0802893A:
 	.2byte 0xEFFF @ debug trap
 	b _080288EC
 _08028954:
-	.4byte 0x08052CDC
+	.4byte gUnk_08052CDC
 _08028958:
-	.4byte 0x08052C74
+	.4byte gUnk_08052C74
 _0802895C:
-	.4byte 0x08052CE8
+	.4byte gUnk_08052CE8
 _08028960:
-	.4byte 0x08052C94
+	.4byte gUnk_08052C94
 _08028964:
 	.4byte 0x00000145
 _08028968:
-	.4byte 0x08052C68
+	.4byte gUnk_08052C68

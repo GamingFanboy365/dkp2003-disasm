@@ -68,13 +68,13 @@ _08012486:
 	b _0801243A
 	.byte 0x00, 0x00
 _080124A0:
-	.4byte 0x08050AA0
+	.4byte gUnk_08050AA0
 _080124A4:
-	.4byte 0x08050AAC
+	.4byte gUnk_08050AAC
 _080124A8:
-	.4byte 0x08050AC0
+	.4byte gUnk_08050AC0
 _080124AC:
-	.4byte 0x08050ACC
+	.4byte gUnk_08050ACC
 
 	.global react_random
 	.thumb_func
@@ -117,12 +117,12 @@ _080124DE:
 	b _080124BA
 	.byte 0x00, 0x00
 _080124F8:
-	.4byte 0x08050B08
+	.4byte gUnk_08050B08
 _080124FC:
-	.4byte 0x08050AAC
+	.4byte gUnk_08050AAC
 _08012500:
-	.4byte 0x08050B14
+	.4byte gUnk_08050B14
 _08012504:
-	.4byte 0x08050ACC
+	.4byte gUnk_08050ACC
 _08012508:
-	.4byte 0x08050AA0
+	.4byte gUnk_08050AA0

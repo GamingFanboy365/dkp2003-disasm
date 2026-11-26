@@ -54,11 +54,11 @@ _08004EE0:
 _08004EE4:
 	.4byte 0x01000820
 _08004EE8:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08004EEC:
 	.4byte 0x0202D74C
 _08004EF0:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08004EF4:
 	str r3, [sp, #4]
 	str r7, [sp, #0xc]
@@ -381,15 +381,15 @@ _08005128:
 	b _08004EF8
 	.byte 0x00, 0x00
 _08005150:
-	.4byte 0x0804FFBC
+	.4byte gUnk_0804FFBC
 _08005154:
-	.4byte 0x0804FFF8
+	.4byte gUnk_0804FFF8
 _08005158:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _0800515C:
-	.4byte 0x08050038
+	.4byte gUnk_08050038
 _08005160:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _08005164:
 	.4byte 0x0000017D
 _08005168:
@@ -403,15 +403,15 @@ _08005174:
 _08005178:
 	.4byte 0x02004290
 _0800517C:
-	.4byte 0x08050058
+	.4byte gUnk_08050058
 _08005180:
 	.4byte 0x02023180
 _08005184:
-	.4byte 0x08050098
+	.4byte gUnk_08050098
 _08005188:
-	.4byte 0x080500C0
+	.4byte gUnk_080500C0
 _0800518C:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 
 	.global player_hit
 	.thumb_func
@@ -888,17 +888,17 @@ _08005506:
 _08005518:
 	.4byte 0x0000007A
 _0800551C:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08005520:
 	.4byte 0x0202D74C
 _08005524:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08005528:
 	.4byte 0x02022E58
 _0800552C:
 	.4byte 0x02022E5C
 _08005530:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08005534:
 	.4byte 0x00001249
 _08005538:
@@ -938,7 +938,7 @@ _08005566:
 	b _080053BE
 	.byte 0x00, 0x00
 _0800557C:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 
 	.global player_touch_booster_blue
 	.thumb_func
@@ -1062,9 +1062,9 @@ _0800563E:
 	b _08005626
 	.byte 0x00, 0x00
 _08005668:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800566C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08005670:
 	.4byte 0xFFFFF3FF
 _08005674:
@@ -1538,7 +1538,7 @@ _080059DC:
 _080059E0:
 	.4byte 0x0202D74C
 _080059E4:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _080059E8:
 	.4byte sub_030001E8
 _080059EC:
@@ -1801,7 +1801,7 @@ _08005BCC:
 _08005BD0:
 	.4byte 0x03000814
 _08005BD4:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08005BD8:
 	.4byte 0x0202D74C
 _08005BDC:
@@ -1932,7 +1932,7 @@ _08005CCE:
 	pop {r0}
 	bx r0
 _08005CDC:
-	.4byte 0x0884E08C
+	.4byte gUnk_0884E08C
 
 	.global sub_08005CE0
 	.thumb_func
@@ -2124,7 +2124,7 @@ _08005E2C:
 	b _08005D0A
 	.byte 0x00, 0x00
 _08005E34:
-	.4byte 0x0884E0B4
+	.4byte gUnk_0884E0B4
 _08005E38:
 	.4byte 0x03000814
 
@@ -2597,7 +2597,7 @@ _08006158:
 	b _08005F08
 	.byte 0x00, 0x00
 _08006160:
-	.4byte 0x0884E150
+	.4byte gUnk_0884E150
 _08006164:
 	.4byte 0xFFFFD800
 _08006168:
@@ -3597,7 +3597,7 @@ _08006834:
 	b _080063C0
 	.byte 0x00, 0x00
 _08006844:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08006848:
 	.4byte sub_03000134
 _0800684C:
@@ -4429,9 +4429,9 @@ _08006DD0:
 _08006E44:
 	.4byte 0x00000001
 _08006E48:
-	.4byte 0x0884E08C
+	.4byte gUnk_0884E08C
 _08006E4C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08006E50:
 	.4byte sub_03000134
 _08006E54:
@@ -4546,7 +4546,7 @@ _08006F02:
 _08006F38:
 	.4byte 0x03000814
 _08006F3C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08006F40:
 	.4byte 0x00000513
 
@@ -4678,9 +4678,9 @@ _08007008:
 _08007024:
 	.4byte 0x00000CCC
 _08007028:
-	.4byte 0x0884E08C
+	.4byte gUnk_0884E08C
 _0800702C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08007030:
 	strh r0, [r4]
 	ldr r0, [sp, #0x18]
@@ -4851,7 +4851,7 @@ _08007164:
 _08007168:
 	.4byte 0x0202D74C
 _0800716C:
-	.4byte 0x0884E08C
+	.4byte gUnk_0884E08C
 
 	.global sub_08007170
 	.thumb_func
@@ -7886,19 +7886,19 @@ _0800878C:
 _08008790:
 	.4byte 0x00002492
 _08008794:
-	.4byte 0x0884D9FC
+	.4byte gUnk_0884D9FC
 _08008798:
 	.4byte 0xFFFF0000
 _0800879C:
 	.4byte 0xFFFFFD71
 _080087A0:
-	.4byte 0x0804FFF8
+	.4byte gUnk_0804FFF8
 _080087A4:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _080087A8:
-	.4byte 0x080500D8
+	.4byte gUnk_080500D8
 _080087AC:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _080087B0:
 	.4byte 0x00000F58
 _080087B4:
@@ -8217,13 +8217,13 @@ _080089FA:
 _08008A00:
 	.4byte 0x0000028F
 _08008A04:
-	.4byte 0x080500E4
+	.4byte gUnk_080500E4
 _08008A08:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _08008A0C:
-	.4byte 0x080500D8
+	.4byte gUnk_080500D8
 _08008A10:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _08008A14:
 	.4byte 0x00000F73
 _08008A18:
@@ -8231,7 +8231,7 @@ _08008A18:
 _08008A1C:
 	.4byte 0x00000F82
 _08008A20:
-	.4byte 0x0804FFF8
+	.4byte gUnk_0804FFF8
 _08008A24:
 	.4byte 0x00000F9A
 _08008A28:
@@ -8667,13 +8667,13 @@ _08008D64:
 _08008D68:
 	.4byte 0xFFFFFEFF
 _08008D6C:
-	.4byte 0x080500F8
+	.4byte gUnk_080500F8
 _08008D70:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _08008D74:
-	.4byte 0x08050104
+	.4byte gUnk_08050104
 _08008D78:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _08008D7C:
 	.4byte 0x000010B5
 
@@ -8715,7 +8715,7 @@ _08008DBA:
 _08008DBC:
 	.4byte 0x00000001
 _08008DC0:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08008DC4:
 	adds r0, r4, #0
 	bl sub_080036BC
@@ -8996,13 +8996,13 @@ _08008FC8:
 _08008FE0:
 	.4byte sub_0300034C
 _08008FE4:
-	.4byte 0x080500F8
+	.4byte gUnk_080500F8
 _08008FE8:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _08008FEC:
-	.4byte 0x08050114
+	.4byte gUnk_08050114
 _08008FF0:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _08008FF4:
 	.4byte 0x0000118A
 
@@ -9082,7 +9082,7 @@ _0800907C:
 	rsbs r0, r3, #0
 	b _08009032
 _08009080:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global player_engine_sound_local
 	.thumb_func
@@ -9550,7 +9550,7 @@ _0800940C:
 _08009410:
 	.4byte sub_0800AA78
 _08009414:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08009418:
 	.4byte sub_08008FF8
 _0800941C:
@@ -9636,11 +9636,11 @@ _080094AE:
 	b _0800945E
 	.byte 0x00, 0x00
 _080094B4:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _080094B8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080094BC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global player_engine_sound_remote
 	.thumb_func
@@ -10170,7 +10170,7 @@ _080098B8:
 	str r1, [r4]
 	b _0800950E
 _080098C8:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _080098CC:
 	.4byte sub_0800AB58
 _080098D0:
@@ -10178,9 +10178,9 @@ _080098D0:
 _080098D4:
 	.4byte sub_08009420
 _080098D8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080098DC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _080098E0:
 	.4byte sub_0800AC1C
 _080098E4:
@@ -10271,6 +10271,7 @@ _08009974:
 	lsls r0, r3, #2
 	ldr r4, [r0, r1]
 	mov pc, r4
+	.global _08009984
 _08009984:
 	.4byte _080099A8
 	.4byte _08009BC0
@@ -10525,7 +10526,7 @@ _08009B70:
 _08009B74:
 	.4byte 0x0000001E
 _08009B78:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08009B7C:
 	.4byte 0x02004224
 _08009B80:
@@ -10533,7 +10534,7 @@ _08009B80:
 _08009B84:
 	.4byte 0x0202DE50
 _08009B88:
-	.4byte 0x08009984
+	.4byte _08009984
 _08009B8C:
 	.4byte sub_03003750
 _08009B90:
@@ -10545,7 +10546,7 @@ _08009B98:
 _08009B9C:
 	.4byte sub_030001E8
 _08009BA0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08009BA4:
 	.4byte 0x0000E666
 _08009BA8:
@@ -10638,7 +10639,7 @@ _08009C48:
 _08009C4C:
 	.4byte sub_0300034C
 _08009C50:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08009C54:
 	.4byte 0x0300566C
 _08009C58:
@@ -10848,9 +10849,9 @@ _08009DAC:
 _08009DD0:
 	.4byte 0x00000000
 _08009DD4:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08009DD8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08009DDC:
 	.4byte 0xFFFFF3FF
 _08009DE0:
@@ -10885,7 +10886,7 @@ _08009E14:
 _08009E18:
 	.4byte 0xFFFFEFFF
 _08009E1C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08009E20:
 	ldr r1, [r7]
 	movs r0, #0xc0
@@ -11059,7 +11060,7 @@ _08009F64:
 _08009F68:
 	.4byte 0x000401F0
 _08009F6C:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _08009F70:
 	.4byte 0xFFFFDFFF
 _08009F74:
@@ -11086,7 +11087,7 @@ _08009F92:
 _08009F9C:
 	.4byte 0xFFFFEFFF
 _08009FA0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 	.global _08009FA4
 _08009FA4:
 	movs r1, #0
@@ -11339,7 +11340,7 @@ _0800A188:
 _0800A18C:
 	.4byte 0x0201A734
 _0800A190:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800A194:
 	.4byte 0xFFFFFF00
 
@@ -11382,6 +11383,7 @@ _0800A1D0:
 	lsls r3, r3, #2
 	ldr r0, [r3, r2]
 	mov pc, r0
+	.global _0800A1D8
 _0800A1D8:
 	.4byte _0800A290
 	.4byte _0800A37C
@@ -11761,9 +11763,9 @@ _0800A4F0:
 	bl obj_initialise
 	b _0800A2D0
 _0800A510:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800A514:
-	.4byte 0x0800A1D8
+	.4byte _0800A1D8
 _0800A518:
 	.4byte 0x00801180
 _0800A51C:
@@ -11771,7 +11773,7 @@ _0800A51C:
 _0800A520:
 	.4byte 0x00002666
 _0800A524:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800A528:
 	.4byte 0xFFFEFFFF
 _0800A52C:
@@ -11955,9 +11957,9 @@ _0800A668:
 	.2byte 0xEFFF @ debug trap
 	b _0800A1AE
 _0800A680:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800A684:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800A688:
 	.4byte 0xFFFFF3FF
 _0800A68C:
@@ -11967,23 +11969,23 @@ _0800A690:
 _0800A694:
 	.4byte 0x00801180
 _0800A698:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800A69C:
 	.4byte 0x0202D74C
 _0800A6A0:
 	.4byte 0x00001999
 _0800A6A4:
-	.4byte 0x08050120
+	.4byte gUnk_08050120
 _0800A6A8:
-	.4byte 0x08050044
+	.4byte gUnk_08050044
 _0800A6AC:
-	.4byte 0x0805012C
+	.4byte gUnk_0805012C
 _0800A6B0:
-	.4byte 0x0804FFFC
+	.4byte gUnk_0804FFFC
 _0800A6B4:
 	.4byte 0x00001688
 _0800A6B8:
-	.4byte 0x080500F8
+	.4byte gUnk_080500F8
 _0800A6BC:
 	.4byte 0x00001687
 
@@ -12082,13 +12084,13 @@ _0800A730:
 _0800A76C:
 	.4byte 0x00000014
 _0800A770:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800A774:
 	.4byte 0x0202D74C
 _0800A778:
 	.4byte 0x00000CCC
 _0800A77C:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800A780:
 	movs r2, #4
 	movs r0, #0
@@ -12141,7 +12143,7 @@ _0800A7D6:
 	pop {r0}
 	bx r0
 _0800A7DC:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800A7E0
 	.thumb_func
@@ -12219,7 +12221,7 @@ _0800A822:
 _0800A85C:
 	.4byte 0x0202D74C
 _0800A860:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0800A864
 	.thumb_func
@@ -12275,9 +12277,9 @@ _0800A8BE:
 	bl obj_initialise
 	b _0800A8B8
 _0800A8CC:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800A8D0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 
 	.global sub_0800A8D4
 	.thumb_func
@@ -12381,9 +12383,9 @@ _0800A976:
 	b _0800A90C
 	.byte 0x00, 0x00
 _0800A990:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800A994:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800A998:
 	.4byte 0xFFFFF3FF
 _0800A99C:
@@ -12441,7 +12443,7 @@ _0800A9E8:
 _0800A9F4:
 	.4byte 0x00801180
 _0800A9F8:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800A9FC
 	.thumb_func
@@ -12497,11 +12499,11 @@ _0800AA52:
 	b _0800AA46
 	.byte 0x00, 0x00
 _0800AA60:
-	.4byte 0x02021E18
+	.4byte gRacerData
 _0800AA64:
 	.4byte 0x00002492
 _0800AA68:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 
 	.global sub_0800AA6C
 	.thumb_func
@@ -12549,7 +12551,7 @@ _0800AAA0:
 	pop {r1}
 	bx r1
 _0800AAB4:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global player_engine_sample_end
 	.thumb_func
@@ -12578,7 +12580,7 @@ _0800AAD8:
 	b _0800AAD4
 	.byte 0x00, 0x00
 _0800AAE0:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800AAE4
 	.thumb_func
@@ -12613,7 +12615,7 @@ _0800AB14:
 	movs r3, #0xa0
 	b _0800AB00
 _0800AB18:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800AB1C
 	.thumb_func
@@ -12650,7 +12652,7 @@ _0800AB4E:
 	lsls r3, r1, #0xa
 	b _0800AB3A
 _0800AB54:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800AB58
 	.thumb_func
@@ -12700,7 +12702,7 @@ _0800AB84:
 	pop {r1}
 	bx r1
 _0800ABAC:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800ABB0
 	.thumb_func
@@ -12742,7 +12744,7 @@ _0800ABDC:
 	pop {r1}
 	bx r1
 _0800ABF4:
-	.4byte 0x02021E18
+	.4byte gRacerData
 
 	.global sub_0800ABF8
 	.thumb_func
@@ -12762,9 +12764,9 @@ sub_0800ABF8: @ 0800ABF8
 	bx r1
 	.byte 0x00, 0x00
 _0800AC14:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800AC18:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0800AC1C
 	.thumb_func
@@ -12784,9 +12786,9 @@ sub_0800AC1C: @ 0800AC1C
 	bx r1
 	.byte 0x00, 0x00
 _0800AC38:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800AC3C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global free_player
 	.thumb_func
@@ -12858,7 +12860,7 @@ _0800ACB0:
 _0800ACB4:
 	.4byte 0x0202D74C
 _0800ACB8:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0800ACBC:
 	.4byte 0x020234A8
 _0800ACC0:
@@ -12890,6 +12892,6 @@ _0800ACE2:
 	adds r0, #0x3c
 	b _0800AC76
 _0800ACF4:
-	.4byte 0x0805013C
+	.4byte gUnk_0805013C
 _0800ACF8:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0

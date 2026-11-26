@@ -142,13 +142,13 @@ _08003188:
 _0800318C:
 	.4byte 0x00000000
 _08003190:
-	.4byte 0x0804FD64
+	.4byte gUnk_0804FD64
 _08003194:
-	.4byte 0x0804FD6C
+	.4byte gUnk_0804FD6C
 _08003198:
-	.4byte 0x0804FDA8
+	.4byte gUnk_0804FDA8
 _0800319C:
-	.4byte 0x0804FDB8
+	.4byte gUnk_0804FDB8
 _080031A0:
 	.4byte 0x02018F34
 
@@ -224,6 +224,7 @@ _08003208:
 	ldr r1, [r3, r2]
 	mov pc, r1
 	.byte 0x00, 0x00
+	.global _0800321C
 _0800321C:
 	.4byte _08003230
 	.4byte _08003246
@@ -277,13 +278,13 @@ _0800326C:
 	str r1, [r0, #0x18]
 	b _080031E8
 _08003278:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _0800327C:
 	.4byte 0x0201AA4C
 _08003280:
 	.4byte 0x0300566C
 _08003284:
-	.4byte 0x0800321C
+	.4byte _0800321C
 
 	.global sub_08003288
 	.thumb_func
@@ -568,7 +569,7 @@ _08003468:
 _08003470:
 	.4byte 0x0202D74C
 _08003474:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 
 	.global sub_08003478
 	.thumb_func
@@ -989,9 +990,9 @@ _0800374C:
 _08003750:
 	.4byte 0x0202D74C
 _08003754:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _08003758:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800375C:
 	.4byte 0x0201BD30
 _08003760:
@@ -1230,7 +1231,7 @@ _08003918:
 _0800391C:
 	.4byte 0x0202D7D4
 _08003920:
-	.4byte 0x0804FDC4
+	.4byte gUnk_0804FDC4
 
 	.global sub_08003924
 	.thumb_func
@@ -1402,7 +1403,7 @@ _08003A58:
 _08003A5C:
 	.4byte 0x0202D7D4
 _08003A60:
-	.4byte 0x0804FDC4
+	.4byte gUnk_0804FDC4
 
 	.global sub_08003A64
 	.thumb_func
@@ -1860,7 +1861,7 @@ _08003D9C:
 _08003DA8:
 	.4byte 0x0202D74C
 _08003DAC:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _08003DB0:
 	ldr r3, [sp, #0x18]
 	lsls r2, r3, #2
@@ -2238,7 +2239,7 @@ _08004034:
 _08004050:
 	.4byte 0x0202D74C
 _08004054:
-	.4byte 0x0884DF48
+	.4byte gUnk_0884DF48
 
 	.global sub_08004058
 	.thumb_func
@@ -2324,7 +2325,7 @@ sub_080040A4: @ 080040A4
 _080040E0:
 	.4byte 0x0202D74C
 _080040E4:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _080040E8:
 	.4byte 0x02018F34
 
@@ -2337,7 +2338,7 @@ sub_080040EC: @ 080040EC
 	ldr r0, [r2, r1]
 	bx lr
 _080040F4:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 
 	.global sub_080040F8
 	.thumb_func
@@ -2399,9 +2400,9 @@ sub_08004128: @ 08004128
 _08004158:
 	.4byte 0x0202D74C
 _0800415C:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _08004160:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08004164:
 	.4byte 0x02018F34
 
@@ -2448,7 +2449,7 @@ _080041AC:
 _080041B0:
 	.4byte 0x0202D74C
 _080041B4:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _080041B8:
 	.4byte 0x02018F34
 
@@ -2519,9 +2520,9 @@ _08004224:
 _08004228:
 	.4byte 0x0202D74C
 _0800422C:
-	.4byte 0x0884DF24
+	.4byte gUnk_0884DF24
 _08004230:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08004234:
 	.4byte 0x02018F34
 _08004238:

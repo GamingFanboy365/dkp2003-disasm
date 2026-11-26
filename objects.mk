@@ -66,5 +66,16 @@ OBJS := \
 	build/asm/libc.o \
 	build/asm/iwram.o \
 	build/asm/arm_rom.o \
-	build/data/data_0803EC00.o \
+	build/data/data_0803EA90.o \
+	build/data/data_08100000.o \
+	build/data/data_08200000.o \
+	build/data/data_08300000.o \
+	build/data/data_08400000.o \
+	build/data/data_08500000.o \
+	build/data/data_08600000.o \
+	build/data/data_08700000.o \
+	build/data/data_08800000.o \
+	build/data/data_08900000.o \
+	build/data/data_08A00000.o \
+	build/data/data_08B00000.o \
 

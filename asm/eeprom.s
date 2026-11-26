@@ -82,9 +82,9 @@ _0801D36A:
 	bne _0801D30E
 	b _0801D326
 _0801D374:
-	.4byte 0x08051A60
+	.4byte gUnk_08051A60
 _0801D378:
-	.4byte 0x08051A64
+	.4byte gUnk_08051A64
 _0801D37C:
 	.4byte 0x0202DA48
 _0801D380:
@@ -188,7 +188,7 @@ _0801D404:
 	bx r0
 	.byte 0x00, 0x00
 _0801D438:
-	.4byte 0x080000AC
+	.4byte gUnk_080000AC
 _0801D43C:
 	.4byte 0x0202D74C
 _0801D440:
@@ -391,9 +391,9 @@ _0801D5A8:
 _0801D5AC:
 	.4byte 0x03005634
 _0801D5B0:
-	.4byte 0x08051A60
+	.4byte gUnk_08051A60
 _0801D5B4:
-	.4byte 0x08051A74
+	.4byte gUnk_08051A74
 _0801D5B8:
 	.4byte 0x0202DA48
 _0801D5BC:
@@ -455,7 +455,7 @@ _0801D624:
 _0801D628:
 	.4byte 0x0202DA48
 _0801D62C:
-	.4byte 0x080000AC
+	.4byte gUnk_080000AC
 _0801D630:
 	.4byte 0x0202D74C
 _0801D634:
@@ -505,7 +505,7 @@ _0801D68A:
 _0801D690:
 	.4byte 0x0202D74C
 _0801D694:
-	.4byte 0x08051A80
+	.4byte gUnk_08051A80
 
 	.global sub_0801D698
 	.thumb_func
@@ -609,15 +609,15 @@ _0801D744:
 _0801D748:
 	.4byte 0x0202DE7C
 _0801D74C:
-	.4byte 0x0884EC98
+	.4byte gUnk_0884EC98
 _0801D750:
 	.4byte 0x0202DE78
 _0801D754:
-	.4byte 0x0884EC94
+	.4byte gUnk_0884EC94
 _0801D758:
 	.4byte 0x0400012A
 _0801D75C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801D760:
 	ldr r0, _0801D7D4
 	ldr r3, [r0]
@@ -687,7 +687,7 @@ _0801D7D4:
 _0801D7D8:
 	.4byte 0x0202DE88
 _0801D7DC:
-	.4byte 0x0884EC98
+	.4byte gUnk_0884EC98
 _0801D7E0:
 	.4byte 0x0000FFF8
 _0801D7E4:
@@ -695,7 +695,7 @@ _0801D7E4:
 _0801D7E8:
 	.4byte 0x0202DE6C
 _0801D7EC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801D7F0:
 	cmp r2, #0
 	beq _0801D7FC
@@ -807,7 +807,7 @@ _0801D8A8:
 _0801D8AC:
 	.4byte 0x0000DEAD
 _0801D8B0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801D8B4:
 	.4byte 0x0202DE5C
 _0801D8B8:
@@ -867,7 +867,7 @@ _0801D906:
 _0801D91C:
 	.4byte 0x00000080
 _0801D920:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801D924:
 	.4byte 0x03005664
 _0801D928:
@@ -879,7 +879,7 @@ _0801D930:
 _0801D934:
 	.4byte 0x0202DE6C
 _0801D938:
-	.4byte 0x0884EC94
+	.4byte gUnk_0884EC94
 _0801D93C:
 	.4byte 0x0400012A
 _0801D940:
@@ -969,7 +969,7 @@ _0801D9D0:
 _0801D9D4:
 	.4byte 0x0202DE5C
 _0801D9D8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801D9DC:
 	.4byte 0x0000FFFF
 _0801D9E0:
@@ -1076,7 +1076,7 @@ _0801DA98:
 _0801DA9C:
 	.4byte 0x0202DE66
 _0801DAA0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801DAA4:
 	.4byte 0x0202DE5C
 _0801DAA8:
@@ -1226,7 +1226,7 @@ _0801DB98:
 _0801DBA8:
 	.4byte 0x00000000
 _0801DBAC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801DBB0:
 	.4byte 0x0202DE74
 _0801DBB4:
@@ -1487,11 +1487,11 @@ _0801DD84:
 _0801DD88:
 	.4byte 0x0202DE80
 _0801DD8C:
-	.4byte 0x0884EC94
+	.4byte gUnk_0884EC94
 _0801DD90:
 	.4byte 0x0000FFF8
 _0801DD94:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801DD98:
 	.4byte 0x0400012A
 _0801DD9C:
@@ -1625,13 +1625,13 @@ _0801DE88:
 _0801DE8C:
 	.4byte 0x0202DE6C
 _0801DE90:
-	.4byte 0x08051AA8
+	.4byte gUnk_08051AA8
 _0801DE94:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801DE98:
 	.4byte 0x0202DE88
 _0801DE9C:
-	.4byte 0x08051AB4
+	.4byte gUnk_08051AB4
 _0801DEA0:
 	.4byte 0x03005660
 _0801DEA4:
@@ -1758,7 +1758,7 @@ _0801DF54:
 	movs r0, #1
 	b _0801DF50
 _0801DF68:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801DF6C:
 	.4byte 0x0202DE5C
 _0801DF70:
@@ -1912,7 +1912,7 @@ _0801E064:
 _0801E06C:
 	.4byte 0x0202DEA8
 _0801E070:
-	.4byte 0x08051AD4
+	.4byte gUnk_08051AD4
 
 	.global sub_0801E074
 	.thumb_func
@@ -1969,7 +1969,7 @@ _0801E0C6:
 _0801E0D0:
 	.4byte 0x0202DEA8
 _0801E0D4:
-	.4byte 0x08051AD4
+	.4byte gUnk_08051AD4
 
 	.global sub_0801E0D8
 	.thumb_func
@@ -2026,7 +2026,7 @@ _0801E12A:
 _0801E134:
 	.4byte 0x0202DEA8
 _0801E138:
-	.4byte 0x08051AD4
+	.4byte gUnk_08051AD4
 
 	.global sub_0801E13C
 	.thumb_func
@@ -2083,7 +2083,7 @@ _0801E18C:
 _0801E198:
 	.4byte 0x0202DEA8
 _0801E19C:
-	.4byte 0x08051AD4
+	.4byte gUnk_08051AD4
 
 	.global sub_0801E1A0
 	.thumb_func
@@ -2364,7 +2364,7 @@ _0801E384:
 _0801E38C:
 	.4byte 0x0202DEBC
 _0801E390:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _0801E394:
 	.4byte 0x0202DEC0
 _0801E398:
@@ -2412,7 +2412,7 @@ _0801E3DC:
 _0801E3E0:
 	.4byte 0x0202D74C
 _0801E3E4:
-	.4byte 0x08051654
+	.4byte gUnk_08051654
 _0801E3E8:
 	strh r4, [r1]
 	ldrh r2, [r1]
@@ -2432,7 +2432,7 @@ _0801E3E8:
 	pop {r0}
 	bx r0
 _0801E40C:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 
 	.global sub_0801E410
 	.thumb_func
@@ -2650,11 +2650,11 @@ _0801E58E:
 _0801E594:
 	.4byte 0x0202D74C
 _0801E598:
-	.4byte 0x08051654
+	.4byte gUnk_08051654
 _0801E59C:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _0801E5A0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 
 	.global sub_0801E5A4
 	.thumb_func
@@ -2768,11 +2768,11 @@ _0801E65C:
 _0801E660:
 	.4byte 0x0202DEC8
 _0801E664:
-	.4byte 0x08051B18
+	.4byte gUnk_08051B18
 _0801E668:
-	.4byte 0x08051B34
+	.4byte gUnk_08051B34
 _0801E66C:
-	.4byte 0x08051B40
+	.4byte gUnk_08051B40
 _0801E670:
 	.4byte 0x0202D74C
 _0801E674:
@@ -2858,7 +2858,7 @@ _0801E70C:
 _0801E710:
 	.4byte 0x0202DEC8
 _0801E714:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801E718:
 	.4byte 0x0202DE48
 _0801E71C:
@@ -3523,7 +3523,7 @@ _0801EBD8:
 _0801EBDC:
 	.4byte 0x0202D74C
 _0801EBE0:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _0801EBE4:
 	.4byte 0x00000137
 _0801EBE8:
@@ -3803,6 +3803,7 @@ _0801EDDE:
 	ldr r0, [r1, r3]
 	mov pc, r0
 	.byte 0x00, 0x00
+	.global _0801EDEC
 _0801EDEC:
 	.4byte _0801EE04
 	.4byte _0801EE0C
@@ -3963,15 +3964,15 @@ _0801EF20:
 _0801EF24:
 	.4byte 0x0202D74C
 _0801EF28:
-	.4byte 0x08051654
+	.4byte gUnk_08051654
 _0801EF2C:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _0801EF30:
 	.4byte 0x00000141
 _0801EF34:
 	.4byte 0x00000191
 _0801EF38:
-	.4byte 0x0801EDEC
+	.4byte _0801EDEC
 _0801EF3C:
 	.4byte 0x0000014B
 _0801EF40:
@@ -4454,7 +4455,7 @@ _0801F2A0:
 _0801F2A4:
 	.4byte 0x00000141
 _0801F2A8:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _0801F2AC:
 	.4byte 0x0000FFFF
 
@@ -4802,11 +4803,11 @@ _0801F510:
 	bl _call_via_r3
 	b _0801F310
 _0801F518:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _0801F51C:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 _0801F520:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801F524:
 	.4byte 0x0202E424
 _0801F528:
@@ -4814,7 +4815,7 @@ _0801F528:
 _0801F52C:
 	.4byte 0x0202E428
 _0801F530:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 
 	.global gamesfx_play_at
 	.thumb_func
@@ -5013,23 +5014,23 @@ _0801F684:
 _0801F688:
 	.4byte 0x0200436C
 _0801F68C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801F690:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0801F694:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801F698:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801F69C:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801F6A0:
 	.4byte 0x03005660
 _0801F6A4:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801F6A8:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801F6AC:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global gamesfx_stop
 	.thumb_func
@@ -5126,11 +5127,11 @@ _0801F742:
 	str r6, [r5]
 	b _0801F704
 _0801F74C:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 _0801F750:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801F754:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 
 	.global gamesfx_release
 	.thumb_func
@@ -5227,11 +5228,11 @@ _0801F7EA:
 	str r6, [r5]
 	b _0801F7AC
 _0801F7F4:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 _0801F7F8:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801F7FC:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 
 	.global sub_0801F800
 	.thumb_func
@@ -5477,25 +5478,25 @@ _0801F9A8:
 _0801F9AC:
 	.4byte 0x0202E428
 _0801F9B0:
-	.4byte 0x08051B90
+	.4byte gUnk_08051B90
 _0801F9B4:
 	.4byte 0x0202E42C
 _0801F9B8:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801F9BC:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801F9C0:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801F9C4:
 	.4byte 0x03005660
 _0801F9C8:
 	.4byte sub_0801F800
 _0801F9CC:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801F9D0:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801F9D4:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global gamesfx_play_voice
 	.thumb_func
@@ -5747,25 +5748,25 @@ _0801FB8C:
 _0801FB90:
 	.4byte 0x0202E424
 _0801FB94:
-	.4byte 0x08051B90
+	.4byte gUnk_08051B90
 _0801FB98:
 	.4byte 0x0202E42C
 _0801FB9C:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801FBA0:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801FBA4:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801FBA8:
 	.4byte 0x03005660
 _0801FBAC:
 	.4byte sub_0801F800
 _0801FBB0:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FBB4:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801FBB8:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global sub_0801FBBC
 	.thumb_func
@@ -5805,11 +5806,11 @@ sub_0801FBBC: @ 0801FBBC
 _0801FC00:
 	.4byte 0x00000000
 _0801FC04:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801FC08:
 	.4byte 0x01000200
 _0801FC0C:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 _0801FC10:
 	.4byte 0x01000060
 _0801FC14:
@@ -5817,11 +5818,11 @@ _0801FC14:
 _0801FC18:
 	.4byte 0x01000040
 _0801FC1C:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FC20:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801FC24:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801FC28:
 	.4byte 0x0202E418
 _0801FC2C:
@@ -5889,11 +5890,11 @@ _0801FC88:
 	bx r0
 	.byte 0x00, 0x00
 _0801FCA0:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 _0801FCA4:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FCA8:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 
 	.global gamesfx_play
 	.thumb_func
@@ -6028,19 +6029,19 @@ _0801FD8A:
 	movs r1, #0x10
 	b _0801FCCE
 _0801FD90:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801FD94:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801FD98:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801FD9C:
 	.4byte 0x03005660
 _0801FDA0:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FDA4:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801FDA8:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global gamesfx_play_cb
 	.thumb_func
@@ -6179,19 +6180,19 @@ _0801FE90:
 	b _0801FDCE
 	.byte 0x00, 0x00
 _0801FE98:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801FE9C:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801FEA0:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801FEA4:
 	.4byte 0x03005660
 _0801FEA8:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FEAC:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801FEB0:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global gamesfx_play_endcb
 	.thumb_func
@@ -6328,19 +6329,19 @@ _0801FF96:
 	movs r1, #0x10
 	b _0801FED6
 _0801FF9C:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _0801FFA0:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _0801FFA4:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _0801FFA8:
 	.4byte 0x03005660
 _0801FFAC:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _0801FFB0:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _0801FFB4:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global gamesfx_play_cb_endcb
 	.thumb_func
@@ -6479,19 +6480,19 @@ _0802009E:
 	movs r1, #0x10
 	b _0801FFDA
 _080200A4:
-	.4byte 0x0202E390
+	.4byte gSfxPendingMask
 _080200A8:
-	.4byte 0x0202DF8C
+	.4byte gSfxPendingPool
 _080200AC:
-	.4byte 0x0202E394
+	.4byte gSfxNextId
 _080200B0:
 	.4byte 0x03005660
 _080200B4:
-	.4byte 0x0202E38C
+	.4byte gSfxPendingList
 _080200B8:
-	.4byte 0x08051B58
+	.4byte gUnk_08051B58
 _080200BC:
-	.4byte 0x08051B7C
+	.4byte gUnk_08051B7C
 
 	.global sub_080200C0
 	.thumb_func
@@ -6524,7 +6525,7 @@ _080200E6:
 	bx r0
 	.byte 0x00, 0x00
 _080200F4:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 
 	.global sub_080200F8
 	.thumb_func
@@ -6557,7 +6558,7 @@ _0802011E:
 	bx r0
 	.byte 0x00, 0x00
 _0802012C:
-	.4byte 0x0202DECC
+	.4byte gSfxVoices
 
 	.global sub_08020130
 	.thumb_func
@@ -6737,7 +6738,7 @@ _08020262:
 	adds r2, #0xa0
 	b _08020234
 _08020268:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 
 	.global sub_0802026C
 	.thumb_func
@@ -6790,4 +6791,4 @@ _080202BE:
 	adds r2, #0xa0
 	b _08020290
 _080202C4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex

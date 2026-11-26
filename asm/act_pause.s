@@ -244,7 +244,7 @@ _08012D5C:
 	.2byte 0xEFFF @ debug trap
 	b _08012BB0
 _08012D74:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08012D78:
 	.4byte 0x02018F34
 _08012D7C:
@@ -252,13 +252,13 @@ _08012D7C:
 _08012D80:
 	.4byte 0x0300566C
 _08012D84:
-	.4byte 0x08050CAC
+	.4byte gUnk_08050CAC
 _08012D88:
-	.4byte 0x08050CB8
+	.4byte gUnk_08050CB8
 _08012D8C:
-	.4byte 0x08050CC8
+	.4byte gUnk_08050CC8
 _08012D90:
-	.4byte 0x08050CD4
+	.4byte gUnk_08050CD4
 
 	.global init_pause
 	.thumb_func
@@ -300,13 +300,13 @@ _08012DBE:
 	b _08012D9E
 	.byte 0x00, 0x00
 _08012DD8:
-	.4byte 0x08050CAC
+	.4byte gUnk_08050CAC
 _08012DDC:
-	.4byte 0x08050CB8
+	.4byte gUnk_08050CB8
 _08012DE0:
-	.4byte 0x08050D10
+	.4byte gUnk_08050D10
 _08012DE4:
-	.4byte 0x08050CD4
+	.4byte gUnk_08050CD4
 
 	.global act_lava_bubble
 	.thumb_func

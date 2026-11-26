@@ -50,7 +50,7 @@ _0802BD64:
 _0802BD68:
 	.4byte 0x02018F34
 _0802BD6C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802BD70:
 	lsls r6, r5, #2
 	ldr r5, [r0, r6]
@@ -137,13 +137,13 @@ _0802BE18:
 _0802BE1C:
 	.4byte sub_03000138
 _0802BE20:
-	.4byte 0x080530F0
+	.4byte gUnk_080530F0
 _0802BE24:
-	.4byte 0x080530FC
+	.4byte gUnk_080530FC
 _0802BE28:
-	.4byte 0x0805310C
+	.4byte gUnk_0805310C
 _0802BE2C:
-	.4byte 0x08053118
+	.4byte gUnk_08053118
 
 	.global act_turbo
 	.thumb_func
@@ -224,10 +224,10 @@ _0802BEBC:
 _0802BEC0:
 	.4byte 0x0201AA4C
 _0802BEC4:
-	.4byte 0x080530F0
+	.4byte gUnk_080530F0
 _0802BEC8:
-	.4byte 0x080530FC
+	.4byte gUnk_080530FC
 _0802BECC:
-	.4byte 0x08053154
+	.4byte gUnk_08053154
 _0802BED0:
-	.4byte 0x08053118
+	.4byte gUnk_08053118

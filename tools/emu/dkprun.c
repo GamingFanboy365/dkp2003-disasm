@@ -67,8 +67,12 @@ static void frame(uint32_t keys) {
 	log_frame();
 }
 
+static int logOn;
 static void noLog(struct mLogger* l, int category, enum mLogLevel level, const char* format, va_list args) {
-	(void) l; (void) category; (void) level; (void) format; (void) args;
+	(void) l; (void) category; (void) level;
+	if (!logOn) return;
+	vfprintf(stderr, format, args);
+	fputc('\n', stderr);
 }
 static struct mLogger nullLogger = { .log = noLog };
 
@@ -126,6 +130,53 @@ int main(int argc, char** argv) {
 			for (uint32_t a = 0x02000000; a < 0x02040000; a += 4) { uint32_t v = r32(a); fwrite(&v, 4, 1, f); }
 			for (uint32_t a = 0x03000000; a < 0x03008000; a += 4) { uint32_t v = r32(a); fwrite(&v, 4, 1, f); }
 			fclose(f);
+		} else if (!strcmp(cmd, "regs")) {
+			static const char* rn[] = {"r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","sp","lr","pc","cpsr"};
+			for (int i = 0; i < 17; ++i) {
+				int32_t v = 0;
+				core->readRegister(core, rn[i], &v);
+				printf("%s=%08x%c", rn[i], (uint32_t) v, i == 16 ? '\n' : ' ');
+			}
+		} else if (!strcmp(cmd, "step")) {
+			// step <n>: execute n CPU instructions, printing pc each time
+			int cnt = atoi(a1);
+			for (int i = 0; i < cnt; ++i) {
+				core->step(core);
+				int32_t v = 0;
+				core->readRegister(core, "pc", &v);
+				printf("%08x\n", (uint32_t) v);
+			}
+		} else if (!strcmp(cmd, "until")) {
+			// until <pc> [maxinsns]: single-step until pc == addr
+			uint32_t want = strtoul(a1, 0, 0);
+			long max = n > 2 ? atol(a2) : 50000000L;
+			long i;
+			for (i = 0; i < max; ++i) {
+				core->step(core);
+				int32_t v = 0;
+				core->readRegister(core, "pc", &v);
+				if (((uint32_t) v & ~1u) == (want & ~1u)) break;
+			}
+			printf("until: %s after %ld insns\n", i < max ? "hit" : "timeout", i);
+		} else if (!strcmp(cmd, "str")) {
+			// str <addr>: print C string
+			uint32_t a = strtoul(a1, 0, 0);
+			for (int i = 0; i < 200; ++i) { int ch = core->busRead8(core, a + i); if (!ch) break; putchar(ch >= 32 && ch < 127 ? ch : '.'); }
+			putchar('\n');
+		} else if (!strcmp(cmd, "log")) {
+			logOn = !strcmp(a1, "on");
+		} else if (!strcmp(cmd, "trace")) {
+			// trace <file> <ninsns>: single-step, writing pc, r0, r1, r2, r3, r12 of each instruction as binary uint32s
+			FILE* tf = fopen(a1, "wb");
+			long cnt = atol(a2);
+			for (long i = 0; i < cnt; ++i) {
+				static const char* tr[] = {"pc", "r0", "r1", "r2", "r3", "r12"};
+				int32_t v[6] = {0};
+				for (int k = 0; k < 6; ++k) core->readRegister(core, tr[k], &v[k]);
+				fwrite(v, 4, 6, tf);
+				core->step(core);
+			}
+			fclose(tf);
 		} else if (!strcmp(cmd, "echo")) {
 			printf("%s", line + 5);
 		}

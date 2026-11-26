@@ -134,13 +134,13 @@ _08020392:
 	b _080202D2
 	.byte 0x00, 0x00
 _080203AC:
-	.4byte 0x080525AC
+	.4byte gUnk_080525AC
 _080203B0:
-	.4byte 0x080525B8
+	.4byte gUnk_080525B8
 _080203B4:
-	.4byte 0x080525CC
+	.4byte gUnk_080525CC
 _080203B8:
-	.4byte 0x080525DC
+	.4byte gUnk_080525DC
 
 	.global act_balloon
 	.thumb_func
@@ -603,11 +603,11 @@ _08020704:
 _08020710:
 	.4byte sub_03003750
 _08020714:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08020718:
 	.4byte 0x0202D74C
 _0802071C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08020720:
 	.4byte 0x0000011F
 _08020724:
@@ -840,21 +840,21 @@ _080208D4:
 _080208D8:
 	.4byte 0x0202D74C
 _080208DC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080208E0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _080208E4:
 	.4byte 0x0000011F
 _080208E8:
 	.4byte 0x0202DE5C
 _080208EC:
-	.4byte 0x080525AC
+	.4byte gUnk_080525AC
 _080208F0:
-	.4byte 0x080525B8
+	.4byte gUnk_080525B8
 _080208F4:
-	.4byte 0x08052618
+	.4byte gUnk_08052618
 _080208F8:
-	.4byte 0x080525DC
+	.4byte gUnk_080525DC
 
 	.global react_balloon
 	.thumb_func
@@ -1045,23 +1045,23 @@ _08020A4E:
 _08020A68:
 	.4byte 0x02018F34
 _08020A6C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08020A70:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08020A74:
 	.4byte sub_08020A90
 _08020A78:
-	.4byte 0x08052624
+	.4byte gUnk_08052624
 _08020A7C:
-	.4byte 0x080525B8
+	.4byte gUnk_080525B8
 _08020A80:
-	.4byte 0x08052630
+	.4byte gUnk_08052630
 _08020A84:
-	.4byte 0x080525DC
+	.4byte gUnk_080525DC
 _08020A88:
 	.4byte 0x000001FD
 _08020A8C:
-	.4byte 0x080525AC
+	.4byte gUnk_080525AC
 
 	.global sub_08020A90
 	.thumb_func

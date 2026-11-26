@@ -42,13 +42,13 @@ _08026278:
 	.2byte 0xEFFF @ debug trap
 	b _0802625E
 _08026290:
-	.4byte 0x08052AE8
+	.4byte gUnk_08052AE8
 _08026294:
-	.4byte 0x08052AF4
+	.4byte gUnk_08052AF4
 _08026298:
-	.4byte 0x08052B0C
+	.4byte gUnk_08052B0C
 _0802629C:
-	.4byte 0x08052B20
+	.4byte gUnk_08052B20
 
 	.global act_boss_marker
 	.thumb_func
@@ -119,13 +119,13 @@ _08026314:
 _08026318:
 	.4byte 0x02018F34
 _0802631C:
-	.4byte 0x08052AE8
+	.4byte gUnk_08052AE8
 _08026320:
-	.4byte 0x08052AF4
+	.4byte gUnk_08052AF4
 _08026324:
-	.4byte 0x08052B5C
+	.4byte gUnk_08052B5C
 _08026328:
-	.4byte 0x08052B20
+	.4byte gUnk_08052B20
 
 	.global react_boss_marker
 	.thumb_func
@@ -168,15 +168,15 @@ _0802635A:
 	b _08026336
 	.byte 0x00, 0x00
 _08026374:
-	.4byte 0x08052B6C
+	.4byte gUnk_08052B6C
 _08026378:
-	.4byte 0x08052AF4
+	.4byte gUnk_08052AF4
 _0802637C:
-	.4byte 0x08052B78
+	.4byte gUnk_08052B78
 _08026380:
-	.4byte 0x08052B20
+	.4byte gUnk_08052B20
 _08026384:
-	.4byte 0x08052AE8
+	.4byte gUnk_08052AE8
 
 	.global sub_08026388
 	.thumb_func
@@ -234,7 +234,7 @@ _080263E4:
 _080263E8:
 	.4byte 0x0202D74C
 _080263EC:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _080263F0:
 	.4byte 0x0202EBFC
 _080263F4:
@@ -263,9 +263,9 @@ _08026410:
 	b _080263A6
 	.byte 0x00, 0x00
 _08026424:
-	.4byte 0x08052B8C
+	.4byte gUnk_08052B8C
 _08026428:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 
 	.global sub_0802642C
 	.thumb_func
@@ -1005,7 +1005,7 @@ _080269B8:
 _080269BC:
 	.4byte sub_03000134
 _080269C0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _080269C4:
 	.4byte sub_030001E8
 
@@ -1216,7 +1216,7 @@ _08026B5C:
 _08026B60:
 	.4byte 0x00000BB8
 _08026B64:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08026B68:
 	.4byte sub_03000744
 _08026B6C:
@@ -1310,7 +1310,7 @@ _08026C0C:
 _08026C10:
 	.4byte 0x0202D74C
 _08026C14:
-	.4byte 0x0884EFEC
+	.4byte gUnk_0884EFEC
 _08026C18:
 	.4byte 0x00000CCC
 _08026C1C:
@@ -1348,7 +1348,7 @@ _08026C4E:
 	b _08026BF2
 	.byte 0x00, 0x00
 _08026C5C:
-	.4byte 0x0884F010
+	.4byte gUnk_0884F010
 
 	.global sub_08026C60
 	.thumb_func
@@ -1847,9 +1847,9 @@ _08026FE0:
 _08026FE4:
 	.4byte 0x0200436C
 _08026FE8:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08026FEC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_08026FF0
 	.thumb_func
@@ -2234,9 +2234,9 @@ _080272C8:
 _080272CC:
 	.4byte 0x0200436C
 _080272D0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080272D4:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _080272D8:
 	.4byte sub_08028140
 _080272DC:

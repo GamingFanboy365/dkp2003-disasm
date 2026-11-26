@@ -128,17 +128,17 @@ _0802D40C:
 _0802D410:
 	.4byte 0x00000100
 _0802D414:
-	.4byte 0x0885009C
+	.4byte gUnk_0885009C
 _0802D418:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0802D41C:
 	.4byte 0x02018F34
 _0802D420:
-	.4byte 0x088500E4
+	.4byte gUnk_088500E4
 _0802D424:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802D428:
-	.4byte 0x0863F160
+	.4byte gUnk_0863F160
 _0802D42C:
 	movs r5, #0x18
 	mov sb, r5
@@ -182,7 +182,7 @@ _0802D474:
 _0802D478:
 	.4byte 0x0201A734
 _0802D47C:
-	.4byte 0x08639220
+	.4byte gUnk_08639220
 _0802D480:
 	lsls r5, r7, #3
 	strh r5, [r4, r2]
@@ -340,7 +340,7 @@ _0802D5A8:
 _0802D5AC:
 	.4byte 0x00000000
 _0802D5B0:
-	.4byte 0x0863F140
+	.4byte gUnk_0863F140
 _0802D5B4:
 	.4byte 0x0202EC58
 _0802D5B8:
@@ -348,9 +348,9 @@ _0802D5B8:
 _0802D5BC:
 	.4byte 0x02018F34
 _0802D5C0:
-	.4byte 0x083D9200
+	.4byte gUnk_083D9200
 _0802D5C4:
-	.4byte 0x0863F640
+	.4byte gUnk_0863F640
 _0802D5C8:
 	ldr r0, _0802D5F0
 	str r0, [sp, #8]
@@ -374,17 +374,17 @@ _0802D5D8:
 	.2byte 0xEFFF @ debug trap
 	b _0802D34E
 _0802D5F0:
-	.4byte 0x0863F120
+	.4byte gUnk_0863F120
 _0802D5F4:
 	.4byte 0xFFFFF900
 _0802D5F8:
-	.4byte 0x08053730
+	.4byte gUnk_08053730
 _0802D5FC:
-	.4byte 0x0805373C
+	.4byte gUnk_0805373C
 _0802D600:
-	.4byte 0x08053754
+	.4byte gUnk_08053754
 _0802D604:
-	.4byte 0x08053764
+	.4byte gUnk_08053764
 
 	.global act_life_meter
 	.thumb_func
@@ -521,11 +521,11 @@ _0802D6F0:
 _0802D6F4:
 	.4byte 0x00000008
 _0802D6F8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802D6FC:
 	.4byte 0x0202D74C
 _0802D700:
-	.4byte 0x088500C0
+	.4byte gUnk_088500C0
 _0802D704:
 	.4byte 0x02018F34
 _0802D708:
@@ -656,17 +656,17 @@ _0802D7E8:
 _0802D7EC:
 	.4byte 0x0202D74C
 _0802D7F0:
-	.4byte 0x0885009C
+	.4byte gUnk_0885009C
 _0802D7F4:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0802D7F8:
-	.4byte 0x08053730
+	.4byte gUnk_08053730
 _0802D7FC:
-	.4byte 0x0805373C
+	.4byte gUnk_0805373C
 _0802D800:
-	.4byte 0x080537A0
+	.4byte gUnk_080537A0
 _0802D804:
-	.4byte 0x08053764
+	.4byte gUnk_08053764
 _0802D808:
 	.4byte 0x00000143
 
@@ -698,7 +698,10 @@ sub_0802D824: @ 0802D824
 	bl sub_0802EC6C
 	pop {r0}
 	bx r0
-	.byte 0xC0, 0x46, 0xAC, 0x12, 0x00, 0x00
+	.byte 0xC0, 0x46
+	.global gUnk_0802D830
+gUnk_0802D830:
+	.byte 0xAC, 0x12, 0x00, 0x00
 	.arm
 
 	.global sub_0802D834

@@ -48,9 +48,9 @@ _080013EE:
 _08001418:
 	.4byte 0x00000008
 _0800141C:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _08001420:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _08001424:
 	ldrb r3, [r2, #3]
 	cmp r3, r5
@@ -126,17 +126,17 @@ _0800148E:
 	b _080013E4
 	.byte 0x00, 0x00
 _080014A8:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _080014AC:
-	.4byte 0x0804F6C8
+	.4byte gUnk_0804F6C8
 _080014B0:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _080014B4:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _080014B8:
-	.4byte 0x0804F72C
+	.4byte gUnk_0804F72C
 _080014BC:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_remove_draw
 	.thumb_func
@@ -232,15 +232,15 @@ _0800155C:
 _08001560:
 	.4byte 0x02004384
 _08001564:
-	.4byte 0x0804F748
+	.4byte gUnk_0804F748
 _08001568:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _0800156C:
-	.4byte 0x0804F760
+	.4byte gUnk_0804F760
 _08001570:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001574:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_remove_static_hit
 	.thumb_func
@@ -320,23 +320,23 @@ _080015F0:
 	.2byte 0xEFFF @ debug trap
 	b _08001582
 _08001608:
-	.4byte 0x0804F770
+	.4byte gUnk_0804F770
 _0800160C:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001610:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001614:
-	.4byte 0x0804F7C0
+	.4byte gUnk_0804F7C0
 _08001618:
 	.4byte 0xFFFFFE3F
 _0800161C:
-	.4byte 0x02004378
+	.4byte gObjStaticHitList
 _08001620:
-	.4byte 0x0804F7D8
+	.4byte gUnk_0804F7D8
 _08001624:
 	.4byte 0x0000013B
 _08001628:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 _0800162C:
 	.4byte 0x0000012B
 
@@ -420,13 +420,13 @@ _080016A8:
 	b _0800163A
 	.byte 0x00, 0x00
 _080016C4:
-	.4byte 0x0804F7F4
+	.4byte gUnk_0804F7F4
 _080016C8:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _080016CC:
-	.4byte 0x0804F844
+	.4byte gUnk_0804F844
 _080016D0:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _080016D4:
 	.4byte 0x00000147
 _080016D8:
@@ -434,9 +434,9 @@ _080016D8:
 _080016DC:
 	.4byte 0x0200437C
 _080016E0:
-	.4byte 0x0804F85C
+	.4byte gUnk_0804F85C
 _080016E4:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_really_free
 	.thumb_func
@@ -538,9 +538,9 @@ _08001794:
 _08001798:
 	.4byte 0x02018390
 _0800179C:
-	.4byte 0x0201838C
+	.4byte gObjFreeList
 _080017A0:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _080017A4:
 	.4byte 0x010000A0
 _080017A8:
@@ -614,23 +614,23 @@ _0800181E:
 	.2byte 0xEFFF @ debug trap
 	b _080016F4
 _08001838:
-	.4byte 0x0804F878
+	.4byte gUnk_0804F878
 _0800183C:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001840:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001844:
-	.4byte 0x0804F890
+	.4byte gUnk_0804F890
 _08001848:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _0800184C:
-	.4byte 0x0804F8A0
+	.4byte gUnk_0804F8A0
 _08001850:
-	.4byte 0x0804F8BC
+	.4byte gUnk_0804F8BC
 _08001854:
 	.4byte 0x0000018D
 _08001858:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_setup_sprite
 	.thumb_func
@@ -690,7 +690,7 @@ _08001898:
 _080018BC:
 	.4byte 0x00000020
 _080018C0:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _080018C4:
 	.4byte 0x02018F34
 _080018C8:
@@ -779,7 +779,7 @@ _08001956:
 _08001964:
 	.4byte 0x00000080
 _08001968:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800196C:
 	.4byte 0x02018F34
 _08001970:
@@ -873,21 +873,21 @@ _080019FE:
 _08001A18:
 	.4byte 0x02004384
 _08001A1C:
-	.4byte 0x0804F8D0
+	.4byte gUnk_0804F8D0
 _08001A20:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001A24:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001A28:
-	.4byte 0x0804F8E8
+	.4byte gUnk_0804F8E8
 _08001A2C:
-	.4byte 0x0804F8F8
+	.4byte gUnk_0804F8F8
 _08001A30:
-	.4byte 0x0804F914
+	.4byte gUnk_0804F914
 _08001A34:
 	.4byte 0x000001BB
 _08001A38:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_destroy_sprite
 	.thumb_func
@@ -911,7 +911,7 @@ _08001A5A:
 	bl AGBPrintFlush
 	b _08001A5A
 _08001A60:
-	.4byte 0x0804F928
+	.4byte gUnk_0804F928
 _08001A64:
 	cmp r5, #0
 	beq _08001AFA
@@ -1003,17 +1003,17 @@ _08001AFA:
 	.2byte 0xEFFF @ debug trap
 	b _08001A68
 _08001B14:
-	.4byte 0x0804F938
+	.4byte gUnk_0804F938
 _08001B18:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001B1C:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001B20:
-	.4byte 0x0804F950
+	.4byte gUnk_0804F950
 _08001B24:
 	.4byte 0x000001E7
 _08001B28:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_new
 	.thumb_func
@@ -1094,19 +1094,19 @@ _08001BAA:
 _08001BB8:
 	.4byte 0x00004000
 _08001BBC:
-	.4byte 0x0804F964
+	.4byte gUnk_0804F964
 _08001BC0:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001BC4:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001BC8:
-	.4byte 0x0804F974
+	.4byte gUnk_0804F974
 _08001BCC:
-	.4byte 0x0201838C
+	.4byte gObjFreeList
 _08001BD0:
 	.4byte 0x02018390
 _08001BD4:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _08001BD8:
 	add sp, #4
 	pop {r4, r5}
@@ -1136,15 +1136,15 @@ _08001BF8:
 	.2byte 0xEFFF @ debug trap
 	b _08001B3E
 _08001C10:
-	.4byte 0x0804F97C
+	.4byte gUnk_0804F97C
 _08001C14:
-	.4byte 0x0804F974
+	.4byte gUnk_0804F974
 _08001C18:
-	.4byte 0x0804F9A8
+	.4byte gUnk_0804F9A8
 _08001C1C:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001C20:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001C24:
 	.4byte 0x0000015F
 
@@ -1540,7 +1540,7 @@ _08001F14:
 _08001F18:
 	.4byte sub_03000134
 _08001F1C:
-	.4byte 0x0803F49C
+	.4byte gUnk_0803F49C
 _08001F20:
 	.4byte 0x03000738
 _08001F24:
@@ -1559,13 +1559,13 @@ _08001F2C:
 	.2byte 0xEFFF @ debug trap
 	b _08001D2E
 _08001F44:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 _08001F48:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001F4C:
-	.4byte 0x0804F9B0
+	.4byte gUnk_0804F9B0
 _08001F50:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001F54:
 	.4byte 0x000002AF
 
@@ -1628,21 +1628,21 @@ _08001FAA:
 	b _08001F62
 	.byte 0x00, 0x00
 _08001FC4:
-	.4byte 0x0804F964
+	.4byte gUnk_0804F964
 _08001FC8:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08001FCC:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08001FD0:
-	.4byte 0x0804F974
+	.4byte gUnk_0804F974
 _08001FD4:
-	.4byte 0x0201838C
+	.4byte gObjFreeList
 _08001FD8:
 	.4byte 0x02018390
 _08001FDC:
-	.4byte 0x0804F97C
+	.4byte gUnk_0804F97C
 _08001FE0:
-	.4byte 0x0804F9A8
+	.4byte gUnk_0804F9A8
 _08001FE4:
 	.4byte 0x0000015F
 
@@ -1684,7 +1684,7 @@ _08002020:
 _08002024:
 	.4byte 0x02018394
 _08002028:
-	.4byte 0x0804F9C8
+	.4byte gUnk_0804F9C8
 
 	.global obj_initialise
 	.thumb_func
@@ -1733,15 +1733,15 @@ _08002068:
 	.2byte 0xEFFF @ debug trap
 	b _08002038
 _08002080:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _08002084:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 _08002088:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _0800208C:
-	.4byte 0x0804F9F8
+	.4byte gUnk_0804F9F8
 _08002090:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08002094:
 	.4byte 0x000001FD
 
@@ -1792,7 +1792,7 @@ _080020E0:
 	bx r0
 	.byte 0x00, 0x00
 _080020E8:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _080020EC:
 	.4byte 0x02004384
 _080020F0:
@@ -1919,19 +1919,19 @@ _080021B2:
 	b _08002146
 	.byte 0x00, 0x00
 _080021CC:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _080021D0:
-	.4byte 0x0804F8A0
+	.4byte gUnk_0804F8A0
 _080021D4:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _080021D8:
-	.4byte 0x0804F8BC
+	.4byte gUnk_0804F8BC
 _080021DC:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _080021E0:
-	.4byte 0x0804FA08
+	.4byte gUnk_0804FA08
 _080021E4:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global sub_080021E8
 	.thumb_func
@@ -2018,15 +2018,15 @@ _08002262:
 _0800227C:
 	.4byte 0x02004384
 _08002280:
-	.4byte 0x0804F8D0
+	.4byte gUnk_0804F8D0
 _08002284:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08002288:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _0800228C:
-	.4byte 0x0804F8E8
+	.4byte gUnk_0804F8E8
 _08002290:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_add_static_hit
 	.thumb_func
@@ -2080,9 +2080,9 @@ _080022E4:
 _080022E8:
 	.4byte 0x00000080
 _080022EC:
-	.4byte 0x02004378
+	.4byte gObjStaticHitList
 _080022F0:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _080022F4:
 	add sp, #4
 	pop {r4}
@@ -2111,15 +2111,15 @@ _08002314:
 	.2byte 0xEFFF @ debug trap
 	b _080022A8
 _0800232C:
-	.4byte 0x0804FA20
+	.4byte gUnk_0804FA20
 _08002330:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _08002334:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _08002338:
-	.4byte 0x0804FA3C
+	.4byte gUnk_0804FA3C
 _0800233C:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global obj_add_vector_hit
 	.thumb_func
@@ -2167,7 +2167,7 @@ _08002380:
 _08002388:
 	.4byte 0x000002C0
 _0800238C:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _08002390:
 	.4byte 0x0200437C
 _08002394:
@@ -2200,17 +2200,17 @@ _080023B4:
 	b _08002354
 	.byte 0x00, 0x00
 _080023D0:
-	.4byte 0x0804FA20
+	.4byte gUnk_0804FA20
 _080023D4:
-	.4byte 0x0804F6E0
+	.4byte gUnk_0804F6E0
 _080023D8:
-	.4byte 0x0804F71C
+	.4byte gUnk_0804F71C
 _080023DC:
-	.4byte 0x0804FA50
+	.4byte gUnk_0804FA50
 _080023E0:
 	.4byte 0x00000111
 _080023E4:
-	.4byte 0x0804F73C
+	.4byte gUnk_0804F73C
 
 	.global sub_080023E8
 	.thumb_func
@@ -2466,19 +2466,19 @@ _080025B4:
 _080025B8:
 	.4byte 0x0202D74C
 _080025BC:
-	.4byte 0x0884CF74
+	.4byte gUnk_0884CF74
 _080025C0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080025C4:
-	.4byte 0x0884D00C
+	.4byte gUnk_0884D00C
 _080025C8:
 	.4byte 0x020185A0
 _080025CC:
-	.4byte 0x0804FD10
+	.4byte gUnk_0804FD10
 _080025D0:
-	.4byte 0x0804FD18
+	.4byte gUnk_0804FD18
 _080025D4:
-	.4byte 0x0804FD20
+	.4byte gUnk_0804FD20
 
 	.global sub_080025D8
 	.thumb_func
@@ -2529,7 +2529,7 @@ _08002628:
 _0800262C:
 	.4byte 0x81000020
 _08002630:
-	.4byte 0x08053850
+	.4byte gUnk_08053850
 _08002634:
 	str r3, [r1, #4]
 	ldr r3, _080026B8
@@ -2604,15 +2604,15 @@ _080026BC:
 _080026C0:
 	.4byte 0x81000100
 _080026C4:
-	.4byte 0x0805F694
+	.4byte gUnk_0805F694
 _080026C8:
-	.4byte 0x0803062A
+	.4byte gUnk_0803062A
 _080026CC:
 	.4byte 0x0600C000
 _080026D0:
 	.4byte 0x0600A800
 _080026D4:
-	.4byte 0x081B8044
+	.4byte gUnk_081B8044
 _080026D8:
 	.4byte 0x80000400
 _080026DC:
@@ -2752,9 +2752,9 @@ _080027C0:
 	bx r0
 	.byte 0x00, 0x00
 _080027DC:
-	.4byte 0x0884CF70
+	.4byte gUnk_0884CF70
 _080027E0:
-	.4byte 0x0884CF4C
+	.4byte gUnk_0884CF4C
 _080027E4:
 	.4byte 0x020185A8
 _080027E8:
@@ -2828,6 +2828,7 @@ _08002844:
 	lsls r3, r3, #2
 	ldr r0, [r3, r2]
 	mov pc, r0
+	.global _08002864
 _08002864:
 	.4byte _08002888
 	.4byte _080028FA
@@ -2929,13 +2930,13 @@ _08002920:
 _08002924:
 	.4byte 0x020185A8
 _08002928:
-	.4byte 0x08002864
+	.4byte _08002864
 _0800292C:
 	.4byte 0x0202D74C
 _08002930:
-	.4byte 0x0884CFC4
+	.4byte gUnk_0884CFC4
 _08002934:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08002938:
 	ldr r1, _08002960
 	strh r1, [r0, r2]
@@ -2961,7 +2962,7 @@ _0800293E:
 _08002960:
 	.4byte 0x00000000
 _08002964:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08002968:
 	.4byte 0x0202D74C
 _0800296C:
@@ -3175,11 +3176,11 @@ _08002AD4:
 _08002AD8:
 	.4byte 0x020185A0
 _08002ADC:
-	.4byte 0x0884CFC8
+	.4byte gUnk_0884CFC8
 _08002AE0:
 	.4byte 0x020185A4
 _08002AE4:
-	.4byte 0x0884CF70
+	.4byte gUnk_0884CF70
 
 	.global sub_08002AE8
 	.thumb_func
@@ -3294,9 +3295,9 @@ _08002BB0:
 _08002BB4:
 	.4byte 0x0201859C
 _08002BB8:
-	.4byte 0x0884CF70
+	.4byte gUnk_0884CF70
 _08002BBC:
-	.4byte 0x0884CF4C
+	.4byte gUnk_0884CF4C
 _08002BC0:
 	.4byte 0x020185A8
 _08002BC4:
@@ -3351,7 +3352,7 @@ _08002C18:
 _08002C1C:
 	.4byte 0x02018DAC
 _08002C20:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08002C24:
 	ldrh r1, [r0]
 	adds r4, r0, r1
@@ -3518,7 +3519,7 @@ _08002D5C:
 	strh r2, [r7, r0]
 	b _08002D26
 _08002D68:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08002D6C:
 	.4byte 0x020185AC
 _08002D70:
@@ -3833,9 +3834,9 @@ _08002F9A:
 	b _08002F8C
 	.byte 0x00, 0x00
 _08002FA8:
-	.4byte 0x0804FD28
+	.4byte gUnk_0804FD28
 _08002FAC:
-	.4byte 0x0804FD54
+	.4byte gUnk_0804FD54
 
 	.global sub_08002FB0
 	.thumb_func

@@ -10,7 +10,7 @@ Writes:
   outdir/ld_script.ld   linker script placing every file at its address
   outdir/objects.mk     ordered object list for the Makefile
 """
-import sys, os, json, struct, re
+import sys, os, json, struct, re, bisect
 import capstone as cs
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +23,7 @@ SMALL_DATA = 64   # gaps up to this size are emitted as .byte, larger as .incbin
 
 
 class Gen:
-    def __init__(self, rom, db, cfg, raw, names, files):
+    def __init__(self, rom, db, cfg, raw, names, files, ram_names=None):
         self.rom = rom
         self.cfg = cfg
         self.raw = raw                  # set of rom offsets to emit as raw .inst
@@ -54,6 +54,12 @@ class Gen:
             if o not in self.sym:
                 self.sym[o] = '_%08X' % self.vma(o)
         self.globals = set(self.funcs)
+        self.ram_names = ram_names or {}
+        # ROM start of each overlay image -> linker symbol for its load address
+        self.overlay_lma = {s.rom_start: '__%s_lma' % s.name for s in rom.segs if s.name != 'rom'}
+        self.dlabel = {}
+        self.dptr = {}
+        self.scan_data()
         self.file_of = None
         self.verified = None
         self.to_verify = {}
@@ -100,7 +106,142 @@ class Gen:
                     return self.sym[off]
                 elif off in self.sym and off in self.insns and (val & 1) and self.insns[off][1]:
                     return self.sym[off] + '+1'
+                elif off in self.sym and off in self.item_start and not (val & 1):
+                    return self.sym[off]          # jump table / literal pool address
+        if ROM_BASE <= val < ROM_BASE + self.rom.size:
+            off = val - ROM_BASE
+            if off in self.overlay_lma:
+                return self.overlay_lma[off]
+            if off in self.dlabel:
+                return self.dlabel[off]
+        if val in self.ram_names:
+            return self.ram_names[val]
         return '0x%08X' % val
+
+    # -- data labels / pointers ---------------------------------------------
+    def scan_data(self):
+        """Label ROM data that code refers to, and find pointer words in data
+        (function pointers, and data pointers that sit in tables or point at
+        already-labelled data) so they can be emitted symbolically."""
+        rom = self.rom
+        covered = bytearray(self.code_end)
+        for o, (sz, th) in self.insns.items():
+            covered[o:o + sz] = b'\x01' * sz
+        for o in self.pools:
+            covered[o:o + 4] = b'\x01' * 4
+        for o, j in self.jtables.items():
+            covered[o:o + 4 * j['count']] = b'\x01' * (4 * j['count'])
+        overlays = [(s.rom_start, s.rom_end) for s in rom.segs if s.name != 'rom']
+
+        def is_data(off):
+            if any(a <= off < b for a, b in overlays):
+                return False
+            return off >= self.code_end or not covered[off]
+
+        def add_label(off):
+            if off not in self.dlabel and off not in self.overlay_lma:
+                self.dlabel[off] = 'gUnk_%08X' % (ROM_BASE + off)
+
+        vals = list(self.pools.values()) + [rom.u32(o + 4 * k) for o, j in self.jtables.items() for k in range(j['count'])]
+        for v in vals:
+            if ROM_BASE <= v < ROM_BASE + rom.size and is_data(v - ROM_BASE):
+                add_label(v - ROM_BASE)
+        # candidate pointer words in data
+        fptr, cand = {}, {}
+        words = struct.unpack_from('<%dI' % (rom.size // 4), rom.d, 0)
+        thumb_funcs = {o for o, f in self.funcs.items() if f['thumb'] and rom.seg_of_rom(o).name == 'rom'}
+        lo, hi = ROM_BASE, ROM_BASE + rom.size
+        for i, w in enumerate(words):
+            o = 4 * i
+            if not (lo <= w < hi):
+                continue
+            if o < self.code_end and (not is_data(o) or covered[o:o + 4].count(1)):
+                continue
+            if any(a <= o < b for a, b in overlays):
+                continue
+            t = w - ROM_BASE
+            if w & 1 and (t - 1) in thumb_funcs:
+                fptr[o] = t - 1
+            elif is_data(t):
+                cand[o] = t
+        # Data->data pointers.  Graphics full of palette index 8 produce many
+        # 0x08xxxxxx look-alikes, so be conservative: accept a word if its target
+        # is referenced directly by code, or if it is part of a run of >= 3
+        # candidates with all-different targets that are either all 4-aligned
+        # or strictly increasing and close together (string tables).
+        code_refs = set(self.dlabel)
+        accepted = {}
+
+        def accept_segments(run):
+            # split a run of adjacent candidates into maximal segments that are
+            # either all 4-aligned with distinct targets, or strictly increasing
+            # with small steps (string tables); keep segments of length >= 3
+            for ok_pair in (lambda a, b: a % 4 == 0 and b % 4 == 0 and a != b,
+                            lambda a, b: 0 < b - a < 0x10000):
+                seg = [run[0]]
+                for x in run[1:] + [None]:
+                    if x is not None and ok_pair(cand[seg[-1]], cand[x]) and \
+                            (cand[x] not in {cand[y] for y in seg}):
+                        seg.append(x)
+                        continue
+                    if len(seg) >= 3:
+                        for y in seg:
+                            accepted[y] = cand[y]
+                    seg = [x] if x is not None else []
+
+        run = []
+        for o in sorted(cand) + [None]:
+            if run and (o is None or o != run[-1] + 4):
+                accept_segments(run)
+                run = []
+            if o is not None:
+                run.append(o)
+        for o, t in cand.items():
+            # target referenced by code; the word itself is a variable whose
+            # address code takes (e.g. newlib's _impure_ptr); or a pointer to
+            # something within 1KB of itself (linked structures, malloc bins)
+            # ... or a word in an undecoded gap of the code area (literal pools
+            # of code the analyzer could not trace, e.g. the ARM audio engine)
+            if t in code_refs or o in code_refs or 0 < abs(t - o) < 0x400 or o < self.code_end:
+                accepted[o] = t
+        # pointers embedded in sparse structs (e.g. sound-bank entries): a
+        # 4-aligned target within 64KB, a word with four different bytes (pixel
+        # data repeats bytes), and another candidate within 32 bytes
+        cs = sorted(cand)
+        for k, o in enumerate(cs):
+            t = cand[o]
+            if o in accepted or t % 4 or abs(t - o) >= 0x10000:
+                continue
+            if len(set(struct.pack('<I', t + ROM_BASE))) != 4:
+                continue
+            if (k > 0 and o - cs[k - 1] <= 32) or (k + 1 < len(cs) and cs[k + 1] - o <= 32):
+                accepted[o] = t
+        # sample definitions: (start, length, end): two pointers 8 bytes apart
+        # with a small integer between them and end a little after start
+        for o, t in cand.items():
+            if o + 8 in cand and words[(o + 4) // 4] < 0x1000000 and 0 < cand[o + 8] - t < 0x20000 \
+                    and len(set(struct.pack('<I', words[o // 4]))) == 4:
+                accepted[o] = t
+                accepted[o + 8] = cand[o + 8]
+        for t in accepted.values():
+            add_label(t)
+        for o, t in fptr.items():
+            self.dptr[o] = ('func', t)
+        for o, t in accepted.items():
+            self.dptr[o] = ('data', t)
+        # a label must not fall inside a pointer word
+        for o in list(self.dptr):
+            if any((o + k) in self.dlabel for k in (1, 2, 3)):
+                del self.dptr[o]
+        print('data labels: %d, symbolic pointers in data: %d (%d function, %d data)' % (
+            len(self.dlabel), len(self.dptr), sum(1 for v in self.dptr.values() if v[0] == 'func'),
+            sum(1 for v in self.dptr.values() if v[0] == 'data')), file=sys.stderr)
+
+    def dptr_expr(self, o):
+        kind, t = self.dptr[o]
+        if kind == 'func':
+            return self.sym[t]
+        return self.dlabel[t]
 
     # -- instruction formatting ---------------------------------------------
     def fmt_insn(self, off, seg):
@@ -172,6 +313,13 @@ class Gen:
         mode = None
         rom = self.rom
         while off < end:
+            if off in self.dlabel:
+                out.append('\t.global %s' % self.dlabel[off])
+                out.append('%s:' % self.dlabel[off])
+            if off in self.dptr:
+                out.append('\t.4byte %s' % self.dptr_expr(off))
+                off += 4
+                continue
             # labels
             if off in self.sym and off in self.item_start:
                 s = self.sym[off]
@@ -211,11 +359,9 @@ class Gen:
                     out.append('\t.4byte %s' % self.value_expr(rom.u32(o2)))
                 off += 4 * j['count']
                 continue
-            # data gap: up to next item
-            nxt = off + 1
-            while nxt < end and nxt not in self.insns and nxt not in self.pools and nxt not in self.jtables \
-                    and not (nxt in self.sym and nxt in self.item_start):
-                nxt += 1
+            # data gap: up to the next item, label or pointer
+            k = bisect.bisect_right(self.breaks, off)
+            nxt = min(end, self.breaks[k]) if k < len(self.breaks) else end
             n = nxt - off
             if n > SMALL_DATA:
                 out.append('\t.incbin "baserom.gba", 0x%X, 0x%X' % (off, n))
@@ -309,6 +455,8 @@ class Gen:
             if s.rom_start < self.code_end:
                 cuts[s.rom_start] = None
         cuts[self.code_end] = None
+        for o in range(0x100000, rom.size, 0x100000):
+            cuts.setdefault(o, None)
         for (o, fn) in self.files:
             assert o % 4 == 0, hex(o)
             cuts[o] = fn
@@ -343,29 +491,59 @@ class Gen:
             return None
         self.file_of = file_of
         self.compute_global_labels(file_of)
+        self.breaks = sorted(set(self.insns) | set(self.pools) | set(self.jtables) | set(self.dlabel)
+                             | set(self.dptr) | {o for o in self.sym if o in self.item_start})
         objs = []
         for (p, e, seg, fn) in chunks:
             out = ['@ %s: ROM 0x%06X-0x%06X (%s, VMA 0x%08X)' % (fn, p, e, seg.name, seg.to_vma(p)), '',
                    '\t.include "asm/macros.inc"', '']
             sect = '.text' if seg.name == 'rom' else '.' + seg.name
             out.append('\t.section %s, "ax", %%progbits' % sect)
-            out.append('\t.balign 4')
-            out.append('')
+            # Data keeps the alignment it had in the original ROM (some readers,
+            # e.g. the intro movie, round addresses up to 16 bytes), so that a
+            # build with resized code still lays it out on the same boundaries.
+            align = 4
             if p >= self.code_end:
-                out.append('\t.incbin "baserom.gba", 0x%X, 0x%X' % (p, e - p))
-            else:
-                self.emit_range(out, seg, p, e)
+                while align < 256 and p % (align * 2) == 0:
+                    align *= 2
+            out.append('\t.balign %d' % align)
+            out.append('')
+            self.emit_range(out, seg, p, e)
             path = os.path.join(outdir, fn)
             os.makedirs(os.path.dirname(path), exist_ok=True)
             open(path, 'w').write('\n'.join(out) + '\n')
             objs.append((fn, seg, p, e))
         # linker script
-        ld = ['/* generated by tools/gen_asm.py */', 'OUTPUT_ARCH(arm)', 'ENTRY(_start)', '', 'SECTIONS', '{']
+        # Sections are laid out one after another (no fixed addresses), so code
+        # and data can grow or shrink; overlays get their own VMA and load right
+        # after the preceding ROM section.
+        ld = ['/* generated by tools/gen_asm.py */', 'OUTPUT_ARCH(arm)', 'ENTRY(_start)', '']
+        for a, n in sorted(self.ram_names.items()):
+            ld.append('%s = 0x%08X;' % (n, a))
+        ld += ['', 'SECTIONS', '{']
+        groups = []
         for (fn, seg, p, e) in objs:
-            o = 'build/' + fn[:-2] + '.o'
-            sect = '.text' if seg.name == 'rom' else '.' + seg.name
-            secname = 's_%06X' % p
-            ld.append('\t%s 0x%08X : AT(0x%08X) { %s(%s) }' % (secname, seg.to_vma(p), ROM_BASE + p, o, sect))
+            if groups and groups[-1][0] is seg.name and seg.name == 'rom' and groups[-1][1] == 'rom':
+                groups[-1][2].append(fn)
+            elif groups and groups[-1][1] == seg.name and seg.name != 'rom' and groups[-1][3] is seg:
+                groups[-1][2].append(fn)
+            else:
+                groups.append([seg.name, seg.name, [fn], seg])
+        prev = None
+        for k, (_, name, fns, seg) in enumerate(groups):
+            sect = '.text' if name == 'rom' else '.' + name
+            body = ' '.join('build/%s.o(%s)' % (fn[:-2], sect) for fn in fns)
+            osec = '.rom%d' % k if name == 'rom' else '.' + name
+            if prev is None:
+                ld.append('\t%s 0x%08X : { %s }' % (osec, ROM_BASE, body))
+            else:
+                lma = 'LOADADDR(%s) + SIZEOF(%s)' % (prev, prev)
+                vma = lma if name == 'rom' else '0x%08X' % seg.vma
+                ld.append('\t%s %s : AT(%s) { %s }' % (osec, vma, lma, body))
+            if name != 'rom':
+                ld.append('\t__%s_lma = LOADADDR(%s);' % (name, osec))
+                ld.append('\t__%s_size = SIZEOF(%s);' % (name, osec))
+            prev = osec
         ld += ['', '\t/DISCARD/ : { *(.ARM.attributes) *(.comment) }', '}']
         open(os.path.join(outdir, 'ld_script.ld'), 'w').write('\n'.join(ld) + '\n')
         mk = ['# generated by tools/gen_asm.py', 'OBJS := \\']
@@ -409,7 +587,14 @@ def main():
             l = l.split('#')[0].split()
             if len(l) >= 2:
                 files.append((int(l[0], 0), l[1]))
-    g = Gen(rom, db, cfg, raw, names, files)
+    ram = {}
+    rp = os.path.join(os.path.dirname(cfg_path), 'ram_symbols.txt')
+    if os.path.exists(rp):
+        for l in open(rp):
+            l = l.split('#')[0].split()
+            if len(l) >= 2:
+                ram[int(l[0], 0)] = l[1]
+    g = Gen(rom, db, cfg, raw, names, files, ram)
     g.generate(outdir)
 
 

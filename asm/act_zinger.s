@@ -105,13 +105,13 @@ _08012FA0:
 	.2byte 0xEFFF @ debug trap
 	b _08012EFA
 _08012FB8:
-	.4byte 0x08050D90
+	.4byte gUnk_08050D90
 _08012FBC:
-	.4byte 0x08050D9C
+	.4byte gUnk_08050D9C
 _08012FC0:
-	.4byte 0x08050DB0
+	.4byte gUnk_08050DB0
 _08012FC4:
-	.4byte 0x08050DBC
+	.4byte gUnk_08050DBC
 
 	.global act_zinger
 	.thumb_func
@@ -257,13 +257,13 @@ _080130E0:
 _080130E4:
 	.4byte sub_03003750
 _080130E8:
-	.4byte 0x08050D90
+	.4byte gUnk_08050D90
 _080130EC:
-	.4byte 0x08050D9C
+	.4byte gUnk_08050D9C
 _080130F0:
-	.4byte 0x08050DF8
+	.4byte gUnk_08050DF8
 _080130F4:
-	.4byte 0x08050DBC
+	.4byte gUnk_08050DBC
 
 	.global react_zinger
 	.thumb_func
@@ -306,12 +306,12 @@ _08013126:
 	b _08013102
 	.byte 0x00, 0x00
 _08013140:
-	.4byte 0x08050E04
+	.4byte gUnk_08050E04
 _08013144:
-	.4byte 0x08050D9C
+	.4byte gUnk_08050D9C
 _08013148:
-	.4byte 0x08050E10
+	.4byte gUnk_08050E10
 _0801314C:
-	.4byte 0x08050DBC
+	.4byte gUnk_08050DBC
 _08013150:
-	.4byte 0x08050D90
+	.4byte gUnk_08050D90

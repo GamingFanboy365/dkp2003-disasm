@@ -203,23 +203,23 @@ _0802ABAC:
 	b _0802AA52
 	.byte 0x00, 0x00
 _0802ABC8:
-	.4byte 0x0202EC0C
+	.4byte gBlueZingerBuzzOwner
 _0802ABCC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802ABD0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802ABD4:
-	.4byte 0x08052EA8
+	.4byte gUnk_08052EA8
 _0802ABD8:
-	.4byte 0x08052EB4
+	.4byte gUnk_08052EB4
 _0802ABDC:
-	.4byte 0x08052ECC
+	.4byte gUnk_08052ECC
 _0802ABE0:
-	.4byte 0x08052EE0
+	.4byte gUnk_08052EE0
 _0802ABE4:
 	.4byte 0x00000389
 _0802ABE8:
-	.4byte 0x08052F1C
+	.4byte gUnk_08052F1C
 
 	.global sub_0802ABEC
 	.thumb_func
@@ -236,7 +236,7 @@ sub_0802ABEC: @ 0802ABEC
 _0802ABFC:
 	.4byte 0x0202EC08
 _0802AC00:
-	.4byte 0x0202EC0C
+	.4byte gBlueZingerBuzzOwner
 
 	.global sub_0802AC04
 	.thumb_func
@@ -256,9 +256,9 @@ sub_0802AC04: @ 0802AC04
 	bx r1
 	.byte 0x00, 0x00
 _0802AC20:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802AC24:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0802AC28
 	.thumb_func
@@ -429,12 +429,12 @@ _0802AD28:
 	.2byte 0xEFFF @ debug trap
 	b _0802ACC2
 _0802AD40:
-	.4byte 0x08052F1C
+	.4byte gUnk_08052F1C
 _0802AD44:
-	.4byte 0x08052EB4
+	.4byte gUnk_08052EB4
 _0802AD48:
-	.4byte 0x08052F28
+	.4byte gUnk_08052F28
 _0802AD4C:
-	.4byte 0x08052EE0
+	.4byte gUnk_08052EE0
 _0802AD50:
 	.4byte 0x00000183

@@ -121,15 +121,15 @@ _0802C1B4:
 _0802C1B8:
 	.4byte 0x0202EC44
 _0802C1BC:
-	.4byte 0x080533D8
+	.4byte gUnk_080533D8
 _0802C1C0:
-	.4byte 0x080533E4
+	.4byte gUnk_080533E4
 _0802C1C4:
-	.4byte 0x08053420
+	.4byte gUnk_08053420
 _0802C1C8:
-	.4byte 0x08053430
+	.4byte gUnk_08053430
 _0802C1CC:
-	.4byte 0x08053440
+	.4byte gUnk_08053440
 
 	.global weaponManager
 	.thumb_func
@@ -210,13 +210,13 @@ _0802C248:
 _0802C258:
 	.4byte 0x00000000
 _0802C25C:
-	.4byte 0x08053444
+	.4byte gUnk_08053444
 _0802C260:
-	.4byte 0x080533E4
+	.4byte gUnk_080533E4
 _0802C264:
-	.4byte 0x08053420
+	.4byte gUnk_08053420
 _0802C268:
-	.4byte 0x08053484
+	.4byte gUnk_08053484
 _0802C26C:
 	.4byte 0x00000173
 _0802C270:
@@ -233,6 +233,7 @@ _0802C27E:
 	ldr r1, [r0, r2]
 	mov pc, r1
 	.byte 0x00, 0x00
+	.global _0802C288
 _0802C288:
 	.4byte _0802C2B0
 	.4byte _0802C2F4
@@ -282,7 +283,7 @@ _0802C2E8:
 _0802C2EC:
 	.4byte 0x0000000F
 _0802C2F0:
-	.4byte 0x0802C288
+	.4byte _0802C288
 	.global _0802C2F4
 _0802C2F4:
 	adds r0, r5, #0
@@ -441,19 +442,19 @@ _0802C3F2:
 _0802C40C:
 	.4byte 0x0000000A
 _0802C410:
-	.4byte 0x08053440
+	.4byte gUnk_08053440
 _0802C414:
-	.4byte 0x080533E4
+	.4byte gUnk_080533E4
 _0802C418:
-	.4byte 0x08053420
+	.4byte gUnk_08053420
 _0802C41C:
-	.4byte 0x08053484
+	.4byte gUnk_08053484
 _0802C420:
 	.4byte 0x0000020E
 _0802C424:
 	.4byte 0x0000219E
 _0802C428:
-	.4byte 0x08053494
+	.4byte gUnk_08053494
 
 	.global sub_0802C42C
 	.thumb_func

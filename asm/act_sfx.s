@@ -47,13 +47,13 @@ _08013C3A:
 	b _08013C1A
 	.byte 0x00, 0x00
 _08013C54:
-	.4byte 0x08051014
+	.4byte gUnk_08051014
 _08013C58:
-	.4byte 0x08051020
+	.4byte gUnk_08051020
 _08013C5C:
-	.4byte 0x08051030
+	.4byte gUnk_08051030
 _08013C60:
-	.4byte 0x0805103C
+	.4byte gUnk_0805103C
 
 	.global free_sfx
 	.thumb_func
@@ -183,7 +183,7 @@ _08013D2C:
 _08013D40:
 	.4byte 0x0202D74C
 _08013D44:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08013D48:
 	.4byte 0x0202D7D4
 
@@ -398,7 +398,7 @@ _08013EAC:
 _08013EC8:
 	.4byte 0x0202D74C
 _08013ECC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08013ED0:
 	.4byte 0x0202D7D4
 _08013ED4:

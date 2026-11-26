@@ -126,13 +126,13 @@ _08012AE8:
 	.2byte 0xEFFF @ debug trap
 	b _08012A2A
 _08012B00:
-	.4byte 0x08050C1C
+	.4byte gUnk_08050C1C
 _08012B04:
-	.4byte 0x08050C28
+	.4byte gUnk_08050C28
 _08012B08:
-	.4byte 0x08050C38
+	.4byte gUnk_08050C38
 _08012B0C:
-	.4byte 0x08050C48
+	.4byte gUnk_08050C48
 
 	.global act_booster
 	.thumb_func
@@ -159,13 +159,13 @@ _08012B1E:
 	b _08012B18
 	.byte 0x00, 0x00
 _08012B38:
-	.4byte 0x08050C1C
+	.4byte gUnk_08050C1C
 _08012B3C:
-	.4byte 0x08050C28
+	.4byte gUnk_08050C28
 _08012B40:
-	.4byte 0x08050C84
+	.4byte gUnk_08050C84
 _08012B44:
-	.4byte 0x08050C48
+	.4byte gUnk_08050C48
 
 	.global react_booster
 	.thumb_func
@@ -208,12 +208,12 @@ _08012B76:
 	b _08012B52
 	.byte 0x00, 0x00
 _08012B90:
-	.4byte 0x08050C90
+	.4byte gUnk_08050C90
 _08012B94:
-	.4byte 0x08050C28
+	.4byte gUnk_08050C28
 _08012B98:
-	.4byte 0x08050C9C
+	.4byte gUnk_08050C9C
 _08012B9C:
-	.4byte 0x08050C48
+	.4byte gUnk_08050C48
 _08012BA0:
-	.4byte 0x08050C1C
+	.4byte gUnk_08050C1C

@@ -58,13 +58,13 @@ _0802BF16:
 	b _0802BEDE
 	.byte 0x00, 0x00
 _0802BF30:
-	.4byte 0x08053160
+	.4byte gUnk_08053160
 _0802BF34:
-	.4byte 0x0805316C
+	.4byte gUnk_0805316C
 _0802BF38:
-	.4byte 0x08053180
+	.4byte gUnk_08053180
 _0802BF3C:
-	.4byte 0x08053190
+	.4byte gUnk_08053190
 
 	.global act_electric
 	.thumb_func
@@ -125,7 +125,7 @@ _0802BF94:
 	.2byte 0xEFFF @ debug trap
 	b _0802BF4A
 _0802BFAC:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802BFB0:
 	.4byte 0x02018F34
 _0802BFB4:
@@ -133,13 +133,13 @@ _0802BFB4:
 _0802BFB8:
 	.4byte 0x0201AA4C
 _0802BFBC:
-	.4byte 0x08053160
+	.4byte gUnk_08053160
 _0802BFC0:
-	.4byte 0x0805316C
+	.4byte gUnk_0805316C
 _0802BFC4:
-	.4byte 0x080531CC
+	.4byte gUnk_080531CC
 _0802BFC8:
-	.4byte 0x08053190
+	.4byte gUnk_08053190
 
 	.global sub_0802BFCC
 	.thumb_func
@@ -249,40 +249,40 @@ _0802C08C:
 _0802C090:
 	.4byte 0x0202D74C
 _0802C094:
-	.4byte 0x080531DC
+	.4byte gUnk_080531DC
 _0802C098:
-	.4byte 0x0884F95C
+	.4byte gUnk_0884F95C
 _0802C09C:
-	.4byte 0x08053200
+	.4byte gUnk_08053200
 _0802C0A0:
-	.4byte 0x0884F83C
+	.4byte gUnk_0884F83C
 _0802C0A4:
-	.4byte 0x08053238
+	.4byte gUnk_08053238
 _0802C0A8:
-	.4byte 0x0884F71C
+	.4byte gUnk_0884F71C
 _0802C0AC:
-	.4byte 0x08053270
+	.4byte gUnk_08053270
 _0802C0B0:
-	.4byte 0x0884F4DC
+	.4byte gUnk_0884F4DC
 _0802C0B4:
-	.4byte 0x080532A4
+	.4byte gUnk_080532A4
 _0802C0B8:
-	.4byte 0x0884F3BC
+	.4byte gUnk_0884F3BC
 _0802C0BC:
-	.4byte 0x080532DC
+	.4byte gUnk_080532DC
 _0802C0C0:
-	.4byte 0x0884F29C
+	.4byte gUnk_0884F29C
 _0802C0C4:
-	.4byte 0x08053314
+	.4byte gUnk_08053314
 _0802C0C8:
-	.4byte 0x0884F17C
+	.4byte gUnk_0884F17C
 _0802C0CC:
-	.4byte 0x08053348
+	.4byte gUnk_08053348
 _0802C0D0:
-	.4byte 0x0884F5FC
+	.4byte gUnk_0884F5FC
 _0802C0D4:
-	.4byte 0x08053374
+	.4byte gUnk_08053374
 _0802C0D8:
-	.4byte 0x0884F05C
+	.4byte gUnk_0884F05C
 _0802C0DC:
-	.4byte 0x080533A8
+	.4byte gUnk_080533A8

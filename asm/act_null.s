@@ -32,10 +32,10 @@ _0800F5EE:
 	b _0800F5E8
 	.byte 0x00, 0x00
 _0800F608:
-	.4byte 0x080503B0
+	.4byte gUnk_080503B0
 _0800F60C:
-	.4byte 0x080503BC
+	.4byte gUnk_080503BC
 _0800F610:
-	.4byte 0x080503CC
+	.4byte gUnk_080503CC
 _0800F614:
-	.4byte 0x080503D8
+	.4byte gUnk_080503D8

@@ -160,13 +160,13 @@ _0802AE68:
 _0802AE6C:
 	.4byte 0x0202EC10
 _0802AE70:
-	.4byte 0x08052F3C
+	.4byte gUnk_08052F3C
 _0802AE74:
-	.4byte 0x08052F44
+	.4byte gUnk_08052F44
 _0802AE78:
-	.4byte 0x08052F80
+	.4byte gUnk_08052F80
 _0802AE7C:
-	.4byte 0x08052F98
+	.4byte gUnk_08052F98
 
 	.global sub_0802AE80
 	.thumb_func
@@ -359,13 +359,13 @@ _0802AFDA:
 _0802AFF4:
 	.4byte 0x0202D74C
 _0802AFF8:
-	.4byte 0x08052FB0
+	.4byte gUnk_08052FB0
 _0802AFFC:
-	.4byte 0x08052F98
+	.4byte gUnk_08052F98
 _0802B000:
-	.4byte 0x08052FBC
+	.4byte gUnk_08052FBC
 _0802B004:
-	.4byte 0x08052F44
+	.4byte gUnk_08052F44
 
 	.global act_yellow_zinger
 	.thumb_func
@@ -883,9 +883,9 @@ _0802B3EC:
 _0802B3F0:
 	.4byte 0x02004298
 _0802B3F4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802B3F8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802B3FC:
 	.4byte sub_0802B59C
 _0802B400:
@@ -914,13 +914,13 @@ _0802B418:
 	b _0802B01C
 	.byte 0x00, 0x00
 _0802B434:
-	.4byte 0x08052FB0
+	.4byte gUnk_08052FB0
 _0802B438:
-	.4byte 0x08052F98
+	.4byte gUnk_08052F98
 _0802B43C:
-	.4byte 0x08052F44
+	.4byte gUnk_08052F44
 _0802B440:
-	.4byte 0x08052FD0
+	.4byte gUnk_08052FD0
 
 	.global react_yellow_zinger
 	.thumb_func
@@ -1036,21 +1036,21 @@ _0802B508:
 	.2byte 0xEFFF @ debug trap
 	b _0802B450
 _0802B520:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802B524:
 	.4byte 0x0202D74C
 _0802B528:
-	.4byte 0x08052FE4
+	.4byte gUnk_08052FE4
 _0802B52C:
-	.4byte 0x08052F98
+	.4byte gUnk_08052F98
 _0802B530:
-	.4byte 0x08052FF0
+	.4byte gUnk_08052FF0
 _0802B534:
-	.4byte 0x08052F44
+	.4byte gUnk_08052F44
 _0802B538:
 	.4byte 0x00000206
 _0802B53C:
-	.4byte 0x08052FB0
+	.4byte gUnk_08052FB0
 _0802B540:
 	.4byte 0x00000205
 
@@ -1104,9 +1104,9 @@ sub_0802B578: @ 0802B578
 	bx r1
 	.byte 0x00, 0x00
 _0802B594:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802B598:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0802B59C
 	.thumb_func
@@ -1205,6 +1205,6 @@ _0802B648:
 _0802B64C:
 	.4byte sub_03000138
 _0802B650:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802B654:
 	.4byte 0x0202D74C

@@ -65,13 +65,13 @@ _0801130C:
 	.2byte 0xEFFF @ debug trap
 	b _080112BE
 _08011324:
-	.4byte 0x08050968
+	.4byte gUnk_08050968
 _08011328:
-	.4byte 0x08050974
+	.4byte gUnk_08050974
 _0801132C:
-	.4byte 0x08050988
+	.4byte gUnk_08050988
 _08011330:
-	.4byte 0x08050994
+	.4byte gUnk_08050994
 
 	.global react_banana
 	.thumb_func
@@ -124,15 +124,15 @@ _08011378:
 	.2byte 0xEFFF @ debug trap
 	b _08011340
 _08011390:
-	.4byte 0x080509D0
+	.4byte gUnk_080509D0
 _08011394:
-	.4byte 0x08050974
+	.4byte gUnk_08050974
 _08011398:
-	.4byte 0x080509DC
+	.4byte gUnk_080509DC
 _0801139C:
-	.4byte 0x08050994
+	.4byte gUnk_08050994
 _080113A0:
-	.4byte 0x08050968
+	.4byte gUnk_08050968
 
 	.global sub_080113A4
 	.thumb_func
@@ -632,7 +632,7 @@ _0801173C:
 _08011740:
 	.4byte 0x0202D74C
 _08011744:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08011748:
 	.4byte 0x0000011F
 _0801174C:
@@ -899,7 +899,7 @@ _0801192C:
 	bgt _080118F4
 	b _0801168C
 _08011938:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0801193C:
 	.4byte 0x0202D74C
 _08011940:
@@ -907,7 +907,7 @@ _08011940:
 _08011944:
 	.4byte 0x0300566C
 _08011948:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0801194C
 	.thumb_func
@@ -1089,7 +1089,7 @@ _08011A90:
 _08011A94:
 	.4byte 0x0202D74C
 _08011A98:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08011A9C:
 	.4byte 0x0000011F
 _08011AA0:

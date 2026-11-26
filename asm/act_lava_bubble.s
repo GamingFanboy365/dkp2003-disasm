@@ -42,10 +42,10 @@ _08012EC8:
 	.2byte 0xEFFF @ debug trap
 	b _08012EAE
 _08012EE0:
-	.4byte 0x08050D1C
+	.4byte gUnk_08050D1C
 _08012EE4:
-	.4byte 0x08050D28
+	.4byte gUnk_08050D28
 _08012EE8:
-	.4byte 0x08050D40
+	.4byte gUnk_08050D40
 _08012EEC:
-	.4byte 0x08050D54
+	.4byte gUnk_08050D54

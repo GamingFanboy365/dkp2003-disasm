@@ -90,9 +90,9 @@ _080111FC:
 _08011218:
 	.4byte 0x00000060
 _0801121C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08011220:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08011224:
 	.4byte 0x02018F34
 _08011228:
@@ -107,13 +107,13 @@ _08011228:
 	.2byte 0xEFFF @ debug trap
 	b _0801118A
 _08011240:
-	.4byte 0x080508E0
+	.4byte gUnk_080508E0
 _08011244:
-	.4byte 0x080508EC
+	.4byte gUnk_080508EC
 _08011248:
-	.4byte 0x08050904
+	.4byte gUnk_08050904
 _0801124C:
-	.4byte 0x08050918
+	.4byte gUnk_08050918
 
 	.global init_tnt_launcher
 	.thumb_func
@@ -163,10 +163,10 @@ _0801128A:
 	b _0801125A
 	.byte 0x00, 0x00
 _080112A4:
-	.4byte 0x080508E0
+	.4byte gUnk_080508E0
 _080112A8:
-	.4byte 0x080508EC
+	.4byte gUnk_080508EC
 _080112AC:
-	.4byte 0x08050954
+	.4byte gUnk_08050954
 _080112B0:
-	.4byte 0x08050918
+	.4byte gUnk_08050918

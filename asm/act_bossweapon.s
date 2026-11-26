@@ -49,7 +49,7 @@ _0802CADC:
 _0802CAE0:
 	.4byte 0x00000000
 _0802CAE4:
-	.4byte 0x0884FEFC
+	.4byte gUnk_0884FEFC
 _0802CAE8:
 	.4byte 0x02018F34
 _0802CAEC:
@@ -98,13 +98,13 @@ _0802CB30:
 _0802CB4C:
 	.4byte 0x0202EC4C
 _0802CB50:
-	.4byte 0x08053668
+	.4byte gUnk_08053668
 _0802CB54:
-	.4byte 0x08053674
+	.4byte gUnk_08053674
 _0802CB58:
-	.4byte 0x0805368C
+	.4byte gUnk_0805368C
 _0802CB5C:
-	.4byte 0x080536C8
+	.4byte gUnk_080536C8
 
 	.global act_bossweapon
 	.thumb_func
@@ -505,9 +505,9 @@ _0802CE58:
 _0802CE5C:
 	.4byte 0x0202EC50
 _0802CE60:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0802CE64:
-	.4byte 0x0884FF3C
+	.4byte gUnk_0884FF3C
 _0802CE68:
 	.4byte 0xFFFFB000
 _0802CE6C:
@@ -519,11 +519,11 @@ _0802CE74:
 _0802CE78:
 	.4byte 0x02004298
 _0802CE7C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802CE80:
-	.4byte 0x0884FF7C
+	.4byte gUnk_0884FF7C
 _0802CE84:
-	.4byte 0x0884FF9C
+	.4byte gUnk_0884FF9C
 _0802CE88:
 	.4byte sub_0802C950
 _0802CE8C:
@@ -531,7 +531,7 @@ _0802CE8C:
 _0802CE90:
 	.4byte 0x02018F34
 _0802CE94:
-	.4byte 0x0884FFFC
+	.4byte gUnk_0884FFFC
 _0802CE98:
 	.4byte 0x00007FFF
 _0802CE9C:
@@ -699,13 +699,13 @@ _0802CFD8:
 _0802CFDC:
 	.4byte sub_03000134
 _0802CFE0:
-	.4byte 0x08053668
+	.4byte gUnk_08053668
 _0802CFE4:
-	.4byte 0x08053674
+	.4byte gUnk_08053674
 _0802CFE8:
-	.4byte 0x080536D8
+	.4byte gUnk_080536D8
 _0802CFEC:
-	.4byte 0x0805368C
+	.4byte gUnk_0805368C
 _0802CFF0:
 	.4byte 0x0000019F
 
@@ -827,27 +827,27 @@ _0802D0C0:
 	.2byte 0xEFFF @ debug trap
 	b _0802D004
 _0802D0D8:
-	.4byte 0x0884FF5C
+	.4byte gUnk_0884FF5C
 _0802D0DC:
-	.4byte 0x0884FFDC
+	.4byte gUnk_0884FFDC
 _0802D0E0:
-	.4byte 0x0884FFBC
+	.4byte gUnk_0884FFBC
 _0802D0E4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0802D0E8:
 	.4byte 0x0202D74C
 _0802D0EC:
-	.4byte 0x080536E8
+	.4byte gUnk_080536E8
 _0802D0F0:
-	.4byte 0x08053674
+	.4byte gUnk_08053674
 _0802D0F4:
-	.4byte 0x080536F4
+	.4byte gUnk_080536F4
 _0802D0F8:
-	.4byte 0x0805368C
+	.4byte gUnk_0805368C
 _0802D0FC:
 	.4byte 0x00000286
 _0802D100:
-	.4byte 0x08053668
+	.4byte gUnk_08053668
 _0802D104:
 	.4byte 0x00000285
 
@@ -891,7 +891,7 @@ sub_0802D128: @ 0802D128
 	bx lr
 	.byte 0x00, 0x00
 _0802D144:
-	.4byte 0x0884FF7C
+	.4byte gUnk_0884FF7C
 
 	.global init_bossbomb_fire
 	.thumb_func
@@ -944,13 +944,13 @@ _0802D18A:
 	.2byte 0xEFFF @ debug trap
 	b _0802D152
 _0802D1A4:
-	.4byte 0x08053668
+	.4byte gUnk_08053668
 _0802D1A8:
-	.4byte 0x08053674
+	.4byte gUnk_08053674
 _0802D1AC:
-	.4byte 0x0805368C
+	.4byte gUnk_0805368C
 _0802D1B0:
-	.4byte 0x08053708
+	.4byte gUnk_08053708
 
 	.global act_bossbomb_fire
 	.thumb_func
@@ -1017,13 +1017,13 @@ _0802D224:
 _0802D228:
 	.4byte 0x0201AA4C
 _0802D22C:
-	.4byte 0x08053668
+	.4byte gUnk_08053668
 _0802D230:
-	.4byte 0x08053674
+	.4byte gUnk_08053674
 _0802D234:
-	.4byte 0x0805371C
+	.4byte gUnk_0805371C
 _0802D238:
-	.4byte 0x0805368C
+	.4byte gUnk_0805368C
 _0802D23C:
 	.4byte 0x000002C5
 

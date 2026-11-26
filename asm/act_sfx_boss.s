@@ -47,13 +47,13 @@ _08028996:
 	b _08028976
 	.byte 0x00, 0x00
 _080289B0:
-	.4byte 0x08052CF8
+	.4byte gUnk_08052CF8
 _080289B4:
-	.4byte 0x08052D04
+	.4byte gUnk_08052D04
 _080289B8:
-	.4byte 0x08052D18
+	.4byte gUnk_08052D18
 _080289BC:
-	.4byte 0x08052D28
+	.4byte gUnk_08052D28
 
 	.global act_sfx_boss
 	.thumb_func
@@ -107,9 +107,9 @@ _08028A14:
 	bx r0
 	.byte 0x00, 0x00
 _08028A1C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028A20:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global free_sfx_boss
 	.thumb_func

@@ -643,13 +643,13 @@ _08027920:
 _08027924:
 	.4byte 0x0202EBF4
 _08027928:
-	.4byte 0x08052BD0
+	.4byte gUnk_08052BD0
 _0802792C:
-	.4byte 0x08052BDC
+	.4byte gUnk_08052BDC
 _08027930:
-	.4byte 0x08052BF0
+	.4byte gUnk_08052BF0
 _08027934:
-	.4byte 0x08052C00
+	.4byte gUnk_08052C00
 _08027938:
 	.4byte 0x0000063A
 
@@ -1502,13 +1502,13 @@ _08027FA4:
 _08027FA8:
 	.4byte 0x0300566C
 _08027FAC:
-	.4byte 0x08052BD0
+	.4byte gUnk_08052BD0
 _08027FB0:
-	.4byte 0x08052BDC
+	.4byte gUnk_08052BDC
 _08027FB4:
-	.4byte 0x08052C00
+	.4byte gUnk_08052C00
 _08027FB8:
-	.4byte 0x08052C3C
+	.4byte gUnk_08052C3C
 
 	.global sub_08027FBC
 	.thumb_func
@@ -1593,9 +1593,9 @@ _08028048:
 _0802804C:
 	.4byte 0x0202D74C
 _08028050:
-	.4byte 0x0884EFEC
+	.4byte gUnk_0884EFEC
 _08028054:
-	.4byte 0x0884F010
+	.4byte gUnk_0884F010
 
 	.global sub_08028058
 	.thumb_func
@@ -1796,9 +1796,9 @@ _0802819C:
 _080281A0:
 	.4byte 0x0200436C
 _080281A4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080281A8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global react_comp_boss
 	.thumb_func
@@ -1874,17 +1874,17 @@ _08028216:
 _08028230:
 	.4byte 0x00002666
 _08028234:
-	.4byte 0x08052C4C
+	.4byte gUnk_08052C4C
 _08028238:
-	.4byte 0x08052BDC
+	.4byte gUnk_08052BDC
 _0802823C:
-	.4byte 0x08052C58
+	.4byte gUnk_08052C58
 _08028240:
-	.4byte 0x08052C00
+	.4byte gUnk_08052C00
 _08028244:
 	.4byte 0x00000843
 _08028248:
-	.4byte 0x08052BD0
+	.4byte gUnk_08052BD0
 _0802824C:
 	.4byte 0x00000842
 
@@ -2288,9 +2288,9 @@ _08028564:
 _08028568:
 	.4byte 0x0202D74C
 _0802856C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028570:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08028574:
 	.4byte sub_03000744
 _08028578:

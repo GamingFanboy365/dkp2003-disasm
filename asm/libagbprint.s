@@ -510,7 +510,7 @@ AGBAssert: @ 08032598
 	.2byte 0xEFFF @ debug trap
 	b _080325D0
 _080325C0:
-	.4byte 0x0884CC48
+	.4byte gUnk_0884CC48
 _080325C4:
 	ldr r0, _080325D8
 	ldr r2, [r7, #4]
@@ -523,4 +523,4 @@ _080325D0:
 	pop {r0}
 	bx r0
 _080325D8:
-	.4byte 0x0884CC7C
+	.4byte gUnk_0884CC7C

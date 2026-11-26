@@ -71,9 +71,9 @@ _08000528:
 _0800052C:
 	.4byte 0x0202D74C
 _08000530:
-	.4byte 0x0804F5A0
+	.4byte gUnk_0804F5A0
 _08000534:
-	.4byte 0x0804F5AC
+	.4byte gUnk_0804F5AC
 _08000538:
 	.4byte 0x04000050
 _0800053C:
@@ -147,7 +147,7 @@ _080005C8:
 _080005CC:
 	.4byte 0xFFFFDDCC
 _080005D0:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _080005D4:
 	.4byte 0x04000208
 _080005D8:
@@ -390,15 +390,15 @@ _080007B0:
 _080007B4:
 	.4byte 0x0202D74C
 _080007B8:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _080007BC:
 	.4byte 0x0200436C
 _080007C0:
-	.4byte 0x0804F5C0
+	.4byte gUnk_0804F5C0
 _080007C4:
-	.4byte 0x0804F5A0
+	.4byte gUnk_0804F5A0
 _080007C8:
-	.4byte 0x08051654
+	.4byte gUnk_08051654
 _080007CC:
 	movs r1, #0x2a
 	ldrsh r4, [r5, r1]
@@ -438,11 +438,11 @@ _080007FC:
 _08000814:
 	.4byte 0x030055A4
 _08000818:
-	.4byte 0x0804F5CC
+	.4byte gUnk_0804F5CC
 _0800081C:
-	.4byte 0x0804F5E0
+	.4byte gUnk_0804F5E0
 _08000820:
-	.4byte 0x0804F5EC
+	.4byte gUnk_0804F5EC
 
 	.global game_process
 	.thumb_func
@@ -593,9 +593,9 @@ _08000954:
 _08000958:
 	.4byte 0x04000050
 _0800095C:
-	.4byte 0x0804F628
+	.4byte gUnk_0804F628
 _08000960:
-	.4byte 0x0804F634
+	.4byte gUnk_0804F634
 _08000964:
 	pop {r4, r5, r6}
 	pop {r0}
@@ -653,11 +653,11 @@ _080009C6:
 	b _08000896
 	.byte 0x00, 0x00
 _080009D4:
-	.4byte 0x0804F644
+	.4byte gUnk_0804F644
 _080009D8:
-	.4byte 0x0804F634
+	.4byte gUnk_0804F634
 _080009DC:
-	.4byte 0x0804F654
+	.4byte gUnk_0804F654
 _080009E0:
 	.4byte 0x0300565C
 _080009E4:
@@ -874,9 +874,9 @@ _08000B58:
 _08000B6C:
 	.4byte 0x45535241
 _08000B70:
-	.4byte 0x0804F664
+	.4byte gUnk_0804F664
 _08000B74:
-	.4byte 0x0804F674
+	.4byte gUnk_0804F674
 
 	.global sub_08000B78
 	.thumb_func
@@ -929,9 +929,9 @@ _08000BBC:
 _08000BD0:
 	.4byte 0x45535241
 _08000BD4:
-	.4byte 0x0804F690
+	.4byte gUnk_0804F690
 _08000BD8:
-	.4byte 0x0804F6A8
+	.4byte gUnk_0804F6A8
 
 	.global sub_08000BDC
 	.thumb_func
@@ -951,7 +951,7 @@ _08000BF0:
 _08000BF4:
 	.4byte 0x0200429C
 _08000BF8:
-	.4byte 0x0804F664
+	.4byte gUnk_0804F664
 
 	.global sub_08000BFC
 	.thumb_func
@@ -971,7 +971,7 @@ _08000C10:
 _08000C14:
 	.4byte 0x020042A0
 _08000C18:
-	.4byte 0x0804F690
+	.4byte gUnk_0804F690
 
 	.global sub_08000C1C
 	.thumb_func
@@ -1131,7 +1131,7 @@ _08000D30:
 _08000D34:
 	.4byte 0x0202D74C
 _08000D38:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _08000D3C:
 	.4byte 0x020042A4
 _08000D40:
@@ -1295,7 +1295,7 @@ _08000E5C:
 _08000E6C:
 	.4byte 0x00000000
 _08000E70:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08000E74:
 	.4byte 0x0600C000
 _08000E78:
@@ -1313,7 +1313,7 @@ _08000E8C:
 _08000E90:
 	.4byte 0x06000640
 _08000E94:
-	.4byte 0x081136E0
+	.4byte gUnk_081136E0
 _08000E98:
 	.4byte 0x06000040
 _08000E9C:
@@ -1464,7 +1464,7 @@ _08000FB0:
 	ldr r3, _08000FC4
 	b _08000DEA
 _08000FB4:
-	.4byte 0x081108A0
+	.4byte gUnk_081108A0
 _08000FB8:
 	.4byte 0x06000180
 _08000FBC:
@@ -1590,7 +1590,7 @@ _0800108C:
 _08001090:
 	.4byte 0x0202D74C
 _08001094:
-	.4byte 0x08051D40
+	.4byte gUnk_08051D40
 _08001098:
 	.4byte 0x02004320
 _0800109C:
@@ -1839,13 +1839,13 @@ _08001222:
 	bx r0
 	.byte 0x00, 0x00
 _08001274:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08001278:
 	.4byte 0x0600C000
 _0800127C:
 	.4byte 0x06008280
 _08001280:
-	.4byte 0x081136E0
+	.4byte gUnk_081136E0
 _08001284:
 	.4byte 0x06004000
 _08001288:
@@ -1957,19 +1957,19 @@ _0800133C:
 _08001340:
 	.4byte 0x0100A000
 _08001344:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _08001348:
 	.4byte 0x02004380
 _0800134C:
 	.4byte 0x02004384
 _08001350:
-	.4byte 0x0201838C
+	.4byte gObjFreeList
 _08001354:
-	.4byte 0x02004378
+	.4byte gObjStaticHitList
 _08001358:
 	.4byte 0x0200437C
 _0800135C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08001360:
 	adds r3, r0, r5
 	subs r1, #1
@@ -2026,7 +2026,7 @@ _080013C0:
 _080013C4:
 	.4byte 0x02004370
 _080013C8:
-	.4byte 0x0201838C
+	.4byte gObjFreeList
 _080013CC:
 	.4byte 0x02018594
 _080013D0:

@@ -51,7 +51,7 @@ _08028A52:
 _08028A70:
 	.4byte 0x00000001
 _08028A74:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028A78:
 	asrs r2, r3, #5
 	str r2, [r5, #0x3c]
@@ -119,17 +119,17 @@ _08028ADE:
 _08028AF8:
 	.4byte 0x00000002
 _08028AFC:
-	.4byte 0x08052D64
+	.4byte gUnk_08052D64
 _08028B00:
 	.4byte 0x02018F34
 _08028B04:
-	.4byte 0x08052D7C
+	.4byte gUnk_08052D7C
 _08028B08:
-	.4byte 0x08052D88
+	.4byte gUnk_08052D88
 _08028B0C:
-	.4byte 0x08052DA0
+	.4byte gUnk_08052DA0
 _08028B10:
-	.4byte 0x08052DB4
+	.4byte gUnk_08052DB4
 
 	.global act_weapon_icon
 	.thumb_func
@@ -339,13 +339,13 @@ _08028C74:
 _08028C8C:
 	.4byte 0x00000100
 _08028C90:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028C94:
 	.4byte 0x02018F34
 _08028C98:
-	.4byte 0x08052D64
+	.4byte gUnk_08052D64
 _08028C9C:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08028CA0:
 	adds r0, r5, #0
 	bl sub_08001FE8
@@ -524,11 +524,11 @@ _08028DE2:
 _08028DE8:
 	.4byte 0x0202D74C
 _08028DEC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028DF0:
-	.4byte 0x08052D64
+	.4byte gUnk_08052D64
 _08028DF4:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _08028DF8:
 	.4byte 0x02018F34
 
@@ -674,9 +674,9 @@ _08028EFE:
 _08028F10:
 	.4byte 0x02018F34
 _08028F14:
-	.4byte 0x0202EC04
+	.4byte gRedZingerBuzzOwner
 _08028F18:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08028F1C:
 	.4byte 0x0202D74C
 
@@ -1045,7 +1045,7 @@ _080291C4:
 _080291C8:
 	.4byte 0x0202D74C
 _080291CC:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _080291D0:
 	.4byte 0x0202EC00
 _080291D4:
@@ -1055,7 +1055,7 @@ _080291D8:
 _080291DC:
 	.4byte 0x00000825
 _080291E0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _080291E4:
 	.4byte sub_030001E8
 _080291E8:

@@ -180,23 +180,23 @@ _08011BE0:
 _08011BFC:
 	.4byte 0x0202D74C
 _08011C00:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08011C04:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08011C08:
 	.4byte 0x02023F8C
 _08011C0C:
 	.4byte 0x02023F88
 _08011C10:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08011C14:
-	.4byte 0x080509EC
+	.4byte gUnk_080509EC
 _08011C18:
-	.4byte 0x080509F8
+	.4byte gUnk_080509F8
 _08011C1C:
-	.4byte 0x08050A10
+	.4byte gUnk_08050A10
 _08011C20:
-	.4byte 0x08050A4C
+	.4byte gUnk_08050A4C
 
 	.global act_race_monitor
 	.thumb_func
@@ -232,6 +232,7 @@ _08011C46:
 	ldr r0, [r1, r2]
 	mov pc, r0
 	.byte 0x00, 0x00
+	.global _08011C60
 _08011C60:
 	.4byte _08011C8C
 	.4byte _08011CC2
@@ -614,33 +615,33 @@ _08011F28:
 _08011F44:
 	.4byte 0x0202D74C
 _08011F48:
-	.4byte 0x08011C60
+	.4byte _08011C60
 _08011F4C:
 	.4byte 0x0300566C
 _08011F50:
 	.4byte 0x0300565E
 _08011F54:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _08011F58:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08011F5C:
-	.4byte 0x080511B4
+	.4byte gUnk_080511B4
 _08011F60:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _08011F64:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08011F68:
 	.4byte 0x0202DE5C
 _08011F6C:
 	.4byte 0x0000030F
 _08011F70:
-	.4byte 0x080509EC
+	.4byte gUnk_080509EC
 _08011F74:
-	.4byte 0x080509F8
+	.4byte gUnk_080509F8
 _08011F78:
-	.4byte 0x08050A10
+	.4byte gUnk_08050A10
 _08011F7C:
-	.4byte 0x08050A60
+	.4byte gUnk_08050A60
 
 	.global sub_08011F80
 	.thumb_func
@@ -1183,15 +1184,15 @@ _08012356:
 _08012378:
 	.4byte 0x0202D74C
 _0801237C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08012380:
-	.4byte 0x08050A74
+	.4byte gUnk_08050A74
 _08012384:
-	.4byte 0x080509F8
+	.4byte gUnk_080509F8
 _08012388:
-	.4byte 0x08050A10
+	.4byte gUnk_08050A10
 _0801238C:
-	.4byte 0x08050A80
+	.4byte gUnk_08050A80
 
 	.global act_random
 	.thumb_func
@@ -1278,4 +1279,4 @@ _08012424:
 _08012428:
 	.4byte 0x0201AA4C
 _0801242C:
-	.4byte 0x08713650
+	.4byte gUnk_08713650

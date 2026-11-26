@@ -122,13 +122,13 @@ _080105B8:
 	.2byte 0xEFFF @ debug trap
 	b _08010502
 _080105D0:
-	.4byte 0x08050654
+	.4byte gUnk_08050654
 _080105D4:
-	.4byte 0x08050660
+	.4byte gUnk_08050660
 _080105D8:
-	.4byte 0x08050674
+	.4byte gUnk_08050674
 _080105DC:
-	.4byte 0x08050684
+	.4byte gUnk_08050684
 
 	.global act_powerup
 	.thumb_func
@@ -206,7 +206,7 @@ _0801065C:
 _08010660:
 	.4byte 0x00000000
 _08010664:
-	.4byte 0x080506C0
+	.4byte gUnk_080506C0
 _08010668:
 	.4byte 0x02018F34
 _0801066C:
@@ -347,13 +347,13 @@ _08010770:
 _08010774:
 	.4byte 0x0201AA4C
 _08010778:
-	.4byte 0x08050654
+	.4byte gUnk_08050654
 _0801077C:
-	.4byte 0x08050660
+	.4byte gUnk_08050660
 _08010780:
-	.4byte 0x080506E0
+	.4byte gUnk_080506E0
 _08010784:
-	.4byte 0x08050684
+	.4byte gUnk_08050684
 
 	.global react_powerup
 	.thumb_func
@@ -453,7 +453,7 @@ _080107FE:
 _08010838:
 	.4byte 0x0000003C
 _0801083C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08010840:
 	.4byte 0x02018F34
 _08010844:
@@ -511,12 +511,12 @@ _08010896:
 _080108B0:
 	.4byte 0x0202D74C
 _080108B4:
-	.4byte 0x080506EC
+	.4byte gUnk_080506EC
 _080108B8:
-	.4byte 0x08050660
+	.4byte gUnk_08050660
 _080108BC:
-	.4byte 0x080506F8
+	.4byte gUnk_080506F8
 _080108C0:
-	.4byte 0x08050684
+	.4byte gUnk_08050684
 _080108C4:
-	.4byte 0x08050654
+	.4byte gUnk_08050654

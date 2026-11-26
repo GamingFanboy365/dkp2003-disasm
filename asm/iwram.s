@@ -436,10 +436,10 @@ sub_03000744: @ 03000744
 	.byte 0x01, 0x00, 0x40, 0xE0, 0x02, 0x09, 0x10, 0xE3, 0x01, 0x08, 0x40, 0x12, 0x02, 0x01, 0x10, 0xE3
 	.byte 0x01, 0x08, 0x80, 0x12, 0x1E, 0xFF, 0x2F, 0xE1
 _0300082C:
-	.4byte 0x0803EA90
+	.4byte gUnk_0803EA90
 	.byte 0x94, 0xEC, 0x03, 0x08, 0x98, 0xEE, 0x03, 0x08
 _03000838:
-	.4byte 0x0803F09A
+	.4byte gUnk_0803F09A
 
 	.global sub_0300083C
 	.type sub_0300083C, %function
@@ -1385,27 +1385,27 @@ _030015BC:
 _030015C0:
 	.4byte 0x03005660
 _030015C4:
-	.4byte 0x08638C30
+	.4byte gUnk_08638C30
 _030015C8:
 	.4byte 0x020185AC
 _030015CC:
 	.4byte 0x0300566C
 _030015D0:
-	.4byte 0x08BB4F90
+	.4byte gUnk_08BB4F90
 _030015D4:
-	.4byte 0x080537F0
+	.4byte gUnk_080537F0
 _030015D8:
-	.4byte 0x0803F49C
+	.4byte gUnk_0803F49C
 _030015DC:
-	.4byte 0x08715A68
+	.4byte gUnk_08715A68
 _030015E0:
 	.4byte 0x0200436C
 _030015E4:
 	.4byte 0x02018F34
 _030015E8:
-	.4byte 0x080537E4
+	.4byte gUnk_080537E4
 _030015EC:
-	.4byte 0x080537D8
+	.4byte gUnk_080537D8
 _030015F0:
 	ands r8, r7, #0x80
 	beq _03001608
@@ -2591,9 +2591,9 @@ _03002728:
 _030027E4:
 	.4byte 0x0201AA4C
 _030027E8:
-	.4byte 0x080537E4
+	.4byte gUnk_080537E4
 _030027EC:
-	.4byte 0x080537D8
+	.4byte gUnk_080537D8
 
 	.global sub_030027F0
 	.type sub_030027F0, %function
@@ -3116,13 +3116,13 @@ _03002F08:
 _03002F28:
 	.4byte 0x0200437C
 _03002F2C:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 _03002F30:
-	.4byte 0x08BB4F94
+	.4byte gUnk_08BB4F94
 _03002F34:
-	.4byte 0x08053800
+	.4byte gUnk_08053800
 _03002F38:
-	.4byte 0x02004378
+	.4byte gObjStaticHitList
 
 	.global sub_03002F3C
 	.type sub_03002F3C, %function
@@ -3804,11 +3804,11 @@ _03003910:
 	bx ip
 	b _030038FC
 _0300392C:
-	.4byte 0x02004348
+	.4byte gFrameCount
 _03003930:
-	.4byte 0x02004374
+	.4byte gObjProcessList
 _03003934:
-	.4byte 0x08713FD0
+	.4byte gUnk_08713FD0
 
 	.global sub_03003938
 	.type sub_03003938, %function

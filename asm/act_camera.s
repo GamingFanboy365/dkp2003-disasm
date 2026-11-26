@@ -68,17 +68,17 @@ _0800F0F0:
 _0800F128:
 	.4byte 0x00000000
 _0800F12C:
-	.4byte 0x080502F4
+	.4byte gUnk_080502F4
 _0800F130:
-	.4byte 0x08050310
+	.4byte gUnk_08050310
 _0800F134:
-	.4byte 0x0805034C
+	.4byte gUnk_0805034C
 _0800F138:
-	.4byte 0x08050360
+	.4byte gUnk_08050360
 _0800F13C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800F140:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800F144:
 	ldr r0, [r4]
 	lsls r2, r0, #2
@@ -217,25 +217,25 @@ _0800F250:
 	.2byte 0xEFFF @ debug trap
 	b _0800F0D2
 _0800F268:
-	.4byte 0x0884E25C
+	.4byte gUnk_0884E25C
 _0800F26C:
-	.4byte 0x0884E2C8
+	.4byte gUnk_0884E2C8
 _0800F270:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800F274:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800F278:
 	.4byte sub_03000134
 _0800F27C:
 	.4byte sub_03000138
 _0800F280:
-	.4byte 0x08050374
+	.4byte gUnk_08050374
 _0800F284:
-	.4byte 0x0805034C
+	.4byte gUnk_0805034C
 _0800F288:
-	.4byte 0x08050360
+	.4byte gUnk_08050360
 _0800F28C:
-	.4byte 0x08050310
+	.4byte gUnk_08050310
 _0800F290:
 	.4byte 0x000001DF
 
@@ -251,6 +251,7 @@ camera_op_set: @ 0800F294
 	lsls r1, r0, #2
 	ldr r0, [r1, r3]
 	mov pc, r0
+	.global _0800F2A4
 _0800F2A4:
 	.4byte _0800F2C0
 	.4byte _0800F2D0
@@ -347,21 +348,21 @@ _0800F338:
 	.2byte 0xEFFF @ debug trap
 	b _0800F2CA
 _0800F350:
-	.4byte 0x0800F2A4
+	.4byte _0800F2A4
 _0800F354:
 	.4byte 0x0200436C
 _0800F358:
 	.4byte 0x0202D74C
 _0800F35C:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0800F360:
-	.4byte 0x08050380
+	.4byte gUnk_08050380
 _0800F364:
-	.4byte 0x0805034C
+	.4byte gUnk_0805034C
 _0800F368:
-	.4byte 0x08050388
+	.4byte gUnk_08050388
 _0800F36C:
-	.4byte 0x08050310
+	.4byte gUnk_08050310
 _0800F370:
 	.4byte 0x00000242
 
@@ -411,9 +412,9 @@ _0800F3BC:
 _0800F3C0:
 	.4byte 0x00000000
 _0800F3C4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800F3C8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800F3CC:
 	adds r0, r5, #0
 	bl sub_0800E9B8
@@ -485,19 +486,19 @@ _0800F450:
 _0800F454:
 	.4byte 0x0202D74C
 _0800F458:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0800F45C:
 	.4byte 0x02023F78
 _0800F460:
 	.4byte 0x02023F74
 _0800F464:
-	.4byte 0x08050374
+	.4byte gUnk_08050374
 _0800F468:
-	.4byte 0x0805034C
+	.4byte gUnk_0805034C
 _0800F46C:
-	.4byte 0x08050398
+	.4byte gUnk_08050398
 _0800F470:
-	.4byte 0x08050310
+	.4byte gUnk_08050310
 _0800F474:
 	.4byte 0x0000024A
 
@@ -523,6 +524,7 @@ _0800F490:
 	lsls r1, r3, #2
 	ldr r0, [r1, r2]
 	mov pc, r0
+	.global _0800F498
 _0800F498:
 	.4byte _0800F4B4
 	.4byte _0800F4CC
@@ -665,26 +667,26 @@ _0800F598:
 	.2byte 0xEFFF @ debug trap
 	b _0800F484
 _0800F5B0:
-	.4byte 0x0800F498
+	.4byte _0800F498
 _0800F5B4:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800F5B8:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800F5BC:
 	.4byte 0x02023F78
 _0800F5C0:
 	.4byte 0x02023F74
 _0800F5C4:
-	.4byte 0x08050380
+	.4byte gUnk_08050380
 _0800F5C8:
-	.4byte 0x08050310
+	.4byte gUnk_08050310
 _0800F5CC:
-	.4byte 0x080503A4
+	.4byte gUnk_080503A4
 _0800F5D0:
-	.4byte 0x0805034C
+	.4byte gUnk_0805034C
 _0800F5D4:
 	.4byte 0x00000285
 _0800F5D8:
-	.4byte 0x08050374
+	.4byte gUnk_08050374
 _0800F5DC:
 	.4byte 0x0000026E

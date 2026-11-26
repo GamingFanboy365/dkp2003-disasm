@@ -273,7 +273,7 @@ _0800AEF0:
 _0800AEF4:
 	.4byte 0x0202D74C
 _0800AEF8:
-	.4byte 0x0805017C
+	.4byte gUnk_0805017C
 _0800AEFC:
 	.4byte 0x020234A8
 _0800AF00:
@@ -1055,26 +1055,27 @@ _0800B4B0:
 	.byte 0x10, 0x48, 0x08, 0x49, 0x00, 0x90, 0x08, 0x4A, 0x05, 0x48, 0x0F, 0x4B, 0x26, 0xF0, 0xCA, 0xFF
 	.byte 0x27, 0xF0, 0x5E, 0xF8, 0xFF, 0xEF, 0xFF, 0xF7, 0x21, 0xFC, 0x00, 0x00
 _0800B4D4:
-	.4byte 0x080501DC
+	.4byte gUnk_080501DC
 _0800B4D8:
-	.4byte 0x080501E0
+	.4byte gUnk_080501E0
 _0800B4DC:
-	.4byte 0x0805021C
+	.4byte gUnk_0805021C
 _0800B4E0:
-	.4byte 0x08050234
+	.4byte gUnk_08050234
 _0800B4E4:
 	.4byte 0x00000171
 _0800B4E8:
 	.4byte 0x0202D74C
 _0800B4EC:
-	.4byte 0x0884E24C
+	.4byte gUnk_0884E24C
 _0800B4F0:
-	.4byte 0x0884E20C
+	.4byte gUnk_0884E20C
 _0800B4F4:
-	.4byte 0x0884E1FC
+	.4byte gUnk_0884E1FC
 _0800B4F8:
-	.4byte 0x0884E1EC
-	.byte 0x48, 0x02, 0x05, 0x08, 0x3D, 0x01, 0x00, 0x00
+	.4byte gUnk_0884E1EC
+	.4byte gUnk_08050248
+	.byte 0x3D, 0x01, 0x00, 0x00
 
 	.global sub_0800B504
 	.thumb_func
@@ -3400,13 +3401,13 @@ _0800C5E8:
 	b _0800C450
 	.byte 0x00, 0x00
 _0800C5F4:
-	.4byte 0x08050254
+	.4byte gUnk_08050254
 _0800C5F8:
-	.4byte 0x080501E0
+	.4byte gUnk_080501E0
 _0800C5FC:
-	.4byte 0x0805021C
+	.4byte gUnk_0805021C
 _0800C600:
-	.4byte 0x08050260
+	.4byte gUnk_08050260
 _0800C604:
 	.4byte 0x0000040A
 _0800C608:
@@ -3728,7 +3729,7 @@ _0800C838:
 _0800C83C:
 	.4byte 0x0202D74C
 _0800C840:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800C844:
 	.4byte 0xFFFF8000
 _0800C848:
@@ -5121,7 +5122,7 @@ _0800D2CC:
 _0800D330:
 	.4byte 0x0202DE5C
 _0800D334:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0800D338
 	.thumb_func
@@ -6185,7 +6186,7 @@ _0800DAEC:
 _0800DAF0:
 	.4byte 0x00001770
 _0800DAF4:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800DAF8:
 	.4byte 0x000007CF
 _0800DAFC:
@@ -6616,9 +6617,9 @@ _0800DE00:
 _0800DE04:
 	.4byte 0x0200436C
 _0800DE08:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800DE0C:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0800DE10
 	.thumb_func
@@ -7086,9 +7087,9 @@ _0800E194:
 _0800E198:
 	.4byte 0x0200436C
 _0800E19C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800E1A0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800E1A4:
 	.4byte sub_0800E8C8
 _0800E1A8:
@@ -7475,6 +7476,7 @@ _0800E45C:
 	lsls r0, r3, #2
 	ldr r1, [r0, r2]
 	mov pc, r1
+	.global _0800E46C
 _0800E46C:
 	.4byte _0800E518
 	.4byte _0800E566
@@ -7711,23 +7713,23 @@ _0800E666:
 	b _0800E456
 	.byte 0x00, 0x00
 _0800E680:
-	.4byte 0x0800E46C
+	.4byte _0800E46C
 _0800E684:
 	.4byte 0xFFFEFFFF
 _0800E688:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800E68C:
-	.4byte 0x08050270
+	.4byte gUnk_08050270
 _0800E690:
-	.4byte 0x0805021C
+	.4byte gUnk_0805021C
 _0800E694:
-	.4byte 0x0805027C
+	.4byte gUnk_0805027C
 _0800E698:
-	.4byte 0x080501E0
+	.4byte gUnk_080501E0
 _0800E69C:
 	.4byte 0x00000B33
 _0800E6A0:
-	.4byte 0x08050248
+	.4byte gUnk_08050248
 _0800E6A4:
 	.4byte 0x00000B32
 
@@ -8167,9 +8169,9 @@ _0800E9A8:
 _0800E9AC:
 	.4byte 0x0200436C
 _0800E9B0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800E9B4:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 
 	.global sub_0800E9B8
 	.thumb_func
@@ -8603,9 +8605,9 @@ _0800ECFC:
 _0800ED00:
 	.4byte 0x02023F74
 _0800ED04:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800ED08:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800ED0C:
 	.4byte sub_030001E8
 _0800ED10:
@@ -9063,17 +9065,17 @@ _0800F07A:
 _0800F084:
 	.4byte 0x0300565E
 _0800F088:
-	.4byte 0x08050290
+	.4byte gUnk_08050290
 _0800F08C:
-	.4byte 0x080502A0
+	.4byte gUnk_080502A0
 _0800F090:
-	.4byte 0x080502A8
+	.4byte gUnk_080502A8
 _0800F094:
-	.4byte 0x080502B0
+	.4byte gUnk_080502B0
 _0800F098:
-	.4byte 0x080502B8
+	.4byte gUnk_080502B8
 _0800F09C:
-	.4byte 0x080502C8
+	.4byte gUnk_080502C8
 _0800F0A0:
 	.4byte 0x0300565C
 _0800F0A4:
@@ -9087,4 +9089,4 @@ _0800F0B0:
 _0800F0B4:
 	.4byte 0xFFFFFE00
 _0800F0B8:
-	.4byte 0x080502D8
+	.4byte gUnk_080502D8

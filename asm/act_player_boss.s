@@ -835,13 +835,13 @@ _08024CDC:
 _08024CE0:
 	.4byte sub_0300034C
 _08024CE4:
-	.4byte 0x080529BC
+	.4byte gUnk_080529BC
 _08024CE8:
-	.4byte 0x080529C8
+	.4byte gUnk_080529C8
 _08024CEC:
-	.4byte 0x080529E0
+	.4byte gUnk_080529E0
 _08024CF0:
-	.4byte 0x080529F4
+	.4byte gUnk_080529F4
 _08024CF4:
 	.4byte 0x000008E2
 
@@ -2564,8 +2564,12 @@ _08025ACC:
 	.4byte sub_03000134
 _08025AD0:
 	.4byte sub_03000138
-	.byte 0x6C, 0x56, 0x00, 0x03, 0xBC, 0x29, 0x05, 0x08, 0xC8, 0x29, 0x05, 0x08, 0x30, 0x2A, 0x05, 0x08
-	.byte 0xF4, 0x29, 0x05, 0x08, 0xD5, 0x09, 0x00, 0x00
+	.byte 0x6C, 0x56, 0x00, 0x03
+	.4byte gUnk_080529BC
+	.4byte gUnk_080529C8
+	.4byte gUnk_08052A30
+	.4byte gUnk_080529F4
+	.byte 0xD5, 0x09, 0x00, 0x00
 
 	.global react_player_boss
 	.thumb_func
@@ -2739,13 +2743,13 @@ _08025C30:
 _08025C34:
 	.4byte 0xFFFFF334
 _08025C38:
-	.4byte 0x08052A40
+	.4byte gUnk_08052A40
 _08025C3C:
-	.4byte 0x080529C8
+	.4byte gUnk_080529C8
 _08025C40:
-	.4byte 0x08052A4C
+	.4byte gUnk_08052A4C
 _08025C44:
-	.4byte 0x080529F4
+	.4byte gUnk_080529F4
 _08025C48:
 	.4byte 0x00000BB6
 _08025C4C:
@@ -2760,13 +2764,13 @@ _08025C4C:
 	.2byte 0xEFFF @ debug trap
 	b _08025AFA
 _08025C64:
-	.4byte 0x080529BC
+	.4byte gUnk_080529BC
 _08025C68:
-	.4byte 0x080529C8
+	.4byte gUnk_080529C8
 _08025C6C:
-	.4byte 0x08052A4C
+	.4byte gUnk_08052A4C
 _08025C70:
-	.4byte 0x080529F4
+	.4byte gUnk_080529F4
 _08025C74:
 	.4byte 0x00000BB5
 
@@ -2808,7 +2812,7 @@ sub_08025C88: @ 08025C88
 _08025CAC:
 	.4byte 0x0000012C
 _08025CB0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08025CB4:
 	adds r0, r4, #0
 	bl sub_080040F8
@@ -3106,6 +3110,6 @@ _08025E90:
 	b _08025E24
 	.byte 0x00, 0x00
 _08025EB4:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _08025EB8:
 	.4byte 0x0202D74C

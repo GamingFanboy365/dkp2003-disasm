@@ -101,13 +101,13 @@ _0800F6AE:
 	b _0800F622
 	.byte 0x00, 0x00
 _0800F6C8:
-	.4byte 0x08050414
+	.4byte gUnk_08050414
 _0800F6CC:
-	.4byte 0x08050420
+	.4byte gUnk_08050420
 _0800F6D0:
-	.4byte 0x08050434
+	.4byte gUnk_08050434
 _0800F6D4:
-	.4byte 0x08050440
+	.4byte gUnk_08050440
 
 	.global react_static
 	.thumb_func
@@ -150,15 +150,15 @@ _0800F706:
 	b _0800F6E2
 	.byte 0x00, 0x00
 _0800F720:
-	.4byte 0x0805047C
+	.4byte gUnk_0805047C
 _0800F724:
-	.4byte 0x08050420
+	.4byte gUnk_08050420
 _0800F728:
-	.4byte 0x08050488
+	.4byte gUnk_08050488
 _0800F72C:
-	.4byte 0x08050440
+	.4byte gUnk_08050440
 _0800F730:
-	.4byte 0x08050414
+	.4byte gUnk_08050414
 
 	.global react_palmtree
 	.thumb_func
@@ -201,15 +201,15 @@ _0800F762:
 	b _0800F73E
 	.byte 0x00, 0x00
 _0800F77C:
-	.4byte 0x0805047C
+	.4byte gUnk_0805047C
 _0800F780:
-	.4byte 0x08050420
+	.4byte gUnk_08050420
 _0800F784:
-	.4byte 0x08050498
+	.4byte gUnk_08050498
 _0800F788:
-	.4byte 0x08050440
+	.4byte gUnk_08050440
 _0800F78C:
-	.4byte 0x08050414
+	.4byte gUnk_08050414
 
 	.global react_lava_flame
 	.thumb_func
@@ -270,12 +270,12 @@ _0800F7E0:
 	.2byte 0xEFFF @ debug trap
 	b _0800F79C
 _0800F7F8:
-	.4byte 0x0805047C
+	.4byte gUnk_0805047C
 _0800F7FC:
-	.4byte 0x08050420
+	.4byte gUnk_08050420
 _0800F800:
-	.4byte 0x080504A8
+	.4byte gUnk_080504A8
 _0800F804:
-	.4byte 0x08050440
+	.4byte gUnk_08050440
 _0800F808:
-	.4byte 0x08050414
+	.4byte gUnk_08050414

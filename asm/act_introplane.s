@@ -47,13 +47,13 @@ _0801317E:
 	b _0801315E
 	.byte 0x00, 0x00
 _08013198:
-	.4byte 0x08050E20
+	.4byte gUnk_08050E20
 _0801319C:
-	.4byte 0x08050E2C
+	.4byte gUnk_08050E2C
 _080131A0:
-	.4byte 0x08050E44
+	.4byte gUnk_08050E44
 _080131A4:
-	.4byte 0x08050E54
+	.4byte gUnk_08050E54
 	.byte 0x70, 0x47, 0x00, 0x00
 
 	.global init_introdiddy
@@ -96,13 +96,13 @@ _080131D6:
 	b _080131B6
 	.byte 0x00, 0x00
 _080131F0:
-	.4byte 0x08050E20
+	.4byte gUnk_08050E20
 _080131F4:
-	.4byte 0x08050E2C
+	.4byte gUnk_08050E2C
 _080131F8:
-	.4byte 0x08050E90
+	.4byte gUnk_08050E90
 _080131FC:
-	.4byte 0x08050E54
+	.4byte gUnk_08050E54
 	.byte 0x70, 0x47, 0x00, 0x00
 
 	.global init_introkong
@@ -145,13 +145,13 @@ _0801322E:
 	b _0801320E
 	.byte 0x00, 0x00
 _08013248:
-	.4byte 0x08050E20
+	.4byte gUnk_08050E20
 _0801324C:
-	.4byte 0x08050E2C
+	.4byte gUnk_08050E2C
 _08013250:
-	.4byte 0x08050EA0
+	.4byte gUnk_08050EA0
 _08013254:
-	.4byte 0x08050E54
+	.4byte gUnk_08050E54
 
 	.global sub_08013258
 	.thumb_func
@@ -239,11 +239,11 @@ _080132D2:
 	b _080132B2
 	.byte 0x00, 0x00
 _080132EC:
-	.4byte 0x08050E20
+	.4byte gUnk_08050E20
 _080132F0:
-	.4byte 0x08050E2C
+	.4byte gUnk_08050E2C
 _080132F4:
-	.4byte 0x08050EB0
+	.4byte gUnk_08050EB0
 _080132F8:
-	.4byte 0x08050E54
+	.4byte gUnk_08050E54
 	.byte 0x70, 0x47, 0xC0, 0x46
