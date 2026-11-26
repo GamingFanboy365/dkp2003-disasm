@@ -32,3 +32,9 @@ build/%.o: %.s asm/macros.inc $(BASEROM)
 
 clean:
 	rm -rf build $(ROM) $(ELF) $(ROM:.gba=.map)
+
+# Bug-fix IPS patch (see patches/README.md)
+.PHONY: patch
+patch: patches/fix_sound_loop.ips
+patches/fix_sound_loop.ips: patches/fix_sound_loop.s tools/make_patch.py $(BASEROM)
+	python3 tools/make_patch.py $(BASEROM) $< $@ dkp_fixed.gba
