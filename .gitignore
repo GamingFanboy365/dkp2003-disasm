@@ -1,0 +1,7 @@
+# Never commit the ROM
+*.gba
+*.elf
+*.map
+build/
+__pycache__/
+*.pyc
