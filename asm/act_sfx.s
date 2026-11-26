@@ -55,10 +55,10 @@ _08013C5C:
 _08013C60:
 	.4byte 0x0805103C
 
-	.global sub_08013C64
+	.global free_sfx
 	.thumb_func
-	.type sub_08013C64, %function
-sub_08013C64: @ 08013C64
+	.type free_sfx, %function
+free_sfx: @ 08013C64
 	bx lr
 	.byte 0xC0, 0x46
 

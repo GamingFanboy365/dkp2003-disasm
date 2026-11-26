@@ -122,7 +122,7 @@ _080125BA:
 	strh r1, [r7, r4]
 	asrs r0, r3, #0x10
 	ldr r1, _08012650
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x1b
 	ldr r2, [sp, #0xc]
@@ -246,7 +246,7 @@ _080126C6:
 	lsls r2, r3, #0x1a
 	ldr r6, _080127E4
 	asrs r0, r2, #0x10
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	movs r2, #0xf0
@@ -342,7 +342,7 @@ _08012768:
 	lsls r3, r1, #0x10
 	asrs r0, r3, #0x10
 	ldr r2, _08012800
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x1b
 	ldr r1, [sp, #0x10]

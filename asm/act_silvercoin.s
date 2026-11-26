@@ -382,7 +382,7 @@ _08010F6C:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0xba
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08010EF4
 _08010F98:
 	adds r3, #0x1f

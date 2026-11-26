@@ -421,7 +421,7 @@ _08032520:
 	movs r1, #0x20
 	strh r1, [r0]
 	ldr r4, [r7, #4]
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r0, [r7, #0x18]
 	movs r1, #0
 	strh r1, [r0]
@@ -443,7 +443,7 @@ _08032536:
 	movs r1, #0x20
 	strh r1, [r0]
 	ldr r4, [r7, #4]
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r0, [r7, #0x18]
 	movs r1, #0
 	strh r1, [r0]

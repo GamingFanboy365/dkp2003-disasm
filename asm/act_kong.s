@@ -141,10 +141,10 @@ _080133EC:
 _080133F0:
 	.4byte 0x08050EE8
 
-	.global sub_080133F4
+	.global act_kong
 	.thumb_func
-	.type sub_080133F4, %function
-sub_080133F4: @ 080133F4
+	.type act_kong, %function
+act_kong: @ 080133F4
 	push {lr}
 	adds r1, r0, #0
 	adds r1, #0xa0
@@ -357,7 +357,7 @@ _08013578:
 	lsls r2, r3, #9
 	movs r0, #0x92
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _080134C2
 _0801358E:
 	cmp r2, #2
@@ -375,7 +375,7 @@ _08013598:
 	lsls r2, r3, #9
 	movs r1, #0x7f
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _080134C2
 _080135B0:
 	movs r1, #0xa
@@ -387,7 +387,7 @@ _080135B0:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x94
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _080134C2
 _080135C8:
 	movs r2, #0xa
@@ -399,7 +399,7 @@ _080135C8:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x93
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _080134C2
 _080135E0:
 	adds r3, #0x1f
@@ -853,7 +853,7 @@ _0801390E:
 	lsls r2, r3, #9
 	movs r0, #0x92
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08013904
 _08013926:
 	cmp r2, #7
@@ -869,7 +869,7 @@ _08013926:
 	lsls r2, r3, #9
 	movs r1, #0x7f
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08013904
 _08013946:
 	movs r0, #0xa
@@ -881,7 +881,7 @@ _08013946:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x94
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08013904
 _0801395E:
 	movs r2, #0xa
@@ -893,7 +893,7 @@ _0801395E:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x93
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08013904
 	.global _08013976
 _08013976:

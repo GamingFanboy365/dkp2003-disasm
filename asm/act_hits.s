@@ -93,10 +93,10 @@ _08013AF4:
 _08013AF8:
 	.4byte 0x08050FCC
 
-	.global sub_08013AFC
+	.global act_sfx
 	.thumb_func
-	.type sub_08013AFC, %function
-sub_08013AFC: @ 08013AFC
+	.type act_sfx, %function
+act_sfx: @ 08013AFC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb

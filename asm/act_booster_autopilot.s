@@ -178,7 +178,7 @@ _08020F06:
 	movs r1, #0x7f
 	movs r3, #1
 	str r4, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08020EF6
 	.byte 0x00, 0x00
 _08020F1C:
@@ -309,7 +309,7 @@ _08020FDE:
 _0802100A:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08005384
+	bl player_touch_booster_autopilot
 	ldr r1, _08021074
 	movs r3, #1
 	rsbs r0, r3, #0
@@ -329,7 +329,7 @@ _08021024:
 	lsls r2, r3, #9
 	movs r1, #0x7f
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _0802100A
 _0802103C:
 	ldr r0, _08021078

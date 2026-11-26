@@ -60,13 +60,13 @@ _0802BD70:
 	ldrsh r6, [r1, r2]
 	ldr r4, _0802BE18
 	adds r0, r6, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	adds r2, r0, #0
 	lsls r0, r2, #0x10
 	asrs r4, r0, #0x10
 	ldr r1, _0802BE1C
 	adds r0, r6, #0
-	bl sub_08036B60
+	bl _call_via_r1
 	movs r2, #0x96
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10

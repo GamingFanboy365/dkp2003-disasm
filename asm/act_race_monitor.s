@@ -385,7 +385,7 @@ _08011D7C:
 	lsls r2, r3, #9
 	movs r0, #0x96
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1e
 	b _08011DF8
 	.global _08011DAC
@@ -425,7 +425,7 @@ _08011DAC:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x97
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1f
 _08011DF8:
 	bl sub_08001F58
@@ -928,13 +928,13 @@ sub_08012174: @ 08012174
 	ldrsh r7, [r2, r0]
 	ldr r4, _0801229C
 	adds r0, r7, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	adds r1, r0, #0
 	lsls r0, r1, #0x10
 	asrs r4, r0, #0x10
 	adds r0, r7, #0
 	ldr r7, _080122A0
-	bl sub_08036B78
+	bl _call_via_r7
 	ldr r1, _080122A4
 	lsls r5, r0, #0x10
 	adds r7, r4, #0
@@ -1093,7 +1093,7 @@ sub_080122AC: @ 080122AC
 	subs r0, r1, r5
 	subs r1, r4, r2
 	ldr r5, _0801230C
-	bl sub_08036B70
+	bl _call_via_r5
 	adds r6, #0x56
 	adds r1, r0, #0
 	ldrh r4, [r6]
@@ -1103,7 +1103,7 @@ sub_080122AC: @ 080122AC
 	mov r8, r3
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x13
 	subs r1, r4, r3
@@ -1111,7 +1111,7 @@ sub_080122AC: @ 080122AC
 	ldrh r4, [r6]
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x13
 	subs r4, r4, r1
@@ -1178,7 +1178,7 @@ _08012356:
 	.2byte 0xEFFF @ debug trap
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08029EDC
+	bl destroy_blue_zinger
 	b _0801234C
 _08012378:
 	.4byte 0x0202D74C
@@ -1193,10 +1193,10 @@ _08012388:
 _0801238C:
 	.4byte 0x08050A80
 
-	.global sub_08012390
+	.global act_random
 	.thumb_func
-	.type sub_08012390, %function
-sub_08012390: @ 08012390
+	.type act_random, %function
+act_random: @ 08012390
 	push {r4, lr}
 	adds r1, r0, #0
 	adds r4, r1, #0

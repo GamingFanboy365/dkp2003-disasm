@@ -306,7 +306,7 @@ _08004A62:
 	cmp r0, #1
 	beq _08004A70
 	ldr r1, _08004AE0
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r2, _08004AE4
 	str r0, [r2]
 _08004A70:

@@ -55,10 +55,10 @@ _080289B8:
 _080289BC:
 	.4byte 0x08052D28
 
-	.global sub_080289C0
+	.global act_sfx_boss
 	.thumb_func
-	.type sub_080289C0, %function
-sub_080289C0: @ 080289C0
+	.type act_sfx_boss, %function
+act_sfx_boss: @ 080289C0
 	push {r4, lr}
 	ldr r1, _08028A1C
 	ldr r2, [r1]
@@ -111,9 +111,9 @@ _08028A1C:
 _08028A20:
 	.4byte 0x0200434C
 
-	.global sub_08028A24
+	.global free_sfx_boss
 	.thumb_func
-	.type sub_08028A24, %function
-sub_08028A24: @ 08028A24
+	.type free_sfx_boss, %function
+free_sfx_boss: @ 08028A24
 	bx lr
 	.byte 0xC0, 0x46

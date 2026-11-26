@@ -1,0 +1,57 @@
+# Headless mGBA harness
+
+Scripted play-testing used to reproduce and verify `patches/fix_sound_loop.ips`.
+
+## Build
+
+You need an mGBA source checkout (tested with current `master`) and libpng/zlib.
+
+```sh
+cmake -S /path/to/mgba -B build/mgba -G Ninja -DCMAKE_BUILD_TYPE=Release \
+  -DBUILD_QT=OFF -DBUILD_SDL=OFF -DBUILD_SHARED=OFF -DBUILD_STATIC=ON \
+  -DUSE_FFMPEG=OFF -DUSE_LUA=OFF -DUSE_SQLITE3=OFF -DUSE_ELF=OFF \
+  -DUSE_DISCORD_RPC=OFF -DUSE_EDITLINE=OFF -DUSE_LIBZIP=OFF -DUSE_MINIZIP=OFF \
+  -DUSE_EPOXY=OFF -DBUILD_GL=OFF -DBUILD_GLES2=OFF -DBUILD_GLES3=OFF -DM_CORE_GB=OFF
+ninja -C build/mgba
+mkdir -p build/emu
+DEFS=$(grep -m1 "DEFINES = " build/mgba/build.ninja | sed 's/.*DEFINES = //')
+gcc -O2 -std=c11 $DEFS -o build/emu/dkprun tools/emu/dkprun.c \
+  -I/path/to/mgba/include -Ibuild/mgba/include build/mgba/libmgba.a \
+  -lpng -lz -llzma -lfreetype -lm -lpthread
+```
+
+The `-D` defines must match the library's, or `struct mCore` has a different
+layout and the program crashes.
+
+## Use
+
+```sh
+python3 tools/emu/repro_zinger_buzz.py baserom.gba     # exit 1: bug present
+python3 tools/emu/repro_zinger_buzz.py dkp_fixed.gba   # exit 0: fixed
+```
+
+It takes about 2 minutes per ROM.
+
+| File | Purpose |
+|---|---|
+| `dkprun.c` | Harness: reads commands on stdin (`run N KEYS`, `tap`, `peek`, `poke`, `save`/`load` states, `shot x.png`, `vlog` = per-frame dump of the gamesfx voices and pending queue). |
+| `drv.py` | Python wrapper; walks the object process list (`0x02004374`). |
+| `auto.py` | Autopilot: follows a recorded CPU racing line, with a forced waypoint (the zipper). |
+| `comp_tracks.json` | CPU racer positions recorded on Steamy Swoop, used as the racing line. |
+| `repro_zinger_buzz.py` | Full repro from power-on. |
+| `analyze_vlog.py` | Lists every sound in a voice log and flags ones still playing at the end. |
+
+Useful RAM, from the disassembly:
+
+| Address | What |
+|---|---|
+| `0x0200438C` | Player object; position at `+0x24/+0x28/+0x2C`, heading (16-bit) at `+0x56`, weapon at `+0x10A` |
+| `0x02021E18` | Per-racer data, stride `0x208`: `+0x24` boost state, `+0x54` hit state, `+0x198` engine-sound state |
+| `0x0200434C` | Racer object table (index → object) |
+| `0x02004374` / `0x02004378` | Object process list (next `+4`) / static-hit list (next `+0x14`) |
+| `0x0202DECC` | gamesfx: 4 hardware voices, stride `0x30` |
+| `0x0202E38C` | gamesfx: pending request list |
+| `0x08713FD0` | Object class table: `{init, act, react, free}` per class |
+
+Weapon slot values: 1/2/9 = yellow zinger, 3/4 = red (purple) zinger,
+5 = TNT barrel, 7 = lightning, 8 = blue zinger. Press B to fire.

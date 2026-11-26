@@ -126,7 +126,7 @@ _08017FC8:
 	b _08018264
 _0801802A:
 	ldr r2, _080182AC
-	bl sub_08036B64
+	bl _call_via_r2
 _08018030:
 	adds r2, r0, #0
 	muls r2, r4, r2
@@ -197,7 +197,7 @@ _080180A0:
 	beq _080180BE
 	adds r0, r2, #0
 	ldr r1, _080182C4
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r4, [sp, #0x54]
 	lsls r3, r0, #0x1c
 	lsrs r2, r3, #0x10
@@ -426,7 +426,7 @@ _0801825C:
 _08018264:
 	rsbs r0, r0, #0
 	ldr r1, _080182AC
-	bl sub_08036B60
+	bl _call_via_r1
 	rsbs r0, r0, #0
 	b _08018030
 _08018270:

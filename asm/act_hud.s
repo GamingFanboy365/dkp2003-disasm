@@ -595,7 +595,7 @@ _0800FC24:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0xde
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _0800FC06
 _0800FC62:
 	strh r3, [r1, #2]
@@ -767,7 +767,7 @@ _0800FD62:
 	movs r3, #1
 	movs r1, #0x7f
 	movs r0, #0x98
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1c
 	bl sub_08001F58
 	movs r1, #0
@@ -806,7 +806,7 @@ _0800FDB2:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x99
-	bl sub_0801FCAC
+	bl gamesfx_play
 	ldr r2, _0800FE90
 	adds r2, #0x86
 	movs r6, #0
@@ -844,7 +844,7 @@ _0800FE26:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x9a
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x20
 	bl sub_08001F58
 	movs r1, #0
@@ -1290,10 +1290,10 @@ _08010170:
 _08010174:
 	.4byte 0x00000215
 
-	.global sub_08010178
+	.global act_hud_lap2
 	.thumb_func
-	.type sub_08010178, %function
-sub_08010178: @ 08010178
+	.type act_hud_lap2, %function
+act_hud_lap2: @ 08010178
 	push {lr}
 	adds r2, r0, #0
 	adds r2, #0xa0
@@ -1367,10 +1367,10 @@ _080101F4:
 _080101F8:
 	.4byte 0x0000022A
 
-	.global sub_080101FC
+	.global act_hud_lapfinal
 	.thumb_func
-	.type sub_080101FC, %function
-sub_080101FC: @ 080101FC
+	.type act_hud_lapfinal, %function
+act_hud_lapfinal: @ 080101FC
 	push {lr}
 	adds r2, r0, #0
 	adds r2, #0xa0
@@ -1444,10 +1444,10 @@ _08010278:
 _0801027C:
 	.4byte 0x000001EB
 
-	.global sub_08010280
+	.global act_hud_getready
 	.thumb_func
-	.type sub_08010280, %function
-sub_08010280: @ 08010280
+	.type act_hud_getready, %function
+act_hud_getready: @ 08010280
 	push {lr}
 	adds r2, r0, #0
 	adds r2, #0xa0
@@ -1519,10 +1519,10 @@ _080102F8:
 _080102FC:
 	.4byte 0x080505E0
 
-	.global sub_08010300
+	.global act_hud_go
 	.thumb_func
-	.type sub_08010300, %function
-sub_08010300: @ 08010300
+	.type act_hud_go, %function
+act_hud_go: @ 08010300
 	push {lr}
 	adds r2, r0, #0
 	adds r2, #0xa0
@@ -1695,10 +1695,10 @@ _0801042C:
 _08010430:
 	.4byte 0x080504E8
 
-	.global sub_08010434
+	.global act_hud_crosshair
 	.thumb_func
-	.type sub_08010434, %function
-sub_08010434: @ 08010434
+	.type act_hud_crosshair, %function
+act_hud_crosshair: @ 08010434
 	bx lr
 	.byte 0x00, 0x00
 

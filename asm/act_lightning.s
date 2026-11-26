@@ -190,7 +190,7 @@ _0802BB3C:
 	adds r0, r6, #0
 	movs r2, #0
 	movs r3, #1
-	bl sub_0800A9A4
+	bl player_weapon_hit
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _0802BB56
@@ -228,7 +228,7 @@ _0802BB6E:
 	movs r1, #0x7f
 	movs r3, #1
 	str r5, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _0802BB56
 _0802BB98:
 	ldr r0, _0802BC9C
@@ -258,7 +258,7 @@ _0802BB98:
 	movs r3, #0
 	str r3, [sp, #0x10]
 	movs r3, #0xd3
-	bl sub_0801F534
+	bl gamesfx_play_at
 	mov r3, r8
 	ldr r1, [r3, #8]
 	movs r3, #0x80
@@ -277,7 +277,7 @@ _0802BBEC:
 	lsls r2, r3, #9
 	movs r0, #0xd4
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r1, #1
 	mov r2, r8
 	str r1, [r2, #0xc]
@@ -301,7 +301,7 @@ _0802BC1A:
 	lsls r2, r3, #9
 	movs r0, #0xd5
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r1, #1
 	mov r2, r8
 	str r1, [r2, #0x10]
@@ -325,7 +325,7 @@ _0802BC48:
 	lsls r2, r3, #9
 	movs r0, #0xd6
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r1, #1
 	mov r2, r8
 	str r1, [r2, #0x14]

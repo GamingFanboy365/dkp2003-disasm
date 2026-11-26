@@ -74,7 +74,7 @@ _08012BDC:
 	movs r1, #0x7f
 	movs r3, #0
 	movs r0, #0xc0
-	bl sub_0801FCAC
+	bl gamesfx_play
 _08012C1A:
 	ldrh r3, [r4]
 	movs r1, #9
@@ -101,7 +101,7 @@ _08012C1A:
 	lsls r2, r2, #9
 	movs r0, #0xd7
 	str r3, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08012BD4
 _08012C58:
 	movs r0, #0xa
@@ -118,7 +118,7 @@ _08012C66:
 	lsls r2, r2, #9
 	movs r0, #0xcb
 	str r3, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	strb r4, [r5, #2]
 	bl sub_080035F8
 	b _08012BD4
@@ -142,7 +142,7 @@ _08012C7C:
 	movs r0, #0xc0
 	movs r1, #0x7f
 	str r3, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	adds r4, r7, #0
 	b _08012C1A
 _08012CAA:
@@ -215,7 +215,7 @@ _08012D1E:
 	movs r3, #0
 	movs r0, #0xd7
 	str r4, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	adds r0, r6, #0
 	movs r1, #0x2c
 	movs r2, #3
@@ -308,10 +308,10 @@ _08012DE0:
 _08012DE4:
 	.4byte 0x08050CD4
 
-	.global sub_08012DE8
+	.global act_lava_bubble
 	.thumb_func
-	.type sub_08012DE8, %function
-sub_08012DE8: @ 08012DE8
+	.type act_lava_bubble, %function
+act_lava_bubble: @ 08012DE8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r5, #0

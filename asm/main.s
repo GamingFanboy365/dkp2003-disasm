@@ -242,7 +242,7 @@ _080002E0:
 	cmp r3, #0
 	beq _080003B0
 _080002F4:
-	bl sub_08036B68
+	bl _call_via_r3
 	mov r2, r8
 	ldr r0, [r2]
 	movs r3, #0x80
@@ -356,7 +356,7 @@ _080003CA:
 	cmp r3, #0
 	beq _080003E0
 _080003D6:
-	bl sub_08036B68
+	bl _call_via_r3
 	bl sub_0802D824
 	b _0800030C
 _080003E0:

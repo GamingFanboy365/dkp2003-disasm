@@ -2043,7 +2043,7 @@ sub_08003EBC: @ 08003EBC
 	lsls r6, r1, #6
 	lsrs r0, r6, #0x11
 	ldr r5, _08004018
-	bl sub_08036B70
+	bl _call_via_r5
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	adds r1, r2, #0
@@ -2176,7 +2176,7 @@ _08003FE6:
 	blt _08004002
 _08003FEC:
 	ldr r2, _08004024
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r1, r5, #0
 	eors r1, r4
 	cmp r1, #0

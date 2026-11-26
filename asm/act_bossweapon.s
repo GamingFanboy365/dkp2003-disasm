@@ -173,7 +173,7 @@ _0802CBA0:
 	str r2, [r7, #0x2c]
 	adds r0, r7, #0
 	ldr r1, _0802CE54
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r2, [r6, #4]
 	cmp r2, #1
 	beq _0802CBE8
@@ -217,7 +217,7 @@ _0802CC18:
 	adds r0, r7, #0
 	str r4, [r1]
 	adds r0, #0xec
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _0802CBFC
 _0802CC28:
 	ldr r4, [r6]
@@ -314,7 +314,7 @@ _0802CC28:
 	ldr r1, _0802CE88
 	ldr r0, _0802CE8C
 	adds r2, r7, #0
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	str r0, [r6, #0x4c]
 	b _0802CBFE
 _0802CCF0:
@@ -326,7 +326,7 @@ _0802CCF0:
 	adds r0, r7, #0
 	str r5, [r1]
 	adds r0, #0xec
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _0802CBFE
 _0802CD06:
 	ldr r1, _0802CE5C
@@ -341,7 +341,7 @@ _0802CD12:
 	adds r0, r7, #0
 	str r4, [r1]
 	adds r0, #0xec
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _0802CBFC
 _0802CD22:
 	movs r4, #0x18
@@ -432,7 +432,7 @@ _0802CDB6:
 	movs r3, #0
 	str r3, [sp, #0x10]
 	movs r3, #0x9b
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0802CBA0
 _0802CDDA:
 	ldr r0, _0802CE58
@@ -449,7 +449,7 @@ _0802CDDA:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x9b
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _0802CBA0
 _0802CDFC:
 	movs r4, #0x84
@@ -561,7 +561,7 @@ _0802CEAE:
 	str r4, [r6, #0x14]
 	mov sl, r2
 	asrs r0, r1, #0x10
-	bl sub_08036B84
+	bl _call_via_r10
 	ldr r1, [r6, #0x20]
 	lsls r2, r0, #0x10
 	ldr r0, [r6, #0x30]
@@ -573,7 +573,7 @@ _0802CEAE:
 	lsls r1, r2, #0x10
 	asrs r0, r1, #0x10
 	mov r8, r3
-	bl sub_08036B84
+	bl _call_via_r10
 	ldr r1, [r6, #0x24]
 	lsls r2, r0, #0x10
 	ldr r0, [r6, #0x34]
@@ -586,7 +586,7 @@ _0802CEAE:
 	asrs r0, r1, #0x10
 	ldr r5, _0802CFDC
 	mov sl, r3
-	bl sub_08036B70
+	bl _call_via_r5
 	ldr r1, [r6, #0x28]
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x10
@@ -754,7 +754,7 @@ _0802D008:
 	mov r3, r8
 	str r5, [sp]
 	str r7, [sp, #4]
-	bl sub_0801F534
+	bl gamesfx_play_at
 _0802D048:
 	add sp, #0x14
 	pop {r3}
@@ -786,7 +786,7 @@ _0802D06A:
 	mov r3, r8
 	str r5, [sp]
 	str r7, [sp, #4]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0802D048
 _0802D088:
 	ldr r2, _0802D0E8
@@ -802,7 +802,7 @@ _0802D088:
 	mov r0, r8
 	adds r2, r7, #0
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _0802D048
 _0802D0A8:
 	ldr r0, _0802D0EC
@@ -1049,7 +1049,7 @@ sub_0802D240: @ 0802D240
 	lsls r6, r1, #6
 	lsrs r0, r6, #0x11
 	ldr r5, _0802D330
-	bl sub_08036B70
+	bl _call_via_r5
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	adds r1, r2, #0

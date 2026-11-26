@@ -5096,7 +5096,7 @@ _08034B2E:
 	ldr r3, [r4, #0x24]
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r1, r0, #0
 	cmp r1, #0
 	ble _08034B18
@@ -5737,7 +5737,7 @@ _08034FA4:
 	adds r2, r1, #0
 _08034FB0:
 	adds r1, r7, #0
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r4, r0, #0
 	cmp r4, #0
 	bgt _08034FBE
@@ -5823,7 +5823,7 @@ _08035046:
 	ldr r3, [r5, #0x24]
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r4, r0, #0
 	cmp r4, #0
 	ble _0803515A
@@ -5921,7 +5921,7 @@ _080350FE:
 	ldr r3, [r5, #0x24]
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r4, r0, #0
 	cmp r4, #0
 	ble _0803515A
@@ -6004,7 +6004,7 @@ _08035192:
 	cmp r0, #0
 	beq _080351A2
 	adds r0, r5, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	orrs r7, r0
 _080351A2:
 	adds r5, #0x58
@@ -9797,80 +9797,80 @@ sub_08036B5C: @ 08036B5C
 	bx r0
 	.byte 0xC0, 0x46
 
-	.global sub_08036B60
+	.global _call_via_r1
 	.thumb_func
-	.type sub_08036B60, %function
-sub_08036B60: @ 08036B60
+	.type _call_via_r1, %function
+_call_via_r1: @ 08036B60
 	bx r1
 	.byte 0xC0, 0x46
 
-	.global sub_08036B64
+	.global _call_via_r2
 	.thumb_func
-	.type sub_08036B64, %function
-sub_08036B64: @ 08036B64
+	.type _call_via_r2, %function
+_call_via_r2: @ 08036B64
 	bx r2
 	.byte 0xC0, 0x46
 
-	.global sub_08036B68
+	.global _call_via_r3
 	.thumb_func
-	.type sub_08036B68, %function
-sub_08036B68: @ 08036B68
+	.type _call_via_r3, %function
+_call_via_r3: @ 08036B68
 	bx r3
 	.byte 0xC0, 0x46
 
-	.global sub_08036B6C
+	.global _call_via_r4
 	.thumb_func
-	.type sub_08036B6C, %function
-sub_08036B6C: @ 08036B6C
+	.type _call_via_r4, %function
+_call_via_r4: @ 08036B6C
 	bx r4
 	.byte 0xC0, 0x46
 
-	.global sub_08036B70
+	.global _call_via_r5
 	.thumb_func
-	.type sub_08036B70, %function
-sub_08036B70: @ 08036B70
+	.type _call_via_r5, %function
+_call_via_r5: @ 08036B70
 	bx r5
 	.byte 0xC0, 0x46
 
-	.global sub_08036B74
+	.global _call_via_r6
 	.thumb_func
-	.type sub_08036B74, %function
-sub_08036B74: @ 08036B74
+	.type _call_via_r6, %function
+_call_via_r6: @ 08036B74
 	bx r6
 	.byte 0xC0, 0x46
 
-	.global sub_08036B78
+	.global _call_via_r7
 	.thumb_func
-	.type sub_08036B78, %function
-sub_08036B78: @ 08036B78
+	.type _call_via_r7, %function
+_call_via_r7: @ 08036B78
 	bx r7
 	.byte 0xC0, 0x46
 
-	.global sub_08036B7C
+	.global _call_via_r8
 	.thumb_func
-	.type sub_08036B7C, %function
-sub_08036B7C: @ 08036B7C
+	.type _call_via_r8, %function
+_call_via_r8: @ 08036B7C
 	bx r8
 	.byte 0xC0, 0x46
 
-	.global sub_08036B80
+	.global _call_via_r9
 	.thumb_func
-	.type sub_08036B80, %function
-sub_08036B80: @ 08036B80
+	.type _call_via_r9, %function
+_call_via_r9: @ 08036B80
 	bx sb
 	.byte 0xC0, 0x46
 
-	.global sub_08036B84
+	.global _call_via_r10
 	.thumb_func
-	.type sub_08036B84, %function
-sub_08036B84: @ 08036B84
+	.type _call_via_r10, %function
+_call_via_r10: @ 08036B84
 	bx sl
 	.byte 0xC0, 0x46
 
-	.global sub_08036B88
+	.global _call_via_r11
 	.thumb_func
-	.type sub_08036B88, %function
-sub_08036B88: @ 08036B88
+	.type _call_via_r11, %function
+_call_via_r11: @ 08036B88
 	bx fp
 	.byte 0xC0, 0x46, 0x60, 0x47, 0xC0, 0x46, 0x68, 0x47, 0xC0, 0x46, 0x70, 0x47, 0xC0, 0x46
 

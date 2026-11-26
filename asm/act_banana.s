@@ -718,7 +718,7 @@ _080117C6:
 	movs r1, #3
 _080117E2:
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 _080117E8:
 	ldrb r3, [r4, #2]
 	cmp r3, #1
@@ -736,7 +736,7 @@ _08011802:
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _080117E8
 _0801180E:
 	adds r0, r4, #0
@@ -840,7 +840,7 @@ _080118A2:
 	ldr r0, [r7, r1]
 	movs r2, #1
 	movs r1, #1
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _08011886
 _080118D0:
 	cmp fp, r3
@@ -852,7 +852,7 @@ _080118D0:
 	ldr r0, [r7, r4]
 	movs r1, #0
 	movs r2, #1
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _08011886
 _080118E8:
 	mov r3, ip
@@ -1044,7 +1044,7 @@ _08011A30:
 _08011A40:
 	adds r1, r5, #0
 	ldr r3, _08011AA8
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r1, r5, #0
 	eors r1, r4
 	cmp r1, #0

@@ -107,7 +107,7 @@ _0801094A:
 	movs r3, #0xe
 	ldrsh r0, [r5, r3]
 	ldr r1, _0801099C
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r4, r0, #0x10
 	asrs r2, r4, #0x10
 	ldr r4, _080109A0
@@ -137,7 +137,7 @@ _080109A4:
 	ldr r1, _08010A38
 	movs r2, #0xe
 	ldrsh r0, [r5, r2]
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	adds r1, r2, #0
@@ -154,7 +154,7 @@ _080109D4:
 	movs r3, #0xe
 	ldrsh r0, [r5, r3]
 	ldr r1, _08010A3C
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r4, r0, #0x10
 	asrs r2, r4, #0x10
 	ldr r4, _08010A40

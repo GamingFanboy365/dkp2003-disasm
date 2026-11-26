@@ -154,7 +154,7 @@ _0800ADCA:
 _0800AE08:
 	ldr r3, _0800AEF0
 	mov r0, r8
-	bl sub_08036B68
+	bl _call_via_r3
 	mov r3, r8
 	eors r3, r4
 	cmp r3, #0
@@ -207,7 +207,7 @@ _0800AE6E:
 	adds r0, r5, #0
 	ldr r2, _0800AEF0
 	eors r6, r4
-	bl sub_08036B64
+	bl _call_via_r2
 	cmp r6, #0
 	bge _0800AE80
 	b _0800B45E
@@ -326,7 +326,7 @@ _0800AF4C:
 _0800AF5A:
 	mov r0, sb
 	ldr r2, _0800B224
-	bl sub_08036B64
+	bl _call_via_r2
 	mov r3, sb
 	eors r3, r4
 	adds r6, r0, #0
@@ -433,7 +433,7 @@ _0800B01C:
 _0800B028:
 	adds r0, r5, #0
 	ldr r2, _0800B224
-	bl sub_08036B64
+	bl _call_via_r2
 	mov r8, r0
 	adds r0, r5, #0
 	eors r0, r4
@@ -541,7 +541,7 @@ _0800B0EC:
 _0800B0F8:
 	ldr r2, _0800B224
 	adds r0, r5, #0
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r2, r5, #0
 	eors r2, r4
 	mov r8, r0
@@ -1163,7 +1163,7 @@ _0800B5A2:
 	adds r0, r5, #0
 	ldr r2, _0800B90C
 	eors r7, r4
-	bl sub_08036B64
+	bl _call_via_r2
 	cmp r7, #0
 	bge _0800B5B6
 	.2byte 0xF000, 0xFC18 @ bl #0x800bde6
@@ -1283,7 +1283,7 @@ _0800B68E:
 	ldr r6, _0800B90C
 	adds r0, r2, #0
 	str r2, [sp]
-	bl sub_08036B74
+	bl _call_via_r6
 	adds r6, r0, #0
 	ldr r0, [sp]
 	adds r1, r0, #0
@@ -1395,7 +1395,7 @@ _0800B754:
 _0800B760:
 	adds r0, r4, #0
 	ldr r2, _0800B90C
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r6, r0, #0
 	adds r0, r4, #0
 	eors r0, r5
@@ -1499,7 +1499,7 @@ _0800B81C:
 _0800B828:
 	adds r0, r4, #0
 	ldr r2, _0800B90C
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r7, r0, #0
 	adds r0, r4, #0
 	eors r0, r5
@@ -1605,7 +1605,7 @@ _0800B8E8:
 _0800B8F4:
 	adds r0, r4, #0
 	ldr r2, _0800B90C
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r1, r4, #0
 	eors r1, r5
 	adds r7, r0, #0
@@ -1724,7 +1724,7 @@ _0800B9CC:
 _0800B9D8:
 	adds r0, r4, #0
 	ldr r2, _0800BCA4
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r7, r0, #0
 	adds r0, r4, #0
 	eors r0, r5
@@ -2220,7 +2220,7 @@ _0800BD76:
 	ldr r6, _0800BDF8
 	adds r0, r2, #0
 	str r2, [sp]
-	bl sub_08036B74
+	bl _call_via_r6
 	ldr r3, [sp]
 	adds r6, r0, #0
 	adds r0, r3, #0
@@ -2608,7 +2608,7 @@ _0800C056:
 _0800C062:
 	adds r0, r7, #0
 	ldr r2, _0800C2E0
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r1, r7, #0
 	eors r1, r4
 	mov r8, r0
@@ -3030,14 +3030,14 @@ _0800C34A:
 _0800C34E:
 	adds r0, r4, #0
 	ldr r4, _0800C414
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r2, r0, #0x10
 	str r2, [sp]
 	mov r3, r8
 	ldrh r1, [r3, #0xc]
 	lsrs r0, r2, #0x10
 	ldr r5, _0800C418
-	bl sub_08036B70
+	bl _call_via_r5
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10
 	cmp r0, #0
@@ -3074,7 +3074,7 @@ _0800C39E:
 	blt _0800C3F4
 _0800C3A4:
 	ldr r6, _0800C41C
-	bl sub_08036B74
+	bl _call_via_r6
 	adds r6, r0, #0
 	adds r0, r7, #0
 	eors r0, r4
@@ -3087,7 +3087,7 @@ _0800C3B4:
 	lsrs r0, r1, #0x10
 	ldr r2, _0800C418
 	lsrs r1, r3, #0x10
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r1, r0, #0x10
 	asrs r0, r1, #0x10
 	cmp r5, #0
@@ -3683,7 +3683,7 @@ _0800C7D4:
 	adds r0, r4, #0
 	mov sb, r7
 	movs r1, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r5, r0, #0x10
 	asrs r7, r5, #0x15
 	subs r6, r4, r7
@@ -3696,7 +3696,7 @@ _0800C7D4:
 	strh r0, [r1, #4]
 	adds r1, r7, #0
 	adds r0, r4, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x14
 	subs r3, r4, r2
@@ -3706,14 +3706,14 @@ _0800C7D4:
 	strh r3, [r2, #6]
 	ldr r4, _0800C84C
 	adds r0, r6, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	str r3, [sp, #0x40]
 	ldr r3, _0800C850
 	adds r0, r6, #0
 	mov r8, r3
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x10
 	str r1, [sp, #0x3c]
@@ -3738,24 +3738,24 @@ _0800C84C:
 _0800C850:
 	.4byte sub_03000138
 _0800C854:
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r5, r0, #0x10
 	asrs r3, r5, #0x10
 	str r3, [sp, #0x38]
 	movs r0, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r6, r0, #0x10
 	asrs r0, r6, #0x10
 	mov sb, r0
 	lsls r0, r7, #0x10
 	asrs r7, r0, #0x10
 	adds r0, r7, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r2, r0, #0x10
 	asrs r0, r2, #0x10
 	mov sl, r0
 	adds r0, r7, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	ldr r5, [sp, #0x3c]
 	lsls r1, r0, #0x10
 	asrs r7, r1, #0x10
@@ -3837,7 +3837,7 @@ _0800C854:
 	lsls r7, r4, #0x10
 	asrs r0, r7, #0x11
 	strh r4, [r6]
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r3, #0
@@ -3894,7 +3894,7 @@ _0800C95E:
 	movs r3, #0xa0
 	str r7, [sp, #0xc]
 	str r4, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	ldr r3, _0800C9C0
 	str r4, [r5, #0x40]
 	strh r3, [r6]
@@ -3934,7 +3934,7 @@ _0800C9C4:
 	str r7, [sp, #4]
 	str r6, [sp, #0xc]
 	str r4, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0800C944
 _0800C9E8:
 	ldr r4, [sp, #0x14]
@@ -3955,7 +3955,7 @@ _0800C9FE:
 	adds r0, r7, #0
 	mov sb, r1
 	movs r1, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r5, r0, #0x10
 	asrs r2, r5, #0x15
 	subs r5, r7, r2
@@ -3965,7 +3965,7 @@ _0800C9FE:
 	strh r5, [r2, #2]
 	lsrs r1, r0, #0x10
 	adds r0, r7, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r6, r0, #0x10
 	mov r3, fp
 	asrs r4, r6, #0x12
@@ -3976,7 +3976,7 @@ _0800C9FE:
 	strh r6, [r3, #4]
 	mov r1, sl
 	adds r0, r4, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x14
 	subs r2, r4, r1
@@ -3987,25 +3987,25 @@ _0800C9FE:
 	mov sl, r1
 	strh r2, [r0, #6]
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r1, r0, #0x10
 	asrs r4, r1, #0x10
 	str r4, [sp, #0x40]
 	adds r0, r5, #0
 	ldr r4, _0800CBBC
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r5, r0, #0x10
 	lsls r0, r6, #0x10
 	asrs r2, r5, #0x10
 	asrs r5, r0, #0x10
 	str r2, [sp, #0x3c]
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x10
 	str r1, [sp, #0x38]
 	adds r0, r5, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r2, r0, #0x10
 	asrs r0, r2, #0x10
 	adds r5, r7, #0
@@ -4014,12 +4014,12 @@ _0800C9FE:
 	asrs r2, r0, #0x10
 	mov r8, r2
 	mov r0, r8
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r7, r0, #0x10
 	asrs r0, r7, #0x10
 	mov sl, r0
 	mov r0, r8
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r6, [sp, #0x3c]
 	lsls r3, r0, #0x10
 	asrs r7, r3, #0x10
@@ -4157,7 +4157,7 @@ _0800CB6A:
 	str r7, [sp, #8]
 	str r6, [sp, #0xc]
 	str r5, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0800C944
 _0800CBB4:
 	.4byte 0x03000814
@@ -4180,7 +4180,7 @@ _0800CBCE:
 	adds r0, r4, #0
 	mov sb, r7
 	movs r1, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r7, r0, #0x10
 	asrs r5, r7, #0x15
 	mov r0, fp
@@ -4189,7 +4189,7 @@ _0800CBCE:
 	strh r7, [r0, #2]
 	movs r1, #0
 	adds r0, r4, #0
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r6, r0, #0x10
 	asrs r1, r6, #0x12
 	subs r6, r4, r1
@@ -4200,7 +4200,7 @@ _0800CBCE:
 	strh r6, [r1, #4]
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x14
 	subs r1, r4, r3
@@ -4211,25 +4211,25 @@ _0800CBCE:
 	strh r1, [r3, #6]
 	mov sl, r4
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r2, r0, #0x10
 	asrs r7, r2, #0x10
 	str r7, [sp, #0x40]
 	adds r0, r5, #0
 	ldr r7, _0800CDC4
-	bl sub_08036B78
+	bl _call_via_r7
 	lsls r3, r6, #0x10
 	lsls r5, r0, #0x10
 	asrs r4, r5, #0x10
 	asrs r5, r3, #0x10
 	str r4, [sp, #0x3c]
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	str r2, [sp, #0x38]
 	adds r0, r5, #0
-	bl sub_08036B78
+	bl _call_via_r7
 	lsls r4, r0, #0x10
 	asrs r0, r4, #0x10
 	mov r5, r8
@@ -4238,12 +4238,12 @@ _0800CBCE:
 	asrs r5, r0, #0x10
 	mov r8, r5
 	mov r0, r8
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10
 	mov sl, r0
 	mov r0, r8
-	bl sub_08036B78
+	bl _call_via_r7
 	lsls r6, r0, #0x10
 	ldr r0, [sp, #0x3c]
 	asrs r7, r6, #0x10
@@ -4366,7 +4366,7 @@ _0800CBCE:
 	adds r1, r4, #0
 	str r7, [sp, #8]
 	str r6, [sp, #0xc]
-	bl sub_0801F534
+	bl gamesfx_play_at
 _0800CD64:
 	ldr r1, [sp, #0x48]
 	ldr r7, [r5]
@@ -4470,7 +4470,7 @@ _0800CE00:
 	movs r3, #0xa0
 	str r7, [sp, #8]
 	str r6, [sp, #0xc]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0800CD64
 _0800CE24:
 	.4byte 0xFFFFF334
@@ -4485,7 +4485,7 @@ _0800CE2C:
 	mov sl, r3
 	lsrs r1, r0, #0x10
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r6, r0, #0x10
 	asrs r4, r6, #0x15
 	subs r6, r5, r4
@@ -4502,16 +4502,16 @@ _0800CE2C:
 	muls r1, r3, r1
 	adds r0, r7, r1
 	ldr r1, _0800D1DC
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r7, _0800D1E0
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_08036B78
+	bl _call_via_r7
 	adds r2, r0, #0
 	lsls r0, r2, #0x10
 	lsrs r1, r0, #0x10
 	adds r0, r5, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r4, r0, #0x10
 	mov r3, fp
 	asrs r7, r4, #0x14
@@ -4522,7 +4522,7 @@ _0800CE2C:
 	mov r1, ip
 	strh r5, [r3, #4]
 	adds r0, r4, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x14
 	subs r2, r4, r1
@@ -4533,25 +4533,25 @@ _0800CE2C:
 	mov sl, r1
 	strh r2, [r0, #6]
 	adds r0, r6, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r1, r0, #0x10
 	asrs r4, r1, #0x10
 	str r4, [sp, #0x40]
 	adds r0, r6, #0
 	ldr r4, _0800D1E8
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r6, r0, #0x10
 	lsls r0, r5, #0x10
 	asrs r2, r6, #0x10
 	asrs r6, r0, #0x10
 	str r2, [sp, #0x3c]
 	adds r0, r6, #0
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x10
 	str r1, [sp, #0x38]
 	adds r0, r6, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r2, r0, #0x10
 	asrs r0, r2, #0x10
 	adds r5, r7, #0
@@ -4560,12 +4560,12 @@ _0800CE2C:
 	asrs r2, r0, #0x10
 	mov r8, r2
 	mov r0, r8
-	bl sub_08036B84
+	bl _call_via_r10
 	lsls r7, r0, #0x10
 	asrs r0, r7, #0x10
 	mov sl, r0
 	mov r0, r8
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r6, [sp, #0x3c]
 	lsls r3, r0, #0x10
 	asrs r7, r3, #0x10
@@ -4686,7 +4686,7 @@ _0800CFC0:
 	movs r3, #0xa0
 	movs r6, #2
 	str r6, [sp, #8]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	ldr r4, [r7, #0x28]
 	ldr r3, [r5]
 _0800CFEA:
@@ -5711,13 +5711,13 @@ _0800D75E:
 	ldrsh r6, [r7, r2]
 	ldr r4, _0800D7C4
 	adds r0, r6, #0
-	bl sub_08036B6C
+	bl _call_via_r4
 	adds r1, r0, #0
 	lsls r0, r1, #0x10
 	asrs r4, r0, #0x10
 	ldr r2, _0800D7C8
 	adds r0, r6, #0
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r5, r5, #1
 	lsls r3, r0, #0x10
 	adds r1, r5, #0
@@ -6133,7 +6133,7 @@ _0800DA5C:
 	bgt _0800DACA
 	adds r1, r4, #0
 	ldr r4, _0800DAFC
-	bl sub_08036B6C
+	bl _call_via_r4
 	adds r3, r7, #0
 	lsls r2, r0, #0x10
 	adds r3, #0x56
@@ -6680,7 +6680,7 @@ _0800DE6A:
 	movs r5, #0x94
 	lsls r3, r5, #1
 	adds r0, r6, r3
-	bl sub_0801F758
+	bl gamesfx_release
 	movs r7, #0x80
 	movs r1, #0x84
 	movs r3, #0x86
@@ -6790,7 +6790,7 @@ _0800DF24:
 	adds r2, r6, #0
 	str r7, [sp, #4]
 	str r4, [sp, #0xc]
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	str r0, [r5]
 	cmp r0, r4
 	bne _0800DF54
@@ -6824,7 +6824,7 @@ _0800DF7E:
 	movs r0, #0x94
 	lsls r3, r0, #1
 	adds r0, r6, r3
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r5, #0x94
 	lsls r4, r5, #1
 	movs r1, #0x7f
@@ -6843,7 +6843,7 @@ _0800DF7E:
 	adds r2, r6, #0
 	movs r3, #4
 	str r4, [sp, #0xc]
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	str r0, [r5]
 	cmp r0, r4
 	bne _0800DFB8
@@ -6855,7 +6855,7 @@ _0800DFBC:
 	movs r0, #0x94
 	lsls r3, r0, #1
 	adds r0, r6, r3
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r0, r6, #0
 	bl sub_0800DCE0
 	movs r4, #0x94
@@ -6875,7 +6875,7 @@ _0800DFBC:
 	movs r3, #0xdf
 	ldr r0, _0800E1AC
 	adds r2, r6, #0
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	movs r3, #1
 	rsbs r1, r3, #0
 	str r0, [r4]
@@ -6912,7 +6912,7 @@ _0800E002:
 	adds r3, r6, #0
 	str r5, [sp]
 	str r7, [sp, #8]
-	bl sub_0801FFB8
+	bl gamesfx_play_cb_endcb
 	movs r1, #1
 	rsbs r2, r1, #0
 	str r0, [r4]
@@ -6929,7 +6929,7 @@ _0800E056:
 	movs r7, #0x94
 	lsls r5, r7, #1
 	adds r0, r6, r5
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	bl sub_08000B14
 	movs r1, #0xa
 	bl sub_08036D74
@@ -6956,7 +6956,7 @@ _0800E056:
 	ldr r2, _0800E1B4
 	str r5, [sp]
 	str r7, [sp, #8]
-	bl sub_0801FFB8
+	bl gamesfx_play_cb_endcb
 	movs r3, #1
 	rsbs r1, r3, #0
 	str r0, [r4]
@@ -6972,7 +6972,7 @@ _0800E0B4:
 	movs r7, #0x94
 	lsls r2, r7, #1
 	adds r0, r6, r2
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r4, #0x86
 	movs r3, #0x84
 	lsls r0, r3, #1
@@ -7006,7 +7006,7 @@ _0800E0B4:
 	ldr r0, _0800E1AC
 	str r7, [sp, #8]
 	str r4, [sp, #0x10]
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	movs r2, #1
 	rsbs r1, r2, #0
 	str r0, [r5]
@@ -7039,7 +7039,7 @@ _0800E13C:
 	movs r0, #0x94
 	lsls r1, r0, #1
 	adds r0, r6, r1
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r2, #0xa
 	str r2, [r4]
 	b _0800DE5C
@@ -7047,7 +7047,7 @@ _0800E14C:
 	movs r1, #0x94
 	lsls r3, r1, #1
 	adds r0, r6, r3
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r0, #8
 	str r0, [r4]
 	b _0800DE5C
@@ -7055,7 +7055,7 @@ _0800E15C:
 	movs r1, #0x94
 	lsls r2, r1, #1
 	adds r0, r6, r2
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r0, #6
 	str r0, [r4]
 	b _0800DE5C
@@ -7069,7 +7069,7 @@ _0800E174:
 	lsls r1, r0, #1
 	adds r0, r6, r1
 _0800E17A:
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r2, #3
 	str r2, [r4]
 	b _0800DE5C
@@ -7077,7 +7077,7 @@ _0800E184:
 	movs r3, #0x94
 	lsls r1, r3, #1
 	adds r0, r6, r1
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	movs r0, #1
 	str r0, [r4]
 	b _0800DE5C
@@ -7098,12 +7098,12 @@ _0800E1AC:
 _0800E1B0:
 	.4byte sub_0800DD5C
 _0800E1B4:
-	.4byte sub_0800E89C
+	.4byte comp_engine_sample_end
 
-	.global sub_0800E1B8
+	.global act_comp_player
 	.thumb_func
-	.type sub_0800E1B8, %function
-sub_0800E1B8: @ 0800E1B8
+	.type act_comp_player, %function
+act_comp_player: @ 0800E1B8
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r5, r4, #0
@@ -7149,7 +7149,7 @@ _0800E1D4:
 	str r1, [r4, #0x2c]
 	adds r0, r4, #0
 	ldr r2, _0800E2F4
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r7, [r5]
 	ldr r3, _0800E2F8
 	adds r1, r4, #0
@@ -7371,7 +7371,7 @@ _0800E396:
 	muls r5, r7, r5
 	ldr r4, _0800E440
 	lsls r0, r5, #1
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r5, r0, #8
 	adds r0, r5, #0
 	cmp r5, #0
@@ -7379,7 +7379,7 @@ _0800E396:
 _0800E3C4:
 	ldr r7, _0800E444
 	movs r1, #0xa
-	bl sub_08036B78
+	bl _call_via_r7
 	adds r4, r0, #0
 	cmp r5, #0
 	blt _0800E41A
@@ -7391,7 +7391,7 @@ _0800E3D2:
 	blt _0800E416
 _0800E3DC:
 	adds r0, r5, #0
-	bl sub_08036B78
+	bl _call_via_r7
 	adds r1, r5, #0
 	eors r1, r4
 	cmp r1, #0
@@ -7602,7 +7602,7 @@ _0800E588:
 	ldr r2, [r5, #0x2c]
 	movs r3, #0xe0
 	str r4, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _0800E54C
 _0800E5BA:
 	adds r6, r5, #0
@@ -7755,7 +7755,7 @@ sub_0800E6A8: @ 0800E6A8
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x2c]
 	adds r4, #0xa0
-	bl sub_0801F534
+	bl gamesfx_play_at
 	ldr r0, [r4]
 	movs r3, #0x80
 	lsls r1, r3, #5
@@ -7908,10 +7908,10 @@ _0800E7E8:
 _0800E7EC:
 	.4byte 0x00001999
 
-	.global sub_0800E7F0
+	.global free_comp_player
 	.thumb_func
-	.type sub_0800E7F0, %function
-sub_0800E7F0: @ 0800E7F0
+	.type free_comp_player, %function
+free_comp_player: @ 0800E7F0
 	push {lr}
 	adds r1, r0, #0
 	adds r1, #0xa0
@@ -7929,7 +7929,7 @@ sub_0800E7F0: @ 0800E7F0
 	movs r2, #0x94
 	lsls r1, r2, #1
 	adds r0, r0, r1
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
@@ -7945,7 +7945,7 @@ sub_0800E820: @ 0800E820
 	movs r0, #0x94
 	lsls r2, r0, #1
 	adds r0, r4, r2
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r4, #0xa0
 	ldr r0, [r4]
 	movs r3, #0x80
@@ -8006,10 +8006,10 @@ _0800E894:
 _0800E898:
 	.4byte 0x020234AC
 
-	.global sub_0800E89C
+	.global comp_engine_sample_end
 	.thumb_func
-	.type sub_0800E89C, %function
-sub_0800E89C: @ 0800E89C
+	.type comp_engine_sample_end, %function
+comp_engine_sample_end: @ 0800E89C
 	push {lr}
 	adds r0, #0xa0
 	ldr r2, [r0, #4]
@@ -8244,7 +8244,7 @@ _0800EA06:
 	ldr r1, _0800EC28
 	adds r0, r5, #0
 	mov sb, r3
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	mov r1, sb
@@ -8258,7 +8258,7 @@ _0800EA06:
 	ldr r1, _0800EC30
 	str r0, [r7, #0x28]
 	adds r0, r5, #0
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	mov r1, sb
@@ -8298,7 +8298,7 @@ _0800EA72:
 	ldr r6, _0800EC34
 	movs r0, #0
 	mov sb, r3
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	ldr r4, [r5]
@@ -8309,7 +8309,7 @@ _0800EA72:
 	str r4, [r5]
 	lsrs r1, r0, #0x10
 	movs r0, #0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r6, r1, #0x10
 	adds r6, #0x10
@@ -8323,7 +8323,7 @@ _0800EA72:
 	asrs r5, r0, #0x10
 	ldr r6, _0800EC28
 	adds r0, r5, #0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r4, r0, #0x10
 	asrs r2, r4, #0x10
 	mov r1, sb
@@ -8341,7 +8341,7 @@ _0800EA72:
 	str r4, [r7, #0x28]
 	ldr r6, _0800EC30
 	adds r0, r5, #0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	mov r6, sb
@@ -8356,7 +8356,7 @@ _0800EA72:
 	adds r0, r1, #0
 	ldr r4, _0800EC38
 	mov r1, sb
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r1, _0800EC20
 	ldr r3, [r1]
 	adds r1, r7, #0
@@ -8417,7 +8417,7 @@ _0800EB60:
 	ldrh r1, [r6]
 	mov r8, r2
 	adds r0, r4, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	ldr r5, [r6]
@@ -8428,7 +8428,7 @@ _0800EB60:
 	str r5, [r6]
 	lsrs r1, r0, #0x10
 	adds r0, r4, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	adds r2, #0x10
@@ -8442,7 +8442,7 @@ _0800EB60:
 	asrs r5, r0, #0x10
 	ldr r6, _0800EC28
 	adds r0, r5, #0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r2, r1, #0x10
 	mov r6, sb
@@ -8462,7 +8462,7 @@ _0800EB60:
 	str r0, [r7, #0x28]
 	ldr r1, _0800EC30
 	adds r0, r5, #0
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	mov r1, sb
@@ -8545,7 +8545,7 @@ sub_0800EC3C: @ 0800EC3C
 	mov r8, r1
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	adds r1, r6, #0
 	adds r1, #0x56
 	asrs r5, r5, #4
@@ -8560,10 +8560,10 @@ sub_0800EC3C: @ 0800EC3C
 	cmp r0, #0
 	ble _0800ECD6
 	ldr r1, _0800ED10
-	bl sub_08036B60
+	bl _call_via_r1
 	adds r1, r0, #0
 	rsbs r0, r7, #0
-	bl sub_08036B7C
+	bl _call_via_r8
 	movs r5, #0x80
 	lsls r2, r0, #0x10
 	asrs r0, r2, #0x10
@@ -8673,7 +8673,7 @@ _0800ED72:
 	mov sl, r2
 	ldr r5, _0800EE00
 	mov r0, sl
-	bl sub_08036B70
+	bl _call_via_r5
 	adds r1, r0, #0
 	lsls r3, r1, #0x10
 	asrs r5, r3, #0x10
@@ -8684,7 +8684,7 @@ _0800ED72:
 	adds r4, r0, r2
 	ldr r1, _0800EE04
 	mov r0, sl
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r1, [sp, #0x14]
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10
@@ -8861,7 +8861,7 @@ _0800EEEC:
 	movs r2, #0
 	ldrsh r0, [r4, r2]
 	ldr r2, _0800F0A8
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r1, [r6, #0x24]
 	lsls r5, r0, #0x10
 	asrs r3, r5, #0x12
@@ -8870,7 +8870,7 @@ _0800EEEC:
 	ldr r5, _0800F0AC
 	movs r3, #0
 	ldrsh r0, [r4, r3]
-	bl sub_08036B70
+	bl _call_via_r5
 	ldr r2, [r6, #0x2c]
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x12
@@ -8887,7 +8887,7 @@ _0800EF22:
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	ldr r2, _0800F0A8
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r2, [r6, #0x24]
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x12
@@ -8896,7 +8896,7 @@ _0800EF22:
 	movs r2, #0
 	ldrsh r0, [r4, r2]
 	ldr r2, _0800F0AC
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r2, [r6, #0x2c]
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x12
@@ -8986,7 +8986,7 @@ _0800EFE0:
 	movs r2, #0
 	ldrsh r0, [r4, r2]
 	ldr r1, _0800F0AC
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r1, [r6, #0x24]
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x12
@@ -8995,7 +8995,7 @@ _0800EFE0:
 	ldr r1, _0800F0A8
 	movs r3, #0
 	ldrsh r0, [r4, r3]
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r1, [r6, #0x2c]
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x12
@@ -9011,7 +9011,7 @@ _0800F014:
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	ldr r2, _0800F0AC
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r1, [r6, #0x24]
 	lsls r5, r0, #0x10
 	asrs r3, r5, #0x12
@@ -9020,7 +9020,7 @@ _0800F014:
 	ldr r5, _0800F0A8
 	movs r2, #0
 	ldrsh r0, [r4, r2]
-	bl sub_08036B70
+	bl _call_via_r5
 	ldr r2, [r6, #0x2c]
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x12

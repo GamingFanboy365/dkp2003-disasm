@@ -32,7 +32,7 @@ _0802AA58:
 	beq _0802AA76
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08029EDC
+	bl destroy_blue_zinger
 _0802AA6A:
 	add sp, #8
 	pop {r3}
@@ -66,7 +66,7 @@ _0802AA76:
 	adds r0, r5, #0
 	str r1, [r6]
 	adds r0, #0xc4
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	ldr r1, _0802ABC8
 	ldr r0, [r4, #0x3c]
 	ldr r3, [r1]
@@ -77,7 +77,7 @@ _0802AA76:
 	adds r0, r5, #0
 	str r2, [r1]
 	adds r0, #0xd4
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _0802AA6A
 _0802AAC8:
 	adds r4, r7, #0
@@ -91,12 +91,12 @@ _0802AAC8:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r5, #0xa0
-	bl sub_08029EDC
+	bl destroy_blue_zinger
 	ldr r1, [r5, #8]
 	adds r0, r7, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_0800A9A4
+	bl player_weapon_hit
 	cmp r0, #0
 	beq _0802AA6A
 	ldr r0, [r5, #8]
@@ -121,7 +121,7 @@ _0802AB0E:
 _0802AB1A:
 	adds r0, r5, #0
 	adds r1, r7, #0
-	bl sub_08029EDC
+	bl destroy_blue_zinger
 	b _0802AA6A
 _0802AB24:
 	adds r6, r5, #0
@@ -141,10 +141,10 @@ _0802AB24:
 	adds r0, r5, #0
 	str r1, [r4]
 	adds r0, #0xc4
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r0, r5, #0
 	adds r0, #0xc8
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	ldr r1, _0802ABC8
 	ldr r0, [r6, #0x3c]
 	ldr r3, [r1]
@@ -167,7 +167,7 @@ _0802AB6A:
 	lsls r2, r3, #9
 	movs r1, #0xb4
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	str r0, [r6, #0x2c]
 	b _0802AA6A
 _0802AB84:
@@ -176,7 +176,7 @@ _0802AB84:
 	adds r0, r5, #0
 	str r2, [r1]
 	adds r0, #0xd4
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _0802AB5E
 _0802AB94:
 	ldr r0, _0802ABD4

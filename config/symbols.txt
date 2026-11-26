@@ -186,3 +186,62 @@
 0x08032588 AGBPrintFlush   # Nintendo AGBPrint library
 0x08032598 AGBAssert   # Nintendo AGBPrint library
 0x080329F0 vsprintf
+
+# --- class-table handlers (tools/class_table.py) ---
+0x0800991C act_player   # class 1 act
+0x0800AC40 free_player   # class 1 free
+0x0800E1B8 act_comp_player   # class 2 act
+0x0800E7F0 free_comp_player   # class 2 free
+0x08012DE8 act_lava_bubble   # class 19 act
+0x0802931C act_red_zinger   # class 22 act
+0x0802A1B0 act_blue_zinger   # class 23 act
+0x080133F4 act_kong   # class 24 act
+0x08010178 act_hud_lap2   # class 28 act
+0x080101FC act_hud_lapfinal   # class 29 act
+0x08010280 act_hud_getready   # class 30 act
+0x08010300 act_hud_go   # class 31 act
+0x08028B14 act_weapon_icon   # class 33 act
+0x0802B728 act_tnt_barrel   # class 34 act
+0x08012390 act_random   # class 35 act
+0x08013AFC act_sfx   # class 39 act
+0x08013C64 free_sfx   # class 39 free
+0x08010434 act_hud_crosshair   # class 42 act
+0x0802144C act_winlevel   # class 47 act
+0x080215C8 init_class48   # class 48 init
+0x08024CF8 act_player_boss   # class 50 act
+0x080289C0 act_sfx_boss   # class 54 act
+0x08028A24 free_sfx_boss   # class 54 free
+
+# --- identified by hand (see patches/README.md and README.md) ---
+0x08001B2C obj_new                      # references "obj_new" / "failed to allocate object"
+0x08005190 player_hit                   # knock-back hit: hit state 3, sound state 7
+0x080052B4 player_hit_spin              # spin-out hit: hit state 4, sound state 7
+0x08005384 player_touch_booster_autopilot
+0x08005580 player_touch_booster_blue
+0x08009084 player_engine_sound_local    # engine-sound state machine, local player
+0x080094C0 player_engine_sound_remote   # same, other players
+0x0800A9A4 player_weapon_hit            # weapon -> player hit entry (checks invulnerability)
+0x0800AAB8 player_engine_sample_end     # end callback: state 9 -> 8 (re-trigger)
+0x0800E89C comp_engine_sample_end       # end callback: state 5 -> 4 (re-trigger)
+0x08028DFC destroy_red_zinger
+0x08029EDC destroy_blue_zinger
+0x0801F2C4 gamesfx_update               # per-frame: 4 voices @0x0202DECC, pending list @0x0202E38C
+0x0801F534 gamesfx_play_at              # positional (x, y, z, snd, ...)
+0x0801F6B0 gamesfx_stop                 # (int *handle): flag 0x10000, *handle = -1
+0x0801F758 gamesfx_release              # (int *handle): flag 0x20000, *handle = -1
+0x0801F9D8 gamesfx_play_voice           # character voice: (obj, category, ...)
+0x0801FCAC gamesfx_play                 # (snd, vol, pitch, prio, ttl, flags) -> handle
+0x0801FDAC gamesfx_play_cb              # (volcb, pitchcb, ctx, snd, vol, pitch, prio, ttl, flags)
+0x0801FEB4 gamesfx_play_endcb           # (endcb, ctx, snd, vol, pitch, prio, ttl, flags)
+0x0801FFB8 gamesfx_play_cb_endcb        # (volcb, pitchcb, endcb, ctx, snd, ...)
+0x08036B60 _call_via_r1                 # libgcc interworking stubs
+0x08036B64 _call_via_r2
+0x08036B68 _call_via_r3
+0x08036B6C _call_via_r4
+0x08036B70 _call_via_r5
+0x08036B74 _call_via_r6
+0x08036B78 _call_via_r7
+0x08036B7C _call_via_r8
+0x08036B80 _call_via_r9
+0x08036B84 _call_via_r10
+0x08036B88 _call_via_r11

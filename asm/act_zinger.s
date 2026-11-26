@@ -141,7 +141,7 @@ _08012FDA:
 	lsls r6, r5, #0x10
 	asrs r0, r6, #0x10
 	ldr r6, _080130E0
-	bl sub_08036B74
+	bl _call_via_r6
 	ldr r1, [r4, #0x10]
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
@@ -163,7 +163,7 @@ _08012FDA:
 	add r1, sl
 	lsls r2, r1, #0x10
 	asrs r0, r2, #0x10
-	bl sub_08036B74
+	bl _call_via_r6
 	movs r1, #0x80
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
@@ -186,7 +186,7 @@ _08012FDA:
 	add r2, sl
 	lsls r1, r2, #0x10
 	asrs r0, r1, #0x10
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x10
 	ldr r3, [r4, #0x18]
@@ -231,7 +231,7 @@ _08012FDA:
 	str r2, [r7, #0x2c]
 	adds r0, r7, #0
 	ldr r1, _080130E4
-	bl sub_08036B60
+	bl _call_via_r1
 	add sp, #4
 	pop {r3, r4}
 	mov r8, r3

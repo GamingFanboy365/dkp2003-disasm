@@ -60,11 +60,17 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-879 functions are disassembled.  187 have real names: most were recovered
-automatically from the `__FUNCTION__` strings passed to asserts and debug
-prints (`tools/find_names.py`), e.g. `AgbMain`, `game_process`,
-`obj_add_process`, `planeControl`, `init_banana`, `react_booster`,
-`weaponManager`.  The rest are `sub_XXXXXXXX`.
+879 functions are disassembled and 241 have real names:
+* most were recovered automatically from the `__FUNCTION__` strings passed to
+  asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
+  `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
+  `react_booster`, `weaponManager`;
+* the remaining `act_*`/`react_*`/`free_*` handlers come from the object class
+  table at `0x08713FD0` (`tools/class_table.py`);
+* the rest were identified by hand: the `gamesfx_*` sound API, the
+  engine-sound state machines, zinger functions, and libgcc `_call_via_rN`.
+
+The rest are `sub_XXXXXXXX`.
 
 File boundaries are taken from the first function in each region that
 references a given `src/*.c` string, so a few functions near a boundary may
@@ -92,6 +98,12 @@ make compare
 
 Hints such as new entry points or data ranges go in `config/dkp.cfg`, names
 in `config/symbols.txt`, and file splits in `config/files.txt`.
+
+## Patches and play-testing
+
+`patches/` has a bug-fix IPS for the endless zinger buzz you get when a CPU
+racer's purple zinger hits you as you take a zipper. `tools/emu/` has the
+headless mGBA harness that reproduces it from power-on and verifies the fix.
 
 ## Status / TODO
 

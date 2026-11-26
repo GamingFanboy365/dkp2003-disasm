@@ -273,7 +273,7 @@ _080006A2:
 	ldr r3, _080007B8
 	adds r5, #0x34
 	ldr r0, [r3, r5]
-	bl sub_08001B2C
+	bl obj_new
 	movs r0, #0x19
 	bl sub_08001F58
 	movs r1, #4
@@ -450,15 +450,15 @@ _08000820:
 game_process: @ 08000824
 	push {r4, r5, r6, lr}
 	ldr r5, _0800087C
-	bl sub_08036B70
+	bl _call_via_r5
 	bl sub_08002CBC
 	bl sub_080031A4
 	ldr r4, _08000880
-	bl sub_08036B6C
+	bl _call_via_r4
 	ldr r5, _08000874
 	bl sub_080020F4
 	bl sub_0801E314
-	bl sub_0801F2C4
+	bl gamesfx_update
 	ldr r0, _08000884
 	ldr r4, _08000888
 	strh r5, [r0]
@@ -713,10 +713,10 @@ _08000A36:
 	cmp r1, #0
 	beq _08000A5E
 	ldr r2, _08000A80
-	bl sub_08036B64
+	bl _call_via_r2
 _08000A48:
 	ldr r2, _08000A84
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r0, _08000A88
 	bl sub_08036B5C
 _08000A54:
@@ -726,7 +726,7 @@ _08000A54:
 	bx r0
 _08000A5E:
 	ldr r1, _08000A8C
-	bl sub_08036B60
+	bl _call_via_r1
 	b _08000A48
 _08000A66:
 	bl sub_0800EC3C

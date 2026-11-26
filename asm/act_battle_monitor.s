@@ -270,7 +270,7 @@ _080140C0:
 	lsls r2, r3, #9
 	movs r0, #0x96
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1e
 	b _08014134
 	.global _080140F0
@@ -306,7 +306,7 @@ _080140F0:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x97
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1f
 _08014134:
 	bl sub_08001F58

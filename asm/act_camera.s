@@ -122,7 +122,7 @@ _0800F172:
 	mov r8, r1
 	adds r0, r5, #0
 	ldr r1, _0800F278
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	ldr r1, [r7, #0x24]
 	asrs r4, r3, #0x10
@@ -135,7 +135,7 @@ _0800F172:
 	adds r0, r5, #0
 	mov sb, r2
 	asrs r4, r1, #0xc
-	bl sub_08036B80
+	bl _call_via_r9
 	lsls r5, r0, #0x10
 	ldr r3, [r6, #0x2c]
 	asrs r2, r5, #0x10
@@ -155,7 +155,7 @@ _0800F172:
 	mov r8, r3
 	ldr r2, _0800F278
 	mov r0, r8
-	bl sub_08036B64
+	bl _call_via_r2
 	ldr r1, [r6, #0x2c]
 	lsls r3, r0, #0x10
 	asrs r4, r3, #0x10
@@ -164,7 +164,7 @@ _0800F172:
 	muls r2, r4, r2
 	mov r0, r8
 	asrs r4, r2, #0xc
-	bl sub_08036B80
+	bl _call_via_r9
 	ldr r1, [r6, #0x24]
 	mov r2, sl
 	subs r2, r2, r1

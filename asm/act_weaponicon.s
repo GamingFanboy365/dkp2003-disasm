@@ -131,10 +131,10 @@ _08028B0C:
 _08028B10:
 	.4byte 0x08052DB4
 
-	.global sub_08028B14
+	.global act_weapon_icon
 	.thumb_func
-	.type sub_08028B14, %function
-sub_08028B14: @ 08028B14
+	.type act_weapon_icon, %function
+act_weapon_icon: @ 08028B14
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -281,7 +281,7 @@ _08028BE2:
 	lsls r2, r3, #9
 	movs r1, #0x40
 	movs r3, #2
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08028BDC
 _08028C2C:
 	movs r0, #1
@@ -496,7 +496,7 @@ _08028D76:
 	lsls r2, r3, #9
 	movs r1, #0x40
 	movs r3, #2
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08028D70
 _08028DBE:
 	movs r0, #0x85
@@ -532,10 +532,10 @@ _08028DF4:
 _08028DF8:
 	.4byte 0x02018F34
 
-	.global sub_08028DFC
+	.global destroy_red_zinger
 	.thumb_func
-	.type sub_08028DFC, %function
-sub_08028DFC: @ 08028DFC
+	.type destroy_red_zinger, %function
+destroy_red_zinger: @ 08028DFC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -565,13 +565,13 @@ sub_08028DFC: @ 08028DFC
 	strh r1, [r0, #0xa]
 	adds r0, r7, #0
 	adds r0, #0xc0
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r0, r7, #0
 	adds r0, #0xc4
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r0, r7, #0
 	adds r0, #0xc8
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	adds r4, r7, #0
 	ldr r1, _08028F14
 	adds r4, #0xa0
@@ -611,7 +611,7 @@ _08028E7A:
 	movs r3, #0
 	str r3, [sp, #0x10]
 	movs r3, #0xd2
-	bl sub_0801F534
+	bl gamesfx_play_at
 _08028E9C:
 	ldr r2, [r4]
 	cmp r2, #2
@@ -643,7 +643,7 @@ _08028EBA:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0xd2
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08028E9C
 _08028EDC:
 	movs r3, #0x7f
@@ -660,7 +660,7 @@ _08028EDC:
 	str r3, [sp, #0xc]
 	movs r3, #0xd2
 	str r6, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	b _08028E9C
 _08028EFE:
 	movs r2, #1
@@ -668,7 +668,7 @@ _08028EFE:
 	str r0, [r1]
 	adds r0, r7, #0
 	adds r0, #0xcc
-	bl sub_0801F6B0
+	bl gamesfx_stop
 	b _08028E5C
 	.byte 0x00, 0x00
 _08028F10:
@@ -829,7 +829,7 @@ _0802900C:
 	movs r1, #0
 	adds r2, r6, #0
 	movs r3, #0xdb
-	bl sub_0801FDAC
+	bl gamesfx_play_cb
 	str r0, [r4, #0x20]
 	b _08028FE4
 _0802903C:
@@ -902,13 +902,13 @@ _080290A4:
 	ldr r3, [r2, #0x2c]
 	subs r1, r3, r7
 	ldr r3, _080291E4
-	bl sub_08036B68
+	bl _call_via_r3
 	ldrh r2, [r6]
 	subs r1, r0, r2
 	lsls r2, r1, #0x10
 	asrs r0, r2, #0x10
 	ldr r1, _080291E8
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10
 	cmp r0, sb
@@ -970,13 +970,13 @@ _08029126:
 	ldr r3, [r2, #0x2c]
 	subs r1, r3, r7
 	ldr r3, _080291E4
-	bl sub_08036B68
+	bl _call_via_r3
 	ldrh r2, [r6]
 	subs r1, r0, r2
 	lsls r2, r1, #0x10
 	asrs r0, r2, #0x10
 	ldr r1, _080291E8
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r3, r0, #0x10
 	asrs r0, r3, #0x10
 	cmp r0, sb
@@ -1019,13 +1019,13 @@ _08029188:
 	ldr r3, [r2, #0x2c]
 	subs r1, r3, r7
 	ldr r3, _080291E4
-	bl sub_08036B68
+	bl _call_via_r3
 	ldrh r1, [r6]
 	subs r2, r0, r1
 	lsls r3, r2, #0x10
 	asrs r0, r3, #0x10
 	ldr r1, _080291E8
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r2, r0, #0x10
 	asrs r0, r2, #0x10
 	cmp r0, sb

@@ -119,10 +119,10 @@ _0802B720:
 _0802B724:
 	.4byte 0x08053038
 
-	.global sub_0802B728
+	.global act_tnt_barrel
 	.thumb_func
-	.type sub_0802B728, %function
-sub_0802B728: @ 0802B728
+	.type act_tnt_barrel, %function
+act_tnt_barrel: @ 0802B728
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -364,7 +364,7 @@ _0802B8E4:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r3, #0
-	bl sub_0800A9A4
+	bl player_weapon_hit
 	b _0802B8AC
 _0802B8F6:
 	ldr r4, [r0, #4]
@@ -446,7 +446,7 @@ _0802B942:
 	str r6, [sp, #4]
 	str r5, [sp, #0xc]
 	str r4, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 	movs r0, #0x3c
 	bl sub_08020204
 	ldr r1, [sp, #0x18]

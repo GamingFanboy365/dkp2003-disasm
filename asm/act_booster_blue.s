@@ -199,7 +199,7 @@ _08020C06:
 	movs r1, #0x7f
 	movs r3, #1
 	str r4, [sp, #4]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08020BF6
 	.byte 0x00, 0x00
 _08020C1C:
@@ -336,7 +336,7 @@ _08020D0C:
 	strh r2, [r0]
 	mov r1, r8
 	adds r0, r4, #0
-	bl sub_08005580
+	bl player_touch_booster_blue
 	movs r1, #1
 	str r1, [r5, #0x1c]
 	ldr r0, [r5, #4]
@@ -353,7 +353,7 @@ _08020D2C:
 	movs r0, #0xf6
 	movs r1, #0x7f
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _08020D0C
 _08020D44:
 	.4byte 0x00000000
@@ -377,7 +377,7 @@ _08020D50:
 	strh r0, [r1]
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_08005580
+	bl player_touch_booster_blue
 	str r7, [r5, #0x1c]
 	ldr r0, [r5, #4]
 	ldr r1, [r6, #4]

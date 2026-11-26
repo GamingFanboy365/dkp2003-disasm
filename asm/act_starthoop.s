@@ -37,7 +37,7 @@ _08010A72:
 	ldr r1, _08010AB4
 	strh r5, [r4]
 	adds r0, r6, #0
-	bl sub_08036B60
+	bl _call_via_r1
 	mov r8, r0
 	mov r0, r8
 	lsls r3, r0, #0x10
@@ -45,7 +45,7 @@ _08010A72:
 	mov sl, r0
 	ldr r2, _08010AB8
 	adds r0, r6, #0
-	bl sub_08036B64
+	bl _call_via_r2
 	mov sb, r0
 	mov r2, sb
 	lsls r5, r2, #0x10

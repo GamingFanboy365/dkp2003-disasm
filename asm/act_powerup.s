@@ -421,7 +421,7 @@ _080107DC:
 	str r4, [sp, #8]
 	str r6, [sp, #0xc]
 	str r5, [sp, #0x10]
-	bl sub_0801F534
+	bl gamesfx_play_at
 _080107FE:
 	ldr r6, _08010838
 	adds r5, r7, #0
@@ -483,7 +483,7 @@ _0801085C:
 	movs r3, #1
 	movs r0, #0x90
 	str r4, [sp]
-	bl sub_0801FCAC
+	bl gamesfx_play
 	b _080107FE
 _0801087E:
 	ldr r0, _080108B4

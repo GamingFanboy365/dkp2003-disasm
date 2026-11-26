@@ -821,7 +821,7 @@ _08014A52:
 	ldr r1, _08014AA4
 	movs r2, #0xa0
 	ldr r6, _08014AB4
-	bl sub_08036B74
+	bl _call_via_r6
 	ldr r4, _08014AA0
 	mov r3, sp
 	strh r4, [r3, #0xe]
@@ -1390,7 +1390,7 @@ sub_08014EAC: @ 08014EAC
 	ldr r1, _080151C8
 	movs r2, #0xa0
 	ldr r5, _080151CC
-	bl sub_08036B70
+	bl _call_via_r5
 	ldr r1, _080151D0
 	ldr r4, [r1]
 	ldr r0, _080151D4
@@ -1618,7 +1618,7 @@ _08015056:
 	lsls r3, r2, #0x10
 	asrs r0, r3, #0x10
 	ldr r1, _08015208
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x1a
 	lsls r1, r3, #6
@@ -2691,7 +2691,7 @@ _08015860:
 	lsls r4, r1, #0x10
 	asrs r0, r4, #0x10
 	ldr r1, _08015A54
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x1a
 	lsls r4, r3, #6
@@ -3261,7 +3261,7 @@ _08015CFC:
 	lsls r5, r1, #0x10
 	asrs r0, r5, #0x10
 	ldr r2, _08015DAC
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	movs r1, #0xe4
@@ -3275,7 +3275,7 @@ _08015CFC:
 	lsls r3, r5, #0x10
 	asrs r0, r3, #0x10
 	ldr r2, _08015DB0
-	bl sub_08036B64
+	bl _call_via_r2
 	movs r5, #0x5a
 	muls r5, r4, r5
 	lsls r1, r0, #0x10
@@ -4023,7 +4023,7 @@ _080162B8:
 	lsls r3, r1, #0x19
 	ldr r2, _08016348
 	asrs r0, r3, #0x10
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r7, r0, #0x10
 	asrs r4, r7, #0x10
 	movs r1, #0x78
@@ -4650,7 +4650,7 @@ _08016758:
 	lsls r7, r2, #0x19
 	asrs r0, r7, #0x10
 	ldr r6, _080167A0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	movs r2, #0x88
@@ -4669,7 +4669,7 @@ _0801677C:
 	lsls r3, r1, #0x19
 	ldr r4, _080167A0
 	asrs r0, r3, #0x10
-	bl sub_08036B6C
+	bl _call_via_r4
 	lsls r2, r0, #0x10
 	b _080167A8
 	.byte 0x00, 0x00
@@ -4700,7 +4700,7 @@ _080167B8:
 	lsls r7, r2, #0x19
 	asrs r0, r7, #0x10
 	ldr r6, _08016804
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	movs r4, #0x88
@@ -4720,7 +4720,7 @@ _080167E0:
 	lsls r3, r1, #0x19
 	ldr r4, _08016804
 	asrs r0, r3, #0x10
-	bl sub_08036B6C
+	bl _call_via_r4
 	b _08016808
 _080167F8:
 	.4byte 0x00000028
@@ -4757,7 +4757,7 @@ _08016824:
 	lsls r2, r1, #0x19
 	asrs r0, r2, #0x10
 	ldr r7, _080168D0
-	bl sub_08036B78
+	bl _call_via_r7
 	lsls r6, r0, #0x10
 	asrs r3, r6, #0x10
 	movs r1, #0x88
@@ -4772,7 +4772,7 @@ _0801684C:
 	lsls r1, r4, #0x19
 	asrs r0, r1, #0x10
 	ldr r2, _080168D0
-	bl sub_08036B64
+	bl _call_via_r2
 	lsls r7, r0, #0x10
 	asrs r3, r7, #0x10
 	movs r6, #0x88
@@ -4792,7 +4792,7 @@ _0801686C:
 	lsls r4, r6, #0x19
 	asrs r0, r4, #0x10
 	ldr r1, _080168D0
-	bl sub_08036B60
+	bl _call_via_r1
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x10
 	movs r7, #0x88
@@ -4812,7 +4812,7 @@ _08016894:
 	lsls r7, r2, #0x19
 	asrs r0, r7, #0x10
 	ldr r6, _080168D0
-	bl sub_08036B74
+	bl _call_via_r6
 	lsls r4, r0, #0x10
 	asrs r3, r4, #0x10
 	movs r1, #0x88

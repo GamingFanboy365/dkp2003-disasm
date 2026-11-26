@@ -189,7 +189,7 @@ _08026010:
 	adds r1, r2, #0
 	adds r0, r0, r1
 	ldr r1, _08026228
-	bl sub_08036B60
+	bl _call_via_r1
 	ldr r2, _0802622C
 	adds r1, r0, #0
 	ldr r0, [r2, #4]
@@ -291,7 +291,7 @@ _080260DC:
 	lsls r2, r3, #9
 	movs r0, #0x96
 	movs r3, #1
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1e
 	b _08026150
 	.global _0802610C
@@ -327,7 +327,7 @@ _0802610C:
 	movs r1, #0x7f
 	movs r3, #1
 	movs r0, #0x97
-	bl sub_0801FCAC
+	bl gamesfx_play
 	movs r0, #0x1f
 _08026150:
 	bl sub_08001F58

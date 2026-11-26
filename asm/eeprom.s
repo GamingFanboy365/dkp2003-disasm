@@ -4472,10 +4472,10 @@ sub_0801F2B0: @ 0801F2B0
 _0801F2C0:
 	.4byte 0x0202DEC8
 
-	.global sub_0801F2C4
+	.global gamesfx_update
 	.thumb_func
-	.type sub_0801F2C4, %function
-sub_0801F2C4: @ 0801F2C4
+	.type gamesfx_update, %function
+gamesfx_update: @ 0801F2C4
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -4609,7 +4609,7 @@ _0801F3A8:
 	cmp r3, #0
 	beq _0801F3B4
 	ldr r0, [r6, #0x2c]
-	bl sub_08036B68
+	bl _call_via_r3
 _0801F3B4:
 	ldr r3, [r4, #8]
 	ldr r0, [r5]
@@ -4655,14 +4655,14 @@ _0801F3FC:
 	cmp r3, #0
 	beq _0801F492
 	ldr r0, [r4, #0x3c]
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r7, r0, #0
 _0801F40A:
 	ldr r3, [r5, #0x34]
 	cmp r3, #0
 	beq _0801F48E
 	ldr r0, [r5, #0x3c]
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r4, r0, #0
 _0801F418:
 	adds r2, r4, #0
@@ -4761,7 +4761,7 @@ _0801F4BC:
 	b _0801F314
 _0801F4C4:
 	ldr r0, [r6, #0x2c]
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r4, r0, #0
 	adds r1, r4, #0
 	ldr r0, [r6]
@@ -4770,7 +4770,7 @@ _0801F4C4:
 	b _0801F314
 _0801F4D8:
 	ldr r0, [r6, #0x2c]
-	bl sub_08036B68
+	bl _call_via_r3
 	adds r7, r0, #0
 	movs r0, #1
 	rsbs r3, r0, #0
@@ -4799,7 +4799,7 @@ _0801F508:
 	b _0801F310
 _0801F510:
 	ldr r0, [r6, #0x2c]
-	bl sub_08036B68
+	bl _call_via_r3
 	b _0801F310
 _0801F518:
 	.4byte 0x02004348
@@ -4816,10 +4816,10 @@ _0801F52C:
 _0801F530:
 	.4byte 0x0202E390
 
-	.global sub_0801F534
+	.global gamesfx_play_at
 	.thumb_func
-	.type sub_0801F534, %function
-sub_0801F534: @ 0801F534
+	.type gamesfx_play_at, %function
+gamesfx_play_at: @ 0801F534
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -5031,10 +5031,10 @@ _0801F6A8:
 _0801F6AC:
 	.4byte 0x08051B7C
 
-	.global sub_0801F6B0
+	.global gamesfx_stop
 	.thumb_func
-	.type sub_0801F6B0, %function
-sub_0801F6B0: @ 0801F6B0
+	.type gamesfx_stop, %function
+gamesfx_stop: @ 0801F6B0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r1, #1
@@ -5132,10 +5132,10 @@ _0801F750:
 _0801F754:
 	.4byte 0x0202E390
 
-	.global sub_0801F758
+	.global gamesfx_release
 	.thumb_func
-	.type sub_0801F758, %function
-sub_0801F758: @ 0801F758
+	.type gamesfx_release, %function
+gamesfx_release: @ 0801F758
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r1, #1
@@ -5497,10 +5497,10 @@ _0801F9D0:
 _0801F9D4:
 	.4byte 0x08051B7C
 
-	.global sub_0801F9D8
+	.global gamesfx_play_voice
 	.thumb_func
-	.type sub_0801F9D8, %function
-sub_0801F9D8: @ 0801F9D8
+	.type gamesfx_play_voice, %function
+gamesfx_play_voice: @ 0801F9D8
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	ldr r0, _0801FB78
@@ -5895,10 +5895,10 @@ _0801FCA4:
 _0801FCA8:
 	.4byte 0x0202E390
 
-	.global sub_0801FCAC
+	.global gamesfx_play
 	.thumb_func
-	.type sub_0801FCAC, %function
-sub_0801FCAC: @ 0801FCAC
+	.type gamesfx_play, %function
+gamesfx_play: @ 0801FCAC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6042,10 +6042,10 @@ _0801FDA4:
 _0801FDA8:
 	.4byte 0x08051B7C
 
-	.global sub_0801FDAC
+	.global gamesfx_play_cb
 	.thumb_func
-	.type sub_0801FDAC, %function
-sub_0801FDAC: @ 0801FDAC
+	.type gamesfx_play_cb, %function
+gamesfx_play_cb: @ 0801FDAC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6193,10 +6193,10 @@ _0801FEAC:
 _0801FEB0:
 	.4byte 0x08051B7C
 
-	.global sub_0801FEB4
+	.global gamesfx_play_endcb
 	.thumb_func
-	.type sub_0801FEB4, %function
-sub_0801FEB4: @ 0801FEB4
+	.type gamesfx_play_endcb, %function
+gamesfx_play_endcb: @ 0801FEB4
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6342,10 +6342,10 @@ _0801FFB0:
 _0801FFB4:
 	.4byte 0x08051B7C
 
-	.global sub_0801FFB8
+	.global gamesfx_play_cb_endcb
 	.thumb_func
-	.type sub_0801FFB8, %function
-sub_0801FFB8: @ 0801FFB8
+	.type gamesfx_play_cb_endcb, %function
+gamesfx_play_cb_endcb: @ 0801FFB8
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6592,7 +6592,7 @@ sub_08020130: @ 08020130
 	ldr r3, _080201F8
 	adds r0, r4, r1
 	mov r8, r3
-	bl sub_08036B7C
+	bl _call_via_r8
 	ldr r3, [r6, #0x24]
 	adds r4, r0, #0
 	ldr r0, [r5, #0x24]
@@ -6615,7 +6615,7 @@ sub_08020130: @ 08020130
 	adds r0, r5, #0
 	adds r5, r0, r3
 	adds r0, r5, r1
-	bl sub_08036B7C
+	bl _call_via_r8
 	asrs r5, r4, #1
 	asrs r1, r0, #1
 	subs r3, r5, r1
@@ -6633,7 +6633,7 @@ _080201B4:
 	blt _080201EE
 _080201BA:
 	ldr r2, _08020200
-	bl sub_08036B64
+	bl _call_via_r2
 	adds r2, r5, #0
 	eors r2, r4
 	cmp r2, #0
@@ -6724,13 +6724,13 @@ _08020234:
 	adds r0, r4, #0
 	movs r1, #8
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _0802022E
 _08020256:
 	adds r0, r4, #0
 	movs r1, #7
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _0802022E
 _08020262:
 	adds r2, r4, #0
@@ -6777,13 +6777,13 @@ _08020290:
 	adds r0, r4, #0
 	movs r1, #6
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _0802028A
 _080202B2:
 	adds r0, r4, #0
 	movs r1, #5
 	movs r2, #0
-	bl sub_0801F9D8
+	bl gamesfx_play_voice
 	b _0802028A
 _080202BE:
 	adds r2, r0, #0
