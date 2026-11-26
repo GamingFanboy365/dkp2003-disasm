@@ -5,7 +5,10 @@
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0x900000, 0x888
+	.incbin "baserom.gba", 0x900000, 0x80
+	.global gUnk_08900080
+gUnk_08900080:
+	.incbin "baserom.gba", 0x900080, 0x808
 	.global gUnk_08900888
 gUnk_08900888:
 	.incbin "baserom.gba", 0x900888, 0x178F
@@ -313,7 +316,10 @@ gUnk_0897E06B:
 	.incbin "baserom.gba", 0x97E06B, 0x1F95
 	.global gUnk_08980000
 gUnk_08980000:
-	.incbin "baserom.gba", 0x980000, 0x938
+	.incbin "baserom.gba", 0x980000, 0x80
+	.global gUnk_08980080
+gUnk_08980080:
+	.incbin "baserom.gba", 0x980080, 0x8B8
 	.global gUnk_08980938
 gUnk_08980938:
 	.incbin "baserom.gba", 0x980938, 0x1BB

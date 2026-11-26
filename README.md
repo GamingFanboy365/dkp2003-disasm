@@ -24,6 +24,28 @@ make compare                           # -> dkp.gba: OK
 Graphics, levels, audio data and other non-code bytes are still pulled from
 `baserom.gba` with `.incbin`, so the ROM is required to build.
 
+### Modding: the build is shiftable
+
+Code and data can grow or shrink: the linker places every file right after
+the previous one (no fixed addresses), and references are symbols rather than
+numbers:
+* branches, calls, jump tables and literal pools point at labels;
+* ROM data referenced by code has a `gUnk_08XXXXXX` label;
+* pointers stored inside data (function tables, string tables, level object
+  lists, sprite tables, sound-bank samples, newlib data) are emitted as
+  `.4byte symbol`;
+* known RAM variables are named (`config/ram_symbols.txt`), and the IWRAM
+  overlay's load address is the linker symbol `__iwram_lma`;
+* data files keep their original alignment, which the intro movie and the
+  sine table rely on.
+
+This is checked in mGBA with `tools/emu/shift_test.sh`. It inserts padding
+into an asm file and requires the shifted ROM to play exactly like the
+original: identical screens from power-on through the menus to the race start,
+then an identical 40-second gameplay run (racing, CPU items, zipper, sound).
+It passes for 4 bytes after `act_hud.s`, 12 bytes after `object.s` and 52
+bytes after `game.s`.
+
 ## Layout
 
 ```
@@ -48,7 +70,7 @@ ld_script.ld, objects.mk   generated: place every object at its original address
 | `0x0325DC` | `0x080325DC` | newlib libc (`vsprintf`, …) |
 | `0x0385FC` | **`0x03000000`** | `text32`: ARM code copied to IWRAM at boot (`IntrMain`, fast division, …), 0x3FC8 bytes (`asm/iwram.s`) |
 | `0x03C5C4` | `0x0803C5C4` | ARM code run from ROM (`asm/arm_rom.s`) |
-| `0x03EC00` | `0x0803EC00` | rodata (strings, tables) followed by graphics and level data (`data/`) |
+| `0x03EA90` | `0x0803EA90` | rodata (sine table, strings, tables) followed by graphics, level, movie and audio data (`data/`) |
 
 Boot order (from `AgbMain`): DMA-clear RAM, copy `text32` to IWRAM, install
 the IRQ handler at `0x03007FFC`, `AGBPrintInit`, then print
@@ -107,9 +129,17 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
 
 ## Status / TODO
 
-* Some areas are still emitted as bytes or `.incbin`: parts of the ARM audio
-  engine (computed `sub pc, pc, #imm` dispatch), a few unresolved gaps, and
-  all data.
-* Pool constants that point into rodata or RAM are still raw numbers, so the
-  code is not yet shiftable.
-* Split rodata and graphics out of `baserom.gba` into real files.
+* Data pointers are found with heuristics, because 8bpp graphics are full of
+  words that look like ROM addresses. The test covers the boot movie, the menus
+  and one track (Steamy Swoop) including items and sound; other tracks, boss
+  and battle modes, and the credits have not been played in a shifted build
+  yet. If something breaks there, `tools/where.py <addr>` shows how a ROM
+  address is emitted, and the `trace` command in `tools/emu/dkprun` finds the
+  first instruction where two builds diverge.
+* `asm/arm_rom.s` calls the ROM image of the IWRAM overlay with 17 raw `bl`
+  instructions. These are relative, so they only break if code is inserted
+  between those two regions.
+* A few areas are still emitted as bytes: undecoded parts of the ARM audio
+  engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
+* Split rodata, graphics, levels and audio out of `baserom.gba` into real
+  files (they are still `.incbin`).

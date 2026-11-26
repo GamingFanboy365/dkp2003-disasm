@@ -166,14 +166,14 @@ int main(int argc, char** argv) {
 		} else if (!strcmp(cmd, "log")) {
 			logOn = !strcmp(a1, "on");
 		} else if (!strcmp(cmd, "trace")) {
-			// trace <file> <ninsns>: single-step, writing pc, r0, r1, r2, r3, r12 of each instruction as binary uint32s
+			// trace <file> <ninsns>: single-step, writing pc, r0-r3, r6, r12, lr of each instruction as binary uint32s
 			FILE* tf = fopen(a1, "wb");
 			long cnt = atol(a2);
 			for (long i = 0; i < cnt; ++i) {
-				static const char* tr[] = {"pc", "r0", "r1", "r2", "r3", "r12"};
-				int32_t v[6] = {0};
-				for (int k = 0; k < 6; ++k) core->readRegister(core, tr[k], &v[k]);
-				fwrite(v, 4, 6, tf);
+				static const char* tr[] = {"pc", "r0", "r1", "r2", "r3", "r6", "r12", "lr"};
+				int32_t v[8] = {0};
+				for (int k = 0; k < 8; ++k) core->readRegister(core, tr[k], &v[k]);
+				fwrite(v, 4, 8, tf);
 				core->step(core);
 			}
 			fclose(tf);

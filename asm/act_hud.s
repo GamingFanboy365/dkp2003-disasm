@@ -91,7 +91,7 @@ _0800F8A0:
 _0800F8A4:
 	.4byte 0x0202D74C
 _0800F8A8:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0800F8AC:
 	.4byte 0x02023F7C
 _0800F8B0:
@@ -152,7 +152,7 @@ _0800F918:
 _0800F91C:
 	.4byte 0x00000000
 _0800F920:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800F924:
 	.4byte 0x0201A734
 _0800F928:
@@ -258,15 +258,15 @@ _0800F9D6:
 	b _0800F822
 	.byte 0x00, 0x00
 _0800F9F0:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800F9F4:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _0800F9F8:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0800F9FC:
-	.4byte 0x080504D8
+	.4byte gUnk_080504D8
 _0800FA00:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 
 	.global act_hud_map
 	.thumb_func
@@ -457,7 +457,7 @@ _0800FB50:
 _0800FB54:
 	.4byte 0x02018F34
 _0800FB58:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800FB5C:
 	.4byte 0x02023F80
 _0800FB60:
@@ -519,13 +519,13 @@ _0800FBB8:
 	.2byte 0xEFFF @ debug trap
 	b _0800FA1A
 _0800FBD0:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _0800FBD4:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0800FBD8:
-	.4byte 0x08050524
+	.4byte gUnk_08050524
 _0800FBDC:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 
 	.global act_hud_wrongway
 	.thumb_func
@@ -604,9 +604,9 @@ _0800FC62:
 _0800FC68:
 	.4byte 0x00000002
 _0800FC6C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800FC70:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800FC74:
 	.4byte 0x0000011D
 _0800FC78:
@@ -634,13 +634,13 @@ _0800FCA0:
 _0800FCA4:
 	.4byte 0x0000011D
 _0800FCA8:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _0800FCAC:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0800FCB0:
-	.4byte 0x08050530
+	.4byte gUnk_08050530
 _0800FCB4:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 
 	.global act_hud_lapcounter
 	.thumb_func
@@ -693,6 +693,7 @@ _0800FCDC:
 	ldr r1, [r0, r2]
 	mov pc, r1
 	.byte 0x00, 0x00
+	.global _0800FD10
 _0800FD10:
 	.4byte _0800FD28
 	.4byte _0800FD40
@@ -884,33 +885,33 @@ _0800FE70:
 	b _0800FCC4
 	.byte 0x00, 0x00
 _0800FE8C:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800FE90:
 	.4byte 0x0202D74C
 _0800FE94:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800FE98:
 	.4byte 0x02018F34
 _0800FE9C:
-	.4byte 0x0800FD10
+	.4byte _0800FD10
 _0800FEA0:
-	.4byte 0x0200434C
+	.4byte gRacerObjects
 _0800FEA4:
 	.4byte 0x0000011F
 _0800FEA8:
-	.4byte 0x087146C0
+	.4byte gUnk_087146C0
 _0800FEAC:
 	.4byte 0xFFFFC000
 _0800FEB0:
 	.4byte 0xFFFFF900
 _0800FEB4:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _0800FEB8:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0800FEBC:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _0800FEC0:
-	.4byte 0x08050544
+	.4byte gUnk_08050544
 
 	.global act_hud_position
 	.thumb_func
@@ -1035,23 +1036,23 @@ _0800FF88:
 	.2byte 0xEFFF @ debug trap
 	b _0800FECE
 _0800FFA0:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _0800FFA4:
 	.4byte 0x0202D74C
 _0800FFA8:
-	.4byte 0x08713650
+	.4byte gUnk_08713650
 _0800FFAC:
 	.4byte 0x02018F34
 _0800FFB0:
 	.4byte 0xFFFFF900
 _0800FFB4:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _0800FFB8:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0800FFBC:
-	.4byte 0x08050558
+	.4byte gUnk_08050558
 _0800FFC0:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _0800FFC4:
 	.4byte 0x000001A1
 
@@ -1106,13 +1107,13 @@ _0801000A:
 	.2byte 0xEFFF @ debug trap
 	b _0800FFD2
 _08010024:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010028:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0801002C:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _08010030:
-	.4byte 0x0805056C
+	.4byte gUnk_0805056C
 
 	.global init_hud_lapcounter
 	.thumb_func
@@ -1163,13 +1164,13 @@ _08010072:
 	b _0801003E
 	.byte 0x00, 0x00
 _0801008C:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010090:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _08010094:
-	.4byte 0x08050580
+	.4byte gUnk_08050580
 _08010098:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _0801009C:
 	.4byte 0x00000107
 
@@ -1225,13 +1226,13 @@ _080100E6:
 	b _080100AA
 	.byte 0x00, 0x00
 _08010100:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010104:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _08010108:
-	.4byte 0x08050594
+	.4byte gUnk_08050594
 _0801010C:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 
 	.global init_hud_lap2
 	.thumb_func
@@ -1280,13 +1281,13 @@ _0801014A:
 	b _0801011A
 	.byte 0x00, 0x00
 _08010164:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010168:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0801016C:
-	.4byte 0x080505A8
+	.4byte gUnk_080505A8
 _08010170:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _08010174:
 	.4byte 0x00000215
 
@@ -1357,13 +1358,13 @@ _080101CE:
 	b _0801019E
 	.byte 0x00, 0x00
 _080101E8:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _080101EC:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _080101F0:
-	.4byte 0x080505B8
+	.4byte gUnk_080505B8
 _080101F4:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _080101F8:
 	.4byte 0x0000022A
 
@@ -1434,13 +1435,13 @@ _08010252:
 	b _08010222
 	.byte 0x00, 0x00
 _0801026C:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010270:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _08010274:
-	.4byte 0x080505CC
+	.4byte gUnk_080505CC
 _08010278:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _0801027C:
 	.4byte 0x000001EB
 
@@ -1511,13 +1512,13 @@ _080102D6:
 	.2byte 0xEFFF @ debug trap
 	b _080102A6
 _080102F0:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _080102F4:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _080102F8:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _080102FC:
-	.4byte 0x080505E0
+	.4byte gUnk_080505E0
 
 	.global act_hud_go
 	.thumb_func
@@ -1586,13 +1587,13 @@ _08010356:
 	b _08010326
 	.byte 0x00, 0x00
 _08010370:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010374:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _08010378:
-	.4byte 0x080505EC
+	.4byte gUnk_080505EC
 _0801037C:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _08010380:
 	.4byte 0x0000023F
 
@@ -1636,13 +1637,13 @@ _080103AC:
 	b _0801038E
 	.byte 0x00, 0x00
 _080103C8:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _080103CC:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _080103D0:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _080103D4:
-	.4byte 0x080505FC
+	.4byte gUnk_080505FC
 
 	.global init_hud_crosshair
 	.thumb_func
@@ -1687,13 +1688,13 @@ _0801040A:
 	b _080103E2
 	.byte 0x00, 0x00
 _08010424:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _08010428:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _0801042C:
-	.4byte 0x0805060C
+	.4byte gUnk_0805060C
 _08010430:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 
 	.global act_hud_crosshair
 	.thumb_func
@@ -1743,7 +1744,7 @@ _08010442:
 _0801047C:
 	.4byte 0x00001001
 _08010480:
-	.4byte 0x0202DE58
+	.4byte gLocalPlayerIndex
 _08010484:
 	.4byte 0x0202D74C
 _08010488:
@@ -1765,13 +1766,13 @@ _08010492:
 	.2byte 0xEFFF @ debug trap
 	b _08010442
 _080104AC:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _080104B0:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _080104B4:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _080104B8:
-	.4byte 0x08050620
+	.4byte gUnk_08050620
 
 	.global act_hud_battle_position
 	.thumb_func
@@ -1798,12 +1799,12 @@ _080104CA:
 	b _080104C4
 	.byte 0x00, 0x00
 _080104E4:
-	.4byte 0x080504BC
+	.4byte gUnk_080504BC
 _080104E8:
-	.4byte 0x080504C8
+	.4byte gUnk_080504C8
 _080104EC:
-	.4byte 0x0805063C
+	.4byte gUnk_0805063C
 _080104F0:
-	.4byte 0x080504E8
+	.4byte gUnk_080504E8
 _080104F4:
 	.4byte 0x00000266

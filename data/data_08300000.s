@@ -146,7 +146,10 @@ gUnk_083CD990:
 	.incbin "baserom.gba", 0x3CD990, 0x2C40
 	.global gUnk_083D05D0
 gUnk_083D05D0:
-	.incbin "baserom.gba", 0x3D05D0, 0x640
+	.incbin "baserom.gba", 0x3D05D0, 0x260
+	.global gUnk_083D0830
+gUnk_083D0830:
+	.incbin "baserom.gba", 0x3D0830, 0x3E0
 	.global gUnk_083D0C10
 gUnk_083D0C10:
 	.incbin "baserom.gba", 0x3D0C10, 0x590

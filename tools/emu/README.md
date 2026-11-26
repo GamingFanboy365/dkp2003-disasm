@@ -34,11 +34,13 @@ It takes about 2 minutes per ROM.
 
 | File | Purpose |
 |---|---|
-| `dkprun.c` | Harness: reads commands on stdin (`run N KEYS`, `tap`, `peek`, `poke`, `save`/`load` states, `shot x.png`, `vlog` = per-frame dump of the gamesfx voices and pending queue). |
+| `dkprun.c` | Harness: reads commands on stdin: `run N KEYS`, `tap`, `peek`, `poke`, `str`, `save`/`load` states, `shot x.png`, `vlog` (per-frame dump of the gamesfx voices and pending queue), `regs`, `step N`, `until PC`, `trace FILE N` (pc, r0–r3, r6, r12, lr per instruction), `log on/off` (mGBA log, e.g. DMA sources). |
 | `drv.py` | Python wrapper; walks the object process list (`0x02004374`). |
 | `auto.py` | Autopilot: follows a recorded CPU racing line, with a forced waypoint (the zipper). |
 | `comp_tracks.json` | CPU racer positions recorded on Steamy Swoop, used as the racing line. |
 | `repro_zinger_buzz.py` | Full repro from power-on. |
+| `compare_boot.py` | Plays two ROMs from power-on to race start and compares screenshots. |
+| `shift_test.sh` | Inserts padding into an asm file and checks the shifted ROM plays identically. |
 | `analyze_vlog.py` | Lists every sound in a voice log and flags ones still playing at the end. |
 
 Useful RAM, from the disassembly:

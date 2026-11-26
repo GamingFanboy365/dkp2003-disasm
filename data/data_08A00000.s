@@ -122,7 +122,10 @@ gUnk_08A3EDA3:
 	.byte 0x00
 	.global gUnk_08A3EDA4
 gUnk_08A3EDA4:
-	.incbin "baserom.gba", 0xA3EDA4, 0x275F
+	.incbin "baserom.gba", 0xA3EDA4, 0x12E8
+	.global gUnk_08A4008C
+gUnk_08A4008C:
+	.incbin "baserom.gba", 0xA4008C, 0x1477
 	.global gUnk_08A41503
 gUnk_08A41503:
 	.byte 0x00

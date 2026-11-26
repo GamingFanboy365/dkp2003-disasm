@@ -78,7 +78,12 @@ gUnk_08570000:
 	.4byte gUnk_08550000
 	.4byte gUnk_08880000
 	.4byte gUnk_08980000
-	.incbin "baserom.gba", 0x57B420, 0x86B8
+	.incbin "baserom.gba", 0x57B420, 0x4C60
+	.global gUnk_08580080
+gUnk_08580080:
+	.incbin "baserom.gba", 0x580080, 0x3A50
+	.4byte gUnk_08870000
+	.4byte gUnk_08850000
 	.4byte gUnk_08850000
 	.4byte gUnk_08570000
 	.4byte gUnk_08550000

@@ -155,9 +155,9 @@ class Gen:
             o = 4 * i
             if not (lo <= w < hi):
                 continue
-            if o < self.code_end and (not is_data(o) or covered[o:o + 4].count(1)):
-                continue
-            if any(a <= o < b for a, b in overlays):
+            # (words inside overlay images are fine as long as they are not
+            # part of decoded code: undecoded literal pools live there too)
+            if o < self.code_end and covered[o:o + 4].count(1):
                 continue
             t = w - ROM_BASE
             if w & 1 and (t - 1) in thumb_funcs:
@@ -199,10 +199,10 @@ class Gen:
         for o, t in cand.items():
             # target referenced by code; the word itself is a variable whose
             # address code takes (e.g. newlib's _impure_ptr); or a pointer to
-            # something within 1KB of itself (linked structures, malloc bins)
+            # something within 4KB of itself (linked structures, malloc bins)
             # ... or a word in an undecoded gap of the code area (literal pools
             # of code the analyzer could not trace, e.g. the ARM audio engine)
-            if t in code_refs or o in code_refs or 0 < abs(t - o) < 0x400 or o < self.code_end:
+            if t in code_refs or o in code_refs or 0 < abs(t - o) < 0x1000 or o < self.code_end:
                 accepted[o] = t
         # pointers embedded in sparse structs (e.g. sound-bank entries): a
         # 4-aligned target within 64KB, a word with four different bytes (pixel
@@ -223,6 +223,45 @@ class Gen:
                     and len(set(struct.pack('<I', words[o // 4]))) == 4:
                 accepted[o] = t
                 accepted[o + 8] = cand[o + 8]
+        # strided tables (arrays of structs with one pointer field, e.g. level
+        # object lists {classinfo*, x, y, z}): >= 3 candidates at a constant
+        # stride of 8..32 bytes, words with four different bytes, and targets
+        # non-decreasing in small steps
+        distinct = lambda o: len(set(struct.pack('<I', words[o // 4]))) == 4
+        for stride in (8, 12, 16, 20, 24, 28, 32):
+            for o in sorted(cand):
+                if o in accepted or (o - stride) in cand or not distinct(o):
+                    continue
+                chain = [o]
+                while (chain[-1] + stride) in cand and distinct(chain[-1] + stride) and \
+                        0 <= cand[chain[-1] + stride] - cand[chain[-1]] < 0x10000:
+                    chain.append(chain[-1] + stride)
+                if len(chain) >= 3:
+                    for x in chain:
+                        accepted[x] = cand[x]
+                    continue
+                # unordered variant (e.g. sprite tables {frames*, palette*, 0, 0}):
+                # needs >= 4 entries, all with 4-aligned targets
+                chain = [o]
+                while (chain[-1] + stride) in cand and distinct(chain[-1] + stride) and \
+                        cand[chain[-1] + stride] % 4 == 0 and cand[o] % 4 == 0:
+                    chain.append(chain[-1] + stride)
+                if len(chain) >= 4:
+                    for x in chain:
+                        accepted[x] = cand[x]
+        # fields of a struct whose other pointers were accepted: a candidate
+        # (four different bytes, or a 4-aligned target) next to >= 2 accepted
+        # pointers within 16 bytes is accepted too; repeat until nothing changes
+        changed = True
+        while changed:
+            changed = False
+            for o, t in cand.items():
+                if o in accepted or (len(set(struct.pack('<I', t + ROM_BASE))) != 4 and t % 4):
+                    continue
+                near = sum(1 for d in (-16, -12, -8, -4, 4, 8, 12, 16) if (o + d) in accepted)
+                if near >= 2:
+                    accepted[o] = t
+                    changed = True
         for t in accepted.values():
             add_label(t)
         for o, t in fptr.items():
