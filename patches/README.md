@@ -1,43 +1,51 @@
 # Patches
 
-## `fix_sound_loop.ips`: engine-sound loop fix
+## `fix_sound_loop.ips`: endless zinger buzz after a zipper
 
 Apply to the original ROM (SHA1 `0cb385781742c25bf9d4cbeae8e83f7750af48db`).
-Result SHA1: `6ecb7b6be5e03444f9ecc8499926109a640bffc7`.
+Result SHA1: `9afa37da01126426461207ab3833116da865020f`.
 
-**Symptom:** a racer goes through a zipper and gets hit by an item at the
-same moment, and an engine sound starts looping forever on top of the normal
-one.
+**Symptom:** a CPU racer's purple zinger gets you around the moment you fly
+through a zipper, and a buzzing noise loops for the rest of the race.
 
-**How engine sounds work:** each engine sound is a one-shot sample. Its
-end-of-sample callback sets the racer's sound state from *playing* (9) to
-*re-trigger* (8). State 8 then starts a new random engine sample and returns
-to 9. CPU racers use the same scheme with states 5→4.
+**Cause:** a purple zinger (class 22, `act_red_zinger.c`) that is stuck to a
+racer runs this every frame (`ROM 0x29A2C`, inside `sub_0802931C`):
 
-**Bug 1 (root cause):** `gamesfx` has only 4 hardware voices, and a request
-that waits too long in the queue times out. A zipper plus a hit queues a
-burst of sounds at once: whoosh, character shout, hit sound, "ouch", engine
-restart. When a request times out, the update loop calls its end callback
-with a stale register (the context of voice #3) instead of the request's
-own context (`ROM 0x1F3AE`: `ldr r0,[r6,#0x2c]` → `ldr r0,[r4,#0x3c]`).
-For an engine request, that flips *another* racer's state to "re-trigger"
-while their engine is still playing.
+```
+if (victim.flags & 0x01000000)        // victim went through a zipper
+    zinger_destroy(zinger, 0);        // stops the zinger's sounds, state = dying
+                                      // BUG: falls through
+if (zinger.buzz_handle == -1 && victim is the local player)
+    zinger.buzz_handle = play(0xDD);  // "zinger on your plane" loop
+```
 
-**Bug 2:** the "re-trigger" state starts the new sample **without stopping
-the old handle**, unlike the otherwise identical "restart" state 7. So that
-racer ends up with two engine chains. Each chain's end callback re-triggers
-the other, and the extra copy never stops. The patch routes re-trigger
-through the restart path, which stops first, in all three copies of the
-state machine:
+The destroy call has just set the buzz handle to -1, so the code right after
+it starts the loop again. The zinger is already dying, so nothing ever stops
+that handle and it buzzes forever. It only happens to the local player,
+because only they hear this buzz. The order doesn't matter: the zinger can
+latch on first and you then take a zipper, or it can latch on while the
+zipper flag is still set.
 
-| ROM offset | Function | Change |
-|---|---|---|
-| `0x090BA` | local player (`sub_08009084`) | state 8 → state 7 path |
-| `0x09504` | other players (`sub_080094C0`) | state 8 → state 7 path |
-| `0x0DE4A` | CPU players (comp player) | state 4 → state 3 path |
-| `0x1F3AE` | gamesfx update (`sub_0801F2C4`) | timed-out request gets its own context |
+The blue zinger has the same check but exits after destroying itself, so it
+is not affected.
 
-Stopping an already-finished handle is a no-op, so normal engine looping
-is unchanged.
+**Fix (24 bytes at `0x29A2C`):** branch past the buzz-start code after the
+destroy call. The `== -1` test is shortened to `adds r6,#1; beq` to make
+room for the extra branch. No other behaviour changes.
+
+**Verified** in mGBA with scripted input. On the original ROM the orphaned
+sound 0xDD (221) was still playing 2,277 frames (about 38 seconds) after the
+zinger was gone, when the run ended. On the patched ROM, with identical
+inputs, it never starts, and normal zinger buzzes later in the run still play
+and stop.
 
 Rebuild: `make patch` (needs `baserom.gba`).
+
+### Not included
+
+While looking for this bug by reading the code, I found one more real defect
+that is not patched here, because I could not show it causing anything
+audible. In the gamesfx update (`ROM 0x1F3AE`), when a queued sound request
+times out, its end callback is called with the context of hardware voice #3
+(`ldr r0,[r6,#0x2c]`) instead of the request's own context
+(`ldr r0,[r4,#0x3c]`).
