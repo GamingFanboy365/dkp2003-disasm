@@ -2761,8 +2761,6 @@ gUnk_080FC130:
 	.global gUnk_080FEA52
 gUnk_080FEA52:
 	.incbin "build/assets/levels/12/bg_d.bin"   @ from assets/levels/12/bg_d.png
-	.global gUnk_08100808
-	.set gUnk_08100808, gUnk_080FEA52 + 0x1DB6
 	.global gUnk_08100810
 	.set gUnk_08100810, gUnk_080FEA52 + 0x1DBE
 	.byte 0x8C, 0x00

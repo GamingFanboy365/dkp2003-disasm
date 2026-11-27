@@ -12,6 +12,10 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             tiles, grey ramps otherwise).  The tile count comes from the manifest.
   objects   assembly: one `level_object x, y, z, classinfo` per object
   sdata     assembly: tables with symbolic pointers
+  rsprite   Rare sprite container: indexed PNG sprite sheet (16 frames per
+            row, colour 0 transparent, previewed in the sprite's palette) plus
+            a .json with the container header and per-frame tile counts.
+            The build re-encodes it exactly like Rare's tool (tools/rare_sprite.py).
   gfx, bin  raw binary
 
 assets/ is generated from your ROM and is not committed.
@@ -25,7 +29,7 @@ sys.path.insert(0, HERE)
 MANIFEST = os.path.join(ROOT, 'config', 'assets.txt')
 SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
-EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'gfx': '.bin', 'bin': '.bin',
+EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'gfx': '.bin', 'bin': '.bin',
        'objects': '.s', 'sdata': '.s'}
 TILES_PER_ROW = 16
 
@@ -66,12 +70,14 @@ def pal_rgb(b):
 
 
 # --------------------------------------------------------------------- PNG --
-def png_write(path, w, h, pixels, palette):
+def png_write(path, w, h, pixels, palette, transparent0=False):
     def chunk(t, d):
         return struct.pack('>I', len(d)) + t + d + struct.pack('>I', zlib.crc32(t + d) & 0xffffffff)
     raw = b''.join(b'\0' + bytes(pixels[y * w:(y + 1) * w]) for y in range(h))
     png = b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 3, 0, 0, 0))
     png += chunk(b'PLTE', b''.join(bytes(c) for c in palette))
+    if transparent0:
+        png += chunk(b'tRNS', b'\0')
     png += chunk(b'IDAT', zlib.compress(raw, 9)) + chunk(b'IEND', b'')
     open(path, 'wb').write(png)
 
@@ -188,9 +194,27 @@ def make_gen(rom_path):
     return g
 
 
+def sprite_palettes(rom):
+    """Container offset -> palette offset, from the sprite table and track records."""
+    out = {}
+    for k in range(1, 152):
+        gp, pp = struct.unpack_from('<II', rom, 0x713650 + 16 * k)
+        out.setdefault(gp - 0x08000000, pp - 0x08000000)
+    for t in range(48):
+        b = 0x51D40 + 0x2C * t
+        if not struct.unpack_from('<I', rom, b)[0]:
+            break
+        mp, pal16, th, thp = struct.unpack_from('<4I', rom, b + 0x14)
+        out.setdefault(mp - 0x08000000, pal16 - 0x08000000)
+        out.setdefault(th - 0x08000000, thp - 0x08000000)
+    return out
+
+
 def extract(rom_path):
+    import rare_sprite
     g = make_gen(rom_path)
     rom = g.rom.d
+    spals = sprite_palettes(rom)
     assets = load_manifest()
     by_name = {n: (o, s, t) for o, s, t, n in assets}
     count = {}
@@ -214,6 +238,21 @@ def extract(rom_path):
                 pal = [(i * 255 // (k - 1),) * 3 for i in range(k)]
             png_write(path, w, h, px, pal[:256])
             assert n == (size - 2) // (32 if bpp == 4 else 64)
+        elif typ == 'rsprite':
+            meta, frames, csize = rare_sprite.parse(data)
+            assert csize == size and rare_sprite.build(meta, frames) == data, name
+            counts = [m['tiles'] for m in meta['frames']]
+            w, h, px = rare_sprite.to_pixels(counts, frames)
+            po = spals.get(off)
+            if po is None:
+                # containers that follow a referenced one: borrow its palette (preview only)
+                prev = [o for o in spals if o < off]
+                po = spals[max(prev)] if prev else None
+            pal = pal_rgb(rom[po:po + 32]) if po is not None else [(i * 17,) * 3 for i in range(16)]
+            png_write(path, w, h, px, pal, transparent0=True)
+            meta = dict({'comment': 'Rare sprite container; see tools/rare_sprite.py', 'rom_offset': '0x%06X' % off},
+                        **meta)
+            open(path[:-4] + '.json', 'w').write(json.dumps(meta, indent=1) + '\n')
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
         else:
@@ -237,8 +276,8 @@ def build():
         dst = os.path.join(OUT, name + '.bin')
         if not os.path.exists(src):
             raise SystemExit('missing %s -- run `make extract` first' % os.path.relpath(src, ROOT))
-        if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src) and \
-                os.path.getmtime(dst) >= os.path.getmtime(MANIFEST):
+        srcs = [src] + ([src[:-4] + '.json'] if typ == 'rsprite' else [])
+        if os.path.exists(dst) and all(os.path.getmtime(dst) >= os.path.getmtime(x) for x in srcs + [MANIFEST]):
             continue
         if typ == 'pal':
             data = text_to_pal(open(src).read(), src)
@@ -247,6 +286,12 @@ def build():
             n = (size - 2) // (32 if bpp == 4 else 64)
             w, h, px = png_read(src)
             data = struct.pack('<H', n) + pixels_to_tiles(w, h, px, bpp, n, src)
+        elif typ == 'rsprite':
+            import rare_sprite
+            meta = json.load(open(src[:-4] + '.json'))
+            counts = [m['tiles'] for m in meta['frames']]
+            w, h, px = png_read(src)
+            data = rare_sprite.build(meta, rare_sprite.from_pixels(counts, w, h, px, src))
         else:
             data = open(src, 'rb').read()
         os.makedirs(os.path.dirname(dst), exist_ok=True)

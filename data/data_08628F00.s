@@ -1,125 +1,129 @@
-@ data/data_08600000.s: ROM 0x600000-0x700000 (rom, VMA 0x08600000)
+@ data/data_08628F00.s: ROM 0x628F00-0x700000 (rom, VMA 0x08628F00)
 
 	.include "asm/macros.inc"
 
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0x600000, 0x858
-	.global gUnk_08600858
-gUnk_08600858:
-	.incbin "baserom.gba", 0x600858, 0xA130
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x60A9B4, 0x15C34
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x620614, 0x7E7C
-	.global gUnk_08628490
-gUnk_08628490:
-	.incbin "baserom.gba", 0x628490, 0x5B0
-	.global gUnk_08628A40
-gUnk_08628A40:
-	.incbin "baserom.gba", 0x628A40, 0x190
-	.global gUnk_08628BD0
-gUnk_08628BD0:
-	.incbin "build/assets/graphics/sprites/043.bin"   @ from assets/graphics/sprites/043.bin
+.Lasset_628F00:
+	.incbin "build/assets/graphics/sprites/043_3.bin"   @ from assets/graphics/sprites/043_3.png
 	.global gUnk_08629010
 gUnk_08629010:
-	.incbin "baserom.gba", 0x629010, 0x640
+	.incbin "build/assets/graphics/sprites/043_4.bin"   @ from assets/graphics/sprites/043_4.png
 	.global gUnk_08629650
 gUnk_08629650:
-	.incbin "baserom.gba", 0x629650, 0x60
+	.incbin "build/assets/graphics/sprites/043_5.bin"   @ from assets/graphics/sprites/043_5.png
 	.global gUnk_086296B0
 gUnk_086296B0:
-	.incbin "build/assets/levels/tracks/58_theme.bin"   @ from assets/levels/tracks/58_theme.bin
+	.incbin "build/assets/levels/tracks/58_theme.bin"   @ from assets/levels/tracks/58_theme.png
 	.global gUnk_08629760
 gUnk_08629760:
-	.incbin "build/assets/levels/tracks/56_theme.bin"   @ from assets/levels/tracks/56_theme.bin
+	.incbin "build/assets/levels/tracks/56_theme.bin"   @ from assets/levels/tracks/56_theme.png
 	.global gUnk_08629820
 gUnk_08629820:
-	.incbin "build/assets/levels/tracks/5d_theme.bin"   @ from assets/levels/tracks/5d_theme.bin
+	.incbin "build/assets/levels/tracks/5d_theme.bin"   @ from assets/levels/tracks/5d_theme.png
 	.global gUnk_086298A0
 gUnk_086298A0:
-	.incbin "build/assets/levels/tracks/5a_theme.bin"   @ from assets/levels/tracks/5a_theme.bin
+	.incbin "build/assets/levels/tracks/5a_theme.bin"   @ from assets/levels/tracks/5a_theme.png
 	.global gUnk_08629940
 gUnk_08629940:
-	.incbin "build/assets/levels/tracks/60_theme.bin"   @ from assets/levels/tracks/60_theme.bin
+	.incbin "build/assets/levels/tracks/60_theme.bin"   @ from assets/levels/tracks/60_theme.png
 	.global gUnk_086299C0
 gUnk_086299C0:
-	.incbin "build/assets/levels/tracks/5f_theme.bin"   @ from assets/levels/tracks/5f_theme.bin
+	.incbin "build/assets/levels/tracks/5f_theme.bin"   @ from assets/levels/tracks/5f_theme.png
 	.global gUnk_08629A40
 gUnk_08629A40:
-	.incbin "baserom.gba", 0x629A40, 0x180
+	.incbin "build/assets/levels/tracks/5f_theme_2.bin"   @ from assets/levels/tracks/5f_theme_2.png
 	.global gUnk_08629BC0
 gUnk_08629BC0:
-	.incbin "baserom.gba", 0x629BC0, 0xC0
+	.incbin "build/assets/levels/tracks/5f_theme_3.bin"   @ from assets/levels/tracks/5f_theme_3.png
 	.global gUnk_08629C80
 gUnk_08629C80:
-	.incbin "baserom.gba", 0x629C80, 0xC0
+	.incbin "build/assets/levels/tracks/5f_theme_4.bin"   @ from assets/levels/tracks/5f_theme_4.png
 	.global gUnk_08629D40
 gUnk_08629D40:
-	.incbin "baserom.gba", 0x629D40, 0xC0
+	.incbin "build/assets/levels/tracks/5f_theme_5.bin"   @ from assets/levels/tracks/5f_theme_5.png
 	.global gUnk_08629E00
 gUnk_08629E00:
-	.incbin "baserom.gba", 0x629E00, 0xE0
+	.incbin "build/assets/levels/tracks/5f_theme_6.bin"   @ from assets/levels/tracks/5f_theme_6.png
 	.global gUnk_08629EE0
 gUnk_08629EE0:
-	.incbin "baserom.gba", 0x629EE0, 0x1A0
+	.incbin "build/assets/levels/tracks/5f_theme_7.bin"   @ from assets/levels/tracks/5f_theme_7.png
 	.global gUnk_0862A080
 gUnk_0862A080:
-	.incbin "baserom.gba", 0x62A080, 0x490
+	.incbin "build/assets/levels/tracks/5f_theme_8.bin"   @ from assets/levels/tracks/5f_theme_8.png
 	.global gUnk_0862A510
 gUnk_0862A510:
-	.incbin "build/assets/graphics/sprites/122.bin"   @ from assets/graphics/sprites/122.bin
+	.incbin "build/assets/graphics/sprites/122.bin"   @ from assets/graphics/sprites/122.png
+.Lasset_62B1A0:
+	.incbin "build/assets/graphics/sprites/122_2.bin"   @ from assets/graphics/sprites/122_2.png
+.Lasset_62B570:
+	.incbin "build/assets/graphics/sprites/122_3.bin"   @ from assets/graphics/sprites/122_3.png
 	.global gUnk_0862B6A0
 gUnk_0862B6A0:
-	.incbin "baserom.gba", 0x62B6A0, 0x950
+	.incbin "build/assets/graphics/sprites/122_4.bin"   @ from assets/graphics/sprites/122_4.png
+.Lasset_62BC00:
+	.incbin "build/assets/graphics/sprites/122_5.bin"   @ from assets/graphics/sprites/122_5.png
+.Lasset_62BEA0:
+	.incbin "build/assets/graphics/sprites/122_6.bin"   @ from assets/graphics/sprites/122_6.png
 	.global gUnk_0862BFF0
 gUnk_0862BFF0:
-	.incbin "baserom.gba", 0x62BFF0, 0x230
+	.incbin "build/assets/graphics/sprites/122_7.bin"   @ from assets/graphics/sprites/122_7.png
+.Lasset_62C140:
+	.incbin "build/assets/graphics/sprites/122_8.bin"   @ from assets/graphics/sprites/122_8.png
+.Lasset_62C1C0:
+	.incbin "build/assets/graphics/sprites/122_9.bin"   @ from assets/graphics/sprites/122_9.png
 	.global gUnk_0862C220
 gUnk_0862C220:
-	.incbin "baserom.gba", 0x62C220, 0x290
+	.incbin "build/assets/graphics/sprites/122_10.bin"   @ from assets/graphics/sprites/122_10.png
+.Lasset_62C390:
+	.incbin "build/assets/graphics/sprites/122_11.bin"   @ from assets/graphics/sprites/122_11.png
+.Lasset_62C450:
+	.incbin "build/assets/graphics/sprites/122_12.bin"   @ from assets/graphics/sprites/122_12.png
 	.global gUnk_0862C4B0
 gUnk_0862C4B0:
-	.incbin "baserom.gba", 0x62C4B0, 0x1BD0
+	.incbin "build/assets/graphics/sprites/122_13.bin"   @ from assets/graphics/sprites/122_13.png
+.Lasset_62D5D0:
+	.incbin "build/assets/graphics/sprites/122_14.bin"   @ from assets/graphics/sprites/122_14.png
+.Lasset_62DDB0:
+	.incbin "build/assets/graphics/sprites/122_15.bin"   @ from assets/graphics/sprites/122_15.png
 	.global gUnk_0862E080
 gUnk_0862E080:
-	.incbin "baserom.gba", 0x62E080, 0xEF0
+	.incbin "build/assets/graphics/sprites/122_16.bin"   @ from assets/graphics/sprites/122_16.png
+.Lasset_62EA30:
+	.incbin "build/assets/graphics/sprites/122_17.bin"   @ from assets/graphics/sprites/122_17.png
+.Lasset_62EDF0:
+	.incbin "build/assets/graphics/sprites/122_18.bin"   @ from assets/graphics/sprites/122_18.png
 	.global gUnk_0862EF70
 gUnk_0862EF70:
-	.incbin "baserom.gba", 0x62EF70, 0x5B20
+	.incbin "build/assets/graphics/sprites/122_19.bin"   @ from assets/graphics/sprites/122_19.png
+.Lasset_62F6E0:
+	.incbin "build/assets/graphics/sprites/122_20.bin"   @ from assets/graphics/sprites/122_20.png
+.Lasset_62F970:
+	.incbin "build/assets/graphics/sprites/122_21.bin"   @ from assets/graphics/sprites/122_21.png
+.Lasset_62FAF0:
+	.incbin "build/assets/graphics/sprites/122_22.bin"   @ from assets/graphics/sprites/122_22.png
+.Lasset_6330E0:
+	.incbin "build/assets/graphics/sprites/122_23.bin"   @ from assets/graphics/sprites/122_23.png
+.Lasset_6342E0:
+	.incbin "build/assets/graphics/sprites/122_24.bin"   @ from assets/graphics/sprites/122_24.png
 	.global gUnk_08634A90
 gUnk_08634A90:
-	.incbin "baserom.gba", 0x634A90, 0x41A0
+	.incbin "build/assets/graphics/sprites/122_25.bin"   @ from assets/graphics/sprites/122_25.png
+.Lasset_637690:
+	.incbin "build/assets/graphics/sprites/122_26.bin"   @ from assets/graphics/sprites/122_26.png
+.Lasset_6385B0:
+	.incbin "build/assets/graphics/sprites/122_27.bin"   @ from assets/graphics/sprites/122_27.png
 	.global gUnk_08638C30
 gUnk_08638C30:
-	.incbin "build/assets/graphics/sprites/042.bin"   @ from assets/graphics/sprites/042.pal
+	.incbin "build/assets/graphics/sprites/042_palette.bin"   @ from assets/graphics/sprites/042_palette.pal
 	.global gUnk_08638C50
 gUnk_08638C50:
-	.incbin "build/assets/graphics/sprites/042_638c50.bin"   @ from assets/graphics/sprites/042_638c50.bin
+	.incbin "build/assets/graphics/sprites/042.bin"   @ from assets/graphics/sprites/042.png
 	.global gUnk_086391B0
 gUnk_086391B0:
-	.incbin "baserom.gba", 0x6391B0, 0x70
+	.incbin "build/assets/graphics/sprites/042_2.bin"   @ from assets/graphics/sprites/042_2.png
+	.byte 0x00, 0x00, 0x1F, 0x00, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C
 	.global gUnk_08639220
 gUnk_08639220:
 	.incbin "baserom.gba", 0x639220, 0x1C0
@@ -434,7 +438,7 @@ gUnk_0863F160:
 	.byte 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C
 	.global gUnk_0863F180
 gUnk_0863F180:
-	.incbin "build/assets/graphics/sprites/049_63f180.bin"   @ from assets/graphics/sprites/049_63f180.pal
+	.incbin "build/assets/graphics/sprites/049_palette.bin"   @ from assets/graphics/sprites/049_palette.pal
 	.global gUnk_0863F1A0
 gUnk_0863F1A0:
 	.byte 0xE0, 0x03, 0x13, 0x00, 0x1F, 0x00, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D
@@ -453,7 +457,7 @@ gUnk_0863F200:
 	.byte 0xD5, 0x10, 0xA8, 0x10, 0xED, 0x14, 0x1A, 0x2A, 0x50, 0x19, 0x3F, 0x43, 0x64, 0x04, 0x72, 0x22
 	.global gUnk_0863F220
 gUnk_0863F220:
-	.incbin "build/assets/graphics/sprites/009_63f220.bin"   @ from assets/graphics/sprites/009_63f220.pal
+	.incbin "build/assets/graphics/sprites/009_palette.bin"   @ from assets/graphics/sprites/009_palette.pal
 	.global gUnk_0863F240
 gUnk_0863F240:
 	.byte 0xE0, 0x03, 0x55, 0x29, 0x1F, 0x00, 0x1E, 0x3E, 0x27, 0x00, 0x9B, 0x25, 0x7F, 0x4B, 0xB0, 0x00
@@ -468,19 +472,19 @@ gUnk_0863F280:
 	.byte 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D
 	.global gUnk_0863F2A0
 gUnk_0863F2A0:
-	.incbin "build/assets/graphics/sprites/001_63f2a0.bin"   @ from assets/graphics/sprites/001_63f2a0.pal
+	.incbin "build/assets/graphics/sprites/001_palette.bin"   @ from assets/graphics/sprites/001_palette.pal
 	.global gUnk_0863F2C0
 gUnk_0863F2C0:
-	.incbin "build/assets/graphics/sprites/012_63f2c0.bin"   @ from assets/graphics/sprites/012_63f2c0.pal
+	.incbin "build/assets/graphics/sprites/012_palette.bin"   @ from assets/graphics/sprites/012_palette.pal
 	.global gUnk_0863F2E0
 gUnk_0863F2E0:
-	.incbin "build/assets/graphics/sprites/011_63f2e0.bin"   @ from assets/graphics/sprites/011_63f2e0.pal
+	.incbin "build/assets/graphics/sprites/011_palette.bin"   @ from assets/graphics/sprites/011_palette.pal
 	.global gUnk_0863F300
 gUnk_0863F300:
-	.incbin "build/assets/graphics/sprites/002_63f300.bin"   @ from assets/graphics/sprites/002_63f300.pal
+	.incbin "build/assets/graphics/sprites/002_palette.bin"   @ from assets/graphics/sprites/002_palette.pal
 	.global gUnk_0863F320
 gUnk_0863F320:
-	.incbin "build/assets/graphics/sprites/013_63f320.bin"   @ from assets/graphics/sprites/013_63f320.pal
+	.incbin "build/assets/graphics/sprites/013_palette.bin"   @ from assets/graphics/sprites/013_palette.pal
 	.global gUnk_0863F340
 gUnk_0863F340:
 	.incbin "build/assets/levels/tracks/54_pal16.bin"   @ from assets/levels/tracks/54_pal16.pal
@@ -567,7 +571,7 @@ gUnk_0863F680:
 	.byte 0x72, 0x00, 0x6D, 0x00, 0xDF, 0x46, 0x9F, 0x63, 0xFF, 0x7F, 0x8D, 0x20, 0xF2, 0x28, 0xF9, 0x2C
 	.global gUnk_0863F6A0
 gUnk_0863F6A0:
-	.incbin "build/assets/graphics/sprites/006_63f6a0.bin"   @ from assets/graphics/sprites/006_63f6a0.pal
+	.incbin "build/assets/graphics/sprites/006_palette.bin"   @ from assets/graphics/sprites/006_palette.pal
 	.global gUnk_0863F6C0
 gUnk_0863F6C0:
 	.byte 0xE0, 0x03, 0xFF, 0x5B, 0x1F, 0x00, 0x4B, 0x00, 0xFE, 0x56, 0x58, 0x26, 0x91, 0x09, 0xD1, 0x1D
@@ -599,7 +603,7 @@ gUnk_0863F7A0:
 	.byte 0xEE, 0x35, 0x81, 0x00, 0x6D, 0x2B, 0xC6, 0x0E, 0x23, 0x06, 0x82, 0x05, 0x13, 0x53, 0x36, 0x73
 	.global gUnk_0863F7C0
 gUnk_0863F7C0:
-	.incbin "build/assets/graphics/sprites/004_63f7c0.bin"   @ from assets/graphics/sprites/004_63f7c0.pal
+	.incbin "build/assets/graphics/sprites/004_palette.bin"   @ from assets/graphics/sprites/004_palette.pal
 	.global gUnk_0863F7E0
 gUnk_0863F7E0:
 	.byte 0xE0, 0x03, 0x27, 0x7E, 0xDF, 0x5A, 0x1F, 0x00, 0xBD, 0x7F, 0xCA, 0x7E, 0xA5, 0x7D, 0xCC, 0x69
@@ -610,20 +614,20 @@ gUnk_0863F800:
 	.byte 0xAC, 0x1E, 0x09, 0x1A, 0xA3, 0x0C, 0x2C, 0x2D, 0x70, 0x39, 0xB3, 0x41, 0x8A, 0x14, 0xBD, 0x5A
 	.global gUnk_0863F820
 gUnk_0863F820:
-	.incbin "build/assets/graphics/sprites/003_63f820.bin"   @ from assets/graphics/sprites/003_63f820.pal
+	.incbin "build/assets/graphics/sprites/003_palette.bin"   @ from assets/graphics/sprites/003_palette.pal
 	.global gUnk_0863F840
 gUnk_0863F840:
-	.incbin "build/assets/graphics/sprites/008_63f840.bin"   @ from assets/graphics/sprites/008_63f840.pal
+	.incbin "build/assets/graphics/sprites/008_palette.bin"   @ from assets/graphics/sprites/008_palette.pal
 	.global gUnk_0863F860
 gUnk_0863F860:
 	.byte 0x00, 0x7C, 0x06, 0x00, 0xDF, 0x5A, 0x1F, 0x00, 0x78, 0x00, 0xFF, 0x7F, 0x30, 0x2E, 0xF9, 0x1F
 	.byte 0x8F, 0x0E, 0x58, 0x53, 0xB4, 0x1B, 0x05, 0x05, 0x90, 0x17, 0xC7, 0x09, 0x89, 0x0A, 0x4B, 0x0F
 	.global gUnk_0863F880
 gUnk_0863F880:
-	.incbin "build/assets/graphics/sprites/005_63f880.bin"   @ from assets/graphics/sprites/005_63f880.pal
+	.incbin "build/assets/graphics/sprites/005_palette.bin"   @ from assets/graphics/sprites/005_palette.pal
 	.global gUnk_0863F8A0
 gUnk_0863F8A0:
-	.incbin "build/assets/graphics/sprites/010_63f8a0.bin"   @ from assets/graphics/sprites/010_63f8a0.pal
+	.incbin "build/assets/graphics/sprites/010_palette.bin"   @ from assets/graphics/sprites/010_palette.pal
 	.global gUnk_0863F8C0
 gUnk_0863F8C0:
 	.byte 0x00, 0x7C, 0x89, 0x04, 0x31, 0x11, 0xED, 0x0C, 0xD9, 0x19, 0x73, 0x15, 0x95, 0x15, 0x78, 0x3E
@@ -674,7 +678,7 @@ gUnk_0863FA20:
 	.byte 0xDD, 0x43, 0xFF, 0x7F, 0xF6, 0x1F, 0x6B, 0x1A, 0xCA, 0x1F, 0x61, 0x09, 0x61, 0x17, 0x60, 0x12
 	.global gUnk_0863FA40
 gUnk_0863FA40:
-	.incbin "build/assets/graphics/sprites/007_63fa40.bin"   @ from assets/graphics/sprites/007_63fa40.pal
+	.incbin "build/assets/graphics/sprites/007_palette.bin"   @ from assets/graphics/sprites/007_palette.pal
 	.global gUnk_0863FA60
 gUnk_0863FA60:
 	.incbin "build/assets/levels/tracks/60_theme_pal.bin"   @ from assets/levels/tracks/60_theme_pal.pal
@@ -734,7 +738,7 @@ gUnk_0863FC20:
 	.byte 0x81, 0x01, 0xFD, 0x7F, 0xFA, 0x7F, 0xF8, 0x7F, 0xD5, 0x7F, 0x70, 0x7F, 0xAA, 0x7E, 0x81, 0x7D
 	.global gUnk_0863FC40
 gUnk_0863FC40:
-	.incbin "build/assets/graphics/sprites/122_63fc40.bin"   @ from assets/graphics/sprites/122_63fc40.pal
+	.incbin "build/assets/graphics/sprites/122_palette.bin"   @ from assets/graphics/sprites/122_palette.pal
 	.global gUnk_0863FC60
 gUnk_0863FC60:
 	.byte 0xE0, 0x03, 0xFF, 0x7F, 0xDD, 0x7F, 0xDB, 0x7F, 0xBA, 0x7F, 0xB8, 0x7F, 0xB6, 0x7F, 0xB5, 0x7F
@@ -2721,10 +2725,7 @@ gUnk_08659DC0:
 	.incbin "baserom.gba", 0x659DC0, 0x362
 	.global gUnk_0865A122
 gUnk_0865A122:
-	.incbin "baserom.gba", 0x65A122, 0x5EDE
-	.global gUnk_08660000
-gUnk_08660000:
-	.incbin "baserom.gba", 0x660000, 0x90CB2
+	.incbin "baserom.gba", 0x65A122, 0x96B90
 	.global gUnk_086F0CB2
 gUnk_086F0CB2:
 	.incbin "baserom.gba", 0x6F0CB2, 0xF34E

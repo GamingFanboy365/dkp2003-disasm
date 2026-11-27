@@ -29,7 +29,7 @@ with `.incbin`.
 
 ## Assets: graphics and levels
 
-`config/assets.txt` lists 805 assets (about 5 MB, 40% of the ROM) found from
+`config/assets.txt` lists 1053 assets (about 6.2 MB, half of the ROM) found from
 the game's own tables: the level headers at `0x087146C0`, the track records at
 `0x08051D40`, the sprite table at `0x08713650`, and front-end graphics found
 with an mGBA DMA survey. `tools/find_assets.py` builds the list; it holds only
@@ -41,16 +41,20 @@ offsets, sizes and types.
 | Tilesets (34) | `*.png` | indexed PNG, 16 tiles per row; pixel value = colour index. 256-colour level tilesets are shown in their level palette |
 | Object lists (22) | `levels/NN/objects.s` | one `level_object x, y, z, classinfo` per object, with the class name, then `level_objects_end` |
 | Tables (7) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
-| Graphics (172) | `*.bin` | Rare's compressed sprite/image format and tilemaps, not decoded yet |
+| Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
+| Tilemaps (2) | `*.bin` | front-end BG tilemaps |
 | Other (399) | `*.bin` | level data blocks whose format is not known yet (track paths, collision, …) |
 
 Layout:
 ```
 assets/levels/NN/            33 levels: palette.pal, bg_a/bg_c/bg_d.png (tilesets),
                              objects.s, data_XX.bin (header field +XX)
-assets/levels/tracks/        48 track records: sky gradients, palettes, maps, themes
+assets/levels/tracks/        48 track records: sky gradients, palettes, map/theme sprites (PNG)
 assets/levels/level_headers.s, track_records.s
-assets/graphics/sprites/     152 sprite sets (NNN.bin + NNN.pal), sprite_table.s
+assets/graphics/sprites/     sprite sheets NNN.png + NNN.json (sprite table entry NNN),
+                             NNN_2.png, NNN_3.png, … (sets stored right after it: the
+                             smaller level-of-detail versions), NNN_palette.pal,
+                             sprite_table.s
 assets/graphics/frontend/    menu tilesets (PNG) and tilemaps
 ```
 
@@ -66,6 +70,33 @@ Object lists can grow, for example. Level 05 is Steamy Swoop, and adding
 to `assets/levels/05/objects.s` puts an extra zipper on the start straight.
 This was tested in mGBA: it appears and boosts the plane. When adding tiles
 or palette entries, update the asset's size in `config/assets.txt` too.
+
+### Rare's sprite format
+
+Every sprite in the game uses one container format: the character planes and
+their smaller level-of-detail versions, items, zingers, the zippers, trackside
+objects, HUD portraits and the track minimaps. It is decoded at run time by
+`sub_03000A80`/`sub_03000898` in IWRAM, straight into sprite VRAM with DMA.
+`tools/rare_sprite.py` documents it:
+
+* a header (frame-table offset, `0x16`, size/16, bounding boxes, animation
+  data), then a table of frame offsets in 16-byte units, ending with 0;
+* frames, each 16-byte aligned: a `u16` tile count (bit 15 = stored raw), then
+  RLE over 16-bit units: `0x80|n-1` copies n halfwords, `(b<<8)|n-1` fills n
+  halfwords with byte b, `0` ends;
+* the result is 4bpp tiles in 1D sprite order.
+
+Rare's encoder is greedy: a run of 2 or more equal halfwords whose two bytes
+are equal becomes a fill, of up to 128; everything else is copied. Re-encoding
+with that rule reproduces all 418 containers byte for byte, so the PNGs are
+the real source and edits rebuild correctly. Each sheet holds 16 frames per
+row; a frame is drawn from its tile count (64 tiles = 64×64, 16 = 32×32, …).
+Frames made of several hardware sprites (for example 72 = 64 + 4 + 4 tiles)
+show their extra pieces beside the main one. The `.json` keeps the header
+bytes and per-frame tile counts, which the PNG must match.
+
+Tested in mGBA: swapping two colours in `graphics/sprites/051.png` (the
+zipper) gives a recoloured zipper in the race.
 
 ### Modding: the build is shiftable
 

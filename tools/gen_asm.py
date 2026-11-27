@@ -62,7 +62,7 @@ class Gen:
         self.assets = sorted(assets)          # (offset, size, type, name)
         # regions known to hold no pointers (graphics, palettes)
         self.noptr = sorted(list(noptr) + [(o, o + s) for o, s, t, n in self.assets
-                                           if t in ('pal', 'tiles4', 'tiles8', 'gfx')])
+                                           if t in ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite')])
         self.scan_data()
         self.asset_at = {a[0]: a for a in self.assets}
         self.class_names = {}
@@ -287,7 +287,7 @@ class Gen:
             sum(1 for v in self.dptr.values() if v[0] == 'data')), file=sys.stderr)
 
     # -- extracted assets -----------------------------------------------------
-    ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'gfx': '.bin', 'bin': '.bin',
+    ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'gfx': '.bin', 'bin': '.bin',
                     'objects': '.s', 'sdata': '.s'}
 
     def emit_asset(self, out, off):

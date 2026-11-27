@@ -8,10 +8,7 @@
 	.incbin "baserom.gba", 0xB00000, 0x8C
 	.global gUnk_08B0008C
 gUnk_08B0008C:
-	.incbin "baserom.gba", 0xB0008C, 0x81C
-	.global gUnk_08B008A8
-gUnk_08B008A8:
-	.incbin "baserom.gba", 0xB008A8, 0x6E8F
+	.incbin "baserom.gba", 0xB0008C, 0x76AB
 	.global gUnk_08B07737
 gUnk_08B07737:
 	.byte 0x00

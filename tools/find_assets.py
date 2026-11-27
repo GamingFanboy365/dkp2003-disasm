@@ -17,7 +17,9 @@ Asset types:
   tiles4/8  u16 tile count + 4bpp/8bpp tiles  -> assets/<name>.png (indexed)
   objects   level object list {x,y,z,info*}   -> assets/<name>.s
   sdata     table containing pointers         -> assets/<name>.s
-  gfx       pointer-free graphics (Rare sprite/image formats, tilemaps)
+  rsprite   Rare sprite container (sprite sets, track maps/themes)
+                                              -> assets/<name>.png + .json
+  gfx       other pointer-free graphics (tilemaps)
                                               -> assets/<name>.bin
   bin       anything else                     -> assets/<name>.bin
 
@@ -51,15 +53,15 @@ for off in range(0x38, 0x74, 4):
     LEVEL_FIELDS[off] = ('data_%02x' % off, 'bin')
 
 # track record fields
-TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'gfx'),
-                0x18: ('pal16', 'pal'), 0x1C: ('theme', 'gfx'), 0x20: ('theme_pal', 'pal'),
+TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'rsprite'),
+                0x18: ('pal16', 'pal'), 0x1C: ('theme', 'rsprite'), 0x20: ('theme_pal', 'pal'),
                 0x28: ('extra', 'bin')}
 
 # from the DMA survey (tools/emu): front-end tilesets (offset of the u16 count)
 FRONTEND_TILESETS = [(0x081D02, 4), (0x0A698E, 4), (0x0AE810, 4), (0x0AFD52, 8)]
 FRONTEND_TILEMAPS = [0x1B885C, 0x1BEF14]
 
-POINTER_FREE = ('pal', 'tiles4', 'tiles8', 'gfx')
+POINTER_FREE = ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite')
 
 
 def main():
@@ -130,15 +132,44 @@ def collect(g, data):
         e = SPRITES + 16 * k
         gp, pp = ptr(e), ptr(e + 4)
         if gp is not None:
-            add(gp, 'graphics/sprites/%03d' % k, 'gfx')
+            add(gp, 'graphics/sprites/%03d' % k, 'rsprite')
         if pp is not None:
-            add(pp, 'graphics/sprites/%03d' % k, 'pal', 0x20)
+            add(pp, 'graphics/sprites/%03d_palette' % k, 'pal', 0x20)
     # --- front end ---
     for off, bpp in FRONTEND_TILESETS:
         n = u16(off)
         add(off, 'graphics/frontend/tiles_%06x' % off, 'tiles%d' % bpp, 2 + n * 32 * (bpp // 4))
     for off in FRONTEND_TILEMAPS:
         add(off, 'graphics/frontend/tilemap_%06x' % off, 'gfx', 0x800)
+
+    # --- Rare sprite containers have an exact size; drop assets inside them ---
+    import rare_sprite
+    for off in sorted(assets):
+        if off in assets and assets[off][2] == 'rsprite':
+            try:
+                size = rare_sprite.parse(data[off:off + 0x100000])[2]
+            except ValueError:
+                assets[off][2] = 'gfx'
+                continue
+            assets[off][1] = size
+            for o in [a for a in assets if off < a < off + size]:
+                print('note: %s (0x%06X) lies inside sprite container %s; dropped' % (
+                    assets[o][0], o, assets[off][0]), file=sys.stderr)
+                del assets[o]
+            # more containers often follow directly (sets the sprite table does
+            # not reference); take them while they decode and re-encode exactly
+            e, k = off + size, 2
+            while e not in assets and e < len(data) - 4:
+                nxt = min([a for a in assets if a > e] + [len(data)])
+                try:
+                    meta, frames, csize = rare_sprite.parse(data[e:min(nxt, e + 0x100000)])
+                except (ValueError, struct.error, IndexError):
+                    break
+                if e + csize > nxt or rare_sprite.build(meta, frames) != data[e:e + csize]:
+                    break
+                assets[e] = ['%s_%d' % (assets[off][0], k), csize, 'rsprite']
+                e += csize
+                k += 1
 
     # --- resolve sizes: an asset ends at the next asset start or data label ---
     bounds = sorted(set(assets) | set(g.dlabel) | {g.code_end, len(data)} |
@@ -152,7 +183,8 @@ def collect(g, data):
         nxt_asset = min([a for a in assets if a > off] + [len(data)])
         if size is None:
             size = nxt - off
-        size = min(size, nxt_asset - off)
+        if typ != 'rsprite':
+            size = min(size, nxt_asset - off)
         if typ == 'objects':
             # {x, y, z, info*} records with a class byte behind info
             n = 0

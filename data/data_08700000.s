@@ -5,10 +5,7 @@
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0x700000, 0x868
-	.global gUnk_08700868
-gUnk_08700868:
-	.incbin "baserom.gba", 0x700868, 0x12DE8
+	.incbin "baserom.gba", 0x700000, 0x13650
 	.global gUnk_08713650
 gUnk_08713650:
 	.include "assets/graphics/sprites/sprite_table.s"
@@ -328,513 +325,820 @@ gUnk_08715A68:
 	.incbin "baserom.gba", 0x715A68, 0x1088
 	.global gUnk_08716AF0
 gUnk_08716AF0:
-	.incbin "build/assets/graphics/sprites/084.bin"   @ from assets/graphics/sprites/084.bin
+	.incbin "build/assets/graphics/sprites/084.bin"   @ from assets/graphics/sprites/084.png
 	.global gUnk_08716D20
 gUnk_08716D20:
-	.incbin "build/assets/graphics/sprites/047.bin"   @ from assets/graphics/sprites/047.bin
+	.incbin "build/assets/graphics/sprites/047.bin"   @ from assets/graphics/sprites/047.png
+.Lasset_717600:
+	.incbin "build/assets/graphics/sprites/047_2.bin"   @ from assets/graphics/sprites/047_2.png
+.Lasset_717890:
+	.incbin "build/assets/graphics/sprites/047_3.bin"   @ from assets/graphics/sprites/047_3.png
 	.global gUnk_087179A0
 gUnk_087179A0:
-	.incbin "build/assets/graphics/sprites/048.bin"   @ from assets/graphics/sprites/048.bin
+	.incbin "build/assets/graphics/sprites/048.bin"   @ from assets/graphics/sprites/048.png
+.Lasset_718F80:
+	.incbin "build/assets/graphics/sprites/048_2.bin"   @ from assets/graphics/sprites/048_2.png
+.Lasset_719720:
+	.incbin "build/assets/graphics/sprites/048_3.bin"   @ from assets/graphics/sprites/048_3.png
 	.global gUnk_08719A00
 gUnk_08719A00:
-	.incbin "build/assets/graphics/sprites/107.bin"   @ from assets/graphics/sprites/107.bin
+	.incbin "build/assets/graphics/sprites/107.bin"   @ from assets/graphics/sprites/107.png
+.Lasset_71A0D0:
+	.incbin "build/assets/graphics/sprites/107_2.bin"   @ from assets/graphics/sprites/107_2.png
+.Lasset_71A2E0:
+	.incbin "build/assets/graphics/sprites/107_3.bin"   @ from assets/graphics/sprites/107_3.png
 	.global gUnk_0871A390
 gUnk_0871A390:
-	.incbin "build/assets/graphics/sprites/056.bin"   @ from assets/graphics/sprites/056.bin
+	.incbin "build/assets/graphics/sprites/056.bin"   @ from assets/graphics/sprites/056.png
+.Lasset_71A7B0:
+	.incbin "build/assets/graphics/sprites/056_2.bin"   @ from assets/graphics/sprites/056_2.png
+.Lasset_71A930:
+	.incbin "build/assets/graphics/sprites/056_3.bin"   @ from assets/graphics/sprites/056_3.png
 	.global gUnk_0871A9E0
 gUnk_0871A9E0:
-	.incbin "build/assets/graphics/sprites/073.bin"   @ from assets/graphics/sprites/073.bin
+	.incbin "build/assets/graphics/sprites/073.bin"   @ from assets/graphics/sprites/073.png
+.Lasset_71D060:
+	.incbin "build/assets/graphics/sprites/073_2.bin"   @ from assets/graphics/sprites/073_2.png
+.Lasset_71DE20:
+	.incbin "build/assets/graphics/sprites/073_3.bin"   @ from assets/graphics/sprites/073_3.png
 	.global gUnk_0871E310
 gUnk_0871E310:
-	.incbin "build/assets/graphics/sprites/051.bin"   @ from assets/graphics/sprites/051.bin
+	.incbin "build/assets/graphics/sprites/051.bin"   @ from assets/graphics/sprites/051.png
+.Lasset_725AB0:
+	.incbin "build/assets/graphics/sprites/051_2.bin"   @ from assets/graphics/sprites/051_2.png
+.Lasset_728850:
+	.incbin "build/assets/graphics/sprites/051_3.bin"   @ from assets/graphics/sprites/051_3.png
 	.global gUnk_08729780
 gUnk_08729780:
-	.incbin "build/assets/graphics/sprites/050.bin"   @ from assets/graphics/sprites/050.bin
+	.incbin "build/assets/graphics/sprites/050.bin"   @ from assets/graphics/sprites/050.png
 	.global gUnk_0872B380
 gUnk_0872B380:
-	.incbin "build/assets/graphics/sprites/106.bin"   @ from assets/graphics/sprites/106.bin
+	.incbin "build/assets/graphics/sprites/106.bin"   @ from assets/graphics/sprites/106.png
+.Lasset_72DF80:
+	.incbin "build/assets/graphics/sprites/106_2.bin"   @ from assets/graphics/sprites/106_2.png
+.Lasset_72EF70:
+	.incbin "build/assets/graphics/sprites/106_3.bin"   @ from assets/graphics/sprites/106_3.png
 	.global gUnk_0872F590
 gUnk_0872F590:
-	.incbin "build/assets/graphics/sprites/068.bin"   @ from assets/graphics/sprites/068.bin
+	.incbin "build/assets/graphics/sprites/068.bin"   @ from assets/graphics/sprites/068.png
 	.global gUnk_0872FDE0
 gUnk_0872FDE0:
-	.incbin "build/assets/graphics/sprites/065.bin"   @ from assets/graphics/sprites/065.bin
+	.incbin "build/assets/graphics/sprites/065.bin"   @ from assets/graphics/sprites/065.png
 	.global gUnk_08730440
 gUnk_08730440:
-	.incbin "build/assets/graphics/sprites/116.bin"   @ from assets/graphics/sprites/116.bin
+	.incbin "build/assets/graphics/sprites/116.bin"   @ from assets/graphics/sprites/116.png
+.Lasset_730760:
+	.incbin "build/assets/graphics/sprites/116_2.bin"   @ from assets/graphics/sprites/116_2.png
+.Lasset_730880:
+	.incbin "build/assets/graphics/sprites/116_3.bin"   @ from assets/graphics/sprites/116_3.png
 	.global gUnk_087308F0
 gUnk_087308F0:
-	.incbin "build/assets/graphics/sprites/064.bin"   @ from assets/graphics/sprites/064.bin
+	.incbin "build/assets/graphics/sprites/064.bin"   @ from assets/graphics/sprites/064.png
 	.global gUnk_08731150
 gUnk_08731150:
-	.incbin "build/assets/graphics/sprites/063.bin"   @ from assets/graphics/sprites/063.bin
+	.incbin "build/assets/graphics/sprites/063.bin"   @ from assets/graphics/sprites/063.png
 	.global gUnk_087314D0
 gUnk_087314D0:
-	.incbin "build/assets/graphics/sprites/100.bin"   @ from assets/graphics/sprites/100.bin
+	.incbin "build/assets/graphics/sprites/100.bin"   @ from assets/graphics/sprites/100.png
+.Lasset_7316F0:
+	.incbin "build/assets/graphics/sprites/100_2.bin"   @ from assets/graphics/sprites/100_2.png
+.Lasset_7317E0:
+	.incbin "build/assets/graphics/sprites/100_3.bin"   @ from assets/graphics/sprites/100_3.png
 	.global gUnk_08731860
 gUnk_08731860:
-	.incbin "build/assets/graphics/sprites/101.bin"   @ from assets/graphics/sprites/101.bin
+	.incbin "build/assets/graphics/sprites/101.bin"   @ from assets/graphics/sprites/101.png
+.Lasset_731B30:
+	.incbin "build/assets/graphics/sprites/101_2.bin"   @ from assets/graphics/sprites/101_2.png
+.Lasset_731C40:
+	.incbin "build/assets/graphics/sprites/101_3.bin"   @ from assets/graphics/sprites/101_3.png
 	.global gUnk_08731CC0
 gUnk_08731CC0:
-	.incbin "build/assets/graphics/sprites/095.bin"   @ from assets/graphics/sprites/095.bin
+	.incbin "build/assets/graphics/sprites/095.bin"   @ from assets/graphics/sprites/095.png
+.Lasset_732A60:
+	.incbin "build/assets/graphics/sprites/095_2.bin"   @ from assets/graphics/sprites/095_2.png
+.Lasset_732E60:
+	.incbin "build/assets/graphics/sprites/095_3.bin"   @ from assets/graphics/sprites/095_3.png
 	.global gUnk_08732F90
 gUnk_08732F90:
-	.incbin "build/assets/graphics/sprites/096.bin"   @ from assets/graphics/sprites/096.bin
+	.incbin "build/assets/graphics/sprites/096.bin"   @ from assets/graphics/sprites/096.png
+.Lasset_7335A0:
+	.incbin "build/assets/graphics/sprites/096_2.bin"   @ from assets/graphics/sprites/096_2.png
+.Lasset_733780:
+	.incbin "build/assets/graphics/sprites/096_3.bin"   @ from assets/graphics/sprites/096_3.png
 	.global gUnk_08733830
 gUnk_08733830:
-	.incbin "build/assets/graphics/sprites/097.bin"   @ from assets/graphics/sprites/097.bin
+	.incbin "build/assets/graphics/sprites/097.bin"   @ from assets/graphics/sprites/097.png
+.Lasset_733E60:
+	.incbin "build/assets/graphics/sprites/097_2.bin"   @ from assets/graphics/sprites/097_2.png
+.Lasset_734050:
+	.incbin "build/assets/graphics/sprites/097_3.bin"   @ from assets/graphics/sprites/097_3.png
 	.global gUnk_08734100
 gUnk_08734100:
-	.incbin "build/assets/graphics/sprites/098.bin"   @ from assets/graphics/sprites/098.bin
+	.incbin "build/assets/graphics/sprites/098.bin"   @ from assets/graphics/sprites/098.png
+.Lasset_7347F0:
+	.incbin "build/assets/graphics/sprites/098_2.bin"   @ from assets/graphics/sprites/098_2.png
+.Lasset_734A00:
+	.incbin "build/assets/graphics/sprites/098_3.bin"   @ from assets/graphics/sprites/098_3.png
 	.global gUnk_08734AC0
 gUnk_08734AC0:
-	.incbin "build/assets/graphics/sprites/099.bin"   @ from assets/graphics/sprites/099.bin
+	.incbin "build/assets/graphics/sprites/099.bin"   @ from assets/graphics/sprites/099.png
+.Lasset_734DF0:
+	.incbin "build/assets/graphics/sprites/099_2.bin"   @ from assets/graphics/sprites/099_2.png
+.Lasset_734F30:
+	.incbin "build/assets/graphics/sprites/099_3.bin"   @ from assets/graphics/sprites/099_3.png
 	.global gUnk_08734FB0
 gUnk_08734FB0:
-	.incbin "build/assets/graphics/sprites/094.bin"   @ from assets/graphics/sprites/094.bin
+	.incbin "build/assets/graphics/sprites/094.bin"   @ from assets/graphics/sprites/094.png
+.Lasset_735B60:
+	.incbin "build/assets/graphics/sprites/094_2.bin"   @ from assets/graphics/sprites/094_2.png
+.Lasset_735EF0:
+	.incbin "build/assets/graphics/sprites/094_3.bin"   @ from assets/graphics/sprites/094_3.png
 	.global gUnk_08736030
 gUnk_08736030:
-	.incbin "build/assets/graphics/sprites/108.bin"   @ from assets/graphics/sprites/108.bin
+	.incbin "build/assets/graphics/sprites/108.bin"   @ from assets/graphics/sprites/108.png
+.Lasset_736B90:
+	.incbin "build/assets/graphics/sprites/108_2.bin"   @ from assets/graphics/sprites/108_2.png
+.Lasset_736EF0:
+	.incbin "build/assets/graphics/sprites/108_3.bin"   @ from assets/graphics/sprites/108_3.png
 	.global gUnk_08737000
 gUnk_08737000:
-	.incbin "build/assets/graphics/sprites/109.bin"   @ from assets/graphics/sprites/109.bin
+	.incbin "build/assets/graphics/sprites/109.bin"   @ from assets/graphics/sprites/109.png
+.Lasset_737B90:
+	.incbin "build/assets/graphics/sprites/109_2.bin"   @ from assets/graphics/sprites/109_2.png
+.Lasset_737F60:
+	.incbin "build/assets/graphics/sprites/109_3.bin"   @ from assets/graphics/sprites/109_3.png
 	.global gUnk_08738090
 gUnk_08738090:
-	.incbin "build/assets/graphics/sprites/110.bin"   @ from assets/graphics/sprites/110.bin
+	.incbin "build/assets/graphics/sprites/110.bin"   @ from assets/graphics/sprites/110.png
+.Lasset_73BF30:
+	.incbin "build/assets/graphics/sprites/110_2.bin"   @ from assets/graphics/sprites/110_2.png
+.Lasset_73D3C0:
+	.incbin "build/assets/graphics/sprites/110_3.bin"   @ from assets/graphics/sprites/110_3.png
 	.global gUnk_0873DA70
 gUnk_0873DA70:
-	.incbin "build/assets/graphics/sprites/111.bin"   @ from assets/graphics/sprites/111.bin
+	.incbin "build/assets/graphics/sprites/111.bin"   @ from assets/graphics/sprites/111.png
+.Lasset_73E0F0:
+	.incbin "build/assets/graphics/sprites/111_2.bin"   @ from assets/graphics/sprites/111_2.png
+.Lasset_73E2F0:
+	.incbin "build/assets/graphics/sprites/111_3.bin"   @ from assets/graphics/sprites/111_3.png
 	.global gUnk_0873E3A0
 gUnk_0873E3A0:
-	.incbin "build/assets/graphics/sprites/103.bin"   @ from assets/graphics/sprites/103.bin
+	.incbin "build/assets/graphics/sprites/103.bin"   @ from assets/graphics/sprites/103.png
+.Lasset_73EA90:
+	.incbin "build/assets/graphics/sprites/103_2.bin"   @ from assets/graphics/sprites/103_2.png
+.Lasset_73ECF0:
+	.incbin "build/assets/graphics/sprites/103_3.bin"   @ from assets/graphics/sprites/103_3.png
 	.global gUnk_0873EDE0
 gUnk_0873EDE0:
-	.incbin "build/assets/graphics/sprites/105.bin"   @ from assets/graphics/sprites/105.bin
+	.incbin "build/assets/graphics/sprites/105.bin"   @ from assets/graphics/sprites/105.png
+.Lasset_73F010:
+	.incbin "build/assets/graphics/sprites/105_2.bin"   @ from assets/graphics/sprites/105_2.png
+.Lasset_73F110:
+	.incbin "build/assets/graphics/sprites/105_3.bin"   @ from assets/graphics/sprites/105_3.png
 	.global gUnk_0873F180
 gUnk_0873F180:
-	.incbin "build/assets/graphics/sprites/113.bin"   @ from assets/graphics/sprites/113.bin
+	.incbin "build/assets/graphics/sprites/113.bin"   @ from assets/graphics/sprites/113.png
+.Lasset_7403E0:
+	.incbin "build/assets/graphics/sprites/113_2.bin"   @ from assets/graphics/sprites/113_2.png
+.Lasset_740A10:
+	.incbin "build/assets/graphics/sprites/113_3.bin"   @ from assets/graphics/sprites/113_3.png
 	.global gUnk_08740C40
 gUnk_08740C40:
-	.incbin "build/assets/graphics/sprites/112.bin"   @ from assets/graphics/sprites/112.bin
+	.incbin "build/assets/graphics/sprites/112.bin"   @ from assets/graphics/sprites/112.png
+.Lasset_7424D0:
+	.incbin "build/assets/graphics/sprites/112_2.bin"   @ from assets/graphics/sprites/112_2.png
+.Lasset_742DD0:
+	.incbin "build/assets/graphics/sprites/112_3.bin"   @ from assets/graphics/sprites/112_3.png
 	.global gUnk_08743170
 gUnk_08743170:
-	.incbin "build/assets/graphics/sprites/093.bin"   @ from assets/graphics/sprites/093.bin
+	.incbin "build/assets/graphics/sprites/093.bin"   @ from assets/graphics/sprites/093.png
+	.incbin "baserom.gba", 0x7494F0, 0x2A20
 	.global gUnk_0874BF10
 gUnk_0874BF10:
-	.incbin "build/assets/graphics/sprites/067.bin"   @ from assets/graphics/sprites/067.bin
+	.incbin "build/assets/graphics/sprites/067.bin"   @ from assets/graphics/sprites/067.png
+.Lasset_74C410:
+	.incbin "build/assets/graphics/sprites/067_2.bin"   @ from assets/graphics/sprites/067_2.png
+.Lasset_74C5C0:
+	.incbin "build/assets/graphics/sprites/067_3.bin"   @ from assets/graphics/sprites/067_3.png
 	.global gUnk_0874C670
 gUnk_0874C670:
-	.incbin "build/assets/graphics/sprites/069.bin"   @ from assets/graphics/sprites/069.bin
+	.incbin "build/assets/graphics/sprites/069.bin"   @ from assets/graphics/sprites/069.png
 	.global gUnk_0874CB70
 gUnk_0874CB70:
-	.incbin "build/assets/graphics/sprites/091.bin"   @ from assets/graphics/sprites/091.bin
+	.incbin "build/assets/graphics/sprites/091.bin"   @ from assets/graphics/sprites/091.png
+.Lasset_74EFA0:
+	.incbin "build/assets/graphics/sprites/091_2.bin"   @ from assets/graphics/sprites/091_2.png
+.Lasset_74FD80:
+	.incbin "build/assets/graphics/sprites/091_3.bin"   @ from assets/graphics/sprites/091_3.png
 	.global gUnk_087503A0
 gUnk_087503A0:
-	.incbin "build/assets/graphics/sprites/092.bin"   @ from assets/graphics/sprites/092.bin
+	.incbin "build/assets/graphics/sprites/092.bin"   @ from assets/graphics/sprites/092.png
+.Lasset_7522B0:
+	.incbin "build/assets/graphics/sprites/092_2.bin"   @ from assets/graphics/sprites/092_2.png
+.Lasset_753070:
+	.incbin "build/assets/graphics/sprites/092_3.bin"   @ from assets/graphics/sprites/092_3.png
 	.global gUnk_08753530
 gUnk_08753530:
-	.incbin "build/assets/graphics/sprites/017.bin"   @ from assets/graphics/sprites/017.bin
+	.incbin "build/assets/graphics/sprites/017.bin"   @ from assets/graphics/sprites/017.png
+.Lasset_753C20:
+	.incbin "build/assets/graphics/sprites/017_2.bin"   @ from assets/graphics/sprites/017_2.png
+.Lasset_753E40:
+	.incbin "build/assets/graphics/sprites/017_3.bin"   @ from assets/graphics/sprites/017_3.png
 	.global gUnk_08753F00
 gUnk_08753F00:
-	.incbin "build/assets/graphics/sprites/014.bin"   @ from assets/graphics/sprites/014.bin
+	.incbin "build/assets/graphics/sprites/014.bin"   @ from assets/graphics/sprites/014.png
+.Lasset_754630:
+	.incbin "build/assets/graphics/sprites/014_2.bin"   @ from assets/graphics/sprites/014_2.png
+.Lasset_754850:
+	.incbin "build/assets/graphics/sprites/014_3.bin"   @ from assets/graphics/sprites/014_3.png
 	.global gUnk_08754910
 gUnk_08754910:
-	.incbin "build/assets/graphics/sprites/016.bin"   @ from assets/graphics/sprites/016.bin
+	.incbin "build/assets/graphics/sprites/016.bin"   @ from assets/graphics/sprites/016.png
+.Lasset_755050:
+	.incbin "build/assets/graphics/sprites/016_2.bin"   @ from assets/graphics/sprites/016_2.png
+.Lasset_755270:
+	.incbin "build/assets/graphics/sprites/016_3.bin"   @ from assets/graphics/sprites/016_3.png
 	.global gUnk_08755330
 gUnk_08755330:
-	.incbin "build/assets/graphics/sprites/015.bin"   @ from assets/graphics/sprites/015.bin
+	.incbin "build/assets/graphics/sprites/015.bin"   @ from assets/graphics/sprites/015.png
+.Lasset_755A20:
+	.incbin "build/assets/graphics/sprites/015_2.bin"   @ from assets/graphics/sprites/015_2.png
+.Lasset_755C40:
+	.incbin "build/assets/graphics/sprites/015_3.bin"   @ from assets/graphics/sprites/015_3.png
 	.global gUnk_08755D00
 gUnk_08755D00:
-	.incbin "build/assets/graphics/sprites/044.bin"   @ from assets/graphics/sprites/044.bin
+	.incbin "build/assets/graphics/sprites/044.bin"   @ from assets/graphics/sprites/044.png
 	.global gUnk_08756F80
 gUnk_08756F80:
-	.incbin "build/assets/graphics/sprites/089.bin"   @ from assets/graphics/sprites/089.bin
+	.incbin "build/assets/graphics/sprites/089.bin"   @ from assets/graphics/sprites/089.png
+.Lasset_7573A0:
+	.incbin "build/assets/graphics/sprites/089_2.bin"   @ from assets/graphics/sprites/089_2.png
+.Lasset_757550:
+	.incbin "build/assets/graphics/sprites/089_3.bin"   @ from assets/graphics/sprites/089_3.png
 	.global gUnk_087575F0
 gUnk_087575F0:
-	.incbin "build/assets/graphics/sprites/090.bin"   @ from assets/graphics/sprites/090.bin
+	.incbin "build/assets/graphics/sprites/090.bin"   @ from assets/graphics/sprites/090.png
+.Lasset_7577C0:
+	.incbin "build/assets/graphics/sprites/090_2.bin"   @ from assets/graphics/sprites/090_2.png
+.Lasset_757860:
+	.incbin "build/assets/graphics/sprites/090_3.bin"   @ from assets/graphics/sprites/090_3.png
 	.global gUnk_087578D0
 gUnk_087578D0:
-	.incbin "build/assets/graphics/sprites/088.bin"   @ from assets/graphics/sprites/088.bin
+	.incbin "build/assets/graphics/sprites/088.bin"   @ from assets/graphics/sprites/088.png
+.Lasset_757AA0:
+	.incbin "build/assets/graphics/sprites/088_2.bin"   @ from assets/graphics/sprites/088_2.png
+.Lasset_757B40:
+	.incbin "build/assets/graphics/sprites/088_3.bin"   @ from assets/graphics/sprites/088_3.png
 	.global gUnk_08757BA0
 gUnk_08757BA0:
-	.incbin "build/assets/graphics/sprites/087.bin"   @ from assets/graphics/sprites/087.bin
+	.incbin "build/assets/graphics/sprites/087.bin"   @ from assets/graphics/sprites/087.png
+.Lasset_757FA0:
+	.incbin "build/assets/graphics/sprites/087_2.bin"   @ from assets/graphics/sprites/087_2.png
+.Lasset_758150:
+	.incbin "build/assets/graphics/sprites/087_3.bin"   @ from assets/graphics/sprites/087_3.png
 	.global gUnk_087581F0
 gUnk_087581F0:
-	.incbin "build/assets/graphics/sprites/079.bin"   @ from assets/graphics/sprites/079.bin
+	.incbin "build/assets/graphics/sprites/079.bin"   @ from assets/graphics/sprites/079.png
 	.global gUnk_08758430
 gUnk_08758430:
-	.incbin "build/assets/graphics/sprites/080.bin"   @ from assets/graphics/sprites/080.bin
+	.incbin "build/assets/graphics/sprites/080.bin"   @ from assets/graphics/sprites/080.png
 	.global gUnk_08758670
 gUnk_08758670:
-	.incbin "build/assets/graphics/sprites/055.bin"   @ from assets/graphics/sprites/055.bin
+	.incbin "build/assets/graphics/sprites/055.bin"   @ from assets/graphics/sprites/055.png
+.Lasset_758AB0:
+	.incbin "build/assets/graphics/sprites/055_2.bin"   @ from assets/graphics/sprites/055_2.png
+.Lasset_758C30:
+	.incbin "build/assets/graphics/sprites/055_3.bin"   @ from assets/graphics/sprites/055_3.png
 	.global gUnk_08758CE0
 gUnk_08758CE0:
-	.incbin "build/assets/graphics/sprites/072.bin"   @ from assets/graphics/sprites/072.bin
+	.incbin "build/assets/graphics/sprites/072.bin"   @ from assets/graphics/sprites/072.png
+.Lasset_75B390:
+	.incbin "build/assets/graphics/sprites/072_2.bin"   @ from assets/graphics/sprites/072_2.png
+.Lasset_75C150:
+	.incbin "build/assets/graphics/sprites/072_3.bin"   @ from assets/graphics/sprites/072_3.png
 	.global gUnk_0875C640
 gUnk_0875C640:
-	.incbin "build/assets/graphics/sprites/078.bin"   @ from assets/graphics/sprites/078.bin
+	.incbin "build/assets/graphics/sprites/078.bin"   @ from assets/graphics/sprites/078.png
 	.global gUnk_0875C870
 gUnk_0875C870:
-	.incbin "build/assets/graphics/sprites/062.bin"   @ from assets/graphics/sprites/062.bin
+	.incbin "build/assets/graphics/sprites/062.bin"   @ from assets/graphics/sprites/062.png
 	.global gUnk_0875D8E0
 gUnk_0875D8E0:
-	.incbin "build/assets/graphics/sprites/083.bin"   @ from assets/graphics/sprites/083.bin
+	.incbin "build/assets/graphics/sprites/083.bin"   @ from assets/graphics/sprites/083.png
 	.global gUnk_0875DB20
 gUnk_0875DB20:
-	.incbin "build/assets/graphics/sprites/066.bin"   @ from assets/graphics/sprites/066.bin
+	.incbin "build/assets/graphics/sprites/066.bin"   @ from assets/graphics/sprites/066.png
 	.global gUnk_0875E0A0
 gUnk_0875E0A0:
-	.incbin "build/assets/graphics/sprites/104.bin"   @ from assets/graphics/sprites/104.bin
+	.incbin "build/assets/graphics/sprites/104.bin"   @ from assets/graphics/sprites/104.png
+.Lasset_75E900:
+	.incbin "build/assets/graphics/sprites/104_2.bin"   @ from assets/graphics/sprites/104_2.png
+.Lasset_75EBC0:
+	.incbin "build/assets/graphics/sprites/104_3.bin"   @ from assets/graphics/sprites/104_3.png
 	.global gUnk_0875ECC0
 gUnk_0875ECC0:
-	.incbin "build/assets/graphics/sprites/114.bin"   @ from assets/graphics/sprites/114.bin
+	.incbin "build/assets/graphics/sprites/114.bin"   @ from assets/graphics/sprites/114.png
+.Lasset_75EE00:
+	.incbin "build/assets/graphics/sprites/114_2.bin"   @ from assets/graphics/sprites/114_2.png
+.Lasset_75EE90:
+	.incbin "build/assets/graphics/sprites/114_3.bin"   @ from assets/graphics/sprites/114_3.png
 	.global gUnk_0875EEF0
 gUnk_0875EEF0:
-	.incbin "build/assets/graphics/sprites/115.bin"   @ from assets/graphics/sprites/115.bin
+	.incbin "build/assets/graphics/sprites/115.bin"   @ from assets/graphics/sprites/115.png
+.Lasset_75F070:
+	.incbin "build/assets/graphics/sprites/115_2.bin"   @ from assets/graphics/sprites/115_2.png
+.Lasset_75F110:
+	.incbin "build/assets/graphics/sprites/115_3.bin"   @ from assets/graphics/sprites/115_3.png
 	.global gUnk_0875F170
 gUnk_0875F170:
-	.incbin "build/assets/graphics/sprites/046.bin"   @ from assets/graphics/sprites/046.bin
+	.incbin "build/assets/graphics/sprites/046.bin"   @ from assets/graphics/sprites/046.png
+.Lasset_75F320:
+	.incbin "build/assets/graphics/sprites/046_2.bin"   @ from assets/graphics/sprites/046_2.png
+.Lasset_75F3E0:
+	.incbin "build/assets/graphics/sprites/046_3.bin"   @ from assets/graphics/sprites/046_3.png
 	.global gUnk_0875F440
 gUnk_0875F440:
-	.incbin "build/assets/graphics/sprites/045.bin"   @ from assets/graphics/sprites/045.bin
+	.incbin "build/assets/graphics/sprites/045.bin"   @ from assets/graphics/sprites/045.png
+.Lasset_75F7F0:
+	.incbin "build/assets/graphics/sprites/045_2.bin"   @ from assets/graphics/sprites/045_2.png
+.Lasset_75F920:
+	.incbin "build/assets/graphics/sprites/045_3.bin"   @ from assets/graphics/sprites/045_3.png
 	.global gUnk_0875F9A0
 gUnk_0875F9A0:
-	.incbin "build/assets/graphics/sprites/074.bin"   @ from assets/graphics/sprites/074.bin
+	.incbin "build/assets/graphics/sprites/074.bin"   @ from assets/graphics/sprites/074.png
+.Lasset_760920:
+	.incbin "build/assets/graphics/sprites/074_2.bin"   @ from assets/graphics/sprites/074_2.png
+.Lasset_760E20:
+	.incbin "build/assets/graphics/sprites/074_3.bin"   @ from assets/graphics/sprites/074_3.png
 	.global gUnk_08761020
 gUnk_08761020:
-	.incbin "build/assets/graphics/sprites/082.bin"   @ from assets/graphics/sprites/082.bin
+	.incbin "build/assets/graphics/sprites/082.bin"   @ from assets/graphics/sprites/082.png
+.Lasset_761260:
+	.incbin "build/assets/graphics/sprites/082_2.bin"   @ from assets/graphics/sprites/082_2.png
+.Lasset_761320:
+	.incbin "build/assets/graphics/sprites/082_3.bin"   @ from assets/graphics/sprites/082_3.png
 	.global gUnk_08761380
 gUnk_08761380:
-	.incbin "build/assets/graphics/sprites/081.bin"   @ from assets/graphics/sprites/081.bin
+	.incbin "build/assets/graphics/sprites/081.bin"   @ from assets/graphics/sprites/081.png
 	.global gUnk_087615C0
 gUnk_087615C0:
-	.incbin "build/assets/graphics/sprites/070.bin"   @ from assets/graphics/sprites/070.bin
+	.incbin "build/assets/graphics/sprites/070.bin"   @ from assets/graphics/sprites/070.png
 	.global gUnk_08761F60
 gUnk_08761F60:
-	.incbin "build/assets/graphics/sprites/076.bin"   @ from assets/graphics/sprites/076.bin
+	.incbin "build/assets/graphics/sprites/076.bin"   @ from assets/graphics/sprites/076.png
 	.global gUnk_08762190
 gUnk_08762190:
-	.incbin "build/assets/graphics/sprites/077.bin"   @ from assets/graphics/sprites/077.bin
+	.incbin "build/assets/graphics/sprites/077.bin"   @ from assets/graphics/sprites/077.png
 	.global gUnk_087623C0
 gUnk_087623C0:
-	.incbin "build/assets/graphics/sprites/075.bin"   @ from assets/graphics/sprites/075.bin
+	.incbin "build/assets/graphics/sprites/075.bin"   @ from assets/graphics/sprites/075.png
 	.global gUnk_087625F0
 gUnk_087625F0:
-	.incbin "build/assets/graphics/sprites/054.bin"   @ from assets/graphics/sprites/054.bin
+	.incbin "build/assets/graphics/sprites/054.bin"   @ from assets/graphics/sprites/054.png
+.Lasset_762B10:
+	.incbin "build/assets/graphics/sprites/054_2.bin"   @ from assets/graphics/sprites/054_2.png
+.Lasset_762CF0:
+	.incbin "build/assets/graphics/sprites/054_3.bin"   @ from assets/graphics/sprites/054_3.png
 	.global gUnk_08762DA0
 gUnk_08762DA0:
-	.incbin "build/assets/graphics/sprites/071.bin"   @ from assets/graphics/sprites/071.bin
+	.incbin "build/assets/graphics/sprites/071.bin"   @ from assets/graphics/sprites/071.png
+.Lasset_764FC0:
+	.incbin "build/assets/graphics/sprites/071_2.bin"   @ from assets/graphics/sprites/071_2.png
+.Lasset_765C10:
+	.incbin "build/assets/graphics/sprites/071_3.bin"   @ from assets/graphics/sprites/071_3.png
 	.global gUnk_08765FF0
 gUnk_08765FF0:
-	.incbin "build/assets/graphics/sprites/085.bin"   @ from assets/graphics/sprites/085.bin
+	.incbin "build/assets/graphics/sprites/085.bin"   @ from assets/graphics/sprites/085.png
+.Lasset_766310:
+	.incbin "build/assets/graphics/sprites/085_2.bin"   @ from assets/graphics/sprites/085_2.png
+.Lasset_766410:
+	.incbin "build/assets/graphics/sprites/085_3.bin"   @ from assets/graphics/sprites/085_3.png
 	.global gUnk_08766480
 gUnk_08766480:
-	.incbin "build/assets/graphics/sprites/086.bin"   @ from assets/graphics/sprites/086.bin
+	.incbin "build/assets/graphics/sprites/086.bin"   @ from assets/graphics/sprites/086.png
+.Lasset_769210:
+	.incbin "build/assets/graphics/sprites/086_2.bin"   @ from assets/graphics/sprites/086_2.png
+.Lasset_76A110:
+	.incbin "build/assets/graphics/sprites/086_3.bin"   @ from assets/graphics/sprites/086_3.png
 	.global gUnk_0876A650
 gUnk_0876A650:
-	.incbin "build/assets/graphics/sprites/057.bin"   @ from assets/graphics/sprites/057.bin
+	.incbin "build/assets/graphics/sprites/057.bin"   @ from assets/graphics/sprites/057.png
+.Lasset_76AFC0:
+	.incbin "build/assets/graphics/sprites/057_2.bin"   @ from assets/graphics/sprites/057_2.png
+.Lasset_76B300:
+	.incbin "build/assets/graphics/sprites/057_3.bin"   @ from assets/graphics/sprites/057_3.png
 	.global gUnk_0876B420
 gUnk_0876B420:
-	.incbin "build/assets/graphics/sprites/060.bin"   @ from assets/graphics/sprites/060.bin
+	.incbin "build/assets/graphics/sprites/060.bin"   @ from assets/graphics/sprites/060.png
+.Lasset_76D050:
+	.incbin "build/assets/graphics/sprites/060_2.bin"   @ from assets/graphics/sprites/060_2.png
+.Lasset_76D9D0:
+	.incbin "build/assets/graphics/sprites/060_3.bin"   @ from assets/graphics/sprites/060_3.png
 	.global gUnk_0876DD30
 gUnk_0876DD30:
-	.incbin "build/assets/graphics/sprites/117.bin"   @ from assets/graphics/sprites/117.bin
+	.incbin "build/assets/graphics/sprites/117.bin"   @ from assets/graphics/sprites/117.png
+.Lasset_76DDF0:
+	.incbin "build/assets/graphics/sprites/117_2.bin"   @ from assets/graphics/sprites/117_2.png
+.Lasset_76DE50:
+	.incbin "build/assets/graphics/sprites/117_3.bin"   @ from assets/graphics/sprites/117_3.png
 	.global gUnk_0876DE90
 gUnk_0876DE90:
-	.incbin "build/assets/graphics/sprites/118.bin"   @ from assets/graphics/sprites/118.bin
+	.incbin "build/assets/graphics/sprites/118.bin"   @ from assets/graphics/sprites/118.png
+.Lasset_76ECF0:
+	.incbin "build/assets/graphics/sprites/118_2.bin"   @ from assets/graphics/sprites/118_2.png
+.Lasset_76F260:
+	.incbin "build/assets/graphics/sprites/118_3.bin"   @ from assets/graphics/sprites/118_3.png
 	.global gUnk_0876F450
 gUnk_0876F450:
-	.incbin "build/assets/graphics/sprites/120.bin"   @ from assets/graphics/sprites/120.bin
-	.global gUnk_08770000
-gUnk_08770000:
-	.incbin "baserom.gba", 0x770000, 0x3BC
-	.4byte gUnk_08770000
-	.incbin "baserom.gba", 0x7703C0, 0x660
+	.incbin "build/assets/graphics/sprites/120.bin"   @ from assets/graphics/sprites/120.png
+.Lasset_7702B0:
+	.incbin "build/assets/graphics/sprites/120_2.bin"   @ from assets/graphics/sprites/120_2.png
+.Lasset_770830:
+	.incbin "build/assets/graphics/sprites/120_3.bin"   @ from assets/graphics/sprites/120_3.png
 	.global gUnk_08770A20
 gUnk_08770A20:
-	.incbin "build/assets/graphics/sprites/052.bin"   @ from assets/graphics/sprites/052.bin
+	.incbin "build/assets/graphics/sprites/052.bin"   @ from assets/graphics/sprites/052.png
+.Lasset_777AC0:
+	.incbin "build/assets/graphics/sprites/052_2.bin"   @ from assets/graphics/sprites/052_2.png
+.Lasset_77A660:
+	.incbin "build/assets/graphics/sprites/052_3.bin"   @ from assets/graphics/sprites/052_3.png
 	.global gUnk_0877B530
 gUnk_0877B530:
-	.incbin "build/assets/graphics/sprites/058.bin"   @ from assets/graphics/sprites/058.bin
+	.incbin "build/assets/graphics/sprites/058.bin"   @ from assets/graphics/sprites/058.png
+.Lasset_77C110:
+	.incbin "build/assets/graphics/sprites/058_2.bin"   @ from assets/graphics/sprites/058_2.png
+.Lasset_77C540:
+	.incbin "build/assets/graphics/sprites/058_3.bin"   @ from assets/graphics/sprites/058_3.png
 	.global gUnk_0877C6B0
 gUnk_0877C6B0:
-	.incbin "build/assets/graphics/sprites/053.bin"   @ from assets/graphics/sprites/053.bin
+	.incbin "build/assets/graphics/sprites/053.bin"   @ from assets/graphics/sprites/053.png
+.Lasset_783AF0:
+	.incbin "build/assets/graphics/sprites/053_2.bin"   @ from assets/graphics/sprites/053_2.png
+.Lasset_786720:
+	.incbin "build/assets/graphics/sprites/053_3.bin"   @ from assets/graphics/sprites/053_3.png
 	.global gUnk_087875F0
 gUnk_087875F0:
-	.incbin "build/assets/graphics/sprites/123.bin"   @ from assets/graphics/sprites/123.bin
+	.incbin "build/assets/graphics/sprites/123.bin"   @ from assets/graphics/sprites/123.png
+.Lasset_787EB0:
+	.incbin "build/assets/graphics/sprites/123_2.bin"   @ from assets/graphics/sprites/123_2.png
+.Lasset_788190:
+	.incbin "build/assets/graphics/sprites/123_3.bin"   @ from assets/graphics/sprites/123_3.png
 	.global gUnk_08788290
 gUnk_08788290:
-	.incbin "build/assets/graphics/sprites/124.bin"   @ from assets/graphics/sprites/124.bin
+	.incbin "build/assets/graphics/sprites/124.bin"   @ from assets/graphics/sprites/124.png
+.Lasset_78D4E0:
+	.incbin "build/assets/graphics/sprites/124_2.bin"   @ from assets/graphics/sprites/124_2.png
+.Lasset_78EFC0:
+	.incbin "build/assets/graphics/sprites/124_3.bin"   @ from assets/graphics/sprites/124_3.png
 	.global gUnk_0878F850
 gUnk_0878F850:
-	.incbin "build/assets/graphics/sprites/102.bin"   @ from assets/graphics/sprites/102.bin
+	.incbin "build/assets/graphics/sprites/102.bin"   @ from assets/graphics/sprites/102.png
+.Lasset_796EA0:
+	.incbin "build/assets/graphics/sprites/102_2.bin"   @ from assets/graphics/sprites/102_2.png
+.Lasset_799500:
+	.incbin "build/assets/graphics/sprites/102_3.bin"   @ from assets/graphics/sprites/102_3.png
 	.global gUnk_0879A2A0
 gUnk_0879A2A0:
-	.incbin "build/assets/graphics/sprites/059.bin"   @ from assets/graphics/sprites/059.bin
+	.incbin "build/assets/graphics/sprites/059.bin"   @ from assets/graphics/sprites/059.png
+.Lasset_79AD50:
+	.incbin "build/assets/graphics/sprites/059_2.bin"   @ from assets/graphics/sprites/059_2.png
+.Lasset_79B120:
+	.incbin "build/assets/graphics/sprites/059_3.bin"   @ from assets/graphics/sprites/059_3.png
 	.global gUnk_0879B250
 gUnk_0879B250:
-	.incbin "build/assets/graphics/sprites/126.bin"   @ from assets/graphics/sprites/126.bin
+	.incbin "build/assets/graphics/sprites/126.bin"   @ from assets/graphics/sprites/126.png
 	.global gUnk_0879C7C9
-gUnk_0879C7C9:
-	.incbin "baserom.gba", 0x79C7C9, 0x6447
+	.set gUnk_0879C7C9, gUnk_0879B250 + 0x1579
+.Lasset_7A0730:
+	.incbin "build/assets/graphics/sprites/126_2.bin"   @ from assets/graphics/sprites/126_2.png
+.Lasset_7A2380:
+	.incbin "build/assets/graphics/sprites/126_3.bin"   @ from assets/graphics/sprites/126_3.png
 	.global gUnk_087A2C10
 gUnk_087A2C10:
-	.incbin "build/assets/graphics/sprites/127.bin"   @ from assets/graphics/sprites/127.bin
+	.incbin "build/assets/graphics/sprites/127.bin"   @ from assets/graphics/sprites/127.png
+.Lasset_7A3750:
+	.incbin "build/assets/graphics/sprites/127_2.bin"   @ from assets/graphics/sprites/127_2.png
+.Lasset_7A3AE0:
+	.incbin "build/assets/graphics/sprites/127_3.bin"   @ from assets/graphics/sprites/127_3.png
 	.global gUnk_087A3C40
 gUnk_087A3C40:
-	.incbin "build/assets/graphics/sprites/128.bin"   @ from assets/graphics/sprites/128.bin
+	.incbin "build/assets/graphics/sprites/128.bin"   @ from assets/graphics/sprites/128.png
+.Lasset_7A5E40:
+	.incbin "build/assets/graphics/sprites/128_2.bin"   @ from assets/graphics/sprites/128_2.png
+.Lasset_7A6AB0:
+	.incbin "build/assets/graphics/sprites/128_3.bin"   @ from assets/graphics/sprites/128_3.png
 	.global gUnk_087A6DC0
 gUnk_087A6DC0:
-	.incbin "build/assets/graphics/sprites/130.bin"   @ from assets/graphics/sprites/130.bin
+	.incbin "build/assets/graphics/sprites/130.bin"   @ from assets/graphics/sprites/130.png
+.Lasset_7A8320:
+	.incbin "build/assets/graphics/sprites/130_2.bin"   @ from assets/graphics/sprites/130_2.png
+.Lasset_7A8A00:
+	.incbin "build/assets/graphics/sprites/130_3.bin"   @ from assets/graphics/sprites/130_3.png
 	.global gUnk_087A8C50
 gUnk_087A8C50:
-	.incbin "build/assets/graphics/sprites/132.bin"   @ from assets/graphics/sprites/132.bin
+	.incbin "build/assets/graphics/sprites/132.bin"   @ from assets/graphics/sprites/132.png
+.Lasset_7AB460:
+	.incbin "build/assets/graphics/sprites/132_2.bin"   @ from assets/graphics/sprites/132_2.png
+.Lasset_7AC0E0:
+	.incbin "build/assets/graphics/sprites/132_3.bin"   @ from assets/graphics/sprites/132_3.png
 	.global gUnk_087AC4F0
 gUnk_087AC4F0:
-	.incbin "build/assets/graphics/sprites/134.bin"   @ from assets/graphics/sprites/134.bin
+	.incbin "build/assets/graphics/sprites/134.bin"   @ from assets/graphics/sprites/134.png
+.Lasset_7B01E0:
+	.incbin "build/assets/graphics/sprites/134_2.bin"   @ from assets/graphics/sprites/134_2.png
+.Lasset_7B15F0:
+	.incbin "build/assets/graphics/sprites/134_3.bin"   @ from assets/graphics/sprites/134_3.png
 	.global gUnk_087B1B50
 gUnk_087B1B50:
-	.incbin "build/assets/graphics/sprites/139.bin"   @ from assets/graphics/sprites/139.bin
+	.incbin "build/assets/graphics/sprites/139.bin"   @ from assets/graphics/sprites/139.png
+.Lasset_7B2F70:
+	.incbin "build/assets/graphics/sprites/139_2.bin"   @ from assets/graphics/sprites/139_2.png
+.Lasset_7B3820:
+	.incbin "build/assets/graphics/sprites/139_3.bin"   @ from assets/graphics/sprites/139_3.png
 	.global gUnk_087B3B50
 gUnk_087B3B50:
-	.incbin "build/assets/graphics/sprites/137.bin"   @ from assets/graphics/sprites/137.bin
+	.incbin "build/assets/graphics/sprites/137.bin"   @ from assets/graphics/sprites/137.png
+.Lasset_7B8660:
+	.incbin "build/assets/graphics/sprites/137_2.bin"   @ from assets/graphics/sprites/137_2.png
+.Lasset_7B9F70:
+	.incbin "build/assets/graphics/sprites/137_3.bin"   @ from assets/graphics/sprites/137_3.png
 	.global gUnk_087BA6A0
 gUnk_087BA6A0:
-	.incbin "build/assets/graphics/sprites/141.bin"   @ from assets/graphics/sprites/141.bin
+	.incbin "build/assets/graphics/sprites/141.bin"   @ from assets/graphics/sprites/141.png
+.Lasset_7BBF00:
+	.incbin "build/assets/graphics/sprites/141_2.bin"   @ from assets/graphics/sprites/141_2.png
+.Lasset_7BC770:
+	.incbin "build/assets/graphics/sprites/141_3.bin"   @ from assets/graphics/sprites/141_3.png
 	.global gUnk_087BCA90
 gUnk_087BCA90:
-	.incbin "build/assets/graphics/sprites/143.bin"   @ from assets/graphics/sprites/143.bin
+	.incbin "build/assets/graphics/sprites/143.bin"   @ from assets/graphics/sprites/143.png
+.Lasset_7BCB50:
+	.incbin "build/assets/graphics/sprites/143_2.bin"   @ from assets/graphics/sprites/143_2.png
+.Lasset_7BCBB0:
+	.incbin "build/assets/graphics/sprites/143_3.bin"   @ from assets/graphics/sprites/143_3.png
 	.global gUnk_087BCC00
 gUnk_087BCC00:
-	.incbin "build/assets/graphics/sprites/144.bin"   @ from assets/graphics/sprites/144.bin
+	.incbin "build/assets/graphics/sprites/144.bin"   @ from assets/graphics/sprites/144.png
+.Lasset_7BCCC0:
+	.incbin "build/assets/graphics/sprites/144_2.bin"   @ from assets/graphics/sprites/144_2.png
+.Lasset_7BCD20:
+	.incbin "build/assets/graphics/sprites/144_3.bin"   @ from assets/graphics/sprites/144_3.png
 	.global gUnk_087BCD70
 gUnk_087BCD70:
-	.incbin "build/assets/graphics/sprites/145.bin"   @ from assets/graphics/sprites/145.bin
+	.incbin "build/assets/graphics/sprites/145.bin"   @ from assets/graphics/sprites/145.png
+.Lasset_7BCE20:
+	.incbin "build/assets/graphics/sprites/145_2.bin"   @ from assets/graphics/sprites/145_2.png
+.Lasset_7BCE80:
+	.incbin "build/assets/graphics/sprites/145_3.bin"   @ from assets/graphics/sprites/145_3.png
 	.global gUnk_087BCED0
 gUnk_087BCED0:
-	.incbin "build/assets/graphics/sprites/146.bin"   @ from assets/graphics/sprites/146.bin
+	.incbin "build/assets/graphics/sprites/146.bin"   @ from assets/graphics/sprites/146.png
+.Lasset_7BCF70:
+	.incbin "build/assets/graphics/sprites/146_2.bin"   @ from assets/graphics/sprites/146_2.png
+.Lasset_7BCFD0:
+	.incbin "build/assets/graphics/sprites/146_3.bin"   @ from assets/graphics/sprites/146_3.png
 	.global gUnk_087BD020
 gUnk_087BD020:
-	.incbin "build/assets/graphics/sprites/147.bin"   @ from assets/graphics/sprites/147.bin
+	.incbin "build/assets/graphics/sprites/147.bin"   @ from assets/graphics/sprites/147.png
+.Lasset_7BD0E0:
+	.incbin "build/assets/graphics/sprites/147_2.bin"   @ from assets/graphics/sprites/147_2.png
+.Lasset_7BD140:
+	.incbin "build/assets/graphics/sprites/147_3.bin"   @ from assets/graphics/sprites/147_3.png
 	.global gUnk_087BD190
 gUnk_087BD190:
-	.incbin "build/assets/graphics/sprites/148.bin"   @ from assets/graphics/sprites/148.bin
+	.incbin "build/assets/graphics/sprites/148.bin"   @ from assets/graphics/sprites/148.png
+.Lasset_7BD250:
+	.incbin "build/assets/graphics/sprites/148_2.bin"   @ from assets/graphics/sprites/148_2.png
+.Lasset_7BD2B0:
+	.incbin "build/assets/graphics/sprites/148_3.bin"   @ from assets/graphics/sprites/148_3.png
 	.global gUnk_087BD300
 gUnk_087BD300:
-	.incbin "build/assets/graphics/sprites/149.bin"   @ from assets/graphics/sprites/149.bin
+	.incbin "build/assets/graphics/sprites/149.bin"   @ from assets/graphics/sprites/149.png
+.Lasset_7BD3B0:
+	.incbin "build/assets/graphics/sprites/149_2.bin"   @ from assets/graphics/sprites/149_2.png
+.Lasset_7BD410:
+	.incbin "build/assets/graphics/sprites/149_3.bin"   @ from assets/graphics/sprites/149_3.png
 	.global gUnk_087BD460
 gUnk_087BD460:
-	.incbin "build/assets/graphics/sprites/150.bin"   @ from assets/graphics/sprites/150.bin
+	.incbin "build/assets/graphics/sprites/150.bin"   @ from assets/graphics/sprites/150.png
+.Lasset_7BD510:
+	.incbin "build/assets/graphics/sprites/150_2.bin"   @ from assets/graphics/sprites/150_2.png
+.Lasset_7BD570:
+	.incbin "build/assets/graphics/sprites/150_3.bin"   @ from assets/graphics/sprites/150_3.png
 	.global gUnk_087BD5C0
 gUnk_087BD5C0:
-	.incbin "build/assets/graphics/sprites/151.bin"   @ from assets/graphics/sprites/151.bin
+	.incbin "build/assets/graphics/sprites/151.bin"   @ from assets/graphics/sprites/151.png
+.Lasset_7BD660:
+	.incbin "build/assets/graphics/sprites/151_2.bin"   @ from assets/graphics/sprites/151_2.png
+.Lasset_7BD6C0:
+	.incbin "build/assets/graphics/sprites/151_3.bin"   @ from assets/graphics/sprites/151_3.png
 	.global gUnk_087BD710
 gUnk_087BD710:
-	.incbin "build/assets/graphics/sprites/018.bin"   @ from assets/graphics/sprites/018.pal
+	.incbin "build/assets/graphics/sprites/018_palette.bin"   @ from assets/graphics/sprites/018_palette.pal
 	.global gUnk_087BD730
 gUnk_087BD730:
-	.incbin "build/assets/graphics/sprites/018_7bd730.bin"   @ from assets/graphics/sprites/018_7bd730.bin
+	.incbin "build/assets/graphics/sprites/018.bin"   @ from assets/graphics/sprites/018.png
 	.global gUnk_087BDC00
 gUnk_087BDC00:
-	.incbin "build/assets/graphics/sprites/019.bin"   @ from assets/graphics/sprites/019.bin
+	.incbin "build/assets/graphics/sprites/019.bin"   @ from assets/graphics/sprites/019.png
 	.global gUnk_087BDFD0
 gUnk_087BDFD0:
-	.incbin "build/assets/graphics/sprites/020.bin"   @ from assets/graphics/sprites/020.bin
+	.incbin "build/assets/graphics/sprites/020.bin"   @ from assets/graphics/sprites/020.png
 	.global gUnk_087BE3A0
 gUnk_087BE3A0:
-	.incbin "build/assets/graphics/sprites/021.bin"   @ from assets/graphics/sprites/021.bin
+	.incbin "build/assets/graphics/sprites/021.bin"   @ from assets/graphics/sprites/021.png
 	.global gUnk_087BE710
 gUnk_087BE710:
-	.incbin "build/assets/graphics/sprites/022.bin"   @ from assets/graphics/sprites/022.bin
+	.incbin "build/assets/graphics/sprites/022.bin"   @ from assets/graphics/sprites/022.png
 	.global gUnk_087BEAE0
 gUnk_087BEAE0:
-	.incbin "build/assets/graphics/sprites/023.bin"   @ from assets/graphics/sprites/023.bin
+	.incbin "build/assets/graphics/sprites/023.bin"   @ from assets/graphics/sprites/023.png
 	.global gUnk_087BEE50
 gUnk_087BEE50:
-	.incbin "build/assets/graphics/sprites/024.bin"   @ from assets/graphics/sprites/024.bin
+	.incbin "build/assets/graphics/sprites/024.bin"   @ from assets/graphics/sprites/024.png
 	.global gUnk_087BF2C0
 gUnk_087BF2C0:
-	.incbin "build/assets/graphics/sprites/025.bin"   @ from assets/graphics/sprites/025.bin
+	.incbin "build/assets/graphics/sprites/025.bin"   @ from assets/graphics/sprites/025.png
 	.global gUnk_087BF740
 gUnk_087BF740:
-	.incbin "build/assets/graphics/sprites/026.bin"   @ from assets/graphics/sprites/026.bin
+	.incbin "build/assets/graphics/sprites/026.bin"   @ from assets/graphics/sprites/026.png
 	.global gUnk_087BFB80
 gUnk_087BFB80:
-	.incbin "build/assets/graphics/sprites/027.bin"   @ from assets/graphics/sprites/027.bin
+	.incbin "build/assets/graphics/sprites/027.bin"   @ from assets/graphics/sprites/027.png
 	.global gUnk_087BFF80
 gUnk_087BFF80:
-	.incbin "build/assets/graphics/sprites/028.bin"   @ from assets/graphics/sprites/028.bin
+	.incbin "build/assets/graphics/sprites/028.bin"   @ from assets/graphics/sprites/028.png
 	.global gUnk_087C0400
 gUnk_087C0400:
-	.incbin "build/assets/graphics/sprites/029.bin"   @ from assets/graphics/sprites/029.bin
+	.incbin "build/assets/graphics/sprites/029.bin"   @ from assets/graphics/sprites/029.png
 	.global gUnk_087C0820
 gUnk_087C0820:
-	.incbin "build/assets/graphics/sprites/030.bin"   @ from assets/graphics/sprites/030.bin
+	.incbin "build/assets/graphics/sprites/030.bin"   @ from assets/graphics/sprites/030.png
 	.global gUnk_087C0BF0
 gUnk_087C0BF0:
-	.incbin "build/assets/graphics/sprites/031.bin"   @ from assets/graphics/sprites/031.bin
+	.incbin "build/assets/graphics/sprites/031.bin"   @ from assets/graphics/sprites/031.png
 	.global gUnk_087C0FA0
 gUnk_087C0FA0:
-	.incbin "build/assets/graphics/sprites/032.bin"   @ from assets/graphics/sprites/032.bin
+	.incbin "build/assets/graphics/sprites/032.bin"   @ from assets/graphics/sprites/032.png
 	.global gUnk_087C1400
 gUnk_087C1400:
-	.incbin "build/assets/graphics/sprites/033.bin"   @ from assets/graphics/sprites/033.bin
+	.incbin "build/assets/graphics/sprites/033.bin"   @ from assets/graphics/sprites/033.png
 	.global gUnk_087C17A0
 gUnk_087C17A0:
-	.incbin "build/assets/graphics/sprites/034.bin"   @ from assets/graphics/sprites/034.bin
+	.incbin "build/assets/graphics/sprites/034.bin"   @ from assets/graphics/sprites/034.png
 	.global gUnk_087C1910
 gUnk_087C1910:
-	.incbin "build/assets/graphics/sprites/035.bin"   @ from assets/graphics/sprites/035.bin
+	.incbin "build/assets/graphics/sprites/035.bin"   @ from assets/graphics/sprites/035.png
 	.global gUnk_087C1A80
 gUnk_087C1A80:
-	.incbin "build/assets/graphics/sprites/036.bin"   @ from assets/graphics/sprites/036.bin
+	.incbin "build/assets/graphics/sprites/036.bin"   @ from assets/graphics/sprites/036.png
 	.global gUnk_087C1BF0
 gUnk_087C1BF0:
-	.incbin "build/assets/graphics/sprites/037.bin"   @ from assets/graphics/sprites/037.bin
+	.incbin "build/assets/graphics/sprites/037.bin"   @ from assets/graphics/sprites/037.png
 	.global gUnk_087C1D60
 gUnk_087C1D60:
-	.incbin "build/assets/graphics/sprites/038.bin"   @ from assets/graphics/sprites/038.bin
+	.incbin "build/assets/graphics/sprites/038.bin"   @ from assets/graphics/sprites/038.png
 	.global gUnk_087C22C0
 gUnk_087C22C0:
-	.incbin "build/assets/graphics/sprites/039.bin"   @ from assets/graphics/sprites/039.bin
+	.incbin "build/assets/graphics/sprites/039.bin"   @ from assets/graphics/sprites/039.png
 	.global gUnk_087C2620
 gUnk_087C2620:
-	.incbin "build/assets/graphics/sprites/040.bin"   @ from assets/graphics/sprites/040.bin
+	.incbin "build/assets/graphics/sprites/040.bin"   @ from assets/graphics/sprites/040.png
 	.global gUnk_087C2AD0
 gUnk_087C2AD0:
-	.incbin "build/assets/graphics/sprites/041.bin"   @ from assets/graphics/sprites/041.bin
+	.incbin "build/assets/graphics/sprites/041.bin"   @ from assets/graphics/sprites/041.png
 	.global gUnk_087C2F60
 gUnk_087C2F60:
-	.incbin "build/assets/graphics/sprites/061.bin"   @ from assets/graphics/sprites/061.bin
+	.incbin "build/assets/graphics/sprites/061.bin"   @ from assets/graphics/sprites/061.png
 	.global gUnk_087C31A0
 gUnk_087C31A0:
-	.incbin "build/assets/graphics/sprites/125.bin"   @ from assets/graphics/sprites/125.pal
+	.incbin "build/assets/graphics/sprites/125_palette.bin"   @ from assets/graphics/sprites/125_palette.pal
 	.global gUnk_087C31C0
 gUnk_087C31C0:
-	.incbin "build/assets/graphics/sprites/084_7c31c0.bin"   @ from assets/graphics/sprites/084_7c31c0.pal
+	.incbin "build/assets/graphics/sprites/084_palette.bin"   @ from assets/graphics/sprites/084_palette.pal
 	.global gUnk_087C31E0
 gUnk_087C31E0:
-	.incbin "build/assets/graphics/sprites/047_7c31e0.bin"   @ from assets/graphics/sprites/047_7c31e0.pal
+	.incbin "build/assets/graphics/sprites/047_palette.bin"   @ from assets/graphics/sprites/047_palette.pal
 	.global gUnk_087C3200
 gUnk_087C3200:
-	.incbin "build/assets/graphics/sprites/107_7c3200.bin"   @ from assets/graphics/sprites/107_7c3200.pal
+	.incbin "build/assets/graphics/sprites/107_palette.bin"   @ from assets/graphics/sprites/107_palette.pal
 	.global gUnk_087C3220
 gUnk_087C3220:
-	.incbin "build/assets/graphics/sprites/052_7c3220.bin"   @ from assets/graphics/sprites/052_7c3220.pal
+	.incbin "build/assets/graphics/sprites/052_palette.bin"   @ from assets/graphics/sprites/052_palette.pal
 	.global gUnk_087C3240
 gUnk_087C3240:
-	.incbin "build/assets/graphics/sprites/106_7c3240.bin"   @ from assets/graphics/sprites/106_7c3240.pal
+	.incbin "build/assets/graphics/sprites/106_palette.bin"   @ from assets/graphics/sprites/106_palette.pal
 	.global gUnk_087C3260
 gUnk_087C3260:
-	.incbin "build/assets/graphics/sprites/116_7c3260.bin"   @ from assets/graphics/sprites/116_7c3260.pal
+	.incbin "build/assets/graphics/sprites/116_palette.bin"   @ from assets/graphics/sprites/116_palette.pal
 	.global gUnk_087C3280
 gUnk_087C3280:
-	.incbin "build/assets/graphics/sprites/094_7c3280.bin"   @ from assets/graphics/sprites/094_7c3280.pal
+	.incbin "build/assets/graphics/sprites/094_palette.bin"   @ from assets/graphics/sprites/094_palette.pal
 	.global gUnk_087C32A0
 gUnk_087C32A0:
-	.incbin "build/assets/graphics/sprites/095_7c32a0.bin"   @ from assets/graphics/sprites/095_7c32a0.pal
+	.incbin "build/assets/graphics/sprites/095_palette.bin"   @ from assets/graphics/sprites/095_palette.pal
 	.global gUnk_087C32C0
 gUnk_087C32C0:
-	.incbin "build/assets/graphics/sprites/108_7c32c0.bin"   @ from assets/graphics/sprites/108_7c32c0.pal
+	.incbin "build/assets/graphics/sprites/108_palette.bin"   @ from assets/graphics/sprites/108_palette.pal
 	.global gUnk_087C32E0
 gUnk_087C32E0:
-	.incbin "build/assets/graphics/sprites/103_7c32e0.bin"   @ from assets/graphics/sprites/103_7c32e0.pal
+	.incbin "build/assets/graphics/sprites/103_palette.bin"   @ from assets/graphics/sprites/103_palette.pal
 	.global gUnk_087C3300
 gUnk_087C3300:
-	.incbin "build/assets/graphics/sprites/112_7c3300.bin"   @ from assets/graphics/sprites/112_7c3300.pal
+	.incbin "build/assets/graphics/sprites/112_palette.bin"   @ from assets/graphics/sprites/112_palette.pal
 	.global gUnk_087C3320
 gUnk_087C3320:
-	.incbin "build/assets/graphics/sprites/093_7c3320.bin"   @ from assets/graphics/sprites/093_7c3320.pal
+	.incbin "build/assets/graphics/sprites/093_palette.bin"   @ from assets/graphics/sprites/093_palette.pal
 	.global gUnk_087C3340
 gUnk_087C3340:
-	.incbin "build/assets/graphics/sprites/091_7c3340.bin"   @ from assets/graphics/sprites/091_7c3340.pal
+	.incbin "build/assets/graphics/sprites/091_palette.bin"   @ from assets/graphics/sprites/091_palette.pal
 	.global gUnk_087C3360
 gUnk_087C3360:
-	.incbin "build/assets/graphics/sprites/014_7c3360.bin"   @ from assets/graphics/sprites/014_7c3360.pal
+	.incbin "build/assets/graphics/sprites/014_palette.bin"   @ from assets/graphics/sprites/014_palette.pal
 	.global gUnk_087C3380
 gUnk_087C3380:
-	.incbin "build/assets/graphics/sprites/079_7c3380.bin"   @ from assets/graphics/sprites/079_7c3380.pal
+	.incbin "build/assets/graphics/sprites/079_palette.bin"   @ from assets/graphics/sprites/079_palette.pal
 	.global gUnk_087C33A0
 gUnk_087C33A0:
-	.incbin "build/assets/graphics/sprites/080_7c33a0.bin"   @ from assets/graphics/sprites/080_7c33a0.pal
+	.incbin "build/assets/graphics/sprites/080_palette.bin"   @ from assets/graphics/sprites/080_palette.pal
 	.global gUnk_087C33C0
 gUnk_087C33C0:
-	.incbin "build/assets/graphics/sprites/078_7c33c0.bin"   @ from assets/graphics/sprites/078_7c33c0.pal
+	.incbin "build/assets/graphics/sprites/078_palette.bin"   @ from assets/graphics/sprites/078_palette.pal
 	.global gUnk_087C33E0
 gUnk_087C33E0:
-	.incbin "build/assets/graphics/sprites/083_7c33e0.bin"   @ from assets/graphics/sprites/083_7c33e0.pal
+	.incbin "build/assets/graphics/sprites/083_palette.bin"   @ from assets/graphics/sprites/083_palette.pal
 	.global gUnk_087C3400
 gUnk_087C3400:
-	.incbin "build/assets/graphics/sprites/114_7c3400.bin"   @ from assets/graphics/sprites/114_7c3400.pal
+	.incbin "build/assets/graphics/sprites/114_palette.bin"   @ from assets/graphics/sprites/114_palette.pal
 	.global gUnk_087C3420
 gUnk_087C3420:
-	.incbin "build/assets/graphics/sprites/115_7c3420.bin"   @ from assets/graphics/sprites/115_7c3420.pal
+	.incbin "build/assets/graphics/sprites/115_palette.bin"   @ from assets/graphics/sprites/115_palette.pal
 	.global gUnk_087C3440
 gUnk_087C3440:
-	.incbin "build/assets/graphics/sprites/046_7c3440.bin"   @ from assets/graphics/sprites/046_7c3440.pal
+	.incbin "build/assets/graphics/sprites/046_palette.bin"   @ from assets/graphics/sprites/046_palette.pal
 	.global gUnk_087C3460
 gUnk_087C3460:
-	.incbin "build/assets/graphics/sprites/045_7c3460.bin"   @ from assets/graphics/sprites/045_7c3460.pal
+	.incbin "build/assets/graphics/sprites/045_palette.bin"   @ from assets/graphics/sprites/045_palette.pal
 	.global gUnk_087C3480
 gUnk_087C3480:
-	.incbin "build/assets/graphics/sprites/082_7c3480.bin"   @ from assets/graphics/sprites/082_7c3480.pal
+	.incbin "build/assets/graphics/sprites/082_palette.bin"   @ from assets/graphics/sprites/082_palette.pal
 	.global gUnk_087C34A0
 gUnk_087C34A0:
-	.incbin "build/assets/graphics/sprites/081_7c34a0.bin"   @ from assets/graphics/sprites/081_7c34a0.pal
+	.incbin "build/assets/graphics/sprites/081_palette.bin"   @ from assets/graphics/sprites/081_palette.pal
 	.global gUnk_087C34C0
 gUnk_087C34C0:
-	.incbin "build/assets/graphics/sprites/076_7c34c0.bin"   @ from assets/graphics/sprites/076_7c34c0.pal
+	.incbin "build/assets/graphics/sprites/076_palette.bin"   @ from assets/graphics/sprites/076_palette.pal
 	.global gUnk_087C34E0
 gUnk_087C34E0:
-	.incbin "build/assets/graphics/sprites/077_7c34e0.bin"   @ from assets/graphics/sprites/077_7c34e0.pal
+	.incbin "build/assets/graphics/sprites/077_palette.bin"   @ from assets/graphics/sprites/077_palette.pal
 	.global gUnk_087C3500
 gUnk_087C3500:
-	.incbin "build/assets/graphics/sprites/075_7c3500.bin"   @ from assets/graphics/sprites/075_7c3500.pal
+	.incbin "build/assets/graphics/sprites/075_palette.bin"   @ from assets/graphics/sprites/075_palette.pal
 	.global gUnk_087C3520
 gUnk_087C3520:
-	.incbin "build/assets/graphics/sprites/136.bin"   @ from assets/graphics/sprites/136.pal
+	.incbin "build/assets/graphics/sprites/136_palette.bin"   @ from assets/graphics/sprites/136_palette.pal
 	.global gUnk_087C3540
 gUnk_087C3540:
-	.incbin "build/assets/graphics/sprites/060_7c3540.bin"   @ from assets/graphics/sprites/060_7c3540.pal
+	.incbin "build/assets/graphics/sprites/060_palette.bin"   @ from assets/graphics/sprites/060_palette.pal
 	.global gUnk_087C3560
 gUnk_087C3560:
-	.incbin "build/assets/graphics/sprites/118_7c3560.bin"   @ from assets/graphics/sprites/118_7c3560.pal
+	.incbin "build/assets/graphics/sprites/118_palette.bin"   @ from assets/graphics/sprites/118_palette.pal
 	.global gUnk_087C3580
 gUnk_087C3580:
-	.incbin "build/assets/graphics/sprites/123_7c3580.bin"   @ from assets/graphics/sprites/123_7c3580.pal
+	.incbin "build/assets/graphics/sprites/123_palette.bin"   @ from assets/graphics/sprites/123_palette.pal
 	.global gUnk_087C35A0
 gUnk_087C35A0:
-	.incbin "build/assets/graphics/sprites/124_7c35a0.bin"   @ from assets/graphics/sprites/124_7c35a0.pal
+	.incbin "build/assets/graphics/sprites/124_palette.bin"   @ from assets/graphics/sprites/124_palette.pal
 	.global gUnk_087C35C0
 gUnk_087C35C0:
-	.incbin "build/assets/graphics/sprites/102_7c35c0.bin"   @ from assets/graphics/sprites/102_7c35c0.pal
+	.incbin "build/assets/graphics/sprites/102_palette.bin"   @ from assets/graphics/sprites/102_palette.pal
 	.global gUnk_087C35E0
 gUnk_087C35E0:
-	.incbin "build/assets/graphics/sprites/126_7c35e0.bin"   @ from assets/graphics/sprites/126_7c35e0.pal
+	.incbin "build/assets/graphics/sprites/126_palette.bin"   @ from assets/graphics/sprites/126_palette.pal
 	.global gUnk_087C3600
 gUnk_087C3600:
-	.incbin "build/assets/graphics/sprites/127_7c3600.bin"   @ from assets/graphics/sprites/127_7c3600.pal
+	.incbin "build/assets/graphics/sprites/127_palette.bin"   @ from assets/graphics/sprites/127_palette.pal
 	.global gUnk_087C3620
 gUnk_087C3620:
-	.incbin "build/assets/graphics/sprites/128_7c3620.bin"   @ from assets/graphics/sprites/128_7c3620.pal
+	.incbin "build/assets/graphics/sprites/128_palette.bin"   @ from assets/graphics/sprites/128_palette.pal
 	.global gUnk_087C3640
 gUnk_087C3640:
-	.incbin "build/assets/graphics/sprites/130_7c3640.bin"   @ from assets/graphics/sprites/130_7c3640.pal
+	.incbin "build/assets/graphics/sprites/130_palette.bin"   @ from assets/graphics/sprites/130_palette.pal
 	.global gUnk_087C3660
 gUnk_087C3660:
-	.incbin "build/assets/graphics/sprites/132_7c3660.bin"   @ from assets/graphics/sprites/132_7c3660.pal
+	.incbin "build/assets/graphics/sprites/132_palette.bin"   @ from assets/graphics/sprites/132_palette.pal
 	.global gUnk_087C3680
 gUnk_087C3680:
-	.incbin "build/assets/graphics/sprites/134_7c3680.bin"   @ from assets/graphics/sprites/134_7c3680.pal
+	.incbin "build/assets/graphics/sprites/134_palette.bin"   @ from assets/graphics/sprites/134_palette.pal
 	.global gUnk_087C36A0
 gUnk_087C36A0:
-	.incbin "build/assets/graphics/sprites/139_7c36a0.bin"   @ from assets/graphics/sprites/139_7c36a0.pal
+	.incbin "build/assets/graphics/sprites/139_palette.bin"   @ from assets/graphics/sprites/139_palette.pal
 	.global gUnk_087C36C0
 gUnk_087C36C0:
-	.incbin "build/assets/graphics/sprites/137_7c36c0.bin"   @ from assets/graphics/sprites/137_7c36c0.pal
+	.incbin "build/assets/graphics/sprites/137_palette.bin"   @ from assets/graphics/sprites/137_palette.pal
 	.global gUnk_087C36E0
 gUnk_087C36E0:
-	.incbin "build/assets/graphics/sprites/141_7c36e0.bin"   @ from assets/graphics/sprites/141_7c36e0.pal
+	.incbin "build/assets/graphics/sprites/141_palette.bin"   @ from assets/graphics/sprites/141_palette.pal
 	.global gUnk_087C3700
 gUnk_087C3700:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00

@@ -5,10 +5,7 @@
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0xA00000, 0x898
-	.global gUnk_08A00898
-gUnk_08A00898:
-	.incbin "baserom.gba", 0xA00898, 0x550
+	.incbin "baserom.gba", 0xA00000, 0xDE8
 	.4byte act_hud_map
 	.incbin "baserom.gba", 0xA00DEC, 0x2F58
 	.global gUnk_08A03D44
@@ -185,10 +182,7 @@ gUnk_08A5EEE3:
 	.byte 0x00
 	.global gUnk_08A5EEE4
 gUnk_08A5EEE4:
-	.incbin "baserom.gba", 0xA5EEE4, 0x111C
-	.global gUnk_08A60000
-gUnk_08A60000:
-	.incbin "baserom.gba", 0xA60000, 0x1CB1
+	.incbin "baserom.gba", 0xA5EEE4, 0x2DCD
 	.global gUnk_08A61CB1
 gUnk_08A61CB1:
 	.byte 0x00
