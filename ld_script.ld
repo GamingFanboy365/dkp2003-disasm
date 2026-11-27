@@ -23,7 +23,7 @@ SECTIONS
 	.iwram 0x03000000 : AT(LOADADDR(.rom0) + SIZEOF(.rom0)) { build/asm/iwram.o(.iwram) }
 	__iwram_lma = LOADADDR(.iwram);
 	__iwram_size = SIZEOF(.iwram);
-	.rom2 LOADADDR(.iwram) + SIZEOF(.iwram) : AT(LOADADDR(.iwram) + SIZEOF(.iwram)) { build/asm/arm_rom.o(.text) build/data/data_0803EA90.o(.text) build/data/data_08100000.o(.text) build/data/data_08200000.o(.text) build/data/data_08300000.o(.text) build/data/data_08400000.o(.text) build/data/data_08500000.o(.text) build/data/data_08600000.o(.text) build/data/data_08700000.o(.text) build/data/data_08800000.o(.text) build/data/data_08900000.o(.text) build/data/data_08A00000.o(.text) build/data/data_08B00000.o(.text) }
+	.rom2 LOADADDR(.iwram) + SIZEOF(.iwram) : AT(LOADADDR(.iwram) + SIZEOF(.iwram)) { build/asm/arm_rom.o(.text) build/data/data_0803EA90.o(.text) build/data/data_08102B00.o(.text) build/data/data_08200000.o(.text) build/data/data_08300000.o(.text) build/data/data_08400000.o(.text) build/data/data_08500000.o(.text) build/data/data_08600000.o(.text) build/data/data_08700000.o(.text) build/data/data_08800000.o(.text) build/data/data_08900000.o(.text) build/data/data_08A00000.o(.text) build/data/data_08B00000.o(.text) }
 
 	/DISCARD/ : { *(.ARM.attributes) *(.comment) }
 }

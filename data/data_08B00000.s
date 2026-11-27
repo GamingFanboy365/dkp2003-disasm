@@ -35,10 +35,7 @@ gUnk_08B0E1A9:
 	.byte 0x00
 	.global gUnk_08B0E1AA
 gUnk_08B0E1AA:
-	.incbin "baserom.gba", 0xB0E1AA, 0x1E56
-	.global gUnk_08B10000
-gUnk_08B10000:
-	.incbin "baserom.gba", 0xB10000, 0x2083
+	.incbin "baserom.gba", 0xB0E1AA, 0x3ED9
 	.global gUnk_08B12083
 gUnk_08B12083:
 	.byte 0x01
@@ -812,10 +809,7 @@ gUnk_08B9F4CB:
 	.incbin "baserom.gba", 0xB9F4CB, 0x62
 	.global gUnk_08B9F52D
 gUnk_08B9F52D:
-	.incbin "baserom.gba", 0xB9F52D, 0x1377
-	.global gUnk_08BA08A4
-gUnk_08BA08A4:
-	.incbin "baserom.gba", 0xBA08A4, 0x57
+	.incbin "baserom.gba", 0xB9F52D, 0x13CE
 	.global gUnk_08BA08FB
 gUnk_08BA08FB:
 	.incbin "baserom.gba", 0xBA08FB, 0x5C0

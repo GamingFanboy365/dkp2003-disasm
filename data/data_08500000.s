@@ -11,34 +11,7 @@ gUnk_08500848:
 	.incbin "baserom.gba", 0x500848, 0x4DC8
 	.global gUnk_08505610
 gUnk_08505610:
-	.incbin "baserom.gba", 0x505610, 0x198
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x5057D4, 0xA82C
-	.global gUnk_08510000
-gUnk_08510000:
-	.incbin "baserom.gba", 0x510000, 0x33628
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x543654, 0xC9AC
+	.incbin "build/assets/graphics/sprites/008.bin"   @ from assets/graphics/sprites/008.bin
 	.global gUnk_08550000
 gUnk_08550000:
 	.incbin "baserom.gba", 0x550000, 0x8DB8
@@ -59,19 +32,7 @@ gUnk_08561630:
 	.incbin "baserom.gba", 0x561630, 0x3670
 	.global gUnk_08564CA0
 gUnk_08564CA0:
-	.incbin "baserom.gba", 0x564CA0, 0x198
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x564E64, 0xB19C
+	.incbin "build/assets/graphics/sprites/005.bin"   @ from assets/graphics/sprites/005.bin
 	.global gUnk_08570000
 gUnk_08570000:
 	.incbin "baserom.gba", 0x570000, 0xB414
@@ -114,7 +75,7 @@ gUnk_08580080:
 	.incbin "baserom.gba", 0x5B7C54, 0x7D6C
 	.global gUnk_085BF9C0
 gUnk_085BF9C0:
-	.incbin "baserom.gba", 0x5BF9C0, 0x35A0
+	.incbin "build/assets/graphics/sprites/010.bin"   @ from assets/graphics/sprites/010.bin
 	.global gUnk_085C2F60
 gUnk_085C2F60:
 	.incbin "baserom.gba", 0x5C2F60, 0xA60
@@ -153,16 +114,4 @@ gUnk_085C96D0:
 	.incbin "baserom.gba", 0x5C96D0, 0x15B0
 	.global gUnk_085CAC80
 gUnk_085CAC80:
-	.incbin "baserom.gba", 0x5CAC80, 0x198
-	.4byte gUnk_08100808
-	.4byte gUnk_08200818
-	.4byte gUnk_08300828
-	.4byte gUnk_08400838
-	.4byte gUnk_08500848
-	.4byte gUnk_08600858
-	.4byte gUnk_08700868
-	.4byte gUnk_08800878
-	.4byte gUnk_08900888
-	.4byte gUnk_08A00898
-	.4byte gUnk_08B008A8
-	.incbin "baserom.gba", 0x5CAE44, 0x351BC
+	.incbin "build/assets/graphics/sprites/007.bin"   @ from assets/graphics/sprites/007.bin

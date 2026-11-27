@@ -1,44 +1,24 @@
-@ data/data_08100000.s: ROM 0x100000-0x200000 (rom, VMA 0x08100000)
+@ data/data_08102B00.s: ROM 0x102B00-0x200000 (rom, VMA 0x08102B00)
 
 	.include "asm/macros.inc"
 
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0x100000, 0x6A4
-	.global gUnk_081006A4
-gUnk_081006A4:
-	.incbin "baserom.gba", 0x1006A4, 0x164
-	.global gUnk_08100808
-gUnk_08100808:
-	.byte 0xB7, 0xB6, 0xAF, 0xAA, 0xA8, 0xB7, 0xB7, 0xA8
-	.global gUnk_08100810
-gUnk_08100810:
-	.incbin "baserom.gba", 0x100810, 0xD0C
-	.global gUnk_0810151C
-gUnk_0810151C:
-	.incbin "baserom.gba", 0x10151C, 0x153A
-	.global gUnk_08102A56
-gUnk_08102A56:
-	.incbin "baserom.gba", 0x102A56, 0x2302
+	.incbin "baserom.gba", 0x102B00, 0x2258
 	.global gUnk_08104D58
 gUnk_08104D58:
 	.incbin "baserom.gba", 0x104D58, 0x6100
 	.global gUnk_0810AE58
 gUnk_0810AE58:
-	.incbin "baserom.gba", 0x10AE58, 0x102
+	.incbin "build/assets/levels/25/bg_a.bin"   @ from assets/levels/25/bg_a.png
 	.global gUnk_0810AF5A
 gUnk_0810AF5A:
-	.incbin "baserom.gba", 0x10AF5A, 0x1A42
+	.incbin "build/assets/levels/25/bg_c.bin"   @ from assets/levels/25/bg_c.png
 	.global gUnk_0810C99C
 gUnk_0810C99C:
-	.incbin "baserom.gba", 0x10C99C, 0x3664
-	.global gUnk_08110000
-gUnk_08110000:
-	.incbin "baserom.gba", 0x110000, 0x800
-	.global gUnk_08110800
-gUnk_08110800:
-	.incbin "baserom.gba", 0x110800, 0xA0
+	.incbin "build/assets/levels/25/bg_d.bin"   @ from assets/levels/25/bg_d.png
+	.byte 0x00, 0x00
 	.global gUnk_081108A0
 gUnk_081108A0:
 	.incbin "baserom.gba", 0x1108A0, 0x2E40
@@ -72,19 +52,7 @@ gUnk_081136E0:
 	.4byte gUnk_081B0E12
 	.byte 0xE3, 0x46, 0x1B, 0x2C, 0xF3, 0xF6, 0x29, 0x43, 0xDF, 0xE1, 0xE2, 0xE4
 	.4byte gUnk_081B0E12
-	.incbin "baserom.gba", 0x11D764, 0x2289C
-	.global gUnk_08140000
-gUnk_08140000:
-	.incbin "baserom.gba", 0x140000, 0x10000
-	.global gUnk_08150000
-gUnk_08150000:
-	.incbin "baserom.gba", 0x150000, 0x20000
-	.global gUnk_08170000
-gUnk_08170000:
-	.incbin "baserom.gba", 0x170000, 0x40000
-	.global gUnk_081B0000
-gUnk_081B0000:
-	.incbin "baserom.gba", 0x1B0000, 0xE12
+	.incbin "baserom.gba", 0x11D764, 0x936AE
 	.global gUnk_081B0E12
 gUnk_081B0E12:
 	.incbin "baserom.gba", 0x1B0E12, 0x7232
@@ -93,25 +61,25 @@ gUnk_081B8044:
 	.incbin "baserom.gba", 0x1B8044, 0x500
 	.global gUnk_081B8544
 gUnk_081B8544:
-	.incbin "baserom.gba", 0x1B8544, 0x64
+	.incbin "build/assets/levels/06/data_20.bin"   @ from assets/levels/06/data_20.bin
 	.global gUnk_081B85A8
 gUnk_081B85A8:
-	.incbin "baserom.gba", 0x1B85A8, 0xC4
+	.incbin "build/assets/levels/06/data_24.bin"   @ from assets/levels/06/data_24.bin
 	.global gUnk_081B866C
 gUnk_081B866C:
-	.incbin "baserom.gba", 0x1B866C, 0x94
+	.incbin "build/assets/levels/06/data_1c.bin"   @ from assets/levels/06/data_1c.bin
 	.global gUnk_081B8700
 gUnk_081B8700:
-	.incbin "baserom.gba", 0x1B8700, 0x94
+	.incbin "build/assets/levels/17/data_20.bin"   @ from assets/levels/17/data_20.bin
 	.global gUnk_081B8794
 gUnk_081B8794:
-	.incbin "baserom.gba", 0x1B8794, 0xC8
+	.incbin "build/assets/levels/17/data_1c.bin"   @ from assets/levels/17/data_1c.bin
 	.global gUnk_081B885C
 gUnk_081B885C:
-	.incbin "baserom.gba", 0x1B885C, 0x504
+	.incbin "build/assets/graphics/frontend/tilemap_1b885c.bin"   @ from assets/graphics/frontend/tilemap_1b885c.bin
 	.global gUnk_081B8D60
-gUnk_081B8D60:
-	.incbin "baserom.gba", 0x1B8D60, 0x504
+	.set gUnk_081B8D60, gUnk_081B885C + 0x504
+	.incbin "baserom.gba", 0x1B905C, 0x208
 	.global gUnk_081B9264
 gUnk_081B9264:
 	.incbin "baserom.gba", 0x1B9264, 0x504
@@ -157,98 +125,94 @@ gUnk_081BE50C:
 	.incbin "baserom.gba", 0x1BE50C, 0xA08
 	.global gUnk_081BEF14
 gUnk_081BEF14:
-	.incbin "baserom.gba", 0x1BEF14, 0x504
+	.incbin "build/assets/graphics/frontend/tilemap_1bef14.bin"   @ from assets/graphics/frontend/tilemap_1bef14.bin
 	.global gUnk_081BF418
-gUnk_081BF418:
-	.4byte gUnk_089D0C7C
-	.incbin "baserom.gba", 0x1BF41C, 0x500
+	.set gUnk_081BF418, gUnk_081BEF14 + 0x504
+	.incbin "baserom.gba", 0x1BF714, 0x208
 	.global gUnk_081BF91C
 gUnk_081BF91C:
 	.incbin "baserom.gba", 0x1BF91C, 0x500
 	.global gUnk_081BFE1C
 gUnk_081BFE1C:
-	.incbin "baserom.gba", 0x1BFE1C, 0x64
+	.incbin "build/assets/levels/03/data_24.bin"   @ from assets/levels/03/data_24.bin
 	.global gUnk_081BFE80
 gUnk_081BFE80:
-	.incbin "baserom.gba", 0x1BFE80, 0xC4
+	.incbin "build/assets/levels/03/data_1c.bin"   @ from assets/levels/03/data_1c.bin
 	.global gUnk_081BFF44
 gUnk_081BFF44:
-	.incbin "baserom.gba", 0x1BFF44, 0x94
+	.incbin "build/assets/levels/03/data_20.bin"   @ from assets/levels/03/data_20.bin
 	.global gUnk_081BFFD8
 gUnk_081BFFD8:
-	.incbin "baserom.gba", 0x1BFFD8, 0xA4
+	.incbin "build/assets/levels/02/data_20.bin"   @ from assets/levels/02/data_20.bin
 	.global gUnk_081C007C
 gUnk_081C007C:
-	.incbin "baserom.gba", 0x1C007C, 0x144
+	.incbin "build/assets/levels/02/data_1c.bin"   @ from assets/levels/02/data_1c.bin
 	.global gUnk_081C01C0
 gUnk_081C01C0:
-	.incbin "baserom.gba", 0x1C01C0, 0x94
+	.incbin "build/assets/levels/02/data_24.bin"   @ from assets/levels/02/data_24.bin
 	.global gUnk_081C0254
 gUnk_081C0254:
-	.incbin "baserom.gba", 0x1C0254, 0x64
+	.incbin "build/assets/levels/13/data_20.bin"   @ from assets/levels/13/data_20.bin
 	.global gUnk_081C02B8
 gUnk_081C02B8:
-	.incbin "baserom.gba", 0x1C02B8, 0xC4
+	.incbin "build/assets/levels/13/data_1c.bin"   @ from assets/levels/13/data_1c.bin
 	.global gUnk_081C037C
 gUnk_081C037C:
-	.incbin "baserom.gba", 0x1C037C, 0x94
+	.incbin "build/assets/levels/13/data_24.bin"   @ from assets/levels/13/data_24.bin
 	.global gUnk_081C0410
 gUnk_081C0410:
-	.incbin "baserom.gba", 0x1C0410, 0x3E84
+	.incbin "build/assets/levels/01/data_14.bin"   @ from assets/levels/01/data_14.bin
 	.global gUnk_081C4294
 gUnk_081C4294:
-	.incbin "baserom.gba", 0x1C4294, 0x4A44
+	.incbin "build/assets/levels/02/data_14.bin"   @ from assets/levels/02/data_14.bin
 	.global gUnk_081C8CD8
 gUnk_081C8CD8:
-	.incbin "baserom.gba", 0x1C8CD8, 0x4104
+	.incbin "build/assets/levels/03/data_14.bin"   @ from assets/levels/03/data_14.bin
 	.global gUnk_081CCDDC
 gUnk_081CCDDC:
-	.incbin "baserom.gba", 0x1CCDDC, 0x3224
-	.global gUnk_081D0000
-gUnk_081D0000:
-	.incbin "baserom.gba", 0x1D0000, 0x810
+	.incbin "build/assets/levels/04/data_14.bin"   @ from assets/levels/04/data_14.bin
 	.global gUnk_081D0810
 gUnk_081D0810:
 	.incbin "baserom.gba", 0x1D0810, 0xCB0
 	.global gUnk_081D14C0
 gUnk_081D14C0:
-	.incbin "baserom.gba", 0x1D14C0, 0x3E84
+	.incbin "build/assets/levels/05/data_14.bin"   @ from assets/levels/05/data_14.bin
 	.global gUnk_081D5344
 gUnk_081D5344:
-	.incbin "baserom.gba", 0x1D5344, 0x2D84
+	.incbin "build/assets/levels/06/data_14.bin"   @ from assets/levels/06/data_14.bin
 	.global gUnk_081D80C8
 gUnk_081D80C8:
-	.incbin "baserom.gba", 0x1D80C8, 0x2E04
+	.incbin "build/assets/levels/07/data_14.bin"   @ from assets/levels/07/data_14.bin
 	.global gUnk_081DAECC
 gUnk_081DAECC:
-	.incbin "baserom.gba", 0x1DAECC, 0x4444
+	.incbin "build/assets/levels/08/data_14.bin"   @ from assets/levels/08/data_14.bin
 	.global gUnk_081DF310
 gUnk_081DF310:
-	.incbin "baserom.gba", 0x1DF310, 0x30E4
+	.incbin "build/assets/levels/09/data_14.bin"   @ from assets/levels/09/data_14.bin
 	.global gUnk_081E23F4
 gUnk_081E23F4:
-	.incbin "baserom.gba", 0x1E23F4, 0x4744
+	.incbin "build/assets/levels/10/data_14.bin"   @ from assets/levels/10/data_14.bin
 	.global gUnk_081E6B38
 gUnk_081E6B38:
-	.incbin "baserom.gba", 0x1E6B38, 0x5084
+	.incbin "build/assets/levels/11/data_14.bin"   @ from assets/levels/11/data_14.bin
 	.global gUnk_081EBBBC
 gUnk_081EBBBC:
-	.incbin "baserom.gba", 0x1EBBBC, 0x3844
+	.incbin "build/assets/levels/12/data_14.bin"   @ from assets/levels/12/data_14.bin
 	.global gUnk_081EF400
 gUnk_081EF400:
-	.incbin "baserom.gba", 0x1EF400, 0x3C04
+	.incbin "build/assets/levels/13/data_14.bin"   @ from assets/levels/13/data_14.bin
 	.global gUnk_081F3004
 gUnk_081F3004:
-	.incbin "baserom.gba", 0x1F3004, 0x4384
+	.incbin "build/assets/levels/14/data_14.bin"   @ from assets/levels/14/data_14.bin
 	.global gUnk_081F7388
 gUnk_081F7388:
-	.incbin "baserom.gba", 0x1F7388, 0x3844
+	.incbin "build/assets/levels/15/data_14.bin"   @ from assets/levels/15/data_14.bin
 	.global gUnk_081FABCC
 gUnk_081FABCC:
-	.incbin "baserom.gba", 0x1FABCC, 0x2D04
+	.incbin "build/assets/levels/16/data_14.bin"   @ from assets/levels/16/data_14.bin
 	.global gUnk_081FD8D0
 gUnk_081FD8D0:
-	.incbin "baserom.gba", 0x1FD8D0, 0x804
+	.incbin "build/assets/levels/17/data_24.bin"   @ from assets/levels/17/data_24.bin
 	.global gUnk_081FE0D4
 gUnk_081FE0D4:
-	.incbin "baserom.gba", 0x1FE0D4, 0x1F2C
+	.incbin "build/assets/levels/17/data_14.bin"   @ from assets/levels/17/data_14.bin

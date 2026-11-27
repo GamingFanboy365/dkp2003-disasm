@@ -23,7 +23,7 @@ SMALL_DATA = 64   # gaps up to this size are emitted as .byte, larger as .incbin
 
 
 class Gen:
-    def __init__(self, rom, db, cfg, raw, names, files, ram_names=None):
+    def __init__(self, rom, db, cfg, raw, names, files, ram_names=None, noptr=(), assets=()):
         self.rom = rom
         self.cfg = cfg
         self.raw = raw                  # set of rom offsets to emit as raw .inst
@@ -59,7 +59,13 @@ class Gen:
         self.overlay_lma = {s.rom_start: '__%s_lma' % s.name for s in rom.segs if s.name != 'rom'}
         self.dlabel = {}
         self.dptr = {}
+        self.assets = sorted(assets)          # (offset, size, type, name)
+        # regions known to hold no pointers (graphics, palettes)
+        self.noptr = sorted(list(noptr) + [(o, o + s) for o, s, t, n in self.assets
+                                           if t in ('pal', 'tiles4', 'tiles8', 'gfx')])
         self.scan_data()
+        self.asset_at = {a[0]: a for a in self.assets}
+        self.class_names = {}
         self.file_of = None
         self.verified = None
         self.to_verify = {}
@@ -160,6 +166,10 @@ class Gen:
             if o < self.code_end and covered[o:o + 4].count(1):
                 continue
             t = w - ROM_BASE
+            if self.noptr:
+                k = bisect.bisect_right(self.noptr, (o, 1 << 62)) - 1
+                if k >= 0 and self.noptr[k][0] <= o < self.noptr[k][1]:
+                    continue
             if w & 1 and (t - 1) in thumb_funcs:
                 fptr[o] = t - 1
             elif is_data(t):
@@ -276,6 +286,59 @@ class Gen:
             len(self.dlabel), len(self.dptr), sum(1 for v in self.dptr.values() if v[0] == 'func'),
             sum(1 for v in self.dptr.values() if v[0] == 'data')), file=sys.stderr)
 
+    # -- extracted assets -----------------------------------------------------
+    ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'gfx': '.bin', 'bin': '.bin',
+                    'objects': '.s', 'sdata': '.s'}
+
+    def emit_asset(self, out, off):
+        o, size, typ, name = self.asset_at[off]
+        base = self.dlabel.get(off, '.Lasset_%06X' % off)
+        if off not in self.dlabel:
+            out.append('%s:' % base)
+        if typ in ('objects', 'sdata'):
+            out.append('\t.include "assets/%s.s"' % name)
+        else:
+            out.append('\t.incbin "build/assets/%s.bin"   @ from assets/%s%s' % (name, name, self.ASSET_SOURCE[typ]))
+        # labels that point inside the asset
+        for lo in range(off + 1, off + size):
+            if lo in self.dlabel:
+                out.append('\t.global %s' % self.dlabel[lo])
+                out.append('\t.set %s, %s + 0x%X' % (self.dlabel[lo], base, lo - off))
+        return off + size
+
+    def asset_text(self, off):
+        """Assembly source for an 'objects' or 'sdata' asset (written by
+        tools/assets.py extract; it contains the bytes of the ROM)."""
+        o, size, typ, name = self.asset_at[off]
+        rom = self.rom
+        lines = ['@ %s: ROM 0x%06X, 0x%X bytes (extracted from baserom.gba by tools/assets.py)' % (name, off, size), '']
+        if typ == 'objects':
+            lines += ['@ level object list: x, y, z, class info (first byte = object class)', '']
+            for k in range(size // 16):
+                r = off + 16 * k
+                x, y, z, p = struct.unpack_from('<4i', rom.d, r)
+                if (x, y, z, p) == (0, 0, 0, 0):
+                    lines.append('\tlevel_objects_end')
+                    continue
+                info = self.dptr_expr(r + 12) if (r + 12) in self.dptr else '0x%08X' % (p & 0xffffffff)
+                cls = rom.d[(p & 0xffffffff) - ROM_BASE]
+                lines.append('\tlevel_object %6d, %6d, %6d, %s   @ class %d %s' % (
+                    x, y, z, info, cls, self.class_names.get(cls, '')))
+            return lines
+        # generic: words (symbolic where they are pointers), bytes at the edges
+        k = off
+        while k < off + size:
+            if k % 4 == 0 and k + 4 <= off + size:
+                if k in self.dptr:
+                    lines.append('\t.4byte %s' % self.dptr_expr(k))
+                else:
+                    lines.append('\t.4byte 0x%08X' % rom.u32(k))
+                k += 4
+            else:
+                lines.append('\t.byte 0x%02X' % rom.d[k])
+                k += 1
+        return lines
+
     def dptr_expr(self, o):
         kind, t = self.dptr[o]
         if kind == 'func':
@@ -355,6 +418,9 @@ class Gen:
             if off in self.dlabel:
                 out.append('\t.global %s' % self.dlabel[off])
                 out.append('%s:' % self.dlabel[off])
+            if off in self.asset_at:
+                off = self.emit_asset(out, off)
+                continue
             if off in self.dptr:
                 out.append('\t.4byte %s' % self.dptr_expr(off))
                 off += 4
@@ -495,6 +561,14 @@ class Gen:
                 cuts[s.rom_start] = None
         cuts[self.code_end] = None
         for o in range(0x100000, rom.size, 0x100000):
+            # never cut through an extracted asset: move the cut past it
+            moved = True
+            while moved:
+                moved = False
+                for (ao, asz, at, an) in self.assets:
+                    if ao < o < ao + asz:
+                        o = (ao + asz + 255) & ~255
+                        moved = True
             cuts.setdefault(o, None)
         for (o, fn) in self.files:
             assert o % 4 == 0, hex(o)
@@ -531,7 +605,7 @@ class Gen:
         self.file_of = file_of
         self.compute_global_labels(file_of)
         self.breaks = sorted(set(self.insns) | set(self.pools) | set(self.jtables) | set(self.dlabel)
-                             | set(self.dptr) | {o for o in self.sym if o in self.item_start})
+                             | set(self.dptr) | {o for o in self.sym if o in self.item_start} | set(self.asset_at))
         objs = []
         for (p, e, seg, fn) in chunks:
             out = ['@ %s: ROM 0x%06X-0x%06X (%s, VMA 0x%08X)' % (fn, p, e, seg.name, seg.to_vma(p)), '',
@@ -593,6 +667,17 @@ class Gen:
         return objs
 
 
+def load_assets(path):
+    """config/assets.txt: <offset> <size> <type> <name>"""
+    out = []
+    if os.path.exists(path):
+        for l in open(path):
+            p = l.split('#')[0].split()
+            if len(p) == 4:
+                out.append((int(p[0], 0), int(p[1], 0), p[2], p[3]))
+    return out
+
+
 def load_list(path):
     s = set()
     if os.path.exists(path):
@@ -603,16 +688,16 @@ def load_list(path):
     return s
 
 
-def main():
-    rom_path, db_path, cfg_path, outdir = sys.argv[1:5]
+def make_gen(rom_path, db_path, cfg_path):
+    """Build the generator (analysis of code, data labels and pointers)."""
     data = open(rom_path, 'rb').read()
     cfg = parse_cfg(cfg_path)
     rom = ROM(data, cfg)
     db = json.load(open(db_path))
-    raw = load_list(os.path.join(os.path.dirname(cfg_path), 'raw_insns.txt'))
+    cdir = os.path.dirname(cfg_path)
+    raw = load_list(os.path.join(cdir, 'raw_insns.txt'))
     names = {}
-    files = []
-    np = os.path.join(os.path.dirname(cfg_path), 'symbols.txt')
+    np = os.path.join(cdir, 'symbols.txt')
     if os.path.exists(np):
         for l in open(np):
             l = l.split('#')[0].split()
@@ -620,20 +705,26 @@ def main():
                 a = int(l[0], 0)
                 seg = rom.seg_of_vma(a & ~1)
                 names[seg.to_rom(a & ~1)] = l[1]
-    fp = os.path.join(os.path.dirname(cfg_path), 'files.txt')
+    files = []
+    fp = os.path.join(cdir, 'files.txt')
     if os.path.exists(fp):
         for l in open(fp):
             l = l.split('#')[0].split()
             if len(l) >= 2:
                 files.append((int(l[0], 0), l[1]))
     ram = {}
-    rp = os.path.join(os.path.dirname(cfg_path), 'ram_symbols.txt')
+    rp = os.path.join(cdir, 'ram_symbols.txt')
     if os.path.exists(rp):
         for l in open(rp):
             l = l.split('#')[0].split()
             if len(l) >= 2:
                 ram[int(l[0], 0)] = l[1]
-    g = Gen(rom, db, cfg, raw, names, files, ram)
+    return Gen(rom, db, cfg, raw, names, files, ram, assets=load_assets(os.path.join(cdir, 'assets.txt')))
+
+
+def main():
+    rom_path, db_path, cfg_path, outdir = sys.argv[1:5]
+    g = make_gen(rom_path, db_path, cfg_path)
     g.generate(outdir)
 
 

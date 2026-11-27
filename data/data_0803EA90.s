@@ -1,4 +1,4 @@
-@ data/data_0803EA90.s: ROM 0x03EA90-0x100000 (rom, VMA 0x0803EA90)
+@ data/data_0803EA90.s: ROM 0x03EA90-0x102B00 (rom, VMA 0x0803EA90)
 
 	.include "asm/macros.inc"
 
@@ -1623,443 +1623,11 @@ gUnk_08051D01:
 	.byte 0x00, 0x00, 0x00, 0x8A, 0x00, 0x00, 0x00, 0x8B, 0x00, 0x00, 0x00, 0x8C, 0x00, 0x00, 0x00
 	.global gUnk_08051D40
 gUnk_08051D40:
-	.byte 0x58, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057C50
-	.4byte gUnk_086397E0
-	.4byte gUnk_083D1D00
-	.4byte gUnk_0863F3C0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECE8
-	.byte 0x5D, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058650
-	.4byte gUnk_08639CE0
-	.4byte gUnk_083D3A00
-	.4byte gUnk_0863F460
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED60
-	.byte 0x5A, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058050
-	.4byte gUnk_086399E0
-	.4byte gUnk_083D2850
-	.4byte gUnk_0863F400
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x02, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED20
-	.byte 0x5F, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058A50
-	.4byte gUnk_08639EE0
-	.4byte gUnk_083D4510
-	.4byte gUnk_0863F4A0
-	.4byte gUnk_086299C0
-	.4byte gUnk_0863FA80
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDA0
-	.byte 0x59, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057E50
-	.4byte gUnk_086398E0
-	.4byte gUnk_083D2300
-	.4byte gUnk_0863F3E0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED08
-	.byte 0x55, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057650
-	.4byte gUnk_086394E0
-	.4byte gUnk_083D0C10
-	.4byte gUnk_0863F360
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECB0
-	.byte 0x60, 0x00, 0x00, 0x00, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058C50
-	.4byte gUnk_08639FE0
-	.4byte gUnk_083D4A90
-	.4byte gUnk_0863F4C0
-	.4byte gUnk_08629940
-	.4byte gUnk_0863FA60
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDC8
-	.byte 0x57, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057A50
-	.4byte gUnk_086396E0
-	.4byte gUnk_083D1780
-	.4byte gUnk_0863F3A0
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECD0
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058450
-	.4byte gUnk_08639BE0
-	.4byte gUnk_083D3570
-	.4byte gUnk_0863F440
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x02, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED50
-	.byte 0x5B, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058250
-	.4byte gUnk_08639AE0
-	.4byte gUnk_083D2F20
-	.4byte gUnk_0863F420
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED30
-	.byte 0x61, 0x00, 0x00, 0x00, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058E50
-	.4byte gUnk_0863A0E0
-	.4byte gUnk_083D5230
-	.4byte gUnk_0863F4E0
-	.4byte gUnk_086299C0
-	.4byte gUnk_0863FA80
-	.byte 0x06, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDE8
-	.byte 0x5E, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08058850
-	.4byte gUnk_08639DE0
-	.4byte gUnk_083D3F40
-	.4byte gUnk_0863F480
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED80
-	.byte 0x62, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059050
-	.4byte gUnk_0863A1E0
-	.4byte gUnk_083D5810
-	.4byte gUnk_0863F500
-	.4byte gUnk_08629940
-	.4byte gUnk_0863FA60
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE18
-	.byte 0x63, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059250
-	.4byte gUnk_0863A2E0
-	.4byte gUnk_083D5D90
-	.4byte gUnk_0863F520
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE38
-	.byte 0x56, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057850
-	.4byte gUnk_086395E0
-	.4byte gUnk_083D11A0
-	.4byte gUnk_0863F380
-	.4byte gUnk_08629760
-	.4byte gUnk_0863F6E0
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECC8
-	.byte 0x54, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08057450
-	.4byte gUnk_086393E0
-	.4byte gUnk_083D05D0
-	.4byte gUnk_0863F340
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECA8
-	.byte 0x68, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863D620
-	.4byte gUnk_0863ABE0
-	.4byte gUnk_083D1D00
-	.4byte gUnk_0863F3C0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECE8
-	.byte 0x6D, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863E020
-	.4byte gUnk_0863B0E0
-	.4byte gUnk_083D3A00
-	.4byte gUnk_0863F460
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED60
-	.byte 0x6A, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863DA20
-	.4byte gUnk_0863ADE0
-	.4byte gUnk_083D2850
-	.4byte gUnk_0863F400
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x02, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED20
-	.byte 0x6F, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863E420
-	.4byte gUnk_0863B2E0
-	.4byte gUnk_083D4510
-	.4byte gUnk_0863F4A0
-	.4byte gUnk_086299C0
-	.4byte gUnk_0863FA80
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDA0
-	.byte 0x69, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863D820
-	.4byte gUnk_0863ACE0
-	.4byte gUnk_083D2300
-	.4byte gUnk_0863F3E0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED08
-	.byte 0x65, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863D020
-	.4byte gUnk_0863A8E0
-	.4byte gUnk_083D0C10
-	.4byte gUnk_0863F360
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x03
+	.include "assets/levels/track_records.s"
 	.global gUnk_08052101
-gUnk_08052101:
-	.byte 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECB0
-	.byte 0x70, 0x00, 0x00, 0x00, 0x0D, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863E620
-	.4byte gUnk_0863B3E0
-	.4byte gUnk_083D4A90
-	.4byte gUnk_0863F4C0
-	.4byte gUnk_08629940
-	.4byte gUnk_0863FA60
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDC8
-	.byte 0x67, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863D420
-	.4byte gUnk_0863AAE0
-	.4byte gUnk_083D1780
-	.4byte gUnk_0863F3A0
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECD0
-	.byte 0x6C, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863DE20
-	.4byte gUnk_0863AFE0
-	.4byte gUnk_083D3570
-	.4byte gUnk_0863F440
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x02, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED50
-	.byte 0x6B, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863DC20
-	.4byte gUnk_0863AEE0
-	.4byte gUnk_083D2F20
-	.4byte gUnk_0863F420
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED30
-	.byte 0x71, 0x00, 0x00, 0x00, 0x0E, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863E820
-	.4byte gUnk_0863B4E0
-	.4byte gUnk_083D5230
-	.4byte gUnk_0863F4E0
-	.4byte gUnk_086299C0
-	.4byte gUnk_0863FA80
-	.byte 0x06, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EDE8
-	.byte 0x6E, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863E220
-	.4byte gUnk_0863B1E0
-	.4byte gUnk_083D3F40
-	.4byte gUnk_0863F480
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ED80
-	.byte 0x72, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863EA20
-	.4byte gUnk_0863B5E0
-	.4byte gUnk_083D5810
-	.4byte gUnk_0863F500
-	.4byte gUnk_08629940
-	.4byte gUnk_0863FA60
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE18
-	.byte 0x73, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863EC20
-	.4byte gUnk_0863B6E0
-	.4byte gUnk_083D5D90
-	.4byte gUnk_0863F520
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE38
-	.byte 0x66, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863D220
-	.4byte gUnk_0863A9E0
-	.4byte gUnk_083D11A0
-	.4byte gUnk_0863F380
-	.4byte gUnk_08629760
-	.4byte gUnk_0863F6E0
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECC8
-	.byte 0x64, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0863CE20
-	.4byte gUnk_0863A7E0
-	.4byte gUnk_083D05D0
-	.4byte gUnk_0863F340
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0884ECA8
-	.byte 0x74, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059E50
-	.4byte gUnk_0863B7E0
-	.4byte gUnk_083D7610
-	.4byte gUnk_0863F5C0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EEF8
-	.byte 0x75, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_0805A050
-	.4byte gUnk_0863B8E0
-	.4byte gUnk_083D7E30
-	.4byte gUnk_0863F5E0
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EF18
-	.byte 0x76, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_0805A250
-	.4byte gUnk_0863B9E0
-	.4byte gUnk_083D8460
-	.4byte gUnk_0863F600
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EF30
-	.byte 0x77, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_0805A450
-	.4byte gUnk_0863BAE0
-	.4byte gUnk_083D8B90
-	.4byte gUnk_0863F620
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x03, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EF38
-	.byte 0x7A, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059A50
-	.4byte gUnk_0863A5E0
-	.4byte gUnk_083D6C30
-	.4byte gUnk_0863F580
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EEB0
-	.byte 0x79, 0x00, 0x00, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059850
-	.4byte gUnk_0863A4E0
-	.4byte gUnk_083D6740
-	.4byte gUnk_0863F560
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x06, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE80
-	.byte 0x7B, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059C50
-	.4byte gUnk_0863A6E0
-	.4byte gUnk_083D7120
-	.4byte gUnk_0863F5A0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EED0
-	.byte 0x78, 0x00, 0x00, 0x00, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x50
+	.set gUnk_08052101, gUnk_08051D40 + 0x3C1
 	.global gUnk_08052401
-gUnk_08052401:
-	.byte 0x96, 0x05, 0x08
-	.4byte gUnk_0863A3E0
-	.4byte gUnk_083D6250
-	.4byte gUnk_0863F540
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE60
-	.byte 0x7A, 0x00, 0x00, 0x00, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059A50
-	.4byte gUnk_0863A5E0
-	.4byte gUnk_083D6C30
-	.4byte gUnk_0863F580
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EEB0
-	.byte 0x79, 0x00, 0x00, 0x00, 0x1B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059850
-	.4byte gUnk_0863A4E0
-	.4byte gUnk_083D6740
-	.4byte gUnk_0863F560
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x06, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE80
-	.byte 0x7B, 0x00, 0x00, 0x00, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059C50
-	.4byte gUnk_0863A6E0
-	.4byte gUnk_083D7120
-	.4byte gUnk_0863F5A0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EED0
-	.byte 0x78, 0x00, 0x00, 0x00, 0x1A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059650
-	.4byte gUnk_0863A3E0
-	.4byte gUnk_083D6250
-	.4byte gUnk_0863F540
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE60
-	.byte 0x7A, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059A50
-	.4byte gUnk_0863A5E0
-	.4byte gUnk_083D6C30
-	.4byte gUnk_0863F580
-	.4byte gUnk_086298A0
-	.4byte gUnk_0863F720
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EEB0
-	.byte 0x79, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059850
-	.4byte gUnk_0863A4E0
-	.4byte gUnk_083D6740
-	.4byte gUnk_0863F560
-	.4byte gUnk_08629820
-	.4byte gUnk_0863F700
-	.byte 0x06, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE80
-	.byte 0x7B, 0x00, 0x00, 0x00, 0x21, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059C50
-	.4byte gUnk_0863A6E0
-	.4byte gUnk_083D7120
-	.4byte gUnk_0863F5A0
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x05, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EED0
-	.byte 0x78, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.4byte gUnk_08059650
-	.4byte gUnk_0863A3E0
-	.4byte gUnk_083D6250
-	.4byte gUnk_0863F540
-	.4byte gUnk_086296B0
-	.4byte gUnk_0863FB40
-	.byte 0x04, 0x00, 0x00, 0x00
-	.4byte gUnk_0884EE60
+	.set gUnk_08052401, gUnk_08051D40 + 0x6C1
 	.byte 0x00, 0x00, 0x00, 0x00, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.4byte gUnk_0805BC50
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2847,97 +2415,91 @@ gUnk_0805613E:
 	.incbin "baserom.gba", 0x5613E, 0x1312
 	.global gUnk_08057450
 gUnk_08057450:
-	.incbin "baserom.gba", 0x57450, 0x200
+	.incbin "build/assets/levels/01/palette.bin"   @ from assets/levels/01/palette.pal
 	.global gUnk_08057650
 gUnk_08057650:
-	.incbin "baserom.gba", 0x57650, 0x200
+	.incbin "build/assets/levels/02/palette.bin"   @ from assets/levels/02/palette.pal
 	.global gUnk_08057850
 gUnk_08057850:
-	.incbin "baserom.gba", 0x57850, 0x200
+	.incbin "build/assets/levels/03/palette.bin"   @ from assets/levels/03/palette.pal
 	.global gUnk_08057A50
 gUnk_08057A50:
-	.incbin "baserom.gba", 0x57A50, 0x200
+	.incbin "build/assets/levels/04/palette.bin"   @ from assets/levels/04/palette.pal
 	.global gUnk_08057C50
 gUnk_08057C50:
-	.incbin "baserom.gba", 0x57C50, 0x200
+	.incbin "build/assets/levels/05/palette.bin"   @ from assets/levels/05/palette.pal
 	.global gUnk_08057E50
 gUnk_08057E50:
-	.incbin "baserom.gba", 0x57E50, 0xEA
+	.incbin "build/assets/levels/06/palette.bin"   @ from assets/levels/06/palette.pal
 	.global gUnk_08057F3A
-gUnk_08057F3A:
-	.byte 0xD4, 0x53, 0xD9
+	.set gUnk_08057F3A, gUnk_08057E50 + 0xEA
 	.global gUnk_08057F3D
-gUnk_08057F3D:
-	.byte 0x67
+	.set gUnk_08057F3D, gUnk_08057E50 + 0xED
 	.global gUnk_08057F3E
-gUnk_08057F3E:
-	.byte 0xFF
+	.set gUnk_08057F3E, gUnk_08057E50 + 0xEE
 	.global gUnk_08057F3F
-gUnk_08057F3F:
-	.byte 0x7F, 0x3F
+	.set gUnk_08057F3F, gUnk_08057E50 + 0xEF
 	.global gUnk_08057F41
-gUnk_08057F41:
-	.byte 0x67, 0xBF, 0x56, 0x1F
+	.set gUnk_08057F41, gUnk_08057E50 + 0xF1
 	.global gUnk_08057F45
-gUnk_08057F45:
-	.incbin "baserom.gba", 0x57F45, 0x10B
+	.set gUnk_08057F45, gUnk_08057E50 + 0xF5
 	.global gUnk_08058050
 gUnk_08058050:
-	.incbin "baserom.gba", 0x58050, 0x1B1
+	.incbin "build/assets/levels/07/palette.bin"   @ from assets/levels/07/palette.pal
 	.global gUnk_08058201
-gUnk_08058201:
-	.incbin "baserom.gba", 0x58201, 0x4F
+	.set gUnk_08058201, gUnk_08058050 + 0x1B1
 	.global gUnk_08058250
 gUnk_08058250:
-	.incbin "baserom.gba", 0x58250, 0x200
+	.incbin "build/assets/levels/08/palette.bin"   @ from assets/levels/08/palette.pal
 	.global gUnk_08058450
 gUnk_08058450:
-	.incbin "baserom.gba", 0x58450, 0x200
+	.incbin "build/assets/levels/09/palette.bin"   @ from assets/levels/09/palette.pal
 	.global gUnk_08058650
 gUnk_08058650:
-	.incbin "baserom.gba", 0x58650, 0x200
+	.incbin "build/assets/levels/10/palette.bin"   @ from assets/levels/10/palette.pal
 	.global gUnk_08058850
 gUnk_08058850:
-	.incbin "baserom.gba", 0x58850, 0x200
+	.incbin "build/assets/levels/11/palette.bin"   @ from assets/levels/11/palette.pal
 	.global gUnk_08058A50
 gUnk_08058A50:
-	.incbin "baserom.gba", 0x58A50, 0x200
+	.incbin "build/assets/levels/12/palette.bin"   @ from assets/levels/12/palette.pal
 	.global gUnk_08058C50
 gUnk_08058C50:
-	.incbin "baserom.gba", 0x58C50, 0x200
+	.incbin "build/assets/levels/13/palette.bin"   @ from assets/levels/13/palette.pal
 	.global gUnk_08058E50
 gUnk_08058E50:
-	.incbin "baserom.gba", 0x58E50, 0x200
+	.incbin "build/assets/levels/14/palette.bin"   @ from assets/levels/14/palette.pal
 	.global gUnk_08059050
 gUnk_08059050:
-	.incbin "baserom.gba", 0x59050, 0x200
+	.incbin "build/assets/levels/15/palette.bin"   @ from assets/levels/15/palette.pal
 	.global gUnk_08059250
 gUnk_08059250:
-	.incbin "baserom.gba", 0x59250, 0x400
+	.incbin "build/assets/levels/16/palette.bin"   @ from assets/levels/16/palette.pal
+	.incbin "baserom.gba", 0x59450, 0x200
 	.global gUnk_08059650
 gUnk_08059650:
-	.incbin "baserom.gba", 0x59650, 0x200
+	.incbin "build/assets/levels/17/palette.bin"   @ from assets/levels/17/palette.pal
 	.global gUnk_08059850
 gUnk_08059850:
-	.incbin "baserom.gba", 0x59850, 0x200
+	.incbin "build/assets/levels/18/palette.bin"   @ from assets/levels/18/palette.pal
 	.global gUnk_08059A50
 gUnk_08059A50:
-	.incbin "baserom.gba", 0x59A50, 0x200
+	.incbin "build/assets/levels/19/palette.bin"   @ from assets/levels/19/palette.pal
 	.global gUnk_08059C50
 gUnk_08059C50:
-	.incbin "baserom.gba", 0x59C50, 0x200
+	.incbin "build/assets/levels/20/palette.bin"   @ from assets/levels/20/palette.pal
 	.global gUnk_08059E50
 gUnk_08059E50:
-	.incbin "baserom.gba", 0x59E50, 0x200
+	.incbin "build/assets/levels/21/palette.bin"   @ from assets/levels/21/palette.pal
 	.global gUnk_0805A050
 gUnk_0805A050:
-	.incbin "baserom.gba", 0x5A050, 0x200
+	.incbin "build/assets/levels/22/palette.bin"   @ from assets/levels/22/palette.pal
 	.global gUnk_0805A250
 gUnk_0805A250:
-	.incbin "baserom.gba", 0x5A250, 0x200
+	.incbin "build/assets/levels/23/palette.bin"   @ from assets/levels/23/palette.pal
 	.global gUnk_0805A450
 gUnk_0805A450:
-	.incbin "baserom.gba", 0x5A450, 0x200
+	.incbin "build/assets/levels/24/palette.bin"   @ from assets/levels/24/palette.pal
 	.global gUnk_0805A650
 gUnk_0805A650:
 	.incbin "baserom.gba", 0x5A650, 0x200
@@ -2946,10 +2508,12 @@ gUnk_0805A850:
 	.incbin "baserom.gba", 0x5A850, 0x1400
 	.global gUnk_0805BC50
 gUnk_0805BC50:
-	.incbin "baserom.gba", 0x5BC50, 0x800
+	.incbin "build/assets/levels/25/palette.bin"   @ from assets/levels/25/palette.pal
+	.incbin "baserom.gba", 0x5BE50, 0x600
 	.global gUnk_0805C450
 gUnk_0805C450:
-	.incbin "baserom.gba", 0x5C450, 0x3244
+	.incbin "build/assets/levels/06/bg_a.bin"   @ from assets/levels/06/bg_a.png
+	.byte 0x53, 0x02
 	.global gUnk_0805F694
 gUnk_0805F694:
 	.incbin "baserom.gba", 0x5F694, 0x9A6
@@ -3012,43 +2576,40 @@ gUnk_08068401:
 	.incbin "baserom.gba", 0x68401, 0x753
 	.global gUnk_08068B54
 gUnk_08068B54:
-	.byte 0x8F, 0x01
+	.incbin "build/assets/levels/06/bg_c.bin"   @ from assets/levels/06/bg_c.png
 	.global gUnk_08068B56
-gUnk_08068B56:
-	.incbin "baserom.gba", 0x68B56, 0x31E0
+	.set gUnk_08068B56, gUnk_08068B54 + 0x2
 	.global gUnk_0806BD36
 gUnk_0806BD36:
-	.byte 0x9F, 0x00
+	.incbin "build/assets/levels/06/bg_d.bin"   @ from assets/levels/06/bg_d.png
 	.global gUnk_0806BD38
-gUnk_0806BD38:
-	.incbin "baserom.gba", 0x6BD38, 0x27C0
+	.set gUnk_0806BD38, gUnk_0806BD36 + 0x2
 	.global gUnk_0806E4F8
 gUnk_0806E4F8:
-	.incbin "baserom.gba", 0x6E4F8, 0x2709
+	.incbin "build/assets/levels/17/bg_a.bin"   @ from assets/levels/17/bg_a.png
 	.global gUnk_08070C01
-gUnk_08070C01:
-	.incbin "baserom.gba", 0x70C01, 0x18F9
+	.set gUnk_08070C01, gUnk_0806E4F8 + 0x2709
 	.global gUnk_080724FA
 gUnk_080724FA:
-	.incbin "baserom.gba", 0x724FA, 0x3DC2
+	.incbin "build/assets/levels/18/bg_a.bin"   @ from assets/levels/18/bg_a.png
 	.global gUnk_080762BC
 gUnk_080762BC:
-	.incbin "baserom.gba", 0x762BC, 0x4002
+	.incbin "build/assets/levels/19/bg_a.bin"   @ from assets/levels/19/bg_a.png
 	.global gUnk_0807A2BE
 gUnk_0807A2BE:
-	.incbin "baserom.gba", 0x7A2BE, 0x3FC2
+	.incbin "build/assets/levels/20/bg_a.bin"   @ from assets/levels/20/bg_a.png
 	.global gUnk_0807E280
 gUnk_0807E280:
-	.incbin "baserom.gba", 0x7E280, 0x2584
+	.incbin "build/assets/levels/17/bg_d.bin"   @ from assets/levels/17/bg_d.png
 	.global gUnk_08080804
-gUnk_08080804:
-	.byte 0xF7, 0xF8, 0xF8, 0xF8
+	.set gUnk_08080804, gUnk_0807E280 + 0x2584
 	.global gUnk_08080808
-gUnk_08080808:
-	.incbin "baserom.gba", 0x80808, 0x14FC
+	.set gUnk_08080808, gUnk_0807E280 + 0x2588
+.Lasset_081D02:
+	.incbin "build/assets/graphics/frontend/tiles_081d02.bin"   @ from assets/graphics/frontend/tiles_081d02.png
 	.global gUnk_08081D04
-gUnk_08081D04:
-	.incbin "baserom.gba", 0x81D04, 0x3F02
+	.set gUnk_08081D04, .Lasset_081D02 + 0x2
+	.byte 0xBE, 0x01
 	.global gUnk_08085C06
 gUnk_08085C06:
 	.incbin "baserom.gba", 0x85C06, 0x6F82
@@ -3066,22 +2627,21 @@ gUnk_0809950E:
 	.incbin "baserom.gba", 0x9950E, 0x549E
 	.global gUnk_0809E9AC
 gUnk_0809E9AC:
-	.incbin "baserom.gba", 0x9E9AC, 0x1E47
-	.global gUnk_080A07F3
-gUnk_080A07F3:
-	.incbin "baserom.gba", 0xA07F3, 0x619B
+	.incbin "baserom.gba", 0x9E9AC, 0x7FE2
 	.global gUnk_080A698E
 gUnk_080A698E:
-	.byte 0xF4, 0x03, 0x00, 0x00
+	.incbin "build/assets/graphics/frontend/tiles_0a698e.bin"   @ from assets/graphics/frontend/tiles_0a698e.png
 	.global gUnk_080A6992
-gUnk_080A6992:
-	.incbin "baserom.gba", 0xA6992, 0x7E80
+	.set gUnk_080A6992, gUnk_080A698E + 0x4
+.Lasset_0AE810:
+	.incbin "build/assets/graphics/frontend/tiles_0ae810.bin"   @ from assets/graphics/frontend/tiles_0ae810.png
 	.global gUnk_080AE812
-gUnk_080AE812:
-	.incbin "baserom.gba", 0xAE812, 0x1542
+	.set gUnk_080AE812, .Lasset_0AE810 + 0x2
+.Lasset_0AFD52:
+	.incbin "build/assets/graphics/frontend/tiles_0afd52.bin"   @ from assets/graphics/frontend/tiles_0afd52.png
 	.global gUnk_080AFD54
-gUnk_080AFD54:
-	.incbin "baserom.gba", 0xAFD54, 0x5002
+	.set gUnk_080AFD54, .Lasset_0AFD52 + 0x2
+	.byte 0x3F, 0x01
 	.global gUnk_080B4D56
 gUnk_080B4D56:
 	.incbin "baserom.gba", 0xB4D56, 0x4FC2
@@ -3090,17 +2650,17 @@ gUnk_080B9D18:
 	.incbin "baserom.gba", 0xB9D18, 0x5000
 	.global gUnk_080BED18
 gUnk_080BED18:
-	.incbin "baserom.gba", 0xBED18, 0x3C42
+	.incbin "build/assets/levels/03/bg_a.bin"   @ from assets/levels/03/bg_a.png
 	.global gUnk_080C295A
 gUnk_080C295A:
-	.incbin "baserom.gba", 0xC295A, 0x3282
+	.incbin "build/assets/levels/03/bg_c.bin"   @ from assets/levels/03/bg_c.png
 	.global gUnk_080C5BDC
 gUnk_080C5BDC:
-	.incbin "baserom.gba", 0xC5BDC, 0x4004
+	.incbin "build/assets/levels/03/bg_d.bin"   @ from assets/levels/03/bg_d.png
+	.byte 0x00, 0x00
 	.global gUnk_080C9BE0
 gUnk_080C9BE0:
-	.byte 0x01, 0x00, 0x00, 0x00
-	.4byte gUnk_080C9BE8
+	.include "assets/levels/02/bg_b.s"
 	.global gUnk_080C9BE8
 gUnk_080C9BE8:
 	.byte 0x00, 0x00, 0x14, 0x00, 0x08, 0x00, 0x04, 0x00
@@ -3138,37 +2698,34 @@ gUnk_080CBF10:
 	.incbin "baserom.gba", 0xCBF10, 0x500
 	.global gUnk_080CC410
 gUnk_080CC410:
-	.incbin "baserom.gba", 0xCC410, 0x3E02
+	.incbin "build/assets/levels/02/bg_a.bin"   @ from assets/levels/02/bg_a.png
 	.global gUnk_080D0212
 gUnk_080D0212:
-	.byte 0xAC, 0x00
+	.incbin "build/assets/levels/02/bg_c.bin"   @ from assets/levels/02/bg_c.png
 	.global gUnk_080D0214
-gUnk_080D0214:
-	.incbin "baserom.gba", 0xD0214, 0x1580
+	.set gUnk_080D0214, gUnk_080D0212 + 0x2
 	.global gUnk_080D1794
 gUnk_080D1794:
-	.byte 0xAA, 0x00
+	.incbin "build/assets/levels/02/bg_d.bin"   @ from assets/levels/02/bg_d.png
 	.global gUnk_080D1796
-gUnk_080D1796:
-	.incbin "baserom.gba", 0xD1796, 0x2A80
+	.set gUnk_080D1796, gUnk_080D1794 + 0x2
 	.global gUnk_080D4216
 gUnk_080D4216:
-	.incbin "baserom.gba", 0xD4216, 0x4002
+	.incbin "build/assets/levels/13/bg_a.bin"   @ from assets/levels/13/bg_a.png
 	.global gUnk_080D8218
 gUnk_080D8218:
-	.incbin "baserom.gba", 0xD8218, 0x3B02
+	.incbin "build/assets/levels/15/bg_a.bin"   @ from assets/levels/15/bg_a.png
 	.global gUnk_080DBD1A
 gUnk_080DBD1A:
-	.byte 0xFE, 0x00
+	.incbin "build/assets/levels/13/bg_c.bin"   @ from assets/levels/13/bg_c.png
 	.global gUnk_080DBD1C
-gUnk_080DBD1C:
-	.incbin "baserom.gba", 0xDBD1C, 0x1FC0
+	.set gUnk_080DBD1C, gUnk_080DBD1A + 0x2
 	.global gUnk_080DDCDC
 gUnk_080DDCDC:
-	.byte 0xF8, 0x00
+	.incbin "build/assets/levels/13/bg_d.bin"   @ from assets/levels/13/bg_d.png
 	.global gUnk_080DDCDE
-gUnk_080DDCDE:
-	.incbin "baserom.gba", 0xDDCDE, 0x3E02
+	.set gUnk_080DDCDE, gUnk_080DDCDC + 0x2
+	.byte 0x7F, 0x00
 	.global gUnk_080E1AE0
 gUnk_080E1AE0:
 	.incbin "baserom.gba", 0xE1AE0, 0xFE2
@@ -3177,35 +2734,38 @@ gUnk_080E2AC2:
 	.incbin "baserom.gba", 0xE2AC2, 0x15E0
 	.global gUnk_080E40A2
 gUnk_080E40A2:
-	.incbin "baserom.gba", 0xE40A2, 0x3F42
+	.incbin "build/assets/levels/01/bg_a.bin"   @ from assets/levels/01/bg_a.png
 	.global gUnk_080E7FE4
 gUnk_080E7FE4:
-	.incbin "baserom.gba", 0xE7FE4, 0x2D42
+	.incbin "build/assets/levels/09/bg_c.bin"   @ from assets/levels/09/bg_c.png
 	.global gUnk_080EAD26
 gUnk_080EAD26:
-	.incbin "baserom.gba", 0xEAD26, 0x2F42
+	.incbin "build/assets/levels/09/bg_d.bin"   @ from assets/levels/09/bg_d.png
 	.global gUnk_080EDC68
 gUnk_080EDC68:
-	.incbin "baserom.gba", 0xEDC68, 0x2D42
+	.incbin "build/assets/levels/01/bg_c.bin"   @ from assets/levels/01/bg_c.png
 	.global gUnk_080F09AA
 gUnk_080F09AA:
-	.incbin "baserom.gba", 0xF09AA, 0x264
+	.incbin "build/assets/levels/01/bg_d.bin"   @ from assets/levels/01/bg_d.png
 	.global gUnk_080F0C0E
-gUnk_080F0C0E:
-	.incbin "baserom.gba", 0xF0C0E, 0x3D5E
+	.set gUnk_080F0C0E, gUnk_080F09AA + 0x264
 	.global gUnk_080F496C
 gUnk_080F496C:
-	.incbin "baserom.gba", 0xF496C, 0x190C
-	.4byte gUnk_0810151C
-	.incbin "baserom.gba", 0xF627C, 0x2072
+	.incbin "build/assets/levels/12/bg_a.bin"   @ from assets/levels/12/bg_a.png
 	.global gUnk_080F82EE
 gUnk_080F82EE:
-	.incbin "baserom.gba", 0xF82EE, 0x215A
-	.4byte gUnk_081006A4
-	.incbin "baserom.gba", 0xFA44C, 0x1CE4
+	.incbin "build/assets/levels/14/bg_a.bin"   @ from assets/levels/14/bg_a.png
 	.global gUnk_080FC130
 gUnk_080FC130:
-	.incbin "baserom.gba", 0xFC130, 0x2922
+	.incbin "build/assets/levels/12/bg_c.bin"   @ from assets/levels/12/bg_c.png
 	.global gUnk_080FEA52
 gUnk_080FEA52:
-	.incbin "baserom.gba", 0xFEA52, 0x15AE
+	.incbin "build/assets/levels/12/bg_d.bin"   @ from assets/levels/12/bg_d.png
+	.global gUnk_08100808
+	.set gUnk_08100808, gUnk_080FEA52 + 0x1DB6
+	.global gUnk_08100810
+	.set gUnk_08100810, gUnk_080FEA52 + 0x1DBE
+	.byte 0x8C, 0x00
+	.global gUnk_08102A56
+gUnk_08102A56:
+	.incbin "baserom.gba", 0x102A56, 0xAA

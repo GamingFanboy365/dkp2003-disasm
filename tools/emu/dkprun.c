@@ -163,6 +163,11 @@ int main(int argc, char** argv) {
 			uint32_t a = strtoul(a1, 0, 0);
 			for (int i = 0; i < 200; ++i) { int ch = core->busRead8(core, a + i); if (!ch) break; putchar(ch >= 32 && ch < 127 ? ch : '.'); }
 			putchar('\n');
+		} else if (!strcmp(cmd, "markio")) {
+			// markio: write DISPCNT and BG0-3CNT to stderr (interleaves with "log on" output)
+			fprintf(stderr, "MARKIO %lu %04x %04x %04x %04x %04x\n", frameno, core->busRead16(core, 0x04000000),
+			        core->busRead16(core, 0x04000008), core->busRead16(core, 0x0400000A),
+			        core->busRead16(core, 0x0400000C), core->busRead16(core, 0x0400000E));
 		} else if (!strcmp(cmd, "log")) {
 			logOn = !strcmp(a1, "on");
 		} else if (!strcmp(cmd, "trace")) {
