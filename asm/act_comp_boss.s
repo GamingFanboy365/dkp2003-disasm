@@ -481,7 +481,7 @@ _08027698:
 _080277F4:
 	.4byte 0x0000000B
 _080277F8:
-	.4byte sub_0300034C
+	.4byte udiv
 _080277FC:
 	.4byte 0x0202EBF8
 _08027800:
@@ -917,13 +917,13 @@ _08027B30:
 _08027B34:
 	.4byte 0x0202EA14
 _08027B38:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08027B3C:
 	.4byte _03000814
 _08027B40:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08027B44:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08027B48:
 	.4byte sub_03003750
 _08027B4C:
@@ -1496,9 +1496,9 @@ _08027F84:
 	b _08027952
 	.byte 0x00, 0x00
 _08027FA0:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08027FA4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08027FA8:
 	.4byte gModeFlags
 _08027FAC:
@@ -2053,7 +2053,7 @@ _08028394:
 	cmp r1, #0
 	beq _0802841C
 	movs r0, #0x2b
-	bl sub_08001F58
+	bl obj_new
 	ldr r3, [sp, #0x1c]
 	adds r4, r0, #0
 	ldr r1, [r3, #4]
@@ -2282,9 +2282,9 @@ _08028558:
 	b _080284A0
 	.byte 0x00, 0x00
 _08028560:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08028564:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08028568:
 	.4byte gGameSetup
 _0802856C:
@@ -2292,9 +2292,9 @@ _0802856C:
 _08028570:
 	.4byte gRacerObjects
 _08028574:
-	.4byte sub_03000744
+	.4byte isqrt
 _08028578:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0802857C:
 	.4byte _03000814
 _08028580:

@@ -55,9 +55,9 @@ _08010A72:
 _08010AB0:
 	.4byte 0x00000001
 _08010AB4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08010AB8:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08010ABC:
 	movs r0, #7
 	mov r8, r2

@@ -20,7 +20,7 @@ _08013EE2:
 	ldr r2, _08013F08
 	movs r0, #9
 	strh r2, [r6]
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r1, _08013F0C
@@ -42,7 +42,7 @@ _08013F10:
 	.4byte gUnk_0884E370
 _08013F14:
 	movs r0, #0x37
-	bl sub_08001F58
+	bl obj_new
 	movs r3, #0xc
 	adds r2, r4, #0
 	muls r2, r3, r2
@@ -69,7 +69,7 @@ _08013F14:
 	blt _08013F14
 _08013F4C:
 	movs r0, #5
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r0, _08013F9C
@@ -172,7 +172,7 @@ _08013FF4:
 _08014020:
 	bl fade_to_normal
 	movs r0, #7
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r0, #1
@@ -310,7 +310,7 @@ _080140F0:
 	bl gamesfx_play
 	movs r0, #0x1f
 _08014134:
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	b _08014044
@@ -341,7 +341,7 @@ _08014140:
 _0801416C:
 	bl sub_08013C68
 	movs r0, #0x39
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	ldr r2, _0801424C

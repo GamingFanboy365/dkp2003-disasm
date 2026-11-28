@@ -198,7 +198,7 @@ sub_0802AE80: @ 0802AE80
 	movs r0, #0x15
 	asrs r5, r1, #0xc
 	muls r7, r2, r7
-	bl sub_08001F58
+	bl obj_new
 	ldr r1, [r6, #0x24]
 	asrs r4, r7, #0xc
 	subs r2, r1, r5
@@ -259,9 +259,9 @@ _0802AF2A:
 	str r1, [r2]
 	b _0802AF20
 _0802AF30:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802AF34:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802AF38:
 	.4byte 0x0202EC38
 _0802AF3C:
@@ -897,9 +897,9 @@ _0802B408:
 _0802B40C:
 	.4byte 0x0201AA4C
 _0802B410:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802B414:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802B418:
 	ldr r0, _0802B434
 	movs r4, #0x91
@@ -1151,7 +1151,7 @@ sub_0802B5B0: @ 0802B5B0
 	movs r0, #0x22
 	asrs r5, r1, #0xc
 	muls r4, r2, r4
-	bl sub_08001F58
+	bl obj_new
 	ldr r1, [r6, #0x24]
 	adds r2, r1, r5
 	str r2, [r0, #0x24]
@@ -1201,9 +1201,9 @@ _0802B624:
 	b _0802B61C
 	.byte 0x00, 0x00
 _0802B648:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802B64C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802B650:
 	.4byte gLocalPlayerIndex
 _0802B654:

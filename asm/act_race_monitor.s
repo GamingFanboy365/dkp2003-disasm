@@ -21,11 +21,11 @@ _08011AB8:
 	ldr r2, _08011AE4
 	movs r0, #9
 	strh r2, [r5]
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	movs r0, #0xd
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r4, _08011AE8
@@ -49,12 +49,12 @@ _08011AEC:
 	cmp r3, #1
 	beq _08011B04
 	movs r0, #0xe
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 _08011B04:
 	movs r0, #0xc
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 _08011B10:
@@ -65,7 +65,7 @@ _08011B10:
 	beq _08011BC2
 _08011B1A:
 	movs r0, #5
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r0, _08011C00
@@ -153,13 +153,13 @@ _08011BB0:
 	b _08011B64
 _08011BC2:
 	movs r0, #0xb
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	b _08011B1A
 _08011BD0:
 	movs r0, #0xa
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldrh r2, [r4]
@@ -249,7 +249,7 @@ _08011C60:
 _08011C8C:
 	bl fade_to_normal
 	movs r0, #7
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r0, #1
@@ -429,7 +429,7 @@ _08011DAC:
 	bl gamesfx_play
 	movs r0, #0x1f
 _08011DF8:
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	b _08011CBA
@@ -1067,9 +1067,9 @@ _08012294:
 	b _08012232
 	.byte 0x00, 0x00
 _0801229C:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080122A0:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080122A4:
 	.4byte 0x00004E20
 _080122A8:
@@ -1124,7 +1124,7 @@ sub_080122AC: @ 080122AC
 	pop {r0}
 	bx r0
 _0801230C:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08012310:
 	.4byte _03000814
 

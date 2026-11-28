@@ -834,9 +834,9 @@ _080208B4:
 _080208CC:
 	.4byte 0x00002710
 _080208D0:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080208D4:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080208D8:
 	.4byte gGameSetup
 _080208DC:

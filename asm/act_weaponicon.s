@@ -718,7 +718,7 @@ _08028F56:
 	cmp r3, #0
 	beq _08028FF2
 	movs r0, #0x16
-	bl sub_08001F58
+	bl obj_new
 	ldr r1, [r5, #0x3c]
 	ldr r4, [r5, #0x24]
 	lsls r3, r1, #1
@@ -1057,6 +1057,6 @@ _080291DC:
 _080291E0:
 	.4byte gRacerObjects
 _080291E4:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _080291E8:
-	.4byte sub_03000134
+	.4byte cos_fx

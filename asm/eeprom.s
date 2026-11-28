@@ -6670,11 +6670,11 @@ _080201F2:
 	b _080201B4
 	.byte 0x00, 0x00
 _080201F8:
-	.4byte sub_03000744
+	.4byte isqrt
 _080201FC:
 	.4byte 0x00000DAC
 _08020200:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_08020204
 	.thumb_func

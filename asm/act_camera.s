@@ -225,9 +225,9 @@ _0800F270:
 _0800F274:
 	.4byte gRacerObjects
 _0800F278:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800F27C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800F280:
 	.4byte gUnk_08050374
 _0800F284:

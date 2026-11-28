@@ -213,7 +213,7 @@
 0x08028A24 free_sfx_boss   # class 54 free
 
 # --- identified by hand (see patches/README.md and README.md) ---
-0x08001B2C obj_new                      # references "obj_new" / "failed to allocate object"
+0x08001B2C obj_spawn_level_object   # (record {x, y, z, classinfo*}): inlined obj_new + position; game_init spawns the level object lists with it
 0x08005190 player_hit                   # knock-back hit: hit state 3, sound state 7
 0x080052B4 player_hit_spin              # spin-out hit: hit state 4, sound state 7
 0x08005384 player_touch_booster_autopilot
@@ -510,3 +510,19 @@
 0x0802F39C audio_fx_start           # "invalid fx number", "requested playback freq exceeds max freq"
 0x03006D68 audio_seq_step           # MIDI parsing: "midi delta time too big", "adsr_acts table exceeded"
 0x030076B0 audio_calc_pitch         # "pitch frequency too low/high"
+# fixed-point maths in IWRAM, identified by calling them in an emulator
+# (tools/fcall.py); angles are 16 bits per turn (0x4000 = 90 degrees)
+0x03000134 cos_fx                   # (angle) -> cos * 4096; adds 0x4000 and falls into sin_fx
+0x03000138 sin_fx                   # (angle) -> sin * 4096; quarter-wave table + linear interpolation
+0x03000178 tan_fx                   # (angle) -> tan * 256
+0x030001E8 atan2_fx                 # (y, x) -> angle
+0x0300034C udiv                     # (a, b) -> a / b unsigned, remainder in r1; 0 if b == 0
+0x03000548 umod                     # (a, b) -> a % b unsigned
+0x03000744 isqrt                    # (x) -> integer square root
+0x08001F58 obj_new                  # (class): pop a free object; "%s: failed to allocate object, class=%i"
+# front-end text: characters are coded 'A' = 0x14 ...; 0x4E ends a string,
+# 0x4F is a space, 0x50 a new line
+0x080189E4 fe_get_text              # (id, line) -> string, from the table of language gGameSetup+0x18 (checked: id 0 = "CHARACTERS")
+0x08018A78 fe_text_width            # (str, font) -> width of the widest line
+0x08018B10 fe_text_draw             # (str, font, ...) -> fe_spr_plot per character
+0x0863FDC0 gFeTextTables            # one string table per language

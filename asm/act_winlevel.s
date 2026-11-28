@@ -1726,7 +1726,7 @@ _08021D84:
 _08021D88:
 	.4byte 0x03005660
 _08021D8C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08021D90:
 	.4byte 0x00000203
 _08021D94:
@@ -2485,7 +2485,7 @@ _08022348:
 _0802234C:
 	.4byte 0x0000051F
 _08022350:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08022354:
 	.4byte gUnk_08715A68
 _08022358:
@@ -2683,7 +2683,7 @@ _080224E0:
 _080224E4:
 	.4byte 0x0000051F
 _080224E8:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080224EC:
 	.4byte gUnk_08715A68
 _080224F0:
@@ -2916,11 +2916,11 @@ fe_cups_trophy_process: @ 08022690
 	bl sub_08017E1C
 	movs r1, #0
 	movs r0, #0xaf
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r5, _08022820
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r1, r0, #0
 	lsrs r3, r1, #0x1f
 	adds r6, r1, r3
@@ -2932,13 +2932,13 @@ fe_cups_trophy_process: @ 08022690
 	movs r2, #0
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	movs r1, #0
 	movs r0, #0xb0
-	bl sub_080189E4
+	bl fe_get_text
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r1, r0, #0
 	lsrs r3, r1, #0x1f
 	adds r0, r1, r3
@@ -2949,7 +2949,7 @@ fe_cups_trophy_process: @ 08022690
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	movs r0, #0xf8
 	ldr r1, _08022824
 	lsls r3, r0, #1
@@ -3010,10 +3010,10 @@ _08022748:
 	bl fe_spr_plot
 	movs r1, #0
 	movs r0, #0xb1
-	bl sub_080189E4
+	bl fe_get_text
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r3, r0, #0
 	lsrs r0, r3, #0x1f
 	adds r1, r3, r0
@@ -3039,10 +3039,10 @@ _0802277E:
 	bl fe_spr_plot
 	movs r1, #0
 	movs r0, #0xb4
-	bl sub_080189E4
+	bl fe_get_text
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r3, r0, #0
 	lsrs r0, r3, #0x1f
 	adds r1, r3, r0
@@ -3052,7 +3052,7 @@ _0802277E:
 	adds r1, r5, #0
 	movs r2, #0
 	str r6, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	b _08022708
 _080227C4:
 	movs r4, #0
@@ -3082,10 +3082,10 @@ _080227E0:
 	movs r1, #0
 	movs r0, #0xb2
 _080227FA:
-	bl sub_080189E4
+	bl fe_get_text
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r3, r0, #0
 	lsrs r0, r3, #0x1f
 	adds r1, r3, r0
@@ -3096,7 +3096,7 @@ _080227FA:
 _08022814:
 	movs r2, #0
 	str r6, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	b _08022708
 	.byte 0x00, 0x00
 _08022820:
@@ -3808,12 +3808,12 @@ _08022D82:
 	movs r0, #0xb5
 _08022D84:
 	movs r1, #0
-	bl sub_080189E4
+	bl fe_get_text
 	adds r5, r0, #0
 	ldr r6, _08022F10
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08018A78
+	bl fe_text_width
 	lsrs r7, r0, #0x1f
 	adds r1, r0, r7
 	asrs r4, r1, #1
@@ -3824,7 +3824,7 @@ _08022D84:
 	adds r1, r6, #0
 	ldr r2, _08022F14
 	str r7, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 _08022DAE:
 	ldr r1, _08022EF4
 	ldr r5, [r1]
@@ -3990,7 +3990,7 @@ _08022EC2:
 _08022EE8:
 	.4byte 0x03005660
 _08022EEC:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08022EF0:
 	.4byte 0x00000203
 _08022EF4:
@@ -4751,7 +4751,7 @@ _08023478:
 _0802347C:
 	.4byte 0x0202EA0C
 _08023480:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_08023484
 	.thumb_func
@@ -5346,7 +5346,7 @@ _08023876:
 _0802387C:
 	.4byte 0x00010180
 _08023880:
-	.4byte sub_0300034C
+	.4byte udiv
 _08023884:
 	movs r3, #0xa8
 	lsls r2, r3, #1
@@ -5465,9 +5465,9 @@ _0802394C:
 _08023954:
 	.4byte gUnk_0884EF50
 _08023958:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802395C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08023960:
 	.4byte 0xFFFFF060
 
@@ -5754,7 +5754,7 @@ _08023B26:
 	b _08023984
 	.byte 0x00, 0x00
 _08023B40:
-	.4byte sub_0300034C
+	.4byte udiv
 _08023B44:
 	.4byte gUnk_0884EF50
 
@@ -6040,7 +6040,7 @@ _08023D20:
 _08023D60:
 	.4byte _03000814
 _08023D64:
-	.4byte sub_0300034C
+	.4byte udiv
 _08023D68:
 	.4byte 0xFFFFF830
 _08023D6C:
@@ -6518,7 +6518,7 @@ _0802407E:
 	b _08023D94
 	.byte 0x00, 0x00
 _08024098:
-	.4byte sub_0300034C
+	.4byte udiv
 _0802409C:
 	.4byte gUnk_0884EF50
 
@@ -6702,7 +6702,7 @@ _080241BC:
 _080241CA:
 	b _080240C0
 _080241CC:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_080241D0
 	.thumb_func
@@ -6946,7 +6946,7 @@ _08024372:
 	b _08024278
 	.byte 0x00, 0x00
 _08024378:
-	.4byte sub_0300034C
+	.4byte udiv
 _0802437C:
 	.4byte 0xFFFF8000
 _08024380:

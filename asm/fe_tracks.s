@@ -315,10 +315,10 @@ _08016B10:
 	mov r2, fp
 	ldr r0, [r2, r4]
 	movs r1, #0
-	bl sub_080189E4
+	bl fe_get_text
 	mov r1, sb
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	movs r3, #0x70
 	subs r2, r3, r0
 	lsrs r0, r2, #0x1f
@@ -457,7 +457,7 @@ _08016C2A:
 	ldr r2, _08016C78
 	movs r1, #0
 	ldr r0, [r2, r4]
-	bl sub_080189E4
+	bl fe_get_text
 	mov r4, fp
 	ldr r7, _08016C7C
 	movs r1, #0x30
@@ -466,7 +466,7 @@ _08016C2A:
 	adds r3, r4, #0
 	adds r1, r7, #0
 	movs r2, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r0, _08016C80
 	movs r1, #0
 	ldrsh r3, [r0, r1]
@@ -709,23 +709,23 @@ _08016E12:
 _08016E3E:
 	movs r1, #0
 	movs r0, #0x7c
-	bl sub_080189E4
+	bl fe_get_text
 	movs r3, #0x78
 	str r3, [sp]
 	mov r8, r3
 	adds r1, r7, #0
 	adds r3, r4, #0
 	movs r2, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	movs r1, #0
 	movs r0, #0x7d
-	bl sub_080189E4
+	bl fe_get_text
 	movs r6, #0x84
 	adds r1, r7, #0
 	adds r3, r4, #0
 	movs r2, #0
 	str r6, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r2, [sp, #0x2c]
 	mov sl, r6
 	movs r6, #0x80
@@ -746,7 +746,7 @@ _08016E3E:
 	adds r1, r7, #0
 	movs r2, #0
 	mov sb, r3
-	bl sub_08018B10
+	bl fe_text_draw
 	movs r2, #0xfe
 	lsls r3, r2, #1
 	ldr r0, _08016F38
@@ -757,7 +757,7 @@ _08016E3E:
 	bl sub_080187D0
 	adds r1, r7, #0
 	adds r0, r4, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r2, r0, #0
 	mov r0, fp
 	subs r3, r0, r2
@@ -767,7 +767,7 @@ _08016E3E:
 	adds r1, r7, #0
 	movs r2, #0
 	subs r3, #0xd
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r1, _08016F38
 	adds r3, r6, r1
 	ldrh r1, [r3, #2]
@@ -779,7 +779,7 @@ _08016E3E:
 	adds r1, r7, #0
 	mov r3, sb
 	movs r2, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r0, _08016F38
 	adds r3, r5, r0
 	ldrh r1, [r3, #2]
@@ -788,7 +788,7 @@ _08016E3E:
 	bl sub_080187D0
 	adds r1, r7, #0
 	adds r0, r4, #0
-	bl sub_08018A78
+	bl fe_text_width
 	adds r2, r0, #0
 	mov r0, fp
 	subs r3, r0, r2
@@ -798,14 +798,14 @@ _08016E3E:
 	adds r0, r4, #0
 	adds r1, r7, #0
 	movs r2, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	b _08016C8A
 _08016F14:
 	.4byte 0x03005660
 _08016F18:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08016F1C:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08016F20:
 	.4byte gUnk_08051D40
 _08016F24:
@@ -1014,7 +1014,7 @@ _080170AC:
 _080170B0:
 	.4byte 0x02024318
 _080170B4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080170B8:
 	cmp r3, #1
 	ble _080170BE
@@ -1270,7 +1270,7 @@ _0801727E:
 _08017280:
 	movs r1, #0
 	movs r0, #0x4b
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r4, _08017450
 	mov r2, r8
 	adds r3, r5, #0
@@ -1278,7 +1278,7 @@ _08017280:
 	adds r1, r4, #0
 	adds r2, r6, #0
 	adds r3, #0x28
-	bl sub_08018B10
+	bl fe_text_draw
 	add r3, sp, #4
 	mov sl, r3
 	adds r1, r7, #0
@@ -1287,7 +1287,7 @@ _08017280:
 	bl sub_080187D0
 	adds r1, r4, #0
 	mov r0, sl
-	bl sub_08018A78
+	bl fe_text_width
 	adds r2, r0, #0
 	subs r3, r5, r2
 	mov r1, r8
@@ -1296,7 +1296,7 @@ _08017280:
 	str r1, [sp]
 	mov r0, sl
 	adds r1, r4, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r7, _08017448
 	ldr r2, _08017444
 	adds r3, r7, #0
@@ -1317,7 +1317,7 @@ _080172E2:
 _080172E4:
 	movs r1, #0
 	movs r0, #0x4c
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r4, _08017450
 	mov r1, r8
 	adds r3, r5, #0
@@ -1325,14 +1325,14 @@ _080172E4:
 	adds r3, #0x28
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	adds r1, r7, #0
 	movs r2, #1
 	mov r0, sl
 	bl sub_080187D0
 	adds r1, r4, #0
 	mov r0, sl
-	bl sub_08018A78
+	bl fe_text_width
 	adds r7, r0, #0
 	mov r2, r8
 	subs r3, r5, r7
@@ -1341,7 +1341,7 @@ _080172E4:
 	mov r0, sl
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r2, _08017444
 	ldr r1, [r2, #4]
 	ldr r0, [r2, #0xc]
@@ -1356,7 +1356,7 @@ _08017336:
 _08017338:
 	movs r1, #0
 	movs r0, #0x4d
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r4, _08017450
 	mov r1, r8
 	adds r3, r5, #0
@@ -1364,7 +1364,7 @@ _08017338:
 	adds r2, r6, #0
 	adds r3, #0x28
 	adds r1, r4, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r1, _08017448
 	adds r3, r1, #0
 	adds r3, #0xbc
@@ -1377,7 +1377,7 @@ _08017338:
 	bl sub_080187D0
 	adds r1, r4, #0
 	mov r0, sl
-	bl sub_08018A78
+	bl fe_text_width
 	adds r2, r0, #0
 	subs r3, r5, r2
 	mov r2, r8
@@ -1386,7 +1386,7 @@ _08017338:
 	mov r0, sl
 	adds r2, r6, #0
 	adds r1, r4, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r2, _08017444
 	ldr r6, [r2, #0x10]
 	movs r3, #0x5c
@@ -1398,7 +1398,7 @@ _08017338:
 _08017394:
 	movs r1, #0
 	movs r0, #0x4e
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r7, _08017450
 	mov r1, r8
 	adds r3, r5, #0
@@ -1406,7 +1406,7 @@ _08017394:
 	adds r3, #0x28
 	adds r2, r6, #0
 	adds r1, r7, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r0, _08017448
 	adds r0, #0xbc
 	ldr r1, [r0]
@@ -1415,7 +1415,7 @@ _08017394:
 	bl sub_080187D0
 	adds r1, r7, #0
 	mov r0, sl
-	bl sub_08018A78
+	bl fe_text_width
 	adds r1, r0, #0
 	subs r3, r5, r1
 	mov r2, r8
@@ -1424,7 +1424,7 @@ _08017394:
 	adds r2, r6, #0
 	mov r0, sl
 	adds r1, r7, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r6, _08017444
 	ldr r2, [r6, #0xc]
 	cmp r2, #0
@@ -1432,14 +1432,14 @@ _08017394:
 _080173E0:
 	movs r1, #0
 	movs r0, #0x4f
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r1, [r6, #4]
 	movs r3, #0x78
 	rsbs r5, r1, #0
 	adds r1, r7, #0
 	mov r8, r3
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	movs r2, #0xf0
 	subs r1, r2, r0
 	lsrs r2, r1, #0x1f
@@ -1452,7 +1452,7 @@ _080173E0:
 	adds r2, #0x14
 	adds r0, r4, #0
 	adds r1, r7, #0
-	bl sub_08018B10
+	bl fe_text_draw
 _08017414:
 	add sp, #0x10
 	pop {r3, r4}
@@ -1587,7 +1587,7 @@ _0801749C:
 _08017508:
 	.4byte 0x03005660
 _0801750C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08017510:
 	.4byte 0x02024324
 _08017514:
@@ -2631,7 +2631,7 @@ _08017CE2:
 	bl sub_0801854C
 	ldr r0, [r4, #0xc]
 	ldr r1, [r7, #0xc]
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r6, _08017DD0
 	adds r1, r6, #0
 	adds r5, r0, #0
@@ -2742,7 +2742,7 @@ _08017DCC:
 _08017DD0:
 	.4byte gUnk_0863FDF8
 _08017DD4:
-	.4byte sub_03000138
+	.4byte sin_fx
 
 	.global sub_08017DD8
 	.thumb_func

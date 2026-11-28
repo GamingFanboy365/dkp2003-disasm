@@ -2203,13 +2203,13 @@ _08004010:
 _08004014:
 	.4byte 0x0201BD24
 _08004018:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800401C:
 	.4byte 0x03FFFFFF
 _08004020:
 	.4byte 0x02018F34
 _08004024:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_08004028
 	.thumb_func

@@ -1170,7 +1170,7 @@ _080187BE:
 _080187C8:
 	.4byte gGameSetup
 _080187CC:
-	.4byte gUnk_0863FDC0
+	.4byte gFeTextTables
 
 	.global sub_080187D0
 	.thumb_func
@@ -1285,7 +1285,7 @@ _080188A8:
 _080188B0:
 	.4byte gGameSetup
 _080188B4:
-	.4byte gUnk_0863FDC0
+	.4byte gFeTextTables
 
 	.global sub_080188B8
 	.thumb_func
@@ -1450,10 +1450,10 @@ _080189E0:
 	add r5, sb
 	b _080189B2
 
-	.global sub_080189E4
+	.global fe_get_text
 	.thumb_func
-	.type sub_080189E4, %function
-sub_080189E4: @ 080189E4
+	.type fe_get_text, %function
+fe_get_text: @ 080189E4
 	push {lr}
 	ldr r3, _08018A0C
 	movs r2, #0x18
@@ -1479,7 +1479,7 @@ _08018A04:
 _08018A0C:
 	.4byte gGameSetup
 _08018A10:
-	.4byte gUnk_0863FDC0
+	.4byte gFeTextTables
 
 	.global sub_08018A14
 	.thumb_func
@@ -1537,12 +1537,12 @@ _08018A60:
 _08018A70:
 	.4byte gGameSetup
 _08018A74:
-	.4byte gUnk_0863FDC0
+	.4byte gFeTextTables
 
-	.global sub_08018A78
+	.global fe_text_width
 	.thumb_func
-	.type sub_08018A78, %function
-sub_08018A78: @ 08018A78
+	.type fe_text_width, %function
+fe_text_width: @ 08018A78
 	push {r4, r5, lr}
 	ldrb r3, [r0]
 	ldr r5, [r1, #8]
@@ -1646,10 +1646,10 @@ _08018B0A:
 	pop {r1}
 	bx r1
 
-	.global sub_08018B10
+	.global fe_text_draw
 	.thumb_func
-	.type sub_08018B10, %function
-sub_08018B10: @ 08018B10
+	.type fe_text_draw, %function
+fe_text_draw: @ 08018B10
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1836,7 +1836,7 @@ sub_08018C3C: @ 08018C3C
 _08018C50:
 	.4byte gGameSetup
 _08018C54:
-	.4byte gUnk_0863FDC0
+	.4byte gFeTextTables
 
 	.global sub_08018C58
 	.thumb_func

@@ -1015,10 +1015,10 @@ _08001B24:
 _08001B28:
 	.4byte gUnk_0804F73C
 
-	.global obj_new
+	.global obj_spawn_level_object
 	.thumb_func
-	.type obj_new, %function
-obj_new: @ 08001B2C
+	.type obj_spawn_level_object, %function
+obj_spawn_level_object: @ 08001B2C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r2, [r5, #0xc]
@@ -1536,9 +1536,9 @@ _08001F0C:
 _08001F10:
 	.4byte 0x0200436C
 _08001F14:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08001F18:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08001F1C:
 	.4byte gUnk_0803F49C
 _08001F20:
@@ -1569,10 +1569,10 @@ _08001F50:
 _08001F54:
 	.4byte 0x000002AF
 
-	.global sub_08001F58
+	.global obj_new
 	.thumb_func
-	.type sub_08001F58, %function
-sub_08001F58: @ 08001F58
+	.type obj_new, %function
+obj_new: @ 08001F58
 	push {r4, lr}
 	adds r4, r0, #0
 	sub sp, #4

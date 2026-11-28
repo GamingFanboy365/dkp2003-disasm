@@ -144,9 +144,9 @@ _080292E8:
 	b _08029200
 	.byte 0x00, 0x00
 _08029304:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08029308:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802930C:
 	.4byte gUnk_08052DF0
 _08029310:
@@ -663,9 +663,9 @@ _08029700:
 _08029704:
 	.4byte sub_08029E28
 _08029708:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802970C:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08029710:
 	.4byte _03000814
 _08029714:
@@ -1134,9 +1134,9 @@ _08029A44:
 _08029AC0:
 	.4byte gRacerObjects
 _08029AC4:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08029AC8:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08029ACC:
 	.4byte 0xFFFFFCE0
 _08029AD0:
@@ -1146,9 +1146,9 @@ _08029AD4:
 _08029AD8:
 	.4byte 0x00001999
 _08029ADC:
-	.4byte sub_03000744
+	.4byte isqrt
 _08029AE0:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08029AE4:
 	.4byte _03000814
 _08029AE8:
@@ -1310,7 +1310,7 @@ _08029C3C:
 _08029C40:
 	.4byte sub_08029EB0
 _08029C44:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08029C48:
 	.4byte _03000814
 _08029C4C:
@@ -1875,7 +1875,7 @@ _0802A050:
 	cmp r2, #0
 	beq _0802A0EC
 	movs r0, #0x17
-	bl sub_08001F58
+	bl obj_new
 	ldr r1, [r4, #0x3c]
 	adds r6, r0, #0
 	ldr r0, [r4, #0x24]
@@ -2055,7 +2055,7 @@ _0802A1A4:
 _0802A1A8:
 	.4byte 0x00000684
 _0802A1AC:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 
 	.global act_blue_zinger
 	.thumb_func
@@ -2426,9 +2426,9 @@ _0802A478:
 _0802A484:
 	.4byte _0802A1E8
 _0802A488:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802A48C:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802A490:
 	.4byte sub_03003750
 _0802A494:
@@ -2925,15 +2925,15 @@ _0802A86C:
 _0802A870:
 	.4byte _03000814
 _0802A874:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802A878:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802A87C:
 	.4byte gRacerObjects
 _0802A880:
-	.4byte sub_03000744
+	.4byte isqrt
 _0802A884:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0802A888:
 	.4byte gLocalPlayerIndex
 _0802A88C:
@@ -3140,9 +3140,9 @@ _0802AA10:
 _0802AA20:
 	.4byte gRacerObjects
 _0802AA24:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802AA28:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802AA2C:
 	.4byte 0xFFFFFCE0
 _0802AA30:

@@ -695,9 +695,9 @@ _0802CFBE:
 	b _0802CB72
 	.byte 0x00, 0x00
 _0802CFD8:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802CFDC:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802CFE0:
 	.4byte gUnk_08053668
 _0802CFE4:
@@ -1153,6 +1153,6 @@ _0802D300:
 _0802D32C:
 	.4byte 0x0202EC58
 _0802D330:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802D334:
 	.4byte 0x03FFFFFF

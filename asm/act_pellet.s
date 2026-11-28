@@ -381,9 +381,9 @@ _08028810:
 _08028828:
 	.4byte gRacerObjects
 _0802882C:
-	.4byte sub_03000744
+	.4byte isqrt
 _08028830:
-	.4byte sub_0300034C
+	.4byte udiv
 _08028834:
 	.4byte 0x00001388
 _08028838:

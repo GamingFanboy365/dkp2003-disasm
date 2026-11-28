@@ -133,9 +133,9 @@ _0802BE00:
 	.2byte 0xEFFF @ debug trap
 	b _0802BD30
 _0802BE18:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802BE1C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802BE20:
 	.4byte gUnk_080530F0
 _0802BE24:

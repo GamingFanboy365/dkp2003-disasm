@@ -1511,11 +1511,11 @@ _08014FA6:
 	lsls r4, r0, #2
 	ldr r0, [r5, r4]
 	movs r1, #0
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r5, _080151F0
 	adds r1, r5, #0
 	adds r4, r0, #0
-	bl sub_08018A78
+	bl fe_text_width
 	lsrs r1, r0, #0x1f
 	adds r2, r0, r1
 	asrs r1, r2, #1
@@ -1526,7 +1526,7 @@ _08014FA6:
 	adds r1, r5, #0
 	adds r0, r4, #0
 	adds r2, r6, #0
-	bl sub_08018B10
+	bl fe_text_draw
 	bl sub_080192E8
 	movs r5, #0
 	adds r3, r0, #0
@@ -1832,7 +1832,7 @@ _08015200:
 _08015204:
 	.4byte 0x020241A8
 _08015208:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0801520C:
 	.4byte gUnk_08715A68
 _08015210:
@@ -2952,7 +2952,7 @@ _08015A4C:
 _08015A50:
 	.4byte 0x00000534
 _08015A54:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08015A58:
 	.4byte gUnk_08715A68
 _08015A5C:
@@ -3263,7 +3263,7 @@ _08015CA2:
 	ldr r0, [r1, r5]
 	mov sb, r1
 	movs r1, #0
-	bl sub_080189E4
+	bl fe_get_text
 	movs r3, #0x6c
 	rsbs r2, r3, #0
 	add r2, r8
@@ -3288,7 +3288,7 @@ _08015CF4:
 _08015CF8:
 	.4byte gUnk_0863FDF8
 _08015CFC:
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r2, _08015DA8
 	ldr r4, [r2]
 	movs r0, #0x7b
@@ -3376,9 +3376,9 @@ _08015DA4:
 _08015DA8:
 	.4byte 0x03005660
 _08015DAC:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08015DB0:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08015DB4:
 	.4byte gUnk_0884DF24
 _08015DB8:
@@ -3445,13 +3445,13 @@ _08015DCA:
 	str r0, [r5]
 	movs r1, #0
 	movs r0, #0x18
-	bl sub_080189E4
+	bl fe_get_text
 	movs r7, #0x6c
 	ldr r1, _08015F8C
 	movs r2, #0
 	mov r3, fp
 	str r7, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r4, _08015F90
 	ldr r2, _08015F94
 	mov sl, r4
@@ -3489,13 +3489,13 @@ _08015E70:
 	ble _08015E66
 	movs r1, #0
 	movs r0, #0x19
-	bl sub_080189E4
+	bl fe_get_text
 	movs r7, #0x78
 	ldr r1, _08015F8C
 	movs r2, #0
 	mov r3, fp
 	str r7, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r2, _08015F90
 	ldr r4, _08015F94
 	mov sl, r2
@@ -3531,13 +3531,13 @@ _08015EC6:
 	ble _08015EBE
 	movs r1, #0
 	movs r0, #0x1a
-	bl sub_080189E4
+	bl fe_get_text
 	movs r5, #0x84
 	ldr r1, _08015F8C
 	movs r2, #0
 	mov r3, fp
 	str r5, [sp]
-	bl sub_08018B10
+	bl fe_text_draw
 	ldr r0, _08015F94
 	ldr r6, [sp, #0x10]
 	ldr r7, [r0, r6]
@@ -4110,7 +4110,7 @@ _08016340:
 _08016344:
 	.4byte gLocalPlayerIndex
 _08016348:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0801634C:
 	movs r2, #0x1c
 	mov r6, sb
@@ -4714,7 +4714,7 @@ _08016798:
 _0801679C:
 	.4byte 0x00000030
 _080167A0:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080167A4:
 	.4byte 0x02024214
 _080167A8:
@@ -4765,7 +4765,7 @@ _080167FC:
 _08016800:
 	.4byte 0x02024214
 _08016804:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08016808:
 	lsls r2, r0, #0x10
 	asrs r7, r2, #0x10
@@ -4872,4 +4872,4 @@ _080168C6:
 _080168CC:
 	.4byte 0x02024214
 _080168D0:
-	.4byte sub_03000138
+	.4byte sin_fx

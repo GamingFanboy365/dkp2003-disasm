@@ -540,7 +540,7 @@ sub_0802C828: @ 0802C828
 	cmp r1, #0x13
 	bgt _0802C92A
 	movs r0, #0x38
-	bl sub_08001F58
+	bl obj_new
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _0802C92A
@@ -661,9 +661,9 @@ _0802C92A:
 _0802C93C:
 	.4byte 0x0202EC54
 _0802C940:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0802C944:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0802C948:
 	.4byte gGameSetup
 _0802C94C:
@@ -821,7 +821,7 @@ _0802CA54:
 	b _0802CA44
 _0802CA64:
 	movs r0, #0x31
-	bl sub_08001F58
+	bl obj_new
 	ldr r2, [r7, #0x24]
 	str r2, [r0, #0x24]
 	ldr r1, [r7, #0x28]

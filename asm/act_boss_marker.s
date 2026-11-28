@@ -776,7 +776,7 @@ _080267E0:
 _080267E4:
 	.4byte 0x0202EBF8
 _080267E8:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_080267EC
 	.thumb_func
@@ -997,17 +997,17 @@ _0802691A:
 	str r1, [r7]
 	b _080268D6
 _080269B0:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080269B4:
 	.4byte _03000814
 _080269B8:
 	.4byte 0xFFFFF060
 _080269BC:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080269C0:
 	.4byte gRacerObjects
 _080269C4:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 
 	.global sub_080269C8
 	.thumb_func
@@ -1208,7 +1208,7 @@ _08026AD2:
 	str r0, [r7, #0x74]
 	b _08026AB2
 _08026B54:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08026B58:
 	.4byte _03000814
 _08026B5C:
@@ -1218,9 +1218,9 @@ _08026B60:
 _08026B64:
 	.4byte gRacerObjects
 _08026B68:
-	.4byte sub_03000744
+	.4byte isqrt
 _08026B6C:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 
 	.global sub_08026B70
 	.thumb_func
@@ -1762,7 +1762,7 @@ _08026F44:
 _08026F48:
 	.4byte 0xFFFFD000
 _08026F4C:
-	.4byte sub_0300034C
+	.4byte udiv
 _08026F50:
 	.4byte 0xFFFFF449
 

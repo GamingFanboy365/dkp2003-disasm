@@ -124,7 +124,7 @@ _08010994:
 _08010998:
 	.4byte gGameSetup
 _0801099C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080109A0:
 	.4byte 0x0002FDA0
 _080109A4:
@@ -204,9 +204,9 @@ _08010A20:
 	.2byte 0xEFFF @ debug trap
 	b _080108D8
 _08010A38:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08010A3C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08010A40:
 	.4byte 0x00056B80
 _08010A44:

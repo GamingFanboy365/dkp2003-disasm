@@ -557,9 +557,9 @@ _08005290:
 _080052A4:
 	.4byte 0xFFBFB3CF
 _080052A8:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080052AC:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080052B0:
 	.4byte 0x00000529
 
@@ -672,9 +672,9 @@ _08005374:
 	rsbs r0, r5, #0
 	b _08005304
 _08005378:
-	.4byte sub_03000744
+	.4byte isqrt
 _0800537C:
-	.4byte sub_0300034C
+	.4byte udiv
 _08005380:
 	.4byte 0xFFBFB3CF
 
@@ -1532,15 +1532,15 @@ _080059B0:
 	ldr r1, _080059E0
 	b _0800574C
 _080059D8:
-	.4byte sub_03000744
+	.4byte isqrt
 _080059DC:
-	.4byte sub_0300034C
+	.4byte udiv
 _080059E0:
 	.4byte gGameSetup
 _080059E4:
 	.4byte gUnk_087146C0
 _080059E8:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _080059EC:
 	.4byte 0xFFFF8001
 _080059F0:
@@ -1795,7 +1795,7 @@ _08005BC4:
 	rsbs r0, r4, #0
 	b _080056CE
 _08005BC8:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08005BCC:
 	.4byte 0xFFFF8001
 _08005BD0:
@@ -2605,7 +2605,7 @@ _08006168:
 _0800616C:
 	.4byte 0xFFFFE558
 _08006170:
-	.4byte sub_0300034C
+	.4byte udiv
 _08006174:
 	.4byte _03000814
 _08006178:
@@ -2900,7 +2900,7 @@ _08006356:
 _08006362:
 	b _08006258
 _08006364:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_08006368
 	.thumb_func
@@ -3318,7 +3318,7 @@ _0800661A:
 _08006634:
 	.4byte 0x00010180
 _08006638:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800663C:
 	movs r3, #0
 	mov r1, fp
@@ -3599,15 +3599,15 @@ _08006834:
 _08006844:
 	.4byte gLocalPlayerIndex
 _08006848:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800684C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08006850:
 	.4byte 0x00000529
 _08006854:
 	.4byte gGameSetup
 _08006858:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_0800685C
 	.thumb_func
@@ -3831,7 +3831,7 @@ _080069AE:
 	b _0800686C
 	.byte 0x00, 0x00
 _080069E4:
-	.4byte sub_0300034C
+	.4byte udiv
 _080069E8:
 	.4byte 0xFFFF8000
 _080069EC:
@@ -4043,9 +4043,9 @@ _08006B02:
 	strh r4, [r3]
 	b _08006A70
 _08006B68:
-	.4byte sub_0300034C
+	.4byte udiv
 _08006B6C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08006B70:
 	.4byte 0xFFFFF448
 _08006B74:
@@ -4433,9 +4433,9 @@ _08006E48:
 _08006E4C:
 	.4byte gLocalPlayerIndex
 _08006E50:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08006E54:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08006E58:
 	.4byte 0x0000FFFF
 _08006E5C:
@@ -4841,9 +4841,9 @@ _08007150:
 	adds r1, #0x6c
 	b _08007008
 _08007158:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800715C:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08007160:
 	.4byte 0x0000FFFF
 _08007164:
@@ -4890,7 +4890,7 @@ _080071A2:
 	cmp r3, #0
 	beq _080071C4
 	movs r0, #0x25
-	bl sub_08001F58
+	bl obj_new
 	mov r3, sl
 	adds r3, #0xa0
 	ldr r2, [r3, #4]
@@ -5764,7 +5764,7 @@ _0800779E:
 	str r3, [r4]
 	b _08007484
 _080077D4:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global sub_080077D8
 	.thumb_func
@@ -6087,7 +6087,7 @@ _08007A06:
 	str r0, [r4, #0x58]
 	b _080079F8
 _08007A0C:
-	.4byte sub_0300034C
+	.4byte udiv
 _08007A10:
 	.4byte 0xFFFFF800
 _08007A14:
@@ -6751,13 +6751,13 @@ _08007F12:
 _08007F18:
 	.4byte 0x02022E5C
 _08007F1C:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08007F20:
 	.4byte _03000814
 _08007F24:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08007F28:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08007F2C:
 	movs r0, #4
 	bl sub_0801E300
@@ -7110,19 +7110,19 @@ _080081D4:
 _080081DC:
 	.4byte 0x00000004
 _080081E0:
-	.4byte sub_03000744
+	.4byte isqrt
 _080081E4:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _080081E8:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080081EC:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080081F0:
 	.4byte 0xFF7FFFFF
 _080081F4:
 	.4byte _03000814
 _080081F8:
-	.4byte sub_0300034C
+	.4byte udiv
 _080081FC:
 	.4byte 0xFFFFFD71
 _08008200:
@@ -7341,9 +7341,9 @@ _0800839A:
 _080083B0:
 	.4byte _03000814
 _080083B4:
-	.4byte sub_03000744
+	.4byte isqrt
 _080083B8:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _080083BC:
 	.4byte 0x0000028F
 
@@ -7878,9 +7878,9 @@ _0800877C:
 _08008780:
 	.4byte 0xFFFFFDFF
 _08008784:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08008788:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800878C:
 	.4byte gGameSetup
 _08008790:
@@ -8657,7 +8657,7 @@ _08008D40:
 	.2byte 0xEFFF @ debug trap
 	b _08008A44
 _08008D58:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08008D5C:
 	.4byte _03000814
 _08008D60:
@@ -8994,7 +8994,7 @@ _08008FC8:
 	.2byte 0xEFFF @ debug trap
 	b _08008D94
 _08008FE0:
-	.4byte sub_0300034C
+	.4byte udiv
 _08008FE4:
 	.4byte gUnk_080500F8
 _08008FE8:
@@ -10544,7 +10544,7 @@ _08009B94:
 _08009B98:
 	.4byte 0x00002328
 _08009B9C:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08009BA0:
 	.4byte gLocalPlayerIndex
 _08009BA4:
@@ -10637,7 +10637,7 @@ _08009C3C:
 _08009C48:
 	.4byte 0x00000000
 _08009C4C:
-	.4byte sub_0300034C
+	.4byte udiv
 _08009C50:
 	.4byte gLocalPlayerIndex
 _08009C54:
@@ -11754,7 +11754,7 @@ _0800A4E4:
 	b _0800A2D0
 _0800A4F0:
 	movs r0, #0x21
-	bl sub_08001F58
+	bl obj_new
 	ldr r1, [r4, #0x24]
 	str r1, [r0, #0x24]
 	ldr r2, [r4, #0x28]
@@ -12277,7 +12277,7 @@ _0800A8B8:
 	bx r0
 _0800A8BE:
 	movs r0, #0x2a
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	b _0800A8B8

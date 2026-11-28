@@ -509,21 +509,21 @@ sub_ovl_a_03004668: @ 03004668
 	addne r7, r1, #0x7000
 	mov r0, r4
 	strne r7, [fp, #-0x78]
-	bl sub_03000138
+	bl sin_fx
 	mov r7, r0
 	lsl ip, r7, #0x10
 	mov r0, r4
 	asr r7, ip, #0x10
-	bl sub_03000134
+	bl cos_fx
 	mov sb, r0
 	mov r0, r5
-	bl sub_03000138
+	bl sin_fx
 	mov r2, r0
 	lsl r1, r2, #0x10
 	asr lr, r1, #0x10
 	mov r0, r5
 	str lr, [fp, #-0x6c]
-	bl sub_03000134
+	bl cos_fx
 	lsl r8, sb, #0x10
 	lsl ip, r0, #0x10
 	asr sb, r8, #0x10
@@ -815,7 +815,7 @@ _ovl_a_03004AE0:
 	sub r0, r0, r5, asr #31
 	str r3, [fp, #-0x98]
 	str r2, [fp, #-0x9c]
-	bl sub_0300034C
+	bl udiv
 	teq r5, sl
 	rsbmi r0, r0, #0
 	ldr r1, [fp, #-0x68]
@@ -842,7 +842,7 @@ _ovl_a_03004B74:
 	sub r0, r0, r6, asr #31
 	eor r1, r8, r8, asr #31
 	sub r1, r1, r8, asr #31
-	bl sub_0300034C
+	bl udiv
 	teq r6, r8
 	rsbmi r0, r0, #0
 	ldr lr, [fp, #-0x60]
@@ -1507,7 +1507,7 @@ _03005540:
 	movge sb, #0
 	bge _ovl_a_03004730
 	mov r0, r4
-	bl sub_03000178
+	bl tan_fx
 	lsl r2, r0, #0x10
 	asr r1, r2, #0x10
 	sub lr, r1, #2

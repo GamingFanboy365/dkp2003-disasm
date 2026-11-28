@@ -96,14 +96,14 @@ _0300012C:
 _03000130:
 	.4byte 0x000020C2
 
-	.global sub_03000134
-	.type sub_03000134, %function
-sub_03000134: @ 03000134
+	.global cos_fx
+	.type cos_fx, %function
+cos_fx: @ 03000134
 	add r0, r0, #0x4000
 
-	.global sub_03000138
-	.type sub_03000138, %function
-sub_03000138: @ 03000138
+	.global sin_fx
+	.type sin_fx, %function
+sin_fx: @ 03000138
 	tst r0, #0x4000
 	addne r0, r0, #1
 	rsbne r0, r0, #0x8000
@@ -121,9 +121,9 @@ sub_03000138: @ 03000138
 	asr r0, r1, #6
 	bx lr
 
-	.global sub_03000178
-	.type sub_03000178, %function
-sub_03000178: @ 03000178
+	.global tan_fx
+	.type tan_fx, %function
+tan_fx: @ 03000178
 	tst r0, #0x4000
 	rsbne r0, r0, #0
 	orrne r0, r0, #0x10000
@@ -144,9 +144,9 @@ sub_03000178: @ 03000178
 	.byte 0x01, 0x1C, 0xA0, 0xC3, 0x60, 0x26, 0x9F, 0xE5, 0x81, 0x20, 0x82, 0xE0, 0xB0, 0x10, 0xD2, 0xE1
 	.byte 0x02, 0x09, 0x10, 0xE3, 0x00, 0x10, 0x61, 0x12, 0x01, 0x00, 0xA0, 0xE1, 0x1E, 0xFF, 0x2F, 0xE1
 
-	.global sub_030001E8
-	.type sub_030001E8, %function
-sub_030001E8: @ 030001E8
+	.global atan2_fx
+	.type atan2_fx, %function
+atan2_fx: @ 030001E8
 	stmdb sp!, {lr}
 	cmp r1, #0
 	blt _0300029C
@@ -155,7 +155,7 @@ sub_030001E8: @ 030001E8
 	cmp r0, r1
 	bge _03000220
 	lsl r0, r0, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -165,7 +165,7 @@ _03000220:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -177,7 +177,7 @@ _03000248:
 	cmp r0, r1
 	bge _03000274
 	lsl r0, r0, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -188,7 +188,7 @@ _03000274:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -202,7 +202,7 @@ _0300029C:
 	cmp r0, r1
 	bge _030002D0
 	lsl r0, r0, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -213,7 +213,7 @@ _030002D0:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -225,7 +225,7 @@ _030002F8:
 	cmp r0, r1
 	bge _03000324
 	lsl r0, r0, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -236,7 +236,7 @@ _03000324:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl sub_0300034C
+	bl udiv
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -244,9 +244,9 @@ _03000324:
 	ldm sp!, {lr}
 	bx lr
 
-	.global sub_0300034C
-	.type sub_0300034C, %function
-sub_0300034C: @ 0300034C
+	.global udiv
+	.type udiv, %function
+udiv: @ 0300034C
 	mov r3, #0x1c
 	lsr r2, r0, #4
 	cmp r1, r2, lsr #12
@@ -374,18 +374,18 @@ sub_03000518: @ 03000518
 	rsbpl r1, r1, #0
 	eor ip, ip, r0, asr #1
 	rsbmi r0, r0, #0
-	bl sub_0300034C
+	bl udiv
 	lsls ip, ip, #1
 	rsbmi r0, r0, #0
 	rsbhs r1, r1, #0
 	ldm sp!, {ip}
 	bx ip
 
-	.global sub_03000548
-	.type sub_03000548, %function
-sub_03000548: @ 03000548
+	.global umod
+	.type umod, %function
+umod: @ 03000548
 	stmdb sp!, {lr}
-	bl sub_0300034C
+	bl udiv
 	mov r0, r1
 	ldm sp!, {ip}
 	bx ip
@@ -521,9 +521,9 @@ _03000738:
 	mov r0, r3
 	bx lr
 
-	.global sub_03000744
-	.type sub_03000744, %function
-sub_03000744: @ 03000744
+	.global isqrt
+	.type isqrt, %function
+isqrt: @ 03000744
 	mov r1, #0xc0000000
 	mov r2, #0x40000000
 	cmp r0, r2
@@ -1110,22 +1110,22 @@ _03000F88:
 	ldr r5, [r0]
 	ldrsh r7, [r5, #0x54]
 	mov r0, r7
-	bl sub_03000138
+	bl sin_fx
 	mov r4, r0
 	lsl ip, r4, #0x10
 	mov r0, r7
 	asr r7, ip, #0x10
-	bl sub_03000134
+	bl cos_fx
 	ldrsh sb, [r5, #0x56]
 	mov r6, r0
 	mov r0, sb
-	bl sub_03000138
+	bl sin_fx
 	mov r1, r0
 	lsl r2, r1, #0x10
 	asr sl, r2, #0x10
 	mov r0, sb
 	str sl, [fp, #-0x2f0]
-	bl sub_03000134
+	bl cos_fx
 	lsl lr, r0, #0x10
 	asr sb, lr, #0x10
 	str sb, [fp, #-0x2f4]
@@ -1707,22 +1707,22 @@ _030017FC:
 	mla r0, r4, r4, r8
 	cmp r0, #0x40
 	ble _0300214C
-	bl sub_03000744
+	bl isqrt
 	ldr ip, [r6, r0, lsl #2]
 	mov r1, #0x100
 	lsr lr, ip, #4
 	mul sl, lr, r5
 	mul r6, lr, r4
-	bl sub_030001E8
+	bl atan2_fx
 	mov r3, r0
 	lsl r0, r3, #0x10
 	asr r7, r0, #0x10
 	mov r0, r7
-	bl sub_03000138
+	bl sin_fx
 	mov r2, r0
 	mov r0, r7
 	lsl sb, r2, #0x10
-	bl sub_03000134
+	bl cos_fx
 	asr r5, r6, #0x14
 	mul lr, r5, r5
 	asr r6, sl, #0x14
@@ -1858,7 +1858,7 @@ _03001A84:
 	ldr r0, [fp, #-0x2ec]
 	ldrsh r6, [r0, #0x54]
 	mov r0, r6
-	bl sub_03000138
+	bl sin_fx
 	sub lr, fp, #0x300
 	strh r0, [lr, #-0x84]
 	sub sb, fp, #0x300
@@ -1866,30 +1866,30 @@ _03001A84:
 	mov r0, r6
 	lsl sb, r3, #0x10
 	str sb, [fp, #-0x388]
-	bl sub_03000134
+	bl cos_fx
 	ldr sl, [fp, #-0x2ec]
 	ldrsh r5, [sl, #0x56]
 	mov r8, r0
 	lsl ip, r8, #0x10
 	mov r0, r5
 	asr r8, ip, #0x10
-	bl sub_03000138
+	bl sin_fx
 	mov r7, r0
 	lsl r2, r7, #0x10
 	asr r4, r2, #0x10
 	mov r0, r5
 	str r4, [fp, #-0x2f0]
-	bl sub_03000134
+	bl cos_fx
 	ldrsh r5, [sl, #0x58]
 	mov r1, r0
 	lsl lr, r1, #0x10
 	asr ip, lr, #0x10
 	mov r0, r5
 	str ip, [fp, #-0x2f4]
-	bl sub_03000138
+	bl sin_fx
 	mov r7, r0
 	mov r0, r5
-	bl sub_03000134
+	bl cos_fx
 	ldr r2, [fp, #-0x2f0]
 	asr r4, sb, #0x10
 	mul r2, r4, r2
@@ -2010,7 +2010,7 @@ _03001A84:
 	asr r0, sl, #4
 	rsb r4, r0, #0
 	mla r0, r4, r4, lr
-	bl sub_03000744
+	bl isqrt
 	ldr sb, _030015D8
 	ldr r2, [sb, r0, lsl #2]
 	lsr r7, r2, #4
@@ -2201,7 +2201,7 @@ _03001F90:
 	asr r6, lr, #8
 	rsb sl, r6, #0
 	mla r0, sl, sl, sb
-	bl sub_03000744
+	bl isqrt
 	ldr ip, _030015D8
 	ldr r2, [ip, r0, lsl #2]
 	lsr r4, r2, #4
@@ -2216,7 +2216,7 @@ _03001F90:
 _03002004:
 	ldr r0, [fp, #-0x3b4]
 	rsb r7, r3, #0
-	bl sub_03000744
+	bl isqrt
 	ldr r3, _030015D8
 	ldr sl, [r3, r0, lsl #2]
 	sub r5, fp, #0x354
@@ -2267,7 +2267,7 @@ _03002060:
 _030020C8:
 	mov r1, r8
 	mov r0, r7
-	bl sub_030001E8
+	bl atan2_fx
 	mov r7, r0
 	add ip, r7, #0x4100
 	lsr r0, ip, #9
@@ -2275,7 +2275,7 @@ _030020C8:
 	ldr r1, [fp, #-0x2f4]
 	ldr r0, [fp, #-0x2f0]
 	add r5, lr, lr, lsl #6
-	bl sub_030001E8
+	bl atan2_fx
 	add r1, r0, #0x100
 	lsr r2, r1, #9
 	and r3, r2, #0x7f
@@ -2350,7 +2350,7 @@ _030021A8:
 	ldr sl, [r1, #0x2c]
 	rsb r0, r5, sb
 	rsb r1, r6, sl
-	bl sub_030001E8
+	bl atan2_fx
 	ldr r3, [fp, #-0x2ec]
 	ldrh ip, [r3, #0x56]
 	rsb lr, r0, ip
@@ -3422,7 +3422,7 @@ sub_03002F3C: @ 03002F3C
 	cmp r0, r8
 	ble _030031C8
 	lsl r0, r0, #8
-	bl sub_03000744
+	bl isqrt
 	rsb ip, r4, #0
 	ldr r8, [fp, #-0x48]
 	rsb r1, r0, ip
@@ -3432,7 +3432,7 @@ sub_03002F3C: @ 03002F3C
 	sub r0, r0, r4, asr #31
 	eor r1, r5, r5, asr #31
 	sub r1, r1, r5, asr #31
-	bl sub_0300034C
+	bl udiv
 	teq r4, r5
 	rsbmi r0, r0, #0
 	mov r8, r0
@@ -3496,12 +3496,12 @@ sub_03003224: @ 03003224
 	mla ip, r5, r5, lr
 	mla r5, r0, r0, ip
 	mov r0, r5
-	bl sub_03000744
+	bl isqrt
 	mov r6, r0
 	eor r1, r6, r6, asr #31
 	sub r1, r1, r6, asr #31
 	mov r0, #0x10000
-	bl sub_0300034C
+	bl udiv
 	ldrh r4, [r8, #0x5c]
 	mov ip, r0
 	ldrh r0, [sl, #0x5c]
@@ -3515,7 +3515,7 @@ sub_03003224: @ 03003224
 	eor r1, r7, r7, asr #31
 	sub r1, r1, r7, asr #31
 	mov r6, ip
-	bl sub_0300034C
+	bl udiv
 	teq r5, r7
 	rsbmi r0, r0, #0
 	mov r5, #0x200
@@ -3575,7 +3575,7 @@ _030032E8:
 	str lr, [fp, #-0x40]
 	str r4, [fp, #-0x3c]
 	str ip, [fp, #-0x38]
-	bl sub_0300034C
+	bl udiv
 	ldr r1, [r8, #0xa0]
 	teq r6, r5
 	rsbmi r0, r0, #0
@@ -3628,12 +3628,12 @@ _03003424:
 	mov r0, r4
 	str r6, [sl, #0x3c]
 	str r5, [sl, #0x44]
-	bl sub_03000134
+	bl cos_fx
 	mov ip, r0
 	lsl lr, ip, #0x10
 	mov r0, r4
 	asr r4, lr, #0x10
-	bl sub_03000138
+	bl sin_fx
 	lsl r1, r0, #0x10
 	asr r2, r1, #0x10
 	mul ip, r5, r2
@@ -3725,12 +3725,12 @@ _030035A4:
 	mov r0, r4
 	str r6, [r8, #0x3c]
 	str r5, [r8, #0x44]
-	bl sub_03000134
+	bl cos_fx
 	mov ip, r0
 	lsl lr, ip, #0x10
 	mov r0, r4
 	asr r4, lr, #0x10
-	bl sub_03000138
+	bl sin_fx
 	lsl r1, r0, #0x10
 	asr r2, r1, #0x10
 	mul ip, r5, r2
@@ -3813,7 +3813,7 @@ _03003728:
 	cmp r1, #0
 	rsblt r1, r1, #0
 	mov r0, #0x10000
-	bl sub_0300034C
+	bl udiv
 	mov r5, #0xcc
 	mov r6, r0
 	b _030032E8
@@ -4009,7 +4009,7 @@ sub_03003938: @ 03003938
 	mov r5, r2
 	mov r6, #0
 	bmi _03003A08
-	bl sub_03000744
+	bl isqrt
 	rsb r2, r4, #0
 	rsb r1, r0, r2
 	cmp r1, #0x10
@@ -4054,7 +4054,7 @@ sub_03003A14: @ 03003A14
 	rsb r1, r3, lr, asr #8
 	lsl r0, r1, #8
 	mov r5, r2
-	bl sub_03000744
+	bl isqrt
 	rsb r1, r4, #0
 	rsb r4, r0, r1
 	cmp r4, #0x100

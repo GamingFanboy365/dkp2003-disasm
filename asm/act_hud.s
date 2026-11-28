@@ -770,7 +770,7 @@ _0800FD62:
 	movs r0, #0x98
 	bl gamesfx_play
 	movs r0, #0x1c
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r2, #3
@@ -820,7 +820,7 @@ _0800FDB2:
 	movs r1, #0
 	bl sub_0801E220
 	movs r0, #0x1d
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r1, #4
@@ -847,7 +847,7 @@ _0800FE26:
 	movs r0, #0x9a
 	bl gamesfx_play
 	movs r0, #0x20
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r2, #5

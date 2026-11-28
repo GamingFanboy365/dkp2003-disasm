@@ -493,7 +493,7 @@ _080248EC:
 _08024A58:
 	.4byte 0x00000006
 _08024A5C:
-	.4byte sub_0300034C
+	.4byte udiv
 _08024A60:
 	.4byte 0x0202EA0C
 _08024A64:
@@ -674,7 +674,7 @@ _08024B8E:
 	beq _08024C58
 _08024BB6:
 	movs r0, #0x34
-	bl sub_08001F58
+	bl obj_new
 	adds r4, r0, #0
 	adds r1, r4, #0
 	movs r2, #0x7d
@@ -696,7 +696,7 @@ _08024BB6:
 	str r0, [r4, #0x2c]
 	str r4, [r1]
 	movs r0, #0x34
-	bl sub_08001F58
+	bl obj_new
 	adds r4, r0, #0
 	adds r1, r4, #0
 	movs r2, #0x7c
@@ -833,7 +833,7 @@ _08024CD8:
 _08024CDC:
 	.4byte 0x0202EA0C
 _08024CE0:
-	.4byte sub_0300034C
+	.4byte udiv
 _08024CE4:
 	.4byte gUnk_080529BC
 _08024CE8:
@@ -1217,13 +1217,13 @@ _08024FB0:
 _08024FB4:
 	.4byte 0x0202DE50
 _08024FB8:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _08024FBC:
 	.4byte _03000814
 _08024FC0:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08024FC4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08024FC8:
 	.4byte sub_03003750
 _08024FCC:
@@ -1512,7 +1512,7 @@ _080251EC:
 _080251F0:
 	.4byte _03000814
 _080251F4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _080251F8:
 	.4byte 0x0202EA08
 _080251FC:
@@ -2071,7 +2071,7 @@ _080255F8:
 _080255FC:
 	.4byte 0x0202EA0C
 _08025600:
-	.4byte sub_0300034C
+	.4byte udiv
 _08025604:
 	movs r6, #0x80
 	movs r7, #4
@@ -2561,9 +2561,9 @@ _0802597C:
 _08025AC8:
 	.4byte 0xFFFFFF00
 _08025ACC:
-	.4byte sub_03000134
+	.4byte cos_fx
 _08025AD0:
-	.4byte sub_03000138
+	.4byte sin_fx
 	.byte 0x6C, 0x56, 0x00, 0x03
 	.4byte gUnk_080529BC
 	.4byte gUnk_080529C8
@@ -2612,7 +2612,7 @@ _08025B16:
 	cmp r1, #0
 	beq _08025B0E
 	movs r0, #0x21
-	bl sub_08001F58
+	bl obj_new
 	ldr r2, [r4, #0x24]
 	str r2, [r0, #0x24]
 	ldr r1, [r4, #0x28]

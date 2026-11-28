@@ -213,7 +213,7 @@ _0802BB56:
 	b _0802BAE8
 _0802BB6E:
 	movs r0, #0x26
-	bl sub_08001F58
+	bl obj_new
 	ldr r3, [r4, #4]
 	adds r1, r0, #0
 	adds r1, #0xa0
@@ -234,7 +234,7 @@ _0802BB98:
 	ldr r0, _0802BC9C
 	ldr r6, [r0, #4]
 	movs r0, #0x26
-	bl sub_08001F58
+	bl obj_new
 	adds r3, r6, #0
 	adds r3, #0xa0
 	ldr r2, [r3, #4]
@@ -384,7 +384,7 @@ sub_0802BCC0: @ 0802BCC0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x24
-	bl sub_08001F58
+	bl obj_new
 	adds r4, #0xa0
 	adds r1, r0, #0
 	ldr r2, [r4, #4]

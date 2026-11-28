@@ -273,9 +273,9 @@ _080006A2:
 	ldr r3, _080007B8
 	adds r5, #0x34
 	ldr r0, [r3, r5]
-	bl obj_new
+	bl obj_spawn_level_object
 	movs r0, #0x19
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #4
 	bl obj_initialise
 	ldr r5, _080007BC
@@ -290,7 +290,7 @@ _080006A2:
 	cmp r0, #3
 	beq _0800073E
 	movs r0, #0x27
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #6
 	bl obj_initialise
 _080006F6:
@@ -304,7 +304,7 @@ _080006F6:
 	cmp r3, #7
 	beq _08000728
 	movs r0, #6
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #7
 	bl obj_initialise
 _08000714:
@@ -325,13 +325,13 @@ _0800072C:
 _08000730:
 	movs r0, #0x28
 _08000732:
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #7
 	bl obj_initialise
 	b _08000714
 _0800073E:
 	movs r0, #0x36
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #6
 	bl obj_initialise
 	b _080006F6

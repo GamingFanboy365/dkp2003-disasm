@@ -269,7 +269,7 @@ _0800AE80:
 _0800AEEC:
 	.4byte 0x00000000
 _0800AEF0:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800AEF4:
 	.4byte gGameSetup
 _0800AEF8:
@@ -698,7 +698,7 @@ _0800B21C:
 _0800B220:
 	.4byte 0x020234A4
 _0800B224:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800B228:
 	.4byte 0x020234A0
 _0800B22C:
@@ -1617,7 +1617,7 @@ _0800B908:
 	b _0800B920
 	.byte 0x00, 0x00
 _0800B90C:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800B910:
 	.4byte 0x020234A8
 _0800B914:
@@ -2095,7 +2095,7 @@ _0800BC9C:
 _0800BCA0:
 	.4byte 0x00007FFF
 _0800BCA4:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800BCA8:
 	.4byte 0xFFFFF3FF
 _0800BCAC:
@@ -2284,7 +2284,7 @@ _0800BDE2:
 _0800BDF4:
 	.4byte 0x020234A4
 _0800BDF8:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800BDFC:
 	.4byte 0x020234A8
 
@@ -2965,7 +2965,7 @@ _0800C2D8:
 _0800C2DC:
 	.4byte 0x020234A4
 _0800C2E0:
-	.4byte sub_0300034C
+	.4byte udiv
 _0800C2E4:
 	.4byte 0x00007FFF
 
@@ -3140,11 +3140,11 @@ _0800C40E:
 	rsbs r1, r3, #0
 	b _0800C370
 _0800C414:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0800C418:
 	.4byte _03000814
 _0800C41C:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global aiPlayerForward
 	.thumb_func
@@ -3773,9 +3773,9 @@ _0800C844:
 _0800C848:
 	.4byte _03000814
 _0800C84C:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800C850:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800C854:
 	bl _call_via_r4
 	lsls r5, r0, #0x10
@@ -4201,9 +4201,9 @@ _0800CB6A:
 _0800CBB4:
 	.4byte _03000814
 _0800CBB8:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800CBBC:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800CBC0:
 	movs r6, #0x80
 	lsls r0, r6, #1
@@ -4456,9 +4456,9 @@ _0800CDB8:
 _0800CDBC:
 	.4byte _03000814
 _0800CDC0:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800CDC4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800CDC8:
 	movs r7, #0x8d
 	lsls r0, r7, #1
@@ -4813,7 +4813,7 @@ _0800D070:
 	bl sub_0800C79E
 _0800D084:
 	movs r0, #0x25
-	bl sub_08001F58
+	bl obj_new
 	ldr r3, [sp, #0x30]
 	adds r7, r0, #0
 	ldr r6, [r3, #4]
@@ -4884,7 +4884,7 @@ _0800D0F0:
 	bl sub_0800C79E
 _0800D104:
 	movs r0, #0x25
-	bl sub_08001F58
+	bl obj_new
 	ldr r3, [sp, #0x30]
 	adds r4, r0, #0
 	ldr r1, [r3, #4]
@@ -5016,13 +5016,13 @@ _0800D1D0:
 _0800D1D8:
 	.4byte _03000814
 _0800D1DC:
-	.4byte sub_03000744
+	.4byte isqrt
 _0800D1E0:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0800D1E4:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800D1E8:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800D1EC:
 	.4byte 0x00003332
 _0800D1F0:
@@ -5828,9 +5828,9 @@ _0800D7BC:
 _0800D7C0:
 	.4byte 0xFFFFD000
 _0800D7C4:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800D7C8:
-	.4byte sub_03000134
+	.4byte cos_fx
 
 	.global sub_0800D7CC
 	.thumb_func
@@ -6269,7 +6269,7 @@ _0800DAF4:
 _0800DAF8:
 	.4byte 0x000007CF
 _0800DAFC:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0800DB00:
 	.4byte 0x00000FFF
 _0800DB04:
@@ -7527,9 +7527,9 @@ _0800E422:
 _0800E43C:
 	.4byte 0x020234AC
 _0800E440:
-	.4byte sub_03000744
+	.4byte isqrt
 _0800E444:
-	.4byte sub_0300034C
+	.4byte udiv
 
 	.global react_comp_player
 	.thumb_func
@@ -8569,15 +8569,15 @@ _0800EC20:
 _0800EC24:
 	.4byte 0x00002328
 _0800EC28:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800EC2C:
 	.4byte 0x02023F70
 _0800EC30:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800EC34:
 	.4byte _03000814
 _0800EC38:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 
 	.global sub_0800EC3C
 	.thumb_func
@@ -8688,9 +8688,9 @@ _0800ED04:
 _0800ED08:
 	.4byte gRacerObjects
 _0800ED0C:
-	.4byte sub_030001E8
+	.4byte atan2_fx
 _0800ED10:
-	.4byte sub_03000744
+	.4byte isqrt
 _0800ED14:
 	.4byte 0xFFFFE000
 
@@ -8815,9 +8815,9 @@ _0800EDDE:
 	bl sub_0800E9B8
 	b _0800ED64
 _0800EE00:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800EE04:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800EE08:
 	.4byte 0x02023F6C
 
@@ -9160,9 +9160,9 @@ _0800F0A0:
 _0800F0A4:
 	.4byte 0xFFFFFF00
 _0800F0A8:
-	.4byte sub_03000134
+	.4byte cos_fx
 _0800F0AC:
-	.4byte sub_03000138
+	.4byte sin_fx
 _0800F0B0:
 	.4byte 0xFFFFE000
 _0800F0B4:

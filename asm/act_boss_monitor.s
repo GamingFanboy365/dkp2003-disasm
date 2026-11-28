@@ -20,7 +20,7 @@ _08025EC6:
 	ldr r4, _08025F04
 	movs r0, #0x37
 	strh r4, [r6]
-	bl sub_08001F58
+	bl obj_new
 	movs r3, #0xc0
 	lsls r5, r3, #7
 	adds r1, r0, #0
@@ -37,7 +37,7 @@ _08025EC6:
 	movs r1, #8
 	bl obj_initialise
 	movs r0, #0x37
-	bl sub_08001F58
+	bl obj_new
 	adds r1, r0, #0
 	adds r1, #0xa0
 	movs r2, #1
@@ -56,7 +56,7 @@ _08025F08:
 	movs r1, #8
 	bl obj_initialise
 	movs r0, #5
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r1, _08025F64
@@ -154,7 +154,7 @@ _08025FB8:
 _08025FE4:
 	bl fade_to_normal
 	movs r0, #7
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	movs r0, #1
@@ -331,7 +331,7 @@ _0802610C:
 	bl gamesfx_play
 	movs r0, #0x1f
 _08026150:
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #0
 	bl obj_initialise
 	b _08026010
@@ -453,7 +453,7 @@ _08026220:
 _08026224:
 	.4byte _08025FB8
 _08026228:
-	.4byte sub_03000744
+	.4byte isqrt
 _0802622C:
 	.4byte gRacerObjects
 _08026230:

@@ -63,7 +63,7 @@ _08012568:
 _0801256C:
 	.4byte gUnk_08051D40
 _08012570:
-	bl sub_080189E4
+	bl fe_get_text
 	adds r4, r0, #0
 	bl sub_08018AEC
 	bl spr_get_info
@@ -175,7 +175,7 @@ _08012648:
 _0801264C:
 	.4byte 0x00004444
 _08012650:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08012654:
 	.4byte 0x0201A734
 _08012658:
@@ -278,7 +278,7 @@ _080126C6:
 	ldr r2, _080127EC
 	movs r1, #0
 	ldr r0, [r2, r6]
-	bl sub_080189E4
+	bl fe_get_text
 	ldr r1, [sp, #0x20]
 	ldr r3, _080127F0
 	adds r1, #0x5a
@@ -385,7 +385,7 @@ _080127DC:
 _080127E0:
 	.4byte 0x00000000
 _080127E4:
-	.4byte sub_03000134
+	.4byte cos_fx
 _080127E8:
 	.4byte gGameSetup
 _080127EC:
@@ -399,7 +399,7 @@ _080127F8:
 _080127FC:
 	.4byte 0x00004444
 _08012800:
-	.4byte sub_03000138
+	.4byte sin_fx
 _08012804:
 	.4byte 0x0201A734
 _08012808:

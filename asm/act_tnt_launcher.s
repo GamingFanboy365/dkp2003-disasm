@@ -77,7 +77,7 @@ _080111D6:
 	b _0801119C
 _080111FC:
 	movs r0, #0x2a
-	bl sub_08001F58
+	bl obj_new
 	movs r1, #8
 	bl obj_initialise
 	ldr r3, [r5, #4]

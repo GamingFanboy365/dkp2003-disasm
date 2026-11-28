@@ -289,25 +289,25 @@ sub_ovl_b_03004378: @ 03004378
 	ldr r3, [ip, #0x2c]
 	mov r0, r4
 	str r3, [fp, #-0x70]
-	bl sub_03000138
+	bl sin_fx
 	mov sb, r0
 	lsl r6, sb, #0x10
 	asr r1, r6, #0x10
 	mov r0, r4
 	str r1, [fp, #-0x58]
-	bl sub_03000134
+	bl cos_fx
 	mov r2, r0
 	lsl lr, r2, #0x10
 	asr ip, lr, #0x10
 	mov r0, r5
 	str ip, [fp, #-0x5c]
-	bl sub_03000138
+	bl sin_fx
 	mov sb, r0
 	lsl r6, sb, #0x10
 	asr r1, r6, #0x10
 	mov r0, r5
 	str r1, [fp, #-0x60]
-	bl sub_03000134
+	bl cos_fx
 	lsl r2, r0, #0x10
 	asr r1, r2, #0x10
 	cmn r4, #0x4000
@@ -601,7 +601,7 @@ _ovl_b_030047D4:
 	sub r1, r1, sb, asr #31
 	eor r0, r5, r5, asr #31
 	sub r0, r0, r5, asr #31
-	bl sub_0300034C
+	bl udiv
 	teq r5, sb
 	rsbmi r0, r0, #0
 	ldr r3, [fp, #-0x54]
@@ -625,7 +625,7 @@ _ovl_b_0300485C:
 	sub r0, r0, r7, asr #31
 	eor r1, sl, sl, asr #31
 	sub r1, r1, sl, asr #31
-	bl sub_0300034C
+	bl udiv
 	teq r7, sl
 	rsbmi r0, r0, #0
 	mvn r4, r0
@@ -949,7 +949,7 @@ _ovl_b_03004D3C:
 	b _ovl_b_03004430
 _ovl_b_03004D60:
 	mov r0, r4
-	bl sub_03000178
+	bl tan_fx
 	lsl r1, r0, #0x10
 	asr r4, r1, #0x10
 	sub r2, r4, #2
