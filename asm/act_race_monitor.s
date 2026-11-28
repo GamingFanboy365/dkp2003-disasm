@@ -1244,7 +1244,7 @@ _080123BC:
 	beq _080123A6
 	movs r1, #0
 	str r1, [r4]
-	bl sub_080032B8
+	bl spr_release_frame
 	b _080123A6
 _080123EE:
 	ldr r3, [r4, #4]
@@ -1273,10 +1273,10 @@ _080123FA:
 	b _080123A6
 	.byte 0x00, 0x00
 _08012420:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08012424:
 	.4byte 0x00007FFF
 _08012428:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0801242C:
 	.4byte gUnk_08713650

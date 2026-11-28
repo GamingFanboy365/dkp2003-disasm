@@ -841,6 +841,6 @@ _0802CA64:
 _0802CA8C:
 	.4byte gUnk_0884FF1C
 _0802CA90:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802CA94:
 	.4byte 0x0202EC50

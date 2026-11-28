@@ -32,7 +32,7 @@ _080112BE:
 	ldr r2, _080112FC
 	adds r3, r3, r2
 	strh r1, [r3, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	movs r1, #0x80
 	lsls r0, r1, #3
 	str r0, [sp]
@@ -46,7 +46,7 @@ _080112BE:
 _080112F8:
 	.4byte 0x00000005
 _080112FC:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08011300:
 	bl obj_add_static_hit
 	add sp, #4

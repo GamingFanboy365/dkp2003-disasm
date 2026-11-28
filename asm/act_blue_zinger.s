@@ -385,7 +385,7 @@ _0802ACC2:
 	ldr r2, _0802AD04
 	adds r3, r3, r2
 	strh r1, [r3, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	movs r1, #1
 	adds r0, r4, #0
 	rsbs r2, r1, #0
@@ -401,7 +401,7 @@ _0802ACC2:
 _0802AD00:
 	.4byte 0x00000001
 _0802AD04:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802AD08:
 	lsls r0, r1, #3
 	movs r2, #0xa0

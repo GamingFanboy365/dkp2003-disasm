@@ -24,6 +24,20 @@ Live objects are kept on lists: `gObjProcessList` (updated every frame,
 `obj_remove_draw`), drawn by `obj_draw_all` in IWRAM, and the hit lists (`obj_add_static_hit`,
 `obj_add_vector_hit`, `gObjStaticHitList`).
 
+## Sprites
+
+`obj_setup_sprite(obj, sprite, flags)` gives an object a sprite slot in
+`gSprites` (256 slots of 0x18 bytes, `spr_init`) and stores its number in
+`obj+0x5A`. The slot gets the graphics (a Rare sprite container) and the
+palette of entry `sprite` of the sprite table (`0x08713650`). With flag 0x10
+a second slot is chained to it through `gSpriteNext`: the object's shadow,
+sprite table entry 43, a flat grey oval, marked with 0x80 in `+0x06`.
+`spr_set_shadow_size` makes the shadow 3/4 of the sprite's size, and
+`spr_hide_shadow` removes it (collected Kong letters and silver coins).
+`spr_free_chain` returns the slots, and `spr_release_frame` drops a slot's
+reference to a decoded frame in `gSpriteFrameCache`. The object then goes
+on one of the two draw lists, linked through `obj+0x0C`/`+0x10`.
+
 ## Classes
 
 The class table at `0x08713FD0` has 16 bytes per class:
@@ -52,6 +66,8 @@ Established from the code (the asserts name some of them):
 | `+0x4C` | s32 | vertical speed | −0x28 diving (UP), +0x28 climbing (DOWN); written by `plane_vertical_speed` |
 | `+0xB0` | s32 | turn rate | LEFT/RIGHT; written by `plane_turn` |
 | `+0xB8` | s32 | bank | +0x1F turning left, −0x21 right; written by `plane_bank` |
+| `+0x0C`, `+0x10` | ptr | draw list links | `obj_setup_sprite` |
+| `+0x5A` | u16 | sprite slot in `gSprites` | `obj_setup_sprite` |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
 | `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x2000`, `0x100`, `0x200000` switch the CPU's `ai_wobble` / `ai_ease_offsets`; `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |

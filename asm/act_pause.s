@@ -246,7 +246,7 @@ _08012D5C:
 _08012D74:
 	.4byte gFrameCount
 _08012D78:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08012D7C:
 	.4byte gKeysNew
 _08012D80:
@@ -404,8 +404,8 @@ _08012E94:
 	movs r1, #0x5c
 	b _08012E6E
 _08012E98:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08012E9C:
 	.4byte 0x00007FFF
 _08012EA0:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache

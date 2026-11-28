@@ -99,7 +99,7 @@ _0800F8B0:
 _0800F8B4:
 	.4byte 0x02023F84
 _0800F8B8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800F8BC:
 	adds r3, r2, #0
 	adds r0, r2, #4
@@ -154,7 +154,7 @@ _0800F91C:
 _0800F920:
 	.4byte gUnk_08713650
 _0800F924:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0800F928:
 	mov r2, fp
 	ldrb r6, [r2, r6]
@@ -212,9 +212,9 @@ _0800F98C:
 _0800F990:
 	.4byte 0x00000100
 _0800F994:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0800F998:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800F99C:
 	strh r5, [r6, #2]
 	ldr r2, [sp, #4]
@@ -455,13 +455,13 @@ _0800FB4C:
 _0800FB50:
 	.4byte 0x02023F7C
 _0800FB54:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800FB58:
 	.4byte gRacerObjects
 _0800FB5C:
 	.4byte 0x02023F80
 _0800FB60:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0800FB64:
 	.4byte 0xFFFFF900
 _0800FB68:
@@ -891,7 +891,7 @@ _0800FE90:
 _0800FE94:
 	.4byte gUnk_08713650
 _0800FE98:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800FE9C:
 	.4byte _0800FD10
 _0800FEA0:
@@ -1042,7 +1042,7 @@ _0800FFA4:
 _0800FFA8:
 	.4byte gUnk_08713650
 _0800FFAC:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800FFB0:
 	.4byte 0xFFFFF900
 _0800FFB4:
@@ -1748,7 +1748,7 @@ _08010480:
 _08010484:
 	.4byte gGameSetup
 _08010488:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0801048C:
 	pop {r4}
 	pop {r0}

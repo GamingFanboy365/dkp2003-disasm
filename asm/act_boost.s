@@ -60,7 +60,7 @@ _08012A5A:
 	adds r1, r3, r2
 	ldr r2, _08012A98
 	strh r2, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r2, [r5]
 	ldr r0, [r2, #0xc]
 	ldr r1, _08012A9C
@@ -79,7 +79,7 @@ _08012A98:
 _08012A9C:
 	.4byte 0x00000080
 _08012AA0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08012AA4:
 	ldr r2, [r5]
 	ldr r1, [r2, #0xc]

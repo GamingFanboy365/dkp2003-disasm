@@ -63,9 +63,9 @@ _08010D28:
 _08010D2C:
 	.4byte 0x00000020
 _08010D30:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010D34:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08010D38:
 	mov r0, lr
 	muls r0, r4, r0
@@ -256,7 +256,7 @@ _08010E94:
 _08010E98:
 	.4byte gGameSetup
 _08010E9C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010EA0:
 	ldr r0, _08010EB8
 	ldr r1, _08010EBC
@@ -372,7 +372,7 @@ _08010F6C:
 	adds r2, #1
 	str r2, [r0]
 	adds r0, r6, #0
-	bl sub_08003020
+	bl spr_hide_shadow
 	movs r0, #0xa
 	movs r1, #0
 	movs r3, #0x80
@@ -413,7 +413,7 @@ _08010FB8:
 	.2byte 0xEFFF @ debug trap
 	b _08010ED6
 _08010FD0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010FD4:
 	.4byte gGameSetup
 _08010FD8:
@@ -559,7 +559,7 @@ _080110A8:
 _080110DC:
 	.4byte gGameSetup
 _080110E0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080110E4:
 	.4byte 0xFFFFF000
 _080110E8:
@@ -618,7 +618,7 @@ _08011144:
 _08011148:
 	.4byte 0xFFFFF000
 _0801114C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08011150:
 	add sp, #4
 	pop {r4}

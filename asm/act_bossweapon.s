@@ -51,7 +51,7 @@ _0802CAE0:
 _0802CAE4:
 	.4byte gUnk_0884FEFC
 _0802CAE8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802CAEC:
 	lsrs r1, r0, #0xc
 	str r1, [r4, #0x20]
@@ -529,13 +529,13 @@ _0802CE88:
 _0802CE8C:
 	.4byte sub_0802D128
 _0802CE90:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802CE94:
 	.4byte gUnk_0884FFFC
 _0802CE98:
 	.4byte 0x00007FFF
 _0802CE9C:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802CEA0:
 	.4byte 0x0202EC54
 _0802CEA4:
@@ -926,7 +926,7 @@ _0802D178:
 _0802D17C:
 	.4byte 0x00000040
 _0802D180:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D184:
 	pop {r4}
 	pop {r0}
@@ -1011,11 +1011,11 @@ _0802D208:
 	.2byte 0xEFFF @ debug trap
 	b _0802D1BE
 _0802D220:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D224:
 	.4byte 0x00007FFF
 _0802D228:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802D22C:
 	.4byte gUnk_08053668
 _0802D230:

@@ -171,13 +171,13 @@ _08012640:
 _08012644:
 	.4byte 0x0000FFFF
 _08012648:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0801264C:
 	.4byte 0x00004444
 _08012650:
 	.4byte sin_fx
 _08012654:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08012658:
 	mov r0, sl
 	bl obj_add_draw
@@ -395,13 +395,13 @@ _080127F0:
 _080127F4:
 	.4byte 0x0000FFFF
 _080127F8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080127FC:
 	.4byte 0x00004444
 _08012800:
 	.4byte sin_fx
 _08012804:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08012808:
 	ldr r1, [sp, #4]
 	adds r1, #1

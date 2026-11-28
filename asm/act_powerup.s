@@ -74,7 +74,7 @@ _0801054E:
 	adds r1, r3, r2
 	ldr r2, _0801058C
 	strh r2, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r0, [r5]
 	adds r1, r4, #0
 	adds r1, #0xa0
@@ -91,7 +91,7 @@ _08010588:
 _0801058C:
 	.4byte 0x00000032
 _08010590:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010594:
 	str r2, [sp]
 	adds r0, r4, #0
@@ -189,7 +189,7 @@ _0801062C:
 	ldr r2, _08010668
 	adds r1, r1, r2
 	strh r3, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	b _08010608
 _0801064A:
 	ldr r0, _08010660
@@ -208,7 +208,7 @@ _08010660:
 _08010664:
 	.4byte gUnk_080506C0
 _08010668:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0801066C:
 	movs r1, #2
 	ldrsh r6, [r5, r1]
@@ -240,7 +240,7 @@ _08010686:
 	ldr r2, _080106B8
 	adds r1, r3, r2
 	strh r6, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	b _08010608
 	.byte 0x00, 0x00
 _080106B0:
@@ -248,7 +248,7 @@ _080106B0:
 _080106B4:
 	.4byte 0x0000000F
 _080106B8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080106BC:
 	ldr r0, [r4, #0x24]
 	ldr r3, [r4, #0x3c]
@@ -341,11 +341,11 @@ _08010750:
 _08010768:
 	.4byte 0xFFFFFD00
 _0801076C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010770:
 	.4byte 0x00007FFF
 _08010774:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _08010778:
 	.4byte gUnk_08050654
 _0801077C:
@@ -455,7 +455,7 @@ _08010838:
 _0801083C:
 	.4byte gLocalPlayerIndex
 _08010840:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010844:
 	strh r0, [r1, #0xa]
 	adds r0, r7, #0

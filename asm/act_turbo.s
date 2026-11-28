@@ -48,7 +48,7 @@ _0802BD60:
 _0802BD64:
 	.4byte 0x0000001E
 _0802BD68:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802BD6C:
 	.4byte gRacerObjects
 _0802BD70:
@@ -218,11 +218,11 @@ _0802BE9C:
 _0802BEB4:
 	.4byte 0x0000DDDD
 _0802BEB8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802BEBC:
 	.4byte 0x00007FFF
 _0802BEC0:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802BEC4:
 	.4byte gUnk_080530F0
 _0802BEC8:

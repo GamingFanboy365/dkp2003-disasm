@@ -613,15 +613,15 @@ _08020720:
 _08020724:
 	.4byte 0x00002710
 _08020728:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802072C:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08020730:
 	.4byte 0x0202DE5C
 _08020734:
 	.4byte 0x00007FFF
 _08020738:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802073C:
 	ldr r3, [r7, #0x44]
 	movs r1, #0
@@ -1043,7 +1043,7 @@ _08020A4E:
 	.2byte 0xEFFF @ debug trap
 	b _0802090A
 _08020A68:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08020A6C:
 	.4byte gRacerObjects
 _08020A70:

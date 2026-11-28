@@ -40,13 +40,13 @@ _08012F0C:
 	lsls r1, r4, #2
 	adds r4, r3, r2
 	strh r1, [r4, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	b _08012F38
 	.byte 0x00, 0x00
 _08012F30:
 	.4byte 0x00000001
 _08012F34:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08012F38:
 	bl multi_lfsr_next
 	adds r4, r5, #0
@@ -203,7 +203,7 @@ _08012FDA:
 	adds r2, r7, #0
 	adds r2, #0x5a
 	ldrh r0, [r2]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r1, [r7, #0x24]
 	adds r0, r7, #0
 	adds r0, #0x84

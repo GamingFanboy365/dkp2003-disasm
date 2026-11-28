@@ -76,12 +76,12 @@ _0801335A:
 _08013370:
 	.4byte 0x00000001
 _08013374:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08013378:
 	adds r1, r3, r2
 	ldr r2, _080133AC
 	strh r2, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	adds r1, r4, #0
 	adds r1, #0xa0
 	movs r2, #0
@@ -237,7 +237,7 @@ _08013470:
 _080134A0:
 	.4byte 0x00000020
 _080134A4:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global react_kong
 	.thumb_func
@@ -332,7 +332,7 @@ _08013536:
 	ldr r2, _08013570
 	orrs r5, r2
 	strh r5, [r1]
-	bl sub_08003020
+	bl spr_hide_shadow
 	ldr r1, [r6]
 	ldr r0, [r1, #0xc]
 	ldrb r2, [r0, #1]
@@ -347,7 +347,7 @@ _08013536:
 _08013570:
 	.4byte 0x00000010
 _08013574:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08013578:
 	movs r0, #0xa
 	movs r3, #0x80
@@ -489,7 +489,7 @@ _0801367C:
 _08013680:
 	.4byte 0xFFFFF000
 _08013684:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08013688:
 	movs r2, #0x30
 	ldr r1, _080136F4
@@ -545,7 +545,7 @@ _080136DC:
 	.2byte 0xEFFF @ debug trap
 	b _0801363E
 _080136F4:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080136F8:
 	.4byte gUnk_08050EC0
 _080136FC:
@@ -773,9 +773,9 @@ _08013890:
 _08013894:
 	.4byte gUnk_08713650
 _08013898:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0801389C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080138A0:
 	movs r0, #4
 	str r0, [r6]
@@ -950,9 +950,9 @@ _080139D0:
 _080139D4:
 	.4byte 0xFFFFF900
 _080139D8:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _080139DC:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080139E0:
 	.4byte gUnk_08050EC0
 _080139E4:

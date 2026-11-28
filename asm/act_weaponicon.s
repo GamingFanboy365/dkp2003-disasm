@@ -121,7 +121,7 @@ _08028AF8:
 _08028AFC:
 	.4byte gUnk_08052D64
 _08028B00:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08028B04:
 	.4byte gUnk_08052D7C
 _08028B08:
@@ -341,7 +341,7 @@ _08028C8C:
 _08028C90:
 	.4byte gLocalPlayerIndex
 _08028C94:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08028C98:
 	.4byte gUnk_08052D64
 _08028C9C:
@@ -530,7 +530,7 @@ _08028DF0:
 _08028DF4:
 	.4byte gUnk_08713650
 _08028DF8:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global destroy_red_zinger
 	.thumb_func
@@ -672,7 +672,7 @@ _08028EFE:
 	b _08028E5C
 	.byte 0x00, 0x00
 _08028F10:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08028F14:
 	.4byte gRedZingerBuzzOwner
 _08028F18:

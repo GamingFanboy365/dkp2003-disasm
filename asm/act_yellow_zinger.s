@@ -152,7 +152,7 @@ _0802AE56:
 	b _0802ADAC
 	.byte 0x00, 0x00
 _0802AE60:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802AE64:
 	.4byte 0x0202EC40
 _0802AE68:
@@ -298,7 +298,7 @@ _0802AF52:
 	adds r4, #0xa0
 	strh r1, [r5, #0xa]
 	movs r5, #0
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	str r5, [r4]
 	str r5, [r4, #4]
 	str r5, [r4, #0xc]
@@ -312,7 +312,7 @@ _0802AF8C:
 _0802AF90:
 	.4byte 0x00000008
 _0802AF94:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802AF98:
 	bl multi_lfsr_next
 	lsrs r3, r0, #0xc
@@ -438,7 +438,7 @@ _0802B04C:
 	adds r0, r7, #0
 	bl _call_via_r2
 	mov r0, sb
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r1, [r6]
 	cmp r1, #1
 	beq _0802B09E
@@ -891,11 +891,11 @@ _0802B3FC:
 _0802B400:
 	.4byte yellow_zinger_sfx_pitch_cb
 _0802B404:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802B408:
 	.4byte 0x00007FFF
 _0802B40C:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802B410:
 	.4byte sin_fx
 _0802B414:

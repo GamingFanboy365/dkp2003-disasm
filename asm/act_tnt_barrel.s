@@ -48,7 +48,7 @@ _0802B698:
 _0802B69C:
 	.4byte 0x00000028
 _0802B6A0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802B6A4:
 	movs r3, #0x18
 	mov lr, r3
@@ -107,7 +107,7 @@ _0802B6F6:
 	b _0802B662
 	.byte 0x00, 0x00
 _0802B710:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802B714:
 	.4byte gRacerObjects
 _0802B718:
@@ -476,13 +476,13 @@ _0802B9BC:
 _0802B9D0:
 	.4byte gRacerObjects
 _0802B9D4:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802B9D8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802B9DC:
 	.4byte 0x00007FFF
 _0802B9E0:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802B9E4:
 	.4byte gUnk_0884F034
 _0802B9E8:

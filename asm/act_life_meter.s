@@ -132,7 +132,7 @@ _0802D414:
 _0802D418:
 	.4byte gUnk_08713650
 _0802D41C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D420:
 	.4byte gUnk_088500E4
 _0802D424:
@@ -178,9 +178,9 @@ _0802D46C:
 _0802D470:
 	.4byte 0x00000000
 _0802D474:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D478:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802D47C:
 	.4byte gUnk_08639220
 _0802D480:
@@ -344,9 +344,9 @@ _0802D5B0:
 _0802D5B4:
 	.4byte 0x0202EC58
 _0802D5B8:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802D5BC:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D5C0:
 	.4byte gUnk_083D9200
 _0802D5C4:
@@ -527,9 +527,9 @@ _0802D6FC:
 _0802D700:
 	.4byte gUnk_088500C0
 _0802D704:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D708:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802D70C:
 	ldr r3, [r4, #0x14]
 	cmp r3, #0
@@ -650,9 +650,9 @@ _0802D7CA:
 	b _0802D61E
 	.byte 0x00, 0x00
 _0802D7E4:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0802D7E8:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802D7EC:
 	.4byte gGameSetup
 _0802D7F0:

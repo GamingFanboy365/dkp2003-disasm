@@ -603,3 +603,10 @@
 0x080020F4 obj_flush_deletes        # obj_really_free on each object queued by obj_free, then empty the delete list
 0x08002098 obj_free_all             # flush deletes, then free everything on the process and draw lists
 0x03000BBC obj_draw_all             # IWRAM renderer: walks the draw lists, queues sprite frames (rspr_queue_frame); "overflow:%i"
+# sprite slots (gSprites): one per drawn sprite; an object's chain holds its
+# sprite and its shadow (sprite table entry 43, flag 0x80)
+0x08002EB0 spr_init                 # 256 free slots chained through gSpriteNext
+0x08002FB0 spr_free_chain           # (slot): the slot and the ones chained to it back on the free list
+0x08002FE0 spr_set_shadow_size      # (slot): shadow slots (flag 0x80) get 3/4 of the sprite's size (+0x0A)
+0x08003020 spr_hide_shadow          # (slot): shadow slots lose their graphics (collected Kong letters, coins)
+0x080032B8 spr_release_frame        # (slot): drop its reference to a cached frame (gSpriteFrameCache)

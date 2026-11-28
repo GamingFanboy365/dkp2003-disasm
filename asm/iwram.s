@@ -1528,9 +1528,9 @@ _030015AC:
 _030015B0:
 	.4byte 0x02000008
 _030015B4:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _030015B8:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _030015BC:
 	.4byte gObjDrawList2
 _030015C0:
@@ -1552,7 +1552,7 @@ _030015DC:
 _030015E0:
 	.4byte 0x0200436C
 _030015E4:
-	.4byte 0x02018F34
+	.4byte gSprites
 _030015E8:
 	.4byte gUnk_080537E4
 _030015EC:
@@ -2740,7 +2740,7 @@ _03002728:
 	blo _03002728
 	b _03000F34
 _030027E4:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _030027E8:
 	.4byte gUnk_080537E4
 _030027EC:

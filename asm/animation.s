@@ -97,9 +97,9 @@ _08003126:
 _08003134:
 	.4byte 0xFFFF8000
 _08003138:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0800313C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08003140:
 	ldr r2, _08003190
 	ldr r0, _08003194
@@ -150,7 +150,7 @@ _08003198:
 _0800319C:
 	.4byte gUnk_0804FDB8
 _080031A0:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global sub_080031A4
 	.thumb_func
@@ -280,7 +280,7 @@ _0800326C:
 _08003278:
 	.4byte gFrameCount
 _0800327C:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _08003280:
 	.4byte gModeFlags
 _08003284:
@@ -309,17 +309,17 @@ _080032A4:
 _080032A8:
 	.4byte 0x040000D4
 _080032AC:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _080032B0:
 	.4byte 0x81000800
 _080032B4:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_080032B8
+	.global spr_release_frame
 	.thumb_func
-	.type sub_080032B8, %function
-sub_080032B8: @ 080032B8
+	.type spr_release_frame, %function
+spr_release_frame: @ 080032B8
 	push {r4, lr}
 	movs r1, #0x18
 	muls r1, r0, r1
@@ -350,11 +350,11 @@ _080032E0:
 _080032EC:
 	.4byte 0x00000000
 _080032F0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080032F4:
 	.4byte 0x00007FFF
 _080032F8:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 
 	.global sub_080032FC
 	.thumb_func
@@ -2207,7 +2207,7 @@ _08004018:
 _0800401C:
 	.4byte 0x03FFFFFF
 _08004020:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08004024:
 	.4byte udiv
 
@@ -2317,7 +2317,7 @@ sub_080040A4: @ 080040A4
 	ldr r1, [r5, #0xc]
 	adds r3, r3, r2
 	strh r1, [r3, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	pop {r4, r5}
 	pop {r0}
 	bx r0
@@ -2327,7 +2327,7 @@ _080040E0:
 _080040E4:
 	.4byte gCharInfo
 _080040E8:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global char_info
 	.thumb_func
@@ -2404,7 +2404,7 @@ _0800415C:
 _08004160:
 	.4byte gUnk_08713650
 _08004164:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global sub_08004168
 	.thumb_func
@@ -2451,7 +2451,7 @@ _080041B0:
 _080041B4:
 	.4byte gCharInfo
 _080041B8:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global sub_080041BC
 	.thumb_func
@@ -2524,6 +2524,6 @@ _0800422C:
 _08004230:
 	.4byte gUnk_08713650
 _08004234:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08004238:
 	.4byte 0xFFEFFFFF

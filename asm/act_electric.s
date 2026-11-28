@@ -40,7 +40,7 @@ _0802BF04:
 _0802BF08:
 	.4byte 0x00000028
 _0802BF0C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802BF10:
 	pop {r4}
 	pop {r0}
@@ -127,11 +127,11 @@ _0802BF94:
 _0802BFAC:
 	.4byte gRacerObjects
 _0802BFB0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802BFB4:
 	.4byte 0x00007FFF
 _0802BFB8:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _0802BFBC:
 	.4byte gUnk_08053160
 _0802BFC0:

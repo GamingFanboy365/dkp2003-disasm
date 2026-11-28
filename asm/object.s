@@ -692,7 +692,7 @@ _080018BC:
 _080018C0:
 	.4byte gUnk_08713650
 _080018C4:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080018C8:
 	adds r1, r5, #0
 	adds r1, #0xc
@@ -781,9 +781,9 @@ _08001964:
 _08001968:
 	.4byte gUnk_08713650
 _0800196C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08001970:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08001974:
 	ldrh r1, [r6]
 	ldr r3, _080019A0
@@ -946,7 +946,7 @@ _08001A8E:
 	cmp r0, #0
 	beq _08001AA4
 	adds r0, r4, #0
-	bl sub_080032B8
+	bl spr_release_frame
 _08001AA4:
 	ldr r2, _08001AB8
 	ldrb r4, [r2, r4]
@@ -957,12 +957,12 @@ _08001AA4:
 _08001AB0:
 	.4byte 0x00008000
 _08001AB4:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08001AB8:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08001ABC:
 	ldrh r0, [r6]
-	bl sub_08002FB0
+	bl spr_free_chain
 	ldrh r3, [r5]
 	movs r0, #0x10
 	ands r0, r3
@@ -1544,9 +1544,9 @@ _08001F1C:
 _08001F20:
 	.4byte _03000738
 _08001F24:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08001F28:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08001F2C:
 	ldr r0, _08001F44
 	ldr r1, _08001F48
@@ -3697,10 +3697,10 @@ _08002EA8:
 _08002EAC:
 	.4byte 0x020185AC
 
-	.global sub_08002EB0
+	.global spr_init
 	.thumb_func
-	.type sub_08002EB0, %function
-sub_08002EB0: @ 08002EB0
+	.type spr_init, %function
+spr_init: @ 08002EB0
 	push {lr}
 	ldr r1, _08002EF4
 	movs r0, #0x80
@@ -3737,11 +3737,11 @@ _08002EC4:
 	pop {r0}
 	bx r0
 _08002EF4:
-	.4byte 0x0201AA44
+	.4byte gSpriteFreeHead
 _08002EF8:
-	.4byte 0x0201AA48
+	.4byte gSpriteFreeCount
 _08002EFC:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08002F00:
 	.4byte 0x0201A834
 _08002F04:
@@ -3809,15 +3809,15 @@ _08002F70:
 _08002F74:
 	.4byte 0x00000100
 _08002F78:
-	.4byte 0x0201AA48
+	.4byte gSpriteFreeCount
 _08002F7C:
-	.4byte 0x0201AA44
+	.4byte gSpriteFreeHead
 _08002F80:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08002F84:
 	.4byte 0x0100000C
 _08002F88:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08002F8C:
 	add sp, #4
 	pop {r3, r4}
@@ -3838,10 +3838,10 @@ _08002FA8:
 _08002FAC:
 	.4byte gUnk_0804FD54
 
-	.global sub_08002FB0
+	.global spr_free_chain
 	.thumb_func
-	.type sub_08002FB0, %function
-sub_08002FB0: @ 08002FB0
+	.type spr_free_chain, %function
+spr_free_chain: @ 08002FB0
 	push {r4, r5, r6, lr}
 	ldr r6, _08002FD4
 	ldr r5, _08002FD8
@@ -3862,16 +3862,16 @@ _08002FBA:
 	bx r0
 	.byte 0x00, 0x00
 _08002FD4:
-	.4byte 0x0201AA48
+	.4byte gSpriteFreeCount
 _08002FD8:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08002FDC:
-	.4byte 0x0201AA44
+	.4byte gSpriteFreeHead
 
-	.global sub_08002FE0
+	.global spr_set_shadow_size
 	.thumb_func
-	.type sub_08002FE0, %function
-sub_08002FE0: @ 08002FE0
+	.type spr_set_shadow_size, %function
+spr_set_shadow_size: @ 08002FE0
 	push {r4, r5, lr}
 	movs r2, #0x18
 	muls r2, r0, r2
@@ -3903,14 +3903,14 @@ _08003008:
 	bx r0
 	.byte 0x00, 0x00
 _08003018:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800301C:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 
-	.global sub_08003020
+	.global spr_hide_shadow
 	.thumb_func
-	.type sub_08003020, %function
-sub_08003020: @ 08003020
+	.type spr_hide_shadow, %function
+spr_hide_shadow: @ 08003020
 	push {r4, r5, r6, r7, lr}
 	cmp r0, #0xff
 	beq _0800304E
@@ -3941,9 +3941,9 @@ _0800304E:
 	pop {r0}
 	bx r0
 _08003054:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08003058:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 
 	.global sub_0800305C
 	.thumb_func

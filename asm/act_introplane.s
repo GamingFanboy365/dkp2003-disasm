@@ -197,7 +197,7 @@ _0801329C:
 _080132A0:
 	.4byte 0xFFFFFF00
 _080132A4:
-	.4byte 0x02018F34
+	.4byte gSprites
 
 	.global init_intropilot
 	.thumb_func

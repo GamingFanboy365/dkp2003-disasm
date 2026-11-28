@@ -629,7 +629,7 @@ _080214FC:
 	add r1, r8
 	lsls r2, r3, #1
 	strh r2, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	subs r6, #1
 	adds r0, r4, #0
 	movs r1, #2
@@ -694,7 +694,7 @@ _080215A8:
 _080215AC:
 	.4byte gRacerObjects
 _080215B0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _080215B4:
 	.4byte gCharInfo
 _080215B8:

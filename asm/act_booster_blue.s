@@ -229,7 +229,7 @@ _08020C2C:
 	adds r4, r1, r3
 	ldr r1, _08020C88
 	strh r1, [r4, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	adds r4, r6, #0
 	adds r4, #0x9c
 	ldr r0, [r4]
@@ -258,7 +258,7 @@ _08020C88:
 _08020C8C:
 	.4byte 0x0202E430
 _08020C90:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08020C94:
 	b _08020BC0
 _08020C96:

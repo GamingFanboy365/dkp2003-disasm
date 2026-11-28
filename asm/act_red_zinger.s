@@ -37,7 +37,7 @@ _08029200:
 	ldr r3, _08029240
 	adds r6, r1, r3
 	strh r4, [r6, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	adds r1, r7, #0
 	adds r1, #0xa0
 	movs r5, #1
@@ -53,7 +53,7 @@ _08029200:
 _0802923C:
 	.4byte 0x00000001
 _08029240:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08029244:
 	mov r8, r2
 	mov sb, r3
@@ -230,7 +230,7 @@ _08029366:
 	ldr r2, _080296D4
 	bl _call_via_r2
 	ldrh r0, [r4]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r0, [sp, #0x44]
 	ldr r3, [r0]
 	cmp r3, #1
@@ -669,11 +669,11 @@ _0802970C:
 _08029710:
 	.4byte _03000814
 _08029714:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08029718:
 	.4byte 0x00007FFF
 _0802971C:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache
 _08029720:
 	ldr r3, [sp, #0x44]
 	ldr r2, [r3, #0xc]
@@ -1815,7 +1815,7 @@ _08029FDE:
 	b _08029F3C
 	.byte 0x00, 0x00
 _08029FF0:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08029FF4:
 	.4byte gBlueZingerBuzzOwner
 _08029FF8:
@@ -2182,7 +2182,7 @@ _0802A262:
 	ldr r1, _0802A490
 	bl _call_via_r1
 	ldrh r0, [r4]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	ldr r0, [sp, #0x14]
 	ldr r3, [r0]
 	cmp r3, #2
@@ -3148,8 +3148,8 @@ _0802AA2C:
 _0802AA30:
 	.4byte 0xFFFFF7FF
 _0802AA34:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0802AA38:
 	.4byte 0x00007FFF
 _0802AA3C:
-	.4byte 0x0201AA4C
+	.4byte gSpriteFrameCache

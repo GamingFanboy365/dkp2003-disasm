@@ -47,7 +47,7 @@ _0800F634:
 _0800F658:
 	.4byte 0x00000001
 _0800F65C:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800F660:
 	cmp r2, #1
 	beq _0800F68E

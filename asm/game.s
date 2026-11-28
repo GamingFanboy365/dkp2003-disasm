@@ -111,7 +111,7 @@ _08000568:
 _08000580:
 	bl race_setup_ovl_b
 _08000584:
-	bl sub_08002EB0
+	bl spr_init
 	bl sub_08002BCC
 	bl sub_08003288
 	ldr r3, _080005BC

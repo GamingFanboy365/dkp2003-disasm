@@ -8283,7 +8283,7 @@ _08008A68:
 _08008A74:
 	.4byte 0x00000000
 _08008A78:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08008A7C:
 	.4byte 0xFFFFFDFF
 _08008A80:
@@ -8877,9 +8877,9 @@ _08008EF8:
 _08008EFC:
 	.4byte 0x01000006
 _08008F00:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08008F04:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08008F08:
 	ldrb r0, [r4, r0]
 	cmp r0, #0xff
@@ -11341,9 +11341,9 @@ _0800A166:
 _0800A184:
 	.4byte 0x00000888
 _0800A188:
-	.4byte 0x02018F34
+	.4byte gSprites
 _0800A18C:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _0800A190:
 	.4byte gLocalPlayerIndex
 _0800A194:

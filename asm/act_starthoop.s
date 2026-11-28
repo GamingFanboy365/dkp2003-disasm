@@ -121,9 +121,9 @@ _08010B30:
 _08010B34:
 	.4byte gUnk_08713650
 _08010B38:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08010B3C:
-	.4byte 0x0201A734
+	.4byte gSpriteNext
 _08010B40:
 	adds r6, r2, #0
 	movs r0, #0xe

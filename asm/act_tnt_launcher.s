@@ -71,7 +71,7 @@ _080111D6:
 	adds r1, r3, r2
 	ldr r2, _08011218
 	strh r2, [r1, #0xa]
-	bl sub_08002FE0
+	bl spr_set_shadow_size
 	movs r1, #1
 	str r1, [r6, #8]
 	b _0801119C
@@ -94,7 +94,7 @@ _0801121C:
 _08011220:
 	.4byte gLocalPlayerIndex
 _08011224:
-	.4byte 0x02018F34
+	.4byte gSprites
 _08011228:
 	ldr r0, _08011240
 	ldr r1, _08011244
