@@ -43,7 +43,7 @@ Established from the code (the asserts name some of them):
 | `+0x04` | ptr | next object in a list (free list, process list) | `obj_reset_all`, `obj_new` |
 | `+0x24`, `+0x28`, `+0x2C` | s32 | position x, y, z, with 8 fraction bits | `obj_spawn_level_object` stores the object list's x, y, z shifted left by 8 |
 | `+0x3C`, `+0x40`, `+0x44` | s32 | velocity x, y, z | `ai_update` writes them from `sin_fx`/`cos_fx` |
-| `+0x54` | s32 | heading in the top 16 bits (16-bit angle) | used to steer the racer in `tools/emu/auto.py` |
+| `+0x54` | s32 | heading in the top 16 bits (16-bit angle) | `tools/emu/repro_zinger_buzz.py` reads it to steer the player |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
 | `+0xA0` | u32 | racer flags; bit 0 = holds a weapon | the zinger-buzz reproduction |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |
