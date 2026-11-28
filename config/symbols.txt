@@ -296,3 +296,148 @@
 0x08014580 fe_boot_process
 0x08000460 vblank_handler           # installed in gIrqHandler by most screens; counts frames, runs the audio update
 0x0801E5A4 mcp_process              # (token): a screen has finished; picks the next state from gMcpState and starts its screen (tools/mcp_map.py)
+
+# newlib / libgloss (arm/syscalls.c): identified from the ARM semihosting
+# operation numbers (svc 0xab), the function order of syscalls.c and the calls
+# between them
+0x0803652C findslot
+0x0803654C remap_handle
+0x08036598 initialise_monitor_handles  # opens stdin/stdout (SYS_OPEN)
+0x0803660C get_errno                # SYS_ERRNO
+0x08036624 error
+0x0803663C wrap
+0x08036658 _swiread                 # SYS_READ
+0x08036680 _read
+0x080366CC _swilseek                # SYS_FLEN, SYS_SEEK
+0x08036754 _lseek
+0x08036764 _swiwrite                # SYS_WRITE
+0x0803678C _write
+0x080367DC _swiopen                 # SYS_OPEN
+0x08036882 _open
+0x08036894 _swiclose                # SYS_CLOSE
+0x080368CC _close
+0x08036920 _sbrk                    # "Heap and stack collision"
+0x08036960 _fstat                   # st_mode = S_IFCHR
+0x08036978 _gettimeofday            # SYS_TIME
+0x080369A8 _times                   # SYS_CLOCK
+0x08036ACC semihost_exit            # SYS_EXIT, reason 0x20022
+0x080364E4 strlen                   # _swiopen's path length
+0x08036A90 __errno
+# newlib reentrant wrappers (libc/reent): errno = 0; call; copy errno back
+0x080369D0 _write_r
+0x08036A60 _close_r
+0x08036A9C _fstat_r
+0x08036AF4 _lseek_r
+0x08036B28 _read_r
+0x08036A04 _calloc_r                # n * size, _malloc_r, clear
+0x08035470 _malloc_r
+0x08036B5C _call_via_r0
+# newlib stdio / printf (vsprintf -> vfprintf -> _vfprintf_r), by call graph
+0x08032AC4 vfprintf
+0x08032ADC _vfprintf_r              # 3.8 KB; calls cvt, exponent, __sprint, __swsetup, localeconv
+0x08032A28 __sprint                 # -> __sfvwrite
+0x08032A4C __sbprintf               # -> vfprintf, fflush
+0x08033A40 cvt                      # vfprintf's float conversion -> _dtoa_r
+0x08033B38 exponent                 # uses __divsi3 / __modsi3 by 10
+0x08033BAC __swsetup                # -> __sinit, __smakebuf
+0x08033DBC _dtoa_r                  # 3.3 KB; mprec + soft-float double ops
+0x08034AB8 fflush                   # -> _fwalk, __sinit, fp->_write
+0x08034B50 std                      # FILE setup for __sinit
+0x08034B8C __sfmoreglue             # _malloc_r + memset
+0x08034BC0 __sfp
+0x08034C38 _cleanup_r               # -> _fwalk
+0x08034C48 _cleanup
+0x08034C5C __sinit
+0x08034F48 __sfvwrite               # -> __swsetup, memmove, memchr, fflush
+0x08035178 _fwalk
+0x080351BC _setlocale_r             # -> strcmp
+0x080351FC _localeconv_r
+0x08035204 setlocale
+0x0803521C localeconv
+0x08035230 __smakebuf               # _fstat_r, _malloc_r, isatty
+0x08036AEC isatty                   # returns 1
+0x080363B0 __sread                  # -> _read_r
+0x080363E8 __swrite                 # -> _lseek_r, _write_r
+0x0803642C __sseek
+0x08036470 __sclose
+# malloc
+0x08034CC0 _free_r                  # -> __malloc_lock/unlock, _malloc_trim_r
+0x08034E84 _malloc_trim_r           # -> _sbrk_r
+0x08035310 malloc_extend_top        # -> _sbrk_r, _free_r
+0x08035A2C __malloc_lock            # empty
+0x08035A30 __malloc_unlock          # empty
+0x08036380 _sbrk_r
+# string / memory (word-at-a-time when aligned)
+0x080358E4 memcpy
+0x08035948 memmove
+0x08035860 memchr
+0x080359D4 memset
+0x08036484 strcmp
+# mprec (for _dtoa_r), in mprec.c order
+0x08035A34 _Balloc                  # -> _calloc_r
+0x08035A90 _Bfree
+0x08035AA8 __multadd
+0x08035B44 __s2b
+0x08035BCC __hi0bits
+0x08035C24 __lo0bits
+0x08035CA8 __i2b
+0x08035CC0 __multiply
+0x08035E30 __pow5mult
+0x08035ECC __lshift
+0x08035F70 __mcmp
+0x08035FB4 __mdiff
+0x080360A8 __ulp
+0x080360F8 __b2d
+0x080361B8 __d2b
+0x080362A4 __ratio
+0x080362F8 _mprec_log10
+0x0803633C isinf
+0x08036360 isnan
+# libgcc: integer division (lib1funcs.asm) and 64-bit multiply
+0x08036B98 __divsi3                 # quotient sign = sign(a) ^ sign(b)
+0x08036C2C __div0
+0x08036C30 __modsi3
+0x08036D00 __muldi3                 # used by __muldf3 / __mulsf3
+0x08036D74 __umodsi3                # remainder fix-up at the end
+# libgcc soft float (fp-bit.c), double then single; the compares return
+# 1,1,-1,-1,1,1 for NaN = eq, ne, gt, ge, lt, le
+0x08036E34 __pack_d
+0x08036F80 __unpack_d
+0x0803705C _fpadd_parts
+0x080372CC __adddf3
+0x08037300 __subdf3
+0x0803733C __muldf3
+0x080375E8 __divdf3
+0x08037774 __fpcmp_parts_d
+0x08037878 __cmpdf2
+0x080378A8 __eqdf2
+0x080378F8 __nedf2
+0x08037948 __gtdf2
+0x08037998 __gedf2
+0x080379E8 __ltdf2
+0x08037A38 __ledf2
+0x08037A88 __floatsidf
+0x08037B08 __fixdfsi
+0x08037B7C __negdf2
+0x08037BA6 __make_dp
+0x08037BCC __truncdfsf2
+0x08037C14 __pack_f
+0x08037CD0 __unpack_f
+0x08037D50 _fpadd_parts_f
+0x08037ED0 __addsf3
+0x08037F00 __subsf3
+0x08037F38 __mulsf3
+0x080380A0 __divsf3
+0x08038190 __fpcmp_parts_f
+0x08038278 __cmpsf2
+0x080382A4 __eqsf2
+0x080382F0 __nesf2
+0x0803833C __gtsf2
+0x08038388 __gesf2
+0x080383D4 __ltsf2
+0x08038420 __lesf2
+0x0803846C __floatsisf
+0x080384CC __fixsfsi
+0x08038538 __negsf2
+0x08038560 __make_fp
+0x08038578 __extendsfdf2

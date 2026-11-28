@@ -443,7 +443,7 @@ _08028D46:
 _08028D4C:
 	bl sub_08000B14
 	movs r1, #7
-	bl sub_08036D74
+	bl __umodsi3
 	adds r0, #1
 	str r0, [r7, #0x14]
 	cmp r0, r4

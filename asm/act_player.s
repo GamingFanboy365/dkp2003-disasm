@@ -9245,7 +9245,7 @@ _080091AA:
 _080091B0:
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r4, r0, #0
 	adds r0, r7, #0
 	bl sub_08008FF8
@@ -9313,7 +9313,7 @@ _08009232:
 	bl gamesfx_stop
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r4, r0, #0
 	adds r0, r7, #0
 	bl sub_08008FF8
@@ -9765,7 +9765,7 @@ _08009592:
 _0800959A:
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r6, r0, #0
 	adds r0, r5, #0
 	bl sub_08008FF8
@@ -9816,7 +9816,7 @@ _080095FA:
 	bl gamesfx_stop
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r6, r0, #0
 	adds r0, r5, #0
 	bl sub_08008FF8

@@ -661,7 +661,7 @@ _080046A6:
 	adds r2, r5, #0
 	ldr r0, [sp]
 	ldr r1, [sp, #4]
-	bl sub_08036D00
+	bl __muldi3
 	adds r3, r7, #0
 	adds r3, #0x30
 	mov r4, r8
@@ -674,7 +674,7 @@ _080046A6:
 	adcs r1, r4
 	adds r3, r6, #0
 	adds r2, r5, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r3, r7, #0
 	adds r3, #0x18
 	mov r4, r8
@@ -687,7 +687,7 @@ _080046A6:
 	adcs r1, r4
 	adds r3, r6, #0
 	adds r2, r5, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r3, r1, #0
 	asrs r4, r1, #0x1f
 	str r3, [sp]

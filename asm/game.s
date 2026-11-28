@@ -718,7 +718,7 @@ _08000A48:
 	ldr r2, _08000A84
 	bl _call_via_r2
 	ldr r0, _08000A88
-	bl sub_08036B5C
+	bl _call_via_r0
 _08000A54:
 	bl sub_08000444
 	pop {r4}

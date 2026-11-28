@@ -54,13 +54,12 @@ Summary
       functions: fe_credits_process, fe_credits_init
       strings: "%s: setup logo\n", "fe_credits_init"
 
-  sub_08037BCC: 21 function(s), 0 data block(s), 2524 bytes
+  __truncdfsf2: 21 function(s), 0 data block(s), 2524 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08037BCC, sub_08037C14, sub_08037CD0, sub_08037D50,
-      sub_08037ED0, sub_08037F00, sub_08037F38, sub_080380A0, sub_08038190,
-      sub_08038278, sub_080382A4, sub_080382F0, sub_0803833C, sub_08038388,
-      sub_080383D4, sub_08038420, sub_0803846C, sub_080384CC, sub_08038538,
-      sub_08038560, sub_08038578
+      functions: __truncdfsf2, __pack_f, __unpack_f, _fpadd_parts_f,
+      __addsf3, __subsf3, __mulsf3, __divsf3, __fpcmp_parts_f, __cmpsf2,
+      __eqsf2, __nesf2, __gtsf2, __gesf2, __ltsf2, __lesf2, __floatsisf,
+      __fixsfsi, __negsf2, __make_fp, __extendsfdf2
 
   level 25: 0 function(s), 1 data block(s), 1536 bytes
       follows level 25's palette; several other level palettes are followed
@@ -89,9 +88,9 @@ Summary
       strings: "o != NULL", "src/act_banana.c", "init_banana", "ASSERTION
       FAILED FILE=[%s] FUNC=[%s] ...", "t != NULL", "react_banana"
 
-  sub_080360F8: 2 function(s), 0 data block(s), 276 bytes
+  __b2d: 2 function(s), 0 data block(s), 276 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080360F8, sub_080362A4
+      functions: __b2d, __ratio
 
   sub_08002D7C: 1 function(s), 0 data block(s), 252 bytes
       functions: sub_08002D7C
@@ -100,13 +99,13 @@ Summary
       functions: sub_0800213C
       strings: "OV_FLAGS(o) & OF_ACT"
 
-  sub_080351BC: 3 function(s), 1 data block(s), 188 bytes
+  _setlocale_r: 3 function(s), 1 data block(s), 188 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080351BC, sub_08035204, sub_08036484
+      functions: _setlocale_r, setlocale, strcmp
 
-  sub_080367DC: 2 function(s), 0 data block(s), 184 bytes
+  _swiopen: 2 function(s), 0 data block(s), 184 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080367DC, sub_08036882
+      functions: _swiopen, _open
 
   AGBAssert: 1 function(s), 2 data block(s), 180 bytes
       Nintendo's AGBAssert; the game prints asserts with its own code
@@ -114,9 +113,9 @@ Summary
       strings: "ASSERTION FAILED  FILE=[%s] LINE=[%d]...", "WARING FILE=[%s]
       LINE=[%d]  EXP=[%s] \n"
 
-  sub_08034B8C: 2 function(s), 0 data block(s), 172 bytes
+  __sfmoreglue: 2 function(s), 0 data block(s), 172 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08034B8C, sub_08034BC0
+      functions: __sfmoreglue, __sfp
 
   act_null: 1 function(s), 4 data block(s), 156 bytes
       a "null" actor; no class table entry points to it
@@ -132,16 +131,16 @@ Summary
   sub_08025CCC: 1 function(s), 0 data block(s), 140 bytes
       functions: sub_08025CCC
 
-  sub_08035B44: 1 function(s), 0 data block(s), 136 bytes
+  __s2b: 1 function(s), 0 data block(s), 136 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08035B44
+      functions: __s2b
 
   sub_08018BB4: 1 function(s), 0 data block(s), 136 bytes
       functions: sub_08018BB4
 
-  sub_08036598: 1 function(s), 1 data block(s), 120 bytes
+  initialise_monitor_handles: 1 function(s), 1 data block(s), 120 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08036598
+      functions: initialise_monitor_handles
       strings: ":tt"
 
   sub_08000A9C: 1 function(s), 0 data block(s), 120 bytes
@@ -168,13 +167,13 @@ Summary
   sub_0801BE84: 1 function(s), 0 data block(s), 92 bytes
       functions: sub_0801BE84
 
-  sub_080360A8: 1 function(s), 0 data block(s), 80 bytes
+  __ulp: 1 function(s), 0 data block(s), 80 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080360A8
+      functions: __ulp
 
-  sub_08037998: 1 function(s), 0 data block(s), 80 bytes
+  __gedf2: 1 function(s), 0 data block(s), 80 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08037998
+      functions: __gedf2
 
   sub_08013258: 1 function(s), 0 data block(s), 80 bytes
       functions: sub_08013258
@@ -182,21 +181,21 @@ Summary
   sub_08004B34: 1 function(s), 0 data block(s), 72 bytes
       functions: sub_08004B34
 
-  sub_080362F8: 1 function(s), 0 data block(s), 68 bytes
+  _mprec_log10: 1 function(s), 0 data block(s), 68 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080362F8
+      functions: _mprec_log10
 
   sub_080329B0: 1 function(s), 0 data block(s), 64 bytes
       newlib (libc) code that was linked in but is never called
       functions: sub_080329B0
 
-  sub_08037878: 1 function(s), 0 data block(s), 48 bytes
+  __cmpdf2: 1 function(s), 0 data block(s), 48 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08037878
+      functions: __cmpdf2
 
-  sub_08036978: 1 function(s), 0 data block(s), 48 bytes
+  _gettimeofday: 1 function(s), 0 data block(s), 48 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08036978
+      functions: _gettimeofday
 
   sub_0802F0AE: 1 function(s), 0 data block(s), 44 bytes
       functions: sub_0802F0AE
@@ -204,20 +203,20 @@ Summary
   sub_08004454: 1 function(s), 0 data block(s), 40 bytes
       functions: sub_08004454
 
-  sub_080369A8: 1 function(s), 0 data block(s), 40 bytes
+  _times: 1 function(s), 0 data block(s), 40 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080369A8
+      functions: _times
 
-  sub_08037BA6: 1 function(s), 0 data block(s), 38 bytes
+  __make_dp: 1 function(s), 0 data block(s), 38 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08037BA6
+      functions: __make_dp
 
   sub_080044AC: 1 function(s), 0 data block(s), 36 bytes
       functions: sub_080044AC
 
-  sub_08034C48: 1 function(s), 0 data block(s), 20 bytes
+  _cleanup: 1 function(s), 0 data block(s), 20 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_08034C48
+      functions: _cleanup
 
   sub_08000A90: 1 function(s), 0 data block(s), 12 bytes
       functions: sub_08000A90
@@ -302,46 +301,46 @@ Summary
   0802F0AE      44  audio.s                  sub_0802F0AE
   08032598      68  libagbprint.s            AGBAssert
   080329B0      64  libc.s                   sub_080329B0
-  08034B8C      52  libc.s                   sub_08034B8C
-  08034BC0     120  libc.s                   sub_08034BC0
-  08034C48      20  libc.s                   sub_08034C48
-  080351BC      64  libc.s                   sub_080351BC
-  08035204      24  libc.s                   sub_08035204
-  08035B44     136  libc.s                   sub_08035B44
-  080360A8      80  libc.s                   sub_080360A8
-  080360F8     192  libc.s                   sub_080360F8
-  080362A4      84  libc.s                   sub_080362A4
-  080362F8      68  libc.s                   sub_080362F8
-  08036484      96  libc.s                   sub_08036484
-  08036598     116  libc.s                   sub_08036598
-  080367DC     166  libc.s                   sub_080367DC
-  08036882      18  libc.s                   sub_08036882
-  08036978      48  libc.s                   sub_08036978
-  080369A8      40  libc.s                   sub_080369A8
-  08037878      48  libc.s                   sub_08037878
-  08037998      80  libc.s                   sub_08037998
-  08037BA6      38  libc.s                   sub_08037BA6
-  08037BCC      72  libc.s                   sub_08037BCC
-  08037C14     188  libc.s                   sub_08037C14
-  08037CD0     128  libc.s                   sub_08037CD0
-  08037D50     384  libc.s                   sub_08037D50
-  08037ED0      48  libc.s                   sub_08037ED0
-  08037F00      56  libc.s                   sub_08037F00
-  08037F38     360  libc.s                   sub_08037F38
-  080380A0     240  libc.s                   sub_080380A0
-  08038190     232  libc.s                   sub_08038190
-  08038278      44  libc.s                   sub_08038278
-  080382A4      76  libc.s                   sub_080382A4
-  080382F0      76  libc.s                   sub_080382F0
-  0803833C      76  libc.s                   sub_0803833C
-  08038388      76  libc.s                   sub_08038388
-  080383D4      76  libc.s                   sub_080383D4
-  08038420      76  libc.s                   sub_08038420
-  0803846C      96  libc.s                   sub_0803846C
-  080384CC     108  libc.s                   sub_080384CC
-  08038538      40  libc.s                   sub_08038538
-  08038560      24  libc.s                   sub_08038560
-  08038578      48  libc.s                   sub_08038578
+  08034B8C      52  libc.s                   __sfmoreglue
+  08034BC0     120  libc.s                   __sfp
+  08034C48      20  libc.s                   _cleanup
+  080351BC      64  libc.s                   _setlocale_r
+  08035204      24  libc.s                   setlocale
+  08035B44     136  libc.s                   __s2b
+  080360A8      80  libc.s                   __ulp
+  080360F8     192  libc.s                   __b2d
+  080362A4      84  libc.s                   __ratio
+  080362F8      68  libc.s                   _mprec_log10
+  08036484      96  libc.s                   strcmp
+  08036598     116  libc.s                   initialise_monitor_handles
+  080367DC     166  libc.s                   _swiopen
+  08036882      18  libc.s                   _open
+  08036978      48  libc.s                   _gettimeofday
+  080369A8      40  libc.s                   _times
+  08037878      48  libc.s                   __cmpdf2
+  08037998      80  libc.s                   __gedf2
+  08037BA6      38  libc.s                   __make_dp
+  08037BCC      72  libc.s                   __truncdfsf2
+  08037C14     188  libc.s                   __pack_f
+  08037CD0     128  libc.s                   __unpack_f
+  08037D50     384  libc.s                   _fpadd_parts_f
+  08037ED0      48  libc.s                   __addsf3
+  08037F00      56  libc.s                   __subsf3
+  08037F38     360  libc.s                   __mulsf3
+  080380A0     240  libc.s                   __divsf3
+  08038190     232  libc.s                   __fpcmp_parts_f
+  08038278      44  libc.s                   __cmpsf2
+  080382A4      76  libc.s                   __eqsf2
+  080382F0      76  libc.s                   __nesf2
+  0803833C      76  libc.s                   __gtsf2
+  08038388      76  libc.s                   __gesf2
+  080383D4      76  libc.s                   __ltsf2
+  08038420      76  libc.s                   __lesf2
+  0803846C      96  libc.s                   __floatsisf
+  080384CC     108  libc.s                   __fixsfsi
+  08038538      40  libc.s                   __negsf2
+  08038560      24  libc.s                   __make_fp
+  08038578      48  libc.s                   __extendsfdf2
   0300083C      92  iwram.s                  sub_0300083C
 
 4. Data never referenced

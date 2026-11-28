@@ -1950,7 +1950,7 @@ _08025518:
 	ldr r0, [r4]
 	movs r1, #0x16
 	adds r0, #2
-	bl sub_08036C30
+	bl __modsi3
 	str r0, [r4]
 	b _0802514C
 _08025532:

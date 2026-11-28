@@ -942,7 +942,7 @@ sub_080036BC: @ 080036BC
 	movs r2, #0x80
 	lsls r0, r2, #9
 	sub sp, #0x14
-	bl sub_08036B98
+	bl __divsi3
 	str r0, [r5, #0x50]
 	mov r3, sl
 	movs r1, #0x87

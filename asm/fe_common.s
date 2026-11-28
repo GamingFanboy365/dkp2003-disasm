@@ -438,13 +438,13 @@ _080190E0:
 	mov r1, sl
 	adds r0, r2, #0
 	mov r8, r3
-	bl sub_08036B98
+	bl __divsi3
 	mov r4, r8
 	lsls r5, r5, #0xa
 	str r0, [r7, r4]
 	mov r1, sl
 	adds r0, r5, #0
-	bl sub_08036B98
+	bl __divsi3
 	adds r6, #0x28
 	str r0, [r7, r6]
 	ldr r3, _080191AC
@@ -4565,7 +4565,7 @@ _0801B006:
 	mov r1, sl
 	adds r0, r2, #0
 	muls r0, r2, r0
-	bl sub_08036B98
+	bl __divsi3
 	mov r2, sl
 	adds r6, r0, #0
 	subs r1, r2, r6
@@ -4582,7 +4582,7 @@ _0801B006:
 	mov r0, r8
 	mov r1, sl
 	add r0, fp
-	bl sub_08036B98
+	bl __divsi3
 	adds r2, r7, r0
 	mov r0, sb
 	muls r0, r5, r0
@@ -4591,7 +4591,7 @@ _0801B006:
 	subs r0, r4, r5
 	mov r1, sl
 	str r2, [sp, #0xc]
-	bl sub_08036B98
+	bl __divsi3
 	ldr r1, [sp]
 	adds r3, r1, r0
 	str r3, [sp, #0x10]
@@ -4601,13 +4601,13 @@ _0801B006:
 	mov r8, r3
 	mov r1, sl
 	mov r0, r8
-	bl sub_08036B98
+	bl __divsi3
 	adds r4, r4, r5
 	adds r1, r7, r0
 	str r1, [sp, #0x14]
 	adds r0, r4, #0
 	mov r1, sl
-	bl sub_08036B98
+	bl __divsi3
 	ldr r2, [sp]
 	adds r1, r2, r0
 	str r1, [sp, #0x18]
@@ -5385,7 +5385,7 @@ _0801B65A:
 	ldr r2, _0801B924
 	movs r1, #0x3c
 	ldr r0, [r2]
-	bl sub_08036D74
+	bl __umodsi3
 	cmp r0, #0x1d
 	bhi _0801B6A8
 	ldr r3, [r6, #0x14]
@@ -8552,7 +8552,7 @@ fe_movie_process: @ 0801CE80
 	ldr r0, _0801CEBC
 	strh r0, [r4]
 	ldr r0, _0801CEC8
-	bl sub_08036B5C
+	bl _call_via_r0
 	ldr r4, _0801CECC
 	ldr r3, [r4]
 	cmp r3, #6

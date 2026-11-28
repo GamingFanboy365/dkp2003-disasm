@@ -150,7 +150,7 @@ fe_boot_process: @ 08014580
 	str r1, [r4]
 	strh r2, [r0]
 	ldr r0, _080145CC
-	bl sub_08036B5C
+	bl _call_via_r0
 	ldr r0, [r4]
 	movs r3, #0x80
 	lsls r1, r3, #4

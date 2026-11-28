@@ -2377,7 +2377,7 @@ _080024F4:
 _08002508:
 	movs r1, #0xa
 	adds r0, r4, #0
-	bl sub_08036B98
+	bl __divsi3
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08002598
@@ -2386,7 +2386,7 @@ _08002508:
 _0800251C:
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	adds r0, #0x30
 	lsls r4, r0, #0x18
 	lsrs r0, r4, #0x18
@@ -3196,7 +3196,7 @@ _08002AF2:
 	ble _08002B0A
 	movs r1, #0xa
 	adds r0, r5, #0
-	bl sub_08036B98
+	bl __divsi3
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08002B22
@@ -3205,7 +3205,7 @@ _08002AF2:
 _08002B0A:
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	adds r0, #0x30
 	lsls r3, r0, #0x18
 	lsrs r0, r3, #0x18

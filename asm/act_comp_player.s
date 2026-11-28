@@ -6968,7 +6968,7 @@ _0800DFFE:
 _0800E002:
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r5, r0, #0
 	adds r0, r6, #0
 	bl sub_0800DD5C
@@ -7012,7 +7012,7 @@ _0800E056:
 	bl gamesfx_stop
 	bl sub_08000B14
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r5, r0, #0
 	adds r0, r6, #0
 	bl sub_0800DD5C

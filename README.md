@@ -179,7 +179,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-879 functions are disassembled and 241 have real names:
+900 functions are disassembled and 411 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -187,7 +187,15 @@ print through AGBPrint and then hit an undefined-instruction trap
 * the remaining `act_*`/`react_*`/`free_*` handlers come from the object class
   table at `0x08713FD0` (`tools/class_table.py`);
 * the rest were identified by hand: the `gamesfx_*` sound API, the
-  engine-sound state machines, zinger functions, and libgcc `_call_via_rN`.
+  engine-sound state machines, zinger functions, the debug menu, the
+  front-end screens' `*_process` functions and their flow controller
+  `mcp_process`;
+* the C runtime: newlib's semihosting layer (`_read`, `_write`, `_sbrk`, …)
+  from the ARM semihosting operation numbers; stdio, `printf`, `_dtoa_r`,
+  malloc and the string functions from the call graph; and libgcc's integer
+  division and software floating point (`fp-bit.c`). The compare functions
+  confirm the order: they return 1, 1, −1, −1, 1, 1 for NaN, which is
+  `eq, ne, gt, ge, lt, le`.
 
 The rest are `sub_XXXXXXXX`.
 

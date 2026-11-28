@@ -1078,14 +1078,14 @@ sub_08018700: @ 08018700
 	ble _0801873E
 	movs r1, #0xa
 	adds r0, r6, #0
-	bl sub_08036B98
+	bl __divsi3
 	adds r1, r0, #0
 	adds r0, r5, #0
 	bl sub_08018700
 	movs r1, #0xa
 	adds r5, r0, #0
 	adds r0, r6, #0
-	bl sub_08036C30
+	bl __modsi3
 	mov r4, r8
 	subs r4, #4
 	ldr r2, [r4]
@@ -1136,7 +1136,7 @@ sub_08018750: @ 08018750
 	ble _080187AC
 	movs r1, #0xa
 	adds r0, r6, #0
-	bl sub_08036B98
+	bl __divsi3
 	add r3, sp, #8
 	adds r1, r0, #0
 	mov sb, r3
@@ -1145,7 +1145,7 @@ sub_08018750: @ 08018750
 	movs r1, #0xa
 	adds r4, r0, #0
 	adds r0, r6, #0
-	bl sub_08036C30
+	bl __modsi3
 	ldr r2, [sp, #4]
 	ldrb r5, [r2, r0]
 	strb r5, [r4]
@@ -1199,22 +1199,22 @@ sub_080187D0: @ 080187D0
 	adds r6, r0, #0
 	movs r1, #0x3c
 	adds r0, r4, #0
-	bl sub_08036C30
+	bl __modsi3
 	movs r1, #0x64
 	muls r0, r1, r0
 	movs r1, #0x3c
-	bl sub_08036B98
+	bl __divsi3
 	movs r1, #0x3c
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_08036B98
+	bl __divsi3
 	movs r1, #0x3c
-	bl sub_08036C30
+	bl __modsi3
 	movs r2, #0xe1
 	adds r7, r0, #0
 	lsls r1, r2, #4
 	adds r0, r4, #0
-	bl sub_08036B98
+	bl __divsi3
 	adds r4, r0, #0
 	adds r6, #0x1a
 	cmp r4, #0
@@ -1224,12 +1224,12 @@ _08018830:
 	ble _080188A2
 	movs r1, #0xa
 	adds r0, r4, #0
-	bl sub_08036B98
+	bl __divsi3
 	ldrb r1, [r6, r0]
 	adds r0, r4, #0
 	strb r1, [r5]
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	ldrb r2, [r6, r0]
 	adds r5, #1
 	strb r2, [r5]
@@ -1241,12 +1241,12 @@ _0801884E:
 _08018856:
 	adds r0, r7, #0
 	movs r1, #0xa
-	bl sub_08036B98
+	bl __divsi3
 	ldrb r1, [r6, r0]
 	adds r0, r7, #0
 	strb r1, [r5]
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	ldrb r2, [r6, r0]
 	adds r5, #1
 	strb r2, [r5]
@@ -1255,13 +1255,13 @@ _08018856:
 	strb r0, [r5]
 	movs r1, #0xa
 	mov r0, sl
-	bl sub_08036B98
+	bl __divsi3
 	ldrb r1, [r6, r0]
 	adds r5, #1
 	strb r1, [r5]
 	mov r0, sl
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	ldrb r2, [r6, r0]
 	adds r5, #1
 	movs r1, #0x4e

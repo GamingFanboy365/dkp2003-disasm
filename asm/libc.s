@@ -626,7 +626,7 @@ vsprintf: @ 080329F0
 	ldr r0, [r0]
 	str r0, [sp, #0x54]
 	mov r0, sp
-	bl sub_08032AC4
+	bl vfprintf
 	ldr r1, [sp]
 	strb r5, [r1]
 	add sp, #0x58
@@ -638,17 +638,17 @@ _08032A20:
 _08032A24:
 	.4byte gUnk_08BB5284
 
-	.global sub_08032A28
+	.global __sprint
 	.thumb_func
-	.type sub_08032A28, %function
-sub_08032A28: @ 08032A28
+	.type __sprint, %function
+__sprint: @ 08032A28
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r1, [r4, #8]
 	cmp r1, #0
 	beq _08032A40
 	adds r1, r4, #0
-	bl sub_08034F48
+	bl __sfvwrite
 	movs r1, #0
 	str r1, [r4, #8]
 	str r1, [r4, #4]
@@ -662,10 +662,10 @@ _08032A44:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08032A4C
+	.global __sbprintf
 	.thumb_func
-	.type sub_08032A4C, %function
-sub_08032A4C: @ 08032A4C
+	.type __sbprintf, %function
+__sbprintf: @ 08032A4C
 	push {r4, r5, lr}
 	ldr r4, _08032AC0
 	add sp, r4
@@ -694,12 +694,12 @@ sub_08032A4C: @ 08032A4C
 	str r0, [sp, #0x14]
 	str r4, [sp, #0x18]
 	mov r0, sp
-	bl sub_08032AC4
+	bl vfprintf
 	adds r4, r0, #0
 	cmp r4, #0
 	blt _08032A9C
 	mov r0, sp
-	bl sub_08034AB8
+	bl fflush
 	cmp r0, #0
 	beq _08032A9C
 	movs r4, #1
@@ -727,10 +727,10 @@ _08032AB0:
 _08032AC0:
 	.4byte 0xFFFFFBA8
 
-	.global sub_08032AC4
+	.global vfprintf
 	.thumb_func
-	.type sub_08032AC4, %function
-sub_08032AC4: @ 08032AC4
+	.type vfprintf, %function
+vfprintf: @ 08032AC4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
@@ -738,15 +738,15 @@ sub_08032AC4: @ 08032AC4
 	ldr r0, [r4, #0x54]
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_08032ADC
+	bl _vfprintf_r
 	pop {r4, r5}
 	pop {r1}
 	bx r1
 
-	.global sub_08032ADC
+	.global _vfprintf_r
 	.thumb_func
-	.type sub_08032ADC, %function
-sub_08032ADC: @ 08032ADC
+	.type _vfprintf_r, %function
+_vfprintf_r: @ 08032ADC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -758,7 +758,7 @@ sub_08032ADC: @ 08032ADC
 	str r1, [sp, #0x1e0]
 	adds r4, r2, #0
 	mov sl, r3
-	bl sub_0803521C
+	bl localeconv
 	ldr r0, [r0]
 	str r0, [sp, #0x1f8]
 	movs r1, #0
@@ -778,7 +778,7 @@ _08032B0E:
 	cmp r0, #0
 	bne _08032B1E
 	adds r0, r1, #0
-	bl sub_08034C5C
+	bl __sinit
 _08032B1E:
 	movs r0, #8
 	ldr r1, [sp, #0x1e0]
@@ -792,7 +792,7 @@ _08032B1E:
 	bne _08032B4C
 _08032B32:
 	ldr r0, [sp, #0x1e0]
-	bl sub_08033BAC
+	bl __swsetup
 	cmp r0, #0
 	beq _08032B4C
 	movs r0, #1
@@ -817,7 +817,7 @@ _08032B4C:
 	adds r0, r2, #0
 	adds r1, r4, #0
 	mov r2, sl
-	bl sub_08032A4C
+	bl __sbprintf
 	bl sub_08033A2C
 _08032B70:
 	str r4, [sp, #0x1e4]
@@ -883,7 +883,7 @@ _08032BC6:
 	cmp r0, #7
 	ble _08032BF8
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08032BF6
 	bl sub_08033A18
@@ -1288,14 +1288,14 @@ _08032F38:
 	str r2, [sp, #0x200]
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
-	bl sub_0803633C
+	bl isinf
 	cmp r0, #0
 	beq _08032F8C
 	ldr r3, _08032F80
 	ldr r2, _08032F7C
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _08032F72
 	ldr r1, _08032F84
@@ -1319,7 +1319,7 @@ _08032F88:
 _08032F8C:
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
-	bl sub_08036360
+	bl isnan
 	cmp r0, #0
 	beq _08032FA4
 	ldr r4, _08032FA0
@@ -1347,7 +1347,7 @@ _08032FA4:
 	ldr r1, [sp, #0x1fc]
 	ldr r2, [sp, #0x200]
 	adds r3, r6, #0
-	bl sub_08033A40
+	bl cvt
 	mov r8, r0
 	ldr r4, [sp, #0x1e8]
 	cmp r4, #0x67
@@ -1385,7 +1385,7 @@ _08032FFA:
 	str r1, [r0]
 	add r0, sp, #0x14
 	ldr r2, [sp, #0x1e8]
-	bl sub_08033B38
+	bl exponent
 	str r0, [sp, #0x204]
 	add r0, sp, #0x1d8
 	ldr r0, [r0]
@@ -1566,7 +1566,7 @@ _0803313C:
 	mov r0, r8
 	movs r1, #0
 	adds r2, r6, #0
-	bl sub_08035860
+	bl memchr
 	cmp r0, #0
 	beq _08033158
 	mov r1, r8
@@ -1581,7 +1581,7 @@ _0803315C:
 	.4byte gUnk_0884CD70
 _08033160:
 	mov r0, r8
-	bl sub_080364E4
+	bl strlen
 	adds r3, r0, #0
 	b _080332FA
 	.global _0803316A
@@ -1705,7 +1705,7 @@ _08033224:
 	ldr r2, _08033244
 	mov r8, r2
 	mov r0, r8
-	bl sub_080364E4
+	bl strlen
 	adds r3, r0, #0
 	b _08033302
 	.byte 0x00, 0x00
@@ -1755,7 +1755,7 @@ _0803328A:
 	add r8, r2
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_08036D74
+	bl __umodsi3
 	adds r0, #0x30
 	mov r1, r8
 	strb r0, [r1]
@@ -1879,7 +1879,7 @@ _08033354:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _0803337E
@@ -1909,7 +1909,7 @@ _0803338C:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _080333B6
@@ -1970,7 +1970,7 @@ _080333EC:
 	ldr r0, [sp, #0x1e0]
 _0803341C:
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _0803342A
@@ -2008,7 +2008,7 @@ _08033448:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _08033472
@@ -2036,7 +2036,7 @@ _0803347C:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _080334A6
@@ -2068,7 +2068,7 @@ _080334B8:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _080334E2
@@ -2095,7 +2095,7 @@ _080334EC:
 	ble _08033516
 	ldr r0, [sp, #0x1e0]
 	str r3, [sp, #0x21c]
-	bl sub_08032A28
+	bl __sprint
 	ldr r3, [sp, #0x21c]
 	cmp r0, #0
 	beq _08033514
@@ -2139,7 +2139,7 @@ _08033550:
 	ldr r2, _08033618
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
-	bl sub_080378A8
+	bl __eqdf2
 	cmp r0, #0
 	bne _08033628
 	ldr r0, _08033620
@@ -2158,7 +2158,7 @@ _08033550:
 	ble _0803358C
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _0803358A
 	b sub_08033A18
@@ -2191,7 +2191,7 @@ _080335A2:
 	cmp r0, #7
 	ble _080335CA
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080335C8
 	b sub_08033A18
@@ -2223,7 +2223,7 @@ _080335DC:
 	ble _08033606
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08033602
 	b sub_08033A18
@@ -2269,7 +2269,7 @@ _08033628:
 	cmp r0, #7
 	ble _0803365A
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08033658
 	b sub_08033A18
@@ -2291,7 +2291,7 @@ _0803365A:
 	ble _08033684
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08033682
 	b sub_08033A18
@@ -2321,7 +2321,7 @@ _08033694:
 	ble _080336BE
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080336BA
 	b sub_08033A18
@@ -2346,7 +2346,7 @@ _080336C4:
 	cmp r0, #7
 	ble _080336EA
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080336E8
 	b sub_08033A18
@@ -2392,7 +2392,7 @@ _08033710:
 	ble _08033742
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08033740
 	b sub_08033A18
@@ -2423,7 +2423,7 @@ _08033754:
 	ble _0803377E
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _0803377A
 	b sub_08033A18
@@ -2448,7 +2448,7 @@ _08033784:
 	cmp r0, #7
 	ble _080337AA
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080337A8
 	b sub_08033A18
@@ -2488,7 +2488,7 @@ _080337CC:
 	cmp r0, #7
 	ble _080337F4
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080337F2
 	b sub_08033A18
@@ -2513,7 +2513,7 @@ _080337F4:
 	ble _08033824
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _08033822
 	b sub_08033A18
@@ -2561,7 +2561,7 @@ _08033846:
 	cmp r0, #7
 	ble _0803387E
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _0803387C
 	b sub_08033A18
@@ -2572,7 +2572,7 @@ _0803387E:
 	ldr r2, _080338A4
 	ldr r0, [sp, #0x1fc]
 	ldr r1, [sp, #0x200]
-	bl sub_080378F8
+	bl __nedf2
 	cmp r0, #0
 	beq _080338AC
 	mov r2, r8
@@ -2614,7 +2614,7 @@ _080338BC:
 	ble _080338E6
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	beq _080338E2
 	b sub_08033A18
@@ -2660,7 +2660,7 @@ _08033918:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 _0803392A:
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 	add r5, sp, #0x28
@@ -2685,7 +2685,7 @@ _0803394C:
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
 _08033954:
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 	add r5, sp, #0x28
@@ -2719,7 +2719,7 @@ _0803397A:
 	ble _080339A2
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 	add r5, sp, #0x28
@@ -2742,7 +2742,7 @@ _080339A8:
 	ble _080339CA
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 _080339CA:
@@ -2761,7 +2761,7 @@ _080339D4:
 	beq _080339EE
 	ldr r0, [sp, #0x1e0]
 	mov r1, sb
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 _080339EE:
@@ -2783,7 +2783,7 @@ sub_08033A00: @ 08033A00
 	cmp r0, #0
 	beq _08033A12
 	ldr r0, [sp, #0x1e0]
-	bl sub_08032A28
+	bl __sprint
 	cmp r0, #0
 	bne sub_08033A18
 _08033A12:
@@ -2822,10 +2822,10 @@ sub_08033A2C: @ 08033A2C
 	pop {r1}
 	bx r1
 
-	.global sub_08033A40
+	.global cvt
 	.thumb_func
-	.type sub_08033A40, %function
-sub_08033A40: @ 08033A40
+	.type cvt, %function
+cvt: @ 08033A40
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -2863,7 +2863,7 @@ _08033A76:
 	beq _08033A8C
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_08037B7C
+	bl __negdf2
 	adds r5, r1, #0
 	adds r4, r0, #0
 	movs r0, #0x2d
@@ -2882,7 +2882,7 @@ _08033A8C:
 	adds r2, r5, #0
 	adds r1, r4, #0
 	adds r3, r7, #0
-	bl sub_08033DBC
+	bl _dtoa_r
 	adds r7, r0, #0
 	mov r1, sb
 	cmp r1, #0x67
@@ -2907,7 +2907,7 @@ _08033AC0:
 	ldr r2, _08033B30
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080378F8
+	bl __nedf2
 	cmp r0, #0
 	beq _08033AEA
 	mov r1, r8
@@ -2924,7 +2924,7 @@ _08033AF0:
 	ldr r2, _08033B30
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080378A8
+	bl __eqdf2
 	cmp r0, #0
 	bne _08033B02
 	str r6, [sp, #0x14]
@@ -2959,10 +2959,10 @@ _08033B30:
 _08033B34:
 	.4byte 0x00000000
 
-	.global sub_08033B38
+	.global exponent
 	.thumb_func
-	.type sub_08033B38, %function
-sub_08033B38: @ 08033B38
+	.type exponent, %function
+exponent: @ 08033B38
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x134
 	adds r7, r0, #0
@@ -2986,12 +2986,12 @@ _08033B5A:
 	subs r4, #1
 	adds r0, r6, #0
 	movs r1, #0xa
-	bl sub_08036C30
+	bl __modsi3
 	adds r0, #0x30
 	strb r0, [r4]
 	adds r0, r6, #0
 	movs r1, #0xa
-	bl sub_08036B98
+	bl __divsi3
 	adds r6, r0, #0
 	cmp r6, #9
 	bgt _08033B5A
@@ -3026,10 +3026,10 @@ _08033BA0:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08033BAC
+	.global __swsetup
 	.thumb_func
-	.type sub_08033BAC, %function
-sub_08033BAC: @ 08033BAC
+	.type __swsetup, %function
+__swsetup: @ 08033BAC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x54]
@@ -3044,7 +3044,7 @@ _08033BBC:
 	cmp r0, #0
 	bne _08033BCA
 	adds r0, r1, #0
-	bl sub_08034C5C
+	bl __sinit
 _08033BCA:
 	ldrh r1, [r4, #0xc]
 	movs r0, #8
@@ -3076,7 +3076,7 @@ _08033BEC:
 	cmp r1, r0
 	beq _08033C08
 	ldr r0, [r4, #0x54]
-	bl sub_08034CC0
+	bl _free_r
 _08033C08:
 	str r5, [r4, #0x30]
 _08033C0A:
@@ -3099,7 +3099,7 @@ _08033C24:
 	cmp r0, #0
 	bne _08033C30
 	adds r0, r4, #0
-	bl sub_08035230
+	bl __smakebuf
 _08033C30:
 	ldrh r1, [r4, #0xc]
 	movs r0, #1
@@ -3238,7 +3238,7 @@ _08033D1E:
 _08033D22:
 	ldr r0, [sp]
 	ldr r1, [sp, #4]
-	bl sub_08035F70
+	bl __mcmp
 	cmp r0, #0
 	blt _08033DAA
 	ldr r0, [sp, #8]
@@ -3319,10 +3319,10 @@ _08033DAC:
 	pop {r1}
 	bx r1
 
-	.global sub_08033DBC
+	.global _dtoa_r
 	.thumb_func
-	.type sub_08033DBC, %function
-sub_08033DBC: @ 08033DBC
+	.type _dtoa_r, %function
+_dtoa_r: @ 08033DBC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -3346,7 +3346,7 @@ sub_08033DBC: @ 08033DBC
 	str r0, [r2, #8]
 	mov r0, sl
 	adds r1, r2, #0
-	bl sub_08035A90
+	bl _Bfree
 	movs r0, #0
 	mov r1, sl
 	str r0, [r1, #0x40]
@@ -3418,7 +3418,7 @@ _08033E68:
 	ldr r2, _08033E94
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_080378A8
+	bl __eqdf2
 	cmp r0, #0
 	bne _08033EA0
 	movs r0, #1
@@ -3448,7 +3448,7 @@ _08033EA0:
 	ldr r1, [sp, #0x40]
 	ldr r2, [sp, #0x44]
 	add r3, sp, #4
-	bl sub_080361B8
+	bl __d2b
 	str r0, [sp, #0x5c]
 	ldr r2, [sp, #0x40]
 	lsls r0, r2, #1
@@ -3514,12 +3514,12 @@ _08033F20:
 	lsls r4, r0
 _08033F2A:
 	adds r0, r4, #0
-	bl sub_08037A88
+	bl __floatsidf
 	cmp r4, #0
 	bge _08033F3C
 	ldr r3, _08034000
 	ldr r2, _08033FFC
-	bl sub_080372CC
+	bl __adddf3
 _08033F3C:
 	str r0, [sp, #0x48]
 	str r1, [sp, #0x4c]
@@ -3536,43 +3536,43 @@ _08033F50:
 	ldr r3, _08034010
 	ldr r0, [sp, #0x48]
 	ldr r1, [sp, #0x4c]
-	bl sub_08037300
+	bl __subdf3
 	ldr r2, _08034014
 	ldr r3, _08034018
-	bl sub_0803733C
+	bl __muldf3
 	ldr r2, _0803401C
 	ldr r3, _08034020
-	bl sub_080372CC
+	bl __adddf3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	mov r0, r8
-	bl sub_08037A88
+	bl __floatsidf
 	ldr r2, _08034024
 	ldr r3, _08034028
-	bl sub_0803733C
+	bl __muldf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080372CC
+	bl __adddf3
 	str r0, [sp, #0x6c]
 	str r1, [sp, #0x70]
-	bl sub_08037B08
+	bl __fixdfsi
 	str r0, [sp, #0x24]
 	ldr r2, _0803402C
 	ldr r3, _08034030
 	ldr r0, [sp, #0x6c]
 	ldr r1, [sp, #0x70]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _08033FC0
 	ldr r0, [sp, #0x24]
-	bl sub_08037A88
+	bl __floatsidf
 	adds r3, r1, #0
 	adds r2, r0, #0
 	ldr r0, [sp, #0x6c]
 	ldr r1, [sp, #0x70]
-	bl sub_080378F8
+	bl __nedf2
 	cmp r0, #0
 	beq _08033FC0
 	ldr r0, [sp, #0x24]
@@ -3591,7 +3591,7 @@ _08033FC0:
 	ldr r3, [r0, #4]
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _08033FE6
 	ldr r3, [sp, #0x24]
@@ -3769,7 +3769,7 @@ _08034106:
 _08034116:
 	mov r0, sl
 	ldr r1, [r0, #0x44]
-	bl sub_08035A34
+	bl _Balloc
 	mov r1, sl
 	str r0, [r1, #0x40]
 	str r0, [sp, #0x74]
@@ -3816,7 +3816,7 @@ _08034134:
 	ldr r3, [r0, #0x24]
 	ldr r0, [sp, #0x78]
 	ldr r1, [sp, #0x7c]
-	bl sub_080375E8
+	bl __divdf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 	movs r7, #3
@@ -3834,7 +3834,7 @@ _08034186:
 	ldr r3, [r5, #4]
 	ldr r0, [sp, #0x6c]
 	ldr r1, [sp, #0x70]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x6c]
 	str r1, [sp, #0x70]
 _080341A0:
@@ -3847,7 +3847,7 @@ _080341A8:
 	ldr r1, [sp, #0x44]
 	ldr r2, [sp, #0x6c]
 	ldr r3, [sp, #0x70]
-	bl sub_080375E8
+	bl __divdf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 	b _08034210
@@ -3870,7 +3870,7 @@ _080341C4:
 	ldr r0, [r0]
 	ldr r2, [sp, #0x78]
 	ldr r3, [sp, #0x7c]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 	asrs r4, r6, #4
@@ -3887,7 +3887,7 @@ _080341EE:
 	ldr r1, [r5, #4]
 	ldr r2, [sp, #0x40]
 	ldr r3, [sp, #0x44]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 _08034208:
@@ -3903,7 +3903,7 @@ _08034210:
 	ldr r3, _080342C4
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _0803424E
 	ldr r0, [sp, #0x18]
@@ -3922,19 +3922,19 @@ _08034234:
 	ldr r1, _080342CC
 	ldr r2, [sp, #0x40]
 	ldr r3, [sp, #0x44]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 	adds r7, #1
 _0803424E:
 	adds r0, r7, #0
-	bl sub_08037A88
+	bl __floatsidf
 	ldr r2, [sp, #0x40]
 	ldr r3, [sp, #0x44]
-	bl sub_0803733C
+	bl __muldf3
 	ldr r2, _080342D0
 	ldr r3, _080342D4
-	bl sub_080372CC
+	bl __adddf3
 	str r0, [sp, #0x50]
 	str r1, [sp, #0x54]
 	ldr r0, _080342D8
@@ -3952,24 +3952,24 @@ _0803424E:
 	ldr r3, _080342E0
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037300
+	bl __subdf3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_08037948
+	bl __gtdf2
 	cmp r0, #0
 	ble _0803429C
 	b _08034816
 _0803429C:
 	ldr r0, [sp, #0x50]
 	ldr r1, [sp, #0x54]
-	bl sub_08037B7C
+	bl __negdf2
 	adds r3, r1, #0
 	adds r2, r0, #0
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _080342B6
 	b _0803480E
@@ -4010,10 +4010,10 @@ _080342E4:
 	ldr r3, [r0, #4]
 	ldr r0, _08034318
 	ldr r1, _0803431C
-	bl sub_080375E8
+	bl __divdf3
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_08037300
+	bl __subdf3
 	str r0, [sp, #0x50]
 	str r1, [sp, #0x54]
 	movs r1, #0
@@ -4031,27 +4031,27 @@ _08034320:
 	ldr r0, _080343A4
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x50]
 	str r1, [sp, #0x54]
 	ldr r1, _080343A8
 	ldr r0, _080343A4
 	adds r3, r5, #0
 	adds r2, r4, #0
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 _08034340:
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037B08
+	bl __fixdfsi
 	adds r6, r0, #0
-	bl sub_08037A88
+	bl __floatsidf
 	adds r3, r1, #0
 	adds r2, r0, #0
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037300
+	bl __subdf3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	adds r0, r6, #0
@@ -4064,7 +4064,7 @@ _08034340:
 	adds r0, r4, #0
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _0803437C
 	b _08034A86
@@ -4073,10 +4073,10 @@ _0803437C:
 	ldr r1, _080343B0
 	adds r3, r5, #0
 	adds r2, r4, #0
-	bl sub_08037300
+	bl __subdf3
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _08034396
 	b _080345A0
@@ -4106,7 +4106,7 @@ _080343B4:
 	ldr r0, [r0]
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x50]
 	str r1, [sp, #0x54]
 	movs r2, #1
@@ -4121,20 +4121,20 @@ _080343D8:
 	ldr r0, _0803447C
 	adds r3, r5, #0
 	adds r2, r4, #0
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 _080343EC:
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037B08
+	bl __fixdfsi
 	adds r6, r0, #0
-	bl sub_08037A88
+	bl __floatsidf
 	adds r3, r1, #0
 	adds r2, r0, #0
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037300
+	bl __subdf3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	adds r0, r6, #0
@@ -4152,12 +4152,12 @@ _080343EC:
 	adds r0, r6, #0
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_080372CC
+	bl __adddf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_08037948
+	bl __gtdf2
 	cmp r0, #0
 	ble _0803443E
 	b _080345A0
@@ -4166,12 +4166,12 @@ _0803443E:
 	adds r0, r6, #0
 	ldr r2, [sp, #0x50]
 	ldr r3, [sp, #0x54]
-	bl sub_08037300
+	bl __subdf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	adds r1, r5, #0
 	adds r0, r4, #0
-	bl sub_080379E8
+	bl __ltdf2
 	cmp r0, #0
 	bge _0803448C
 	movs r0, #1
@@ -4248,12 +4248,12 @@ _080344DA:
 	ldr r3, _08034504
 	ldr r0, [sp, #0x6c]
 	ldr r1, [sp, #0x70]
-	bl sub_0803733C
+	bl __muldf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037A38
+	bl __ledf2
 	cmp r0, #0
 	bgt _080344F8
 	b _0803480E
@@ -4273,12 +4273,12 @@ _08034508:
 _0803450E:
 	ldr r1, _080345D0
 	ldr r0, _080345CC
-	bl sub_0803733C
+	bl __muldf3
 	str r0, [sp, #0x40]
 	str r1, [sp, #0x44]
 	ldr r2, _080345D4
 	ldr r3, _080345D8
-	bl sub_080378A8
+	bl __eqdf2
 	cmp r0, #0
 	bne _08034528
 	b _08034A86
@@ -4290,18 +4290,18 @@ _0803452C:
 	ldr r1, [sp, #0x44]
 	ldr r2, [sp, #0x6c]
 	ldr r3, [sp, #0x70]
-	bl sub_080375E8
-	bl sub_08037B08
+	bl __divdf3
+	bl __fixdfsi
 	adds r6, r0, #0
-	bl sub_08037A88
+	bl __floatsidf
 	ldr r2, [sp, #0x6c]
 	ldr r3, [sp, #0x70]
-	bl sub_0803733C
+	bl __muldf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x44]
-	bl sub_08037300
+	bl __subdf3
 	adds r3, r1, #0
 	adds r2, r0, #0
 	adds r0, r6, #0
@@ -4315,19 +4315,19 @@ _0803452C:
 	bne _0803450E
 	adds r1, r3, #0
 	adds r0, r2, #0
-	bl sub_080372CC
+	bl __adddf3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	ldr r2, [sp, #0x6c]
 	ldr r3, [sp, #0x70]
-	bl sub_08037948
+	bl __gtdf2
 	cmp r0, #0
 	bgt _080345A0
 	adds r1, r5, #0
 	adds r0, r4, #0
 	ldr r2, [sp, #0x6c]
 	ldr r3, [sp, #0x70]
-	bl sub_080378A8
+	bl __eqdf2
 	cmp r0, #0
 	beq _08034596
 	b _08034A86
@@ -4434,7 +4434,7 @@ _0803463C:
 	str r2, [sp, #0x34]
 	mov r0, sl
 	movs r1, #1
-	bl sub_08035CA8
+	bl __i2b
 	str r0, [sp, #0x64]
 _08034652:
 	cmp r5, #0
@@ -4467,16 +4467,16 @@ _08034674:
 	mov r0, sl
 	ldr r1, [sp, #0x64]
 	adds r2, r6, #0
-	bl sub_08035E30
+	bl __pow5mult
 	str r0, [sp, #0x64]
 	mov r0, sl
 	ldr r1, [sp, #0x64]
 	ldr r2, [sp, #0x5c]
-	bl sub_08035CC0
+	bl __multiply
 	adds r4, r0, #0
 	mov r0, sl
 	ldr r1, [sp, #0x5c]
-	bl sub_08035A90
+	bl _Bfree
 	str r4, [sp, #0x5c]
 _080346A6:
 	ldr r1, [sp, #0x14]
@@ -4492,19 +4492,19 @@ _080346B6:
 	ldr r1, [sp, #0x5c]
 	ldr r2, [sp, #0x14]
 _080346BC:
-	bl sub_08035E30
+	bl __pow5mult
 	str r0, [sp, #0x5c]
 _080346C2:
 	mov r0, sl
 	movs r1, #1
-	bl sub_08035CA8
+	bl __i2b
 	str r0, [sp, #0x68]
 	ldr r2, [sp, #0x38]
 	cmp r2, #0
 	ble _080346DC
 	mov r0, sl
 	ldr r1, [sp, #0x68]
-	bl sub_08035E30
+	bl __pow5mult
 	str r0, [sp, #0x68]
 _080346DC:
 	ldr r3, [sp, #0xc]
@@ -4550,7 +4550,7 @@ _08034718:
 	adds r0, #0x14
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_08035BCC
+	bl __hi0bits
 	ldr r1, [sp, #0x34]
 	adds r1, #0x20
 	subs r1, r1, r0
@@ -4603,7 +4603,7 @@ _08034782:
 	mov r0, sl
 	ldr r1, [sp, #0x5c]
 	adds r2, r3, #0
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x5c]
 _08034794:
 	ldr r0, [sp, #0x34]
@@ -4612,7 +4612,7 @@ _08034794:
 	mov r0, sl
 	ldr r1, [sp, #0x68]
 	ldr r2, [sp, #0x34]
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x68]
 _080347A6:
 	ldr r1, [sp, #0x2c]
@@ -4620,7 +4620,7 @@ _080347A6:
 	beq _080347E4
 	ldr r0, [sp, #0x5c]
 	ldr r1, [sp, #0x68]
-	bl sub_08035F70
+	bl __mcmp
 	cmp r0, #0
 	bge _080347E4
 	ldr r2, [sp, #0x24]
@@ -4630,7 +4630,7 @@ _080347A6:
 	ldr r1, [sp, #0x5c]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x5c]
 	ldr r3, [sp, #0x30]
 	cmp r3, #0
@@ -4639,7 +4639,7 @@ _080347A6:
 	ldr r1, [sp, #0x64]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x64]
 _080347E0:
 	ldr r0, [sp, #0x20]
@@ -4657,11 +4657,11 @@ _080347E4:
 	ldr r1, [sp, #0x68]
 	movs r2, #5
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x68]
 	ldr r0, [sp, #0x5c]
 	ldr r1, [sp, #0x68]
-	bl sub_08035F70
+	bl __mcmp
 	cmp r0, #0
 	bgt _08034816
 _0803480E:
@@ -4690,7 +4690,7 @@ _08034830:
 	mov r0, sl
 	ldr r1, [sp, #0x64]
 	adds r2, r5, #0
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x64]
 _08034840:
 	ldr r1, [sp, #0x64]
@@ -4700,7 +4700,7 @@ _08034840:
 	beq _08034872
 	ldr r1, [r1, #4]
 	mov r0, sl
-	bl sub_08035A34
+	bl _Balloc
 	str r0, [sp, #0x64]
 	adds r0, #0xc
 	ldr r1, [sp, #0x60]
@@ -4709,11 +4709,11 @@ _08034840:
 	ldr r2, [r3, #0x10]
 	lsls r2, r2, #2
 	adds r2, #8
-	bl sub_080358E4
+	bl memcpy
 	mov r0, sl
 	ldr r1, [sp, #0x64]
 	movs r2, #1
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x64]
 _08034872:
 	movs r0, #1
@@ -4728,7 +4728,7 @@ _08034880:
 	ldr r1, [sp, #0x5c]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x5c]
 	ldr r3, [sp, #0x60]
 	ldr r0, [sp, #0x64]
@@ -4738,7 +4738,7 @@ _08034880:
 	ldr r1, [sp, #0x64]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x64]
 	str r0, [sp, #0x60]
 	b _080348C4
@@ -4747,13 +4747,13 @@ _080348A8:
 	ldr r1, [sp, #0x60]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x60]
 	mov r0, sl
 	ldr r1, [sp, #0x64]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x64]
 _080348C4:
 	movs r1, #1
@@ -4766,19 +4766,19 @@ _080348C8:
 	adds r7, #0x30
 	ldr r0, [sp, #0x5c]
 	ldr r1, [sp, #0x60]
-	bl sub_08035F70
+	bl __mcmp
 	adds r4, r0, #0
 	mov r0, sl
 	ldr r1, [sp, #0x68]
 	ldr r2, [sp, #0x64]
-	bl sub_08035FB4
+	bl __mdiff
 	adds r5, r0, #0
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	bne _080348FC
 	ldr r0, [sp, #0x5c]
 	adds r1, r5, #0
-	bl sub_08035F70
+	bl __mcmp
 	adds r6, r0, #0
 	b _080348FE
 _080348FC:
@@ -4786,7 +4786,7 @@ _080348FC:
 _080348FE:
 	mov r0, sl
 	adds r1, r5, #0
-	bl sub_08035A90
+	bl _Bfree
 	cmp r6, #0
 	bne _0803492A
 	ldr r2, [sp, #0xc]
@@ -4823,10 +4823,10 @@ _0803493E:
 	mov r0, sl
 	ldr r1, [sp, #0x5c]
 	movs r2, #1
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x5c]
 	ldr r1, [sp, #0x68]
-	bl sub_08035F70
+	bl __mcmp
 	adds r6, r0, #0
 	cmp r6, #0
 	bgt _08034968
@@ -4884,7 +4884,7 @@ _080349AC:
 	ldr r1, [sp, #0x5c]
 	movs r2, #0xa
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	str r0, [sp, #0x5c]
 	movs r1, #1
 	add r8, r1
@@ -4905,10 +4905,10 @@ _080349D8:
 	mov r0, sl
 	ldr r1, [sp, #0x5c]
 	movs r2, #1
-	bl sub_08035ECC
+	bl __lshift
 	str r0, [sp, #0x5c]
 	ldr r1, [sp, #0x68]
-	bl sub_08035F70
+	bl __mcmp
 	adds r4, r0, #0
 	cmp r4, #0
 	bgt _080349FC
@@ -4978,7 +4978,7 @@ _08034A5A:
 _08034A5E:
 	mov r0, sl
 	ldr r1, [sp, #0x68]
-	bl sub_08035A90
+	bl _Bfree
 	ldr r3, [sp, #0x64]
 	cmp r3, #0
 	beq _08034A86
@@ -4989,15 +4989,15 @@ _08034A5E:
 	beq _08034A7E
 	mov r0, sl
 	ldr r1, [sp, #0x60]
-	bl sub_08035A90
+	bl _Bfree
 _08034A7E:
 	mov r0, sl
 	ldr r1, [sp, #0x64]
-	bl sub_08035A90
+	bl _Bfree
 _08034A86:
 	mov r0, sl
 	ldr r1, [sp, #0x5c]
-	bl sub_08035A90
+	bl _Bfree
 	movs r0, #0
 	mov r1, sb
 	strb r0, [r1]
@@ -5026,10 +5026,10 @@ sub_08034AA6: @ 08034AA6
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08034AB8
+	.global fflush
 	.thumb_func
-	.type sub_08034AB8, %function
-sub_08034AB8: @ 08034AB8
+	.type fflush, %function
+fflush: @ 08034AB8
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	cmp r4, #0
@@ -5037,12 +5037,12 @@ sub_08034AB8: @ 08034AB8
 	ldr r0, _08034ACC
 	ldr r0, [r0]
 	ldr r1, _08034AD0
-	bl sub_08035178
+	bl _fwalk
 	b _08034B4A
 _08034ACC:
 	.4byte gUnk_08BB5284
 _08034AD0:
-	.4byte sub_08034AB8
+	.4byte fflush
 _08034AD4:
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
@@ -5056,7 +5056,7 @@ _08034AE0:
 	cmp r0, #0
 	bne _08034AEE
 	adds r0, r1, #0
-	bl sub_08034C5C
+	bl __sinit
 _08034AEE:
 	movs r0, #0xc
 	ldrsh r1, [r4, r0]
@@ -5113,10 +5113,10 @@ _08034B4A:
 	pop {r1}
 	bx r1
 
-	.global sub_08034B50
+	.global std
 	.thumb_func
-	.type sub_08034B50, %function
-sub_08034B50: @ 08034B50
+	.type std, %function
+std: @ 08034B50
 	push {r4, lr}
 	movs r4, #0
 	str r4, [r0]
@@ -5140,18 +5140,18 @@ sub_08034B50: @ 08034B50
 	pop {r0}
 	bx r0
 _08034B7C:
-	.4byte sub_080363B0
+	.4byte __sread
 _08034B80:
-	.4byte sub_080363E8
+	.4byte __swrite
 _08034B84:
-	.4byte sub_0803642C
+	.4byte __sseek
 _08034B88:
-	.4byte sub_08036470
+	.4byte __sclose
 
-	.global sub_08034B8C
+	.global __sfmoreglue
 	.thumb_func
-	.type sub_08034B8C, %function
-sub_08034B8C: @ 08034B8C
+	.type __sfmoreglue, %function
+__sfmoreglue: @ 08034B8C
 	push {r4, r5, r6, lr}
 	adds r5, r1, #0
 	movs r1, #0x58
@@ -5159,7 +5159,7 @@ sub_08034B8C: @ 08034B8C
 	muls r6, r1, r6
 	adds r1, r6, #0
 	adds r1, #0xc
-	bl sub_08035470
+	bl _malloc_r
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08034BB8
@@ -5169,7 +5169,7 @@ sub_08034B8C: @ 08034B8C
 	str r5, [r4, #4]
 	str r0, [r4, #8]
 	adds r2, r6, #0
-	bl sub_080359D4
+	bl memset
 	adds r0, r4, #0
 	b _08034BBA
 _08034BB8:
@@ -5179,17 +5179,17 @@ _08034BBA:
 	pop {r1}
 	bx r1
 
-	.global sub_08034BC0
+	.global __sfp
 	.thumb_func
-	.type sub_08034BC0, %function
-sub_08034BC0: @ 08034BC0
+	.type __sfp, %function
+__sfp: @ 08034BC0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, [r5, #0x38]
 	cmp r0, #0
 	bne _08034BD0
 	adds r0, r5, #0
-	bl sub_08034C5C
+	bl __sinit
 _08034BD0:
 	movs r0, #0xec
 	lsls r0, r0, #1
@@ -5216,7 +5216,7 @@ _08034BEA:
 	bne _08034BD8
 	adds r0, r5, #0
 	movs r1, #4
-	bl sub_08034B8C
+	bl __sfmoreglue
 	str r0, [r4]
 	cmp r0, #0
 	bne _08034BD8
@@ -5249,36 +5249,36 @@ _08034C2C:
 _08034C34:
 	.4byte 0x0000FFFF
 
-	.global sub_08034C38
+	.global _cleanup_r
 	.thumb_func
-	.type sub_08034C38, %function
-sub_08034C38: @ 08034C38
+	.type _cleanup_r, %function
+_cleanup_r: @ 08034C38
 	push {lr}
 	ldr r1, _08034C44
-	bl sub_08035178
+	bl _fwalk
 	pop {r0}
 	bx r0
 _08034C44:
-	.4byte sub_08034AB8
+	.4byte fflush
 
-	.global sub_08034C48
+	.global _cleanup
 	.thumb_func
-	.type sub_08034C48, %function
-sub_08034C48: @ 08034C48
+	.type _cleanup, %function
+_cleanup: @ 08034C48
 	push {lr}
 	ldr r0, _08034C58
 	ldr r0, [r0]
-	bl sub_08034C38
+	bl _cleanup_r
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 _08034C58:
 	.4byte gUnk_08BB5284
 
-	.global sub_08034C5C
+	.global __sinit
 	.thumb_func
-	.type sub_08034C5C, %function
-sub_08034C5C: @ 08034C5C
+	.type __sinit, %function
+__sinit: @ 08034C5C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _08034CBC
@@ -5292,21 +5292,21 @@ sub_08034C5C: @ 08034C5C
 	movs r1, #4
 	movs r2, #0
 	adds r3, r5, #0
-	bl sub_08034B50
+	bl std
 	movs r1, #0x8f
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	movs r1, #9
 	movs r2, #1
 	adds r3, r5, #0
-	bl sub_08034B50
+	bl std
 	movs r1, #0xa5
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	movs r1, #0xa
 	movs r2, #2
 	adds r3, r5, #0
-	bl sub_08034B50
+	bl std
 	movs r0, #0xec
 	lsls r0, r0, #1
 	adds r1, r5, r0
@@ -5325,12 +5325,12 @@ sub_08034C5C: @ 08034C5C
 	pop {r0}
 	bx r0
 _08034CBC:
-	.4byte sub_08034C38
+	.4byte _cleanup_r
 
-	.global sub_08034CC0
+	.global _free_r
 	.thumb_func
-	.type sub_08034CC0, %function
-sub_08034CC0: @ 08034CC0
+	.type _free_r, %function
+_free_r: @ 08034CC0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -5341,7 +5341,7 @@ sub_08034CC0: @ 08034CC0
 	bne _08034CD2
 	b _08034E76
 _08034CD2:
-	bl sub_08035A2C
+	bl __malloc_lock
 	adds r5, r4, #0
 	subs r5, #8
 	ldr r1, [r5, #4]
@@ -5383,10 +5383,10 @@ _08034D0E:
 	ldr r0, _08034D3C
 	ldr r1, [r0]
 	mov r0, sb
-	bl sub_08034E84
+	bl _malloc_trim_r
 _08034D2A:
 	mov r0, sb
-	bl sub_08035A30
+	bl __malloc_unlock
 	b _08034E76
 	.byte 0x00, 0x00
 _08034D34:
@@ -5567,7 +5567,7 @@ _08034E68:
 	str r5, [r2, #0xc]
 _08034E70:
 	mov r0, sb
-	bl sub_08035A30
+	bl __malloc_unlock
 _08034E76:
 	pop {r3, r4}
 	mov r8, r3
@@ -5577,16 +5577,16 @@ _08034E76:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_08034E84
+	.global _malloc_trim_r
 	.thumb_func
-	.type sub_08034E84, %function
-sub_08034E84: @ 08034E84
+	.type _malloc_trim_r, %function
+_malloc_trim_r: @ 08034E84
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
 	adds r7, r0, #0
 	adds r4, r1, #0
-	bl sub_08035A2C
+	bl __malloc_lock
 	ldr r0, _08034F0C
 	mov r8, r0
 	ldr r0, [r0, #8]
@@ -5608,7 +5608,7 @@ sub_08034E84: @ 08034E84
 	blt _08034F02
 	adds r0, r7, #0
 	movs r1, #0
-	bl sub_08036380
+	bl _sbrk_r
 	adds r2, r0, #0
 	mov r1, r8
 	ldr r0, [r1, #8]
@@ -5617,14 +5617,14 @@ sub_08034E84: @ 08034E84
 	bne _08034F02
 	rsbs r1, r4, #0
 	adds r0, r7, #0
-	bl sub_08036380
+	bl _sbrk_r
 	movs r1, #1
 	rsbs r1, r1, #0
 	cmp r0, r1
 	bne _08034F1C
 	adds r0, r7, #0
 	movs r1, #0
-	bl sub_08036380
+	bl _sbrk_r
 	adds r2, r0, #0
 	mov r0, r8
 	ldr r3, [r0, #8]
@@ -5641,7 +5641,7 @@ sub_08034E84: @ 08034E84
 	str r6, [r3, #4]
 _08034F02:
 	adds r0, r7, #0
-	bl sub_08035A30
+	bl __malloc_unlock
 	movs r0, #0
 	b _08034F38
 _08034F0C:
@@ -5664,7 +5664,7 @@ _08034F1C:
 	subs r0, r0, r4
 	str r0, [r1]
 	adds r0, r7, #0
-	bl sub_08035A30
+	bl __malloc_unlock
 	movs r0, #1
 _08034F38:
 	pop {r3}
@@ -5676,10 +5676,10 @@ _08034F38:
 _08034F44:
 	.4byte gUnk_08BB56B8
 
-	.global sub_08034F48
+	.global __sfvwrite
 	.thumb_func
-	.type sub_08034F48, %function
-sub_08034F48: @ 08034F48
+	.type __sfvwrite, %function
+__sfvwrite: @ 08034F48
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -5703,7 +5703,7 @@ _08034F60:
 	bne _08034F7C
 _08034F70:
 	adds r0, r5, #0
-	bl sub_08033BAC
+	bl __swsetup
 	cmp r0, #0
 	beq _08034F7C
 	b _08035162
@@ -5788,7 +5788,7 @@ _08035004:
 	adds r0, r3, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08035948
+	bl memmove
 	ldr r0, [r5, #8]
 	subs r0, r0, r4
 	str r0, [r5, #8]
@@ -5806,12 +5806,12 @@ _0803501E:
 	adds r0, r3, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08035948
+	bl memmove
 	ldr r0, [r5]
 	adds r0, r0, r4
 	str r0, [r5]
 	adds r0, r5, #0
-	bl sub_08034AB8
+	bl fflush
 	cmp r0, #0
 	beq _08035044
 	b _0803515A
@@ -5835,7 +5835,7 @@ _08035060:
 	adds r0, r3, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08035948
+	bl memmove
 	ldr r0, [r5, #8]
 	subs r0, r0, r4
 	str r0, [r5, #8]
@@ -5875,7 +5875,7 @@ _080350A4:
 	adds r0, r7, #0
 	movs r1, #0xa
 	adds r2, r6, #0
-	bl sub_08035860
+	bl memchr
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080350C0
@@ -5906,12 +5906,12 @@ _080350D0:
 	adds r0, r3, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_08035948
+	bl memmove
 	ldr r0, [r5]
 	adds r0, r0, r4
 	str r0, [r5]
 	adds r0, r5, #0
-	bl sub_08034AB8
+	bl fflush
 	cmp r0, #0
 	bne _0803515A
 	b _0803512E
@@ -5932,7 +5932,7 @@ _08035118:
 	adds r4, r2, #0
 	adds r0, r3, #0
 	adds r1, r7, #0
-	bl sub_08035948
+	bl memmove
 	ldr r0, [r5, #8]
 	subs r0, r0, r4
 	str r0, [r5, #8]
@@ -5946,7 +5946,7 @@ _0803512E:
 	cmp r0, #0
 	bne _08035146
 	adds r0, r5, #0
-	bl sub_08034AB8
+	bl fflush
 	cmp r0, #0
 	bne _0803515A
 	movs r1, #0
@@ -5982,10 +5982,10 @@ _08035166:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035178
+	.global _fwalk
 	.thumb_func
-	.type sub_08035178, %function
-sub_08035178: @ 08035178
+	.type _fwalk, %function
+_fwalk: @ 08035178
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6025,10 +6025,10 @@ _080351B0:
 	pop {r1}
 	bx r1
 
-	.global sub_080351BC
+	.global _setlocale_r
 	.thumb_func
-	.type sub_080351BC, %function
-sub_080351BC: @ 080351BC
+	.type _setlocale_r, %function
+_setlocale_r: @ 080351BC
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -6037,12 +6037,12 @@ sub_080351BC: @ 080351BC
 	beq _080351F0
 	ldr r1, _080351E4
 	adds r0, r4, #0
-	bl sub_08036484
+	bl strcmp
 	cmp r0, #0
 	beq _080351EC
 	ldr r1, _080351E8
 	adds r0, r4, #0
-	bl sub_08036484
+	bl strcmp
 	cmp r0, #0
 	beq _080351EC
 	movs r0, #0
@@ -6063,49 +6063,49 @@ _080351F2:
 _080351F8:
 	.4byte gUnk_0884CDFC
 
-	.global sub_080351FC
+	.global _localeconv_r
 	.thumb_func
-	.type sub_080351FC, %function
-sub_080351FC: @ 080351FC
+	.type _localeconv_r, %function
+_localeconv_r: @ 080351FC
 	ldr r0, _08035200
 	bx lr
 _08035200:
 	.4byte gUnk_0884CDC4
 
-	.global sub_08035204
+	.global setlocale
 	.thumb_func
-	.type sub_08035204, %function
-sub_08035204: @ 08035204
+	.type setlocale, %function
+setlocale: @ 08035204
 	push {lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
 	ldr r0, _08035218
 	ldr r0, [r0]
 	adds r1, r3, #0
-	bl sub_080351BC
+	bl _setlocale_r
 	pop {r1}
 	bx r1
 _08035218:
 	.4byte gUnk_08BB5284
 
-	.global sub_0803521C
+	.global localeconv
 	.thumb_func
-	.type sub_0803521C, %function
-sub_0803521C: @ 0803521C
+	.type localeconv, %function
+localeconv: @ 0803521C
 	push {lr}
 	ldr r0, _0803522C
 	ldr r0, [r0]
-	bl sub_080351FC
+	bl _localeconv_r
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 _0803522C:
 	.4byte gUnk_08BB5284
 
-	.global sub_08035230
+	.global __smakebuf
 	.thumb_func
-	.type sub_08035230, %function
-sub_08035230: @ 08035230
+	.type __smakebuf, %function
+__smakebuf: @ 08035230
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x3c
 	adds r4, r0, #0
@@ -6122,7 +6122,7 @@ sub_08035230: @ 08035230
 	movs r2, #0xe
 	ldrsh r1, [r4, r2]
 	mov r2, sp
-	bl sub_08036A9C
+	bl _fstat_r
 	cmp r0, #0
 	bge _0803526A
 _08035258:
@@ -6165,7 +6165,7 @@ _0803527E:
 	b _080352B0
 	.byte 0x00, 0x00
 _080352A0:
-	.4byte sub_0803642C
+	.4byte __sseek
 _080352A4:
 	movs r2, #0x80
 	lsls r2, r2, #4
@@ -6177,7 +6177,7 @@ _080352AE:
 _080352B0:
 	ldr r0, [r4, #0x54]
 	adds r1, r6, #0
-	bl sub_08035470
+	bl _malloc_r
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080352D4
@@ -6209,7 +6209,7 @@ _080352D4:
 	beq _08035302
 	movs r2, #0xe
 	ldrsh r0, [r4, r2]
-	bl sub_08036AEC
+	bl isatty
 	cmp r0, #0
 	beq _08035302
 	movs r0, #1
@@ -6223,12 +6223,12 @@ _08035302:
 	bx r0
 	.byte 0x00, 0x00
 _0803530C:
-	.4byte sub_08034C38
+	.4byte _cleanup_r
 
-	.global sub_08035310
+	.global malloc_extend_top
 	.thumb_func
-	.type sub_08035310, %function
-sub_08035310: @ 08035310
+	.type malloc_extend_top, %function
+malloc_extend_top: @ 08035310
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -6265,7 +6265,7 @@ sub_08035310: @ 08035310
 _08035352:
 	ldr r0, [sp]
 	adds r1, r6, #0
-	bl sub_08036380
+	bl _sbrk_r
 	adds r5, r0, #0
 	cmp r5, sb
 	beq _08035454
@@ -6336,7 +6336,7 @@ _080353C4:
 	adds r4, r4, r0
 	ldr r0, [sp]
 	adds r1, r4, #0
-	bl sub_08036380
+	bl _sbrk_r
 	adds r2, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -6383,7 +6383,7 @@ _08035414:
 	mov r1, r8
 	adds r1, #8
 	ldr r0, [sp]
-	bl sub_08034CC0
+	bl _free_r
 _0803543C:
 	ldr r0, _08035464
 	ldr r2, _08035468
@@ -6414,10 +6414,10 @@ _08035468:
 _0803546C:
 	.4byte gUnk_08BB56B4
 
-	.global sub_08035470
+	.global _malloc_r
 	.thumb_func
-	.type sub_08035470, %function
-sub_08035470: @ 08035470
+	.type _malloc_r, %function
+_malloc_r: @ 08035470
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -6440,7 +6440,7 @@ _08035492:
 	mov r8, r3
 _08035496:
 	ldr r0, [sp]
-	bl sub_08035A2C
+	bl __malloc_lock
 	ldr r0, _080354DC
 	cmp r8, r0
 	bhi _080354EA
@@ -6862,7 +6862,7 @@ _0803576E:
 _08035786:
 	ldr r0, [sp]
 	mov r1, r8
-	bl sub_08035310
+	bl malloc_extend_top
 	ldr r1, _080357AC
 	ldr r0, [r1, #8]
 	ldr r0, [r0, #4]
@@ -6875,7 +6875,7 @@ _08035786:
 	bgt _08035800
 _080357A2:
 	ldr r0, [sp]
-	bl sub_08035A30
+	bl __malloc_unlock
 	movs r0, #0
 	b _08035820
 _080357AC:
@@ -6937,7 +6937,7 @@ _08035800:
 	str r3, [r0, #4]
 _08035816:
 	ldr r0, [sp]
-	bl sub_08035A30
+	bl __malloc_unlock
 	adds r0, r5, #0
 	adds r0, #8
 _08035820:
@@ -6983,10 +6983,10 @@ _0803585A:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_08035860
+	.global memchr
 	.thumb_func
-	.type sub_08035860, %function
-sub_08035860: @ 08035860
+	.type memchr, %function
+memchr: @ 08035860
 	push {r4, r5, r6, r7, lr}
 	adds r5, r1, #0
 	adds r1, r0, #0
@@ -7064,10 +7064,10 @@ _080358DE:
 	pop {r1}
 	bx r1
 
-	.global sub_080358E4
+	.global memcpy
 	.thumb_func
-	.type sub_080358E4, %function
-sub_080358E4: @ 080358E4
+	.type memcpy, %function
+memcpy: @ 080358E4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r5, #0
@@ -7125,10 +7125,10 @@ _0803593E:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035948
+	.global memmove
 	.thumb_func
-	.type sub_08035948, %function
-sub_08035948: @ 08035948
+	.type memmove, %function
+memmove: @ 08035948
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r5, #0
@@ -7208,10 +7208,10 @@ _080359CC:
 	pop {r1}
 	bx r1
 
-	.global sub_080359D4
+	.global memset
 	.thumb_func
-	.type sub_080359D4, %function
-sub_080359D4: @ 080359D4
+	.type memset, %function
+memset: @ 080359D4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -7262,24 +7262,24 @@ _08035A1A:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035A2C
+	.global __malloc_lock
 	.thumb_func
-	.type sub_08035A2C, %function
-sub_08035A2C: @ 08035A2C
+	.type __malloc_lock, %function
+__malloc_lock: @ 08035A2C
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_08035A30
+	.global __malloc_unlock
 	.thumb_func
-	.type sub_08035A30, %function
-sub_08035A30: @ 08035A30
+	.type __malloc_unlock, %function
+__malloc_unlock: @ 08035A30
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_08035A34
+	.global _Balloc
 	.thumb_func
-	.type sub_08035A34, %function
-sub_08035A34: @ 08035A34
+	.type _Balloc, %function
+_Balloc: @ 08035A34
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r6, r1, #0
@@ -7289,7 +7289,7 @@ sub_08035A34: @ 08035A34
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0x10
-	bl sub_08036A04
+	bl _calloc_r
 	str r0, [r4, #0x4c]
 	cmp r0, #0
 	beq _08035A78
@@ -7310,7 +7310,7 @@ _08035A62:
 	adds r2, #0x14
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_08036A04
+	bl _calloc_r
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _08035A7C
@@ -7331,10 +7331,10 @@ _08035A88:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035A90
+	.global _Bfree
 	.thumb_func
-	.type sub_08035A90, %function
-sub_08035A90: @ 08035A90
+	.type _Bfree, %function
+_Bfree: @ 08035A90
 	adds r3, r0, #0
 	adds r2, r1, #0
 	cmp r2, #0
@@ -7349,10 +7349,10 @@ sub_08035A90: @ 08035A90
 _08035AA6:
 	bx lr
 
-	.global sub_08035AA8
+	.global __multadd
 	.thumb_func
-	.type sub_08035AA8, %function
-sub_08035AA8: @ 08035AA8
+	.type __multadd, %function
+__multadd: @ 08035AA8
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -7399,7 +7399,7 @@ _08035AC4:
 	ldr r1, [r5, #4]
 	adds r1, #1
 	mov r0, sb
-	bl sub_08035A34
+	bl _Balloc
 	adds r4, r0, #0
 	adds r0, #0xc
 	adds r1, r5, #0
@@ -7407,10 +7407,10 @@ _08035AC4:
 	ldr r2, [r5, #0x10]
 	lsls r2, r2, #2
 	adds r2, #8
-	bl sub_080358E4
+	bl memcpy
 	mov r0, sb
 	adds r1, r5, #0
-	bl sub_08035A90
+	bl _Bfree
 	adds r5, r4, #0
 _08035B22:
 	lsls r1, r6, #2
@@ -7432,10 +7432,10 @@ _08035B32:
 _08035B40:
 	.4byte 0x0000FFFF
 
-	.global sub_08035B44
+	.global __s2b
 	.thumb_func
-	.type sub_08035B44, %function
-sub_08035B44: @ 08035B44
+	.type __s2b, %function
+__s2b: @ 08035B44
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -7446,7 +7446,7 @@ sub_08035B44: @ 08035B44
 	mov r0, r8
 	adds r0, #8
 	movs r1, #9
-	bl sub_08036B98
+	bl __divsi3
 	movs r1, #0
 	movs r2, #1
 	cmp r0, #1
@@ -7458,7 +7458,7 @@ _08035B64:
 	bgt _08035B64
 _08035B6C:
 	adds r0, r7, #0
-	bl sub_08035A34
+	bl _Balloc
 	adds r1, r0, #0
 	ldr r0, [sp, #0x18]
 	str r0, [r1, #0x14]
@@ -7474,7 +7474,7 @@ _08035B84:
 	adds r4, #1
 	adds r0, r7, #0
 	movs r2, #0xa
-	bl sub_08035AA8
+	bl __multadd
 	adds r1, r0, #0
 	adds r5, #1
 	cmp r5, r6
@@ -7494,7 +7494,7 @@ _08035BA8:
 	adds r4, #1
 	adds r0, r7, #0
 	movs r2, #0xa
-	bl sub_08035AA8
+	bl __multadd
 	adds r1, r0, #0
 	subs r5, #1
 	cmp r5, #0
@@ -7508,10 +7508,10 @@ _08035BBE:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035BCC
+	.global __hi0bits
 	.thumb_func
-	.type sub_08035BCC, %function
-sub_08035BCC: @ 08035BCC
+	.type __hi0bits, %function
+__hi0bits: @ 08035BCC
 	adds r1, r0, #0
 	movs r2, #0
 	ldr r0, _08035C1C
@@ -7563,10 +7563,10 @@ _08035C20:
 _08035C22:
 	bx lr
 
-	.global sub_08035C24
+	.global __lo0bits
 	.thumb_func
-	.type sub_08035C24, %function
-sub_08035C24: @ 08035C24
+	.type __lo0bits, %function
+__lo0bits: @ 08035C24
 	adds r3, r0, #0
 	ldr r1, [r3]
 	movs r0, #7
@@ -7643,14 +7643,14 @@ _08035CA4:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_08035CA8
+	.global __i2b
 	.thumb_func
-	.type sub_08035CA8, %function
-sub_08035CA8: @ 08035CA8
+	.type __i2b, %function
+__i2b: @ 08035CA8
 	push {r4, lr}
 	adds r4, r1, #0
 	movs r1, #1
-	bl sub_08035A34
+	bl _Balloc
 	str r4, [r0, #0x14]
 	movs r1, #1
 	str r1, [r0, #0x10]
@@ -7659,10 +7659,10 @@ sub_08035CA8: @ 08035CA8
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035CC0
+	.global __multiply
 	.thumb_func
-	.type sub_08035CC0, %function
-sub_08035CC0: @ 08035CC0
+	.type __multiply, %function
+__multiply: @ 08035CC0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -7693,7 +7693,7 @@ _08035CE0:
 	adds r1, #1
 _08035CF6:
 	adds r0, r3, #0
-	bl sub_08035A34
+	bl _Balloc
 	str r0, [sp]
 	adds r7, r0, #0
 	adds r7, #0x14
@@ -7860,10 +7860,10 @@ _08035E16:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035E30
+	.global __pow5mult
 	.thumb_func
-	.type sub_08035E30, %function
-sub_08035E30: @ 08035E30
+	.type __pow5mult, %function
+__pow5mult: @ 08035E30
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -7882,7 +7882,7 @@ sub_08035E30: @ 08035E30
 	mov r0, r8
 	adds r1, r7, #0
 	movs r3, #0
-	bl sub_08035AA8
+	bl __multadd
 	adds r7, r0, #0
 _08035E5A:
 	asrs r6, r6, #2
@@ -7894,7 +7894,7 @@ _08035E5A:
 	cmp r5, #0
 	bne _08035E9C
 	ldr r1, _08035E80
-	bl sub_08035CA8
+	bl __i2b
 	mov r1, r8
 	str r0, [r1, #0x48]
 	adds r5, r0, #0
@@ -7913,7 +7913,7 @@ _08035E84:
 	mov r0, r8
 	adds r1, r5, #0
 	adds r2, r5, #0
-	bl sub_08035CC0
+	bl __multiply
 	str r0, [r5]
 	str r4, [r0]
 _08035E9A:
@@ -7926,11 +7926,11 @@ _08035E9C:
 	mov r0, r8
 	adds r1, r7, #0
 	adds r2, r5, #0
-	bl sub_08035CC0
+	bl __multiply
 	adds r4, r0, #0
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_08035A90
+	bl _Bfree
 	adds r7, r4, #0
 _08035EBA:
 	asrs r6, r6, #1
@@ -7944,10 +7944,10 @@ _08035EC0:
 	pop {r1}
 	bx r1
 
-	.global sub_08035ECC
+	.global __lshift
 	.thumb_func
-	.type sub_08035ECC, %function
-sub_08035ECC: @ 08035ECC
+	.type __lshift, %function
+__lshift: @ 08035ECC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -7972,7 +7972,7 @@ _08035EEE:
 	bgt _08035EEE
 _08035EF6:
 	mov r0, sl
-	bl sub_08035A34
+	bl _Balloc
 	mov sb, r0
 	mov r4, sb
 	adds r4, #0x14
@@ -8025,7 +8025,7 @@ _08035F50:
 	str r0, [r2, #0x10]
 	mov r0, sl
 	mov r1, r8
-	bl sub_08035A90
+	bl _Bfree
 	mov r0, sb
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -8036,10 +8036,10 @@ _08035F50:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035F70
+	.global __mcmp
 	.thumb_func
-	.type sub_08035F70, %function
-sub_08035F70: @ 08035F70
+	.type __mcmp, %function
+__mcmp: @ 08035F70
 	push {r4, r5, lr}
 	adds r2, r0, #0
 	adds r5, r1, #0
@@ -8079,10 +8079,10 @@ _08035FAC:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08035FB4
+	.global __mdiff
 	.thumb_func
-	.type sub_08035FB4, %function
-sub_08035FB4: @ 08035FB4
+	.type __mdiff, %function
+__mdiff: @ 08035FB4
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -8094,13 +8094,13 @@ sub_08035FB4: @ 08035FB4
 	mov r8, r2
 	adds r0, r5, #0
 	mov r1, r8
-	bl sub_08035F70
+	bl __mcmp
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _08035FE6
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_08035A34
+	bl _Balloc
 	adds r7, r0, #0
 	movs r0, #1
 	str r0, [r7, #0x10]
@@ -8119,7 +8119,7 @@ _08035FF4:
 _08035FF6:
 	ldr r1, [r5, #4]
 	adds r0, r6, #0
-	bl sub_08035A34
+	bl _Balloc
 	adds r7, r0, #0
 	str r4, [r7, #0xc]
 	ldr r0, [r5, #0x10]
@@ -8211,10 +8211,10 @@ _08036096:
 	pop {r1}
 	bx r1
 
-	.global sub_080360A8
+	.global __ulp
 	.thumb_func
-	.type sub_080360A8, %function
-sub_080360A8: @ 080360A8
+	.type __ulp, %function
+__ulp: @ 080360A8
 	push {r4, lr}
 	ldr r2, _080360BC
 	ands r2, r0
@@ -8261,10 +8261,10 @@ _080360EE:
 	pop {r2}
 	bx r2
 
-	.global sub_080360F8
+	.global __b2d
 	.thumb_func
-	.type sub_080360F8, %function
-sub_080360F8: @ 080360F8
+	.type __b2d, %function
+__b2d: @ 080360F8
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -8280,7 +8280,7 @@ sub_080360F8: @ 080360F8
 	ldr r2, [r5]
 	adds r0, r2, #0
 	str r2, [sp]
-	bl sub_08035BCC
+	bl __hi0bits
 	adds r3, r0, #0
 	movs r0, #0x20
 	subs r0, r0, r3
@@ -8370,10 +8370,10 @@ _080361A4:
 _080361B4:
 	.4byte 0x3FF00000
 
-	.global sub_080361B8
+	.global __d2b
 	.thumb_func
-	.type sub_080361B8, %function
-sub_080361B8: @ 080361B8
+	.type __d2b, %function
+__d2b: @ 080361B8
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -8386,7 +8386,7 @@ sub_080361B8: @ 080361B8
 	adds r5, r2, #0
 	adds r4, r1, #0
 	movs r1, #1
-	bl sub_08035A34
+	bl _Balloc
 	adds r6, r0, #0
 	movs r0, #0x14
 	adds r0, r0, r6
@@ -8409,7 +8409,7 @@ _080361F6:
 	cmp r5, #0
 	beq _08036240
 	mov r0, sp
-	bl sub_08035C24
+	bl __lo0bits
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08036228
@@ -8446,7 +8446,7 @@ _0803623A:
 	b _08036254
 _08036240:
 	add r0, sp, #4
-	bl sub_08035C24
+	bl __lo0bits
 	adds r2, r0, #0
 	ldr r0, [sp, #4]
 	str r0, [r6, #0x14]
@@ -8478,7 +8478,7 @@ _08036270:
 	add r0, r8
 	subs r0, #4
 	ldr r0, [r0]
-	bl sub_08035BCC
+	bl __hi0bits
 	lsls r1, r4, #5
 	subs r1, r1, r0
 	mov r0, sl
@@ -8497,21 +8497,21 @@ _0803628C:
 _080362A0:
 	.4byte 0xFFFFFBCE
 
-	.global sub_080362A4
+	.global __ratio
 	.thumb_func
-	.type sub_080362A4, %function
-sub_080362A4: @ 080362A4
+	.type __ratio, %function
+__ratio: @ 080362A4
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	adds r4, r0, #0
 	adds r5, r1, #0
 	mov r1, sp
-	bl sub_080360F8
+	bl __b2d
 	str r0, [sp, #8]
 	str r1, [sp, #0xc]
 	add r1, sp, #4
 	adds r0, r5, #0
-	bl sub_080360F8
+	bl __b2d
 	adds r7, r1, #0
 	adds r6, r0, #0
 	ldr r2, [sp]
@@ -8537,16 +8537,16 @@ _080362E4:
 	ldr r1, [sp, #0xc]
 	adds r3, r7, #0
 	adds r2, r6, #0
-	bl sub_080375E8
+	bl __divdf3
 	add sp, #0x10
 	pop {r4, r5, r6, r7}
 	pop {r2}
 	bx r2
 
-	.global sub_080362F8
+	.global _mprec_log10
 	.thumb_func
-	.type sub_080362F8, %function
-sub_080362F8: @ 080362F8
+	.type _mprec_log10, %function
+_mprec_log10: @ 080362F8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08036314
@@ -8571,7 +8571,7 @@ _0803631C:
 _08036320:
 	ldr r3, _08036338
 	ldr r2, _08036334
-	bl sub_0803733C
+	bl __muldf3
 	subs r4, #1
 	cmp r4, #0
 	bgt _08036320
@@ -8584,10 +8584,10 @@ _08036334:
 _08036338:
 	.4byte 0x00000000
 
-	.global sub_0803633C
+	.global isinf
 	.thumb_func
-	.type sub_0803633C, %function
-sub_0803633C: @ 0803633C
+	.type isinf, %function
+isinf: @ 0803633C
 	ldr r3, _08036358
 	ands r3, r0
 	rsbs r2, r1, #0
@@ -8607,10 +8607,10 @@ _08036358:
 _0803635C:
 	.4byte 0x7FF00000
 
-	.global sub_08036360
+	.global isnan
 	.thumb_func
-	.type sub_08036360, %function
-sub_08036360: @ 08036360
+	.type isnan, %function
+isnan: @ 08036360
 	ldr r3, _08036378
 	ands r3, r0
 	rsbs r2, r1, #0
@@ -8628,17 +8628,17 @@ _08036378:
 _0803637C:
 	.4byte 0x7FF00000
 
-	.global sub_08036380
+	.global _sbrk_r
 	.thumb_func
-	.type sub_08036380, %function
-sub_08036380: @ 08036380
+	.type _sbrk_r, %function
+_sbrk_r: @ 08036380
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
 	ldr r4, _080363AC
 	movs r1, #0
 	str r1, [r4]
-	bl sub_08036920
+	bl _sbrk
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -8657,10 +8657,10 @@ _080363A2:
 _080363AC:
 	.4byte 0x02000004
 
-	.global sub_080363B0
+	.global __sread
 	.thumb_func
-	.type sub_080363B0, %function
-sub_080363B0: @ 080363B0
+	.type __sread, %function
+__sread: @ 080363B0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -8669,7 +8669,7 @@ sub_080363B0: @ 080363B0
 	movs r2, #0xe
 	ldrsh r1, [r5, r2]
 	adds r2, r4, #0
-	bl sub_08036B28
+	bl _read_r
 	adds r1, r0, #0
 	cmp r1, #0
 	blt _080363D2
@@ -8691,10 +8691,10 @@ _080363DA:
 _080363E4:
 	.4byte 0xFFFFEFFF
 
-	.global sub_080363E8
+	.global __swrite
 	.thumb_func
-	.type sub_080363E8, %function
-sub_080363E8: @ 080363E8
+	.type __swrite, %function
+__swrite: @ 080363E8
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
@@ -8710,7 +8710,7 @@ sub_080363E8: @ 080363E8
 	ldrsh r1, [r4, r2]
 	movs r2, #0
 	movs r3, #2
-	bl sub_08036AF4
+	bl _lseek_r
 _0803640A:
 	ldr r0, _08036428
 	ldrh r1, [r4, #0xc]
@@ -8721,7 +8721,7 @@ _0803640A:
 	ldrsh r1, [r4, r2]
 	adds r2, r5, #0
 	adds r3, r6, #0
-	bl sub_080369D0
+	bl _write_r
 	pop {r4, r5, r6}
 	pop {r1}
 	bx r1
@@ -8729,10 +8729,10 @@ _0803640A:
 _08036428:
 	.4byte 0xFFFFEFFF
 
-	.global sub_0803642C
+	.global __sseek
 	.thumb_func
-	.type sub_0803642C, %function
-sub_0803642C: @ 0803642C
+	.type __sseek, %function
+__sseek: @ 0803642C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -8741,7 +8741,7 @@ sub_0803642C: @ 0803642C
 	movs r2, #0xe
 	ldrsh r1, [r5, r2]
 	adds r2, r4, #0
-	bl sub_08036AF4
+	bl _lseek_r
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -8769,24 +8769,24 @@ _08036466:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036470
+	.global __sclose
 	.thumb_func
-	.type sub_08036470, %function
-sub_08036470: @ 08036470
+	.type __sclose, %function
+__sclose: @ 08036470
 	push {lr}
 	ldr r2, [r0, #0x54]
 	movs r3, #0xe
 	ldrsh r1, [r0, r3]
 	adds r0, r2, #0
-	bl sub_08036A60
+	bl _close_r
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036484
+	.global strcmp
 	.thumb_func
-	.type sub_08036484, %function
-sub_08036484: @ 08036484
+	.type strcmp, %function
+strcmp: @ 08036484
 	push {r4, r5, lr}
 	adds r2, r0, #0
 	adds r3, r1, #0
@@ -8842,10 +8842,10 @@ _080364DC:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080364E4
+	.global strlen
 	.thumb_func
-	.type sub_080364E4, %function
-sub_080364E4: @ 080364E4
+	.type strlen, %function
+strlen: @ 080364E4
 	push {r4, r5, lr}
 	adds r1, r0, #0
 	adds r5, r1, #0
@@ -8887,10 +8887,10 @@ _0803651C:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_0803652C
+	.global findslot
 	.thumb_func
-	.type sub_0803652C, %function
-sub_0803652C: @ 0803652C
+	.type findslot, %function
+findslot: @ 0803652C
 	adds r3, r0, #0
 	movs r1, #0
 	ldr r2, _08036534
@@ -8911,10 +8911,10 @@ _08036546:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_0803654C
+	.global remap_handle
 	.thumb_func
-	.type sub_0803654C, %function
-sub_0803654C: @ 0803654C
+	.type remap_handle, %function
+remap_handle: @ 0803654C
 	adds r2, r0, #0
 	ldr r0, _08036560
 	ldr r1, [r0]
@@ -8959,10 +8959,10 @@ _08036590:
 _08036594:
 	.4byte 0x0202F03C
 
-	.global sub_08036598
+	.global initialise_monitor_handles
 	.thumb_func
-	.type sub_08036598, %function
-sub_08036598: @ 08036598
+	.type initialise_monitor_handles, %function
+initialise_monitor_handles: @ 08036598
 	push {r4, r5, lr}
 	sub sp, #0xc
 	ldr r4, _080365F8
@@ -9023,10 +9023,10 @@ _08036604:
 _08036608:
 	.4byte 0x0202F040
 
-	.global sub_0803660C
+	.global get_errno
 	.thumb_func
-	.type sub_0803660C, %function
-sub_0803660C: @ 0803660C
+	.type get_errno, %function
+get_errno: @ 0803660C
 	push {r4, lr}
 	movs r3, #0x13
 	movs r4, #0
@@ -9040,25 +9040,25 @@ sub_0803660C: @ 0803660C
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036624
+	.global error
 	.thumb_func
-	.type sub_08036624, %function
-sub_08036624: @ 08036624
+	.type error, %function
+error: @ 08036624
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08036A90
+	bl __errno
 	adds r4, r0, #0
-	bl sub_0803660C
+	bl get_errno
 	str r0, [r4]
 	adds r0, r5, #0
 	pop {r4, r5}
 	pop {r1}
 	bx r1
 
-	.global sub_0803663C
+	.global wrap
 	.thumb_func
-	.type sub_0803663C, %function
-sub_0803663C: @ 0803663C
+	.type wrap, %function
+wrap: @ 0803663C
 	push {lr}
 	adds r1, r0, #0
 	movs r0, #1
@@ -9069,21 +9069,21 @@ sub_0803663C: @ 0803663C
 	b _08036652
 _0803664C:
 	adds r0, r1, #0
-	bl sub_08036624
+	bl error
 _08036652:
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036658
+	.global _swiread
 	.thumb_func
-	.type sub_08036658, %function
-sub_08036658: @ 08036658
+	.type _swiread, %function
+_swiread: @ 08036658
 	push {r4, r5, lr}
 	sub sp, #0xc
 	adds r4, r1, #0
 	adds r5, r2, #0
-	bl sub_0803654C
+	bl remap_handle
 	str r0, [sp]
 	str r4, [sp, #4]
 	str r5, [sp, #8]
@@ -9099,26 +9099,26 @@ sub_08036658: @ 08036658
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036680
+	.global _read
 	.thumb_func
-	.type sub_08036680, %function
-sub_08036680: @ 08036680
+	.type _read, %function
+_read: @ 08036680
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
 	adds r7, r2, #0
-	bl sub_0803654C
-	bl sub_0803652C
+	bl remap_handle
+	bl findslot
 	adds r6, r0, #0
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r7, #0
-	bl sub_08036658
+	bl _swiread
 	cmp r0, #0
 	bge _080366AA
 	movs r0, #1
 	rsbs r0, r0, #0
-	bl sub_08036624
+	bl error
 	b _080366C0
 _080366AA:
 	subs r2, r7, r0
@@ -9141,10 +9141,10 @@ _080366C0:
 _080366C8:
 	.4byte 0x0202F040
 
-	.global sub_080366CC
+	.global _swilseek
 	.thumb_func
-	.type sub_080366CC, %function
-sub_080366CC: @ 080366CC
+	.type _swilseek, %function
+_swilseek: @ 080366CC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -9152,9 +9152,9 @@ sub_080366CC: @ 080366CC
 	mov r8, r0
 	adds r5, r1, #0
 	adds r4, r2, #0
-	bl sub_0803654C
+	bl remap_handle
 	adds r7, r0, #0
-	bl sub_0803652C
+	bl findslot
 	adds r6, r0, #0
 	cmp r4, #1
 	bne _08036702
@@ -9183,7 +9183,7 @@ _08036702:
 	adds r5, r5, r2
 _08036714:
 	mov r0, r8
-	bl sub_0803654C
+	bl remap_handle
 	str r0, [sp]
 	str r5, [sp, #4]
 	movs r3, #0xa
@@ -9216,26 +9216,26 @@ _08036744:
 _08036750:
 	.4byte 0x0202F040
 
-	.global sub_08036754
+	.global _lseek
 	.thumb_func
-	.type sub_08036754, %function
-sub_08036754: @ 08036754
+	.type _lseek, %function
+_lseek: @ 08036754
 	push {lr}
-	bl sub_080366CC
-	bl sub_0803663C
+	bl _swilseek
+	bl wrap
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08036764
+	.global _swiwrite
 	.thumb_func
-	.type sub_08036764, %function
-sub_08036764: @ 08036764
+	.type _swiwrite, %function
+_swiwrite: @ 08036764
 	push {r4, r5, lr}
 	sub sp, #0xc
 	adds r4, r1, #0
 	adds r5, r2, #0
-	bl sub_0803654C
+	bl remap_handle
 	str r0, [sp]
 	str r4, [sp, #4]
 	str r5, [sp, #8]
@@ -9251,21 +9251,21 @@ sub_08036764: @ 08036764
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_0803678C
+	.global _write
 	.thumb_func
-	.type sub_0803678C, %function
-sub_0803678C: @ 0803678C
+	.type _write, %function
+_write: @ 0803678C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
 	adds r6, r2, #0
-	bl sub_0803654C
-	bl sub_0803652C
+	bl remap_handle
+	bl findslot
 	adds r7, r0, #0
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_08036764
+	bl _swiwrite
 	movs r1, #1
 	rsbs r1, r1, #0
 	cmp r0, r1
@@ -9274,7 +9274,7 @@ sub_0803678C: @ 0803678C
 	bne _080367BC
 _080367B4:
 	adds r0, r1, #0
-	bl sub_08036624
+	bl error
 	b _080367D2
 _080367BC:
 	subs r2, r6, r0
@@ -9296,10 +9296,10 @@ _080367D2:
 _080367D8:
 	.4byte 0x0202F040
 
-	.global sub_080367DC
+	.global _swiopen
 	.thumb_func
-	.type sub_080367DC, %function
-sub_080367DC: @ 080367DC
+	.type _swiopen, %function
+_swiopen: @ 080367DC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -9310,7 +9310,7 @@ sub_080367DC: @ 080367DC
 	movs r6, #1
 	rsbs r6, r6, #0
 	adds r0, r6, #0
-	bl sub_0803652C
+	bl findslot
 	mov r8, r0
 	cmp r0, #0x14
 	bne _080367FE
@@ -9350,7 +9350,7 @@ _08036824:
 _08036834:
 	str r7, [sp]
 	adds r0, r7, #0
-	bl sub_080364E4
+	bl strlen
 	str r0, [sp, #8]
 	str r5, [sp, #4]
 	movs r2, #1
@@ -9377,7 +9377,7 @@ _08036868:
 	.4byte 0x0202F040
 _0803686C:
 	adds r0, r3, #0
-	bl sub_08036624
+	bl error
 _08036872:
 	add sp, #0xc
 	pop {r3}
@@ -9387,27 +9387,27 @@ _08036872:
 	bx r1
 	.byte 0x00, 0x00, 0x0E, 0xB4
 
-	.global sub_08036882
+	.global _open
 	.thumb_func
-	.type sub_08036882, %function
-sub_08036882: @ 08036882
+	.type _open, %function
+_open: @ 08036882
 	push {lr}
 	ldr r1, [sp, #4]
-	bl sub_080367DC
-	bl sub_0803663C
+	bl _swiopen
+	bl wrap
 	pop {r3}
 	add sp, #0xc
 	bx r3
 
-	.global sub_08036894
+	.global _swiclose
 	.thumb_func
-	.type sub_08036894, %function
-sub_08036894: @ 08036894
+	.type _swiclose, %function
+_swiclose: @ 08036894
 	push {lr}
 	sub sp, #4
-	bl sub_0803654C
+	bl remap_handle
 	str r0, [sp]
-	bl sub_0803652C
+	bl findslot
 	adds r1, r0, #0
 	cmp r1, #0x14
 	beq _080368B4
@@ -9431,21 +9431,21 @@ _080368B4:
 _080368C8:
 	.4byte 0x0202F040
 
-	.global sub_080368CC
+	.global _close
 	.thumb_func
-	.type sub_080368CC, %function
-sub_080368CC: @ 080368CC
+	.type _close, %function
+_close: @ 080368CC
 	push {lr}
-	bl sub_08036894
-	bl sub_0803663C
+	bl _swiclose
+	bl wrap
 	pop {r1}
 	bx r1
 	.incbin "baserom.gba", 0x368DA, 0x46
 
-	.global sub_08036920
+	.global _sbrk
 	.thumb_func
-	.type sub_08036920, %function
-sub_08036920: @ 08036920
+	.type _sbrk, %function
+_sbrk: @ 08036920
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	ldr r4, _08036954
@@ -9462,8 +9462,8 @@ _08036930:
 	ldr r1, _0803695C
 	movs r0, #1
 	movs r2, #0x20
-	bl sub_0803678C
-	bl sub_08036ACC
+	bl _write
+	bl semihost_exit
 _08036946:
 	ldr r0, [r4]
 	adds r0, r0, r6
@@ -9479,10 +9479,10 @@ _08036958:
 _0803695C:
 	.4byte gUnk_0884CF28
 
-	.global sub_08036960
+	.global _fstat
 	.thumb_func
-	.type sub_08036960, %function
-sub_08036960: @ 08036960
+	.type _fstat, %function
+_fstat: @ 08036960
 	movs r0, #0x80
 	lsls r0, r0, #6
 	str r0, [r1, #4]
@@ -9490,10 +9490,10 @@ sub_08036960: @ 08036960
 	bx lr
 	.byte 0x00, 0x00, 0x01, 0x20, 0x40, 0x42, 0x70, 0x47, 0x00, 0x00, 0x70, 0x47, 0x00, 0x00
 
-	.global sub_08036978
+	.global _gettimeofday
 	.thumb_func
-	.type sub_08036978, %function
-sub_08036978: @ 08036978
+	.type _gettimeofday, %function
+_gettimeofday: @ 08036978
 	push {r4, r5, lr}
 	adds r2, r0, #0
 	adds r3, r1, #0
@@ -9521,10 +9521,10 @@ _080369A0:
 	pop {r1}
 	bx r1
 
-	.global sub_080369A8
+	.global _times
 	.thumb_func
-	.type sub_080369A8, %function
-sub_080369A8: @ 080369A8
+	.type _times, %function
+_times: @ 080369A8
 	push {r4, r5, lr}
 	adds r2, r0, #0
 	movs r4, #0x10
@@ -9547,10 +9547,10 @@ _080369C6:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080369D0
+	.global _write_r
 	.thumb_func
-	.type sub_080369D0, %function
-sub_080369D0: @ 080369D0
+	.type _write_r, %function
+_write_r: @ 080369D0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
@@ -9559,7 +9559,7 @@ sub_080369D0: @ 080369D0
 	ldr r4, _08036A00
 	movs r3, #0
 	str r3, [r4]
-	bl sub_0803678C
+	bl _write
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9578,13 +9578,13 @@ _080369F6:
 _08036A00:
 	.4byte 0x02000004
 
-	.global sub_08036A04
+	.global _calloc_r
 	.thumb_func
-	.type sub_08036A04, %function
-sub_08036A04: @ 08036A04
+	.type _calloc_r, %function
+_calloc_r: @ 08036A04
 	push {r4, lr}
 	muls r1, r2, r1
-	bl sub_08035470
+	bl _malloc_r
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _08036A16
@@ -9624,7 +9624,7 @@ _08036A46:
 _08036A50:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080359D4
+	bl memset
 _08036A58:
 	adds r0, r4, #0
 _08036A5A:
@@ -9632,17 +9632,17 @@ _08036A5A:
 	pop {r1}
 	bx r1
 
-	.global sub_08036A60
+	.global _close_r
 	.thumb_func
-	.type sub_08036A60, %function
-sub_08036A60: @ 08036A60
+	.type _close_r, %function
+_close_r: @ 08036A60
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
 	ldr r4, _08036A8C
 	movs r1, #0
 	str r1, [r4]
-	bl sub_080368CC
+	bl _close
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9661,10 +9661,10 @@ _08036A82:
 _08036A8C:
 	.4byte 0x02000004
 
-	.global sub_08036A90
+	.global __errno
 	.thumb_func
-	.type sub_08036A90, %function
-sub_08036A90: @ 08036A90
+	.type __errno, %function
+__errno: @ 08036A90
 	ldr r0, _08036A98
 	ldr r0, [r0]
 	bx lr
@@ -9672,10 +9672,10 @@ sub_08036A90: @ 08036A90
 _08036A98:
 	.4byte gUnk_08BB5284
 
-	.global sub_08036A9C
+	.global _fstat_r
 	.thumb_func
-	.type sub_08036A9C, %function
-sub_08036A9C: @ 08036A9C
+	.type _fstat_r, %function
+_fstat_r: @ 08036A9C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
@@ -9683,7 +9683,7 @@ sub_08036A9C: @ 08036A9C
 	ldr r4, _08036AC8
 	movs r2, #0
 	str r2, [r4]
-	bl sub_08036960
+	bl _fstat
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9701,10 +9701,10 @@ _08036AC0:
 _08036AC8:
 	.4byte 0x02000004
 
-	.global sub_08036ACC
+	.global semihost_exit
 	.thumb_func
-	.type sub_08036ACC, %function
-sub_08036ACC: @ 08036ACC
+	.type semihost_exit, %function
+semihost_exit: @ 08036ACC
 	mov ip, r3
 	mov r3, r8
 	push {r3}
@@ -9722,18 +9722,18 @@ sub_08036ACC: @ 08036ACC
 _08036AE8:
 	.4byte 0x00020022
 
-	.global sub_08036AEC
+	.global isatty
 	.thumb_func
-	.type sub_08036AEC, %function
-sub_08036AEC: @ 08036AEC
+	.type isatty, %function
+isatty: @ 08036AEC
 	movs r0, #1
 	bx lr
 	.byte 0x70, 0x47, 0x00, 0x00
 
-	.global sub_08036AF4
+	.global _lseek_r
 	.thumb_func
-	.type sub_08036AF4, %function
-sub_08036AF4: @ 08036AF4
+	.type _lseek_r, %function
+_lseek_r: @ 08036AF4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
@@ -9742,7 +9742,7 @@ sub_08036AF4: @ 08036AF4
 	ldr r4, _08036B24
 	movs r3, #0
 	str r3, [r4]
-	bl sub_08036754
+	bl _lseek
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9761,10 +9761,10 @@ _08036B1A:
 _08036B24:
 	.4byte 0x02000004
 
-	.global sub_08036B28
+	.global _read_r
 	.thumb_func
-	.type sub_08036B28, %function
-sub_08036B28: @ 08036B28
+	.type _read_r, %function
+_read_r: @ 08036B28
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, r1, #0
@@ -9773,7 +9773,7 @@ sub_08036B28: @ 08036B28
 	ldr r4, _08036B58
 	movs r3, #0
 	str r3, [r4]
-	bl sub_08036680
+	bl _read
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -9792,10 +9792,10 @@ _08036B4E:
 _08036B58:
 	.4byte 0x02000004
 
-	.global sub_08036B5C
+	.global _call_via_r0
 	.thumb_func
-	.type sub_08036B5C, %function
-sub_08036B5C: @ 08036B5C
+	.type _call_via_r0, %function
+_call_via_r0: @ 08036B5C
 	bx r0
 	.byte 0xC0, 0x46
 
@@ -9876,10 +9876,10 @@ _call_via_r11: @ 08036B88
 	bx fp
 	.byte 0xC0, 0x46, 0x60, 0x47, 0xC0, 0x46, 0x68, 0x47, 0xC0, 0x46, 0x70, 0x47, 0xC0, 0x46
 
-	.global sub_08036B98
+	.global __divsi3
 	.thumb_func
-	.type sub_08036B98, %function
-sub_08036B98: @ 08036B98
+	.type __divsi3, %function
+__divsi3: @ 08036B98
 	cmp r1, #0
 	beq _08036C20
 	push {r4}
@@ -9962,22 +9962,22 @@ _08036C1C:
 	mov pc, lr
 _08036C20:
 	push {lr}
-	bl sub_08036C2C
+	bl __div0
 	movs r0, #0
 	pop {pc}
 	.byte 0x00, 0x00
 
-	.global sub_08036C2C
+	.global __div0
 	.thumb_func
-	.type sub_08036C2C, %function
-sub_08036C2C: @ 08036C2C
+	.type __div0, %function
+__div0: @ 08036C2C
 	mov pc, lr
 	.byte 0x00, 0x00
 
-	.global sub_08036C30
+	.global __modsi3
 	.thumb_func
-	.type sub_08036C30, %function
-sub_08036C30: @ 08036C30
+	.type __modsi3, %function
+__modsi3: @ 08036C30
 	movs r3, #1
 	cmp r1, #0
 	beq _08036CF4
@@ -10093,15 +10093,15 @@ _08036CF0:
 	mov pc, lr
 _08036CF4:
 	push {lr}
-	bl sub_08036C2C
+	bl __div0
 	movs r0, #0
 	pop {pc}
 	.byte 0x00, 0x00
 
-	.global sub_08036D00
+	.global __muldi3
 	.thumb_func
-	.type sub_08036D00, %function
-sub_08036D00: @ 08036D00
+	.type __muldi3, %function
+__muldi3: @ 08036D00
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	str r0, [sp]
@@ -10162,10 +10162,10 @@ _08036D40:
 _08036D70:
 	.4byte 0x0000FFFF
 
-	.global sub_08036D74
+	.global __umodsi3
 	.thumb_func
-	.type sub_08036D74, %function
-sub_08036D74: @ 08036D74
+	.type __umodsi3, %function
+__umodsi3: @ 08036D74
 	cmp r1, #0
 	beq _08036E2A
 	movs r3, #1
@@ -10273,14 +10273,14 @@ _08036E26:
 	mov pc, lr
 _08036E2A:
 	push {lr}
-	bl sub_08036C2C
+	bl __div0
 	movs r0, #0
 	pop {pc}
 
-	.global sub_08036E34
+	.global __pack_d
 	.thumb_func
-	.type sub_08036E34, %function
-sub_08036E34: @ 08036E34
+	.type __pack_d, %function
+__pack_d: @ 08036E34
 	push {r4, r5, r6, r7, lr}
 	sub sp, #8
 	adds r1, r0, #0
@@ -10462,10 +10462,10 @@ _08036F78:
 _08036F7C:
 	.4byte 0xFFFF800F
 
-	.global sub_08036F80
+	.global __unpack_d
 	.thumb_func
-	.type sub_08036F80, %function
-sub_08036F80: @ 08036F80
+	.type __unpack_d, %function
+__unpack_d: @ 08036F80
 	push {r4, r5, r6, r7, lr}
 	sub sp, #8
 	adds r2, r0, #0
@@ -10585,10 +10585,10 @@ _08037054:
 _08037058:
 	.4byte 0x10000000
 
-	.global sub_0803705C
+	.global _fpadd_parts
 	.thumb_func
-	.type sub_0803705C, %function
-sub_0803705C: @ 0803705C
+	.type _fpadd_parts, %function
+_fpadd_parts: @ 0803705C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -10932,10 +10932,10 @@ _080372B8:
 _080372C8:
 	.4byte 0x1FFFFFFF
 
-	.global sub_080372CC
+	.global __adddf3
 	.thumb_func
-	.type sub_080372CC, %function
-sub_080372CC: @ 080372CC
+	.type __adddf3, %function
+__adddf3: @ 080372CC
 	push {r4, lr}
 	sub sp, #0x4c
 	str r0, [sp, #0x3c]
@@ -10944,25 +10944,25 @@ sub_080372CC: @ 080372CC
 	str r3, [sp, #0x48]
 	add r0, sp, #0x3c
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x44
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	add r2, sp, #0x28
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_0803705C
-	bl sub_08036E34
+	bl _fpadd_parts
+	bl __pack_d
 	add sp, #0x4c
 	pop {r4}
 	pop {r2}
 	bx r2
 
-	.global sub_08037300
+	.global __subdf3
 	.thumb_func
-	.type sub_08037300, %function
-sub_08037300: @ 08037300
+	.type __subdf3, %function
+__subdf3: @ 08037300
 	push {r4, lr}
 	sub sp, #0x4c
 	str r0, [sp, #0x3c]
@@ -10971,11 +10971,11 @@ sub_08037300: @ 08037300
 	str r3, [sp, #0x48]
 	add r0, sp, #0x3c
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x44
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	ldr r0, [r4, #4]
 	movs r1, #1
 	eors r0, r1
@@ -10983,17 +10983,17 @@ sub_08037300: @ 08037300
 	add r2, sp, #0x28
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_0803705C
-	bl sub_08036E34
+	bl _fpadd_parts
+	bl __pack_d
 	add sp, #0x4c
 	pop {r4}
 	pop {r2}
 	bx r2
 
-	.global sub_0803733C
+	.global __muldf3
 	.thumb_func
-	.type sub_0803733C, %function
-sub_0803733C: @ 0803733C
+	.type __muldf3, %function
+__muldf3: @ 0803733C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -11006,11 +11006,11 @@ sub_0803733C: @ 0803733C
 	str r3, [sp, #0x48]
 	add r0, sp, #0x3c
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x44
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	mov r8, sp
 	add r0, sp, #0x28
 	mov sl, r0
@@ -11129,28 +11129,28 @@ _08037408:
 	adds r0, r4, #0
 	adds r3, r7, #0
 	adds r2, r6, #0
-	bl sub_08036D00
+	bl __muldi3
 	str r0, [sp, #0x5c]
 	str r1, [sp, #0x60]
 	ldr r0, [sp, #0x54]
 	ldr r1, [sp, #0x58]
 	adds r3, r7, #0
 	adds r2, r6, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r7, r1, #0
 	adds r6, r0, #0
 	adds r1, r5, #0
 	adds r0, r4, #0
 	ldr r2, [sp, #0x4c]
 	ldr r3, [sp, #0x50]
-	bl sub_08036D00
+	bl __muldi3
 	adds r5, r1, #0
 	adds r4, r0, #0
 	ldr r0, [sp, #0x54]
 	ldr r1, [sp, #0x58]
 	ldr r2, [sp, #0x4c]
 	ldr r3, [sp, #0x50]
-	bl sub_08036D00
+	bl __muldi3
 	str r0, [sp, #0x64]
 	str r1, [sp, #0x68]
 	movs r1, #0
@@ -11341,7 +11341,7 @@ _080375B6:
 	str r0, [r2]
 	add r0, sp, #0x28
 _080375C2:
-	bl sub_08036E34
+	bl __pack_d
 	add sp, #0x74
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -11360,10 +11360,10 @@ _080375E0:
 _080375E4:
 	.4byte 0x0FFFFFFF
 
-	.global sub_080375E8
+	.global __divdf3
 	.thumb_func
-	.type sub_080375E8, %function
-sub_080375E8: @ 080375E8
+	.type __divdf3, %function
+__divdf3: @ 080375E8
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x48
 	str r0, [sp, #0x28]
@@ -11372,11 +11372,11 @@ sub_080375E8: @ 080375E8
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	mov ip, sp
 	movs r0, #0
 	ldr r3, [sp]
@@ -11571,7 +11571,7 @@ _0803775A:
 	mov r1, ip
 _0803775C:
 	adds r0, r1, #0
-	bl sub_08036E34
+	bl __pack_d
 	add sp, #0x48
 	pop {r4, r5, r6, r7}
 	pop {r2}
@@ -11582,10 +11582,10 @@ _0803776C:
 _08037770:
 	.4byte 0x10000000
 
-	.global sub_08037774
+	.global __fpcmp_parts_d
 	.thumb_func
-	.type sub_08037774, %function
-sub_08037774: @ 08037774
+	.type __fpcmp_parts_d, %function
+__fpcmp_parts_d: @ 08037774
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -11743,10 +11743,10 @@ _08037870:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08037878
+	.global __cmpdf2
 	.thumb_func
-	.type sub_08037878, %function
-sub_08037878: @ 08037878
+	.type __cmpdf2, %function
+__cmpdf2: @ 08037878
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11755,24 +11755,24 @@ sub_08037878: @ 08037878
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 	add sp, #0x38
 	pop {r4}
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080378A8
+	.global __eqdf2
 	.thumb_func
-	.type sub_080378A8, %function
-sub_080378A8: @ 080378A8
+	.type __eqdf2, %function
+__eqdf2: @ 080378A8
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11781,11 +11781,11 @@ sub_080378A8: @ 080378A8
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -11808,7 +11808,7 @@ _080378E2:
 _080378E6:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _080378EE:
 	add sp, #0x38
 	pop {r4}
@@ -11816,10 +11816,10 @@ _080378EE:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080378F8
+	.global __nedf2
 	.thumb_func
-	.type sub_080378F8, %function
-sub_080378F8: @ 080378F8
+	.type __nedf2, %function
+__nedf2: @ 080378F8
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11828,11 +11828,11 @@ sub_080378F8: @ 080378F8
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -11855,7 +11855,7 @@ _08037932:
 _08037936:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _0803793E:
 	add sp, #0x38
 	pop {r4}
@@ -11863,10 +11863,10 @@ _0803793E:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08037948
+	.global __gtdf2
 	.thumb_func
-	.type sub_08037948, %function
-sub_08037948: @ 08037948
+	.type __gtdf2, %function
+__gtdf2: @ 08037948
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11875,11 +11875,11 @@ sub_08037948: @ 08037948
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -11903,17 +11903,17 @@ _08037982:
 _08037988:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _08037990:
 	add sp, #0x38
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_08037998
+	.global __gedf2
 	.thumb_func
-	.type sub_08037998, %function
-sub_08037998: @ 08037998
+	.type __gedf2, %function
+__gedf2: @ 08037998
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11922,11 +11922,11 @@ sub_08037998: @ 08037998
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -11950,17 +11950,17 @@ _080379D2:
 _080379D8:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _080379E0:
 	add sp, #0x38
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_080379E8
+	.global __ltdf2
 	.thumb_func
-	.type sub_080379E8, %function
-sub_080379E8: @ 080379E8
+	.type __ltdf2, %function
+__ltdf2: @ 080379E8
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -11969,11 +11969,11 @@ sub_080379E8: @ 080379E8
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -11996,7 +11996,7 @@ _08037A22:
 _08037A26:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _08037A2E:
 	add sp, #0x38
 	pop {r4}
@@ -12004,10 +12004,10 @@ _08037A2E:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08037A38
+	.global __ledf2
 	.thumb_func
-	.type sub_08037A38, %function
-sub_08037A38: @ 08037A38
+	.type __ledf2, %function
+__ledf2: @ 08037A38
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x28]
@@ -12016,11 +12016,11 @@ sub_08037A38: @ 08037A38
 	str r3, [sp, #0x34]
 	add r0, sp, #0x28
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	add r0, sp, #0x30
 	add r4, sp, #0x14
 	adds r1, r4, #0
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -12043,7 +12043,7 @@ _08037A72:
 _08037A76:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037774
+	bl __fpcmp_parts_d
 _08037A7E:
 	add sp, #0x38
 	pop {r4}
@@ -12051,10 +12051,10 @@ _08037A7E:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08037A88
+	.global __floatsidf
 	.thumb_func
-	.type sub_08037A88, %function
-sub_08037A88: @ 08037A88
+	.type __floatsidf, %function
+__floatsidf: @ 08037A88
 	push {r4, r5, lr}
 	sub sp, #0x14
 	adds r2, r0, #0
@@ -12117,7 +12117,7 @@ _08037ADA:
 	str r4, [sp, #8]
 _08037AF6:
 	mov r0, sp
-	bl sub_08036E34
+	bl __pack_d
 _08037AFC:
 	add sp, #0x14
 	pop {r4, r5}
@@ -12126,17 +12126,17 @@ _08037AFC:
 _08037B04:
 	.4byte 0x0FFFFFFF
 
-	.global sub_08037B08
+	.global __fixdfsi
 	.thumb_func
-	.type sub_08037B08, %function
-sub_08037B08: @ 08037B08
+	.type __fixdfsi, %function
+__fixdfsi: @ 08037B08
 	push {lr}
 	sub sp, #0x1c
 	str r0, [sp, #0x14]
 	str r1, [sp, #0x18]
 	add r0, sp, #0x14
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #2
@@ -12196,17 +12196,17 @@ _08037B76:
 	pop {r1}
 	bx r1
 
-	.global sub_08037B7C
+	.global __negdf2
 	.thumb_func
-	.type sub_08037B7C, %function
-sub_08037B7C: @ 08037B7C
+	.type __negdf2, %function
+__negdf2: @ 08037B7C
 	push {lr}
 	sub sp, #0x1c
 	str r0, [sp, #0x14]
 	str r1, [sp, #0x18]
 	add r0, sp, #0x14
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	movs r1, #0
 	ldr r0, [sp, #4]
 	cmp r0, #0
@@ -12215,16 +12215,16 @@ sub_08037B7C: @ 08037B7C
 _08037B96:
 	str r1, [sp, #4]
 	mov r0, sp
-	bl sub_08036E34
+	bl __pack_d
 	add sp, #0x1c
 	pop {r2}
 	bx r2
 	.byte 0x81, 0xB0
 
-	.global sub_08037BA6
+	.global __make_dp
 	.thumb_func
-	.type sub_08037BA6, %function
-sub_08037BA6: @ 08037BA6
+	.type __make_dp, %function
+__make_dp: @ 08037BA6
 	push {r4, lr}
 	sub sp, #0x14
 	str r3, [sp, #0x1c]
@@ -12236,7 +12236,7 @@ sub_08037BA6: @ 08037BA6
 	str r3, [sp, #0xc]
 	str r4, [sp, #0x10]
 	mov r0, sp
-	bl sub_08036E34
+	bl __pack_d
 	add sp, #0x14
 	pop {r4}
 	pop {r3}
@@ -12244,17 +12244,17 @@ sub_08037BA6: @ 08037BA6
 	bx r3
 	.byte 0x00, 0x00
 
-	.global sub_08037BCC
+	.global __truncdfsf2
 	.thumb_func
-	.type sub_08037BCC, %function
-sub_08037BCC: @ 08037BCC
+	.type __truncdfsf2, %function
+__truncdfsf2: @ 08037BCC
 	push {r4, r5, lr}
 	sub sp, #0x1c
 	str r0, [sp, #0x14]
 	str r1, [sp, #0x18]
 	add r0, sp, #0x14
 	mov r1, sp
-	bl sub_08036F80
+	bl __unpack_d
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x10]
 	lsls r5, r3, #2
@@ -12276,7 +12276,7 @@ _08037BFC:
 	ldr r1, [sp, #4]
 	ldr r2, [sp, #8]
 	adds r3, r5, #0
-	bl sub_08038560
+	bl __make_fp
 	add sp, #0x1c
 	pop {r4, r5}
 	pop {r1}
@@ -12284,10 +12284,10 @@ _08037BFC:
 _08037C10:
 	.4byte 0x3FFFFFFF
 
-	.global sub_08037C14
+	.global __pack_f
 	.thumb_func
-	.type sub_08037C14, %function
-sub_08037C14: @ 08037C14
+	.type __pack_f, %function
+__pack_f: @ 08037C14
 	push {r4, r5, r6, lr}
 	ldr r2, [r0, #0xc]
 	ldr r6, [r0, #4]
@@ -12396,10 +12396,10 @@ _08037CC8:
 _08037CCC:
 	.4byte 0x7FFFFFFF
 
-	.global sub_08037CD0
+	.global __unpack_f
 	.thumb_func
-	.type sub_08037CD0, %function
-sub_08037CD0: @ 08037CD0
+	.type __unpack_f, %function
+__unpack_f: @ 08037CD0
 	push {r4, lr}
 	adds r3, r1, #0
 	ldr r0, [r0]
@@ -12473,10 +12473,10 @@ _08037D48:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_08037D50
+	.global _fpadd_parts_f
 	.thumb_func
-	.type sub_08037D50, %function
-sub_08037D50: @ 08037D50
+	.type _fpadd_parts_f, %function
+_fpadd_parts_f: @ 08037D50
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -12701,46 +12701,46 @@ _08037EC4:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08037ED0
+	.global __addsf3
 	.thumb_func
-	.type sub_08037ED0, %function
-sub_08037ED0: @ 08037ED0
+	.type __addsf3, %function
+__addsf3: @ 08037ED0
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x30]
 	str r1, [sp, #0x34]
 	add r0, sp, #0x30
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x34
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	add r2, sp, #0x20
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037D50
-	bl sub_08037C14
+	bl _fpadd_parts_f
+	bl __pack_f
 	add sp, #0x38
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_08037F00
+	.global __subsf3
 	.thumb_func
-	.type sub_08037F00, %function
-sub_08037F00: @ 08037F00
+	.type __subsf3, %function
+__subsf3: @ 08037F00
 	push {r4, lr}
 	sub sp, #0x38
 	str r0, [sp, #0x30]
 	str r1, [sp, #0x34]
 	add r0, sp, #0x30
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x34
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	ldr r0, [r4, #4]
 	movs r1, #1
 	eors r0, r1
@@ -12748,17 +12748,17 @@ sub_08037F00: @ 08037F00
 	add r2, sp, #0x20
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08037D50
-	bl sub_08037C14
+	bl _fpadd_parts_f
+	bl __pack_f
 	add sp, #0x38
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_08037F38
+	.global __mulsf3
 	.thumb_func
-	.type sub_08037F38, %function
-sub_08037F38: @ 08037F38
+	.type __mulsf3, %function
+__mulsf3: @ 08037F38
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -12768,11 +12768,11 @@ sub_08037F38: @ 08037F38
 	str r1, [sp, #0x34]
 	add r0, sp, #0x30
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x34
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	mov r7, sp
 	add r0, sp, #0x20
 	mov r8, r0
@@ -12874,7 +12874,7 @@ _08037FF8:
 	movs r1, #0
 	ldr r2, [sp, #0x1c]
 	movs r3, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r2, r1, #0
 	adds r5, r2, #0
 	adds r6, r0, #0
@@ -12951,7 +12951,7 @@ _08038080:
 	str r0, [r1]
 	mov r0, sb
 _0803808A:
-	bl sub_08037C14
+	bl __pack_f
 	add sp, #0x38
 	pop {r3, r4}
 	mov r8, r3
@@ -12962,21 +12962,21 @@ _0803808A:
 _0803809C:
 	.4byte 0x3FFFFFFF
 
-	.global sub_080380A0
+	.global __divsf3
 	.thumb_func
-	.type sub_080380A0, %function
-sub_080380A0: @ 080380A0
+	.type __divsf3, %function
+__divsf3: @ 080380A0
 	push {r4, r5, r6, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r5, sp, #0x10
 	adds r1, r5, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	mov r4, sp
 	movs r0, #0
 	ldr r3, [sp]
@@ -13096,17 +13096,17 @@ _0803817E:
 	adds r1, r4, #0
 _08038180:
 	adds r0, r1, #0
-	bl sub_08037C14
+	bl __pack_f
 	add sp, #0x28
 	pop {r4, r5, r6}
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08038190
+	.global __fpcmp_parts_f
 	.thumb_func
-	.type sub_08038190, %function
-sub_08038190: @ 08038190
+	.type __fpcmp_parts_f, %function
+__fpcmp_parts_f: @ 08038190
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0
@@ -13249,45 +13249,45 @@ _08038272:
 	pop {r1}
 	bx r1
 
-	.global sub_08038278
+	.global __cmpsf2
 	.thumb_func
-	.type sub_08038278, %function
-sub_08038278: @ 08038278
+	.type __cmpsf2, %function
+__cmpsf2: @ 08038278
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 	add sp, #0x28
 	pop {r4}
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080382A4
+	.global __eqsf2
 	.thumb_func
-	.type sub_080382A4, %function
-sub_080382A4: @ 080382A4
+	.type __eqsf2, %function
+__eqsf2: @ 080382A4
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13310,7 +13310,7 @@ _080382DA:
 _080382DE:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _080382E6:
 	add sp, #0x28
 	pop {r4}
@@ -13318,21 +13318,21 @@ _080382E6:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_080382F0
+	.global __nesf2
 	.thumb_func
-	.type sub_080382F0, %function
-sub_080382F0: @ 080382F0
+	.type __nesf2, %function
+__nesf2: @ 080382F0
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13355,7 +13355,7 @@ _08038326:
 _0803832A:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _08038332:
 	add sp, #0x28
 	pop {r4}
@@ -13363,21 +13363,21 @@ _08038332:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_0803833C
+	.global __gtsf2
 	.thumb_func
-	.type sub_0803833C, %function
-sub_0803833C: @ 0803833C
+	.type __gtsf2, %function
+__gtsf2: @ 0803833C
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13401,28 +13401,28 @@ _08038372:
 _08038378:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _08038380:
 	add sp, #0x28
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_08038388
+	.global __gesf2
 	.thumb_func
-	.type sub_08038388, %function
-sub_08038388: @ 08038388
+	.type __gesf2, %function
+__gesf2: @ 08038388
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13446,28 +13446,28 @@ _080383BE:
 _080383C4:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _080383CC:
 	add sp, #0x28
 	pop {r4}
 	pop {r1}
 	bx r1
 
-	.global sub_080383D4
+	.global __ltsf2
 	.thumb_func
-	.type sub_080383D4, %function
-sub_080383D4: @ 080383D4
+	.type __ltsf2, %function
+__ltsf2: @ 080383D4
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13490,7 +13490,7 @@ _0803840A:
 _0803840E:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _08038416:
 	add sp, #0x28
 	pop {r4}
@@ -13498,21 +13498,21 @@ _08038416:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08038420
+	.global __lesf2
 	.thumb_func
-	.type sub_08038420, %function
-sub_08038420: @ 08038420
+	.type __lesf2, %function
+__lesf2: @ 08038420
 	push {r4, lr}
 	sub sp, #0x28
 	str r0, [sp, #0x20]
 	str r1, [sp, #0x24]
 	add r0, sp, #0x20
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	add r0, sp, #0x24
 	add r4, sp, #0x10
 	adds r1, r4, #0
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #1
@@ -13535,7 +13535,7 @@ _08038456:
 _0803845A:
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_08038190
+	bl __fpcmp_parts_f
 _08038462:
 	add sp, #0x28
 	pop {r4}
@@ -13543,10 +13543,10 @@ _08038462:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_0803846C
+	.global __floatsisf
 	.thumb_func
-	.type sub_0803846C, %function
-sub_0803846C: @ 0803846C
+	.type __floatsisf, %function
+__floatsisf: @ 0803846C
 	push {lr}
 	sub sp, #0x10
 	adds r1, r0, #0
@@ -13594,7 +13594,7 @@ _080384AE:
 	str r0, [sp, #0xc]
 _080384BC:
 	mov r0, sp
-	bl sub_08037C14
+	bl __pack_f
 _080384C2:
 	add sp, #0x10
 	pop {r1}
@@ -13602,16 +13602,16 @@ _080384C2:
 _080384C8:
 	.4byte 0x3FFFFFFF
 
-	.global sub_080384CC
+	.global __fixsfsi
 	.thumb_func
-	.type sub_080384CC, %function
-sub_080384CC: @ 080384CC
+	.type __fixsfsi, %function
+__fixsfsi: @ 080384CC
 	push {lr}
 	sub sp, #0x14
 	str r0, [sp, #0x10]
 	add r0, sp, #0x10
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp]
 	cmp r0, #2
@@ -13669,16 +13669,16 @@ _08038530:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08038538
+	.global __negsf2
 	.thumb_func
-	.type sub_08038538, %function
-sub_08038538: @ 08038538
+	.type __negsf2, %function
+__negsf2: @ 08038538
 	push {lr}
 	sub sp, #0x14
 	str r0, [sp, #0x10]
 	add r0, sp, #0x10
 	mov r1, sp
-	bl sub_08037CD0
+	bl __unpack_f
 	movs r1, #0
 	ldr r0, [sp, #4]
 	cmp r0, #0
@@ -13687,16 +13687,16 @@ sub_08038538: @ 08038538
 _08038550:
 	str r1, [sp, #4]
 	mov r0, sp
-	bl sub_08037C14
+	bl __pack_f
 	add sp, #0x14
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08038560
+	.global __make_fp
 	.thumb_func
-	.type sub_08038560, %function
-sub_08038560: @ 08038560
+	.type __make_fp, %function
+__make_fp: @ 08038560
 	push {lr}
 	sub sp, #0x10
 	str r0, [sp]
@@ -13704,21 +13704,21 @@ sub_08038560: @ 08038560
 	str r2, [sp, #8]
 	str r3, [sp, #0xc]
 	mov r0, sp
-	bl sub_08037C14
+	bl __pack_f
 	add sp, #0x10
 	pop {r1}
 	bx r1
 
-	.global sub_08038578
+	.global __extendsfdf2
 	.thumb_func
-	.type sub_08038578, %function
-sub_08038578: @ 08038578
+	.type __extendsfdf2, %function
+__extendsfdf2: @ 08038578
 	push {r4, r5, r6, lr}
 	sub sp, #0x18
 	str r0, [sp, #0x14]
 	add r0, sp, #0x14
 	add r1, sp, #4
-	bl sub_08037CD0
+	bl __unpack_f
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #8]
 	ldr r2, [sp, #0xc]

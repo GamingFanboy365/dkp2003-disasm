@@ -64,7 +64,7 @@ _08013AB4:
 	cmp r0, #0
 	beq _08013AC6
 	ldr r0, _08013AE8
-	bl sub_08036B5C
+	bl _call_via_r0
 _08013AC6:
 	add sp, #4
 	pop {r0}

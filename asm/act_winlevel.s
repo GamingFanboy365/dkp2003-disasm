@@ -434,7 +434,7 @@ _08021380:
 	ldr r1, [sp, #8]
 	adds r3, r6, #0
 	adds r2, r5, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r3, r7, #0
 	adds r3, #8
 	ldr r2, [r4, r3]
@@ -446,7 +446,7 @@ _08021380:
 	adcs r1, r4
 	adds r3, r6, #0
 	adds r2, r5, #0
-	bl sub_08036D00
+	bl __muldi3
 	mov r4, r8
 	adds r3, r7, #4
 	ldr r2, [r4, r3]
@@ -458,7 +458,7 @@ _08021380:
 	adcs r1, r4
 	adds r3, r6, #0
 	adds r2, r5, #0
-	bl sub_08036D00
+	bl __muldi3
 	adds r3, r1, #0
 	asrs r4, r1, #0x1f
 	str r3, [sp, #4]
@@ -3750,7 +3750,7 @@ _08022CDA:
 	adds r0, r2, #0
 _08022D1A:
 	movs r1, #0x41
-	bl sub_08036C30
+	bl __modsi3
 	movs r2, #0x84
 	lsls r4, r0, #6
 	adds r6, r4, r0
