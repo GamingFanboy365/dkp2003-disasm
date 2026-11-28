@@ -1426,6 +1426,11 @@ _08014F0E:
 	cmp r7, #3
 	ble _08014F00
 	movs r7, #0
+
+	.global sub_08014F16
+	.thumb_func
+	.type sub_08014F16, %function
+sub_08014F16: @ 08014F16
 	adds r6, r5, #0
 	adds r6, #0x26
 	ldrb r2, [r6]
@@ -1438,13 +1443,17 @@ _08014F0E:
 	.2byte 0xF000, 0xFE60 @ bl #0x8015bec
 _08014F2C:
 	cmp r2, #2
-	bne _08014F34
+	bne sub_08014F34
 	.2byte 0xF000, 0xFE52 @ bl #0x8015bd8
-_08014F34:
+
+	.global sub_08014F34
+	.thumb_func
+	.type sub_08014F34, %function
+sub_08014F34: @ 08014F34
 	adds r7, #1
 	cmp r7, #3
 	bgt _08014F3E
-	.2byte 0xF000, 0xFE4A @ bl #0x8015bd2
+	bl _08015BD2
 _08014F3E:
 	ldr r4, _080151DC
 	ldr r2, [r4]
@@ -3123,7 +3132,27 @@ _08015B92:
 	lsrs r3, r0, #0xa
 	str r3, [r1, r5]
 	b _08015AE0
-	.incbin "baserom.gba", 0x15BC0, 0x48
+	.byte 0x08, 0xF0, 0xC0, 0xF9, 0x00, 0x28, 0x01, 0xD0, 0xFF, 0xF7, 0xED, 0xF9, 0x14, 0x4E, 0xFF, 0xF7
+	.byte 0xEB, 0xF9
+_08015BD2:
+	ldr r5, _08015C24
+	bl sub_08014F16
+	movs r0, #0
+	str r0, [sp]
+	str r0, [sp, #4]
+	str r0, [sp, #8]
+	str r0, [sp, #0xc]
+	ldr r2, _08015C28
+	adds r0, r4, #0
+	ldr r3, _08015C2C
+	movs r1, #4
+	b _08015BFE
+	.byte 0x00, 0x25, 0x20, 0x1C, 0x0F, 0x4A, 0x10, 0x4B, 0x04, 0x21, 0x00, 0x95, 0x01, 0x95, 0x02, 0x95
+	.byte 0x03, 0x95
+_08015BFE:
+	bl fe_spr_plot
+	adds r4, #0x1c
+	bl sub_08014F34
 _08015C08:
 	.4byte 0x02024158
 _08015C0C:
@@ -3137,8 +3166,11 @@ _08015C18:
 _08015C1C:
 	.4byte 0x020240F0
 	.4byte gUnk_0863EE20
-	.byte 0x4C, 0xD7, 0x02, 0x02
+_08015C24:
+	.4byte 0x0202D74C
+_08015C28:
 	.4byte gUnk_0862C220
+_08015C2C:
 	.4byte gUnk_0863FCA0
 	.4byte gUnk_0862BFF0
 	.4byte gUnk_0863FC80

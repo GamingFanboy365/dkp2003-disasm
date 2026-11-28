@@ -120,7 +120,26 @@ sub_03000138: @ 03000138
 	rsbne r1, r1, #0
 	asr r0, r1, #6
 	bx lr
-	.incbin "baserom.gba", 0x38774, 0x70
+_03000178:
+	tst r0, #0x4000
+	rsbne r0, r0, #0
+	orrne r0, r0, #0x10000
+	and r1, r0, #0x3fc0
+	ldr r3, _03000830
+	add r3, r3, r1, lsr #5
+	ldrh r1, [r3]
+	ldrh r2, [r3, #2]
+	and r3, r0, #0x3f
+	mul r2, r3, r2
+	rsb r3, r3, #0x40
+	mla r1, r3, r1, r2
+	tst r0, #0x10000
+	rsbne r1, r1, #0
+	asr r0, r1, #6
+	bx lr
+	.byte 0x00, 0x10, 0xA0, 0xE1, 0x02, 0x09, 0x10, 0xE3, 0x00, 0x10, 0x61, 0x12, 0x01, 0x0C, 0x51, 0xE3
+	.byte 0x01, 0x1C, 0xA0, 0xC3, 0x60, 0x26, 0x9F, 0xE5, 0x81, 0x20, 0x82, 0xE0, 0xB0, 0x10, 0xD2, 0xE1
+	.byte 0x02, 0x09, 0x10, 0xE3, 0x00, 0x10, 0x61, 0x12, 0x01, 0x00, 0xA0, 0xE1, 0x1E, 0xFF, 0x2F, 0xE1
 
 	.global sub_030001E8
 	.type sub_030001E8, %function
@@ -376,7 +395,128 @@ sub_0300055C: @ 0300055C
 	mov r0, r1
 	ldm sp!, {ip}
 	bx ip
-	.incbin "baserom.gba", 0x38B6C, 0x1D4
+	.global _03000570
+_03000570:
+	mov r1, #0x10000000
+	mov r3, #0x54
+	cmp r0, r1, lsr #12
+	suble r3, r3, #0x30
+	lsrle r1, r1, #0x10
+	cmp r0, r1, lsr #4
+	suble r3, r3, #0x18
+	lsrle r1, r1, #8
+	cmp r0, r1
+	suble r3, r3, #0xc
+	lsrle r1, r1, #4
+	mov r2, #0
+	adds r2, r2, r2
+	rsb r0, r0, #0
+	add pc, pc, r3, lsl #2
+	.byte 0x00, 0x00, 0xA0, 0xE1
+_030005B0:
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	adcs r1, r0, r1, lsl #1
+	rsblo r1, r0, r1
+	adcs r2, r2, r2
+	mov r0, r2
+	bx lr
+	.global _03000738
+_03000738:
+	smull r2, r3, r0, r1
+	mov r0, r3
+	bx lr
 
 	.global sub_03000744
 	.type sub_03000744, %function
@@ -433,10 +573,17 @@ sub_03000744: @ 03000744
 	adc r2, r1, r2, lsl #1
 	bic r0, r2, #0xc0000000
 	bx lr
-	.byte 0x01, 0x00, 0x40, 0xE0, 0x02, 0x09, 0x10, 0xE3, 0x01, 0x08, 0x40, 0x12, 0x02, 0x01, 0x10, 0xE3
-	.byte 0x01, 0x08, 0x80, 0x12, 0x1E, 0xFF, 0x2F, 0xE1
+	.global _03000814
+_03000814:
+	sub r0, r0, r1
+	tst r0, #0x8000
+	subne r0, r0, #0x10000
+	tst r0, #0x80000000
+	addne r0, r0, #0x10000
+	bx lr
 _0300082C:
 	.4byte gUnk_0803EA90
+_03000830:
 	.4byte gUnk_0803EC94
 	.4byte gUnk_0803EE98
 _03000838:
@@ -3921,7 +4068,9 @@ sub_03003A14: @ 03003A14
 _03003AC4:
 	ldmdb fp, {r4, r5, r6, r7, r8, fp, sp, lr}
 	bx lr
-	.byte 0x00, 0x00, 0x51, 0xE3, 0x00, 0x20, 0xA0, 0xE1
+_03003ACC:
+	cmp r1, #0
+	mov r2, r0
 
 	.global sub_03003AD4
 	.type sub_03003AD4, %function

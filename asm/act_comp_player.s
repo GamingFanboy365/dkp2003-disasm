@@ -3142,7 +3142,7 @@ _0800C40E:
 _0800C414:
 	.4byte sub_030001E8
 _0800C418:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800C41C:
 	.4byte sub_0300034C
 
@@ -3460,6 +3460,11 @@ _0800C65A:
 	ldr r0, [r4, #0x48]
 	adds r2, #0xa0
 	str r2, [sp, #0x18]
+
+	.global sub_0800C664
+	.thumb_func
+	.type sub_0800C664, %function
+sub_0800C664: @ 0800C664
 	cmp r0, #0
 	bge _0800C66C
 	.2byte 0xF000, 0xFE59 @ bl #0x800d31e
@@ -3470,6 +3475,11 @@ _0800C66C:
 _0800C674:
 	movs r5, #5
 	rsbs r1, r5, #0
+
+	.global sub_0800C678
+	.thumb_func
+	.type sub_0800C678, %function
+sub_0800C678: @ 0800C678
 	movs r5, #0
 	lsls r3, r0, #1
 	lsls r6, r1, #1
@@ -3481,9 +3491,18 @@ _0800C674:
 	.2byte 0xF000, 0xFE40 @ bl #0x800d30c
 _0800C68C:
 	cmp r0, r5
-	ble _0800C692
+	ble sub_0800C692
+
+	.global sub_0800C690
+	.thumb_func
+	.type sub_0800C690, %function
+sub_0800C690: @ 0800C690
 	movs r0, #0
-_0800C692:
+
+	.global sub_0800C692
+	.thumb_func
+	.type sub_0800C692, %function
+sub_0800C692: @ 0800C692
 	ldr r5, [sp, #0x18]
 	str r0, [r5]
 	ldr r6, [sp, #0x30]
@@ -3500,6 +3519,11 @@ _0800C6AA:
 	adds r1, #0xa4
 	str r1, [sp, #0x14]
 	ldr r1, [r1]
+
+	.global sub_0800C6B2
+	.thumb_func
+	.type sub_0800C6B2, %function
+sub_0800C6B2: @ 0800C6B2
 	ldr r0, [sp, #0x30]
 	ldr r2, [r0]
 	movs r7, #0x80
@@ -3522,6 +3546,11 @@ _0800C6D6:
 	movs r2, #0xa
 	ldr r0, _0800C838
 	rsbs r5, r2, #0
+
+	.global sub_0800C6DC
+	.thumb_func
+	.type sub_0800C6DC, %function
+sub_0800C6DC: @ 0800C6DC
 	lsls r6, r1, #1
 	lsls r7, r5, #1
 	adds r4, r6, r7
@@ -3529,12 +3558,21 @@ _0800C6D6:
 	adds r1, r1, r7
 	cmp r5, #0
 	bgt _0800C6EE
-	.2byte 0xF000, 0xFDF1 @ bl #0x800d2d0
+	bl _0800D2D0
 _0800C6EE:
 	cmp r1, r0
-	ble _0800C6F4
+	ble sub_0800C6F4
+
+	.global sub_0800C6F2
+	.thumb_func
+	.type sub_0800C6F2, %function
+sub_0800C6F2: @ 0800C6F2
 	adds r1, r0, #0
-_0800C6F4:
+
+	.global sub_0800C6F4
+	.thumb_func
+	.type sub_0800C6F4, %function
+sub_0800C6F4: @ 0800C6F4
 	ldr r0, [sp, #0x14]
 	str r1, [r0]
 	ldr r0, _0800C83C
@@ -3733,7 +3771,7 @@ _0800C840:
 _0800C844:
 	.4byte 0xFFFF8000
 _0800C848:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800C84C:
 	.4byte sub_03000134
 _0800C850:
@@ -4161,7 +4199,7 @@ _0800CB6A:
 	bl gamesfx_play_at
 	b _0800C944
 _0800CBB4:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800CBB8:
 	.4byte sub_03000134
 _0800CBBC:
@@ -4416,7 +4454,7 @@ _0800CD92:
 _0800CDB8:
 	.4byte 0x00000CCC
 _0800CDBC:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800CDC0:
 	.4byte sub_03000134
 _0800CDC4:
@@ -4976,7 +5014,7 @@ _0800D1D0:
 	subs r5, r0, r1
 	b _0800D198
 _0800D1D8:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800D1DC:
 	.4byte sub_03000744
 _0800D1E0:
@@ -5118,7 +5156,48 @@ _0800D2C4:
 _0800D2CC:
 	ldr r4, _0800D334
 	b _0800D236
-	.incbin "baserom.gba", 0xD2D0, 0x60
+_0800D2D0:
+	cmp r1, r0
+	blt _0800D2D8
+	bl sub_0800C6F4
+_0800D2D8:
+	bl sub_0800C6F2
+	cmp r1, #0
+	blt _0800D2F6
+	cmp r1, #0
+	ble _0800D2EE
+	movs r3, #5
+	rsbs r5, r3, #0
+	movs r0, #0
+	bl sub_0800C6DC
+_0800D2EE:
+	movs r5, #0
+	movs r0, #0
+	bl sub_0800C6DC
+_0800D2F6:
+	movs r5, #5
+	movs r0, #0
+	bl sub_0800C6DC
+	ldr r3, [sp, #0x48]
+	mov r0, fp
+	ldr r1, [r3, #0x4c]
+	adds r0, #0xa4
+	str r0, [sp, #0x14]
+	bl sub_0800C6B2
+	cmp r0, r5
+	blt _0800D314
+	bl sub_0800C692
+_0800D314:
+	bl sub_0800C690
+	movs r1, #0
+	bl sub_0800C678
+	movs r1, #5
+	bl sub_0800C678
+	mov r3, fp
+	adds r3, #0xa0
+	str r3, [sp, #0x18]
+	ldr r0, [r3]
+	bl sub_0800C664
 _0800D330:
 	.4byte 0x0202DE5C
 _0800D334:
@@ -8496,7 +8575,7 @@ _0800EC2C:
 _0800EC30:
 	.4byte sub_03000134
 _0800EC34:
-	.4byte 0x03000814
+	.4byte _03000814
 _0800EC38:
 	.4byte sub_030001E8
 

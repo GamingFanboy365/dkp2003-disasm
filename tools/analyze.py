@@ -251,6 +251,10 @@ class Analyzer:
                             u.ok, u.why = False, 'falls through into function %x' % off
                             return u
                         break  # merges with existing code
+                    if k[0] == 'P' and prev is not None and prev.insn_name() == 'bl' and not speculative:
+                        # a literal pool right after a bl: the bl is a far
+                        # jump (it never returns)
+                        break
                     u.ok, u.why = False, 'conflict at %x with %s' % (off, k)
                     return u
                 if not (seg.rom_start <= off < seg.rom_end) or not self.allowed(seg, off, thumb):
@@ -600,6 +604,36 @@ class Analyzer:
         u.calls += u2.calls
         u.ptrs += u2.ptrs
 
+    def add_code(self, vma, thumb, queue):
+        """Trace code at vma as part of the function that contains it."""
+        seg = self.rom.seg_of_vma(vma)
+        if seg is None:
+            return 'no segment'
+        off = seg.to_rom(vma)
+        if off in self.db.insn_at:
+            return 'already code'
+        # the containing function's start lets trace() see far jumps (bl
+        # back into the same function)
+        fs = max([f for f in self.db.funcs if f <= off] or [off])
+        u = self.trace(vma, thumb, seg, False, func_start=fs)
+        if not u.ok:
+            return u.why
+        db = self.db
+        db.kind.update(u.kind)
+        db.insn_at.update(u.insn_at)
+        db.labels.update(u.labels)
+        db.labels[off] = thumb
+        db.pools.update(u.pools)
+        db.jtables.update(u.jtables)
+        for c in u.calls:
+            if c[0] == 'jt':
+                continue
+            if len(c) == 4:
+                queue.append((c[0] & ~1, c[1], None, False))
+            else:
+                queue.append((c[0], c[1], c[2], False))
+        return None
+
     def drain(self, queue, spec):
         while queue:
             v, th, sg, sp = queue.pop()
@@ -630,6 +664,10 @@ def parse_cfg(path):
             cfg['data'].append((int(p[1], 0), int(p[2], 0)))
         elif k == 'name':
             cfg['names'][int(p[1], 0)] = p[2]
+        elif k == 'code':
+            # code inside a function that tracing cannot reach (computed jumps);
+            # odd address = Thumb
+            cfg.setdefault('code', []).append(int(p[1], 0))
     return cfg
 
 
@@ -738,8 +776,17 @@ def main():
         while scan_pointers('pointer scan'):
             pass
 
-    for o, nm in cfg['names'].items():
-        pass
+    # code hints (from mGBA coverage, tools/emu/cover_hints.py)
+    n = 0
+    for v in cfg.get('code', []):
+        q = []
+        why = an.add_code(v & ~1, bool(v & 1), q)
+        if why and why != 'already code':
+            an.log.append('code hint %08x: %s' % (v, why))
+        elif not why:
+            n += 1
+        an.drain(q, False)
+    print('code hints: +%d traced' % n, file=sys.stderr)
 
     if len(sys.argv) > 4:
         # debug: explain why tracing an address fails (against final state)

@@ -1126,7 +1126,7 @@ sub_080122AC: @ 080122AC
 _0801230C:
 	.4byte sub_030001E8
 _08012310:
-	.4byte 0x03000814
+	.4byte _03000814
 
 	.global racemonitorBlueZingerProgress
 	.thumb_func

@@ -5327,10 +5327,11 @@ sub_0801B5F4: @ 0801B5F4
 	sub sp, #0x10
 	cmp r0, #0
 	bne _0801B60E
-	.2byte 0xF000, 0xFBF8 @ bl #0x801bdfe
+	bl _0801BDFE
 _0801B60E:
 	ldr r0, _0801B910
 	mov r8, r0
+_0801B612:
 	bl sub_08003478
 	bl sub_0801B0DC
 	ldr r6, _0801B914
@@ -6347,13 +6348,18 @@ _0801BDF0:
 	lsls r2, r3, #9
 	bl sub_0802F11E
 	b _0801B65A
-	.byte 0x05, 0x4A, 0x90, 0x46, 0xFF, 0xF7, 0x06, 0xFC, 0x00, 0x00
+_0801BDFE:
+	ldr r2, _0801BE14
+	mov r8, r2
+	bl _0801B612
+	.byte 0x00, 0x00
 _0801BE08:
 	.4byte gUnk_08294DF0
 _0801BE0C:
 	.4byte 0x0202D3F0
 _0801BE10:
 	.4byte 0x0300566C
+_0801BE14:
 	.4byte gUnk_08051918
 
 	.global sub_0801BE18

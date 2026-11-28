@@ -45,8 +45,20 @@ _0802EA54:
 	lsr sl, sl, #0x18
 	orr r7, sl, r4, lsl #8
 	bx lr
-	.byte 0xC8, 0x78, 0x00, 0x03, 0xC4, 0x78, 0x00, 0x03, 0x0C, 0x63, 0x00, 0x03, 0x08, 0xF0, 0x02, 0x02
-	.byte 0xFF, 0xFF, 0x7F, 0x00, 0xF8, 0xEF, 0x02, 0x02, 0x2C, 0x63, 0x00, 0x03
+_0802EA94:
+	.4byte 0x030078C8
+_0802EA98:
+	.4byte 0x030078C4
+_0802EA9C:
+	.4byte 0x0300630C
+_0802EAA0:
+	.4byte 0x0202F008
+_0802EAA4:
+	.4byte 0x007FFFFF
+_0802EAA8:
+	.4byte 0x0202EFF8
+_0802EAAC:
+	.4byte 0x0300632C
 _0802EAB0:
 	.4byte 0x028F5C29
 _0802EAB4:
@@ -412,7 +424,11 @@ _0802ED26:
 	mov lr, r0
 	ldr r0, _0802EE84
 	bx r0
-	.byte 0x00, 0xF0, 0xAC, 0xF8, 0x78, 0x46, 0x07, 0x30, 0x86, 0x46
+_0802ED44:
+	bl sub_0802EEA0
+	mov r0, pc
+	adds r0, #7
+	mov lr, r0
 
 	.global sub_0802ED4E
 	.thumb_func
@@ -427,7 +443,10 @@ _0802ED52:
 	mov lr, r0
 	ldr r0, _0802EE8C
 	bx r0
-	.byte 0x78, 0x46, 0x07, 0x30, 0x86, 0x46
+_0802ED60:
+	mov r0, pc
+	adds r0, #7
+	mov lr, r0
 
 	.global sub_0802ED66
 	.thumb_func
@@ -435,7 +454,14 @@ _0802ED52:
 sub_0802ED66: @ 0802ED66
 	ldr r0, _0802EE90
 	bx r0
-	.byte 0x45, 0x48, 0x01, 0x68, 0x01, 0x29, 0x04, 0xD0, 0x78, 0x46, 0x07, 0x30, 0x86, 0x46
+_0802ED6A:
+	ldr r0, _0802EE80
+	ldr r1, [r0]
+	cmp r1, #1
+	beq _0802ED7C
+	mov r0, pc
+	adds r0, #7
+	mov lr, r0
 
 	.global sub_0802ED78
 	.thumb_func
@@ -443,7 +469,10 @@ sub_0802ED66: @ 0802ED66
 sub_0802ED78: @ 0802ED78
 	ldr r0, _0802EE94
 	bx r0
-	.byte 0x78, 0x46, 0x07, 0x30, 0x86, 0x46
+_0802ED7C:
+	mov r0, pc
+	adds r0, #7
+	mov lr, r0
 
 	.global sub_0802ED82
 	.thumb_func
@@ -451,7 +480,14 @@ sub_0802ED78: @ 0802ED78
 sub_0802ED82: @ 0802ED82
 	ldr r0, _0802EE98
 	bx r0
-	.byte 0x21, 0x48, 0x00, 0x68, 0x0C, 0x4F, 0x3F, 0x68, 0xB8, 0x42, 0x0A, 0xDB, 0x03, 0xB4
+_0802ED86:
+	ldr r0, _0802EE0C
+	ldr r0, [r0]
+	ldr r7, _0802EDBC
+	ldr r7, [r7]
+	cmp r0, r7
+	blt _0802EDA8
+	push {r0, r1}
 
 	.global sub_0802ED94
 	.thumb_func
@@ -472,6 +508,7 @@ sub_0802EDA0: @ 0802EDA0
 	mov lr, r0
 	pop {r0, r1}
 	.2byte 0xEFFF @ debug trap
+_0802EDA8:
 	pop {r3, r4, r5, r6, r7}
 	mov r8, r3
 	mov sb, r4
@@ -596,10 +633,39 @@ _0802EE98:
 	.4byte 0x0300663C
 _0802EE9C:
 	.4byte sub_0802EDA0
-	.byte 0xA0, 0x48, 0xA1, 0x4F, 0x80, 0x21, 0x00, 0x26, 0x42, 0x58, 0x00, 0x2A, 0x03, 0xD1, 0x7E, 0x50
-	.byte 0x08, 0x39, 0xF9, 0xD1, 0x70, 0x47, 0xCB, 0x08, 0x01, 0x3B, 0x9C, 0x4C, 0x04, 0x25, 0x5D, 0x43
-	.byte 0x63, 0x59, 0xDB, 0x6B, 0x44, 0x18, 0x65, 0x68, 0xEB, 0x18, 0x99, 0x4D, 0x2B, 0x40, 0x63, 0x60
-	.byte 0xEE, 0xE7
+
+	.global sub_0802EEA0
+	.thumb_func
+	.type sub_0802EEA0, %function
+sub_0802EEA0: @ 0802EEA0
+	ldr r0, _0802F124
+	ldr r7, _0802F128
+	movs r1, #0x80
+	movs r6, #0
+_0802EEA8:
+	ldr r2, [r0, r1]
+	cmp r2, #0
+	bne _0802EEB6
+	str r6, [r7, r1]
+_0802EEB0:
+	subs r1, #8
+	bne _0802EEA8
+	bx lr
+_0802EEB6:
+	lsrs r3, r1, #3
+	subs r3, #1
+	ldr r4, _0802F12C
+	movs r5, #4
+	muls r5, r3, r5
+	ldr r3, [r4, r5]
+	ldr r3, [r3, #0x3c]
+	adds r4, r0, r1
+	ldr r5, [r4, #4]
+	adds r3, r5, r3
+	ldr r5, _0802F130
+	ands r3, r5
+	str r3, [r4, #4]
+	b _0802EEB0
 
 	.global sub_0802EED2
 	.thumb_func
@@ -699,7 +765,9 @@ _0802EF46:
 	mov lr, r0
 	ldr r0, _0802F14C
 	bx r0
-	.byte 0x01, 0xBC, 0x02, 0xBC
+_0802EF72:
+	pop {r0}
+	pop {r1}
 _0802EF76:
 	pop {r2}
 	bx r2
@@ -976,8 +1044,15 @@ _0802F10C:
 sub_0802F11E: @ 0802F11E
 	movs r3, #0
 	b _0802F170
-	.byte 0x25, 0xE0, 0x84, 0x62, 0x00, 0x03, 0x88, 0x62, 0x00, 0x03, 0x14, 0x64, 0x00, 0x03, 0xFF, 0xFF
-	.byte 0xFF, 0x00
+	.byte 0x25, 0xE0
+_0802F124:
+	.4byte 0x03006284
+_0802F128:
+	.4byte 0x03006288
+_0802F12C:
+	.4byte 0x03006414
+_0802F130:
+	.4byte 0x00FFFFFF
 _0802F134:
 	.4byte 0x0300632C
 _0802F138:

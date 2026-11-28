@@ -16,7 +16,7 @@ tools/emu (DKP_COVER=<file> repro_zinger_buzz.py).
 
 Summary
 -------
-     88 functions never called                     11558 bytes
+     87 functions never called                     11546 bytes
     146 data blocks never referenced              108799 bytes
     135 blocks possibly unused (section 5)         13376 bytes
   unused level: 25; a debug menu; the credits screen; a cup-win screen;
@@ -85,6 +85,9 @@ Summary
       strings: "o != NULL", "src/act_banana.c", "init_banana", "ASSERTION
       FAILED FILE=[%s] FUNC=[%s] ...", "t != NULL", "react_banana"
 
+  sub_03006BC0: 3 function(s), 0 data block(s), 292 bytes
+      functions: sub_03006BC0, sub_03006C84, sub_03006CE4
+
   sub_080360F8: 2 function(s), 0 data block(s), 276 bytes
       newlib (libc) code that was linked in but is never called
       functions: sub_080360F8, sub_080362A4
@@ -114,9 +117,6 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: sub_08034B8C, sub_08034BC0
 
-  sub_03006C84: 2 function(s), 0 data block(s), 160 bytes
-      functions: sub_03006C84, sub_03006CE4
-
   act_null: 1 function(s), 4 data block(s), 156 bytes
       a "null" actor; no class table entry points to it
       functions: act_null
@@ -137,9 +137,6 @@ Summary
 
   sub_08018BB4: 1 function(s), 0 data block(s), 136 bytes
       functions: sub_08018BB4
-
-  sub_03006BC0: 1 function(s), 0 data block(s), 132 bytes
-      functions: sub_03006BC0
 
   sub_08036598: 1 function(s), 1 data block(s), 120 bytes
       newlib (libc) code that was linked in but is never called
@@ -221,9 +218,6 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: sub_08034C48
 
-  sub_0802ED94: 1 function(s), 0 data block(s), 12 bytes
-      functions: sub_0802ED94
-
   sub_08000A90: 1 function(s), 0 data block(s), 12 bytes
       functions: sub_08000A90
 
@@ -303,7 +297,6 @@ Summary
   03006BC0     132  audio_arm.s              sub_03006BC0
   03006C84      96  audio_arm.s              sub_03006C84
   03006CE4      64  audio_arm.s              sub_03006CE4
-  0802ED94      12  audio.s                  sub_0802ED94
   0802F0AE      44  audio.s                  sub_0802F0AE
   08032598      68  libagbprint.s            AGBAssert
   080329B0      64  libc.s                   sub_080329B0
