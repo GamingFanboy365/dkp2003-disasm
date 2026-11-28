@@ -356,10 +356,10 @@ _080032F4:
 _080032F8:
 	.4byte gAnims
 
-	.global sub_080032FC
+	.global point_in_poly
 	.thumb_func
-	.type sub_080032FC, %function
-sub_080032FC: @ 080032FC
+	.type point_in_poly, %function
+point_in_poly: @ 080032FC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -472,10 +472,10 @@ _080033BE:
 	b _080033BA
 	.byte 0x00, 0x00
 
-	.global sub_080033C4
+	.global hits_floor_type
 	.thumb_func
-	.type sub_080033C4, %function
-sub_080033C4: @ 080033C4
+	.type hits_floor_type, %function
+hits_floor_type: @ 080033C4
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -531,7 +531,7 @@ _08003416:
 	ldr r0, [sp]
 	mov r1, fp
 	adds r2, r4, #0
-	bl sub_080032FC
+	bl point_in_poly
 	cmp r0, #0
 	beq _08003440
 	ldrb r3, [r4]
@@ -739,10 +739,10 @@ _08003598:
 	pop {r0}
 	bx r0
 
-	.global sub_0800359C
+	.global pal_slots_reset
 	.thumb_func
-	.type sub_0800359C, %function
-sub_0800359C: @ 0800359C
+	.type pal_slots_reset, %function
+pal_slots_reset: @ 0800359C
 	push {lr}
 	ldr r2, _080035BC
 	ldr r0, [r2]
@@ -912,10 +912,10 @@ _080036B4:
 _080036B8:
 	.4byte gFadeMode
 
-	.global sub_080036BC
+	.global racer_init_character
 	.thumb_func
-	.type sub_080036BC, %function
-sub_080036BC: @ 080036BC
+	.type racer_init_character, %function
+racer_init_character: @ 080036BC
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1073,10 +1073,10 @@ _08003760:
 _080037F4:
 	.4byte 0x0201BD24
 
-	.global sub_080037F8
+	.global race_grid_setup_cup
 	.thumb_func
-	.type sub_080037F8, %function
-sub_080037F8: @ 080037F8
+	.type race_grid_setup_cup, %function
+race_grid_setup_cup: @ 080037F8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1233,10 +1233,10 @@ _0800391C:
 _08003920:
 	.4byte gUnk_0804FDC4
 
-	.global sub_08003924
+	.global race_grid_setup
 	.thumb_func
-	.type sub_08003924, %function
-sub_08003924: @ 08003924
+	.type race_grid_setup, %function
+race_grid_setup: @ 08003924
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1405,10 +1405,10 @@ _08003A5C:
 _08003A60:
 	.4byte gUnk_0804FDC4
 
-	.global sub_08003A64
+	.global cup_grid_setup
 	.thumb_func
-	.type sub_08003A64, %function
-sub_08003A64: @ 08003A64
+	.type cup_grid_setup, %function
+cup_grid_setup: @ 08003A64
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1882,10 +1882,10 @@ _08003DB0:
 	str r0, [sp, #0x18]
 	b _08003A9E
 
-	.global sub_08003DD4
+	.global assign_cpu_characters
 	.thumb_func
-	.type sub_08003DD4, %function
-sub_08003DD4: @ 08003DD4
+	.type assign_cpu_characters, %function
+assign_cpu_characters: @ 08003DD4
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -2016,10 +2016,10 @@ _08003EB4:
 _08003EB8:
 	.4byte gGameSetup
 
-	.global sub_08003EBC
+	.global racer_pal_pulse_update
 	.thumb_func
-	.type sub_08003EBC, %function
-sub_08003EBC: @ 08003EBC
+	.type racer_pal_pulse_update, %function
+racer_pal_pulse_update: @ 08003EBC
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2241,10 +2241,10 @@ _08004050:
 _08004054:
 	.4byte gCharBiasTable
 
-	.global sub_08004058
+	.global char_bias_random
 	.thumb_func
-	.type sub_08004058, %function
-sub_08004058: @ 08004058
+	.type char_bias_random, %function
+char_bias_random: @ 08004058
 	push {r4, r5, r6, lr}
 	ldr r0, _08004080
 	ldr r6, _08004084
@@ -2290,10 +2290,10 @@ _08004092:
 _080040A0:
 	.4byte gGameSetup
 
-	.global sub_080040A4
+	.global racer_setup_sprite
 	.thumb_func
-	.type sub_080040A4, %function
-sub_080040A4: @ 080040A4
+	.type racer_setup_sprite, %function
+racer_setup_sprite: @ 080040A4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r2, r4, #0
@@ -2340,10 +2340,10 @@ char_info: @ 080040EC
 _080040F4:
 	.4byte gCharInfo
 
-	.global sub_080040F8
+	.global racer_pal_pulse_reset
 	.thumb_func
-	.type sub_080040F8, %function
-sub_080040F8: @ 080040F8
+	.type racer_pal_pulse_reset, %function
+racer_pal_pulse_reset: @ 080040F8
 	adds r0, #0xa0
 	ldr r1, [r0, #4]
 	ldr r0, _08004120
@@ -2369,10 +2369,10 @@ _08004120:
 _08004124:
 	.4byte 0x0201BD24
 
-	.global sub_08004128
+	.global racer_restore_palette
 	.thumb_func
-	.type sub_08004128, %function
-sub_08004128: @ 08004128
+	.type racer_restore_palette, %function
+racer_restore_palette: @ 08004128
 	adds r1, r0, #0
 	adds r1, #0xa0
 	ldr r2, [r1, #4]
@@ -2406,10 +2406,10 @@ _08004160:
 _08004164:
 	.4byte gSprites
 
-	.global sub_08004168
+	.global racer_flash_palette
 	.thumb_func
-	.type sub_08004168, %function
-sub_08004168: @ 08004168
+	.type racer_flash_palette, %function
+racer_flash_palette: @ 08004168
 	push {r4, lr}
 	adds r1, r0, #0
 	adds r1, #0xa0
@@ -2453,10 +2453,10 @@ _080041B4:
 _080041B8:
 	.4byte gSprites
 
-	.global sub_080041BC
+	.global racer_flash_update
 	.thumb_func
-	.type sub_080041BC, %function
-sub_080041BC: @ 080041BC
+	.type racer_flash_update, %function
+racer_flash_update: @ 080041BC
 	push {lr}
 	movs r1, #0x83
 	lsls r2, r1, #1
@@ -2471,14 +2471,14 @@ _080041D0:
 	pop {r0}
 	bx r0
 _080041D4:
-	bl sub_080041DC
+	bl racer_flash_end
 	b _080041D0
 	.byte 0x00, 0x00
 
-	.global sub_080041DC
+	.global racer_flash_end
 	.thumb_func
-	.type sub_080041DC, %function
-sub_080041DC: @ 080041DC
+	.type racer_flash_end, %function
+racer_flash_end: @ 080041DC
 	push {r4, lr}
 	adds r1, r0, #0
 	adds r1, #0xa0

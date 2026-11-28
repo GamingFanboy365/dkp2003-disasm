@@ -879,7 +879,7 @@ _080053BE:
 	str r2, [r1]
 _08005506:
 	mov r0, r8
-	bl sub_080040F8
+	bl racer_pal_pulse_reset
 	mov r0, r8
 	bl sub_0800A804
 	ldr r2, _08005534
@@ -7474,7 +7474,7 @@ _08008488:
 	lsls r3, r4, #1
 	adds r1, r7, r3
 	mov r0, sl
-	bl sub_080033C4
+	bl hits_floor_type
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080084AA
@@ -8718,7 +8718,7 @@ _08008DC0:
 	.4byte gRacerData
 _08008DC4:
 	adds r0, r4, #0
-	bl sub_080036BC
+	bl racer_init_character
 	ldr r2, [r4, #0x24]
 	adds r1, r4, #0
 	adds r1, #0x84
@@ -10285,7 +10285,7 @@ _08009984:
 	.global _080099A8
 _080099A8:
 	adds r0, r6, #0
-	bl sub_080040A4
+	bl racer_setup_sprite
 	movs r1, #0xcc
 	lsls r4, r1, #1
 	add r4, sb
@@ -10359,7 +10359,7 @@ _08009A2E:
 	cmp r1, #0
 	beq _08009A40
 	adds r0, r6, #0
-	bl sub_080041BC
+	bl racer_flash_update
 _08009A40:
 	ldr r3, [r7, #8]
 	cmp r3, #1
@@ -10795,7 +10795,7 @@ _08009D4E:
 	cmp r0, #0
 	ble _08009DEC
 	adds r0, r6, #0
-	bl sub_08003EBC
+	bl racer_pal_pulse_update
 _08009D70:
 	ldr r4, [r7]
 	movs r1, #0x80
@@ -10879,7 +10879,7 @@ _08009DEC:
 	str r1, [r0]
 _08009E0C:
 	adds r0, r6, #0
-	bl sub_08004128
+	bl racer_restore_palette
 	b _08009D70
 _08009E14:
 	.4byte 0x00000000
@@ -10971,7 +10971,7 @@ _08009EAC:
 	cmp r0, #0
 	ble _08009F74
 	adds r0, r6, #0
-	bl sub_08003EBC
+	bl racer_pal_pulse_update
 _08009EC2:
 	ldr r4, [r7]
 	movs r0, #0x80
@@ -11081,7 +11081,7 @@ _08009F74:
 	str r0, [r4]
 _08009F92:
 	adds r0, r6, #0
-	bl sub_08004128
+	bl racer_restore_palette
 	b _08009EC2
 	.byte 0x00, 0x00
 _08009F9C:
@@ -12038,7 +12038,7 @@ _0800A702:
 	bx r0
 _0800A70A:
 	adds r0, r4, #0
-	bl sub_08004168
+	bl racer_flash_palette
 	ldr r1, [r5]
 	movs r2, #0x86
 	lsls r0, r2, #6
@@ -12492,7 +12492,7 @@ sub_0800A9FC: @ 0800A9FC
 	str r2, [r0]
 _0800AA46:
 	adds r0, r5, #0
-	bl sub_080040F8
+	bl racer_pal_pulse_reset
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0

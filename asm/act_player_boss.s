@@ -33,7 +33,7 @@ _080246D6:
 	strh r0, [r7]
 	adds r0, r7, #0
 	mov sb, r2
-	bl sub_080036BC
+	bl racer_init_character
 	ldr r5, _08024720
 	mov fp, r0
 	movs r0, #0
@@ -1328,7 +1328,7 @@ _08024FF8:
 	b _08025670
 _08025094:
 	mov r0, sb
-	bl sub_08003EBC
+	bl racer_pal_pulse_update
 _0802509A:
 	ldr r0, [sp, #0x20]
 	movs r5, #0x80
@@ -1356,7 +1356,7 @@ _080250BC:
 	cmp r0, #0
 	beq _080250D0
 	mov r0, sb
-	bl sub_080041BC
+	bl racer_flash_update
 _080250D0:
 	mov r7, fp
 	mov r0, sb
@@ -2136,7 +2136,7 @@ _08025670:
 	ands r1, r3
 	str r1, [r6]
 	mov r0, sb
-	bl sub_08004128
+	bl racer_restore_palette
 	b _0802509A
 _08025684:
 	.4byte 0x00000000
@@ -2693,7 +2693,7 @@ _08025BA0:
 	cmp r0, #0
 	bne _08025B0E
 	adds r0, r5, #0
-	bl sub_08004168
+	bl racer_flash_palette
 	ldr r2, [r4]
 	movs r0, #0x86
 	lsls r1, r0, #6
@@ -2815,7 +2815,7 @@ _08025CB0:
 	.4byte gLocalPlayerIndex
 _08025CB4:
 	adds r0, r4, #0
-	bl sub_080040F8
+	bl racer_pal_pulse_reset
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -2864,7 +2864,7 @@ _08025D04:
 	bx r0
 _08025D0C:
 	adds r0, r4, #0
-	bl sub_08004168
+	bl racer_flash_palette
 	ldr r2, [r5]
 	movs r0, #0x86
 	lsls r1, r0, #6

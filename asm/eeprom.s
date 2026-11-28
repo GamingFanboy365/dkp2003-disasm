@@ -2520,7 +2520,7 @@ _0801E49C:
 	pop {r1}
 	bx r1
 _0801E4AE:
-	bl sub_08003A64
+	bl cup_grid_setup
 	b _0801E496
 _0801E4B4:
 	add r0, sp, #0x20

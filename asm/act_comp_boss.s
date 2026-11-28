@@ -28,7 +28,7 @@ _0802748A:
 	strh r2, [r7]
 	mov sl, r0
 	adds r0, r7, #0
-	bl sub_080036BC
+	bl racer_init_character
 	mov sb, r0
 	ldr r0, _080274CC
 	movs r2, #0
@@ -946,7 +946,7 @@ _08027B60:
 	cmp r5, #0
 	beq _08027B74
 	adds r0, r7, #0
-	bl sub_080041BC
+	bl racer_flash_update
 _08027B74:
 	adds r0, r7, #0
 	mov r1, r8
@@ -1373,7 +1373,7 @@ _08027E7A:
 	b _08027A5A
 _08027EA6:
 	adds r0, r7, #0
-	bl sub_080040A4
+	bl racer_setup_sprite
 	movs r2, #0x9c
 	lsls r0, r2, #1
 	add r0, r8

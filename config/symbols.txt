@@ -724,3 +724,19 @@
 0x03003A14 hit_test_cylinders       # swept xz-circle test with a height check (+0x5E) (flag 0x800, classes 0x16/0x17)
 0x03003ACC color_fade               # (BGR555, level): 0 black, 16 unchanged, 32 white; per-channel scaling with the 0x3DEF masks (ovl_a, ovl_b)
 0x03003EB4 pal_slot_get             # (palette) -> OBJ palette bank: binary search tree of up to 16 palettes, double-buffered by gModeFlags bit 9; 0 if full
+0x080032FC point_in_poly            # (x, z, poly): bounding box +6..+0xC, then crossing count over the edge deltas at +0x18 (+0xE edges, start +2/+4)
+0x080033C4 hits_floor_type          # (obj, &out): the level hit polygon (header +0x40) under the object's x/z -> its byte 0, byte 1 to *out; default header +0x90/+0x92 (act_player)
+0x0800359C pal_slots_reset          # empty the current pal_slot_get tree
+0x080036BC racer_init_character     # racer stats from gCharInfo (speed +0x24 and 0x10000/speed at +0xEC/+0xF0), hitbox, vector hit, palette pulse table
+0x080037F8 race_grid_setup_cup      # starting grid gGameSetup+0x3E..0x45 sorted by bias; prints "pos = %d, player = %d, character = %d, bias = %d"
+0x08003924 race_grid_setup          # the same for the other modes (same order in the test state)
+0x08003A64 cup_grid_setup           # before each cup race after the first (cup_next): reorders the grid, probably by points
+0x08003DD4 assign_cpu_characters    # characters for racers 1..7 (gGameSetup+6..) from the ones nobody picked, at random
+0x08003EBC racer_pal_pulse_update   # 16 colours = base + delta x sin^2(phase), per character at 0x0201BD24 + char*0xEC
+0x08004058 char_bias_random         # gGameSetup+0x48: 9 random biases 0x4000..0xBFFF
+0x080040A4 racer_setup_sprite       # obj_setup_sprite with the character's sprite and shadow
+0x080040F8 racer_pal_pulse_reset    # phase 0, rate 0x100000
+0x08004128 racer_restore_palette    # sprite palette back to the sprite table's
+0x08004168 racer_flash_palette      # character info +0x80 palette for 10 frames (obj+0x106), flag 0x100000 in +0xA0
+0x080041BC racer_flash_update       # count down by 2, then racer_flash_end
+0x080041DC racer_flash_end          # normal palette, timer 0, flag cleared

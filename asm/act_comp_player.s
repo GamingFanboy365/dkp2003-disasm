@@ -42,7 +42,7 @@ _0800AD20:
 	ldr r0, _0800AD68
 	adds r7, r6, r0
 	mov r0, fp
-	bl sub_080036BC
+	bl racer_init_character
 	str r0, [sp, #0x38]
 	movs r5, #0xa8
 	ldr r2, [r0, #0x74]
@@ -7266,7 +7266,7 @@ _0800E238:
 	b _0800E32C
 _0800E25C:
 	adds r0, r4, #0
-	bl sub_08003EBC
+	bl racer_pal_pulse_update
 _0800E262:
 	ldr r0, [r5]
 	movs r3, #0x80
@@ -7307,7 +7307,7 @@ _0800E29E:
 	cmp r1, #0
 	beq _0800E2B0
 	adds r0, r4, #0
-	bl sub_080041BC
+	bl racer_flash_update
 _0800E2B0:
 	ldr r1, _0800E2FC
 	adds r1, #0x8c
@@ -7385,12 +7385,12 @@ _0800E32C:
 	movs r2, #1
 	str r2, [r0]
 	adds r0, r4, #0
-	bl sub_08004128
+	bl racer_restore_palette
 	b _0800E262
 _0800E348:
 	ldr r1, _0800E354
 	strh r1, [r6]
-	bl sub_080040A4
+	bl racer_setup_sprite
 	b _0800E1D4
 	.byte 0x00, 0x00
 _0800E354:
@@ -7850,7 +7850,7 @@ _0800E6E0:
 	bx r0
 _0800E6E8:
 	adds r0, r5, #0
-	bl sub_08004168
+	bl racer_flash_palette
 	ldr r1, [r4]
 	movs r2, #0x86
 	lsls r0, r2, #6
@@ -8075,7 +8075,7 @@ sub_0800E840: @ 0800E840
 	adds r1, r3, r2
 	movs r2, #6
 	str r2, [r1]
-	bl sub_080040F8
+	bl racer_pal_pulse_reset
 	pop {r4}
 	pop {r0}
 	bx r0

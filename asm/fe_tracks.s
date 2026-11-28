@@ -2935,7 +2935,7 @@ _08017F20:
 	ldr r1, _08017F50
 	str r0, [r2]
 	str r0, [r1]
-	bl sub_0800359C
+	bl pal_slots_reset
 	add sp, #4
 	pop {r3}
 	mov r8, r3

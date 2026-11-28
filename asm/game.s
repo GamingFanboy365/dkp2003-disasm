@@ -341,7 +341,7 @@ _0800074C:
 	bl weaponbossInit
 	b _080006A2
 _0800075A:
-	bl sub_08003924
+	bl race_grid_setup
 	b _08000666
 _08000760:
 	movs r0, #0x2a
@@ -350,10 +350,10 @@ _08000760:
 	beq _0800076A
 	b _08000666
 _0800076A:
-	bl sub_08003DD4
-	bl sub_08004058
+	bl assign_cpu_characters
+	bl char_bias_random
 _08000772:
-	bl sub_08003924
+	bl race_grid_setup
 	b _08000666
 _08000778:
 	movs r3, #0x28
@@ -406,9 +406,9 @@ _080007CC:
 	beq _080007D6
 	b _08000666
 _080007D6:
-	bl sub_08003DD4
+	bl assign_cpu_characters
 	bl setup_char_bias
-	bl sub_080037F8
+	bl race_grid_setup_cup
 	b _08000666
 _080007E4:
 	ldr r5, _08000814
@@ -473,7 +473,7 @@ game_process: @ 08000824
 	str r6, [r4]
 	strh r1, [r0]
 	bl sub_0800305C
-	bl sub_0800359C
+	bl pal_slots_reset
 	ldr r1, _0800088C
 	movs r2, #2
 	ldrsh r0, [r1, r2]

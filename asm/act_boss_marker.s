@@ -1260,7 +1260,7 @@ _08026BA8:
 	bx r0
 _08026BB0:
 	adds r0, r5, #0
-	bl sub_08004168
+	bl racer_flash_palette
 	ldr r2, [r4]
 	movs r0, #0x86
 	lsls r1, r0, #6

@@ -146,20 +146,20 @@ Summary
   sub_0800A864: 1 function(s), 0 data block(s), 112 bytes
       functions: sub_0800A864
 
-  sub_0801E0D8: 1 function(s), 0 data block(s), 100 bytes
-      functions: sub_0801E0D8
+  sound_set_sfx_volume: 1 function(s), 0 data block(s), 100 bytes
+      functions: sound_set_sfx_volume
 
-  sub_0801E13C: 1 function(s), 0 data block(s), 100 bytes
-      functions: sub_0801E13C
+  sound_set_balance: 1 function(s), 0 data block(s), 100 bytes
+      functions: sound_set_balance
 
-  sub_0801E014: 1 function(s), 0 data block(s), 96 bytes
-      functions: sub_0801E014
+  sound_set_master: 1 function(s), 0 data block(s), 96 bytes
+      functions: sound_set_master
 
   sub_08004BAC: 1 function(s), 0 data block(s), 96 bytes
       functions: sub_08004BAC
 
-  sub_0300083C: 1 function(s), 0 data block(s), 92 bytes
-      functions: sub_0300083C
+  mtx_mul_vec: 1 function(s), 0 data block(s), 92 bytes
+      functions: mtx_mul_vec
 
   sub_0801BE84: 1 function(s), 0 data block(s), 92 bytes
       functions: sub_0801BE84
@@ -221,11 +221,11 @@ Summary
   sub_08000A90: 1 function(s), 0 data block(s), 12 bytes
       functions: sub_08000A90
 
-  sub_080000F4: 1 function(s), 0 data block(s), 4 bytes
-      functions: sub_080000F4
+  sdiv_veneer: 1 function(s), 0 data block(s), 4 bytes
+      functions: sdiv_veneer
 
-  sub_080000FC: 1 function(s), 0 data block(s), 4 bytes
-      functions: sub_080000FC
+  smod_veneer: 1 function(s), 0 data block(s), 4 bytes
+      functions: smod_veneer
 
 2. Levels and tracks
 --------------------
@@ -254,8 +254,8 @@ Summary
 3. Functions never called
 -------------------------
   address    bytes  file                     name
-  080000F4       4  crt0.s                   sub_080000F4
-  080000FC       4  crt0.s                   sub_080000FC
+  080000F4       4  crt0.s                   sdiv_veneer
+  080000FC       4  crt0.s                   smod_veneer
   08000A90      12  game.s                   sub_08000A90
   08000A9C     120  game.s                   sub_08000A9C
   0800213C     172  object.s                 obj_remove_process
@@ -290,9 +290,9 @@ Summary
   0801BE84      92  fe_common.s              sub_0801BE84
   0801D094     448  fe_common.s              fe_spotscreen2_init
   0801D254     152  fe_common.s              fe_spotscreen2_process
-  0801E014      96  eeprom.s                 sub_0801E014
-  0801E0D8     100  eeprom.s                 sub_0801E0D8
-  0801E13C     100  eeprom.s                 sub_0801E13C
+  0801E014      96  eeprom.s                 sound_set_master
+  0801E0D8     100  eeprom.s                 sound_set_sfx_volume
+  0801E13C     100  eeprom.s                 sound_set_balance
   08025CCC     140  act_player_boss.s        sub_08025CCC
   03006BC0      28  audio_arm.s              audio_err_delta_4
   0802F0AE      44  audio.s                  music_set_tempo
@@ -338,7 +338,7 @@ Summary
   08038538      40  libc.s                   __negsf2
   08038560      24  libc.s                   __make_fp
   08038578      48  libc.s                   __extendsfdf2
-  0300083C      92  iwram.s                  sub_0300083C
+  0300083C      92  iwram.s                  mtx_mul_vec
 
 4. Data never referenced
 ------------------------

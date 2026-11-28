@@ -10,7 +10,8 @@ audio engine and ovl_a) is copied to its run address. EWRAM and IWRAM come
 from a dkprun `dumpmem` snapshot if one exists (build/emu/mem.bin, or
 $FCALL_SNAPSHOT), so functions see real game state.  Memory writes can be
 traced (Machine.call(..., writes=[])). Arguments go in r0-r3; the result is r0 (and r1).
-Thumb functions need an odd address.
+Thumb functions need an odd address. AGBPrint, AGBPrintf, AGBPrintFlush and
+AGBAssert return at once.
 
 As a module: Machine().call(addr, *args) -> (r0, r1)
 """
@@ -38,6 +39,10 @@ class Machine:
         uc.mem_map(0x06000000, 0x18000)
         uc.mem_map(0x07000000, 0x1000)
         uc.mem_map(RET, 0x1000)
+        # the AGBPrint debug output (mGBA's debug port, not mapped here)
+        # returns at once
+        for a in (0x08032400, 0x0803245C, 0x08032588, 0x08032598):     # AGBPrint, AGBPrintf, AGBPrintFlush, AGBAssert
+            uc.mem_write(a, b'\x70\x47')                                # bx lr
         if os.path.exists(snapshot):
             m = open(snapshot, 'rb').read()
             uc.mem_write(0x02000000, m[:0x40000])
