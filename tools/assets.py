@@ -28,6 +28,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             checkpoint macro (tools/checkpoints.py)
   edges     a level's track edges (walls), assembly with the track_edge
             macro (tools/edges.py)
+  icons     a track's theme icon positions on the track-select map, assembly
+            with the map_icon macro
   grid      a level's ground map (in 4 x 4-tile blocks) and horizon maps as
             text grids (tools/grid.py); the ground also as a preview PNG
   flyby     a level's flyby camera path, assembly with the flyby_point
@@ -54,7 +56,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s', 'flyby': '.s', 'grid': '.txt'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s', 'flyby': '.s', 'grid': '.txt', 'icons': '.s'}
 TILES_PER_ROW = 16
 
 
@@ -317,6 +319,12 @@ def extract(rom_path):
         elif typ == 'flyby':
             import flyby
             open(path, 'w').write('\n'.join(flyby.to_asm(rom, off, name)) + '\n')
+        elif typ == 'icons':
+            lines = ['@ %s: positions of the theme icons on the track-select map (0..64;' % name,
+                     '@ fe_tracks subtracts 32). The track record (+0x24) holds their count.', '']
+            for k in range(size // 8):
+                lines.append('\tmap_icon %3d, %3d' % struct.unpack_from('<ii', rom, off + 8 * k))
+            open(path, 'w').write('\n'.join(lines) + '\n')
         elif typ == 'grid':
             import grid
             open(path, 'w').write(grid.to_text(rom, off, name))
@@ -404,7 +412,7 @@ def build():
     assets = load_manifest()
     made = 0
     for off, size, typ, name in assets:
-        if typ in ('objects', 'sdata', 'anim', 'aipath', 'checkpoints', 'edges', 'points', 'flyby'):
+        if typ in ('objects', 'sdata', 'anim', 'aipath', 'checkpoints', 'edges', 'points', 'flyby', 'icons'):
             continue
         src = os.path.join(SRC, name + EXT[typ])
         dst = os.path.join(OUT, name + ('.s' if typ == 'text' else '.bin'))

@@ -919,99 +919,99 @@ gUnk_0884EC98:
 	.byte 0x88, 0xDE, 0x02, 0x02, 0x90, 0xDE, 0x02, 0x02, 0x98, 0xDE, 0x02, 0x02, 0xA0, 0xDE, 0x02, 0x02
 	.global gUnk_0884ECA8
 gUnk_0884ECA8:
-	.incbin "build/assets/levels/tracks/54_extra.bin"   @ from assets/levels/tracks/54_extra.bin
+	.include "assets/levels/tracks/54_icons.s"
 	.balign 16
 	.global gUnk_0884ECB0
 gUnk_0884ECB0:
-	.incbin "build/assets/levels/tracks/55_extra.bin"   @ from assets/levels/tracks/55_extra.bin
+	.include "assets/levels/tracks/55_icons.s"
 	.balign 8
 	.global gUnk_0884ECC8
 gUnk_0884ECC8:
-	.incbin "build/assets/levels/tracks/56_extra.bin"   @ from assets/levels/tracks/56_extra.bin
+	.include "assets/levels/tracks/56_icons.s"
 	.balign 16
 	.global gUnk_0884ECD0
 gUnk_0884ECD0:
-	.incbin "build/assets/levels/tracks/57_extra.bin"   @ from assets/levels/tracks/57_extra.bin
+	.include "assets/levels/tracks/57_icons.s"
 	.balign 8
 	.global gUnk_0884ECE8
 gUnk_0884ECE8:
-	.incbin "build/assets/levels/tracks/58_extra.bin"   @ from assets/levels/tracks/58_extra.bin
+	.include "assets/levels/tracks/58_icons.s"
 	.balign 8
 	.global gUnk_0884ED08
 gUnk_0884ED08:
-	.incbin "build/assets/levels/tracks/59_extra.bin"   @ from assets/levels/tracks/59_extra.bin
+	.include "assets/levels/tracks/59_icons.s"
 	.balign 16
 	.global gUnk_0884ED20
 gUnk_0884ED20:
-	.incbin "build/assets/levels/tracks/5a_extra.bin"   @ from assets/levels/tracks/5a_extra.bin
+	.include "assets/levels/tracks/5a_icons.s"
 	.balign 16
 	.global gUnk_0884ED30
 gUnk_0884ED30:
-	.incbin "build/assets/levels/tracks/5b_extra.bin"   @ from assets/levels/tracks/5b_extra.bin
+	.include "assets/levels/tracks/5b_icons.s"
 	.balign 16
 	.global gUnk_0884ED50
 gUnk_0884ED50:
-	.incbin "build/assets/levels/tracks/5c_extra.bin"   @ from assets/levels/tracks/5c_extra.bin
+	.include "assets/levels/tracks/5c_icons.s"
 	.balign 16
 	.global gUnk_0884ED60
 gUnk_0884ED60:
-	.incbin "build/assets/levels/tracks/5d_extra.bin"   @ from assets/levels/tracks/5d_extra.bin
+	.include "assets/levels/tracks/5d_icons.s"
 	.balign 16
 	.global gUnk_0884ED80
 gUnk_0884ED80:
-	.incbin "build/assets/levels/tracks/5e_extra.bin"   @ from assets/levels/tracks/5e_extra.bin
+	.include "assets/levels/tracks/5e_icons.s"
 	.balign 16
 	.global gUnk_0884EDA0
 gUnk_0884EDA0:
-	.incbin "build/assets/levels/tracks/5f_extra.bin"   @ from assets/levels/tracks/5f_extra.bin
+	.include "assets/levels/tracks/5f_icons.s"
 	.balign 8
 	.global gUnk_0884EDC8
 gUnk_0884EDC8:
-	.incbin "build/assets/levels/tracks/60_extra.bin"   @ from assets/levels/tracks/60_extra.bin
+	.include "assets/levels/tracks/60_icons.s"
 	.balign 8
 	.global gUnk_0884EDE8
 gUnk_0884EDE8:
-	.incbin "build/assets/levels/tracks/61_extra.bin"   @ from assets/levels/tracks/61_extra.bin
+	.include "assets/levels/tracks/61_icons.s"
 	.balign 8
 	.global gUnk_0884EE18
 gUnk_0884EE18:
-	.incbin "build/assets/levels/tracks/62_extra.bin"   @ from assets/levels/tracks/62_extra.bin
+	.include "assets/levels/tracks/62_icons.s"
 	.balign 8
 	.global gUnk_0884EE38
 gUnk_0884EE38:
-	.incbin "build/assets/levels/tracks/63_extra.bin"   @ from assets/levels/tracks/63_extra.bin
+	.include "assets/levels/tracks/63_icons.s"
 	.balign 16
 	.global gUnk_0884EE60
 gUnk_0884EE60:
-	.incbin "build/assets/levels/tracks/78_extra.bin"   @ from assets/levels/tracks/78_extra.bin
+	.include "assets/levels/tracks/78_icons.s"
 	.balign 16
 	.global gUnk_0884EE80
 gUnk_0884EE80:
-	.incbin "build/assets/levels/tracks/79_extra.bin"   @ from assets/levels/tracks/79_extra.bin
+	.include "assets/levels/tracks/79_icons.s"
 	.balign 16
 	.global gUnk_0884EEB0
 gUnk_0884EEB0:
-	.incbin "build/assets/levels/tracks/7a_extra.bin"   @ from assets/levels/tracks/7a_extra.bin
+	.include "assets/levels/tracks/7a_icons.s"
 	.balign 16
 	.global gUnk_0884EED0
 gUnk_0884EED0:
-	.incbin "build/assets/levels/tracks/7b_extra.bin"   @ from assets/levels/tracks/7b_extra.bin
+	.include "assets/levels/tracks/7b_icons.s"
 	.balign 8
 	.global gUnk_0884EEF8
 gUnk_0884EEF8:
-	.incbin "build/assets/levels/tracks/74_extra.bin"   @ from assets/levels/tracks/74_extra.bin
+	.include "assets/levels/tracks/74_icons.s"
 	.balign 8
 	.global gUnk_0884EF18
 gUnk_0884EF18:
-	.incbin "build/assets/levels/tracks/75_extra.bin"   @ from assets/levels/tracks/75_extra.bin
+	.include "assets/levels/tracks/75_icons.s"
 	.balign 16
 	.global gUnk_0884EF30
 gUnk_0884EF30:
-	.incbin "build/assets/levels/tracks/76_extra.bin"   @ from assets/levels/tracks/76_extra.bin
+	.include "assets/levels/tracks/76_icons.s"
 	.balign 8
 	.global gUnk_0884EF38
 gUnk_0884EF38:
-	.incbin "build/assets/levels/tracks/77_extra.bin"   @ from assets/levels/tracks/77_extra.bin
+	.include "assets/levels/tracks/77_icons.s"
 	.balign 16
 	.global gUnk_0884EF50
 gUnk_0884EF50:

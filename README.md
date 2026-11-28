@@ -55,7 +55,7 @@ offsets, sizes and types.
 | Animation scripts (1) | `graphics/sprites/anims.s` | every sprite animation, written with `anim_*` macros (frames, delay, goto, stop); three of them are unused |
 | Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
-| Other (24) | `*.bin` | the track records' icon positions (see [`docs/levels.md`](docs/levels.md)) |
+| Track-select icons (24) | `levels/tracks/NN_icons.s` | where each course's theme icons sit on the track-select map, one `map_icon x, y` each |
 
 Layout:
 ```

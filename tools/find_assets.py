@@ -86,7 +86,7 @@ LEVEL_FIELDS[0x60] = ('checkpoints_rev', 'checkpoints')
 # track record fields
 TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'rsprite'),
                 0x18: ('pal16', 'pal'), 0x1C: ('theme', 'rsprite'), 0x20: ('theme_pal', 'pal'),
-                0x28: ('extra', 'bin')}
+                0x28: ('icons', 'icons')}
 
 # from the DMA survey (tools/emu): front-end tilesets (offset of the u16 count)
 FRONTEND_TILESETS = [(0x081D02, 4), (0x0A698E, 4), (0x0AE810, 4), (0x0AFD52, 8)]
@@ -179,6 +179,8 @@ def collect(g, data):
             if p is None:
                 continue
             size = {'palette': 0x200, 'sky': 0x100, 'pal16': 0x20, 'theme_pal': 0x20}.get(fname)
+            if typ == 'icons':
+                size = 8 * u32(base + 0x24)          # the record's icon count
             add(p, 'levels/tracks/%02x_%s' % (tid, fname), typ, size)
     # --- sprites ---
     for k in range(1, NSPRITES):

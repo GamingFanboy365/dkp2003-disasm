@@ -220,7 +220,7 @@ have no checkpoints (count 0). Steamy Swoop has 22.
 | `+0x10` | sky gradient |
 | `+0x14`, `+0x18` | track map (Rare sprite) and its palette, for the track-select preview |
 | `+0x1C`, `+0x20` | theme icon (Rare sprite) and its palette |
-| `+0x24`, `+0x28` | number of icons, and their (x, y) positions on the map preview |
+| `+0x24`, `+0x28` | number of icons, and their (x, y) positions on the map preview (0–64; `assets/levels/tracks/NN_icons.s`, `map_icon` macro) |
 
 Courses 0–15 are the 16 race levels; 16–31 are the same levels in reverse,
 under their own names (Steamy Swoop → Monkey Rift, Icy Passage → Tundra

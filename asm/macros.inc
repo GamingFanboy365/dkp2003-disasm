@@ -74,3 +74,8 @@
 .macro flyby_point x, y, z, pitch, yaw, speed
 	.2byte \x, \y, \z, \pitch, \yaw, \speed
 .endm
+
+@ a theme icon on the track-select map (track record +0x28)
+.macro map_icon x, y
+	.4byte \x, \y
+.endm
