@@ -561,3 +561,19 @@
 0x080012F8 obj_reset_all            # clear object RAM; gRacerObjects[0..7] at fixed 0x140-byte slots; 246 more on gObjFreeList
 0x03003BB8 pal_copy_bright          # (src, dst, count, brightness): colours scaled to black (<16) or white (>16); checked with tools/fcall.py
 0x03003D54 pal_flush                # copy the dirty banks of gPalBuffer to palette RAM at gBrightness
+# front-end drawing, named from the strings they show (fe_get_text ids)
+0x0801C48C fe_retry_draw            # "You failed to qualify." / "Try Again" / "Quit"
+0x0801725C fe_timesheet_draw        # "Lap 1..3", "Race", "New Record !"
+0x08016C00 fe_tracks_draw_times     # "Race", "Lap" best times
+0x08015C7C fe_charsel_draw_stats    # "Speed", "Accel.", "Weight" and the position
+0x08019D88 fe_scoreboard_draw_1     # cup scoreboard points ("Pts")
+0x08019E8C fe_scoreboard_draw_2
+0x08019FA8 fe_scoreboard_draw_3
+0x0801C7F4 fe_name_draw_letters     # initials entry: the alphabet
+0x0801C948 fe_name_draw_letters_2
+# copies of named functions (same instruction sequence)
+0x08029E28 red_zinger_sfx_pitch_cb      # = player_sfx_remote_pitch_cb1
+0x0802AC04 blue_zinger_sfx_pitch_cb
+0x0802B578 yellow_zinger_sfx_pitch_cb
+0x08026388 ai_boss_init_1               # 94% aiPlayerInit; prints "playerbossInit: No AI path found"
+0x08023074 ai_boss_init_2               # the same; game_init calls both in boss mode

@@ -3218,10 +3218,10 @@ _08015C74:
 _08015C78:
 	.4byte 0x02023FA4
 
-	.global sub_08015C7C
+	.global fe_charsel_draw_stats
 	.thumb_func
-	.type sub_08015C7C, %function
-sub_08015C7C: @ 08015C7C
+	.type fe_charsel_draw_stats, %function
+fe_charsel_draw_stats: @ 08015C7C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4071,7 +4071,7 @@ _080162B8:
 	adds r0, r3, r7
 	adds r1, #0xf0
 	movs r2, #0xa0
-	bl sub_08015C7C
+	bl fe_charsel_draw_stats
 	ldr r0, [sp, #0x14]
 	ldr r4, _08016340
 	movs r3, #0

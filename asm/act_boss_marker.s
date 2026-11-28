@@ -178,10 +178,10 @@ _08026380:
 _08026384:
 	.4byte gUnk_08052AE8
 
-	.global sub_08026388
+	.global ai_boss_init_1
 	.thumb_func
-	.type sub_08026388, %function
-sub_08026388: @ 08026388
+	.type ai_boss_init_1, %function
+ai_boss_init_1: @ 08026388
 	push {lr}
 	ldr r2, _080263E8
 	movs r1, #2

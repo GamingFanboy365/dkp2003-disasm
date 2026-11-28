@@ -889,7 +889,7 @@ _0802B3F8:
 _0802B3FC:
 	.4byte sub_0802B59C
 _0802B400:
-	.4byte sub_0802B578
+	.4byte yellow_zinger_sfx_pitch_cb
 _0802B404:
 	.4byte 0x02018F34
 _0802B408:
@@ -1086,10 +1086,10 @@ _0802B570:
 _0802B574:
 	.4byte 0x0202EC40
 
-	.global sub_0802B578
+	.global yellow_zinger_sfx_pitch_cb
 	.thumb_func
-	.type sub_0802B578, %function
-sub_0802B578: @ 0802B578
+	.type yellow_zinger_sfx_pitch_cb, %function
+yellow_zinger_sfx_pitch_cb: @ 0802B578
 	push {lr}
 	ldr r2, _0802B594
 	adds r1, r0, #0

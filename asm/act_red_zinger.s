@@ -661,7 +661,7 @@ _080296FC:
 _08029700:
 	.4byte sub_08029E4C
 _08029704:
-	.4byte sub_08029E28
+	.4byte red_zinger_sfx_pitch_cb
 _08029708:
 	.4byte sin_fx
 _0802970C:
@@ -1553,10 +1553,10 @@ _08029E20:
 _08029E24:
 	.4byte gRedZingerBuzzOwner
 
-	.global sub_08029E28
+	.global red_zinger_sfx_pitch_cb
 	.thumb_func
-	.type sub_08029E28, %function
-sub_08029E28: @ 08029E28
+	.type red_zinger_sfx_pitch_cb, %function
+red_zinger_sfx_pitch_cb: @ 08029E28
 	push {lr}
 	ldr r2, _08029E44
 	adds r1, r0, #0
@@ -2454,7 +2454,7 @@ _0802A4B8:
 _0802A4BC:
 	.4byte sub_0802AC28
 _0802A4C0:
-	.4byte sub_0802AC04
+	.4byte blue_zinger_sfx_pitch_cb
 	.global _0802A4C4
 _0802A4C4:
 	ldr r0, [sp, #0x14]

@@ -1270,7 +1270,7 @@ _08019792:
 	movs r0, #0
 	movs r1, #0xf0
 	movs r2, #0xa0
-	bl sub_08016C00
+	bl fe_tracks_draw_times
 	ldr r5, _080198FC
 	ldr r4, [r5]
 	cmp r4, #1
@@ -2048,10 +2048,10 @@ _08019D80:
 _08019D84:
 	.4byte 0x0202D2CC
 
-	.global sub_08019D88
+	.global fe_scoreboard_draw_1
 	.thumb_func
-	.type sub_08019D88, %function
-sub_08019D88: @ 08019D88
+	.type fe_scoreboard_draw_1, %function
+fe_scoreboard_draw_1: @ 08019D88
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2183,10 +2183,10 @@ _08019E84:
 _08019E88:
 	.4byte 0x0202D2CC
 
-	.global sub_08019E8C
+	.global fe_scoreboard_draw_2
 	.thumb_func
-	.type sub_08019E8C, %function
-sub_08019E8C: @ 08019E8C
+	.type fe_scoreboard_draw_2, %function
+fe_scoreboard_draw_2: @ 08019E8C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2325,10 +2325,10 @@ _08019FA0:
 _08019FA4:
 	.4byte 0x0202D2CC
 
-	.global sub_08019FA8
+	.global fe_scoreboard_draw_3
 	.thumb_func
-	.type sub_08019FA8, %function
-sub_08019FA8: @ 08019FA8
+	.type fe_scoreboard_draw_3, %function
+fe_scoreboard_draw_3: @ 08019FA8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2984,7 +2984,7 @@ _0801A4A0:
 _0801A4C8:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019D88
+	bl fe_scoreboard_draw_1
 	ldr r2, _0801A760
 	ldr r3, [r2]
 	cmp r3, #0xf
@@ -3013,7 +3013,7 @@ _0801A4F6:
 _0801A4FE:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019D88
+	bl fe_scoreboard_draw_1
 	ldr r2, _0801A77C
 	ldrh r1, [r2]
 	movs r0, #0xb
@@ -3073,7 +3073,7 @@ _0801A572:
 _0801A57A:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019D88
+	bl fe_scoreboard_draw_1
 	ldr r2, _0801A760
 	ldr r3, [r2]
 	cmp r3, #0
@@ -3103,7 +3103,7 @@ _0801A5A8:
 _0801A5B6:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019E8C
+	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
 	cmp r3, #0xf
@@ -3141,7 +3141,7 @@ _0801A5EE:
 _0801A5FC:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019E8C
+	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
 	cmp r3, #0xf
@@ -3212,7 +3212,7 @@ _0801A66C:
 _0801A686:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019E8C
+	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
 	cmp r3, #0
@@ -3359,7 +3359,7 @@ _0801A798:
 _0801A79C:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019FA8
+	bl fe_scoreboard_draw_3
 	ldr r2, _0801A890
 	ldr r3, [r2]
 	cmp r3, #0xf
@@ -3389,7 +3389,7 @@ _0801A7CC:
 _0801A7D4:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019FA8
+	bl fe_scoreboard_draw_3
 	ldr r2, _0801A89C
 	ldrh r0, [r2]
 	movs r1, #0xb
@@ -3413,7 +3413,7 @@ _0801A7EE:
 _0801A80A:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019FA8
+	bl fe_scoreboard_draw_3
 	ldr r2, _0801A890
 	ldr r3, [r2]
 	cmp r3, #0
@@ -3454,7 +3454,7 @@ _0801A844:
 _0801A858:
 	bl fe_draw_title
 	bl sub_08019CA8
-	bl sub_08019D88
+	bl fe_scoreboard_draw_1
 	ldr r2, _0801A890
 	ldr r3, [r2]
 	cmp r3, #0
@@ -7215,10 +7215,10 @@ _0801C484:
 _0801C488:
 	.4byte gUnk_0863FD80
 
-	.global sub_0801C48C
+	.global fe_retry_draw
 	.thumb_func
-	.type sub_0801C48C, %function
-sub_0801C48C: @ 0801C48C
+	.type fe_retry_draw, %function
+fe_retry_draw: @ 0801C48C
 	push {r4, r5, r6, lr}
 	movs r1, #0
 	movs r0, #0x30
@@ -7551,7 +7551,7 @@ _0801C71E:
 	pop {r0}
 	bx r0
 _0801C724:
-	bl sub_0801C48C
+	bl fe_retry_draw
 	ldr r2, _0801C7EC
 	ldr r3, [r2]
 	cmp r3, #0
@@ -7569,7 +7569,7 @@ _0801C73C:
 _0801C742:
 	cmp r4, #2
 	bne _0801C71E
-	bl sub_0801C48C
+	bl fe_retry_draw
 	ldr r2, _0801C7EC
 	ldr r3, [r2]
 	cmp r3, #0xef
@@ -7595,7 +7595,7 @@ _0801C772:
 	bl mcp_process
 	b _0801C71E
 _0801C77A:
-	bl sub_0801C48C
+	bl fe_retry_draw
 	ldr r2, _0801C7F0
 	ldrh r1, [r2]
 	movs r0, #0xb
@@ -7655,10 +7655,10 @@ _0801C7EC:
 _0801C7F0:
 	.4byte gKeysNew
 
-	.global sub_0801C7F4
+	.global fe_name_draw_letters
 	.thumb_func
-	.type sub_0801C7F4, %function
-sub_0801C7F4: @ 0801C7F4
+	.type fe_name_draw_letters, %function
+fe_name_draw_letters: @ 0801C7F4
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -7830,10 +7830,10 @@ _0801C940:
 _0801C944:
 	.4byte gUnk_0863FDA0
 
-	.global sub_0801C948
+	.global fe_name_draw_letters_2
 	.thumb_func
-	.type sub_0801C948, %function
-sub_0801C948: @ 0801C948
+	.type fe_name_draw_letters_2, %function
+fe_name_draw_letters_2: @ 0801C948
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -8141,8 +8141,8 @@ _0801CB70:
 	adds r0, r4, #0
 	movs r2, #0
 	bl fe_text_draw
-	bl sub_0801C7F4
-	bl sub_0801C948
+	bl fe_name_draw_letters
+	bl fe_name_draw_letters_2
 	ldr r4, _0801CCB0
 	ldr r1, [r4, #4]
 	lsls r0, r1, #0xb

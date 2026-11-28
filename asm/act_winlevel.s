@@ -4198,10 +4198,10 @@ _0802306C:
 _08023070:
 	.4byte 0x02023FA4
 
-	.global sub_08023074
+	.global ai_boss_init_2
 	.thumb_func
-	.type sub_08023074, %function
-sub_08023074: @ 08023074
+	.type ai_boss_init_2, %function
+ai_boss_init_2: @ 08023074
 	push {lr}
 	ldr r2, _080230D4
 	movs r1, #2

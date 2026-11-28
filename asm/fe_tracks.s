@@ -416,10 +416,10 @@ _08016BF8:
 _08016BFC:
 	.4byte gUnk_08051494
 
-	.global sub_08016C00
+	.global fe_tracks_draw_times
 	.thumb_func
-	.type sub_08016C00, %function
-sub_08016C00: @ 08016C00
+	.type fe_tracks_draw_times, %function
+fe_tracks_draw_times: @ 08016C00
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -984,7 +984,7 @@ _08017050:
 	lsls r3, r3, #1
 	adds r1, #0xf0
 	movs r2, #0xa0
-	bl sub_08016C00
+	bl fe_tracks_draw_times
 	ldr r3, [r6, #8]
 	cmp r3, #1
 	bne _08017086
@@ -1244,10 +1244,10 @@ _08017254:
 _08017258:
 	.4byte gUnk_0863FD80
 
-	.global sub_0801725C
+	.global fe_timesheet_draw
 	.thumb_func
-	.type sub_0801725C, %function
-sub_0801725C: @ 0801725C
+	.type fe_timesheet_draw, %function
+fe_timesheet_draw: @ 0801725C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -1854,7 +1854,7 @@ fe_tracks_timesheet_process: @ 080176EC
 _08017706:
 	bl sub_08017E1C
 	bl sub_08017454
-	bl sub_0801725C
+	bl fe_timesheet_draw
 	ldr r4, _080177C8
 	ldr r3, [r4]
 	cmp r3, #1

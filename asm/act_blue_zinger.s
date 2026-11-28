@@ -238,10 +238,10 @@ _0802ABFC:
 _0802AC00:
 	.4byte gBlueZingerBuzzOwner
 
-	.global sub_0802AC04
+	.global blue_zinger_sfx_pitch_cb
 	.thumb_func
-	.type sub_0802AC04, %function
-sub_0802AC04: @ 0802AC04
+	.type blue_zinger_sfx_pitch_cb, %function
+blue_zinger_sfx_pitch_cb: @ 0802AC04
 	push {lr}
 	ldr r2, _0802AC20
 	adds r1, r0, #0

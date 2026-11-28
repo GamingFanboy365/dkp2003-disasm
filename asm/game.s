@@ -336,8 +336,8 @@ _0800073E:
 	bl obj_initialise
 	b _080006F6
 _0800074C:
-	bl sub_08026388
-	bl sub_08023074
+	bl ai_boss_init_1
+	bl ai_boss_init_2
 	bl weaponbossInit
 	b _080006A2
 _0800075A:
