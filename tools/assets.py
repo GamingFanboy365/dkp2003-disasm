@@ -22,6 +22,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             follow it.
   anim      sprite animation scripts, assembly with the anim_* macros
             (tools/anim.py); the build includes it, scripts may change length
+  aipath    the CPU racers' path of a level, assembly with the ai_* macros
+            (tools/aipath.py); the build includes it, nodes may be added
   text      the front end's strings and language tables, one string per line
             (tools/fetext.py); strings may change length
   gfx, bin  raw binary
@@ -39,7 +41,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s'}
 TILES_PER_ROW = 16
 
 
@@ -296,6 +298,9 @@ def extract(rom_path):
             wav_write(path, int(name.rsplit('_', 1)[1][:-2]), data)
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
+        elif typ == 'aipath':
+            import aipath
+            open(path, 'w').write('\n'.join(aipath.to_asm(rom, off, name)) + '\n')
         elif typ == 'anim':
             import anim
             labels = {o: g.dlabel[o] for o in g.dlabel if off <= o < off + size}
@@ -360,7 +365,7 @@ def build():
     assets = load_manifest()
     made = 0
     for off, size, typ, name in assets:
-        if typ in ('objects', 'sdata', 'anim'):
+        if typ in ('objects', 'sdata', 'anim', 'aipath'):
             continue
         src = os.path.join(SRC, name + EXT[typ])
         dst = os.path.join(OUT, name + ('.s' if typ == 'text' else '.bin'))

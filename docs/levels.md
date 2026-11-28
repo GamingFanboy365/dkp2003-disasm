@@ -16,7 +16,7 @@ and one for Reverse (play mode 1). `make extract` names the files
 | `+0x14`, `+0x1C`–`+0x24` | `data_14`, `data_1c` … | | not known yet |
 | `+0x18` | | | a number (1) |
 | `+0x34` | `objects` | `game_init` → `obj_spawn_level_object` | object list `{x, y, z, classinfo*}` |
-| `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` | `aiPlayerInit`, `ai_boss_init_1/2`; then `ai_update`, `ai_choose_next_node` | the CPU racers' path (below); in RAM `gAiPathNodes`, `gAiPathLinks`, `gAiPathCount` |
+| `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` (`.s`) | `aiPlayerInit`, `ai_boss_init_1/2`; then `ai_update`, `ai_choose_next_node` | the CPU racers' path of gates (below); in RAM `gAiPathNodes`, `gAiPathLinks`, `gAiPathCount` |
 | `+0x40` | `hits` | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined") | collision polygons |
 | `+0x44` / `+0x48` | `edges1`, `edges1_rev` | `playerInit`, `sub_0800567C` | track edges ("not enough edge mask space for %d inside edges") |
 | `+0x4C` / `+0x50` | `edges2`, `edges2_rev` | `playerInit`, `sub_0800567C` | track edges |
@@ -31,25 +31,47 @@ and one for Reverse (play mode 1). `make extract` names the files
 ## AI path (`ai_path`, `ai_path_rev`)
 
 Read by `aiPlayerInit`; "No AI path found, no AI players will be created"
-when it is missing.
+when it is missing. `make extract` writes it as assembly
+(`assets/levels/NN/ai_path.s`, `tools/aipath.py`) with the `ai_node` and
+`ai_link` macros; the build includes it, so nodes and links can be edited,
+added or removed (the format is decoded exactly: every byte of all 53 paths
+is accounted for).
 
 ```
-u16  ?            (0 in Steamy Swoop)
-s16  count        number of nodes (41 in Steamy Swoop)
-     node[count]  0x2C bytes each
-     link[count]  { u16 next, u16 alternative }   (0xFF = none): the path can branch
+u16  flags         0, or 0xFFFF in the boss levels
+s16  count         number of nodes
+     node[count]   0x2C bytes each
+     link[...]     {u16 node, u16 weight}
 ```
 
-A node is 22 `s16` values. Established so far:
+Each node is a **gate** across the track:
 
-| Index | Meaning |
-|---|---|
-| 0, 1, 2 | x, y, z: same units and range as the level's object positions |
-| 3 | node number |
-| 10, 11 | a second point (x, z) beside the node |
-| 14, 15 | between −256 and 256: probably a direction |
-| 4–9, 12, 13, 16–18 | not known yet (small counts, flags 0/255, angles) |
-| 19–21 | always 0 |
+| Offset | Field | Meaning |
+|---|---|---|
+| `+0x00` | `x, y, z` | a point on the track, in object-list units |
+| `+0x06` | `first` | index of the node's first link |
+| `+0x08` | `n` | number of links: more than 1 where the path branches |
+| `+0x0A` | `angle` | direction of the track (16-bit angle) |
+| `+0x0C` | `a, b, c` | three values 0–255, mostly 0, 50 or 255 (not known yet) |
+| `+0x12` | `f0, f1` | flag bytes |
+| `+0x14` | `ex, ez` | the other end of the gate |
+| `+0x18` | `ox, oz` | offset from `x, z` to the far side of the track |
+| `+0x1C` | `nx, nz` | the gate line's normal, length 256 |
+| `+0x20` | `d` | `nx·x + nz·z + d = 0` on the gate (checked on every node: within about 10 units). A racer has passed the gate when the sum is negative (`comp_path_gates`, `boss_path_gates`) |
+| `+0x24` | `bias` | 32768 plus or minus a multiple of 2500 (an offset; not known yet) |
+| `+0x28` | `g0`–`g3` | flag bytes |
+
+The links of node *i* are `link[first .. first + n − 1]`; there are as many
+links as the nodes' `n` add up to. A link's weight is 255 when it is the
+only way on. At a branch, `racer_ai_drive` picks a link at random with the
+weights as odds (25, 55, 125, 200 occur).
+
+The boss levels each have their own copy of a 188-node path, followed by
+0x1B14 bytes that nothing points to.
+
+Checked in mGBA: with every node of Steamy Swoop's path moved 300 units
+along x, the CPU racers fly about 300 units off to the side, and the player,
+who was 5th, is 1st after 20 seconds.
 
 ## Cups and courses
 

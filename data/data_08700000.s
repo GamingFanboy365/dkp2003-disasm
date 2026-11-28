@@ -1,4 +1,4 @@
-@ data/data_08700000.s: ROM 0x700000-0x800000 (rom, VMA 0x08700000)
+@ data/data_08700000.s: ROM 0x700000-0x80FB00 (rom, VMA 0x08700000)
 
 	.include "asm/macros.inc"
 
@@ -6887,11 +6887,11 @@ gUnk_087CEF60:
 	.balign 8
 	.global gUnk_087CEFD8
 gUnk_087CEFD8:
-	.incbin "build/assets/levels/01/ai_path.bin"   @ from assets/levels/01/ai_path.bin
+	.include "assets/levels/01/ai_path.s"
 	.balign 8
 	.global gUnk_087CFEA8
 gUnk_087CFEA8:
-	.incbin "build/assets/levels/01/ai_path_rev.bin"   @ from assets/levels/01/ai_path_rev.bin
+	.include "assets/levels/01/ai_path_rev.s"
 	.balign 8
 	.global gUnk_087D0B08
 gUnk_087D0B08:
@@ -6943,11 +6943,11 @@ gUnk_087D3CE0:
 	.balign 4
 	.global gUnk_087D3CE4
 gUnk_087D3CE4:
-	.incbin "build/assets/levels/02/ai_path.bin"   @ from assets/levels/02/ai_path.bin
+	.include "assets/levels/02/ai_path.s"
 	.balign 4
 	.global gUnk_087D4824
 gUnk_087D4824:
-	.incbin "build/assets/levels/02/ai_path_rev.bin"   @ from assets/levels/02/ai_path_rev.bin
+	.include "assets/levels/02/ai_path_rev.s"
 	.balign 8
 	.global gUnk_087D5558
 gUnk_087D5558:
@@ -6999,11 +6999,11 @@ gUnk_087D8DA8:
 	.balign 4
 	.global gUnk_087D8DAC
 gUnk_087D8DAC:
-	.incbin "build/assets/levels/03/ai_path.bin"   @ from assets/levels/03/ai_path.bin
+	.include "assets/levels/03/ai_path.s"
 	.balign 16
 	.global gUnk_087D9BF0
 gUnk_087D9BF0:
-	.incbin "build/assets/levels/03/ai_path_rev.bin"   @ from assets/levels/03/ai_path_rev.bin
+	.include "assets/levels/03/ai_path_rev.s"
 	.balign 8
 	.global gUnk_087DA9A8
 gUnk_087DA9A8:
@@ -7055,11 +7055,11 @@ gUnk_087DDDA4:
 	.balign 8
 	.global gUnk_087DDDA8
 gUnk_087DDDA8:
-	.incbin "build/assets/levels/04/ai_path.bin"   @ from assets/levels/04/ai_path.bin
+	.include "assets/levels/04/ai_path.s"
 	.balign 16
 	.global gUnk_087DE5E0
 gUnk_087DE5E0:
-	.incbin "build/assets/levels/04/ai_path_rev.bin"   @ from assets/levels/04/ai_path_rev.bin
+	.include "assets/levels/04/ai_path_rev.s"
 	.balign 16
 	.global gUnk_087DF060
 gUnk_087DF060:
@@ -7111,11 +7111,11 @@ gUnk_087E1A94:
 	.balign 8
 	.global gUnk_087E1A98
 gUnk_087E1A98:
-	.incbin "build/assets/levels/05/ai_path.bin"   @ from assets/levels/05/ai_path.bin
+	.include "assets/levels/05/ai_path.s"
 	.balign 16
 	.global gUnk_087E2270
 gUnk_087E2270:
-	.incbin "build/assets/levels/05/ai_path_rev.bin"   @ from assets/levels/05/ai_path_rev.bin
+	.include "assets/levels/05/ai_path_rev.s"
 	.balign 16
 	.global gUnk_087E2C30
 gUnk_087E2C30:
@@ -7167,11 +7167,11 @@ gUnk_087E4E20:
 	.balign 4
 	.global gUnk_087E4E54
 gUnk_087E4E54:
-	.incbin "build/assets/levels/06/ai_path.bin"   @ from assets/levels/06/ai_path.bin
+	.include "assets/levels/06/ai_path.s"
 	.balign 16
 	.global gUnk_087E5A50
 gUnk_087E5A50:
-	.incbin "build/assets/levels/06/ai_path_rev.bin"   @ from assets/levels/06/ai_path_rev.bin
+	.include "assets/levels/06/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087E62EC
 gUnk_087E62EC:
@@ -7223,11 +7223,11 @@ gUnk_087E89F4:
 	.balign 8
 	.global gUnk_087E89F8
 gUnk_087E89F8:
-	.incbin "build/assets/levels/07/ai_path.bin"   @ from assets/levels/07/ai_path.bin
+	.include "assets/levels/07/ai_path.s"
 	.balign 16
 	.global gUnk_087E96B0
 gUnk_087E96B0:
-	.incbin "build/assets/levels/07/ai_path_rev.bin"   @ from assets/levels/07/ai_path_rev.bin
+	.include "assets/levels/07/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087EA0FC
 gUnk_087EA0FC:
@@ -7279,11 +7279,11 @@ gUnk_087ECBE8:
 	.balign 4
 	.global gUnk_087ECD84
 gUnk_087ECD84:
-	.incbin "build/assets/levels/08/ai_path.bin"   @ from assets/levels/08/ai_path.bin
+	.include "assets/levels/08/ai_path.s"
 	.balign 16
 	.global gUnk_087EDE30
 gUnk_087EDE30:
-	.incbin "build/assets/levels/08/ai_path_rev.bin"   @ from assets/levels/08/ai_path_rev.bin
+	.include "assets/levels/08/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087EEC04
 gUnk_087EEC04:
@@ -7335,11 +7335,11 @@ gUnk_087F1850:
 	.balign 8
 	.global gUnk_087F1968
 gUnk_087F1968:
-	.incbin "build/assets/levels/09/ai_path.bin"   @ from assets/levels/09/ai_path.bin
+	.include "assets/levels/09/ai_path.s"
 	.balign 8
 	.global gUnk_087F2638
 gUnk_087F2638:
-	.incbin "build/assets/levels/09/ai_path_rev.bin"   @ from assets/levels/09/ai_path_rev.bin
+	.include "assets/levels/09/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087F3264
 gUnk_087F3264:
@@ -7391,11 +7391,11 @@ gUnk_087F4E24:
 	.balign 8
 	.global gUnk_087F4E28
 gUnk_087F4E28:
-	.incbin "build/assets/levels/10/ai_path.bin"   @ from assets/levels/10/ai_path.bin
+	.include "assets/levels/10/ai_path.s"
 	.balign 4
 	.global gUnk_087F54D4
 gUnk_087F54D4:
-	.incbin "build/assets/levels/10/ai_path_rev.bin"   @ from assets/levels/10/ai_path_rev.bin
+	.include "assets/levels/10/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087F5DD4
 gUnk_087F5DD4:
@@ -7447,11 +7447,11 @@ gUnk_087F7C80:
 	.balign 4
 	.global gUnk_087F7C84
 gUnk_087F7C84:
-	.incbin "build/assets/levels/11/ai_path.bin"   @ from assets/levels/11/ai_path.bin
+	.include "assets/levels/11/ai_path.s"
 	.balign 4
 	.global gUnk_087F88E4
 gUnk_087F88E4:
-	.incbin "build/assets/levels/11/ai_path_rev.bin"   @ from assets/levels/11/ai_path_rev.bin
+	.include "assets/levels/11/ai_path_rev.s"
 	.balign 4
 	.global gUnk_087F96CC
 gUnk_087F96CC:
@@ -7503,11 +7503,11 @@ gUnk_087FCEFC:
 	.balign 16
 	.global gUnk_087FCF00
 gUnk_087FCF00:
-	.incbin "build/assets/levels/12/ai_path.bin"   @ from assets/levels/12/ai_path.bin
+	.include "assets/levels/12/ai_path.s"
 	.balign 8
 	.global gUnk_087FD648
 gUnk_087FD648:
-	.incbin "build/assets/levels/12/ai_path_rev.bin"   @ from assets/levels/12/ai_path_rev.bin
+	.include "assets/levels/12/ai_path_rev.s"
 	.balign 16
 	.global gUnk_087FDEE0
 gUnk_087FDEE0:
@@ -7559,5 +7559,229 @@ gUnk_087FFC0C:
 	.balign 16
 	.global gUnk_087FFC10
 gUnk_087FFC10:
-	.incbin "build/assets/levels/13/ai_path.bin"   @ from assets/levels/13/ai_path.bin
+	.include "assets/levels/13/ai_path.s"
+	.global gUnk_08800160
+	.set gUnk_08800160, gUnk_087FFC10 + 0x550
+	.global gUnk_08800898
+	.set gUnk_08800898, gUnk_087FFC10 + 0xC88
+	.balign 16
+	.global gUnk_08800B80
+gUnk_08800B80:
+	.include "assets/levels/13/ai_path_rev.s"
+	.balign 4
+	.global gUnk_08801C6C
+gUnk_08801C6C:
+	.incbin "build/assets/levels/13/race_monitor.bin"   @ from assets/levels/13/race_monitor.bin
+	.balign 16
+	.global gUnk_08801E30
+gUnk_08801E30:
+	.incbin "build/assets/levels/13/race_monitor_rev.bin"   @ from assets/levels/13/race_monitor_rev.bin
+	.balign 4
+	.global gUnk_08801FF4
+gUnk_08801FF4:
+	.incbin "build/assets/levels/13/edges1.bin"   @ from assets/levels/13/edges1.bin
+	.balign 8
+	.global gUnk_08802818
+gUnk_08802818:
+	.incbin "build/assets/levels/13/edges1_rev.bin"   @ from assets/levels/13/edges1_rev.bin
+	.balign 8
+	.global gUnk_088031A8
+gUnk_088031A8:
+	.incbin "build/assets/levels/13/edges2_rev.bin"   @ from assets/levels/13/edges2_rev.bin
+	.balign 8
+	.global gUnk_08803A68
+gUnk_08803A68:
+	.incbin "build/assets/levels/13/edges2.bin"   @ from assets/levels/13/edges2.bin
+	.balign 4
+	.global gUnk_088043C4
+gUnk_088043C4:
+	.incbin "build/assets/levels/13/camera_ops.bin"   @ from assets/levels/13/camera_ops.bin
+	.balign 4
+	.global gUnk_088044DC
+gUnk_088044DC:
+	.incbin "build/assets/levels/13/camera_ops_rev.bin"   @ from assets/levels/13/camera_ops_rev.bin
+	.balign 4
+	.global gUnk_08804624
+gUnk_08804624:
+	.incbin "build/assets/levels/13/camera.bin"   @ from assets/levels/13/camera.bin
+	.balign 4
+	.global gUnk_0880470C
+gUnk_0880470C:
+	.incbin "build/assets/levels/13/camera_rev.bin"   @ from assets/levels/13/camera_rev.bin
+	.balign 4
+	.global gUnk_088047F4
+gUnk_088047F4:
+	.incbin "build/assets/levels/13/autopilot.bin"   @ from assets/levels/13/autopilot.bin
+	.balign 8
+	.global gUnk_088047F8
+gUnk_088047F8:
+	.incbin "build/assets/levels/13/autopilot_rev.bin"   @ from assets/levels/13/autopilot_rev.bin
+	.balign 16
+	.global gUnk_088048E0
+gUnk_088048E0:
+	.include "assets/levels/14/ai_path.s"
+	.balign 8
+	.global gUnk_08805748
+gUnk_08805748:
+	.include "assets/levels/14/ai_path_rev.s"
+	.balign 16
+	.global gUnk_088065F0
+gUnk_088065F0:
+	.incbin "build/assets/levels/14/race_monitor.bin"   @ from assets/levels/14/race_monitor.bin
+	.balign 4
+	.global gUnk_08806774
+gUnk_08806774:
+	.incbin "build/assets/levels/14/race_monitor_rev.bin"   @ from assets/levels/14/race_monitor_rev.bin
+	.balign 8
+	.global gUnk_088068F8
+gUnk_088068F8:
+	.incbin "build/assets/levels/14/edges1.bin"   @ from assets/levels/14/edges1.bin
+	.balign 4
+	.global gUnk_08806CA4
+gUnk_08806CA4:
+	.incbin "build/assets/levels/14/edges1_rev.bin"   @ from assets/levels/14/edges1_rev.bin
+	.balign 16
+	.global gUnk_08807120
+gUnk_08807120:
+	.incbin "build/assets/levels/14/edges2_rev.bin"   @ from assets/levels/14/edges2_rev.bin
+	.balign 4
+	.global gUnk_088079AC
+gUnk_088079AC:
+	.incbin "build/assets/levels/14/edges2.bin"   @ from assets/levels/14/edges2.bin
+	.balign 4
+	.global gUnk_08808204
+gUnk_08808204:
+	.include "assets/levels/14/camera_ops.s"
+	.balign 4
+	.global gUnk_0880831C
+gUnk_0880831C:
+	.incbin "build/assets/levels/14/camera_ops_rev.bin"   @ from assets/levels/14/camera_ops_rev.bin
+	.balign 4
+	.global gUnk_0880844C
+gUnk_0880844C:
+	.incbin "build/assets/levels/14/camera.bin"   @ from assets/levels/14/camera.bin
+	.balign 16
+	.global gUnk_08808510
+gUnk_08808510:
+	.incbin "build/assets/levels/14/camera_rev.bin"   @ from assets/levels/14/camera_rev.bin
+	.balign 4
+	.global gUnk_088085EC
+gUnk_088085EC:
+	.incbin "build/assets/levels/14/autopilot.bin"   @ from assets/levels/14/autopilot.bin
+	.balign 16
+	.global gUnk_08808710
+gUnk_08808710:
+	.incbin "build/assets/levels/14/autopilot_rev.bin"   @ from assets/levels/14/autopilot_rev.bin
+	.balign 4
+	.global gUnk_08808714
+gUnk_08808714:
+	.include "assets/levels/15/ai_path.s"
+	.balign 4
+	.global gUnk_08809594
+gUnk_08809594:
+	.include "assets/levels/15/ai_path_rev.s"
+	.balign 4
+	.global gUnk_0880A1A4
+gUnk_0880A1A4:
+	.incbin "build/assets/levels/15/race_monitor.bin"   @ from assets/levels/15/race_monitor.bin
+	.balign 8
+	.global gUnk_0880A298
+gUnk_0880A298:
+	.incbin "build/assets/levels/15/race_monitor_rev.bin"   @ from assets/levels/15/race_monitor_rev.bin
+	.balign 4
+	.global gUnk_0880A38C
+gUnk_0880A38C:
+	.incbin "build/assets/levels/15/edges1.bin"   @ from assets/levels/15/edges1.bin
+	.balign 8
+	.global gUnk_0880A668
+gUnk_0880A668:
+	.incbin "build/assets/levels/15/edges1_rev.bin"   @ from assets/levels/15/edges1_rev.bin
+	.balign 8
+	.global gUnk_0880AA48
+gUnk_0880AA48:
+	.incbin "build/assets/levels/15/edges2_rev.bin"   @ from assets/levels/15/edges2_rev.bin
+	.balign 8
+	.global gUnk_0880B168
+gUnk_0880B168:
+	.incbin "build/assets/levels/15/edges2.bin"   @ from assets/levels/15/edges2.bin
+	.balign 8
+	.global gUnk_0880B7B8
+gUnk_0880B7B8:
+	.incbin "build/assets/levels/15/camera_ops.bin"   @ from assets/levels/15/camera_ops.bin
+	.balign 16
+	.global gUnk_0880B8A0
+gUnk_0880B8A0:
+	.incbin "build/assets/levels/15/camera_ops_rev.bin"   @ from assets/levels/15/camera_ops_rev.bin
+	.balign 16
+	.global gUnk_0880B970
+gUnk_0880B970:
+	.incbin "build/assets/levels/15/camera.bin"   @ from assets/levels/15/camera.bin
+	.balign 4
+	.global gUnk_0880BA1C
+gUnk_0880BA1C:
+	.incbin "build/assets/levels/15/camera_rev.bin"   @ from assets/levels/15/camera_rev.bin
+	.balign 4
+	.global gUnk_0880BABC
+gUnk_0880BABC:
+	.incbin "build/assets/levels/15/autopilot.bin"   @ from assets/levels/15/autopilot.bin
+	.balign 16
+	.global gUnk_0880BAC0
+gUnk_0880BAC0:
+	.incbin "build/assets/levels/15/autopilot_rev.bin"   @ from assets/levels/15/autopilot_rev.bin
+	.balign 4
+	.global gUnk_0880BAC4
+gUnk_0880BAC4:
+	.include "assets/levels/16/ai_path.s"
+	.balign 8
+	.global gUnk_0880C628
+gUnk_0880C628:
+	.include "assets/levels/16/ai_path_rev.s"
+	.balign 4
+	.global gUnk_0880D1AC
+gUnk_0880D1AC:
+	.incbin "build/assets/levels/16/race_monitor.bin"   @ from assets/levels/16/race_monitor.bin
+	.balign 16
+	.global gUnk_0880D2D0
+gUnk_0880D2D0:
+	.incbin "build/assets/levels/16/race_monitor_rev.bin"   @ from assets/levels/16/race_monitor_rev.bin
+	.balign 4
+	.global gUnk_0880D3F4
+gUnk_0880D3F4:
+	.incbin "build/assets/levels/16/edges1.bin"   @ from assets/levels/16/edges1.bin
+	.balign 4
+	.global gUnk_0880DC4C
+gUnk_0880DC4C:
+	.incbin "build/assets/levels/16/edges1_rev.bin"   @ from assets/levels/16/edges1_rev.bin
+	.balign 4
+	.global gUnk_0880E6AC
+gUnk_0880E6AC:
+	.incbin "build/assets/levels/16/edges2_rev.bin"   @ from assets/levels/16/edges2_rev.bin
+	.balign 4
+	.global gUnk_0880EE34
+gUnk_0880EE34:
+	.incbin "build/assets/levels/16/edges2.bin"   @ from assets/levels/16/edges2.bin
+	.balign 16
+	.global gUnk_0880F5F0
+gUnk_0880F5F0:
+	.incbin "build/assets/levels/16/camera_ops.bin"   @ from assets/levels/16/camera_ops.bin
+	.balign 4
+	.global gUnk_0880F6CC
+gUnk_0880F6CC:
+	.incbin "build/assets/levels/16/camera_ops_rev.bin"   @ from assets/levels/16/camera_ops_rev.bin
+	.balign 4
+	.global gUnk_0880F79C
+gUnk_0880F79C:
+	.incbin "build/assets/levels/16/camera.bin"   @ from assets/levels/16/camera.bin
+	.balign 4
+	.global gUnk_0880F854
+gUnk_0880F854:
+	.incbin "build/assets/levels/16/camera_rev.bin"   @ from assets/levels/16/camera_rev.bin
+	.balign 8
+	.global gUnk_0880F8E8
+gUnk_0880F8E8:
+	.incbin "build/assets/levels/16/autopilot.bin"   @ from assets/levels/16/autopilot.bin
+	.balign 4
+	.global gUnk_0880F9F4
+gUnk_0880F9F4:
+	.incbin "build/assets/levels/16/autopilot_rev.bin"   @ from assets/levels/16/autopilot_rev.bin
 	.balign 16

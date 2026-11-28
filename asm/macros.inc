@@ -34,3 +34,19 @@
 	.macro anim_restart              @ clears flag bit 1 (the bit anim_stop sets)
 	.byte 0xFF, 0x04
 	.endm
+
+@ the CPU racers' path in a level (tools/aipath.py)
+.macro ai_path_header flags, count
+	.2byte \flags
+	.2byte \count
+.endm
+.macro ai_node x, y, z, first, n, angle, a, b, c, f0, f1, ex, ez, ox, oz, nx, nz, d, bias, g0, g1, g2, g3
+	.2byte \x, \y, \z, \first, \n, \angle, \a, \b, \c
+	.byte \f0, \f1
+	.2byte \ex, \ez, \ox, \oz, \nx, \nz
+	.4byte \d, \bias
+	.byte \g0, \g1, \g2, \g3
+.endm
+.macro ai_link node, weight
+	.2byte \node, \weight
+.endm
