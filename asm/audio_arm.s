@@ -7,9 +7,9 @@
 
 	.arm
 
-	.global sub_03006498
-	.type sub_03006498, %function
-sub_03006498: @ 03006498
+	.global audio_voice_start
+	.type audio_voice_start, %function
+audio_voice_start: @ 03006498
 	stmdb sp!, {lr}
 	strb r3, [r5, #3]
 	str r1, [r5, #0x24]
@@ -628,7 +628,7 @@ _03006D50:
 	ldrb r3, [fp], #1
 	add r3, r3, #1
 	mov r1, #0x10000
-	bl sub_03006498
+	bl audio_voice_start
 	add pc, pc, #0x50
 
 	.global audio_seq_step

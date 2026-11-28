@@ -622,3 +622,4 @@
 0x088502A8 gSfxTable                # 256 sound effects (snd_play id) -> 0x44-byte sample records
 0x08850948 gMusicProgramMap         # 128 bytes: program -> music instrument (0xFF none; 127 = drum kit)
 0x0885010C gMusicInstruments        # 41 pointers to instrument records (types 0x20 sample, 0x22 drums, 0x23 split)
+0x03006498 audio_voice_start        # voice r5: state 0x11, mode, note, velocity, channel, sample position = record start, record, pitch (from note-on, snd_play)

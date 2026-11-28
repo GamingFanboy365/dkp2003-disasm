@@ -79,3 +79,21 @@ Identified so far (the engine's current song is at `0x03005A78`, checked in
 mGBA): song 0 plays in the Steamy Swoop race; song 4 is the front-end
 music (language screen and menus, and the debug menu's
 `music_play_if_changed(4)`).
+
+## Voices
+
+`audio_voice_start` (called by note-on, `snd_play` and the song loader) sets
+up a voice:
+
+| Offset | Meaning |
+|---|---|
+| `+0x00` | state (`0x11` = playing; the mixer writes `0x10` when a one-shot ends) |
+| `+0x01` | sample mode (copied from the record) |
+| `+0x02`, `+0x03` | note, velocity |
+| `+0x05` | channel |
+| `+0x0C` | play position (starts at the record's sample start) |
+| `+0x20` | the instrument record |
+| `+0x24` | pitch step (`0x10000` = the sample's own rate) |
+
+When the position reaches the record's end, modes 1 and 3 stop the voice
+and modes 2 and 4 jump back by the record's length (the loop).

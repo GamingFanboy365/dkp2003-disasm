@@ -494,7 +494,7 @@ _0802EE1C:
 _0802EE20:
 	.4byte __audio_lma
 _0802EE24:
-	.4byte sub_03006498
+	.4byte audio_voice_start
 _0802EE28:
 	.4byte gUnk_0802D830
 _0802EE2C:
@@ -988,7 +988,7 @@ _0802F144:
 _0802F148:
 	.4byte 0x0202F00C
 _0802F14C:
-	.4byte sub_03006498
+	.4byte audio_voice_start
 _0802F150:
 	.4byte 0x03006350
 _0802F154:
