@@ -2,6 +2,7 @@
 OUTPUT_ARCH(arm)
 ENTRY(_start)
 
+gAudioVoices = 0x02003020;
 gFrameCount = 0x02004348;
 gRacerObjects = 0x0200434C;
 gObjProcessList = 0x02004374;
@@ -48,6 +49,11 @@ gSfxPendingMask = 0x0202E390;
 gSfxNextId = 0x0202E394;
 gRedZingerBuzzOwner = 0x0202EC04;
 gBlueZingerBuzzOwner = 0x0202EC0C;
+gAudioMixLimit = 0x0202EFF8;
+gAudioFrameSamples = 0x0202F008;
+gAudioSfxNextId = 0x0202F014;
+gAudioMusicPaused = 0x0202F018;
+gAudioErrorFlag = 0x0202F01C;
 gIrqHandler = 0x03005620;
 gKeysHeld = 0x0300565C;
 gKeysNew = 0x0300565E;
@@ -55,6 +61,27 @@ gIrqFlags = 0x03005664;
 gVBlankCount = 0x03005668;
 gModeFlags = 0x0300566C;
 gStateFunc = 0x03005670;
+gAudioBufFlip = 0x03005A74;
+gAudioSong = 0x03005A78;
+gAudioPendingSong = 0x03005A7C;
+gAudioTrackTime = 0x03005A80;
+gAudioFrameTime = 0x03005B00;
+gAudioDivision = 0x03005B04;
+gAudioTempo = 0x03005B08;
+gAudioMixBuf = 0x03005F8C;
+gAudioPitchBend = 0x0300624C;
+gAudioChannels = 0x0300628C;
+gAudioChannelVolume = 0x0300630C;
+gAudioChannelMono = 0x0300631C;
+gAudioSfxVoices = 0x0300632C;
+gAudioSfxTimers = 0x030063EC;
+gAudioSfxHandles = 0x030063FC;
+gAudioProgramMap = 0x03006410;
+gAudioChannelInstrument = 0x03006414;
+gAudioInstrumentList = 0x03006454;
+gAudioLoopPos = 0x03007884;
+gAudioMusicVolume = 0x030078C4;
+gAudioSfxVolume = 0x030078C8;
 
 SECTIONS
 {
@@ -62,6 +89,7 @@ SECTIONS
 	.audio 0x03006498 : AT(LOADADDR(.rom0) + SIZEOF(.rom0)) { build/asm/audio_arm.o(.audio) }
 	__audio_lma = LOADADDR(.audio);
 	__audio_size = SIZEOF(.audio);
+	__audio_lma_03006C44 = LOADADDR(.audio) + (_03006C44 - ADDR(.audio));
 	.rom2 LOADADDR(.audio) + SIZEOF(.audio) : AT(LOADADDR(.audio) + SIZEOF(.audio)) { build/asm/audio.o(.text) build/data/audio_rodata.o(.text) build/asm/libagbprint.o(.text) build/asm/libc.o(.text) }
 	.iwram 0x03000000 : AT(LOADADDR(.rom2) + SIZEOF(.rom2)) { build/asm/iwram.o(.iwram) }
 	__iwram_lma = LOADADDR(.iwram);

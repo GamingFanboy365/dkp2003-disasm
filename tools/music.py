@@ -2,7 +2,7 @@
 """
 The music: Rare's sequence format and conversion to standard MIDI files.
 
-Song table (audio_song_load): song count at 0x08BB4F84 (28), pointers to
+Song table (loaded by audio_update): song count at 0x08BB4F84 (28), pointers to
 the song records at 0x088506A8.  A song record is
 
   u32 tracks          number of tracks (up to 16, "more than 16 tracks in song")

@@ -3511,7 +3511,7 @@ fe_cups_win_init: @ 0801A8A8
 	sub sp, #0x30
 	ldr r4, _0801A8F0
 	bl AGBPrintf
-	bl sub_0802F1C2
+	bl audio_hw_stop
 	movs r2, #0x80
 	lsls r0, r2, #0x13
 	ldr r1, _0801A8F4

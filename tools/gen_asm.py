@@ -46,7 +46,8 @@ class Gen:
             self.sym[o] = self.func_name(o)
         for o in self.labels:
             if o not in self.sym and o in self.item_start:
-                self.sym[o] = '_%s' % self.vtag(o)
+                # a named code label (a second entry point, a resume point)
+                self.sym[o] = self.names[o] if o in self.names and o in self.insns else '_%s' % self.vtag(o)
         for o in self.pools:
             if o not in self.sym:
                 self.sym[o] = '_%s' % self.vtag(o)
@@ -54,6 +55,7 @@ class Gen:
             if o not in self.sym:
                 self.sym[o] = '_%s' % self.vtag(o)
         self.globals = set(self.funcs)
+        self.lma_refs = {}      # linker symbol -> (overlay, label): pointers into a load image
         self.ram_names = ram_names or {}
         # ROM start of each overlay image -> linker symbol for its load address
         self.overlay_lma = {s.rom_start: '__%s_lma' % s.name for s in rom.segs if s.name != 'rom'}
@@ -166,6 +168,15 @@ class Gen:
             off = val - ROM_BASE
             if off in self.overlay_lma:
                 return self.overlay_lma[off]
+            # a pointer into an overlay's load image (its ROM copy): relative
+            # to the overlay's load address, so it follows the overlay
+            seg = self.rom.seg_of_rom(off)
+            if seg.name != 'rom' and off in self.sym and off in self.insns and seg.rom_start in self.sym:
+                # (the linker script defines it: as cannot subtract labels
+                # of another file)
+                name = '%s_%08X' % (self.overlay_lma[seg.rom_start], seg.to_vma(off))
+                self.lma_refs[name] = (seg.name, self.sym[off])
+                return name
             if off in self.dlabel:
                 return self.dlabel[off]
         if val in self.ram_names:
@@ -584,6 +595,8 @@ class Gen:
             base = e.split('+')[0]
             if not base.startswith('0x'):
                 self.global_labels.add(base)
+        for ovl, label in self.lma_refs.values():
+            self.global_labels.add(label)
 
     def verify_encodings(self, tmpdir):
         """Assemble every distinct label-free instruction text once and keep
@@ -743,6 +756,9 @@ class Gen:
             if name != 'rom':
                 ld.append('\t__%s_lma = LOADADDR(%s);' % (name, osec))
                 ld.append('\t__%s_size = SIZEOF(%s);' % (name, osec))
+                for sym_, (ovl, label) in sorted(self.lma_refs.items()):
+                    if ovl == name:
+                        ld.append('\t%s = LOADADDR(%s) + (%s - ADDR(%s));' % (sym_, osec, label, osec))
             prev = osec
         ld += ['', '\t/DISCARD/ : { *(.ARM.attributes) *(.comment) }', '}']
         open(os.path.join(outdir, 'ld_script.ld'), 'w').write('\n'.join(ld) + '\n')

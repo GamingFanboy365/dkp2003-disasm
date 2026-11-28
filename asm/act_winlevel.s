@@ -768,7 +768,7 @@ fe_cups_win2_init: @ 08021620
 	sub sp, #0x30
 	ldr r4, _0802167C
 	bl AGBPrintf
-	bl sub_0802F1C2
+	bl audio_hw_stop
 	strh r5, [r7]
 	ldr r0, _08021668
 	ldrh r1, [r4]
@@ -3139,7 +3139,7 @@ fe_boss_win_init: @ 08022854
 	sub sp, #8
 	ldr r6, _080228A4
 	bl AGBPrintf
-	bl sub_0802F1C2
+	bl audio_hw_stop
 	strh r5, [r4]
 	ldr r0, _08022890
 	ldrh r1, [r6]

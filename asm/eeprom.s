@@ -2093,7 +2093,7 @@ sub_0801E1A0: @ 0801E1A0
 	ldr r0, _0801E1B0
 	movs r1, #0
 	str r1, [r0, #8]
-	bl sub_0802F1C2
+	bl audio_hw_stop
 	pop {r0}
 	bx r0
 _0801E1B0:
@@ -4741,7 +4741,7 @@ _0801F496:
 	cmp r0, #0
 	beq _0801F4A8
 	ldr r0, [r6]
-	bl sub_0802F0EA
+	bl snd_release
 	b _0801F314
 _0801F4A8:
 	ldr r3, [r6, #0x20]

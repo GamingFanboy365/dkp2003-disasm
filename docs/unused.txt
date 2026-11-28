@@ -16,7 +16,7 @@ tools/emu (DKP_COVER=<file> repro_zinger_buzz.py).
 
 Summary
 -------
-     85 functions never called                     11450 bytes
+     85 functions never called                     11282 bytes
     146 data blocks never referenced              108799 bytes
     136 blocks possibly unused (section 5)         13434 bytes
   unused level: 25; a debug menu; the credits screen; a cup-win screen;
@@ -95,9 +95,6 @@ Summary
   obj_remove_process: 1 function(s), 1 data block(s), 196 bytes
       functions: obj_remove_process
       strings: "OV_FLAGS(o) & OF_ACT"
-
-  sub_03006BC0: 1 function(s), 0 data block(s), 196 bytes
-      functions: sub_03006BC0
 
   _setlocale_r: 3 function(s), 1 data block(s), 188 bytes
       newlib (libc) code that was linked in but is never called
@@ -197,8 +194,8 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: _gettimeofday
 
-  sub_0802F0AE: 1 function(s), 0 data block(s), 44 bytes
-      functions: sub_0802F0AE
+  music_set_tempo: 1 function(s), 0 data block(s), 44 bytes
+      functions: music_set_tempo
 
   sub_08004454: 1 function(s), 0 data block(s), 40 bytes
       functions: sub_08004454
@@ -213,6 +210,9 @@ Summary
 
   sub_080044AC: 1 function(s), 0 data block(s), 36 bytes
       functions: sub_080044AC
+
+  audio_err_delta_4: 1 function(s), 0 data block(s), 28 bytes
+      functions: audio_err_delta_4
 
   _cleanup: 1 function(s), 0 data block(s), 20 bytes
       newlib (libc) code that was linked in but is never called
@@ -294,8 +294,8 @@ Summary
   0801E0D8     100  eeprom.s                 sub_0801E0D8
   0801E13C     100  eeprom.s                 sub_0801E13C
   08025CCC     140  act_player_boss.s        sub_08025CCC
-  03006BC0     196  audio_arm.s              sub_03006BC0
-  0802F0AE      44  audio.s                  sub_0802F0AE
+  03006BC0      28  audio_arm.s              audio_err_delta_4
+  0802F0AE      44  audio.s                  music_set_tempo
   08032598      68  libagbprint.s            AGBAssert
   080329B0      64  libc.s                   eeprom_program_verify
   08034B8C      52  libc.s                   __sfmoreglue
@@ -540,6 +540,7 @@ Summary
     reached by stepping over the previous container, not by a pointer;
     the trace in mGBA shows the decoder reading them.
   * Reached in mGBA but not found by the static scan (kept as used):
-      0802ED66  sub_0802ED66
-      0802ED78  sub_0802ED78
-      0802ED82  sub_0802ED82
+      03006BDC  audio_cmd_note_on
+      0802ED66  audio_update_mix
+      0802ED78  audio_update_adv_music
+      0802ED82  audio_update_adv_sfx

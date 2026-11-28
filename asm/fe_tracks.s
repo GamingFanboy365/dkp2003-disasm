@@ -2581,7 +2581,7 @@ _08017C74:
 	str r6, [r5, #4]
 	cmp r0, #0
 	blt _08017C8A
-	bl sub_0802F0EA
+	bl snd_release
 _08017C8A:
 	movs r3, #0x80
 	movs r0, #0xec

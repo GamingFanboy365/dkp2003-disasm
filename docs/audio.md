@@ -50,8 +50,8 @@ A track is a stream of commands, read by `audio_seq_step` through a
 | `01 d` / `02 d0 d1` / `03 d0 d1 d2` | wait d ticks (4-byte waits are refused: "midi delta time of 4 bytes unsupported") |
 | `05 ch note vel` | note on |
 | `06 ch note vel` | note off |
-| `07 ch ctrl val` | controller: 1 modulation, 7 volume, 102 and 103 (by their use, loop markers) |
-| `08 ch prog` | program change: the game's instrument numbers, not General MIDI |
+| `07 ch ctrl val` | controller: 1 modulation (vibrato), 7 channel volume, 102 saves the track position, 103 jumps back to it (the song loop), 126/127 mono on/off (not used by the songs) |
+| `08 ch prog` | program change: the game's instrument numbers, not General MIDI (`gAudioProgramMap`, then `gAudioChannelInstrument`) |
 | `0A ch lsb msb` | pitch bend, 14 bits, 0x2000 = centre |
 | `0B` | end of track |
 
@@ -82,18 +82,84 @@ music (language screen and menus, and the debug menu's
 
 ## Voices
 
-`audio_voice_start` (called by note-on, `snd_play` and the song loader) sets
-up a voice:
+There are 96 music voices (`gAudioVoices`, `0x02003020`): 16 channels with
+6 voices each, fixed to their channel by `audio_voices_init`; and 4 sound
+effect voices (`gAudioSfxVoices`, `0x0300632C`, channel −1). The sizes come
+from four words at `0x080537C0` (0x1200, 0x120, 0xC0, 4). A voice is 0x30
+bytes; `audio_voice_start` (called by note-on, `snd_play` and the song
+loader) sets it up:
 
 | Offset | Meaning |
 |---|---|
-| `+0x00` | state (`0x11` = playing; the mixer writes `0x10` when a one-shot ends) |
+| `+0x00` | state: `0x10` free, `0x11` playing, `0x12` releasing |
 | `+0x01` | sample mode (copied from the record) |
 | `+0x02`, `+0x03` | note, velocity |
-| `+0x05` | channel |
-| `+0x0C` | play position (starts at the record's sample start) |
+| `+0x04` | envelope stage (`audio_voice_env`, 7 stages) |
+| `+0x06` | channel (signed; −1 = sound effect) |
+| `+0x0C`, `+0x10` | play position: byte address and 23-bit fraction |
+| `+0x14`, `+0x18`, `+0x1C` | envelope level, step and sustain level |
 | `+0x20` | the instrument record |
 | `+0x24` | pitch step (`0x10000` = the sample's own rate) |
+| `+0x28`, `+0x2C` | where the last mix ended (checked by `audio_voice_advance`) |
 
 When the position reaches the record's end, modes 1 and 3 stop the voice
 and modes 2 and 4 jump back by the record's length (the loop).
+
+Note-on (`audio_cmd_note_on`) takes a free voice of the channel, else a
+releasing one; a channel in mono mode always uses its first voice. With no
+voice left it prints "too many notes on channel N. increase polyphony RAM
+or modify tune (perhaps reduce envelope release times)".
+
+## Per frame
+
+`audio_update` (from the vblank handler when `gModeFlags` bit 14 is set):
+
+1. loads the pending song (`gAudioPendingSong`, set by `music_play`): the
+   tempo, division and tables of the song record, the channel defaults;
+2. unless the music is paused (`audio_pause`, `gAudioMusicPaused`): runs
+   every track with `audio_seq_step`, moves the vibrato phases on
+   (`audio_vibrato_advance`) and steps the music envelopes
+   (`audio_env_music`);
+3. counts the sound effect timers down (`audio_sfx_timers`) and steps their
+   envelopes (`audio_env_sfx`);
+4. mixes (`audio_mix_frame`): every playing or releasing voice, up to
+   `gAudioMixLimit` (8), is resampled into a 16-bit buffer with linear
+   interpolation (`audio_voice_mix`); the result is clipped to 8 bits into
+   one of two output buffers, which `audio_vsync` hands to DMA1 the next
+   frame;
+5. moves the voices' positions on by one frame (`audio_advance_music`,
+   `audio_advance_sfx`).
+
+Timing: `audio_set_tempo` stores the tempo (microseconds per quarter note,
+`gAudioTempo`) and the length of a frame (60000000 / 3600 = 16666.67 µs,
+`gAudioFrameTime`, 24.8 fixed point). A wait of d ticks adds
+d × tempo / division microseconds to the track's counter
+(`gAudioTrackTime`, 64 bits per track, `audio_udiv64`); the track runs
+again when a frame's time has used it up.
+
+The pitch (`audio_voice_pitch`, `audio_calc_pitch`) is the note against the
+record's base note, plus the record's fine tune (`+0x34`, in hundredths),
+the channel's pitch bend times the record's bend range (`+0x38`) and the
+vibrato: a sine table (`0x0802F708`) scaled by the controller 1 depth and
+the record's `+0x40`.
+
+`audio_set_rate` accepts 10512, 13379, 18157 and 21024 Hz (176 to 352
+samples per frame) and refuses higher rates.
+
+## Errors
+
+`audio_error` prints an "AUDIO ERROR, ..." message through `AGBPrintf` and
+sets `gAudioErrorFlag`. Most callers then stop at a debug trap
+(`swi 0xFF` in Thumb, an undefined instruction in ARM). Only "too many
+notes on channel N" carries on: `audio_err_channel_resume` jumps to
+`0x0802DFE0`, which is the ROM copy (load address) of the ARM code at
+`0x03006C44`, not the IWRAM copy. The sequencer then skips the note and
+runs the rest of that call of `audio_seq_step` from the cartridge. That
+works because the ARM code is position-independent, but it is slower. The
+disassembly writes that pointer as `__audio_lma_03006C44`, which the linker
+script defines relative to the overlay's load address, so it still holds
+in a shifted build.
+
+Not used in this build: `music_set_tempo` and the second entry of
+`snd_play`, `snd_play_timed` (r3 = frames until the sound is released;
+`snd_play` passes 0).

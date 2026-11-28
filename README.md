@@ -212,7 +212,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-900 functions are disassembled and 554 have real names:
+898 functions are disassembled and 600 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -230,8 +230,11 @@ print through AGBPrint and then hit an undefined-instruction trap
   confirm the order: they return 1, 1, −1, −1, 1, 1 for NaN, which is
   `eq, ne, gt, ge, lt, le`;
 * Nintendo's EEPROM library, version `EEPROM_V122` (its version string sits
-  in the ROM next to its type tables), and the audio engine's Thumb glue and
-  link-cable code. These are named from the hardware registers they use;
+  in the ROM next to its type tables), and the link-cable code. These are
+  named from the hardware registers they use;
+* the whole audio engine (ARM mixer and sequencer, and its Thumb glue), from
+  its error messages, the sequence commands and the voice records
+  ([`docs/audio.md`](docs/audio.md));
 * the fixed-point maths in IWRAM (`sin_fx`, `cos_fx`, `tan_fx`, `atan2_fx`,
   `isqrt`, `udiv`, `umod`). These were identified by calling them in a CPU
   emulator with `tools/fcall.py`, which runs any game function on chosen

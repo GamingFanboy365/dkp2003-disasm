@@ -52,3 +52,30 @@
 0x020185AC gParticles               # 64 x 0x20: x, y, z, vx, vy, vz, life, flags
 0x02018DAC gParticleFree            # stack of free particles
 0x02018E2C gParticleFreeCount
+0x02003020 gAudioVoices             # music voices: 16 channels x 6 voices x 0x30 bytes (state, mode, note, velocity, env stage +4, ...)
+0x03005A80 gAudioTrackTime          # 16 x u64: per-track wait left, microseconds in 24.8 fixed point
+0x03005B00 gAudioFrameTime          # microseconds per frame, 24.8 fixed (60000000 / 3600 = 16666.67)
+0x03005B04 gAudioDivision           # song's ticks per quarter note
+0x03005B08 gAudioTempo              # microseconds per quarter note (sequence command 00)
+0x0300628C gAudioChannels           # per-channel state, 8 bytes each: +0 modulation (controller 1), ...
+0x0300624C gAudioPitchBend          # 16 x u32: pitch bend per channel (0x2000 = centre)
+0x0300630C gAudioChannelVolume      # 16 bytes: controller 7
+0x0300631C gAudioChannelMono        # 16 bytes: controller 126 sets, 127 clears (mono: notes reuse the channel's first voice)
+0x0300632C gAudioSfxVoices          # 4 sfx voices x 0x30 (channel -1)
+0x03006410 gAudioProgramMap         # pointer to the program -> instrument byte map
+0x03006414 gAudioChannelInstrument  # 16 x ptr: instrument record per channel (sequence command 08)
+0x03006454 gAudioInstrumentList     # pointer to the instrument list
+0x03007884 gAudioLoopPos            # 16 x ptr: per-track position saved by controller 102, jumped back to by 103
+0x030078C4 gAudioMusicVolume
+0x030078C8 gAudioSfxVolume
+0x03005F8C gAudioMixBuf             # 16-bit mix buffer
+0x03005A74 gAudioBufFlip            # which output buffer pair this frame
+0x0202F008 gAudioFrameSamples       # samples mixed per frame
+0x0202EFF8 gAudioMixLimit           # voices mixed per frame
+0x0202F018 gAudioMusicPaused        # audio_pause sets 1: no sequencing, mixing or advancing of the music voices
+0x0202F01C gAudioErrorFlag          # audio_error sets 1
+0x0202F014 gAudioSfxNextId          # last sfx handle id (skips -1)
+0x030063EC gAudioSfxTimers          # 4 x u32: frames before an sfx voice is released (0 = none)
+0x030063FC gAudioSfxHandles         # 4 x u32: handle id per sfx voice
+0x03005A7C gAudioPendingSong        # song to load next frame (-1 none), set by music_play
+0x03005A78 gAudioSong               # current song

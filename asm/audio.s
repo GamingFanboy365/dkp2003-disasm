@@ -30,10 +30,10 @@ music_play: @ 0802EAE0
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global sub_0802EB04
+	.global music_play_err_ret
 	.thumb_func
-	.type sub_0802EB04, %function
-sub_0802EB04: @ 0802EB04
+	.type music_play_err_ret, %function
+music_play_err_ret: @ 0802EB04
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -165,14 +165,14 @@ audio_init: @ 0802EB4A
 	movs r2, #0x40
 	orrs r1, r2
 	strb r1, [r0]
-	bl sub_0802F324
-	bl sub_0802F34C
+	bl audio_voices_init
+	bl audio_sfx_voices_init
 	movs r0, #0x80
 	bl music_set_volume
 	movs r0, #0x80
 	bl sfx_set_volume
-	bl sub_0802F364
-	bl sub_0802F372
+	bl audio_channel_vol_init
+	bl audio_channel_mono_init
 	ldr r1, _0802EE20
 	ldr r2, _0802EE24
 	ldr r3, _0802EE28
@@ -188,10 +188,10 @@ audio_init: @ 0802EB4A
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global sub_0802EC2A
+	.global audio_init_err_ret
 	.thumb_func
-	.type sub_0802EC2A, %function
-sub_0802EC2A: @ 0802EC2A
+	.type audio_init_err_ret, %function
+audio_init_err_ret: @ 0802EC2A
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -202,7 +202,7 @@ _0802EC32:
 	orrs r3, r0
 	ldr r0, _0802EE00
 	stm r0!, {r1, r2, r3}
-	bl sub_0802F26C
+	bl audio_wait_vblank
 	ldr r0, _0802EE3C
 	ldr r1, _0802EE40
 	str r1, [r0]
@@ -210,9 +210,9 @@ _0802EC32:
 	ldr r1, _0802EE48
 	str r1, [r0]
 	ldr r0, _0802EE4C
-	bl sub_0802F1D0
+	bl audio_set_rate
 	movs r0, #8
-	bl sub_0802F266
+	bl audio_set_mix_limit
 	add sp, #4
 	pop {r3, r4, r5, r6, r7}
 	mov r8, r3
@@ -252,10 +252,10 @@ audio_update: @ 0802EC6C
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global sub_0802EC9A
+	.global audio_update_err_tune
 	.thumb_func
-	.type sub_0802EC9A, %function
-sub_0802EC9A: @ 0802EC9A
+	.type audio_update_err_tune, %function
+audio_update_err_tune: @ 0802EC9A
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -292,10 +292,10 @@ _0802ECBA:
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global sub_0802ECDC
+	.global audio_update_err_tracks
 	.thumb_func
-	.type sub_0802ECDC, %function
-sub_0802ECDC: @ 0802ECDC
+	.type audio_update_err_tracks, %function
+audio_update_err_tracks: @ 0802ECDC
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -328,11 +328,11 @@ _0802ECE4:
 	ldr r0, _0802EE7C
 	movs r1, #0
 	str r1, [r0]
-	bl sub_0802F324
-	bl sub_0802F292
-	bl sub_0802F2A2
+	bl audio_voices_init
+	bl audio_pitchbend_init
+	bl audio_modulation_init
 _0802ED26:
-	bl sub_0802F2B0
+	bl audio_clear_mix
 	ldr r0, _0802EE80
 	ldr r1, [r0]
 	cmp r1, #1
@@ -347,19 +347,19 @@ _0802ED26:
 	ldr r0, _0802EE84
 	bx r0
 _0802ED44:
-	bl sub_0802EEA0
+	bl audio_vibrato_advance
 	mov r0, pc
 	adds r0, #7
 	mov lr, r0
 
-	.global sub_0802ED4E
+	.global audio_update_env_music
 	.thumb_func
-	.type sub_0802ED4E, %function
-sub_0802ED4E: @ 0802ED4E
+	.type audio_update_env_music, %function
+audio_update_env_music: @ 0802ED4E
 	ldr r0, _0802EE88
 	bx r0
 _0802ED52:
-	bl sub_0802EED2
+	bl audio_sfx_timers
 	mov r0, pc
 	adds r0, #7
 	mov lr, r0
@@ -370,10 +370,10 @@ _0802ED60:
 	adds r0, #7
 	mov lr, r0
 
-	.global sub_0802ED66
+	.global audio_update_mix
 	.thumb_func
-	.type sub_0802ED66, %function
-sub_0802ED66: @ 0802ED66
+	.type audio_update_mix, %function
+audio_update_mix: @ 0802ED66
 	ldr r0, _0802EE90
 	bx r0
 _0802ED6A:
@@ -385,10 +385,10 @@ _0802ED6A:
 	adds r0, #7
 	mov lr, r0
 
-	.global sub_0802ED78
+	.global audio_update_adv_music
 	.thumb_func
-	.type sub_0802ED78, %function
-sub_0802ED78: @ 0802ED78
+	.type audio_update_adv_music, %function
+audio_update_adv_music: @ 0802ED78
 	ldr r0, _0802EE94
 	bx r0
 _0802ED7C:
@@ -396,10 +396,10 @@ _0802ED7C:
 	adds r0, #7
 	mov lr, r0
 
-	.global sub_0802ED82
+	.global audio_update_adv_sfx
 	.thumb_func
-	.type sub_0802ED82, %function
-sub_0802ED82: @ 0802ED82
+	.type audio_update_adv_sfx, %function
+audio_update_adv_sfx: @ 0802ED82
 	ldr r0, _0802EE98
 	bx r0
 _0802ED86:
@@ -411,10 +411,10 @@ _0802ED86:
 	blt _0802EDA8
 	push {r0, r1}
 
-	.global sub_0802ED94
+	.global audio_update_err_tune2
 	.thumb_func
-	.type sub_0802ED94, %function
-sub_0802ED94: @ 0802ED94
+	.type audio_update_err_tune2, %function
+audio_update_err_tune2: @ 0802ED94
 	push {lr}
 	ldr r0, _0802EDC0
 	ldr r1, _0802EE9C
@@ -422,10 +422,10 @@ sub_0802ED94: @ 0802ED94
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global audio_song_load
+	.global audio_update_err_ret
 	.thumb_func
-	.type audio_song_load, %function
-audio_song_load: @ 0802EDA0
+	.type audio_update_err_ret, %function
+audio_update_err_ret: @ 0802EDA0
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -446,17 +446,17 @@ _0802EDBC:
 _0802EDC0:
 	.4byte gUnk_08030604
 _0802EDC4:
-	.4byte sub_0802EB04
+	.4byte music_play_err_ret
 _0802EDC8:
 	.4byte audio_error
 _0802EDCC:
-	.4byte 0x03005A7C
+	.4byte gAudioPendingSong
 _0802EDD0:
-	.4byte 0x03005A74
+	.4byte gAudioBufFlip
 _0802EDD4:
-	.4byte gUnk_080537B0
+	.4byte gAudioOutBufA
 _0802EDD8:
-	.4byte gUnk_080537B8
+	.4byte gAudioOutBufB
 _0802EDDC:
 	.4byte 0x040000C6
 _0802EDE0:
@@ -482,7 +482,7 @@ _0802EE04:
 _0802EE08:
 	.4byte 0x85000058
 _0802EE0C:
-	.4byte 0x03005A78
+	.4byte gAudioSong
 _0802EE10:
 	.4byte 0x04000082
 _0802EE14:
@@ -502,7 +502,7 @@ _0802EE2C:
 _0802EE30:
 	.4byte gUnk_0803047A
 _0802EE34:
-	.4byte sub_0802EC2A
+	.4byte audio_init_err_ret
 _0802EE38:
 	.4byte 0x84000000
 _0802EE3C:
@@ -516,50 +516,50 @@ _0802EE48:
 _0802EE4C:
 	.4byte 0x00003443
 _0802EE50:
-	.4byte 0x0202F01C
+	.4byte gAudioErrorFlag
 _0802EE54:
-	.4byte sub_0802EC9A
+	.4byte audio_update_err_tune
 _0802EE58:
-	.4byte 0x03005A80
+	.4byte gAudioTrackTime
 _0802EE5C:
 	.4byte gUnk_080304AF
 _0802EE60:
-	.4byte sub_0802ECDC
+	.4byte audio_update_err_tracks
 _0802EE64:
 	.4byte 0x0300640C
 _0802EE68:
-	.4byte 0x03005B04
+	.4byte gAudioDivision
 _0802EE6C:
 	.4byte 0x03006458
 _0802EE70:
-	.4byte 0x03006410
+	.4byte gAudioProgramMap
 _0802EE74:
-	.4byte 0x03006454
+	.4byte gAudioInstrumentList
 _0802EE78:
-	.4byte 0x03005B00
+	.4byte gAudioFrameTime
 _0802EE7C:
-	.4byte 0x03005B08
+	.4byte gAudioTempo
 _0802EE80:
-	.4byte 0x0202F018
+	.4byte gAudioMusicPaused
 _0802EE84:
 	.4byte audio_seq_step
 _0802EE88:
-	.4byte sub_030067CC
+	.4byte audio_env_music
 _0802EE8C:
-	.4byte sub_030067B4
+	.4byte audio_env_sfx
 _0802EE90:
-	.4byte sub_030064E4
+	.4byte audio_mix_frame
 _0802EE94:
-	.4byte sub_03006654
+	.4byte audio_advance_music
 _0802EE98:
-	.4byte sub_0300663C
+	.4byte audio_advance_sfx
 _0802EE9C:
-	.4byte audio_song_load
+	.4byte audio_update_err_ret
 
-	.global sub_0802EEA0
+	.global audio_vibrato_advance
 	.thumb_func
-	.type sub_0802EEA0, %function
-sub_0802EEA0: @ 0802EEA0
+	.type audio_vibrato_advance, %function
+audio_vibrato_advance: @ 0802EEA0
 	ldr r0, _0802F124
 	ldr r7, _0802F128
 	movs r1, #0x80
@@ -589,10 +589,10 @@ _0802EEB6:
 	str r3, [r4, #4]
 	b _0802EEB0
 
-	.global sub_0802EED2
+	.global audio_sfx_timers
 	.thumb_func
-	.type sub_0802EED2, %function
-sub_0802EED2: @ 0802EED2
+	.type audio_sfx_timers, %function
+audio_sfx_timers: @ 0802EED2
 	ldr r5, _0802F134
 	movs r3, #0
 	ldr r6, _0802F138
@@ -619,10 +619,10 @@ _0802EEEC:
 _0802EEFA:
 	b _0802EEE2
 
-	.global sub_0802EEFC
+	.global audio_sfx_alloc
 	.thumb_func
-	.type sub_0802EEFC, %function
-sub_0802EEFC: @ 0802EEFC
+	.type audio_sfx_alloc, %function
+audio_sfx_alloc: @ 0802EEFC
 	push {lr}
 	ldr r5, _0802F134
 	movs r3, #0
@@ -837,7 +837,7 @@ snd_stop_all: @ 0802F04C
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802F34C
+	bl audio_sfx_voices_init
 	pop {r3, r4, r5, r6, r7}
 	mov r8, r3
 	mov sb, r4
@@ -859,7 +859,7 @@ music_stop: @ 0802F070
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802F324
+	bl audio_voices_init
 	ldr r0, _0802F158
 	movs r1, #0
 	mvns r1, r1
@@ -891,10 +891,10 @@ sfx_set_volume: @ 0802F0A2
 	bx lr
 	.byte 0x2E, 0x49, 0x08, 0x68, 0x70, 0x47
 
-	.global sub_0802F0AE
+	.global music_set_tempo
 	.thumb_func
-	.type sub_0802F0AE, %function
-sub_0802F0AE: @ 0802F0AE
+	.type music_set_tempo, %function
+music_set_tempo: @ 0802F0AE
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -929,10 +929,10 @@ audio_resume: @ 0802F0E2
 	str r1, [r0]
 	bx lr
 
-	.global sub_0802F0EA
+	.global snd_release
 	.thumb_func
-	.type sub_0802F0EA, %function
-sub_0802F0EA: @ 0802F0EA
+	.type snd_release, %function
+snd_release: @ 0802F0EA
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -966,25 +966,26 @@ _0802F10C:
 snd_play: @ 0802F11E
 	movs r3, #0
 	b _0802F170
-	.byte 0x25, 0xE0
+snd_play_timed:
+	b _0802F170
 _0802F124:
 	.4byte 0x03006284
 _0802F128:
 	.4byte 0x03006288
 _0802F12C:
-	.4byte 0x03006414
+	.4byte gAudioChannelInstrument
 _0802F130:
 	.4byte 0x00FFFFFF
 _0802F134:
-	.4byte 0x0300632C
+	.4byte gAudioSfxVoices
 _0802F138:
-	.4byte gUnk_080537C8
+	.4byte gAudioSfxVoiceBytes
 _0802F13C:
-	.4byte 0x030063EC
+	.4byte gAudioSfxTimers
 _0802F140:
-	.4byte 0x0202F014
+	.4byte gAudioSfxNextId
 _0802F144:
-	.4byte 0x030063FC
+	.4byte gAudioSfxHandles
 _0802F148:
 	.4byte 0x0202F00C
 _0802F14C:
@@ -994,16 +995,16 @@ _0802F150:
 _0802F154:
 	.4byte 0x0300632F
 _0802F158:
-	.4byte 0x03005A78
+	.4byte gAudioSong
 _0802F15C:
-	.4byte 0x030078C4
+	.4byte gAudioMusicVolume
 _0802F160:
-	.4byte 0x030078C8
+	.4byte gAudioSfxVolume
 	.byte 0x08, 0x5B, 0x00, 0x03
 _0802F168:
-	.4byte sub_03006A20
+	.4byte audio_set_tempo
 _0802F16C:
-	.4byte 0x0202F018
+	.4byte gAudioMusicPaused
 _0802F170:
 	push {r4, r5, r6, r7, lr}
 	mov lr, r3
@@ -1026,16 +1027,16 @@ _0802F170:
 	ldr r1, _0802F3F4
 	bx r1
 
-	.global sub_0802F198
+	.global snd_play_err_ret
 	.thumb_func
-	.type sub_0802F198, %function
-sub_0802F198: @ 0802F198
+	.type snd_play_err_ret, %function
+snd_play_err_ret: @ 0802F198
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
 	.2byte 0xEFFF @ debug trap
 _0802F1A0:
-	bl sub_0802EEFC
+	bl audio_sfx_alloc
 	pop {r3}
 	cmp r1, #0
 	bmi _0802F1B0
@@ -1053,10 +1054,10 @@ _0802F1B0:
 	pop {r1}
 	bx r1
 
-	.global sub_0802F1C2
+	.global audio_hw_stop
 	.thumb_func
-	.type sub_0802F1C2, %function
-sub_0802F1C2: @ 0802F1C2
+	.type audio_hw_stop, %function
+audio_hw_stop: @ 0802F1C2
 	ldr r0, _0802F3FC
 	movs r2, #0
 	strh r2, [r0]
@@ -1065,10 +1066,10 @@ sub_0802F1C2: @ 0802F1C2
 	strh r1, [r0]
 	bx lr
 
-	.global sub_0802F1D0
+	.global audio_set_rate
 	.thumb_func
-	.type sub_0802F1D0, %function
-sub_0802F1D0: @ 0802F1D0
+	.type audio_set_rate, %function
+audio_set_rate: @ 0802F1D0
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -1087,10 +1088,10 @@ sub_0802F1D0: @ 0802F1D0
 	ldr r1, _0802F3F4
 	bx r1
 
-	.global sub_0802F1F2
+	.global audio_set_rate_err_ret
 	.thumb_func
-	.type sub_0802F1F2, %function
-sub_0802F1F2: @ 0802F1F2
+	.type audio_set_rate_err_ret, %function
+audio_set_rate_err_ret: @ 0802F1F2
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -1158,18 +1159,18 @@ music_current: @ 0802F260
 	ldr r0, [r0]
 	bx lr
 
-	.global sub_0802F266
+	.global audio_set_mix_limit
 	.thumb_func
-	.type sub_0802F266, %function
-sub_0802F266: @ 0802F266
+	.type audio_set_mix_limit, %function
+audio_set_mix_limit: @ 0802F266
 	ldr r1, _0802F45C
 	str r0, [r1]
 	bx lr
 
-	.global sub_0802F26C
+	.global audio_wait_vblank
 	.thumb_func
-	.type sub_0802F26C, %function
-sub_0802F26C: @ 0802F26C
+	.type audio_wait_vblank, %function
+audio_wait_vblank: @ 0802F26C
 	ldr r0, _0802F460
 _0802F26E:
 	ldrb r1, [r0]
@@ -1195,10 +1196,10 @@ audio_error: @ 0802F27C
 	pop {r0}
 	bx r0
 
-	.global sub_0802F292
+	.global audio_pitchbend_init
 	.thumb_func
-	.type sub_0802F292, %function
-sub_0802F292: @ 0802F292
+	.type audio_pitchbend_init, %function
+audio_pitchbend_init: @ 0802F292
 	movs r1, #0x20
 	lsls r1, r1, #8
 	ldr r0, _0802F468
@@ -1209,10 +1210,10 @@ _0802F29A:
 	bne _0802F29A
 	bx lr
 
-	.global sub_0802F2A2
+	.global audio_modulation_init
 	.thumb_func
-	.type sub_0802F2A2, %function
-sub_0802F2A2: @ 0802F2A2
+	.type audio_modulation_init, %function
+audio_modulation_init: @ 0802F2A2
 	movs r1, #0
 	ldr r0, _0802F46C
 	movs r2, #0x80
@@ -1222,10 +1223,10 @@ _0802F2A8:
 	bne _0802F2A8
 	bx lr
 
-	.global sub_0802F2B0
+	.global audio_clear_mix
 	.thumb_func
-	.type sub_0802F2B0, %function
-sub_0802F2B0: @ 0802F2B0
+	.type audio_clear_mix, %function
+audio_clear_mix: @ 0802F2B0
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0
@@ -1290,10 +1291,10 @@ _0802F300:
 _0802F322:
 	bx lr
 
-	.global sub_0802F324
+	.global audio_voices_init
 	.thumb_func
-	.type sub_0802F324, %function
-sub_0802F324: @ 0802F324
+	.type audio_voices_init, %function
+audio_voices_init: @ 0802F324
 	ldr r0, _0802F474
 	ldr r3, _0802F478
 	ldr r6, _0802F47C
@@ -1317,10 +1318,10 @@ _0802F340:
 	bne _0802F336
 	bx lr
 
-	.global sub_0802F34C
+	.global audio_sfx_voices_init
 	.thumb_func
-	.type sub_0802F34C, %function
-sub_0802F34C: @ 0802F34C
+	.type audio_sfx_voices_init, %function
+audio_sfx_voices_init: @ 0802F34C
 	ldr r0, _0802F488
 	movs r5, #0
 	mvns r5, r5
@@ -1335,10 +1336,10 @@ _0802F358:
 	bne _0802F358
 	bx lr
 
-	.global sub_0802F364
+	.global audio_channel_vol_init
 	.thumb_func
-	.type sub_0802F364, %function
-sub_0802F364: @ 0802F364
+	.type audio_channel_vol_init, %function
+audio_channel_vol_init: @ 0802F364
 	ldr r0, _0802F490
 	movs r1, #0x10
 	movs r2, #0x7f
@@ -1348,10 +1349,10 @@ _0802F36A:
 	bne _0802F36A
 	bx lr
 
-	.global sub_0802F372
+	.global audio_channel_mono_init
 	.thumb_func
-	.type sub_0802F372, %function
-sub_0802F372: @ 0802F372
+	.type audio_channel_mono_init, %function
+audio_channel_mono_init: @ 0802F372
 	ldr r0, _0802F494
 	movs r1, #0x10
 	movs r2, #0
@@ -1361,10 +1362,10 @@ _0802F378:
 	bne _0802F378
 	bx lr
 
-	.global sub_0802F380
+	.global audio_err_channel_full
 	.thumb_func
-	.type sub_0802F380, %function
-sub_0802F380: @ 0802F380
+	.type audio_err_channel_full, %function
+audio_err_channel_full: @ 0802F380
 	push {r0, r1, r2, r3, r4}
 	movs r4, #6
 	ldrb r0, [r5, r4]
@@ -1380,18 +1381,18 @@ sub_0802F380: @ 0802F380
 	ldr r1, _0802F3F4
 	bx r1
 
-	.global audio_fx_start
+	.global audio_err_channel_resume
 	.thumb_func
-	.type audio_fx_start, %function
-audio_fx_start: @ 0802F39C
+	.type audio_err_channel_resume, %function
+audio_err_channel_resume: @ 0802F39C
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
 	pop {r0, r1, r2, r3, r4}
 	ldr r0, _0802F4A0
 	bx r0
-	.global gUnk_0802F3A8
-gUnk_0802F3A8:
+	.global gAudioChannelFullMsgs
+gAudioChannelFullMsgs:
 	.4byte gUnk_0802FC44
 	.4byte gUnk_0802FCC7
 	.4byte gUnk_0802FD4A
@@ -1413,11 +1414,11 @@ _0802F3E8:
 _0802F3EC:
 	.4byte gUnk_080305E4
 _0802F3F0:
-	.4byte sub_0802F198
+	.4byte snd_play_err_ret
 _0802F3F4:
 	.4byte audio_error
 _0802F3F8:
-	.4byte 0x030063EC
+	.4byte gAudioSfxTimers
 _0802F3FC:
 	.4byte 0x040000C6
 _0802F400:
@@ -1427,7 +1428,7 @@ _0802F404:
 _0802F408:
 	.4byte gUnk_08030547
 _0802F40C:
-	.4byte sub_0802F1F2
+	.4byte audio_set_rate_err_ret
 _0802F410:
 	.4byte 0x0202F000
 _0802F414:
@@ -1461,44 +1462,44 @@ _0802F448:
 _0802F44C:
 	.4byte 0x0202F004
 _0802F450:
-	.4byte 0x0202F008
+	.4byte gAudioFrameSamples
 _0802F454:
 	.4byte 0x04000100
 _0802F458:
-	.4byte 0x03005A78
+	.4byte gAudioSong
 _0802F45C:
-	.4byte 0x0202EFF8
+	.4byte gAudioMixLimit
 _0802F460:
 	.4byte 0x04000006
 _0802F464:
-	.4byte 0x0202F01C
+	.4byte gAudioErrorFlag
 _0802F468:
-	.4byte 0x0300624C
+	.4byte gAudioPitchBend
 _0802F46C:
-	.4byte 0x0300628C
+	.4byte gAudioChannels
 _0802F470:
-	.4byte 0x03005F8C
+	.4byte gAudioMixBuf
 _0802F474:
-	.4byte 0x02003020
+	.4byte gAudioVoices
 _0802F478:
 	.4byte 0x02003026
 _0802F47C:
 	.4byte 0x02003028
 _0802F480:
-	.4byte gUnk_080537C0
+	.4byte gAudioMusicVoiceBytes
 _0802F484:
 	.4byte gUnk_080537D4
 _0802F488:
-	.4byte 0x0300632C
+	.4byte gAudioSfxVoices
 _0802F48C:
-	.4byte gUnk_080537CC
+	.4byte gAudioSfxVoiceCount
 _0802F490:
-	.4byte 0x0300630C
+	.4byte gAudioChannelVolume
 _0802F494:
-	.4byte 0x0300631C
+	.4byte gAudioChannelMono
 _0802F498:
-	.4byte gUnk_0802F3A8
+	.4byte gAudioChannelFullMsgs
 _0802F49C:
-	.4byte audio_fx_start
+	.4byte audio_err_channel_resume
 _0802F4A0:
-	.4byte 0x0802DFE0
+	.4byte __audio_lma_03006C44

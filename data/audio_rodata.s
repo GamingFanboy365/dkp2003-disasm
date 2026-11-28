@@ -19,13 +19,13 @@ gUnk_0802F5A4:
 	.global gUnk_0802F6A0
 gUnk_0802F6A0:
 	.byte 0x0A, 0xFE, 0x06, 0x13
-	.global gUnk_0802F6A4
-gUnk_0802F6A4:
+	.global gAudioEnvRates
+gAudioEnvRates:
 	.incbin "baserom.gba", 0x2F6A4, 0x54
 	.4byte gUnk_08090909
 	.byte 0x08, 0x08, 0x07, 0x07, 0x06, 0x06, 0x05, 0x04, 0x03, 0x02, 0x01, 0x00
-	.global gUnk_0802F708
-gUnk_0802F708:
+	.global gAudioVibratoTable
+gAudioVibratoTable:
 	.incbin "baserom.gba", 0x2F708, 0x443
 	.global gUnk_0802FB4B
 gUnk_0802FB4B:

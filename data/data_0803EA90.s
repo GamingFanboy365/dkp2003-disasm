@@ -2318,29 +2318,29 @@ gUnk_08053764:
 	.global gUnk_080537A0
 gUnk_080537A0:
 	.byte 0x61, 0x63, 0x74, 0x5F, 0x6C, 0x69, 0x66, 0x65, 0x5F, 0x6D, 0x65, 0x74, 0x65, 0x72, 0x00, 0x00
-	.global gUnk_080537B0
-gUnk_080537B0:
+	.global gAudioOutBufA
+gAudioOutBufA:
 	.byte 0x0C, 0x5B, 0x00, 0x03
 	.global gUnk_080537B4
 gUnk_080537B4:
 	.byte 0x6C, 0x5C, 0x00, 0x03
-	.global gUnk_080537B8
-gUnk_080537B8:
+	.global gAudioOutBufB
+gAudioOutBufB:
 	.byte 0x4C, 0x5D, 0x00, 0x03
 	.global gUnk_080537BC
 gUnk_080537BC:
 	.byte 0xAC, 0x5E, 0x00, 0x03
-	.global gUnk_080537C0
-gUnk_080537C0:
+	.global gAudioMusicVoiceBytes
+gAudioMusicVoiceBytes:
 	.byte 0x00, 0x12, 0x00, 0x00
-	.global gUnk_080537C4
-gUnk_080537C4:
+	.global gAudioChannelVoiceBytes
+gAudioChannelVoiceBytes:
 	.byte 0x20, 0x01, 0x00, 0x00
-	.global gUnk_080537C8
-gUnk_080537C8:
+	.global gAudioSfxVoiceBytes
+gAudioSfxVoiceBytes:
 	.byte 0xC0, 0x00, 0x00, 0x00
-	.global gUnk_080537CC
-gUnk_080537CC:
+	.global gAudioSfxVoiceCount
+gAudioSfxVoiceCount:
 	.byte 0x04, 0x00, 0x00, 0x00
 	.global gUnk_080537D0
 gUnk_080537D0:
