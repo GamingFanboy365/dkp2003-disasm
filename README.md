@@ -46,12 +46,14 @@ offsets, sizes and types.
 | Audio samples (343) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–48000 Hz) |
 | Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
-| Other (399) | `*.bin` | level data blocks whose format is not known yet (track paths, collision, …) |
+| Other (399) | `*.bin` | level data blocks, named by the code that reads them (AI path, collision, track edges, cameras, …; see [`docs/levels.md`](docs/levels.md)); their formats are mostly not decoded yet |
 
 Layout:
 ```
 assets/levels/NN/            33 levels: palette.pal, bg_a/bg_c/bg_d.png (tilesets),
-                             objects.s, data_XX.bin (header field +XX)
+                             objects.s, ai_path.bin, hits.bin, edges*.bin, camera*.bin,
+                             autopilot*.bin, ... (docs/levels.md: which code reads each),
+                             data_XX.bin for fields whose use is not known yet
 assets/levels/tracks/        48 track records: sky gradients, palettes, map/theme sprites (PNG)
 assets/levels/level_headers.s, track_records.s
 assets/graphics/sprites/     sprite sheets NNN.png + NNN.json (sprite table entry NNN),

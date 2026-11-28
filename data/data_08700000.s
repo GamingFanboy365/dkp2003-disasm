@@ -6651,508 +6651,508 @@ gUnk_087CEF60:
 	.include "assets/levels/25/objects.s"
 	.global gUnk_087CEFD8
 gUnk_087CEFD8:
-	.incbin "build/assets/levels/01/data_38.bin"   @ from assets/levels/01/data_38.bin
+	.incbin "build/assets/levels/01/ai_path.bin"   @ from assets/levels/01/ai_path.bin
 	.global gUnk_087CFEA8
 gUnk_087CFEA8:
-	.incbin "build/assets/levels/01/data_3c.bin"   @ from assets/levels/01/data_3c.bin
+	.incbin "build/assets/levels/01/ai_path_rev.bin"   @ from assets/levels/01/ai_path_rev.bin
 	.global gUnk_087D0B08
 gUnk_087D0B08:
-	.incbin "build/assets/levels/01/data_5c.bin"   @ from assets/levels/01/data_5c.bin
+	.incbin "build/assets/levels/01/race_monitor.bin"   @ from assets/levels/01/race_monitor.bin
 	.global gUnk_087D0E0C
 gUnk_087D0E0C:
-	.incbin "build/assets/levels/01/data_60.bin"   @ from assets/levels/01/data_60.bin
+	.incbin "build/assets/levels/01/race_monitor_rev.bin"   @ from assets/levels/01/race_monitor_rev.bin
 	.global gUnk_087D1000
 gUnk_087D1000:
-	.incbin "build/assets/levels/01/data_44.bin"   @ from assets/levels/01/data_44.bin
+	.incbin "build/assets/levels/01/edges1.bin"   @ from assets/levels/01/edges1.bin
 	.global gUnk_087D1D38
 gUnk_087D1D38:
-	.incbin "build/assets/levels/01/data_48.bin"   @ from assets/levels/01/data_48.bin
+	.incbin "build/assets/levels/01/edges1_rev.bin"   @ from assets/levels/01/edges1_rev.bin
 	.global gUnk_087D2F50
 gUnk_087D2F50:
-	.incbin "build/assets/levels/01/data_50.bin"   @ from assets/levels/01/data_50.bin
+	.incbin "build/assets/levels/01/edges2_rev.bin"   @ from assets/levels/01/edges2_rev.bin
 	.global gUnk_087D2F54
 gUnk_087D2F54:
-	.incbin "build/assets/levels/01/data_4c.bin"   @ from assets/levels/01/data_4c.bin
+	.incbin "build/assets/levels/01/edges2.bin"   @ from assets/levels/01/edges2.bin
 	.global gUnk_087D39B4
 gUnk_087D39B4:
-	.incbin "build/assets/levels/01/data_54.bin"   @ from assets/levels/01/data_54.bin
+	.incbin "build/assets/levels/01/camera_ops.bin"   @ from assets/levels/01/camera_ops.bin
 	.global gUnk_087D3A9C
 gUnk_087D3A9C:
-	.incbin "build/assets/levels/01/data_58.bin"   @ from assets/levels/01/data_58.bin
+	.incbin "build/assets/levels/01/camera_ops_rev.bin"   @ from assets/levels/01/camera_ops_rev.bin
 	.global gUnk_087D3BE4
 gUnk_087D3BE4:
-	.incbin "build/assets/levels/01/data_64.bin"   @ from assets/levels/01/data_64.bin
+	.incbin "build/assets/levels/01/camera.bin"   @ from assets/levels/01/camera.bin
 	.global gUnk_087D3C60
 gUnk_087D3C60:
-	.incbin "build/assets/levels/01/data_68.bin"   @ from assets/levels/01/data_68.bin
+	.incbin "build/assets/levels/01/camera_rev.bin"   @ from assets/levels/01/camera_rev.bin
 	.global gUnk_087D3CDC
 gUnk_087D3CDC:
-	.incbin "build/assets/levels/01/data_6c.bin"   @ from assets/levels/01/data_6c.bin
+	.incbin "build/assets/levels/01/autopilot.bin"   @ from assets/levels/01/autopilot.bin
 	.global gUnk_087D3CE0
 gUnk_087D3CE0:
-	.incbin "build/assets/levels/01/data_70.bin"   @ from assets/levels/01/data_70.bin
+	.incbin "build/assets/levels/01/autopilot_rev.bin"   @ from assets/levels/01/autopilot_rev.bin
 	.global gUnk_087D3CE4
 gUnk_087D3CE4:
-	.incbin "build/assets/levels/02/data_38.bin"   @ from assets/levels/02/data_38.bin
+	.incbin "build/assets/levels/02/ai_path.bin"   @ from assets/levels/02/ai_path.bin
 	.global gUnk_087D4824
 gUnk_087D4824:
-	.incbin "build/assets/levels/02/data_3c.bin"   @ from assets/levels/02/data_3c.bin
+	.incbin "build/assets/levels/02/ai_path_rev.bin"   @ from assets/levels/02/ai_path_rev.bin
 	.global gUnk_087D5558
 gUnk_087D5558:
-	.incbin "build/assets/levels/02/data_5c.bin"   @ from assets/levels/02/data_5c.bin
+	.incbin "build/assets/levels/02/race_monitor.bin"   @ from assets/levels/02/race_monitor.bin
 	.global gUnk_087D56EC
 gUnk_087D56EC:
-	.incbin "build/assets/levels/02/data_60.bin"   @ from assets/levels/02/data_60.bin
+	.incbin "build/assets/levels/02/race_monitor_rev.bin"   @ from assets/levels/02/race_monitor_rev.bin
 	.global gUnk_087D5880
 gUnk_087D5880:
-	.incbin "build/assets/levels/02/data_44.bin"   @ from assets/levels/02/data_44.bin
+	.incbin "build/assets/levels/02/edges1.bin"   @ from assets/levels/02/edges1.bin
 	.global gUnk_087D6550
 gUnk_087D6550:
-	.incbin "build/assets/levels/02/data_48.bin"   @ from assets/levels/02/data_48.bin
+	.incbin "build/assets/levels/02/edges1_rev.bin"   @ from assets/levels/02/edges1_rev.bin
 	.global gUnk_087D7698
 gUnk_087D7698:
-	.incbin "build/assets/levels/02/data_50.bin"   @ from assets/levels/02/data_50.bin
+	.incbin "build/assets/levels/02/edges2_rev.bin"   @ from assets/levels/02/edges2_rev.bin
 	.global gUnk_087D7FF4
 gUnk_087D7FF4:
-	.incbin "build/assets/levels/02/data_4c.bin"   @ from assets/levels/02/data_4c.bin
+	.incbin "build/assets/levels/02/edges2.bin"   @ from assets/levels/02/edges2.bin
 	.global gUnk_087D88B4
 gUnk_087D88B4:
-	.incbin "build/assets/levels/02/data_54.bin"   @ from assets/levels/02/data_54.bin
+	.incbin "build/assets/levels/02/camera_ops.bin"   @ from assets/levels/02/camera_ops.bin
 	.global gUnk_087D8990
 gUnk_087D8990:
-	.incbin "build/assets/levels/02/data_58.bin"   @ from assets/levels/02/data_58.bin
+	.incbin "build/assets/levels/02/camera_ops_rev.bin"   @ from assets/levels/02/camera_ops_rev.bin
 	.global gUnk_087D8AB4
 gUnk_087D8AB4:
-	.incbin "build/assets/levels/02/data_64.bin"   @ from assets/levels/02/data_64.bin
+	.incbin "build/assets/levels/02/camera.bin"   @ from assets/levels/02/camera.bin
 	.global gUnk_087D8B60
 gUnk_087D8B60:
-	.incbin "build/assets/levels/02/data_68.bin"   @ from assets/levels/02/data_68.bin
+	.incbin "build/assets/levels/02/camera_rev.bin"   @ from assets/levels/02/camera_rev.bin
 	.global gUnk_087D8C24
 gUnk_087D8C24:
-	.incbin "build/assets/levels/02/data_6c.bin"   @ from assets/levels/02/data_6c.bin
+	.incbin "build/assets/levels/02/autopilot.bin"   @ from assets/levels/02/autopilot.bin
 	.global gUnk_087D8DA8
 gUnk_087D8DA8:
-	.incbin "build/assets/levels/02/data_70.bin"   @ from assets/levels/02/data_70.bin
+	.incbin "build/assets/levels/02/autopilot_rev.bin"   @ from assets/levels/02/autopilot_rev.bin
 	.global gUnk_087D8DAC
 gUnk_087D8DAC:
-	.incbin "build/assets/levels/03/data_38.bin"   @ from assets/levels/03/data_38.bin
+	.incbin "build/assets/levels/03/ai_path.bin"   @ from assets/levels/03/ai_path.bin
 	.global gUnk_087D9BF0
 gUnk_087D9BF0:
-	.incbin "build/assets/levels/03/data_3c.bin"   @ from assets/levels/03/data_3c.bin
+	.incbin "build/assets/levels/03/ai_path_rev.bin"   @ from assets/levels/03/ai_path_rev.bin
 	.global gUnk_087DA9A8
 gUnk_087DA9A8:
-	.incbin "build/assets/levels/03/data_5c.bin"   @ from assets/levels/03/data_5c.bin
+	.incbin "build/assets/levels/03/race_monitor.bin"   @ from assets/levels/03/race_monitor.bin
 	.global gUnk_087DABCC
 gUnk_087DABCC:
-	.incbin "build/assets/levels/03/data_60.bin"   @ from assets/levels/03/data_60.bin
+	.incbin "build/assets/levels/03/race_monitor_rev.bin"   @ from assets/levels/03/race_monitor_rev.bin
 	.global gUnk_087DADF0
 gUnk_087DADF0:
-	.incbin "build/assets/levels/03/data_44.bin"   @ from assets/levels/03/data_44.bin
+	.incbin "build/assets/levels/03/edges1.bin"   @ from assets/levels/03/edges1.bin
 	.global gUnk_087DBA58
 gUnk_087DBA58:
-	.incbin "build/assets/levels/03/data_48.bin"   @ from assets/levels/03/data_48.bin
+	.incbin "build/assets/levels/03/edges1_rev.bin"   @ from assets/levels/03/edges1_rev.bin
 	.global gUnk_087DC998
 gUnk_087DC998:
-	.incbin "build/assets/levels/03/data_50.bin"   @ from assets/levels/03/data_50.bin
+	.incbin "build/assets/levels/03/edges2_rev.bin"   @ from assets/levels/03/edges2_rev.bin
 	.global gUnk_087DD1BC
 gUnk_087DD1BC:
-	.incbin "build/assets/levels/03/data_4c.bin"   @ from assets/levels/03/data_4c.bin
+	.incbin "build/assets/levels/03/edges2.bin"   @ from assets/levels/03/edges2.bin
 	.global gUnk_087DDA48
 gUnk_087DDA48:
-	.incbin "build/assets/levels/03/data_54.bin"   @ from assets/levels/03/data_54.bin
+	.incbin "build/assets/levels/03/camera_ops.bin"   @ from assets/levels/03/camera_ops.bin
 	.global gUnk_087DDB48
 gUnk_087DDB48:
-	.incbin "build/assets/levels/03/data_58.bin"   @ from assets/levels/03/data_58.bin
+	.incbin "build/assets/levels/03/camera_ops_rev.bin"   @ from assets/levels/03/camera_ops_rev.bin
 	.global gUnk_087DDC30
 gUnk_087DDC30:
-	.incbin "build/assets/levels/03/data_64.bin"   @ from assets/levels/03/data_64.bin
+	.incbin "build/assets/levels/03/camera.bin"   @ from assets/levels/03/camera.bin
 	.global gUnk_087DDCC4
 gUnk_087DDCC4:
-	.incbin "build/assets/levels/03/data_68.bin"   @ from assets/levels/03/data_68.bin
+	.incbin "build/assets/levels/03/camera_rev.bin"   @ from assets/levels/03/camera_rev.bin
 	.global gUnk_087DDDA0
 gUnk_087DDDA0:
-	.incbin "build/assets/levels/03/data_6c.bin"   @ from assets/levels/03/data_6c.bin
+	.incbin "build/assets/levels/03/autopilot.bin"   @ from assets/levels/03/autopilot.bin
 	.global gUnk_087DDDA4
 gUnk_087DDDA4:
-	.incbin "build/assets/levels/03/data_70.bin"   @ from assets/levels/03/data_70.bin
+	.incbin "build/assets/levels/03/autopilot_rev.bin"   @ from assets/levels/03/autopilot_rev.bin
 	.global gUnk_087DDDA8
 gUnk_087DDDA8:
-	.incbin "build/assets/levels/04/data_38.bin"   @ from assets/levels/04/data_38.bin
+	.incbin "build/assets/levels/04/ai_path.bin"   @ from assets/levels/04/ai_path.bin
 	.global gUnk_087DE5E0
 gUnk_087DE5E0:
-	.incbin "build/assets/levels/04/data_3c.bin"   @ from assets/levels/04/data_3c.bin
+	.incbin "build/assets/levels/04/ai_path_rev.bin"   @ from assets/levels/04/ai_path_rev.bin
 	.global gUnk_087DF060
 gUnk_087DF060:
-	.incbin "build/assets/levels/04/data_5c.bin"   @ from assets/levels/04/data_5c.bin
+	.incbin "build/assets/levels/04/race_monitor.bin"   @ from assets/levels/04/race_monitor.bin
 	.global gUnk_087DF224
 gUnk_087DF224:
-	.incbin "build/assets/levels/04/data_60.bin"   @ from assets/levels/04/data_60.bin
+	.incbin "build/assets/levels/04/race_monitor_rev.bin"   @ from assets/levels/04/race_monitor_rev.bin
 	.global gUnk_087DF3E8
 gUnk_087DF3E8:
-	.incbin "build/assets/levels/04/data_44.bin"   @ from assets/levels/04/data_44.bin
+	.incbin "build/assets/levels/04/edges1.bin"   @ from assets/levels/04/edges1.bin
 	.global gUnk_087DFC40
 gUnk_087DFC40:
-	.incbin "build/assets/levels/04/data_48.bin"   @ from assets/levels/04/data_48.bin
+	.incbin "build/assets/levels/04/edges1_rev.bin"   @ from assets/levels/04/edges1_rev.bin
 	.global gUnk_087E0874
 gUnk_087E0874:
-	.incbin "build/assets/levels/04/data_50.bin"   @ from assets/levels/04/data_50.bin
+	.incbin "build/assets/levels/04/edges2_rev.bin"   @ from assets/levels/04/edges2_rev.bin
 	.global gUnk_087E0F94
 gUnk_087E0F94:
-	.incbin "build/assets/levels/04/data_4c.bin"   @ from assets/levels/04/data_4c.bin
+	.incbin "build/assets/levels/04/edges2.bin"   @ from assets/levels/04/edges2.bin
 	.global gUnk_087E1750
 gUnk_087E1750:
-	.incbin "build/assets/levels/04/data_54.bin"   @ from assets/levels/04/data_54.bin
+	.incbin "build/assets/levels/04/camera_ops.bin"   @ from assets/levels/04/camera_ops.bin
 	.global gUnk_087E182C
 gUnk_087E182C:
-	.incbin "build/assets/levels/04/data_58.bin"   @ from assets/levels/04/data_58.bin
+	.incbin "build/assets/levels/04/camera_ops_rev.bin"   @ from assets/levels/04/camera_ops_rev.bin
 	.global gUnk_087E1914
 gUnk_087E1914:
-	.incbin "build/assets/levels/04/data_64.bin"   @ from assets/levels/04/data_64.bin
+	.incbin "build/assets/levels/04/camera.bin"   @ from assets/levels/04/camera.bin
 	.global gUnk_087E19C0
 gUnk_087E19C0:
-	.incbin "build/assets/levels/04/data_68.bin"   @ from assets/levels/04/data_68.bin
+	.incbin "build/assets/levels/04/camera_rev.bin"   @ from assets/levels/04/camera_rev.bin
 	.global gUnk_087E1A90
 gUnk_087E1A90:
-	.incbin "build/assets/levels/04/data_6c.bin"   @ from assets/levels/04/data_6c.bin
+	.incbin "build/assets/levels/04/autopilot.bin"   @ from assets/levels/04/autopilot.bin
 	.global gUnk_087E1A94
 gUnk_087E1A94:
-	.incbin "build/assets/levels/04/data_70.bin"   @ from assets/levels/04/data_70.bin
+	.incbin "build/assets/levels/04/autopilot_rev.bin"   @ from assets/levels/04/autopilot_rev.bin
 	.global gUnk_087E1A98
 gUnk_087E1A98:
-	.incbin "build/assets/levels/05/data_38.bin"   @ from assets/levels/05/data_38.bin
+	.incbin "build/assets/levels/05/ai_path.bin"   @ from assets/levels/05/ai_path.bin
 	.global gUnk_087E2270
 gUnk_087E2270:
-	.incbin "build/assets/levels/05/data_3c.bin"   @ from assets/levels/05/data_3c.bin
+	.incbin "build/assets/levels/05/ai_path_rev.bin"   @ from assets/levels/05/ai_path_rev.bin
 	.global gUnk_087E2C30
 gUnk_087E2C30:
-	.incbin "build/assets/levels/05/data_5c.bin"   @ from assets/levels/05/data_5c.bin
+	.incbin "build/assets/levels/05/race_monitor.bin"   @ from assets/levels/05/race_monitor.bin
 	.global gUnk_087E2D94
 gUnk_087E2D94:
-	.incbin "build/assets/levels/05/data_60.bin"   @ from assets/levels/05/data_60.bin
+	.incbin "build/assets/levels/05/race_monitor_rev.bin"   @ from assets/levels/05/race_monitor_rev.bin
 	.global gUnk_087E2EF8
 gUnk_087E2EF8:
-	.incbin "build/assets/levels/05/data_44.bin"   @ from assets/levels/05/data_44.bin
+	.incbin "build/assets/levels/05/edges1.bin"   @ from assets/levels/05/edges1.bin
 	.global gUnk_087E34AC
 gUnk_087E34AC:
-	.incbin "build/assets/levels/05/data_48.bin"   @ from assets/levels/05/data_48.bin
+	.incbin "build/assets/levels/05/edges1_rev.bin"   @ from assets/levels/05/edges1_rev.bin
 	.global gUnk_087E3ED8
 gUnk_087E3ED8:
-	.incbin "build/assets/levels/05/data_50.bin"   @ from assets/levels/05/data_50.bin
+	.incbin "build/assets/levels/05/edges2_rev.bin"   @ from assets/levels/05/edges2_rev.bin
 	.global gUnk_087E44F4
 gUnk_087E44F4:
-	.incbin "build/assets/levels/05/data_4c.bin"   @ from assets/levels/05/data_4c.bin
+	.incbin "build/assets/levels/05/edges2.bin"   @ from assets/levels/05/edges2.bin
 	.global gUnk_087E4B78
 gUnk_087E4B78:
-	.include "assets/levels/05/data_54.s"
+	.include "assets/levels/05/camera_ops.s"
 	.global gUnk_087E4C30
 gUnk_087E4C30:
-	.incbin "build/assets/levels/05/data_58.bin"   @ from assets/levels/05/data_58.bin
+	.incbin "build/assets/levels/05/camera_ops_rev.bin"   @ from assets/levels/05/camera_ops_rev.bin
 	.global gUnk_087E4CF4
 gUnk_087E4CF4:
-	.incbin "build/assets/levels/05/data_64.bin"   @ from assets/levels/05/data_64.bin
+	.incbin "build/assets/levels/05/camera.bin"   @ from assets/levels/05/camera.bin
 	.global gUnk_087E4D64
 gUnk_087E4D64:
-	.incbin "build/assets/levels/05/data_68.bin"   @ from assets/levels/05/data_68.bin
+	.incbin "build/assets/levels/05/camera_rev.bin"   @ from assets/levels/05/camera_rev.bin
 	.global gUnk_087E4E1C
 gUnk_087E4E1C:
-	.incbin "build/assets/levels/05/data_6c.bin"   @ from assets/levels/05/data_6c.bin
+	.incbin "build/assets/levels/05/autopilot.bin"   @ from assets/levels/05/autopilot.bin
 	.global gUnk_087E4E20
 gUnk_087E4E20:
-	.incbin "build/assets/levels/05/data_70.bin"   @ from assets/levels/05/data_70.bin
+	.incbin "build/assets/levels/05/autopilot_rev.bin"   @ from assets/levels/05/autopilot_rev.bin
 	.global gUnk_087E4E54
 gUnk_087E4E54:
-	.incbin "build/assets/levels/06/data_38.bin"   @ from assets/levels/06/data_38.bin
+	.incbin "build/assets/levels/06/ai_path.bin"   @ from assets/levels/06/ai_path.bin
 	.global gUnk_087E5A50
 gUnk_087E5A50:
-	.incbin "build/assets/levels/06/data_3c.bin"   @ from assets/levels/06/data_3c.bin
+	.incbin "build/assets/levels/06/ai_path_rev.bin"   @ from assets/levels/06/ai_path_rev.bin
 	.global gUnk_087E62EC
 gUnk_087E62EC:
-	.incbin "build/assets/levels/06/data_5c.bin"   @ from assets/levels/06/data_5c.bin
+	.incbin "build/assets/levels/06/race_monitor.bin"   @ from assets/levels/06/race_monitor.bin
 	.global gUnk_087E6450
 gUnk_087E6450:
-	.incbin "build/assets/levels/06/data_60.bin"   @ from assets/levels/06/data_60.bin
+	.incbin "build/assets/levels/06/race_monitor_rev.bin"   @ from assets/levels/06/race_monitor_rev.bin
 	.global gUnk_087E65B4
 gUnk_087E65B4:
-	.incbin "build/assets/levels/06/data_44.bin"   @ from assets/levels/06/data_44.bin
+	.incbin "build/assets/levels/06/edges1.bin"   @ from assets/levels/06/edges1.bin
 	.global gUnk_087E6D3C
 gUnk_087E6D3C:
-	.incbin "build/assets/levels/06/data_48.bin"   @ from assets/levels/06/data_48.bin
+	.incbin "build/assets/levels/06/edges1_rev.bin"   @ from assets/levels/06/edges1_rev.bin
 	.global gUnk_087E786C
 gUnk_087E786C:
-	.incbin "build/assets/levels/06/data_50.bin"   @ from assets/levels/06/data_50.bin
+	.incbin "build/assets/levels/06/edges2_rev.bin"   @ from assets/levels/06/edges2_rev.bin
 	.global gUnk_087E7F58
 gUnk_087E7F58:
-	.incbin "build/assets/levels/06/data_4c.bin"   @ from assets/levels/06/data_4c.bin
+	.incbin "build/assets/levels/06/edges2.bin"   @ from assets/levels/06/edges2.bin
 	.global gUnk_087E86E0
 gUnk_087E86E0:
-	.incbin "build/assets/levels/06/data_54.bin"   @ from assets/levels/06/data_54.bin
+	.incbin "build/assets/levels/06/camera_ops.bin"   @ from assets/levels/06/camera_ops.bin
 	.global gUnk_087E87BC
 gUnk_087E87BC:
-	.incbin "build/assets/levels/06/data_58.bin"   @ from assets/levels/06/data_58.bin
+	.incbin "build/assets/levels/06/camera_ops_rev.bin"   @ from assets/levels/06/camera_ops_rev.bin
 	.global gUnk_087E8898
 gUnk_087E8898:
-	.incbin "build/assets/levels/06/data_64.bin"   @ from assets/levels/06/data_64.bin
+	.incbin "build/assets/levels/06/camera.bin"   @ from assets/levels/06/camera.bin
 	.global gUnk_087E8944
 gUnk_087E8944:
-	.incbin "build/assets/levels/06/data_68.bin"   @ from assets/levels/06/data_68.bin
+	.incbin "build/assets/levels/06/camera_rev.bin"   @ from assets/levels/06/camera_rev.bin
 	.global gUnk_087E89F0
 gUnk_087E89F0:
-	.incbin "build/assets/levels/06/data_6c.bin"   @ from assets/levels/06/data_6c.bin
+	.incbin "build/assets/levels/06/autopilot.bin"   @ from assets/levels/06/autopilot.bin
 	.global gUnk_087E89F4
 gUnk_087E89F4:
-	.incbin "build/assets/levels/06/data_70.bin"   @ from assets/levels/06/data_70.bin
+	.incbin "build/assets/levels/06/autopilot_rev.bin"   @ from assets/levels/06/autopilot_rev.bin
 	.global gUnk_087E89F8
 gUnk_087E89F8:
-	.incbin "build/assets/levels/07/data_38.bin"   @ from assets/levels/07/data_38.bin
+	.incbin "build/assets/levels/07/ai_path.bin"   @ from assets/levels/07/ai_path.bin
 	.global gUnk_087E96B0
 gUnk_087E96B0:
-	.incbin "build/assets/levels/07/data_3c.bin"   @ from assets/levels/07/data_3c.bin
+	.incbin "build/assets/levels/07/ai_path_rev.bin"   @ from assets/levels/07/ai_path_rev.bin
 	.global gUnk_087EA0FC
 gUnk_087EA0FC:
-	.incbin "build/assets/levels/07/data_5c.bin"   @ from assets/levels/07/data_5c.bin
+	.incbin "build/assets/levels/07/race_monitor.bin"   @ from assets/levels/07/race_monitor.bin
 	.global gUnk_087EA280
 gUnk_087EA280:
-	.incbin "build/assets/levels/07/data_60.bin"   @ from assets/levels/07/data_60.bin
+	.incbin "build/assets/levels/07/race_monitor_rev.bin"   @ from assets/levels/07/race_monitor_rev.bin
 	.global gUnk_087EA404
 gUnk_087EA404:
-	.incbin "build/assets/levels/07/data_44.bin"   @ from assets/levels/07/data_44.bin
+	.incbin "build/assets/levels/07/edges1.bin"   @ from assets/levels/07/edges1.bin
 	.global gUnk_087EAC90
 gUnk_087EAC90:
-	.incbin "build/assets/levels/07/data_48.bin"   @ from assets/levels/07/data_48.bin
+	.incbin "build/assets/levels/07/edges1_rev.bin"   @ from assets/levels/07/edges1_rev.bin
 	.global gUnk_087EB92C
 gUnk_087EB92C:
-	.incbin "build/assets/levels/07/data_50.bin"   @ from assets/levels/07/data_50.bin
+	.incbin "build/assets/levels/07/edges2_rev.bin"   @ from assets/levels/07/edges2_rev.bin
 	.global gUnk_087EBFE4
 gUnk_087EBFE4:
-	.incbin "build/assets/levels/07/data_4c.bin"   @ from assets/levels/07/data_4c.bin
+	.incbin "build/assets/levels/07/edges2.bin"   @ from assets/levels/07/edges2.bin
 	.global gUnk_087EC808
 gUnk_087EC808:
-	.incbin "build/assets/levels/07/data_54.bin"   @ from assets/levels/07/data_54.bin
+	.incbin "build/assets/levels/07/camera_ops.bin"   @ from assets/levels/07/camera_ops.bin
 	.global gUnk_087EC8F0
 gUnk_087EC8F0:
-	.incbin "build/assets/levels/07/data_58.bin"   @ from assets/levels/07/data_58.bin
+	.incbin "build/assets/levels/07/camera_ops_rev.bin"   @ from assets/levels/07/camera_ops_rev.bin
 	.global gUnk_087ECA2C
 gUnk_087ECA2C:
-	.incbin "build/assets/levels/07/data_64.bin"   @ from assets/levels/07/data_64.bin
+	.incbin "build/assets/levels/07/camera.bin"   @ from assets/levels/07/camera.bin
 	.global gUnk_087ECAF0
 gUnk_087ECAF0:
-	.incbin "build/assets/levels/07/data_68.bin"   @ from assets/levels/07/data_68.bin
+	.incbin "build/assets/levels/07/camera_rev.bin"   @ from assets/levels/07/camera_rev.bin
 	.global gUnk_087ECBE4
 gUnk_087ECBE4:
-	.incbin "build/assets/levels/07/data_6c.bin"   @ from assets/levels/07/data_6c.bin
+	.incbin "build/assets/levels/07/autopilot.bin"   @ from assets/levels/07/autopilot.bin
 	.global gUnk_087ECBE8
 gUnk_087ECBE8:
-	.incbin "build/assets/levels/07/data_70.bin"   @ from assets/levels/07/data_70.bin
+	.incbin "build/assets/levels/07/autopilot_rev.bin"   @ from assets/levels/07/autopilot_rev.bin
 	.global gUnk_087ECD84
 gUnk_087ECD84:
-	.incbin "build/assets/levels/08/data_38.bin"   @ from assets/levels/08/data_38.bin
+	.incbin "build/assets/levels/08/ai_path.bin"   @ from assets/levels/08/ai_path.bin
 	.global gUnk_087EDE30
 gUnk_087EDE30:
-	.incbin "build/assets/levels/08/data_3c.bin"   @ from assets/levels/08/data_3c.bin
+	.incbin "build/assets/levels/08/ai_path_rev.bin"   @ from assets/levels/08/ai_path_rev.bin
 	.global gUnk_087EEC04
 gUnk_087EEC04:
-	.incbin "build/assets/levels/08/data_5c.bin"   @ from assets/levels/08/data_5c.bin
+	.incbin "build/assets/levels/08/race_monitor.bin"   @ from assets/levels/08/race_monitor.bin
 	.global gUnk_087EED68
 gUnk_087EED68:
-	.incbin "build/assets/levels/08/data_60.bin"   @ from assets/levels/08/data_60.bin
+	.incbin "build/assets/levels/08/race_monitor_rev.bin"   @ from assets/levels/08/race_monitor_rev.bin
 	.global gUnk_087EEECC
 gUnk_087EEECC:
-	.incbin "build/assets/levels/08/data_44.bin"   @ from assets/levels/08/data_44.bin
+	.incbin "build/assets/levels/08/edges1.bin"   @ from assets/levels/08/edges1.bin
 	.global gUnk_087EF994
 gUnk_087EF994:
-	.incbin "build/assets/levels/08/data_48.bin"   @ from assets/levels/08/data_48.bin
+	.incbin "build/assets/levels/08/edges1_rev.bin"   @ from assets/levels/08/edges1_rev.bin
 	.global gUnk_087F05FC
 gUnk_087F05FC:
-	.incbin "build/assets/levels/08/data_50.bin"   @ from assets/levels/08/data_50.bin
+	.incbin "build/assets/levels/08/edges2_rev.bin"   @ from assets/levels/08/edges2_rev.bin
 	.global gUnk_087F0DB8
 gUnk_087F0DB8:
-	.incbin "build/assets/levels/08/data_4c.bin"   @ from assets/levels/08/data_4c.bin
+	.incbin "build/assets/levels/08/edges2.bin"   @ from assets/levels/08/edges2.bin
 	.global gUnk_087F150C
 gUnk_087F150C:
-	.incbin "build/assets/levels/08/data_54.bin"   @ from assets/levels/08/data_54.bin
+	.incbin "build/assets/levels/08/camera_ops.bin"   @ from assets/levels/08/camera_ops.bin
 	.global gUnk_087F15DC
 gUnk_087F15DC:
-	.incbin "build/assets/levels/08/data_58.bin"   @ from assets/levels/08/data_58.bin
+	.incbin "build/assets/levels/08/camera_ops_rev.bin"   @ from assets/levels/08/camera_ops_rev.bin
 	.global gUnk_087F16C4
 gUnk_087F16C4:
-	.incbin "build/assets/levels/08/data_64.bin"   @ from assets/levels/08/data_64.bin
+	.incbin "build/assets/levels/08/camera.bin"   @ from assets/levels/08/camera.bin
 	.global gUnk_087F1788
 gUnk_087F1788:
-	.incbin "build/assets/levels/08/data_68.bin"   @ from assets/levels/08/data_68.bin
+	.incbin "build/assets/levels/08/camera_rev.bin"   @ from assets/levels/08/camera_rev.bin
 	.global gUnk_087F184C
 gUnk_087F184C:
-	.incbin "build/assets/levels/08/data_6c.bin"   @ from assets/levels/08/data_6c.bin
+	.incbin "build/assets/levels/08/autopilot.bin"   @ from assets/levels/08/autopilot.bin
 	.global gUnk_087F1850
 gUnk_087F1850:
-	.incbin "build/assets/levels/08/data_70.bin"   @ from assets/levels/08/data_70.bin
+	.incbin "build/assets/levels/08/autopilot_rev.bin"   @ from assets/levels/08/autopilot_rev.bin
 	.global gUnk_087F1968
 gUnk_087F1968:
-	.incbin "build/assets/levels/09/data_38.bin"   @ from assets/levels/09/data_38.bin
+	.incbin "build/assets/levels/09/ai_path.bin"   @ from assets/levels/09/ai_path.bin
 	.global gUnk_087F2638
 gUnk_087F2638:
-	.incbin "build/assets/levels/09/data_3c.bin"   @ from assets/levels/09/data_3c.bin
+	.incbin "build/assets/levels/09/ai_path_rev.bin"   @ from assets/levels/09/ai_path_rev.bin
 	.global gUnk_087F3264
 gUnk_087F3264:
-	.incbin "build/assets/levels/09/data_5c.bin"   @ from assets/levels/09/data_5c.bin
+	.incbin "build/assets/levels/09/race_monitor.bin"   @ from assets/levels/09/race_monitor.bin
 	.global gUnk_087F3368
 gUnk_087F3368:
-	.incbin "build/assets/levels/09/data_60.bin"   @ from assets/levels/09/data_60.bin
+	.incbin "build/assets/levels/09/race_monitor_rev.bin"   @ from assets/levels/09/race_monitor_rev.bin
 	.global gUnk_087F346C
 gUnk_087F346C:
-	.incbin "build/assets/levels/09/data_44.bin"   @ from assets/levels/09/data_44.bin
+	.incbin "build/assets/levels/09/edges1.bin"   @ from assets/levels/09/edges1.bin
 	.global gUnk_087F3984
 gUnk_087F3984:
-	.incbin "build/assets/levels/09/data_48.bin"   @ from assets/levels/09/data_48.bin
+	.incbin "build/assets/levels/09/edges1_rev.bin"   @ from assets/levels/09/edges1_rev.bin
 	.global gUnk_087F40D8
 gUnk_087F40D8:
-	.incbin "build/assets/levels/09/data_50.bin"   @ from assets/levels/09/data_50.bin
+	.incbin "build/assets/levels/09/edges2_rev.bin"   @ from assets/levels/09/edges2_rev.bin
 	.global gUnk_087F45BC
 gUnk_087F45BC:
-	.incbin "build/assets/levels/09/data_4c.bin"   @ from assets/levels/09/data_4c.bin
+	.incbin "build/assets/levels/09/edges2.bin"   @ from assets/levels/09/edges2.bin
 	.global gUnk_087F4B70
 gUnk_087F4B70:
-	.incbin "build/assets/levels/09/data_54.bin"   @ from assets/levels/09/data_54.bin
+	.incbin "build/assets/levels/09/camera_ops.bin"   @ from assets/levels/09/camera_ops.bin
 	.global gUnk_087F4C58
 gUnk_087F4C58:
-	.incbin "build/assets/levels/09/data_58.bin"   @ from assets/levels/09/data_58.bin
+	.incbin "build/assets/levels/09/camera_ops_rev.bin"   @ from assets/levels/09/camera_ops_rev.bin
 	.global gUnk_087F4CF8
 gUnk_087F4CF8:
-	.incbin "build/assets/levels/09/data_64.bin"   @ from assets/levels/09/data_64.bin
+	.incbin "build/assets/levels/09/camera.bin"   @ from assets/levels/09/camera.bin
 	.global gUnk_087F4D80
 gUnk_087F4D80:
-	.incbin "build/assets/levels/09/data_68.bin"   @ from assets/levels/09/data_68.bin
+	.incbin "build/assets/levels/09/camera_rev.bin"   @ from assets/levels/09/camera_rev.bin
 	.global gUnk_087F4E20
 gUnk_087F4E20:
-	.incbin "build/assets/levels/09/data_6c.bin"   @ from assets/levels/09/data_6c.bin
+	.incbin "build/assets/levels/09/autopilot.bin"   @ from assets/levels/09/autopilot.bin
 	.global gUnk_087F4E24
 gUnk_087F4E24:
-	.incbin "build/assets/levels/09/data_70.bin"   @ from assets/levels/09/data_70.bin
+	.incbin "build/assets/levels/09/autopilot_rev.bin"   @ from assets/levels/09/autopilot_rev.bin
 	.global gUnk_087F4E28
 gUnk_087F4E28:
-	.incbin "build/assets/levels/10/data_38.bin"   @ from assets/levels/10/data_38.bin
+	.incbin "build/assets/levels/10/ai_path.bin"   @ from assets/levels/10/ai_path.bin
 	.global gUnk_087F54D4
 gUnk_087F54D4:
-	.incbin "build/assets/levels/10/data_3c.bin"   @ from assets/levels/10/data_3c.bin
+	.incbin "build/assets/levels/10/ai_path_rev.bin"   @ from assets/levels/10/ai_path_rev.bin
 	.global gUnk_087F5DD4
 gUnk_087F5DD4:
-	.incbin "build/assets/levels/10/data_5c.bin"   @ from assets/levels/10/data_5c.bin
+	.incbin "build/assets/levels/10/race_monitor.bin"   @ from assets/levels/10/race_monitor.bin
 	.global gUnk_087F5EC8
 gUnk_087F5EC8:
-	.incbin "build/assets/levels/10/data_60.bin"   @ from assets/levels/10/data_60.bin
+	.incbin "build/assets/levels/10/race_monitor_rev.bin"   @ from assets/levels/10/race_monitor_rev.bin
 	.global gUnk_087F5FBC
 gUnk_087F5FBC:
-	.incbin "build/assets/levels/10/data_44.bin"   @ from assets/levels/10/data_44.bin
+	.incbin "build/assets/levels/10/edges1.bin"   @ from assets/levels/10/edges1.bin
 	.global gUnk_087F6570
 gUnk_087F6570:
-	.incbin "build/assets/levels/10/data_48.bin"   @ from assets/levels/10/data_48.bin
+	.incbin "build/assets/levels/10/edges1_rev.bin"   @ from assets/levels/10/edges1_rev.bin
 	.global gUnk_087F6B58
 gUnk_087F6B58:
-	.incbin "build/assets/levels/10/data_50.bin"   @ from assets/levels/10/data_50.bin
+	.incbin "build/assets/levels/10/edges2_rev.bin"   @ from assets/levels/10/edges2_rev.bin
 	.global gUnk_087F71A8
 gUnk_087F71A8:
-	.incbin "build/assets/levels/10/data_4c.bin"   @ from assets/levels/10/data_4c.bin
+	.incbin "build/assets/levels/10/edges2.bin"   @ from assets/levels/10/edges2.bin
 	.global gUnk_087F7930
 gUnk_087F7930:
-	.incbin "build/assets/levels/10/data_54.bin"   @ from assets/levels/10/data_54.bin
+	.incbin "build/assets/levels/10/camera_ops.bin"   @ from assets/levels/10/camera_ops.bin
 	.global gUnk_087F7A00
 gUnk_087F7A00:
-	.incbin "build/assets/levels/10/data_58.bin"   @ from assets/levels/10/data_58.bin
+	.incbin "build/assets/levels/10/camera_ops_rev.bin"   @ from assets/levels/10/camera_ops_rev.bin
 	.global gUnk_087F7AA0
 gUnk_087F7AA0:
-	.incbin "build/assets/levels/10/data_64.bin"   @ from assets/levels/10/data_64.bin
+	.incbin "build/assets/levels/10/camera.bin"   @ from assets/levels/10/camera.bin
 	.global gUnk_087F7BA0
 gUnk_087F7BA0:
-	.incbin "build/assets/levels/10/data_68.bin"   @ from assets/levels/10/data_68.bin
+	.incbin "build/assets/levels/10/camera_rev.bin"   @ from assets/levels/10/camera_rev.bin
 	.global gUnk_087F7C7C
 gUnk_087F7C7C:
-	.incbin "build/assets/levels/10/data_6c.bin"   @ from assets/levels/10/data_6c.bin
+	.incbin "build/assets/levels/10/autopilot.bin"   @ from assets/levels/10/autopilot.bin
 	.global gUnk_087F7C80
 gUnk_087F7C80:
-	.incbin "build/assets/levels/10/data_70.bin"   @ from assets/levels/10/data_70.bin
+	.incbin "build/assets/levels/10/autopilot_rev.bin"   @ from assets/levels/10/autopilot_rev.bin
 	.global gUnk_087F7C84
 gUnk_087F7C84:
-	.incbin "build/assets/levels/11/data_38.bin"   @ from assets/levels/11/data_38.bin
+	.incbin "build/assets/levels/11/ai_path.bin"   @ from assets/levels/11/ai_path.bin
 	.global gUnk_087F88E4
 gUnk_087F88E4:
-	.incbin "build/assets/levels/11/data_3c.bin"   @ from assets/levels/11/data_3c.bin
+	.incbin "build/assets/levels/11/ai_path_rev.bin"   @ from assets/levels/11/ai_path_rev.bin
 	.global gUnk_087F96CC
 gUnk_087F96CC:
-	.incbin "build/assets/levels/11/data_5c.bin"   @ from assets/levels/11/data_5c.bin
+	.incbin "build/assets/levels/11/race_monitor.bin"   @ from assets/levels/11/race_monitor.bin
 	.global gUnk_087F99C0
 gUnk_087F99C0:
-	.incbin "build/assets/levels/11/data_60.bin"   @ from assets/levels/11/data_60.bin
+	.incbin "build/assets/levels/11/race_monitor_rev.bin"   @ from assets/levels/11/race_monitor_rev.bin
 	.global gUnk_087F9CB4
 gUnk_087F9CB4:
-	.incbin "build/assets/levels/11/data_44.bin"   @ from assets/levels/11/data_44.bin
+	.incbin "build/assets/levels/11/edges1.bin"   @ from assets/levels/11/edges1.bin
 	.global gUnk_087FA9B8
 gUnk_087FA9B8:
-	.incbin "build/assets/levels/11/data_48.bin"   @ from assets/levels/11/data_48.bin
+	.incbin "build/assets/levels/11/edges1_rev.bin"   @ from assets/levels/11/edges1_rev.bin
 	.global gUnk_087FB654
 gUnk_087FB654:
-	.incbin "build/assets/levels/11/data_50.bin"   @ from assets/levels/11/data_50.bin
+	.incbin "build/assets/levels/11/edges2_rev.bin"   @ from assets/levels/11/edges2_rev.bin
 	.global gUnk_087FC184
 gUnk_087FC184:
-	.incbin "build/assets/levels/11/data_4c.bin"   @ from assets/levels/11/data_4c.bin
+	.incbin "build/assets/levels/11/edges2.bin"   @ from assets/levels/11/edges2.bin
 	.global gUnk_087FCB7C
 gUnk_087FCB7C:
-	.incbin "build/assets/levels/11/data_54.bin"   @ from assets/levels/11/data_54.bin
+	.incbin "build/assets/levels/11/camera_ops.bin"   @ from assets/levels/11/camera_ops.bin
 	.global gUnk_087FCC94
 gUnk_087FCC94:
-	.incbin "build/assets/levels/11/data_58.bin"   @ from assets/levels/11/data_58.bin
+	.incbin "build/assets/levels/11/camera_ops_rev.bin"   @ from assets/levels/11/camera_ops_rev.bin
 	.global gUnk_087FCD88
 gUnk_087FCD88:
-	.incbin "build/assets/levels/11/data_64.bin"   @ from assets/levels/11/data_64.bin
+	.incbin "build/assets/levels/11/camera.bin"   @ from assets/levels/11/camera.bin
 	.global gUnk_087FCE40
 gUnk_087FCE40:
-	.incbin "build/assets/levels/11/data_68.bin"   @ from assets/levels/11/data_68.bin
+	.incbin "build/assets/levels/11/camera_rev.bin"   @ from assets/levels/11/camera_rev.bin
 	.global gUnk_087FCEF8
 gUnk_087FCEF8:
-	.incbin "build/assets/levels/11/data_6c.bin"   @ from assets/levels/11/data_6c.bin
+	.incbin "build/assets/levels/11/autopilot.bin"   @ from assets/levels/11/autopilot.bin
 	.global gUnk_087FCEFC
 gUnk_087FCEFC:
-	.incbin "build/assets/levels/11/data_70.bin"   @ from assets/levels/11/data_70.bin
+	.incbin "build/assets/levels/11/autopilot_rev.bin"   @ from assets/levels/11/autopilot_rev.bin
 	.global gUnk_087FCF00
 gUnk_087FCF00:
-	.incbin "build/assets/levels/12/data_38.bin"   @ from assets/levels/12/data_38.bin
+	.incbin "build/assets/levels/12/ai_path.bin"   @ from assets/levels/12/ai_path.bin
 	.global gUnk_087FD648
 gUnk_087FD648:
-	.incbin "build/assets/levels/12/data_3c.bin"   @ from assets/levels/12/data_3c.bin
+	.incbin "build/assets/levels/12/ai_path_rev.bin"   @ from assets/levels/12/ai_path_rev.bin
 	.global gUnk_087FDEE0
 gUnk_087FDEE0:
-	.incbin "build/assets/levels/12/data_5c.bin"   @ from assets/levels/12/data_5c.bin
+	.incbin "build/assets/levels/12/race_monitor.bin"   @ from assets/levels/12/race_monitor.bin
 	.global gUnk_087FE0E4
 gUnk_087FE0E4:
-	.incbin "build/assets/levels/12/data_60.bin"   @ from assets/levels/12/data_60.bin
+	.incbin "build/assets/levels/12/race_monitor_rev.bin"   @ from assets/levels/12/race_monitor_rev.bin
 	.global gUnk_087FE2E8
 gUnk_087FE2E8:
-	.incbin "build/assets/levels/12/data_44.bin"   @ from assets/levels/12/data_44.bin
+	.incbin "build/assets/levels/12/edges1.bin"   @ from assets/levels/12/edges1.bin
 	.global gUnk_087FE694
 gUnk_087FE694:
-	.incbin "build/assets/levels/12/data_48.bin"   @ from assets/levels/12/data_48.bin
+	.incbin "build/assets/levels/12/edges1_rev.bin"   @ from assets/levels/12/edges1_rev.bin
 	.global gUnk_087FEB10
 gUnk_087FEB10:
-	.incbin "build/assets/levels/12/data_50.bin"   @ from assets/levels/12/data_50.bin
+	.incbin "build/assets/levels/12/edges2_rev.bin"   @ from assets/levels/12/edges2_rev.bin
 	.global gUnk_087FF12C
 gUnk_087FF12C:
-	.incbin "build/assets/levels/12/data_4c.bin"   @ from assets/levels/12/data_4c.bin
+	.incbin "build/assets/levels/12/edges2.bin"   @ from assets/levels/12/edges2.bin
 	.global gUnk_087FF7E4
 gUnk_087FF7E4:
-	.incbin "build/assets/levels/12/data_54.bin"   @ from assets/levels/12/data_54.bin
+	.incbin "build/assets/levels/12/camera_ops.bin"   @ from assets/levels/12/camera_ops.bin
 	.global gUnk_087FF89C
 gUnk_087FF89C:
-	.incbin "build/assets/levels/12/data_58.bin"   @ from assets/levels/12/data_58.bin
+	.incbin "build/assets/levels/12/camera_ops_rev.bin"   @ from assets/levels/12/camera_ops_rev.bin
 	.global gUnk_087FF984
 gUnk_087FF984:
-	.incbin "build/assets/levels/12/data_64.bin"   @ from assets/levels/12/data_64.bin
+	.incbin "build/assets/levels/12/camera.bin"   @ from assets/levels/12/camera.bin
 	.global gUnk_087FFA48
 gUnk_087FFA48:
-	.incbin "build/assets/levels/12/data_68.bin"   @ from assets/levels/12/data_68.bin
+	.incbin "build/assets/levels/12/camera_rev.bin"   @ from assets/levels/12/camera_rev.bin
 	.global gUnk_087FFB0C
 gUnk_087FFB0C:
-	.incbin "build/assets/levels/12/data_6c.bin"   @ from assets/levels/12/data_6c.bin
+	.incbin "build/assets/levels/12/autopilot.bin"   @ from assets/levels/12/autopilot.bin
 	.global gUnk_087FFC0C
 gUnk_087FFC0C:
-	.incbin "build/assets/levels/12/data_70.bin"   @ from assets/levels/12/data_70.bin
+	.incbin "build/assets/levels/12/autopilot_rev.bin"   @ from assets/levels/12/autopilot_rev.bin
 	.global gUnk_087FFC10
 gUnk_087FFC10:
-	.incbin "build/assets/levels/13/data_38.bin"   @ from assets/levels/13/data_38.bin
+	.incbin "build/assets/levels/13/ai_path.bin"   @ from assets/levels/13/ai_path.bin

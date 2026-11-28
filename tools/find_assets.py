@@ -53,6 +53,12 @@ LEVEL_FIELDS = {0x00: ('palette', 'pal'), 0x04: ('bg_a', 'tiles8'), 0x08: ('bg_b
                 0x34: ('objects', 'objects')}
 for off in range(0x38, 0x74, 4):
     LEVEL_FIELDS[off] = ('data_%02x' % off, 'bin')
+# what reads each field (docs/levels.md); normal / reverse-direction pairs
+for off, name in {0x38: 'ai_path', 0x3C: 'ai_path_rev', 0x40: 'hits', 0x44: 'edges1', 0x48: 'edges1_rev',
+                  0x4C: 'edges2', 0x50: 'edges2_rev', 0x54: 'camera_ops', 0x58: 'camera_ops_rev',
+                  0x5C: 'race_monitor', 0x60: 'race_monitor_rev', 0x64: 'camera', 0x68: 'camera_rev',
+                  0x6C: 'autopilot', 0x70: 'autopilot_rev'}.items():
+    LEVEL_FIELDS[off] = (name, LEVEL_FIELDS[off][1])
 
 # track record fields
 TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'rsprite'),
