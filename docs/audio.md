@@ -49,3 +49,8 @@ instruments, so the notes, rhythm and tempo are the game's but the sounds
 are not. The songs are 2 seconds (jingles) to 94 seconds long, at 60 to
 160 BPM. The MIDI files are a view: the build still uses the original
 sequence data.
+
+Identified so far (the engine's current song is at `0x03005A78`, checked in
+mGBA): song 0 plays in the Steamy Swoop race; song 4 is the front-end
+music (language screen and menus, and the debug menu's
+`music_play_if_changed(4)`).
