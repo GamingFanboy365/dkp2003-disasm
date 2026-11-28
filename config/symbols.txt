@@ -609,9 +609,11 @@
 0x08002FB0 spr_free_chain           # (slot): the slot and the ones chained to it back on the free list
 0x08002FE0 spr_set_shadow_size      # (slot): shadow slots (flag 0x80) get 3/4 of the sprite's size (+0x0A)
 0x08003020 spr_hide_shadow          # (slot): shadow slots lose their graphics (collected Kong letters, coins)
-0x080032B8 spr_release_frame        # (slot): drop its reference to a cached frame (gSpriteFrameCache)
+0x080032B8 spr_release_anim         # (slot): drop its reference to its animation player (gAnims)
 # particles: 64 x 0x20 bytes {x, y, z, vx, vy, vz, life, flags}; graphics =
 # sprite table entry 42 (sparks, debris, stars)
 0x08002BCC particles_init           # clear, fill the free stack, pre-decode sprite 42's frames
 0x08002CBC particles_update         # every other frame: move, life -= 2; flag 0x400 gravity, 0x800 bounce; free when done
 0x08002E78 particle_new             # -> a free particle, or 0
+0x080031A4 anims_update             # every frame: count each player's timer down; then the next script byte = frame, or 0xFF + command 0..4; delay halved at double speed
+0x08003288 anims_clear              # DMA-clear the 128 players

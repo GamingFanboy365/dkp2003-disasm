@@ -345,7 +345,7 @@ _0801076C:
 _08010770:
 	.4byte 0x00007FFF
 _08010774:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _08010778:
 	.4byte gUnk_08050654
 _0801077C:

@@ -408,4 +408,4 @@ _08012E98:
 _08012E9C:
 	.4byte 0x00007FFF
 _08012EA0:
-	.4byte gSpriteFrameCache
+	.4byte gAnims

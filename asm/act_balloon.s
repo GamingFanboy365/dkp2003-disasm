@@ -621,7 +621,7 @@ _08020730:
 _08020734:
 	.4byte 0x00007FFF
 _08020738:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _0802073C:
 	ldr r3, [r7, #0x44]
 	movs r1, #0

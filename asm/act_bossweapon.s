@@ -535,7 +535,7 @@ _0802CE94:
 _0802CE98:
 	.4byte 0x00007FFF
 _0802CE9C:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _0802CEA0:
 	.4byte 0x0202EC54
 _0802CEA4:
@@ -1015,7 +1015,7 @@ _0802D220:
 _0802D224:
 	.4byte 0x00007FFF
 _0802D228:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _0802D22C:
 	.4byte gUnk_08053668
 _0802D230:

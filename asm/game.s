@@ -113,7 +113,7 @@ _08000580:
 _08000584:
 	bl spr_init
 	bl particles_init
-	bl sub_08003288
+	bl anims_clear
 	ldr r3, _080005BC
 	ldr r1, _080005D4
 	ldr r5, _080005D8
@@ -452,7 +452,7 @@ game_process: @ 08000824
 	ldr r5, _0800087C
 	bl _call_via_r5
 	bl particles_update
-	bl sub_080031A4
+	bl anims_update
 	ldr r4, _08000880
 	bl _call_via_r4
 	ldr r5, _08000874

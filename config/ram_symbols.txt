@@ -44,11 +44,11 @@
 0x02004384 gObjDrawList2
 0x02018394 gObjDeleteList           # objects queued by obj_free (128 entries)
 0x02018594 gObjDeleteCount
-0x02018F34 gSprites                 # 256 x 0x18: +0x06 flags (0x80 shadow), +0x08 cached frame (bit 15 = valid), +0x0A size, +0x10 palette, +0x14 graphics
+0x02018F34 gSprites                 # 256 x 0x18: +0x06 flags (0x80 shadow), +0x08 animation player (bit 15 = valid), +0x0A size, +0x10 palette, +0x14 graphics
 0x0201A734 gSpriteNext              # u8 per slot: next slot of the same object, or of the free list; 0xFF ends
 0x0201AA44 gSpriteFreeHead
 0x0201AA48 gSpriteFreeCount
-0x0201AA4C gSpriteFrameCache        # 32-byte entries, reference count at +0x1C
+0x0201AA4C gAnims                   # 128 animation players x 0x20: +0 script, +8 frame, +0xC timer, +0x10 position, +0x14 delay, +0x1C users
 0x020185AC gParticles               # 64 x 0x20: x, y, z, vx, vy, vz, life, flags
 0x02018DAC gParticleFree            # stack of free particles
 0x02018E2C gParticleFreeCount

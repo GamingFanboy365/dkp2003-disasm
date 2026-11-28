@@ -34,8 +34,16 @@ a second slot is chained to it through `gSpriteNext`: the object's shadow,
 sprite table entry 43, a flat grey oval, marked with 0x80 in `+0x06`.
 `spr_set_shadow_size` makes the shadow 3/4 of the sprite's size, and
 `spr_hide_shadow` removes it (collected Kong letters and silver coins).
-`spr_free_chain` returns the slots, and `spr_release_frame` drops a slot's
-reference to a decoded frame in `gSpriteFrameCache`. The object then goes
+`spr_free_chain` returns the slots, and `spr_release_anim` drops the
+slot's animation player.
+
+Animations run in `gAnims`, 128 players of 0x20 bytes: a script pointer
+(`+0x00`), the current frame (`+0x08`), a timer (`+0x0C`), the position in
+the script (`+0x10`), the frame delay (`+0x14`) and a user count (`+0x1C`).
+`anims_update` counts each timer down; when it runs out, the next script
+byte is either a frame number or 0xFF followed by a command (0–4). In
+double-speed mode the delays are halved. `anims_clear` empties the table and
+`anim_get` gives a sprite slot a player. The object then goes
 on one of the two draw lists, linked through `obj+0x0C`/`+0x10`.
 
 ## Particles

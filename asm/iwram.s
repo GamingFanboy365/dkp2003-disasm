@@ -1528,7 +1528,7 @@ _030015AC:
 _030015B0:
 	.4byte 0x02000008
 _030015B4:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _030015B8:
 	.4byte gSpriteNext
 _030015BC:
@@ -2740,7 +2740,7 @@ _03002728:
 	blo _03002728
 	b _03000F34
 _030027E4:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _030027E8:
 	.4byte gUnk_080537E4
 _030027EC:

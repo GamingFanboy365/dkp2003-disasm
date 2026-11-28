@@ -97,7 +97,7 @@ _08003126:
 _08003134:
 	.4byte 0xFFFF8000
 _08003138:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _0800313C:
 	.4byte gSprites
 _08003140:
@@ -152,10 +152,10 @@ _0800319C:
 _080031A0:
 	.4byte gSprites
 
-	.global sub_080031A4
+	.global anims_update
 	.thumb_func
-	.type sub_080031A4, %function
-sub_080031A4: @ 080031A4
+	.type anims_update, %function
+anims_update: @ 080031A4
 	push {r4, r5, r6, lr}
 	ldr r2, _08003278
 	ldr r0, [r2]
@@ -280,16 +280,16 @@ _0800326C:
 _08003278:
 	.4byte gFrameCount
 _0800327C:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _08003280:
 	.4byte gModeFlags
 _08003284:
 	.4byte _0800321C
 
-	.global sub_08003288
+	.global anims_clear
 	.thumb_func
-	.type sub_08003288, %function
-sub_08003288: @ 08003288
+	.type anims_clear, %function
+anims_clear: @ 08003288
 	sub sp, #4
 	mov r1, sp
 	ldr r0, _080032A4
@@ -309,17 +309,17 @@ _080032A4:
 _080032A8:
 	.4byte 0x040000D4
 _080032AC:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _080032B0:
 	.4byte 0x81000800
 _080032B4:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global spr_release_frame
+	.global spr_release_anim
 	.thumb_func
-	.type spr_release_frame, %function
-spr_release_frame: @ 080032B8
+	.type spr_release_anim, %function
+spr_release_anim: @ 080032B8
 	push {r4, lr}
 	movs r1, #0x18
 	muls r1, r0, r1
@@ -354,7 +354,7 @@ _080032F0:
 _080032F4:
 	.4byte 0x00007FFF
 _080032F8:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 
 	.global sub_080032FC
 	.thumb_func

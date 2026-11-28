@@ -895,7 +895,7 @@ _0802B404:
 _0802B408:
 	.4byte 0x00007FFF
 _0802B40C:
-	.4byte gSpriteFrameCache
+	.4byte gAnims
 _0802B410:
 	.4byte sin_fx
 _0802B414:

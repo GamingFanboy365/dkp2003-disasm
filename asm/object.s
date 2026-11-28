@@ -946,7 +946,7 @@ _08001A8E:
 	cmp r0, #0
 	beq _08001AA4
 	adds r0, r4, #0
-	bl spr_release_frame
+	bl spr_release_anim
 _08001AA4:
 	ldr r2, _08001AB8
 	ldrb r4, [r2, r4]
