@@ -62,9 +62,19 @@ class Gen:
         self.assets = sorted(assets)          # (offset, size, type, name)
         # regions known to hold no pointers (graphics, palettes)
         self.noptr = sorted(list(noptr) + [(o, o + s) for o, s, t, n in self.assets
-                                           if t in ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite')])
+                                           if t in ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite', 'sample')])
         self.scan_data()
         self.asset_at = {a[0]: a for a in self.assets}
+        # instrument definitions {start*, length, end*}: length == end - start
+        # is written symbolically so a sample can change size
+        self.derived = {}
+        samples = {a[0]: a[1] for a in self.assets if a[2] == 'sample'}
+        for o, (kind, t) in self.dptr.items():
+            nx = self.dptr.get(o + 8)
+            if kind == 'data' and t in samples and nx and nx[0] == 'data' and \
+                    nx[1] == t + samples[t] - 1 and self.rom.u32(o + 4) == samples[t] - 1:
+                # <sample>_len is defined next to the sample (size - 1)
+                self.derived[o + 4] = '%s_len' % self.dlabel[t]
         self.class_names = {}
         self.file_of = None
         self.verified = None
@@ -287,7 +297,8 @@ class Gen:
             sum(1 for v in self.dptr.values() if v[0] == 'data')), file=sys.stderr)
 
     # -- extracted assets -----------------------------------------------------
-    ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'gfx': '.bin', 'bin': '.bin',
+    ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
+                    'gfx': '.bin', 'bin': '.bin',
                     'objects': '.s', 'sdata': '.s'}
 
     def emit_asset(self, out, off):
@@ -299,11 +310,22 @@ class Gen:
             out.append('\t.include "assets/%s.s"' % name)
         else:
             out.append('\t.incbin "build/assets/%s.bin"   @ from assets/%s%s' % (name, name, self.ASSET_SOURCE[typ]))
-        # labels that point inside the asset
+        # labels that point inside the asset; for samples, the last byte (the
+        # instrument definitions' inclusive end pointer) follows the real end
+        end_label = None
+        if typ == 'sample' and (off + size - 1) in self.dlabel:
+            end_label = '.Lasset_end_%06X' % off
+            out.append('%s:' % end_label)
+        if end_label and off in self.dlabel:
+            out.append('\t.global %s_len' % base)
+            out.append('\t.set %s_len, %s - %s - 1' % (base, end_label, base))
         for lo in range(off + 1, off + size):
             if lo in self.dlabel:
                 out.append('\t.global %s' % self.dlabel[lo])
-                out.append('\t.set %s, %s + 0x%X' % (self.dlabel[lo], base, lo - off))
+                if end_label and lo == off + size - 1:
+                    out.append('\t.set %s, %s - 1' % (self.dlabel[lo], end_label))
+                else:
+                    out.append('\t.set %s, %s + 0x%X' % (self.dlabel[lo], base, lo - off))
         return off + size
 
     def asset_text(self, off):
@@ -423,6 +445,10 @@ class Gen:
                 continue
             if off in self.dptr:
                 out.append('\t.4byte %s' % self.dptr_expr(off))
+                off += 4
+                continue
+            if off in self.derived:
+                out.append('\t.4byte %s' % self.derived[off])
                 off += 4
                 continue
             # labels
@@ -605,7 +631,8 @@ class Gen:
         self.file_of = file_of
         self.compute_global_labels(file_of)
         self.breaks = sorted(set(self.insns) | set(self.pools) | set(self.jtables) | set(self.dlabel)
-                             | set(self.dptr) | {o for o in self.sym if o in self.item_start} | set(self.asset_at))
+                             | set(self.dptr) | {o for o in self.sym if o in self.item_start} | set(self.asset_at)
+                             | set(self.derived))
         objs = []
         for (p, e, seg, fn) in chunks:
             out = ['@ %s: ROM 0x%06X-0x%06X (%s, VMA 0x%08X)' % (fn, p, e, seg.name, seg.to_vma(p)), '',

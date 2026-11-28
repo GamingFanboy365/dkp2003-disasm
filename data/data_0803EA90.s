@@ -2601,10 +2601,6 @@ gUnk_0807A2BE:
 	.global gUnk_0807E280
 gUnk_0807E280:
 	.incbin "build/assets/levels/17/bg_d.bin"   @ from assets/levels/17/bg_d.png
-	.global gUnk_08080804
-	.set gUnk_08080804, gUnk_0807E280 + 0x2584
-	.global gUnk_08080808
-	.set gUnk_08080808, gUnk_0807E280 + 0x2588
 .Lasset_081D02:
 	.incbin "build/assets/graphics/frontend/tiles_081d02.bin"   @ from assets/graphics/frontend/tiles_081d02.png
 	.global gUnk_08081D04

@@ -19,6 +19,7 @@ Asset types:
   sdata     table containing pointers         -> assets/<name>.s
   rsprite   Rare sprite container (sprite sets, track maps/themes)
                                               -> assets/<name>.png + .json
+  sample    8-bit signed PCM audio sample     -> assets/<name>.wav
   gfx       other pointer-free graphics (tilemaps)
                                               -> assets/<name>.bin
   bin       anything else                     -> assets/<name>.bin
@@ -61,7 +62,8 @@ TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'r
 FRONTEND_TILESETS = [(0x081D02, 4), (0x0A698E, 4), (0x0AE810, 4), (0x0AFD52, 8)]
 FRONTEND_TILEMAPS = [0x1B885C, 0x1BEF14]
 
-POINTER_FREE = ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite')
+POINTER_FREE = ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite', 'sample')
+SAMPLE_RATES = (8000, 11025, 12000, 13379, 14000)
 
 
 def main():
@@ -141,6 +143,19 @@ def collect(g, data):
         add(off, 'graphics/frontend/tiles_%06x' % off, 'tiles%d' % bpp, 2 + n * 32 * (bpp // 4))
     for off in FRONTEND_TILEMAPS:
         add(off, 'graphics/frontend/tilemap_%06x' % off, 'gfx', 0x800)
+
+    # --- audio samples, from the instrument definitions of the sound bank:
+    #     {type, rate, base note, start*, length, end* (inclusive), ...} ---
+    W = struct.unpack_from('<%dI' % (len(data) // 4), data)
+    ranges = {}
+    for i in range(3, len(W) - 3):
+        s, e = W[i], W[i + 2]
+        if (ROM_BASE <= s < ROM_BASE + len(data) and ROM_BASE <= e < ROM_BASE + len(data) and
+                0 < e - s < 0x40000 and W[i - 2] in SAMPLE_RATES and W[i - 1] < 128 and W[i - 3] < 8):
+            ranges.setdefault(s - ROM_BASE, (e + 1 - ROM_BASE, W[i - 2]))
+    for k, s in enumerate(sorted(ranges)):
+        e, rate = ranges[s]
+        add(s, 'audio/samples/%03d_%dhz' % (k, rate), 'sample', e - s)
 
     # --- Rare sprite containers have an exact size; drop assets inside them ---
     import rare_sprite

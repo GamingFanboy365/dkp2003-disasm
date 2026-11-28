@@ -22,17 +22,18 @@ make extract                           # once: writes the game's assets into ass
 make compare                           # -> dkp.gba: OK
 ```
 
-`make extract` writes graphics, palettes and level data into `assets/` as
+`make extract` writes graphics, palettes, level data and audio samples into `assets/` as
 editable files (below). Like the ROM, they are generated locally and never
 committed. The remaining non-code bytes are still pulled from `baserom.gba`
 with `.incbin`.
 
-## Assets: graphics and levels
+## Assets: graphics, levels and audio
 
-`config/assets.txt` lists 1053 assets (about 6.2 MB, half of the ROM) found from
-the game's own tables: the level headers at `0x087146C0`, the track records at
-`0x08051D40`, the sprite table at `0x08713650`, and front-end graphics found
-with an mGBA DMA survey. `tools/find_assets.py` builds the list; it holds only
+`config/assets.txt` lists 1394 assets (about 9.4 MB, three quarters of the ROM)
+found from the game's own tables: the level headers at `0x087146C0`, the track
+records at `0x08051D40`, the sprite table at `0x08713650`, the instrument
+definitions of the sound bank, and front-end graphics found with an mGBA DMA
+survey. `tools/find_assets.py` builds the list; it holds only
 offsets, sizes and types.
 
 | Type | Files | Format |
@@ -42,6 +43,7 @@ offsets, sizes and types.
 | Object lists (22) | `levels/NN/objects.s` | one `level_object x, y, z, classinfo` per object, with the class name, then `level_objects_end` |
 | Tables (7) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
 | Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
+| Audio samples (341) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–14000 Hz) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
 | Other (399) | `*.bin` | level data blocks whose format is not known yet (track paths, collision, …) |
 
@@ -56,6 +58,7 @@ assets/graphics/sprites/     sprite sheets NNN.png + NNN.json (sprite table entr
                              smaller level-of-detail versions), NNN_palette.pal,
                              sprite_table.s
 assets/graphics/frontend/    menu tilesets (PNG) and tilemaps
+assets/audio/samples/        NNN_<rate>hz.wav, in ROM order
 ```
 
 Edit a file and run `make`: `tools/assets.py build` converts the changed
@@ -98,6 +101,20 @@ bytes and per-frame tile counts, which the PNG must match.
 Tested in mGBA: swapping two colours in `graphics/sprites/051.png` (the
 zipper) gives a recoloured zipper in the race.
 
+### Audio samples
+
+Rare's sound bank describes each instrument with a 0x44-byte record that holds
+the sample rate, the base note (60), and the sample's start pointer, its
+length and its last byte. The 341 samples these records point at are 8-bit
+signed PCM. They are extracted as unsigned 8-bit WAV files, which any audio
+editor opens. A sample can be replaced with one of a different length (mono,
+8-bit PCM; resample to the rate in its file name): the record's start, length
+and end fields are symbols (`<label>` and `<label>_len`), so they follow.
+Tested by halving the length of `000_11025hz.wav`. The record's fields
+changed to match (length 7375 → 3687) and the ROM still built.
+
+Music sequences, which follow the samples in the ROM, are not decoded yet.
+
 ### Modding: the build is shiftable
 
 Code and data can grow or shrink: the linker places every file right after
@@ -106,7 +123,7 @@ numbers:
 * branches, calls, jump tables and literal pools point at labels;
 * ROM data referenced by code has a `gUnk_08XXXXXX` label;
 * pointers stored inside data (function tables, string tables, level object
-  lists, sprite tables, sound-bank samples, newlib data) are emitted as
+  lists, sprite tables, sound-bank samples and lengths, newlib data) are emitted as
   `.4byte symbol`;
 * known RAM variables are named (`config/ram_symbols.txt`), and the IWRAM
   overlay's load address is the linker symbol `__iwram_lma`;
@@ -217,6 +234,5 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
   between those two regions.
 * A few areas are still emitted as bytes: undecoded parts of the ARM audio
   engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
-* Decode Rare's compressed sprite/image format (character sprites,
-  trackside objects, track maps) to PNG, and the remaining level data blocks.
-* Audio data (samples, sequences) is still `.incbin` from `baserom.gba`.
+* Decode the remaining level data blocks (`data_XX.bin`).
+* Music sequences are still `.incbin` from `baserom.gba`.

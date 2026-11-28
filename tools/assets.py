@@ -16,6 +16,10 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             row, colour 0 transparent, previewed in the sprite's palette) plus
             a .json with the container header and per-frame tile counts.
             The build re-encodes it exactly like Rare's tool (tools/rare_sprite.py).
+  sample    WAV, 8-bit mono PCM at the rate in its name (the instrument
+            definition keeps the real rate; the WAV's rate is ignored).
+            Its length may change: the definition's end pointer and length
+            follow it.
   gfx, bin  raw binary
 
 assets/ is generated from your ROM and is not committed.
@@ -29,7 +33,8 @@ sys.path.insert(0, HERE)
 MANIFEST = os.path.join(ROOT, 'config', 'assets.txt')
 SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
-EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'gfx': '.bin', 'bin': '.bin',
+EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
+       'gfx': '.bin', 'bin': '.bin',
        'objects': '.s', 'sdata': '.s'}
 TILES_PER_ROW = 16
 
@@ -125,6 +130,36 @@ def png_read(path):
                 byte = line[x // per]
                 px.append((byte >> (8 - depth * (x % per + 1))) & ((1 << depth) - 1))
     return w, h, px
+
+
+# ------------------------------------------------------------------- audio --
+def wav_write(path, rate, data):
+    pcm = bytes(b ^ 0x80 for b in data)          # GBA signed -> WAV unsigned 8-bit
+    fmt = struct.pack('<HHIIHH', 1, 1, rate, rate, 1, 8)
+    body = b'WAVE' + b'fmt ' + struct.pack('<I', 16) + fmt + b'data' + struct.pack('<I', len(pcm)) + pcm
+    if len(pcm) & 1:
+        body += b'\0'
+    open(path, 'wb').write(b'RIFF' + struct.pack('<I', len(body)) + body)
+
+
+def wav_read(path):
+    d = open(path, 'rb').read()
+    if d[:4] != b'RIFF' or d[8:12] != b'WAVE':
+        raise SystemExit('%s: not a WAV file' % path)
+    pos, fmt, pcm = 12, None, None
+    while pos + 8 <= len(d):
+        cid, n = d[pos:pos + 4], struct.unpack_from('<I', d, pos + 4)[0]
+        body = d[pos + 8:pos + 8 + n]
+        if cid == b'fmt ':
+            fmt = struct.unpack_from('<HHIIHH', body)
+        elif cid == b'data':
+            pcm = body
+        pos += 8 + n + (n & 1)
+    if fmt is None or pcm is None:
+        raise SystemExit('%s: missing fmt or data chunk' % path)
+    if fmt[0] != 1 or fmt[1] != 1 or fmt[5] != 8:
+        raise SystemExit('%s: must be 8-bit mono PCM (got %d channel(s), %d-bit)' % (path, fmt[1], fmt[5]))
+    return bytes(b ^ 0x80 for b in pcm)
 
 
 # ------------------------------------------------------------------- tiles --
@@ -253,6 +288,8 @@ def extract(rom_path):
             meta = dict({'comment': 'Rare sprite container; see tools/rare_sprite.py', 'rom_offset': '0x%06X' % off},
                         **meta)
             open(path[:-4] + '.json', 'w').write(json.dumps(meta, indent=1) + '\n')
+        elif typ == 'sample':
+            wav_write(path, int(name.rsplit('_', 1)[1][:-2]), data)
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
         else:
@@ -286,6 +323,8 @@ def build():
             n = (size - 2) // (32 if bpp == 4 else 64)
             w, h, px = png_read(src)
             data = struct.pack('<H', n) + pixels_to_tiles(w, h, px, bpp, n, src)
+        elif typ == 'sample':
+            data = wav_read(src)
         elif typ == 'rsprite':
             import rare_sprite
             meta = json.load(open(src[:-4] + '.json'))
