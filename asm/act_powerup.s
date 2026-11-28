@@ -42,7 +42,7 @@ _08010526:
 	bx r0
 	.byte 0x00, 0x00
 _08010530:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010534:
 	movs r3, #2
 	ldrsh r2, [r2, r3]
@@ -509,7 +509,7 @@ _08010896:
 	b _0801079C
 	.byte 0x00, 0x00
 _080108B0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080108B4:
 	.4byte gUnk_080506EC
 _080108B8:

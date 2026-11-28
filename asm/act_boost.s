@@ -35,7 +35,7 @@ _08012A3E:
 	bx r0
 	.byte 0x00, 0x00
 _08012A48:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08012A4C:
 	adds r5, r4, #0
 	adds r5, #0x9c

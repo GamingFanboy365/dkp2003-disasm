@@ -255,3 +255,18 @@
 0x080027F0 debug_menu_process       # per-frame: cursor, A/B/START per item
 0x08002AE8 dbg_putnum               # decimal number via dbg_putc (recursive)
 0x0801DFEC music_play_if_changed    # (song) -> starts it unless it is already playing
+0x0802EAE0 music_play               # (song); AUDIO ERROR if the number is too large
+0x0802F070 music_stop
+0x0802F260 music_current            # -> song playing, or -1
+0x0802F09C music_set_volume
+0x0802F0A2 sfx_set_volume
+0x0802F11E snd_play                 # (id, volume, pitch 0x10000 = normal) -> handle
+0x0802EF7A snd_is_playing           # (handle)
+
+# Debug menu data
+0x0884CF4C gDbgMenuItems            # 9 item names
+0x0884CF70 gDbgMenuItemCount
+0x0884CF74 gDbgTrackNames           # 20 names, older track titles + 4 "Newtest"
+0x0884CFC4 gDbgTrackCount
+0x0884CFC8 gDbgVolumeTable          # 17 volume steps; the menu uses every 4th
+0x0884D00C gDbgCharacterNames       # 9 names

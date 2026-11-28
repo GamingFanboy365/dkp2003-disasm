@@ -48,8 +48,10 @@ clean:
 	rm -rf build $(ROM) $(ELF) $(ROM:.gba=.map)
 # (assets/ is kept; delete it and run `make extract` to start over)
 
-# Bug-fix IPS patch (see patches/README.md)
+# IPS patches (see patches/README.md)
 .PHONY: patch
-patch: patches/fix_sound_loop.ips
+patch: patches/fix_sound_loop.ips patches/debug_menu.ips
 patches/fix_sound_loop.ips: patches/fix_sound_loop.s tools/make_patch.py $(BASEROM)
 	python3 tools/make_patch.py $(BASEROM) $< $@ dkp_fixed.gba
+patches/debug_menu.ips: patches/debug_menu.s tools/make_patch.py $(BASEROM)
+	python3 tools/make_patch.py $(BASEROM) $< $@ dkp_debug.gba

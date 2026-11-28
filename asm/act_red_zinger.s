@@ -639,7 +639,7 @@ _080296CC:
 _080296D4:
 	.4byte sub_03003750
 _080296D8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080296DC:
 	.4byte gRedZingerBuzzOwner
 _080296E0:
@@ -1142,7 +1142,7 @@ _08029ACC:
 _08029AD0:
 	.4byte 0xFFFFFBFF
 _08029AD4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08029AD8:
 	.4byte 0x00001999
 _08029ADC:
@@ -1821,7 +1821,7 @@ _08029FF4:
 _08029FF8:
 	.4byte gLocalPlayerIndex
 _08029FFC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_0802A000
 	.thumb_func
@@ -2043,7 +2043,7 @@ _0802A18C:
 	b _0802A04E
 	.byte 0x00, 0x00
 _0802A194:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802A198:
 	.4byte gRacerObjects
 _0802A19C:
@@ -2432,7 +2432,7 @@ _0802A48C:
 _0802A490:
 	.4byte sub_03003750
 _0802A494:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802A498:
 	.4byte gBlueZingerBuzzOwner
 _0802A49C:

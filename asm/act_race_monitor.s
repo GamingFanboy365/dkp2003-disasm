@@ -40,7 +40,7 @@ _08011AE2:
 _08011AE4:
 	.4byte 0x00000005
 _08011AE8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011AEC:
 	lsls r4, r2, #0x10
 	asrs r3, r4, #0x10
@@ -178,7 +178,7 @@ _08011BE0:
 	b _08011AB8
 	.byte 0x00, 0x00
 _08011BFC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011C00:
 	.4byte gFrameCount
 _08011C04:
@@ -293,7 +293,7 @@ _08011CCE:
 	ands r0, r1
 	cmp r0, #0
 	beq _08011CBA
-	bl sub_0802F070
+	bl music_stop
 	bl sub_080035F8
 	ldr r0, _08011F44
 	movs r3, #2
@@ -364,7 +364,7 @@ _08011D3C:
 	movs r3, #0x80
 	movs r1, #0x7f
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 _08011D7C:
 	adds r0, r5, #0
 	adds r0, #0xa0
@@ -516,7 +516,7 @@ _08011E90:
 	b _08011E76
 	.global _08011E94
 _08011E94:
-	bl sub_0802F260
+	bl music_current
 	cmp r0, #0
 	blt _08011F04
 _08011E9C:
@@ -613,13 +613,13 @@ _08011F28:
 	b _08011C30
 	.byte 0x00, 0x00
 _08011F44:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011F48:
 	.4byte _08011C60
 _08011F4C:
 	.4byte 0x0300566C
 _08011F50:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08011F54:
 	.4byte gFrameCount
 _08011F58:
@@ -1182,7 +1182,7 @@ _08012356:
 	bl destroy_blue_zinger
 	b _0801234C
 _08012378:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0801237C:
 	.4byte gRacerObjects
 _08012380:

@@ -31,7 +31,7 @@ _08010CE6:
 	bx r0
 	.byte 0x00, 0x00
 _08010CF0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010CF4:
 	ldr r4, _08010D24
 	adds r0, r5, #0
@@ -254,7 +254,7 @@ _08010E7E:
 _08010E94:
 	.4byte 0x00000007
 _08010E98:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010E9C:
 	.4byte 0x02018F34
 _08010EA0:
@@ -415,7 +415,7 @@ _08010FB8:
 _08010FD0:
 	.4byte 0x02018F34
 _08010FD4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010FD8:
 	.4byte gUnk_08050898
 _08010FDC:
@@ -557,7 +557,7 @@ _080110A8:
 	.2byte 0xEFFF @ debug trap
 	b _08010FFA
 _080110DC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080110E0:
 	.4byte 0x02018F34
 _080110E4:

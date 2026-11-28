@@ -522,7 +522,7 @@ _08028DE2:
 	str r0, [r7, #0x18]
 	b _08028B38
 _08028DE8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08028DEC:
 	.4byte gLocalPlayerIndex
 _08028DF0:
@@ -678,7 +678,7 @@ _08028F14:
 _08028F18:
 	.4byte gLocalPlayerIndex
 _08028F1C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_08028F20
 	.thumb_func
@@ -1043,7 +1043,7 @@ _080291B6:
 _080291C4:
 	.4byte 0x000005DC
 _080291C8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080291CC:
 	.4byte gLocalPlayerIndex
 _080291D0:

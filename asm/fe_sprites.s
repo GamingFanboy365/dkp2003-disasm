@@ -1168,7 +1168,7 @@ _080187BE:
 	b _080187AE
 	.byte 0x00, 0x00
 _080187C8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080187CC:
 	.4byte gUnk_0863FDC0
 
@@ -1283,7 +1283,7 @@ _080188A8:
 	bne _08018830
 	b _08018856
 _080188B0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080188B4:
 	.4byte gUnk_0863FDC0
 
@@ -1477,7 +1477,7 @@ _08018A04:
 	b _080189FE
 	.byte 0x00, 0x00
 _08018A0C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08018A10:
 	.4byte gUnk_0863FDC0
 
@@ -1535,7 +1535,7 @@ _08018A60:
 	b _08018A56
 	.byte 0x00, 0x00
 _08018A70:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08018A74:
 	.4byte gUnk_0863FDC0
 
@@ -1834,7 +1834,7 @@ sub_08018C3C: @ 08018C3C
 	ldrh r0, [r1]
 	bx lr
 _08018C50:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08018C54:
 	.4byte gUnk_0863FDC0
 
@@ -1934,7 +1934,7 @@ _08018CD8:
 	b _08018C6C
 	.byte 0x00, 0x00
 _08018D0C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08018D10:
 	.4byte 0x040000D4
 _08018D14:
@@ -2053,7 +2053,7 @@ _08018DD6:
 	b _08018D8A
 	.byte 0x00, 0x00
 _08018DEC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08018DF0:
 	.4byte _08018D54
 _08018DF4:

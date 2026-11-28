@@ -181,7 +181,7 @@ _08013D2C:
 	bx r0
 	.byte 0x00, 0x00
 _08013D40:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013D44:
 	.4byte gRacerObjects
 _08013D48:
@@ -396,7 +396,7 @@ _08013EAC:
 	b _08013E62
 	.byte 0x00, 0x00
 _08013EC8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013ECC:
 	.4byte gRacerObjects
 _08013ED0:

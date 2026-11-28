@@ -235,7 +235,7 @@ _08013BF8:
 	b _08013B20
 	.byte 0x00, 0x00
 _08013C00:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013C04:
 	.4byte 0x0200436C
 _08013C08:

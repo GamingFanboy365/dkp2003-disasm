@@ -64,6 +64,10 @@ class Gen:
         self.noptr = sorted(list(noptr) + [(o, o + s) for o, s, t, n in self.assets
                                            if t in ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite', 'sample')])
         self.scan_data()
+        # named data (config/symbols.txt) replaces gUnk_ labels
+        for o in self.dlabel:
+            if o in self.names and o not in self.funcs:
+                self.dlabel[o] = self.names[o]
         self.asset_at = {a[0]: a for a in self.assets}
         # instrument definitions {start*, length, end*}: length == end - start
         # is written symbolically so a sample can change size

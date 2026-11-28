@@ -486,7 +486,7 @@ _0802B9E0:
 _0802B9E4:
 	.4byte gUnk_0884F034
 _0802B9E8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802B9EC:
 	.4byte 0x00002666
 _0802B9F0:

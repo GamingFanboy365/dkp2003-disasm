@@ -59,7 +59,7 @@ _08012560:
 _08012564:
 	.4byte 0x0300566C
 _08012568:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0801256C:
 	.4byte gUnk_08051D40
 _08012570:
@@ -387,7 +387,7 @@ _080127E0:
 _080127E4:
 	.4byte sub_03000134
 _080127E8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080127EC:
 	.4byte gUnk_08051D40
 _080127F0:
@@ -483,7 +483,7 @@ _08012890:
 	movs r1, #0x7f
 	lsls r2, r3, #9
 	movs r0, #0xf8
-	bl sub_0802F11E
+	bl snd_play
 	ldr r1, _080128F0
 	movs r2, #2
 	str r0, [r1]
@@ -494,7 +494,7 @@ _080128A6:
 	lsls r2, r3, #9
 	movs r0, #0xfa
 	movs r1, #0x50
-	bl sub_0802F11E
+	bl snd_play
 	ldrh r2, [r7, #4]
 	b _08012884
 _080128B6:
@@ -526,7 +526,7 @@ _080128D0:
 _080128E8:
 	.4byte 0x0300566C
 _080128EC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080128F0:
 	.4byte 0x02023F90
 _080128F4:

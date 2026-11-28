@@ -1005,7 +1005,7 @@ _08027BAC:
 _08027BE0:
 	.4byte 0x00000000
 _08027BE4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08027BE8:
 	.4byte 0x0202EBF4
 _08027BEC:
@@ -1591,7 +1591,7 @@ _0802803A:
 _08028048:
 	.4byte 0x0202EA14
 _0802804C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08028050:
 	.4byte gUnk_0884EFEC
 _08028054:
@@ -2286,7 +2286,7 @@ _08028560:
 _08028564:
 	.4byte sub_03000138
 _08028568:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802856C:
 	.4byte gLocalPlayerIndex
 _08028570:

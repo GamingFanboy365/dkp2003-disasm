@@ -127,6 +127,8 @@ def main():
         for m in re.finditer(r'^(\w+):\s*@ ([0-9A-F]{8})', open(f).read(), re.M):
             sym_off[m.group(1)] = addr_to_off(int(m.group(2), 16))
 
+    sym_off.update({v: k for k, v in g.dlabel.items()})
+
     def sym_to_off(name):
         if name in sym_off:
             return sym_off[name]
@@ -565,7 +567,7 @@ NOTES = {
               'loads.  Its "Cup Win" item opens the cup-win screen '
               '(fe_cups_win_init), which nothing else uses either.  To see it in '
               'mGBA, write 0x0800271D to gStateFunc (0x03005670) at the language '
-              'screen; A/B change a value, START starts a race.',
+              'screen, or apply patches/debug_menu.ips; see docs/debug_menu.md.',
     0x052580: 'level 25, an unfinished course: its header, a stub track record, '
               'tilesets, data blocks and object list (section 2)',
     0x0144A0: 'the credits screen: fe_credits_init and its graphics; nothing calls it',

@@ -77,7 +77,7 @@ _08020E4C:
 _08020E50:
 	.4byte 0x0202E43C
 _08020E54:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08020E58:
 	adds r1, r4, #0
 	adds r1, #0x9c

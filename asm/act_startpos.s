@@ -52,7 +52,7 @@ _08010900:
 	bx r0
 	.byte 0x00, 0x00
 _08010914:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010918:
 	ldr r2, [r1, #4]
 	cmp r2, #1
@@ -122,7 +122,7 @@ _08010990:
 _08010994:
 	.4byte 0x0202DE5C
 _08010998:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0801099C:
 	.4byte sub_03000138
 _080109A0:

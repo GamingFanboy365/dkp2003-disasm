@@ -357,7 +357,7 @@ _0802AFDA:
 	b _0802AF52
 	.byte 0x00, 0x00
 _0802AFF4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802AFF8:
 	.4byte gUnk_08052FB0
 _0802AFFC:
@@ -869,7 +869,7 @@ _0802B3CA:
 _0802B3D4:
 	.4byte sub_03003750
 _0802B3D8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802B3DC:
 	.4byte 0x0202EC40
 _0802B3E0:
@@ -1038,7 +1038,7 @@ _0802B508:
 _0802B520:
 	.4byte gLocalPlayerIndex
 _0802B524:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802B528:
 	.4byte gUnk_08052FE4
 _0802B52C:
@@ -1207,4 +1207,4 @@ _0802B64C:
 _0802B650:
 	.4byte gLocalPlayerIndex
 _0802B654:
-	.4byte 0x0202D74C
+	.4byte gGameSetup

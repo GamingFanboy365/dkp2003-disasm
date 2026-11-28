@@ -463,7 +463,7 @@ _0800454C:
 _08004550:
 	.4byte 0x020219F0
 _08004554:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_08004558
 	.thumb_func

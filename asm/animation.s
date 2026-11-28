@@ -567,7 +567,7 @@ _08003468:
 	b _08003454
 	.byte 0x00, 0x00
 _08003470:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08003474:
 	.4byte gUnk_087146C0
 
@@ -988,7 +988,7 @@ sub_080036BC: @ 080036BC
 _0800374C:
 	.4byte 0x0000001F
 _08003750:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08003754:
 	.4byte gUnk_0884DF24
 _08003758:
@@ -1227,7 +1227,7 @@ _08003902:
 _08003914:
 	.4byte 0x0202DE5C
 _08003918:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800391C:
 	.4byte 0x0202D7D4
 _08003920:
@@ -1397,7 +1397,7 @@ _08003A42:
 	pop {r0}
 	bx r0
 _08003A54:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08003A58:
 	.4byte 0x0202DE5C
 _08003A5C:
@@ -1859,7 +1859,7 @@ _08003D9C:
 	blt _08003D64
 	b _08003B1C
 _08003DA8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08003DAC:
 	.4byte gUnk_0884DF24
 _08003DB0:
@@ -2014,7 +2014,7 @@ _08003EAC:
 _08003EB4:
 	.4byte 0x0202DE5C
 _08003EB8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_08003EBC
 	.thumb_func
@@ -2199,7 +2199,7 @@ _0800400A:
 	b _08003F7E
 	.byte 0x00, 0x00
 _08004010:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004014:
 	.4byte 0x0201BD24
 _08004018:
@@ -2237,7 +2237,7 @@ _08004034:
 	pop {r0}
 	bx r0
 _08004050:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004054:
 	.4byte gUnk_0884DF48
 
@@ -2266,7 +2266,7 @@ _08004064:
 	pop {r0}
 	bx r0
 _08004080:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004084:
 	.4byte 0x0000FFFF
 
@@ -2288,7 +2288,7 @@ _08004092:
 	bx r0
 	.byte 0x00, 0x00
 _080040A0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_080040A4
 	.thumb_func
@@ -2323,7 +2323,7 @@ sub_080040A4: @ 080040A4
 	bx r0
 	.byte 0x00, 0x00
 _080040E0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080040E4:
 	.4byte gUnk_0884DF24
 _080040E8:
@@ -2365,7 +2365,7 @@ sub_080040F8: @ 080040F8
 	bx lr
 	.byte 0x00, 0x00
 _08004120:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004124:
 	.4byte 0x0201BD24
 
@@ -2398,7 +2398,7 @@ sub_08004128: @ 08004128
 	bx lr
 	.byte 0x00, 0x00
 _08004158:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800415C:
 	.4byte gUnk_0884DF24
 _08004160:
@@ -2447,7 +2447,7 @@ sub_08004168: @ 08004168
 _080041AC:
 	.4byte 0x0000000A
 _080041B0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080041B4:
 	.4byte gUnk_0884DF24
 _080041B8:
@@ -2518,7 +2518,7 @@ sub_080041DC: @ 080041DC
 _08004224:
 	.4byte 0x00000000
 _08004228:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800422C:
 	.4byte gUnk_0884DF24
 _08004230:

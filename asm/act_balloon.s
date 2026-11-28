@@ -40,7 +40,7 @@ _080202F2:
 	bx r0
 	.byte 0x00, 0x00
 _080202FC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08020300:
 	movs r3, #2
 	ldrsh r2, [r2, r3]
@@ -605,7 +605,7 @@ _08020710:
 _08020714:
 	.4byte gRacerObjects
 _08020718:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802071C:
 	.4byte gLocalPlayerIndex
 _08020720:
@@ -838,7 +838,7 @@ _080208D0:
 _080208D4:
 	.4byte sub_03000134
 _080208D8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080208DC:
 	.4byte gLocalPlayerIndex
 _080208E0:

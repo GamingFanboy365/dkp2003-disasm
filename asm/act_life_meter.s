@@ -55,7 +55,7 @@ _0802D372:
 _0802D384:
 	.4byte 0x00001001
 _0802D388:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D38C:
 	cmp r5, #6
 	bne _0802D392
@@ -221,7 +221,7 @@ _0802D4C0:
 _0802D4C4:
 	.4byte 0x0000001F
 _0802D4C8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D4CC:
 	.4byte 0x0202EC60
 _0802D4D0:
@@ -433,7 +433,7 @@ _0802D644:
 	str r2, [r4, #4]
 	b _0802D632
 _0802D654:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D658:
 	cmp r3, #2
 	bne _0802D632
@@ -523,7 +523,7 @@ _0802D6F4:
 _0802D6F8:
 	.4byte gRacerObjects
 _0802D6FC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D700:
 	.4byte gUnk_088500C0
 _0802D704:
@@ -654,7 +654,7 @@ _0802D7E4:
 _0802D7E8:
 	.4byte 0x02018F34
 _0802D7EC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D7F0:
 	.4byte gUnk_0885009C
 _0802D7F4:

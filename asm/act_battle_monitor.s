@@ -37,7 +37,7 @@ _08013EE2:
 _08013F08:
 	.4byte 0x00000005
 _08013F0C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013F10:
 	.4byte gUnk_0884E370
 _08013F14:
@@ -106,7 +106,7 @@ _08013F82:
 	b _08013EE2
 	.byte 0x00, 0x00
 _08013F9C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013FA0:
 	.4byte gFrameCount
 _08013FA4:
@@ -205,7 +205,7 @@ _0801404C:
 	ands r1, r0
 	cmp r1, #0
 	beq _08014044
-	bl sub_0802F070
+	bl music_stop
 	bl sub_080035F8
 	ldr r1, _08014234
 	movs r3, #2
@@ -385,7 +385,7 @@ _080141BC:
 	str r3, [r0]
 	b _08014044
 _080141C2:
-	bl sub_0802F260
+	bl music_current
 	cmp r0, #0
 	blt _080141FA
 _080141CA:
@@ -448,13 +448,13 @@ _0801421C:
 	.2byte 0xEFFF @ debug trap
 	b _08013FC0
 _08014234:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08014238:
 	.4byte _08013FF4
 _0801423C:
 	.4byte 0x0300566C
 _08014240:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08014244:
 	.4byte gFrameCount
 _08014248:
@@ -501,7 +501,7 @@ sub_08014264: @ 08014264
 	bx r0
 	.byte 0x00, 0x00
 _08014294:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08014298:
 	.4byte gUnk_0884E34C
 

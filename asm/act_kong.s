@@ -32,7 +32,7 @@ _0801331C:
 	pop {r0}
 	bx r0
 _08013324:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013328:
 	movs r3, #2
 	ldrsh r1, [r2, r3]
@@ -1008,7 +1008,7 @@ _08013A38:
 	bl AGBPrintf
 	b _08013A34
 _08013A40:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08013A44:
 	.4byte gUnk_087146C0
 _08013A48:

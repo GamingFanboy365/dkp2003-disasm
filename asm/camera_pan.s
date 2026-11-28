@@ -409,7 +409,7 @@ _08004B1C:
 _08004B20:
 	.4byte 0x02021D78
 _08004B24:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_08004B28
 	.thumb_func
@@ -722,7 +722,7 @@ _08004D24:
 _08004D38:
 	.4byte 0x00000001
 _08004D3C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004D40:
 	.4byte gStateFunc
 _08004D44:
@@ -899,4 +899,4 @@ _08004E88:
 _08004E8C:
 	.4byte 0x0300566C
 _08004E90:
-	.4byte 0x0300565E
+	.4byte gKeysNew

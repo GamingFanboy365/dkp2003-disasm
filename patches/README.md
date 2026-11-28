@@ -49,3 +49,18 @@ audible. In the gamesfx update (`ROM 0x1F3AE`), when a queued sound request
 times out, its end callback is called with the context of hardware voice #3
 (`ldr r0,[r6,#0x2c]`) instead of the request's own context
 (`ldr r0,[r4,#0x3c]`).
+
+## `debug_menu.ips`: boot into the hidden debug menu
+
+Apply to the original ROM. Result SHA1:
+`e7db2654a0b2dbf5c014e1f5bc45a7e4469ed4c6`. It can be combined with
+`fix_sound_loop.ips`, because the two patches change different bytes.
+
+The game still contains a working debug menu that nothing calls (see
+[`docs/debug_menu.md`](../docs/debug_menu.md)). After the logos, the boot
+code calls `fe_options_init(1)`, the language screen, with a `bl` at ROM
+`0x1EE14`. The patch points that `bl` at `debug_menu_init` instead. The
+menu's **New Frontend** item opens the normal title screen, so the rest of
+the game stays reachable. Only the language screen is skipped at boot.
+
+Tested in mGBA: it boots to the menu, and every item opens its screen.

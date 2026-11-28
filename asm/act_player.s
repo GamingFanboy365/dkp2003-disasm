@@ -56,7 +56,7 @@ _08004EE4:
 _08004EE8:
 	.4byte gRacerData
 _08004EEC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08004EF0:
 	.4byte gUnk_087146C0
 _08004EF4:
@@ -890,7 +890,7 @@ _08005518:
 _0800551C:
 	.4byte gRacerData
 _08005520:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08005524:
 	.4byte gUnk_087146C0
 _08005528:
@@ -1536,7 +1536,7 @@ _080059D8:
 _080059DC:
 	.4byte sub_0300034C
 _080059E0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080059E4:
 	.4byte gUnk_087146C0
 _080059E8:
@@ -1803,7 +1803,7 @@ _08005BD0:
 _08005BD4:
 	.4byte gUnk_087146C0
 _08005BD8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08005BDC:
 	.4byte 0x02022E60
 
@@ -3605,7 +3605,7 @@ _0800684C:
 _08006850:
 	.4byte 0x00000529
 _08006854:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08006858:
 	.4byte sub_0300034C
 
@@ -4441,7 +4441,7 @@ _08006E58:
 _08006E5C:
 	.4byte 0xFFFF8000
 _08006E60:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08006E64:
 	movs r4, #0x32
 	rsbs r6, r4, #0
@@ -4849,7 +4849,7 @@ _08007160:
 _08007164:
 	.4byte 0xFFFF8000
 _08007168:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800716C:
 	.4byte gUnk_0884E08C
 
@@ -7882,7 +7882,7 @@ _08008784:
 _08008788:
 	.4byte sub_03000134
 _0800878C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08008790:
 	.4byte 0x00002492
 _08008794:
@@ -11143,7 +11143,7 @@ _08009FA4:
 _0800A008:
 	.4byte 0x00000800
 _0800A00C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800A010:
 	adds r5, #4
 	ldrsh r0, [r1, r5]
@@ -11774,7 +11774,7 @@ _0800A514:
 _0800A518:
 	.4byte 0x00801180
 _0800A51C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800A520:
 	.4byte 0x00002666
 _0800A524:
@@ -11976,7 +11976,7 @@ _0800A694:
 _0800A698:
 	.4byte gRacerObjects
 _0800A69C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800A6A0:
 	.4byte 0x00001999
 _0800A6A4:
@@ -12091,7 +12091,7 @@ _0800A76C:
 _0800A770:
 	.4byte gLocalPlayerIndex
 _0800A774:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800A778:
 	.4byte 0x00000CCC
 _0800A77C:
@@ -12224,7 +12224,7 @@ _0800A822:
 	b _0800A81C
 	.byte 0x00, 0x00
 _0800A85C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800A860:
 	.4byte gRacerObjects
 
@@ -12863,7 +12863,7 @@ _0800AC9C:
 _0800ACB0:
 	.4byte 0x00000000
 _0800ACB4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800ACB8:
 	.4byte gUnk_087146C0
 _0800ACBC:

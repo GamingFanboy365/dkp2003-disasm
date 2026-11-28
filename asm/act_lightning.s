@@ -183,7 +183,7 @@ _0802BB2C:
 _0802BB30:
 	.4byte 0x0201BAF0
 _0802BB34:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802BB38:
 	.4byte gLocalPlayerIndex
 _0802BB3C:
@@ -355,7 +355,7 @@ _0802BC76:
 _0802BC90:
 	.4byte gLocalPlayerIndex
 _0802BC94:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802BC98:
 	.4byte 0x00002666
 _0802BC9C:

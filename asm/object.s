@@ -2464,15 +2464,15 @@ _080025B0:
 _080025B4:
 	.4byte gDbgCursorY
 _080025B8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080025BC:
-	.4byte gUnk_0884CF74
+	.4byte gDbgTrackNames
 _080025C0:
 	.4byte gLocalPlayerIndex
 _080025C4:
-	.4byte gUnk_0884D00C
+	.4byte gDbgCharacterNames
 _080025C8:
-	.4byte 0x020185A0
+	.4byte gDbgVolume
 _080025CC:
 	.4byte gUnk_0804FD10
 _080025D0:
@@ -2696,9 +2696,9 @@ _08002768:
 _0800276C:
 	.4byte 0x03005620
 _08002770:
-	.4byte 0x020185A0
+	.4byte gDbgVolume
 _08002774:
-	.4byte 0x020185A4
+	.4byte gDbgTestSound
 _08002778:
 	.4byte gDbgCursorX
 _0800277C:
@@ -2746,17 +2746,17 @@ _080027C0:
 	ldr r3, _080027E8
 	ldr r1, _080027EC
 	str r3, [r1]
-	bl sub_0802F070
+	bl music_stop
 	pop {r4, r5, r6, r7}
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 _080027DC:
-	.4byte gUnk_0884CF70
+	.4byte gDbgMenuItemCount
 _080027E0:
-	.4byte gUnk_0884CF4C
+	.4byte gDbgMenuItems
 _080027E4:
-	.4byte 0x020185A8
+	.4byte gDbgMenuRow
 _080027E8:
 	.4byte debug_menu_process
 _080027EC:
@@ -2807,11 +2807,11 @@ _08002830:
 _08002834:
 	.4byte 0x00000008
 _08002838:
-	.4byte 0x020185A8
+	.4byte gDbgMenuRow
 _0800283C:
 	.4byte 0x07000002
 _08002840:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08002844:
 	bl dbg_draw_values
 	ldr r1, _08002920
@@ -2926,15 +2926,15 @@ _080028FA:
 _0800291C:
 	.4byte 0x00000006
 _08002920:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08002924:
-	.4byte 0x020185A8
+	.4byte gDbgMenuRow
 _08002928:
 	.4byte _08002864
 _0800292C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08002930:
-	.4byte gUnk_0884CFC4
+	.4byte gDbgTrackCount
 _08002934:
 	.4byte gLocalPlayerIndex
 _08002938:
@@ -2964,7 +2964,7 @@ _08002960:
 _08002964:
 	.4byte gLocalPlayerIndex
 _08002968:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800296C:
 	ldr r1, _08002994
 	strh r1, [r0, r2]
@@ -2996,7 +2996,7 @@ _08002994:
 _08002998:
 	.4byte 0x00000004
 _0800299C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080029A0:
 	ldr r0, _080029B4
 	strh r0, [r2, #2]
@@ -3079,7 +3079,7 @@ _08002A20:
 _08002A24:
 	.4byte 0x00000001
 _08002A28:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08002A2C:
 	ldr r1, _08002AD4
 	ldrh r2, [r1]
@@ -3119,17 +3119,17 @@ _08002A6A:
 	ldr r4, _08002ADC
 	lsls r2, r3, #4
 	ldr r0, [r4, r2]
-	bl sub_0802F09C
+	bl music_set_volume
 	lsls r1, r5, #4
 	ldr r0, [r4, r1]
-	bl sub_0802F0A2
+	bl sfx_set_volume
 	ldr r4, _08002AE0
 	movs r2, #1
 	ldr r0, [r4]
 	rsbs r3, r2, #0
 	cmp r0, r3
 	beq _08002A92
-	bl sub_0802EF7A
+	bl snd_is_playing
 	cmp r0, #0
 	beq _08002A92
 	b _08002844
@@ -3138,7 +3138,7 @@ _08002A92:
 	movs r0, #0x4e
 	movs r1, #0x7f
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	str r0, [r4]
 	b _08002844
 _08002AA2:
@@ -3172,15 +3172,15 @@ _08002AD0:
 	adds r2, r1, #1
 	b _08002820
 _08002AD4:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08002AD8:
-	.4byte 0x020185A0
+	.4byte gDbgVolume
 _08002ADC:
-	.4byte gUnk_0884CFC8
+	.4byte gDbgVolumeTable
 _08002AE0:
-	.4byte 0x020185A4
+	.4byte gDbgTestSound
 _08002AE4:
-	.4byte gUnk_0884CF70
+	.4byte gDbgMenuItemCount
 
 	.global dbg_putnum
 	.thumb_func
@@ -3286,7 +3286,7 @@ _08002B96:
 	ldr r3, _08002BC4
 	ldr r1, _08002BC8
 	str r3, [r1]
-	bl sub_0802F070
+	bl music_stop
 	pop {r4, r5, r6, r7}
 	pop {r0}
 	bx r0
@@ -3295,11 +3295,11 @@ _08002BB0:
 _08002BB4:
 	.4byte gDbgCursorY
 _08002BB8:
-	.4byte gUnk_0884CF70
+	.4byte gDbgMenuItemCount
 _08002BBC:
-	.4byte gUnk_0884CF4C
+	.4byte gDbgMenuItems
 _08002BC0:
-	.4byte 0x020185A8
+	.4byte gDbgMenuRow
 _08002BC4:
 	.4byte debug_menu_process
 _08002BC8:

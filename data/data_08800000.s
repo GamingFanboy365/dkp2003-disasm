@@ -596,8 +596,8 @@ gUnk_0884CF28:
 	.byte 0x5F, 0x73, 0x62, 0x72, 0x6B, 0x3A, 0x20, 0x48, 0x65, 0x61, 0x70, 0x20, 0x61, 0x6E, 0x64, 0x20
 	.byte 0x73, 0x74, 0x61, 0x63, 0x6B, 0x20, 0x63, 0x6F, 0x6C, 0x6C, 0x69, 0x73, 0x69, 0x6F, 0x6E, 0x0A
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global gUnk_0884CF4C
-gUnk_0884CF4C:
+	.global gDbgMenuItems
+gDbgMenuItems:
 	.4byte gUnk_0804FA64
 	.4byte gUnk_0804FA6C
 	.4byte gUnk_0804FA74
@@ -607,11 +607,11 @@ gUnk_0884CF4C:
 	.4byte gUnk_0804FAA8
 	.4byte gUnk_0804FAB0
 	.4byte gUnk_0804FAB8
-	.global gUnk_0884CF70
-gUnk_0884CF70:
+	.global gDbgMenuItemCount
+gDbgMenuItemCount:
 	.byte 0x09, 0x00, 0x00, 0x00
-	.global gUnk_0884CF74
-gUnk_0884CF74:
+	.global gDbgTrackNames
+gDbgTrackNames:
 	.4byte gUnk_0804FAC4
 	.4byte gUnk_0804FADC
 	.4byte gUnk_0804FAF4
@@ -632,14 +632,14 @@ gUnk_0884CF74:
 	.4byte gUnk_0804FC5C
 	.4byte gUnk_0804FC74
 	.4byte gUnk_0804FC8C
-	.global gUnk_0884CFC4
-gUnk_0884CFC4:
+	.global gDbgTrackCount
+gDbgTrackCount:
 	.byte 0x14, 0x00, 0x00, 0x00
-	.global gUnk_0884CFC8
-gUnk_0884CFC8:
+	.global gDbgVolumeTable
+gDbgVolumeTable:
 	.incbin "baserom.gba", 0x84CFC8, 0x44
-	.global gUnk_0884D00C
-gUnk_0884D00C:
+	.global gDbgCharacterNames
+gDbgCharacterNames:
 	.4byte gUnk_0804FCA4
 	.4byte gUnk_0804FCB0
 	.4byte gUnk_0804FCBC

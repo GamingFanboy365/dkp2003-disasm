@@ -228,9 +228,8 @@ against an mGBA run that records every executed instruction. Highlights:
   plus four `Newtest` placeholders. It draws over a title background that
   nothing else loads: a beach with the winged logo, extracted to
   `assets/graphics/debug_menu/` (`beach_preview.png` is the whole screen).
-  It still works. In mGBA, write `0x0800271D` to `gStateFunc` (`0x03005670`)
-  at the language screen. A/B change the value under the cursor and START
-  starts a race;
+  It still works: `patches/debug_menu.ips` boots into it, and
+  [`docs/debug_menu.md`](docs/debug_menu.md) describes every item;
 * level 25: a header with palette, tilesets, data and an object list, but no
   track data. A stub track record for it (id 0) follows the 48 real ones;
 * the credits screen, a cup-win screen and a second "spot screen", which
@@ -253,7 +252,8 @@ used or unused.
 ## Patches and play-testing
 
 `patches/` has a bug-fix IPS for the endless zinger buzz you get when a CPU
-racer's purple zinger hits you as you take a zipper. `tools/emu/` has the
+racer's purple zinger hits you as you take a zipper, and an IPS that boots
+into the hidden debug menu. `tools/emu/` has the
 headless mGBA harness that reproduces it from power-on and verifies the fix.
 
 ## Status / TODO

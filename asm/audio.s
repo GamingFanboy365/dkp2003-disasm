@@ -85,10 +85,10 @@ _0802EADC:
 	.4byte 0x0202F004
 	.thumb
 
-	.global sub_0802EAE0
+	.global music_play
 	.thumb_func
-	.type sub_0802EAE0, %function
-sub_0802EAE0: @ 0802EAE0
+	.type music_play, %function
+music_play: @ 0802EAE0
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -246,9 +246,9 @@ sub_0802EB4A: @ 0802EB4A
 	bl sub_0802F324
 	bl sub_0802F34C
 	movs r0, #0x80
-	bl sub_0802F09C
+	bl music_set_volume
 	movs r0, #0x80
-	bl sub_0802F0A2
+	bl sfx_set_volume
 	bl sub_0802F364
 	bl sub_0802F372
 	ldr r1, _0802EE20
@@ -772,10 +772,10 @@ _0802EF76:
 	pop {r2}
 	bx r2
 
-	.global sub_0802EF7A
+	.global snd_is_playing
 	.thumb_func
-	.type sub_0802EF7A, %function
-sub_0802EF7A: @ 0802EF7A
+	.type snd_is_playing, %function
+snd_is_playing: @ 0802EF7A
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -926,10 +926,10 @@ sub_0802F04C: @ 0802F04C
 	pop {r1}
 	bx r1
 
-	.global sub_0802F070
+	.global music_stop
 	.thumb_func
-	.type sub_0802F070, %function
-sub_0802F070: @ 0802F070
+	.type music_stop, %function
+music_stop: @ 0802F070
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -952,18 +952,18 @@ sub_0802F070: @ 0802F070
 	pop {r1}
 	bx r1
 
-	.global sub_0802F09C
+	.global music_set_volume
 	.thumb_func
-	.type sub_0802F09C, %function
-sub_0802F09C: @ 0802F09C
+	.type music_set_volume, %function
+music_set_volume: @ 0802F09C
 	ldr r1, _0802F15C
 	str r0, [r1]
 	bx lr
 
-	.global sub_0802F0A2
+	.global sfx_set_volume
 	.thumb_func
-	.type sub_0802F0A2, %function
-sub_0802F0A2: @ 0802F0A2
+	.type sfx_set_volume, %function
+sfx_set_volume: @ 0802F0A2
 	ldr r1, _0802F160
 	str r0, [r1]
 	bx lr
@@ -1038,10 +1038,10 @@ _0802F10C:
 	pop {r1}
 	bx r1
 
-	.global sub_0802F11E
+	.global snd_play
 	.thumb_func
-	.type sub_0802F11E, %function
-sub_0802F11E: @ 0802F11E
+	.type snd_play, %function
+snd_play: @ 0802F11E
 	movs r3, #0
 	b _0802F170
 	.byte 0x25, 0xE0
@@ -1228,10 +1228,10 @@ _0802F24E:
 	pop {r1}
 	bx r1
 
-	.global sub_0802F260
+	.global music_current
 	.thumb_func
-	.type sub_0802F260, %function
-sub_0802F260: @ 0802F260
+	.type music_current, %function
+music_current: @ 0802F260
 	ldr r0, _0802F458
 	ldr r0, [r0]
 	bx lr

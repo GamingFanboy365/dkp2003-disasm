@@ -68,7 +68,7 @@ _0800AD64:
 _0800AD68:
 	.4byte 0x020234AC
 _0800AD6C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800AD70:
 	cmp r3, #0
 	bne _0800AD76
@@ -271,7 +271,7 @@ _0800AEEC:
 _0800AEF0:
 	.4byte sub_0300034C
 _0800AEF4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800AEF8:
 	.4byte gUnk_0805017C
 _0800AEFC:
@@ -1065,7 +1065,7 @@ _0800B4E0:
 _0800B4E4:
 	.4byte 0x00000171
 _0800B4E8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800B4EC:
 	.4byte gUnk_0884E24C
 _0800B4F0:
@@ -1151,7 +1151,7 @@ _0800B588:
 _0800B58C:
 	.4byte 0x020234AC
 _0800B590:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800B594:
 	lsls r5, r1, #0x15
 	add r6, sl
@@ -3765,7 +3765,7 @@ _0800C834:
 _0800C838:
 	.4byte 0xFFFFFED4
 _0800C83C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800C840:
 	.4byte gRacerObjects
 _0800C844:
@@ -5026,7 +5026,7 @@ _0800D1E8:
 _0800D1EC:
 	.4byte 0x00003332
 _0800D1F0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800D1F4:
 	.4byte 0x00002492
 _0800D1F8:
@@ -6259,7 +6259,7 @@ _0800DAE0:
 _0800DAE4:
 	.4byte 0xFFFFB1E0
 _0800DAE8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800DAEC:
 	.4byte 0x0000FFFF
 _0800DAF0:
@@ -7349,7 +7349,7 @@ _0800E2F4:
 _0800E2F8:
 	.4byte 0xFFFCFFFF
 _0800E2FC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800E300:
 	.4byte 0xFFDFFFFF
 _0800E304:
@@ -7981,7 +7981,7 @@ _0800E7D8:
 _0800E7DC:
 	.4byte 0x01000040
 _0800E7E0:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800E7E4:
 	.4byte 0x0000E665
 _0800E7E8:
@@ -8081,7 +8081,7 @@ sub_0800E840: @ 0800E840
 	bx r0
 	.byte 0x00, 0x00
 _0800E890:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800E894:
 	.4byte 0x00002492
 _0800E898:
@@ -9142,7 +9142,7 @@ _0800F07A:
 	b _0800EEBA
 	.byte 0x00, 0x00
 _0800F084:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _0800F088:
 	.4byte gUnk_08050290
 _0800F08C:
@@ -9156,7 +9156,7 @@ _0800F098:
 _0800F09C:
 	.4byte gUnk_080502C8
 _0800F0A0:
-	.4byte 0x0300565C
+	.4byte gKeysHeld
 _0800F0A4:
 	.4byte 0xFFFFFF00
 _0800F0A8:

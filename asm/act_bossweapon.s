@@ -501,7 +501,7 @@ _0802CE48:
 _0802CE54:
 	.4byte sub_03003750
 _0802CE58:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802CE5C:
 	.4byte 0x0202EC50
 _0802CE60:
@@ -835,7 +835,7 @@ _0802D0E0:
 _0802D0E4:
 	.4byte gLocalPlayerIndex
 _0802D0E8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802D0EC:
 	.4byte gUnk_080536E8
 _0802D0F0:

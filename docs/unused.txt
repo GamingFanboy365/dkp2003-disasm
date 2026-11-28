@@ -34,8 +34,8 @@ Summary
       winged logo, graphics/debug_menu/), which nothing else loads.  Its
       "Cup Win" item opens the cup-win screen (fe_cups_win_init), which
       nothing else uses either.  To see it in mGBA, write 0x0800271D to
-      gStateFunc (0x03005670) at the language screen; A/B change a value,
-      START starts a race.
+      gStateFunc (0x03005670) at the language screen, or apply
+      patches/debug_menu.ips; see docs/debug_menu.md.
       functions: dbg_putc, dbg_draw_values, dbg_setup_screen,
       debug_menu_init, debug_menu_process, dbg_putnum, sub_08002B48,
       fe_cups_win_init, sub_0801AB74, sub_0801AC7C
@@ -486,12 +486,12 @@ Summary
   84CC7C         60  gUnk_0884CC7C                        text "WARING FILE=[%s] LINE=[%d]  EXP=[%s] \n"
   84CDFC          4  gUnk_0884CDFC                        
   84CF24          4  gUnk_0884CF24                        text ":tt"
-  84CF4C         36  gUnk_0884CF4C                        
-  84CF70          4  gUnk_0884CF70                        
-  84CF74         80  gUnk_0884CF74                        
-  84CFC4          4  gUnk_0884CFC4                        
-  84CFC8         68  gUnk_0884CFC8                        
-  84D00C         36  gUnk_0884D00C                        
+  84CF4C         36  gDbgMenuItems                        
+  84CF70          4  gDbgMenuItemCount                    
+  84CF74         80  gDbgTrackNames                       
+  84CFC4          4  gDbgTrackCount                       
+  84CFC8         68  gDbgVolumeTable                      
+  84D00C         36  gDbgCharacterNames                   
 
 5. Possibly unused
 ------------------

@@ -277,7 +277,7 @@ _08016ADC:
 _08016AE0:
 	.4byte 0x02024284
 _08016AE4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08016AE8:
 	.4byte gUnk_08051428
 _08016AEC:
@@ -486,7 +486,7 @@ _08016C78:
 _08016C7C:
 	.4byte gUnk_0863FDF8
 _08016C80:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08016C84:
 	cmp r3, #2
 	bne _08016C8A
@@ -819,7 +819,7 @@ _08016F30:
 _08016F34:
 	.4byte gUnk_0863FA20
 _08016F38:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08016F3C:
 	.4byte 0x02024318
 _08016F40:
@@ -994,7 +994,7 @@ _08017086:
 _08017088:
 	.4byte 0x00000020
 _0801708C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08017090:
 	.4byte 0x03005660
 _08017094:
@@ -1038,7 +1038,7 @@ _080170CA:
 	lsls r2, r3, #9
 	movs r1, #0x7f
 	movs r0, #0xcb
-	bl sub_0802F11E
+	bl snd_play
 	movs r2, #1
 	str r2, [r6, #8]
 	b _08017100
@@ -1052,7 +1052,7 @@ _080170E8:
 	movs r1, #0x7f
 	lsls r2, r3, #9
 	movs r0, #0xcc
-	bl sub_0802F11E
+	bl snd_play
 	str r4, [r6, #8]
 _08017100:
 	bl sub_0801932C
@@ -1070,7 +1070,7 @@ _0801710A:
 	movs r1, #0x7f
 	movs r0, #0xc0
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	ldr r1, [r6]
 	subs r1, #1
 	str r1, [r6]
@@ -1107,7 +1107,7 @@ _08017144:
 	lsls r2, r3, #9
 	movs r0, #0xc0
 	movs r1, #0x7f
-	bl sub_0802F11E
+	bl snd_play
 	ldr r2, [r4]
 	adds r2, #1
 	str r2, [r4]
@@ -1122,7 +1122,7 @@ _08017172:
 	lsls r2, r3, #9
 	movs r1, #0x7f
 	movs r0, #0xc0
-	bl sub_0802F11E
+	bl snd_play
 	ldr r1, _0801724C
 	ldr r2, [r1, #0xc]
 	ldr r3, [r1, #0x10]
@@ -1234,13 +1234,13 @@ _08017244:
 	ldr r5, _08017258
 	b _08016FFC
 _08017248:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _0801724C:
 	.4byte 0x02024284
 _08017250:
 	.4byte 0x0300566C
 _08017254:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08017258:
 	.4byte gUnk_0863FD80
 
@@ -1486,7 +1486,7 @@ _0801743C:
 _08017444:
 	.4byte 0x02024324
 _08017448:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0801744C:
 	.4byte gUnk_0863FD80
 _08017450:
@@ -1823,7 +1823,7 @@ _080176B6:
 _080176D0:
 	.4byte 0x00000421
 _080176D4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080176D8:
 	.4byte 0x02024324
 _080176DC:
@@ -1872,7 +1872,7 @@ _08017728:
 	movs r0, #0xcd
 	movs r1, #0x7f
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	movs r0, #1
 	str r0, [r4]
 	b _08017722
@@ -1921,7 +1921,7 @@ _08017772:
 	movs r0, #0xd8
 	movs r1, #0x7f
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	movs r0, #3
 	str r0, [r4]
 	b _08017722
@@ -1943,7 +1943,7 @@ _080177B4:
 	b _08017722
 	.byte 0x00, 0x00
 _080177BC:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080177C0:
 	.4byte 0x03005660
 _080177C4:
@@ -1951,7 +1951,7 @@ _080177C4:
 _080177C8:
 	.4byte 0x02024324
 _080177CC:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 
 	.global sub_080177D0
 	.thumb_func
@@ -1994,7 +1994,7 @@ _0801780A:
 _08017810:
 	.4byte 0x02024324
 _08017814:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global fe_cranky_init
 	.thumb_func
@@ -2532,7 +2532,7 @@ _08017C04:
 	movs r1, #0x7f
 	lsls r2, r3, #9
 	movs r0, #0xbd
-	bl sub_0802F11E
+	bl snd_play
 	ldr r3, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	cmp r3, r1
@@ -2552,14 +2552,14 @@ _08017C46:
 	movs r0, #0xbb
 	movs r1, #0x4d
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	b _08017B9E
 _08017C54:
 	movs r3, #0x80
 	movs r1, #0x61
 	lsls r2, r3, #9
 	movs r0, #0xbc
-	bl sub_0802F11E
+	bl snd_play
 	b _08017B9E
 _08017C62:
 	movs r1, #0
@@ -2587,7 +2587,7 @@ _08017C8A:
 	movs r0, #0xec
 	movs r1, #0x14
 	lsls r2, r3, #9
-	bl sub_0802F11E
+	bl snd_play
 	b _08017B86
 _08017C98:
 	ldr r3, [r5, #4]
@@ -2617,12 +2617,12 @@ _08017CB8:
 	movs r1, #0xa
 	adds r2, r4, #0
 	movs r0, #0xeb
-	bl sub_0802F11E
+	bl snd_play
 	movs r1, #0x3c
 	str r0, [r5, #8]
 	adds r2, r4, #0
 	movs r0, #0xec
-	bl sub_0802F11E
+	bl snd_play
 	b _08017B86
 _08017CE2:
 	bl sub_0801E1A0
@@ -2734,7 +2734,7 @@ _08017DBC:
 _08017DC0:
 	.4byte 0x0300566C
 _08017DC4:
-	.4byte 0x0300565E
+	.4byte gKeysNew
 _08017DC8:
 	.4byte gUnk_0829F3D0
 _08017DCC:

@@ -352,7 +352,7 @@ _0800F350:
 _0800F354:
 	.4byte 0x0200436C
 _0800F358:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800F35C:
 	.4byte gUnk_087146C0
 _0800F360:
@@ -484,7 +484,7 @@ _0800F44C:
 _0800F450:
 	.4byte 0x02023F70
 _0800F454:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800F458:
 	.4byte gUnk_087146C0
 _0800F45C:

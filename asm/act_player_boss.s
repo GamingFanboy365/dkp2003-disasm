@@ -3112,4 +3112,4 @@ _08025E90:
 _08025EB4:
 	.4byte gRacerObjects
 _08025EB8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup

@@ -9,7 +9,11 @@ gObjStaticHitList = 0x02004378;
 gObjFreeList = 0x0201838C;
 gDbgCursorX = 0x02018598;
 gDbgCursorY = 0x0201859C;
+gDbgVolume = 0x020185A0;
+gDbgTestSound = 0x020185A4;
+gDbgMenuRow = 0x020185A8;
 gRacerData = 0x02021E18;
+gGameSetup = 0x0202D74C;
 gLocalPlayerIndex = 0x0202DE58;
 gSfxVoices = 0x0202DECC;
 gSfxPendingPool = 0x0202DF8C;
@@ -18,6 +22,8 @@ gSfxPendingMask = 0x0202E390;
 gSfxNextId = 0x0202E394;
 gRedZingerBuzzOwner = 0x0202EC04;
 gBlueZingerBuzzOwner = 0x0202EC0C;
+gKeysHeld = 0x0300565C;
+gKeysNew = 0x0300565E;
 gStateFunc = 0x03005670;
 
 SECTIONS

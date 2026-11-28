@@ -247,7 +247,7 @@ _0802C080:
 _0802C08C:
 	.4byte 0x0202EC44
 _0802C090:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802C094:
 	.4byte gUnk_080531DC
 _0802C098:

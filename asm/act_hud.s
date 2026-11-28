@@ -89,7 +89,7 @@ _0800F89C:
 _0800F8A0:
 	.4byte 0x00000000
 _0800F8A4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800F8A8:
 	.4byte gUnk_087146C0
 _0800F8AC:
@@ -449,7 +449,7 @@ _0800FB40:
 	b _0800FACC
 	.byte 0x00, 0x00
 _0800FB48:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800FB4C:
 	.4byte 0x02023F84
 _0800FB50:
@@ -852,7 +852,7 @@ _0800FE26:
 	bl obj_initialise
 	movs r2, #5
 	str r2, [r4]
-	bl sub_0802F070
+	bl music_stop
 	b _0800FD32
 	.global _0800FE54
 _0800FE54:
@@ -887,7 +887,7 @@ _0800FE70:
 _0800FE8C:
 	.4byte gLocalPlayerIndex
 _0800FE90:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800FE94:
 	.4byte gUnk_08713650
 _0800FE98:
@@ -1038,7 +1038,7 @@ _0800FF88:
 _0800FFA0:
 	.4byte gLocalPlayerIndex
 _0800FFA4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0800FFA8:
 	.4byte gUnk_08713650
 _0800FFAC:
@@ -1746,7 +1746,7 @@ _0801047C:
 _08010480:
 	.4byte gLocalPlayerIndex
 _08010484:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08010488:
 	.4byte 0x02018F34
 _0801048C:

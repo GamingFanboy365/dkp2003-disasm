@@ -84,7 +84,7 @@ _0802C4DE:
 	b _0802C480
 	.byte 0x00, 0x00
 _0802C4E8:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802C4EC:
 	.4byte 0x0202EC48
 _0802C4F0:
@@ -222,7 +222,7 @@ _0802C5DA:
 	b _0802C550
 	.byte 0x00, 0x00
 _0802C5F4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802C5F8:
 	.4byte 0x00028F5C
 _0802C5FC:
@@ -665,7 +665,7 @@ _0802C940:
 _0802C944:
 	.4byte sub_03000138
 _0802C948:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _0802C94C:
 	.4byte gUnk_0885003C
 

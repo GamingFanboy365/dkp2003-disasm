@@ -408,7 +408,7 @@ _0801159C:
 _080115A0:
 	.4byte 0x0000011F
 _080115A4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 
 	.global sub_080115A8
 	.thumb_func
@@ -630,7 +630,7 @@ _08011738:
 _0801173C:
 	.4byte 0x02023F8C
 _08011740:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011744:
 	.4byte gRacerObjects
 _08011748:
@@ -901,7 +901,7 @@ _0801192C:
 _08011938:
 	.4byte gLocalPlayerIndex
 _0801193C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011940:
 	.4byte 0x0202DE5C
 _08011944:
@@ -1087,7 +1087,7 @@ _08011A90:
 	adds r0, r7, #0
 	b _08011A40
 _08011A94:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08011A98:
 	.4byte gRacerObjects
 _08011A9C:

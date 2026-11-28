@@ -69,7 +69,7 @@ _08000524:
 _08000528:
 	.4byte 0x0000F8F8
 _0800052C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08000530:
 	.4byte gUnk_0804F5A0
 _08000534:
@@ -83,7 +83,7 @@ _08000540:
 _08000544:
 	.4byte 0x81000200
 _08000548:
-	bl sub_0802F070
+	bl music_stop
 	bl sub_0802F04C
 	bl sub_0801E1A0
 	ldr r4, _080005C8
@@ -209,7 +209,7 @@ _0800063C:
 _08000640:
 	.4byte gStateFunc
 _08000644:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08000648:
 	cmp r3, #2
 	bne _0800064E
@@ -388,7 +388,7 @@ _080007A6:
 _080007B0:
 	.4byte 0x00000008
 _080007B4:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _080007B8:
 	.4byte gUnk_087146C0
 _080007BC:
@@ -492,7 +492,7 @@ _08000884:
 _08000888:
 	.4byte 0x0300566C
 _0800088C:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08000890:
 	cmp r0, #2
 	bne _08000896
@@ -659,7 +659,7 @@ _080009D8:
 _080009DC:
 	.4byte gUnk_0804F654
 _080009E0:
-	.4byte 0x0300565C
+	.4byte gKeysHeld
 _080009E4:
 	.4byte 0x0000030F
 
@@ -1129,7 +1129,7 @@ _08000D2C:
 _08000D30:
 	.4byte 0x02000820
 _08000D34:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08000D38:
 	.4byte gUnk_08051D40
 _08000D3C:
@@ -1588,7 +1588,7 @@ _08001088:
 _0800108C:
 	.4byte 0x03003FC8
 _08001090:
-	.4byte 0x0202D74C
+	.4byte gGameSetup
 _08001094:
 	.4byte gUnk_08051D40
 _08001098:
