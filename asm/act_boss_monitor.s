@@ -173,7 +173,7 @@ _08025FE4:
 _08026010:
 	add r0, sp, #0x14
 	add r1, sp, #0x10
-	bl boss2_get_pos
+	bl player_boss_get_pos
 	add r0, sp, #0xc
 	add r1, sp, #8
 	bl boss_get_pos

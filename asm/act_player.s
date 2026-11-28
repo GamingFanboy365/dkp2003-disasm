@@ -11482,7 +11482,7 @@ _0800A2D0:
 _0800A2E0:
 	adds r0, r5, #0
 	ldr r1, _0800A520
-	bl sub_08014264
+	bl racer_take_damage
 	b _0800A2D0
 _0800A2EA:
 	ldr r1, [r6, #4]
@@ -11909,7 +11909,7 @@ _0800A5F2:
 _0800A618:
 	adds r0, r5, #0
 	ldr r1, _0800A6A0
-	bl sub_08014264
+	bl racer_take_damage
 	b _0800A2D0
 _0800A622:
 	ldr r1, [r6, #4]
@@ -12053,7 +12053,7 @@ _0800A71C:
 	bne _0800A702
 	adds r0, r4, #0
 	ldr r1, _0800A778
-	bl sub_08014264
+	bl racer_take_damage
 	b _0800A702
 _0800A730:
 	ldr r2, [r5, #4]

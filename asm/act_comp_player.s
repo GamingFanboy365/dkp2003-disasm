@@ -8252,10 +8252,10 @@ _0800E9B0:
 _0800E9B4:
 	.4byte gRacerObjects
 
-	.global sub_0800E9B8
+	.global camera_chase
 	.thumb_func
-	.type sub_0800E9B8, %function
-sub_0800E9B8: @ 0800E9B8
+	.type camera_chase, %function
+camera_chase: @ 0800E9B8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -8579,10 +8579,10 @@ _0800EC34:
 _0800EC38:
 	.4byte atan2_fx
 
-	.global sub_0800EC3C
+	.global camera_follow_vblank
 	.thumb_func
-	.type sub_0800EC3C, %function
-sub_0800EC3C: @ 0800EC3C
+	.type camera_follow_vblank, %function
+camera_follow_vblank: @ 0800EC3C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -8694,10 +8694,10 @@ _0800ED10:
 _0800ED14:
 	.4byte 0xFFFFE000
 
-	.global sub_0800ED18
+	.global camera_flyby
 	.thumb_func
-	.type sub_0800ED18, %function
-sub_0800ED18: @ 0800ED18
+	.type camera_flyby, %function
+camera_flyby: @ 0800ED18
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -8812,7 +8812,7 @@ _0800EDDE:
 	str r2, [r1, #8]
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_0800E9B8
+	bl camera_chase
 	b _0800ED64
 _0800EE00:
 	.4byte cos_fx

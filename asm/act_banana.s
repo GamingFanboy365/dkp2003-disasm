@@ -134,10 +134,10 @@ _0801139C:
 _080113A0:
 	.4byte gUnk_08050968
 
-	.global sub_080113A4
+	.global race_check_checkpoint
 	.thumb_func
-	.type sub_080113A4, %function
-sub_080113A4: @ 080113A4
+	.type race_check_checkpoint, %function
+race_check_checkpoint: @ 080113A4
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -410,10 +410,10 @@ _080115A0:
 _080115A4:
 	.4byte gGameSetup
 
-	.global sub_080115A8
+	.global race_update_progress
 	.thumb_func
-	.type sub_080115A8, %function
-sub_080115A8: @ 080115A8
+	.type race_update_progress, %function
+race_update_progress: @ 080115A8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -442,7 +442,7 @@ _080115D6:
 	ldm r5!, {r7}
 	ldr r0, [sp, #0x10]
 	adds r1, r7, #0
-	bl sub_080113A4
+	bl race_check_checkpoint
 	movs r3, #1
 	movs r4, #0
 	ldrsh r2, [r6, r4]
@@ -909,10 +909,10 @@ _08011944:
 _08011948:
 	.4byte gRacerObjects
 
-	.global sub_0801194C
+	.global race_place_unfinished
 	.thumb_func
-	.type sub_0801194C, %function
-sub_0801194C: @ 0801194C
+	.type race_place_unfinished, %function
+race_place_unfinished: @ 0801194C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

@@ -926,7 +926,7 @@ _08020938:
 	adds r4, r1, #0
 	adds r4, #0xa0
 	ldr r1, [r4, #4]
-	bl sub_0802108C
+	bl booster_autopilot_set
 	ldr r2, _08020A70
 	ldr r1, [r4, #4]
 	ldr r0, [r2]
@@ -976,7 +976,7 @@ _080209CC:
 	adds r4, r1, #0
 	adds r4, #0xa0
 	ldr r1, [r4, #4]
-	bl sub_08020DC8
+	bl booster_blue_set
 	ldr r2, _08020A70
 	ldr r0, [r4, #4]
 	ldr r1, [r2]
@@ -1049,7 +1049,7 @@ _08020A6C:
 _08020A70:
 	.4byte gLocalPlayerIndex
 _08020A74:
-	.4byte sub_08020A90
+	.4byte balloon_pop_sfx
 _08020A78:
 	.4byte gUnk_08052624
 _08020A7C:
@@ -1063,10 +1063,10 @@ _08020A88:
 _08020A8C:
 	.4byte gUnk_080525AC
 
-	.global sub_08020A90
+	.global balloon_pop_sfx
 	.thumb_func
-	.type sub_08020A90, %function
-sub_08020A90: @ 08020A90
+	.type balloon_pop_sfx, %function
+balloon_pop_sfx: @ 08020A90
 	push {lr}
 	movs r2, #1
 	sub sp, #8

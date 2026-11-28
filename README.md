@@ -212,7 +212,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-898 functions are disassembled and 787 have real names:
+898 functions are disassembled and 890 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -267,8 +267,15 @@ make compare
   disassembly in a comment.
 
 Hints such as new entry points or data ranges go in `config/dkp.cfg`, names
-in `config/symbols.txt` (functions and data), and file splits in
-`config/files.txt`.
+in `config/symbols.txt` (functions, code labels and data), and file splits in
+`config/files.txt`. The two race overlays run at the same address, so their
+code is named as `ovl_a:0x03003FC8 name` / `ovl_b:0x03003FC8 name`.
+
+Some large functions reach parts of themselves with `bl` used as a long
+branch, and the analyzer takes each such target for a function. Those parts
+are named `<function>_<address>` (`fe_title_draw`, `ai_forward`,
+`act_player_boss`, parts of `mcp_process`), so the function count includes
+them.
 
 Code that is only reached through computed jumps (mostly in the ARM audio
 engine) is found by running the game. `tools/emu/cover_hints.py` reads mGBA

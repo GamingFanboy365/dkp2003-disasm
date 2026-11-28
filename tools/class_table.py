@@ -24,7 +24,7 @@ def main():
     names = {}
     for l in open(sys.argv[2]):
         p = l.split('#')[0].split()
-        if len(p) >= 2:
+        if len(p) >= 2 and ':' not in p[0]:
             names[int(p[0], 16)] = p[1]
     taken = set(names.values())
     out = []

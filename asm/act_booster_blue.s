@@ -341,7 +341,7 @@ _08020D0C:
 	str r1, [r5, #0x1c]
 	ldr r0, [r5, #4]
 	ldr r1, [r6, #4]
-	bl sub_08020DC8
+	bl booster_blue_set
 	b _08020CDA
 _08020D2C:
 	movs r0, #1
@@ -381,7 +381,7 @@ _08020D50:
 	str r7, [r5, #0x1c]
 	ldr r0, [r5, #4]
 	ldr r1, [r6, #4]
-	bl sub_08020DC8
+	bl booster_blue_set
 	b _08020CDA
 _08020D7E:
 	ldr r0, _08020DB4
@@ -419,10 +419,10 @@ _08020DC0:
 _08020DC4:
 	.4byte gUnk_08052640
 
-	.global sub_08020DC8
+	.global booster_blue_set
 	.thumb_func
-	.type sub_08020DC8, %function
-sub_08020DC8: @ 08020DC8
+	.type booster_blue_set, %function
+booster_blue_set: @ 08020DC8
 	ldr r2, _08020DD4
 	str r0, [r2]
 	ldr r0, _08020DD8

@@ -7,9 +7,9 @@
 
 	.arm
 
-	.global sub_ovl_a_03003FC8
-	.type sub_ovl_a_03003FC8, %function
-sub_ovl_a_03003FC8: @ 03003FC8
+	.global ovl_a_stream_map
+	.type ovl_a_stream_map, %function
+ovl_a_stream_map: @ 03003FC8
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	ldr ip, _ovl_a_0300451C
 	ldr r3, [ip, #0x34]
@@ -391,9 +391,9 @@ _ovl_a_03004520:
 _ovl_a_03004524:
 	.4byte gUnk_081136E0
 
-	.global sub_ovl_a_03004528
-	.type sub_ovl_a_03004528, %function
-sub_ovl_a_03004528: @ 03004528
+	.global ovl_a_horizon_lines
+	.type ovl_a_horizon_lines, %function
+ovl_a_horizon_lines: @ 03004528
 	push {r4, r5, r6, r7, r8, lr}
 	rsb r4, r0, #0
 	cmp r4, #0xa0
@@ -483,9 +483,9 @@ _ovl_a_03004660:
 _ovl_a_03004664:
 	.4byte 0x020042A4
 
-	.global sub_ovl_a_03004668
-	.type sub_ovl_a_03004668, %function
-sub_ovl_a_03004668: @ 03004668
+	.global ovl_a_render
+	.type ovl_a_render, %function
+ovl_a_render: @ 03004668
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	sub fp, ip, #4
@@ -698,7 +698,7 @@ _ovl_a_03004984:
 	ldr r0, [fp, #-0x5c]
 	ldr r1, [fp, #-0x50]
 	ldr r2, [fp, #-0x68]
-	bl sub_ovl_a_03004528
+	bl ovl_a_horizon_lines
 	ldr r2, [fp, #-0x54]
 	cmp r2, #0x50
 	movge r2, #0x50
@@ -789,7 +789,7 @@ _ovl_a_03004AC4:
 	lsr r1, r2, #4
 	lsr r0, r3, #3
 	lsr r2, ip, #3
-	bl sub_ovl_a_03003FC8
+	bl ovl_a_stream_map
 _ovl_a_03004AE0:
 	ldr r1, [fp, #-0x68]
 	cmn r1, #0x50

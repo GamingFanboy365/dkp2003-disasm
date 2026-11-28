@@ -222,7 +222,7 @@ def make_gen(rom_path):
     names = {}
     for l in open(os.path.join(ROOT, 'config', 'symbols.txt')):
         p = l.split('#')[0].split()
-        if len(p) >= 2:
+        if len(p) >= 2 and ':' not in p[0]:      # (overlay:address entries are code)
             names[int(p[0], 16) & ~1] = p[1]
     rom = g.rom
     for c in range(0x40):

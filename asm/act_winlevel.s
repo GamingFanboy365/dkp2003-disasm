@@ -4266,7 +4266,7 @@ _080230E8:
 _080230EC:
 	.4byte 0x010000FC
 _080230F0:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _080230F4:
 	ldr r0, _08023110
 	bl AGBPrintf
@@ -4287,10 +4287,10 @@ _08023110:
 _08023114:
 	.4byte gUnk_087146C0
 
-	.global sub_08023118
+	.global player_boss_choose_next_node
 	.thumb_func
-	.type sub_08023118, %function
-sub_08023118: @ 08023118
+	.type player_boss_choose_next_node, %function
+player_boss_choose_next_node: @ 08023118
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4753,10 +4753,10 @@ _0802347C:
 _08023480:
 	.4byte udiv
 
-	.global sub_08023484
+	.global player_boss_turn
 	.thumb_func
-	.type sub_08023484, %function
-sub_08023484: @ 08023484
+	.type player_boss_turn, %function
+player_boss_turn: @ 08023484
 	push {r4, r5, r6, lr}
 	adds r4, r2, #0
 	ldr r0, [r4, #4]
@@ -4868,10 +4868,10 @@ _08023540:
 	asrs r6, r2, #8
 	b _0802349C
 
-	.global sub_08023548
+	.global player_boss_vertical_speed
 	.thumb_func
-	.type sub_08023548, %function
-sub_08023548: @ 08023548
+	.type player_boss_vertical_speed, %function
+player_boss_vertical_speed: @ 08023548
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -5471,10 +5471,10 @@ _0802395C:
 _08023960:
 	.4byte 0xFFFFF060
 
-	.global sub_08023964
+	.global player_boss_pitch
 	.thumb_func
-	.type sub_08023964, %function
-sub_08023964: @ 08023964
+	.type player_boss_pitch, %function
+player_boss_pitch: @ 08023964
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -6048,10 +6048,10 @@ _08023D6C:
 _08023D70:
 	.4byte 0x00000513
 
-	.global sub_08023D74
+	.global player_boss_bank
 	.thumb_func
-	.type sub_08023D74, %function
-sub_08023D74: @ 08023D74
+	.type player_boss_bank, %function
+player_boss_bank: @ 08023D74
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -6522,10 +6522,10 @@ _08024098:
 _0802409C:
 	.4byte gUnk_0884EF50
 
-	.global sub_080240A0
+	.global player_boss_pitch_input
 	.thumb_func
-	.type sub_080240A0, %function
-sub_080240A0: @ 080240A0
+	.type player_boss_pitch_input, %function
+player_boss_pitch_input: @ 080240A0
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -6704,10 +6704,10 @@ _080241CA:
 _080241CC:
 	.4byte udiv
 
-	.global sub_080241D0
+	.global player_boss_roll
 	.thumb_func
-	.type sub_080241D0, %function
-sub_080241D0: @ 080241D0
+	.type player_boss_roll, %function
+player_boss_roll: @ 080241D0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -6952,10 +6952,10 @@ _0802437C:
 _08024380:
 	.4byte 0xFFFF0000
 
-	.global sub_08024384
+	.global player_boss_ease_offsets
 	.thumb_func
-	.type sub_08024384, %function
-sub_08024384: @ 08024384
+	.type player_boss_ease_offsets, %function
+player_boss_ease_offsets: @ 08024384
 	push {r4, r5, r6, r7, lr}
 	adds r0, #0xa0
 	adds r5, r1, #0
@@ -7092,10 +7092,10 @@ _0802444E:
 	subs r0, r3, r2
 	b _08024410
 
-	.global boss2_engine_pitch2_cb
+	.global player_boss_engine_pitch2_cb
 	.thumb_func
-	.type boss2_engine_pitch2_cb, %function
-boss2_engine_pitch2_cb: @ 08024490
+	.type player_boss_engine_pitch2_cb, %function
+player_boss_engine_pitch2_cb: @ 08024490
 	push {r4, r5, r6, lr}
 	ldr r0, _08024504
 	ldr r3, [r0, #0x10]
@@ -7158,12 +7158,12 @@ _08024500:
 	rsbs r4, r2, #0
 	b _080244B6
 _08024504:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 
-	.global boss2_engine_sfx_update
+	.global player_boss_engine_sfx_update
 	.thumb_func
-	.type boss2_engine_sfx_update, %function
-boss2_engine_sfx_update: @ 08024508
+	.type player_boss_engine_sfx_update, %function
+player_boss_engine_sfx_update: @ 08024508
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -7323,7 +7323,7 @@ _0802461C:
 	str r0, [r7]
 	adds r0, r6, #0
 	mov r8, r2
-	bl boss2_engine_pitch2_cb
+	bl player_boss_engine_pitch2_cb
 	ldr r1, _080246B4
 	movs r3, #0xc2
 	lsls r2, r3, #1
@@ -7376,12 +7376,12 @@ _080246A2:
 	b _08024534
 	.byte 0x00, 0x00
 _080246AC:
-	.4byte boss2_engine_vol2_cb
+	.4byte player_boss_engine_vol2_cb
 _080246B0:
-	.4byte boss2_engine_pitch_cb
+	.4byte player_boss_engine_pitch_cb
 _080246B4:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _080246B8:
-	.4byte boss2_engine_vol_cb
+	.4byte player_boss_engine_vol_cb
 _080246BC:
-	.4byte boss2_engine_pitch2_cb
+	.4byte player_boss_engine_pitch2_cb

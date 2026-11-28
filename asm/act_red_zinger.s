@@ -842,7 +842,7 @@ _08029842:
 _0802986C:
 	mov r0, fp
 	ldr r1, _08029AD8
-	bl sub_08014264
+	bl racer_take_damage
 	b _08029362
 _08029876:
 	ldr r3, [sp, #0x44]

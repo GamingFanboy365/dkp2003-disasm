@@ -209,7 +209,7 @@ _0802BB56:
 	beq _0802BAF4
 	adds r0, r6, #0
 	ldr r1, _0802BC98
-	bl sub_08014264
+	bl racer_take_damage
 	b _0802BAE8
 _0802BB6E:
 	movs r0, #0x26

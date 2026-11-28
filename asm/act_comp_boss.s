@@ -693,7 +693,7 @@ _08027970:
 	add r3, sp, #0x18
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_0802642C
+	bl boss_choose_next_node
 	mov r2, r8
 	ldr r6, [r2, #0x64]
 	ldr r1, [sp, #0x1c]
@@ -784,7 +784,7 @@ _08027A28:
 _08027A30:
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_08026C60
+	bl boss_ease_offsets
 	movs r6, #0xf4
 	movs r3, #0xf6
 	adds r1, r6, r7

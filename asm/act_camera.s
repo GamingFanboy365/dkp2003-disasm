@@ -85,7 +85,7 @@ _0800F144:
 	ldr r1, [r6, r2]
 	adds r0, r7, #0
 	subs r5, #1
-	bl sub_0800E9B8
+	bl camera_chase
 	cmp r5, #0
 	bge _0800F144
 	mov r3, fp
@@ -417,7 +417,7 @@ _0800F3C8:
 	.4byte gRacerObjects
 _0800F3CC:
 	adds r0, r5, #0
-	bl sub_0800E9B8
+	bl camera_chase
 	bl cam_path_clear
 	movs r1, #0xd3
 	ldr r0, _0800F448
@@ -541,7 +541,7 @@ _0800F4B4:
 	ldr r2, _0800F5B8
 	ldr r1, [r2, r0]
 	adds r0, r4, #0
-	bl sub_0800E9B8
+	bl camera_chase
 	.global _0800F4C4
 _0800F4C4:
 	add sp, #4
@@ -556,7 +556,7 @@ _0800F4CC:
 	ldr r2, _0800F5B8
 	ldr r1, [r2, r0]
 	adds r0, r4, #0
-	bl sub_0800ED18
+	bl camera_flyby
 	b _0800F4C4
 	.global _0800F4DE
 _0800F4DE:

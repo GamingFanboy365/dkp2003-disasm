@@ -370,10 +370,10 @@ _08021084:
 _08021088:
 	.4byte gUnk_080526E8
 
-	.global sub_0802108C
+	.global booster_autopilot_set
 	.thumb_func
-	.type sub_0802108C, %function
-sub_0802108C: @ 0802108C
+	.type booster_autopilot_set, %function
+booster_autopilot_set: @ 0802108C
 	ldr r2, _08021098
 	str r0, [r2]
 	ldr r0, _0802109C

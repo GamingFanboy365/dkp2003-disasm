@@ -145,7 +145,7 @@ _08013FD8:
 	cmp r3, #7
 	bhi _08013FE2
 	adds r0, r4, #0
-	bl sub_08013D4C
+	bl battle_check_out
 _08013FE2:
 	bl fade_update
 	ldr r3, [r5]
@@ -339,7 +339,7 @@ _08014140:
 	b _08014044
 	.global _0801416C
 _0801416C:
-	bl sub_08013C68
+	bl battle_rank_racers
 	movs r0, #0x39
 	bl obj_new
 	movs r1, #0
@@ -472,10 +472,10 @@ _0801425C:
 _08014260:
 	.4byte gUnk_080510B4
 
-	.global sub_08014264
+	.global racer_take_damage
 	.thumb_func
-	.type sub_08014264, %function
-sub_08014264: @ 08014264
+	.type racer_take_damage, %function
+racer_take_damage: @ 08014264
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r4, #0xa0

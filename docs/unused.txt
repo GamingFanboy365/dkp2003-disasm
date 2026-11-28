@@ -172,8 +172,8 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: __gedf2
 
-  sub_08013258: 1 function(s), 0 data block(s), 80 bytes
-      functions: sub_08013258
+  introplane_zoom: 1 function(s), 0 data block(s), 80 bytes
+      functions: introplane_zoom
 
   cam_path_set: 1 function(s), 0 data block(s), 72 bytes
       functions: cam_path_set
@@ -279,7 +279,7 @@ Summary
   08013154      88  act_introplane.s         init_introplane
   080131AC      88  act_introplane.s         init_introdiddy
   08013204      84  act_introplane.s         init_introkong
-  08013258      80  act_introplane.s         sub_08013258
+  08013258      80  act_introplane.s         introplane_zoom
   080132A8      88  act_introplane.s         init_intropilot
   0801429C     516  act_battle_monitor.s     fe_credits_process
   080144A0     112  frontend.s               fe_credits_init

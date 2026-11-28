@@ -62,10 +62,10 @@ free_sfx: @ 08013C64
 	bx lr
 	.byte 0xC0, 0x46
 
-	.global sub_08013C68
+	.global battle_rank_racers
 	.thumb_func
-	.type sub_08013C68, %function
-sub_08013C68: @ 08013C68
+	.type battle_rank_racers, %function
+battle_rank_racers: @ 08013C68
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -187,10 +187,10 @@ _08013D44:
 _08013D48:
 	.4byte 0x0202D7D4
 
-	.global sub_08013D4C
+	.global battle_check_out
 	.thumb_func
-	.type sub_08013D4C, %function
-sub_08013D4C: @ 08013D4C
+	.type battle_check_out, %function
+battle_check_out: @ 08013D4C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

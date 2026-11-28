@@ -7,9 +7,9 @@
 
 	.arm
 
-	.global sub_ovl_b_03003FC8
-	.type sub_ovl_b_03003FC8, %function
-sub_ovl_b_03003FC8: @ 03003FC8
+	.global ovl_b_stream_map
+	.type ovl_b_stream_map, %function
+ovl_b_stream_map: @ 03003FC8
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	ldr ip, _ovl_b_03004370
 	ldr r3, [ip, #0x20]
@@ -271,9 +271,9 @@ _ovl_b_03004370:
 _ovl_b_03004374:
 	.4byte gUnk_081136E0
 
-	.global sub_ovl_b_03004378
-	.type sub_ovl_b_03004378, %function
-sub_ovl_b_03004378: @ 03004378
+	.global ovl_b_render
+	.type ovl_b_render, %function
+ovl_b_render: @ 03004378
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	ldr r0, _ovl_b_03004D7C
@@ -575,7 +575,7 @@ _ovl_b_030047C0:
 	ldr ip, [fp, #-0x48]
 	lsr r0, r1, #4
 	lsr r1, ip, #4
-	bl sub_ovl_b_03003FC8
+	bl ovl_b_stream_map
 _ovl_b_030047D4:
 	ldr r3, [fp, #-0x54]
 	cmn r3, #0x50
@@ -974,9 +974,9 @@ _ovl_b_03004D98:
 _ovl_b_03004D9C:
 	.4byte 0x02002B60
 
-	.global sub_ovl_b_03004DA0
-	.type sub_ovl_b_03004DA0, %function
-sub_ovl_b_03004DA0: @ 03004DA0
+	.global ovl_b_hblank
+	.type ovl_b_hblank, %function
+ovl_b_hblank: @ 03004DA0
 	str lr, [sp, #-4]!
 	mov ip, #0x4000000
 	ldrh r0, [ip, #6]

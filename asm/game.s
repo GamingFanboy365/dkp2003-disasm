@@ -729,7 +729,7 @@ _08000A5E:
 	bl _call_via_r1
 	b _08000A48
 _08000A66:
-	bl sub_0800EC3C
+	bl camera_follow_vblank
 	b _08000A36
 _08000A6C:
 	bl race_regs_commit_a

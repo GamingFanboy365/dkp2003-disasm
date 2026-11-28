@@ -222,7 +222,7 @@ _08011C30:
 	str r1, [r0, #8]
 _08011C46:
 	adds r0, r5, #0
-	bl sub_080115A8
+	bl race_update_progress
 	bl fade_update
 	ldr r3, [r4]
 	cmp r3, #0xa
@@ -566,7 +566,7 @@ _08011EDA:
 _08011EE8:
 	bl fade_to_black
 	adds r0, r5, #0
-	bl sub_0801194C
+	bl race_place_unfinished
 	ldr r1, _08011F44
 	movs r3, #0xa
 _08011EF6:

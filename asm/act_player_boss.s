@@ -58,7 +58,7 @@ _080246D6:
 _08024718:
 	.4byte 0x00000001
 _0802471C:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _08024720:
 	.4byte 0x0202EA10
 _08024724:
@@ -906,7 +906,7 @@ _08024D54:
 	add r3, sp, #0x30
 	mov r0, sb
 	mov r1, fp
-	bl sub_08023118
+	bl player_boss_choose_next_node
 	mov r2, fp
 	ldr r3, [r2, #0x64]
 	ldr r1, [sp, #0x34]
@@ -1028,11 +1028,11 @@ act_player_boss_24E3C: @ 08024E3C
 	ldr r2, [sp, #0x28]
 	mov r0, sb
 	mov r1, fp
-	bl sub_08023484
+	bl player_boss_turn
 	mov r0, sb
 	ldr r2, [sp, #0x28]
 	mov r1, fp
-	bl sub_08023964
+	bl player_boss_pitch
 	mov r0, sb
 	ldr r2, [sp, #0x28]
 	mov r1, fp
@@ -1040,7 +1040,7 @@ act_player_boss_24E3C: @ 08024E3C
 	mov r0, sb
 	mov r1, fp
 	ldr r2, [sp, #0x28]
-	bl sub_08023D74
+	bl player_boss_bank
 	mov r3, fp
 	adds r3, #0xdc
 	ldr r6, [r3]
@@ -1062,14 +1062,14 @@ act_player_boss_24E7A: @ 08024E7A
 	str r2, [r1, #0x6c]
 	ldr r2, [sp, #0x28]
 	mov r0, sb
-	bl sub_080240A0
+	bl player_boss_pitch_input
 	mov r0, sb
 	ldr r2, [sp, #0x28]
 	mov r1, fp
-	bl sub_080241D0
+	bl player_boss_roll
 	mov r0, sb
 	mov r1, fp
-	bl sub_08024384
+	bl player_boss_ease_offsets
 	movs r5, #0xf4
 	movs r6, #0xf6
 	add r6, sb
@@ -1209,7 +1209,7 @@ _08024FA2:
 _08024FA4:
 	.4byte 0x00000000
 _08024FA8:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _08024FAC:
 	.4byte 0x02004224
 _08024FB0:
@@ -1363,7 +1363,7 @@ _080250D0:
 	mov r1, fp
 	adds r7, #0xf0
 	movs r4, #1
-	bl boss2_engine_sfx_update
+	bl player_boss_engine_sfx_update
 	rsbs r3, r4, #0
 	ldr r2, [r7]
 	mov ip, r3
@@ -2187,7 +2187,7 @@ act_player_boss_256C8: @ 080256C8
 	mov r1, fp
 	mov r0, sb
 	ldr r2, [sp, #0x28]
-	bl sub_08023548
+	bl player_boss_vertical_speed
 	lsls r1, r0, #1
 	adds r5, r1, r0
 	lsls r4, r5, #0xe
@@ -2737,7 +2737,7 @@ _08025C10:
 _08025C28:
 	.4byte 0x00000014
 _08025C2C:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _08025C30:
 	.4byte 0xFFFFD99A
 _08025C34:
@@ -2774,10 +2774,10 @@ _08025C70:
 _08025C74:
 	.4byte 0x00000BB5
 
-	.global boss2_get_pos
+	.global player_boss_get_pos
 	.thumb_func
-	.type boss2_get_pos, %function
-boss2_get_pos: @ 08025C78
+	.type player_boss_get_pos, %function
+player_boss_get_pos: @ 08025C78
 	ldr r2, _08025C84
 	ldr r3, [r2, #0x5c]
 	str r3, [r0]
@@ -2785,7 +2785,7 @@ boss2_get_pos: @ 08025C78
 	str r0, [r1]
 	bx lr
 _08025C84:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 
 	.global player_boss_start_invincible
 	.thumb_func
@@ -2897,14 +2897,14 @@ _08025D0C:
 _08025D4C:
 	.4byte 0x00000014
 _08025D50:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 _08025D54:
 	.4byte 0xFFFFF334
 
-	.global boss2_engine_vol_cb
+	.global player_boss_engine_vol_cb
 	.thumb_func
-	.type boss2_engine_vol_cb, %function
-boss2_engine_vol_cb: @ 08025D58
+	.type player_boss_engine_vol_cb, %function
+player_boss_engine_vol_cb: @ 08025D58
 	push {lr}
 	ldr r0, _08025D88
 	movs r3, #0xc2
@@ -2931,12 +2931,12 @@ _08025D72:
 	bx r1
 	.byte 0x00, 0x00
 _08025D88:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 
-	.global boss2_engine_vol2_cb
+	.global player_boss_engine_vol2_cb
 	.thumb_func
-	.type boss2_engine_vol2_cb, %function
-boss2_engine_vol2_cb: @ 08025D8C
+	.type player_boss_engine_vol2_cb, %function
+player_boss_engine_vol2_cb: @ 08025D8C
 	push {lr}
 	ldr r2, _08025DB8
 	adds r0, r2, #0
@@ -2962,12 +2962,12 @@ _08025DB4:
 	movs r3, #0xa0
 	b _08025DA0
 _08025DB8:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 
-	.global boss2_engine_pitch_cb
+	.global player_boss_engine_pitch_cb
 	.thumb_func
-	.type boss2_engine_pitch_cb, %function
-boss2_engine_pitch_cb: @ 08025DBC
+	.type player_boss_engine_pitch_cb, %function
+player_boss_engine_pitch_cb: @ 08025DBC
 	push {lr}
 	ldr r2, _08025DEC
 	adds r0, r2, #0
@@ -2995,7 +2995,7 @@ _08025DE6:
 	lsls r3, r1, #0xa
 	b _08025DD2
 _08025DEC:
-	.4byte gBossAi2
+	.4byte gPlayerBossAi
 
 	.global boss_monitor_result
 	.thumb_func

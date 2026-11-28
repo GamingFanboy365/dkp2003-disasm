@@ -153,10 +153,10 @@ _08013250:
 _08013254:
 	.4byte gUnk_08050E54
 
-	.global sub_08013258
+	.global introplane_zoom
 	.thumb_func
-	.type sub_08013258, %function
-sub_08013258: @ 08013258
+	.type introplane_zoom, %function
+introplane_zoom: @ 08013258
 	push {r4, r5, lr}
 	ldr r5, _0801329C
 	movs r3, #0x80

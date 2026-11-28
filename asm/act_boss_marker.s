@@ -267,10 +267,10 @@ _08026424:
 _08026428:
 	.4byte gUnk_087146C0
 
-	.global sub_0802642C
+	.global boss_choose_next_node
 	.thumb_func
-	.type sub_0802642C, %function
-sub_0802642C: @ 0802642C
+	.type boss_choose_next_node, %function
+boss_choose_next_node: @ 0802642C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1350,10 +1350,10 @@ _08026C4E:
 _08026C5C:
 	.4byte gUnk_0884F010
 
-	.global sub_08026C60
+	.global boss_ease_offsets
 	.thumb_func
-	.type sub_08026C60, %function
-sub_08026C60: @ 08026C60
+	.type boss_ease_offsets, %function
+boss_ease_offsets: @ 08026C60
 	push {r4, r5, r6, r7, lr}
 	adds r0, #0xa0
 	adds r5, r1, #0

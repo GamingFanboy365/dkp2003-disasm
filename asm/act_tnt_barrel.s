@@ -345,7 +345,7 @@ _0802B8AC:
 	bne _0802B84A
 	adds r0, r4, #0
 	ldr r1, _0802B9EC
-	bl sub_08014264
+	bl racer_take_damage
 	b _0802B84A
 _0802B8D2:
 	ldr r2, _0802B9E8

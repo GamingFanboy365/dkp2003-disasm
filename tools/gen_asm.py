@@ -805,8 +805,15 @@ def make_gen(rom_path, db_path, cfg_path):
         for l in open(np):
             l = l.split('#')[0].split()
             if len(l) >= 2:
-                a = int(l[0], 0)
-                seg = rom.seg_of_vma(a & ~1)
+                # "<overlay>:<address>" names code in one of the overlays
+                # that share a run address (ovl_a, ovl_b)
+                if ':' in l[0]:
+                    ovl, a = l[0].split(':')
+                    a = int(a, 0)
+                    seg = [sg for sg in rom.segs if sg.name == ovl][0]
+                else:
+                    a = int(l[0], 0)
+                    seg = rom.seg_of_vma(a & ~1)
                 names[seg.to_rom(a & ~1)] = l[1]
     files = []
     fp = os.path.join(cdir, 'files.txt')

@@ -25,7 +25,7 @@ def main():
     names = {}
     for l in list(open(sys.argv[3])) + list(open(sys.argv[3].replace('symbols.txt', 'ram_symbols.txt'))):
         p = l.split('#')[0].split()
-        if len(p) >= 2:
+        if len(p) >= 2 and ':' not in p[0]:
             names[int(p[0], 16)] = p[1]
     md = cs.Cs(cs.CS_ARCH_ARM, cs.CS_MODE_THUMB)
     md.detail = True

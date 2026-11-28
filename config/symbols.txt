@@ -934,12 +934,41 @@
 0x08025794 act_player_boss_25794   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
 0x080257C6 act_player_boss_257C6   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
 0x0802585E act_player_boss_2585E   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
-0x08025C78 boss2_get_pos            # (&x, &z) from the second boss AI (gBossAi2 +0x5C, +0x64), as boss_get_pos
+0x08025C78 player_boss_get_pos            # (&x, &z) from gPlayerBossAi (+0x5C, +0x64), as boss_get_pos
 0x08025C88 player_boss_start_invincible # weaponbossManager: invincibility in boss levels (palette pulse, jingle 0x10)
 0x08025CCC player_boss_on_hit       # sound 0xF1, racer_flash_palette; no caller
-0x08025D58 boss2_engine_vol_cb      # the second boss's engine sound callbacks (as boss_engine_*)
-0x08025D8C boss2_engine_vol2_cb
-0x08025DBC boss2_engine_pitch_cb
+0x08025D58 player_boss_engine_vol_cb      # the player_boss engine sound callbacks (as boss_engine_*)
+0x08025D8C player_boss_engine_vol2_cb
+0x08025DBC player_boss_engine_pitch_cb
 0x08025DF0 boss_monitor_result      # when racer 0 finishes or is out (state 2/3): winner and loser at gGameSetup+0xA8/+0xA9, item levels +0x98
-0x08024490 boss2_engine_pitch2_cb
-0x08024508 boss2_engine_sfx_update  # start/stop/release the second boss's engine sounds
+0x08024490 player_boss_engine_pitch2_cb
+0x08024508 player_boss_engine_sfx_update  # start/stop/release the player_boss engine sounds
+0x0800E9B8 camera_chase             # (cam, target): put the camera behind the target (class 1 player, 0x32 player_boss, 0x35 comp_boss) along its heading (obj+0x56)
+0x0800EC3C camera_follow_vblank     # race_vblank: move the camera with the local player and turn it to look at it (atan2, isqrt), so the view matches the frame drawn
+0x0800ED18 camera_flyby             # act_camera: position from cam_path_eval, then camera_chase
+0x08023118 player_boss_choose_next_node # like ai_choose_next_node (80% the same instructions), for the player's plane in boss levels
+0x08023484 player_boss_turn         # like plane_turn (67%)
+0x08023548 player_boss_vertical_speed # like plane_vertical_speed (63%); only when gPlayerBossAi+0xDC is 0
+0x08023964 player_boss_pitch        # pitch control, like plane_pitch_input (63%)
+0x08023D74 player_boss_bank         # like plane_bank (73%)
+0x080240A0 player_boss_pitch_input  # like plane_pitch_input (95%)
+0x080241D0 player_boss_roll         # like plane_roll (63%)
+0x08024384 player_boss_ease_offsets # the same code as plane_ease_offsets
+0x0802642C boss_choose_next_node    # like ai_choose_next_node (79%), for the boss (act_comp_boss)
+0x08026C60 boss_ease_offsets        # the same code as plane_ease_offsets
+0x08014264 racer_take_damage        # (obj, amount): health (+0x124) -= table[character] x amount >> 12 (0x0884E34C); zingers, lightning, TNT, hits
+0x08020A90 balloon_pop_sfx          # react_balloon: sound 0xF5
+0x0802108C booster_autopilot_set    # (a, b) -> 0x0202E438 / 0x0202E43C (react_balloon)
+0x08020DC8 booster_blue_set         # (a, b) -> 0x0202E430 / 0x0202E434 (react_balloon, react_booster_blue)
+0x08013258 introplane_zoom          # intro plane: sprite scale grows each frame (sprite +0xA, +0xC); no direct caller
+0x080113A4 race_check_checkpoint    # (?, obj): did the racer cross its next checkpoint line? sign of n.p + d for last (+0x30/+0x38) and this frame's (+0x24/+0x2C) position; checkpoint index obj+0x11A (16-byte gates)
+0x080115A8 race_update_progress     # act_race_monitor: checkpoints -> laps; at the finish racer_finish/comp_finish, voices, camera op
+0x0801194C race_place_unfinished    # after fade_to_black at the race end: positions for the racers that had not finished (+0x11E & 0xF0 clear)
+0x08013C68 battle_rank_racers       # sort the racers by battle score (gGameSetup+0xB0 + racer*0x28)
+0x08013D4C battle_check_out         # act_battle_monitor: racers out of the battle (racer_battle_out)
+ovl_a:0x03003FC8 ovl_a_stream_map   # ovl_a: when the camera moves (up to 0x20 per frame, with wrap), refresh the ground map's tiles
+ovl_a:0x03004528 ovl_a_horizon_lines # per-line values split at the horizon (line 0x50), into the register shadows (0x02000820)
+ovl_a:0x03004668 ovl_a_render       # ovl_a per-frame ground/sky renderer (race_vblank, by pointer): camera angles (sin/cos), map streaming, fades (color_fade)
+ovl_b:0x03003FC8 ovl_b_stream_map   # ovl_b's map streaming
+ovl_b:0x03004378 ovl_b_render       # ovl_b per-frame renderer (race_vblank, gModeFlags bit 13)
+ovl_b:0x03004DA0 ovl_b_hblank       # hblank: BG2/BG3 affine registers and backdrop colour from a 32-byte-per-line table (0x02001C20): the perspective ground, line by line
