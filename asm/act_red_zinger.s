@@ -826,13 +826,13 @@ _08029842:
 	lsls r1, r2, #2
 	ldr r0, [r4, r1]
 	mov r1, fp
-	bl sub_08020210
+	bl voice_hit_victim
 	ldr r3, [sp, #0x44]
 	ldr r0, [r3, #8]
 	lsls r2, r0, #2
 	ldr r0, [r4, r2]
 	mov r1, fp
-	bl sub_0802026C
+	bl voice_hit_attacker
 	ldr r1, _08029AD4
 	movs r4, #0
 	ldrsh r0, [r1, r4]
@@ -1418,12 +1418,12 @@ _08029CEA:
 	lsls r2, r0, #2
 	ldr r0, [r4, r2]
 	adds r1, r7, #0
-	bl sub_08020210
+	bl voice_hit_victim
 	ldr r1, [r5, #8]
 	lsls r2, r1, #2
 	ldr r0, [r4, r2]
 	adds r1, r7, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	b _08029C8E
 _08029D30:
 	movs r1, #0xd8
@@ -3084,13 +3084,13 @@ _0802A9A4:
 	lsls r2, r1, #2
 	ldr r0, [r4, r2]
 	mov r1, fp
-	bl sub_08020210
+	bl voice_hit_victim
 	ldr r3, [sp, #0x14]
 	ldr r0, [r3, #8]
 	lsls r1, r0, #2
 	ldr r0, [r4, r1]
 	mov r1, fp
-	bl sub_0802026C
+	bl voice_hit_attacker
 	b _0802A25E
 _0802A9C4:
 	ldr r2, [sp, #0x14]

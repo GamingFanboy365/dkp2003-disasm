@@ -6687,10 +6687,10 @@ sub_08020204: @ 08020204
 _0802020C:
 	.4byte 0x0202E424
 
-	.global sub_08020210
+	.global voice_hit_victim
 	.thumb_func
-	.type sub_08020210, %function
-sub_08020210: @ 08020210
+	.type voice_hit_victim, %function
+voice_hit_victim: @ 08020210
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -6740,10 +6740,10 @@ _08020262:
 _08020268:
 	.4byte gLocalPlayerIndex
 
-	.global sub_0802026C
+	.global voice_hit_attacker
 	.thumb_func
-	.type sub_0802026C, %function
-sub_0802026C: @ 0802026C
+	.type voice_hit_attacker, %function
+voice_hit_attacker: @ 0802026C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r2, _080202C4

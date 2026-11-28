@@ -104,12 +104,12 @@ _0802AAC8:
 	lsls r2, r0, #2
 	ldr r0, [r4, r2]
 	adds r1, r7, #0
-	bl sub_08020210
+	bl voice_hit_victim
 	ldr r1, [r5, #8]
 	lsls r2, r1, #2
 	ldr r0, [r4, r2]
 	adds r1, r7, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	b _0802AA6A
 _0802AB0E:
 	movs r1, #0xd8

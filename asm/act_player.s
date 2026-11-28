@@ -11460,10 +11460,10 @@ _0800A2B2:
 	beq _0800A2D0
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08020210
+	bl voice_hit_victim
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	ldr r1, _0800A51C
 	movs r2, #0
 	ldrsh r0, [r1, r2]
@@ -11582,10 +11582,10 @@ _0800A39E:
 	beq _0800A2D0
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08020210
+	bl voice_hit_victim
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	b _0800A2D0
 _0800A3B4:
 	ldr r1, [r6, #4]
@@ -11894,12 +11894,12 @@ _0800A5F2:
 	lsls r1, r0, #2
 	ldr r0, [r4, r1]
 	adds r1, r5, #0
-	bl sub_08020210
+	bl voice_hit_victim
 	ldr r2, [r7, #8]
 	lsls r1, r2, #2
 	ldr r0, [r4, r1]
 	adds r1, r5, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	ldr r0, _0800A69C
 	movs r1, #0
 	ldrsh r2, [r0, r1]

@@ -301,7 +301,7 @@ _0802B86A:
 	cmp r1, #0
 	beq _0802B878
 	ldr r0, [sp, #0x18]
-	bl sub_0802026C
+	bl voice_hit_attacker
 _0802B878:
 	adds r0, r7, #0
 	bl obj_free
@@ -334,7 +334,7 @@ _0802B8AC:
 	beq _0802B8D2
 	adds r1, r4, #0
 	ldr r0, [sp, #0x18]
-	bl sub_08020210
+	bl voice_hit_victim
 	mov r1, r8
 	ldr r2, _0802B9E8
 	str r4, [r1, #0x10]

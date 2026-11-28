@@ -596,3 +596,7 @@
 0x08005E3C plane_bank               # LEFT/RIGHT: obj+0xB8 (+0x1F / -0x21) and pd+0x9C..0xB0 (tools/emu/stepprof.py)
 0x08006238 plane_pitch_input        # UP/DOWN: pd+0xB4..0xBC (+0x100 / -0x100)
 0x08006368 plane_vertical_speed     # obj+0x4C, pd+0xE8 from the pitch (-0x28 diving, +0x28 climbing)
+# character voices on a weapon hit: (attacker racer, victim racer); only when
+# one of them is the local player; obj+0x10E picks one of two clips
+0x08020210 voice_hit_victim         # the victim's voice (categories 7/8)
+0x0802026C voice_hit_attacker       # the attacker's voice (categories 5/6)

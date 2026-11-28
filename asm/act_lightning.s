@@ -116,7 +116,7 @@ _0802BAAC:
 	beq _0802BAB8
 	mov r0, sb
 	adds r1, r7, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 _0802BAB8:
 	mov r0, fp
 	bl obj_free
@@ -148,7 +148,7 @@ _0802BAE8:
 	beq _0802BAF4
 	mov r0, sb
 	adds r1, r6, #0
-	bl sub_08020210
+	bl voice_hit_victim
 _0802BAF4:
 	adds r7, r6, #0
 	adds r0, r7, #0

@@ -7622,10 +7622,10 @@ _0800E518:
 	adds r0, r4, #0
 	adds r1, r5, #0
 _0800E540:
-	bl sub_08020210
+	bl voice_hit_victim
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0802026C
+	bl voice_hit_attacker
 	.global _0800E54C
 _0800E54C:
 	add sp, #0x14
