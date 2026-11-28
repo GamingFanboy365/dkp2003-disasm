@@ -730,7 +730,7 @@ _08014436:
 	b _0801430E
 _08014446:
 	movs r0, #0
-	bl mcp_done
+	bl mcp_process
 	b _0801430E
 	.byte 0x00, 0x00
 _08014450:

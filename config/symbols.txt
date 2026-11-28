@@ -119,7 +119,7 @@
 0x0801D094 fe_spotscreen2_init
 0x0801D2EC eeprom_update
 0x0801D55C eeprom_load
-0x0801E604 mcp_process
+0x0801E604 mcp_process_return       # shared exit of mcp_process (find_names put the name here)
 0x080202C8 init_balloon
 0x080203BC act_balloon
 0x080208FC react_balloon
@@ -295,4 +295,4 @@
 0x08014510 fe_boot_init             # first screen after power-on (~30 frames, before the logo movie)
 0x08014580 fe_boot_process
 0x08000460 vblank_handler           # installed in gIrqHandler by most screens; counts frames, runs the audio update
-0x0801E5A4 mcp_done                 # (token): a screen has finished; picks the next state from gMcpState (debug print "mcp_process: state %i token %i")
+0x0801E5A4 mcp_process              # (token): a screen has finished; picks the next state from gMcpState and starts its screen (tools/mcp_map.py)

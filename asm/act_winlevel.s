@@ -1698,7 +1698,7 @@ _08021D3A:
 	bl sub_0802F01E
 _08021D52:
 	movs r0, #0
-	bl mcp_done
+	bl mcp_process
 	b _08021CE0
 _08021D5A:
 	ldr r1, _08021DC4
@@ -2984,7 +2984,7 @@ _0802271C:
 	cmp r0, #0
 	beq _08022714
 	movs r0, #0
-	bl mcp_done
+	bl mcp_process
 	b _08022714
 _08022732:
 	ldr r2, _08022830
@@ -3503,7 +3503,7 @@ _08022B1A:
 	bl sub_0802F01E
 _08022B34:
 	movs r0, #0
-	bl mcp_done
+	bl mcp_process
 	b _08022ABA
 _08022B3C:
 	ldr r0, _08022B6C

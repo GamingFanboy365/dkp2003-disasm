@@ -2656,10 +2656,10 @@ _0801E59C:
 _0801E5A0:
 	.4byte gLocalPlayerIndex
 
-	.global mcp_done
+	.global mcp_process
 	.thumb_func
-	.type mcp_done, %function
-mcp_done: @ 0801E5A4
+	.type mcp_process, %function
+mcp_process: @ 0801E5A4
 	push {r4, r5, r6, lr}
 	ldr r5, _0801E660
 	adds r4, r0, #0
@@ -2714,10 +2714,10 @@ _0801E5FC:
 	movs r2, #0x32
 	str r2, [r5]
 
-	.global mcp_process
+	.global mcp_process_return
 	.thumb_func
-	.type mcp_process, %function
-mcp_process: @ 0801E604
+	.type mcp_process_return, %function
+mcp_process_return: @ 0801E604
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -2731,17 +2731,17 @@ _0801E60A:
 	cmp r4, #1
 	bgt _0801E62A
 	cmp r4, #0
-	bne mcp_process
+	bne mcp_process_return
 	ldr r1, _0801E660
 	movs r0, #0x64
 	str r0, [r1]
 	bl fe_title_init
-	b mcp_process
+	b mcp_process_return
 _0801E62A:
 	cmp r4, #2
 	beq _0801E648
 	cmp r4, #3
-	bne mcp_process
+	bne mcp_process_return
 	ldr r1, _0801E660
 	movs r3, #0xe6
 	str r3, [r1]
@@ -2751,7 +2751,7 @@ _0801E62A:
 	adds r1, #0x88
 	strh r0, [r1]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801E648:
 	ldr r0, _0801E660
 	movs r3, #0xdc
@@ -2786,14 +2786,14 @@ _0801E674:
 	adds r1, #0x88
 	strh r3, [r1]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801E68C:
 	cmp r4, #1
 	beq _0801E6C8
 	cmp r4, #1
 	bgt _0801E6B4
 	cmp r4, #0
-	bne mcp_process
+	bne mcp_process_return
 	ldr r0, _0801E6AC
 	movs r3, #0xc8
 	str r3, [r0]
@@ -2809,14 +2809,14 @@ _0801E6B0:
 	.4byte gGameSetup
 _0801E6B4:
 	cmp r4, #2
-	bne mcp_process
+	bne mcp_process_return
 	movs r3, #0xc8
 	ldr r1, _0801E710
 	lsls r0, r3, #1
 	str r0, [r1]
 	movs r0, #0
 	bl fe_options_init
-	b mcp_process
+	b mcp_process_return
 _0801E6C8:
 	movs r3, #0x96
 	ldr r1, _0801E710
@@ -2851,7 +2851,7 @@ _0801E6F6:
 	movs r2, #0x64
 	str r2, [r5]
 	bl fe_title_init
-	b mcp_process
+	b mcp_process_return
 	.byte 0x00, 0x00
 _0801E70C:
 	.4byte 0x00000000
@@ -2882,17 +2882,17 @@ _0801E734:
 	bgt _0801E74E
 	cmp r4, #0
 	beq _0801E742
-	b mcp_process
+	b mcp_process_return
 _0801E742:
 	ldr r1, _0801E7BC
 	movs r0, #0xd2
 	str r0, [r1]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801E74E:
 	cmp r4, #2
 	beq _0801E754
-	b mcp_process
+	b mcp_process_return
 _0801E754:
 	ldr r5, _0801E7C0
 	movs r3, #0x80
@@ -2910,7 +2910,7 @@ _0801E754:
 	str r0, [r1]
 	movs r0, #0x99
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E77A:
 	ldr r0, _0801E7BC
 	adds r1, r5, #0
@@ -2943,7 +2943,7 @@ _0801E7AA:
 	movs r0, #0xd4
 	str r0, [r1]
 	bl sub_0801E39C
-	b mcp_process
+	b mcp_process_return
 	.byte 0x00, 0x00
 _0801E7B8:
 	.4byte 0x00000003
@@ -2966,7 +2966,7 @@ _0801E7C4:
 	str r3, [r0]
 	movs r0, #0x95
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E7E6:
 	movs r3, #0x80
 	ldr r2, [r4, #0x1c]
@@ -2983,13 +2983,13 @@ _0801E7E6:
 	str r1, [r0]
 	movs r0, #0x9b
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E80A:
 	cmp r4, #0
 	beq _0801E816
 	cmp r4, #1
 	beq _0801E814
-	b mcp_process
+	b mcp_process_return
 _0801E814:
 	b _0801EEB6
 _0801E816:
@@ -3008,13 +3008,13 @@ _0801E828:
 	ldr r1, _0801E964
 	str r3, [r1]
 	bl fe_cups_trophy_init
-	b mcp_process
+	b mcp_process_return
 _0801E834:
 	cmp r4, #0
 	beq _0801E8B0
 	cmp r4, #1
 	beq _0801E83E
-	b mcp_process
+	b mcp_process_return
 _0801E83E:
 	ldr r4, _0801E96C
 	ldr r2, [r4, #0x1c]
@@ -3032,7 +3032,7 @@ _0801E83E:
 	str r0, [r1]
 	movs r0, #0x96
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E864:
 	movs r0, #0x40
 	adds r3, r1, #0
@@ -3047,7 +3047,7 @@ _0801E864:
 	str r3, [r1]
 	movs r0, #0x97
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E884:
 	movs r0, #0x80
 	adds r3, r0, #0
@@ -3062,13 +3062,13 @@ _0801E884:
 	str r1, [r0]
 	movs r0, #0x98
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801E8A4:
 	ldr r0, _0801E964
 	movs r3, #0xd1
 	str r3, [r0]
 	bl fe_retry_init
-	b mcp_process
+	b mcp_process_return
 _0801E8B0:
 	bl sub_0801E410
 	cmp r0, #1
@@ -3077,16 +3077,16 @@ _0801E8B0:
 	bgt _0801E8CA
 	cmp r0, #0
 	beq _0801E8C2
-	b mcp_process
+	b mcp_process_return
 _0801E8C2:
 	ldr r1, _0801E964
 	movs r3, #0xd4
 	str r3, [r1]
-	b mcp_process
+	b mcp_process_return
 _0801E8CA:
 	cmp r0, #2
 	beq _0801E8D0
-	b mcp_process
+	b mcp_process_return
 _0801E8D0:
 	b _0801EEB6
 _0801E8D2:
@@ -3094,7 +3094,7 @@ _0801E8D2:
 	movs r1, #0xd6
 	str r1, [r0]
 	bl fe_cups_win2_init
-	b mcp_process
+	b mcp_process_return
 _0801E8DE:
 	cmp r4, #1
 	beq _0801E8FA
@@ -3104,18 +3104,18 @@ _0801E8DE:
 _0801E8E8:
 	cmp r4, #0
 	beq _0801E8EE
-	b mcp_process
+	b mcp_process_return
 _0801E8EE:
 	ldr r1, _0801E964
 	movs r0, #0xd3
 	str r0, [r1]
 	bl fe_cups_init
-	b mcp_process
+	b mcp_process_return
 _0801E8FA:
 	movs r2, #0xd5
 	str r2, [r5]
 	bl fe_cups_scoreboard_init
-	b mcp_process
+	b mcp_process_return
 _0801E904:
 	cmp r4, #0
 	bne _0801E90A
@@ -3123,7 +3123,7 @@ _0801E904:
 _0801E90A:
 	cmp r4, #1
 	beq _0801E910
-	b mcp_process
+	b mcp_process_return
 _0801E910:
 	movs r4, #0xd4
 	str r4, [r5]
@@ -3160,13 +3160,13 @@ _0801E934:
 	bgt _0801E970
 	cmp r4, #0
 	beq _0801E950
-	b mcp_process
+	b mcp_process_return
 _0801E950:
 	ldr r1, _0801E964
 	movs r3, #0xd3
 	str r3, [r1]
 	bl fe_cups_init
-	b mcp_process
+	b mcp_process_return
 _0801E95C:
 	.4byte 0x00000000
 _0801E960:
@@ -3180,7 +3180,7 @@ _0801E96C:
 _0801E970:
 	cmp r4, #2
 	beq _0801E976
-	b mcp_process
+	b mcp_process_return
 _0801E976:
 	ldr r0, _0801E998
 	adds r1, r5, #0
@@ -3192,12 +3192,12 @@ _0801E980:
 	ldr r0, _0801E9A0
 	str r1, [r0]
 	bl fe_boss_win_init
-	b mcp_process
+	b mcp_process_return
 _0801E98C:
 	movs r1, #0xd3
 	str r1, [r5]
 	bl fe_cups_init
-	b mcp_process
+	b mcp_process_return
 	.byte 0x00, 0x00
 _0801E998:
 	.4byte 0x00000003
@@ -3216,13 +3216,13 @@ _0801E9AE:
 	beq _0801E9C4
 	cmp r4, #1
 	beq _0801E9B8
-	b mcp_process
+	b mcp_process_return
 _0801E9B8:
 	ldr r1, _0801E9FC
 	movs r3, #0xdd
 	str r3, [r1]
 	bl fe_tracks_init
-	b mcp_process
+	b mcp_process_return
 _0801E9C4:
 	ldr r1, _0801E9FC
 	movs r0, #0xc8
@@ -3232,7 +3232,7 @@ _0801E9CC:
 	movs r1, #0xd1
 	str r1, [r5]
 	bl fe_retry_init
-	b mcp_process
+	b mcp_process_return
 _0801E9D6:
 	movs r0, #0xd9
 	str r0, [r5]
@@ -3272,7 +3272,7 @@ _0801EA16:
 	beq _0801EA26
 	cmp r4, #1
 	beq _0801EA20
-	b mcp_process
+	b mcp_process_return
 _0801EA20:
 	ldr r1, _0801EBD8
 	movs r0, #0xe0
@@ -3288,7 +3288,7 @@ _0801EA2C:
 	bgt _0801EA40
 	cmp r4, #0
 	beq _0801EA3A
-	b mcp_process
+	b mcp_process_return
 _0801EA3A:
 	ldr r0, _0801EBD8
 	movs r3, #0xdd
@@ -3296,7 +3296,7 @@ _0801EA3A:
 _0801EA40:
 	cmp r4, #2
 	beq _0801EA46
-	b mcp_process
+	b mcp_process_return
 _0801EA46:
 	ldr r0, _0801EBDC
 	ldr r4, _0801EBD8
@@ -3308,7 +3308,7 @@ _0801EA50:
 	movs r0, #0xdf
 	str r0, [r1]
 	bl fe_tracks_timesheet_init
-	b mcp_process
+	b mcp_process_return
 _0801EA5C:
 	cmp r2, #0xe6
 	beq _0801EACE
@@ -3320,7 +3320,7 @@ _0801EA66:
 	beq _0801EAC2
 	cmp r4, #1
 	beq _0801EA70
-	b mcp_process
+	b mcp_process_return
 _0801EA70:
 	ldr r5, _0801EBDC
 	ldr r3, [r5, #0x1c]
@@ -3336,7 +3336,7 @@ _0801EA70:
 	str r0, [r1]
 	movs r0, #0x91
 	bl fe_cranky_init
-	b mcp_process
+	b mcp_process_return
 _0801EA92:
 	ldr r0, _0801EBD8
 	movs r3, #0xe8
@@ -3362,25 +3362,25 @@ _0801EAA4:
 	ldr r1, [r0, r2]
 	strh r1, [r5, #2]
 	bl game_init
-	b mcp_process
+	b mcp_process_return
 _0801EAC2:
 	ldr r0, _0801EBD8
 	movs r3, #0xe6
 	str r3, [r0]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801EACE:
 	cmp r4, #0
 	beq _0801EAE4
 	cmp r4, #1
 	beq _0801EAD8
-	b mcp_process
+	b mcp_process_return
 _0801EAD8:
 	ldr r0, _0801EBD8
 	movs r1, #0xe7
 	str r1, [r0]
 	bl fe_tracks_init
-	b mcp_process
+	b mcp_process_return
 _0801EAE4:
 	ldr r1, _0801EBD8
 	movs r3, #0xc8
@@ -3396,7 +3396,7 @@ _0801EAF8:
 	beq _0801EB0A
 	cmp r4, #1
 	beq _0801EB02
-	b mcp_process
+	b mcp_process_return
 _0801EB02:
 	ldr r0, _0801EBDC
 	movs r4, #0xde
@@ -3406,12 +3406,12 @@ _0801EB0A:
 	movs r2, #0xdc
 	str r2, [r5]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801EB14:
 	movs r2, #0xd4
 	str r2, [r5]
 	bl sub_0801E39C
-	b mcp_process
+	b mcp_process_return
 _0801EB1E:
 	movs r0, #0xa1
 	lsls r3, r0, #1
@@ -3460,7 +3460,7 @@ _0801EB66:
 	beq _0801EB76
 	cmp r4, #1
 	beq _0801EB70
-	b mcp_process
+	b mcp_process_return
 _0801EB70:
 	ldr r3, _0801EBE4
 	ldr r0, _0801EBD8
@@ -3470,7 +3470,7 @@ _0801EB76:
 	movs r0, #1
 	str r1, [r2]
 	bl fe_spotscreen_init
-	b mcp_process
+	b mcp_process_return
 _0801EB82:
 	cmp r4, #1
 	beq _0801EBEC
@@ -3478,19 +3478,19 @@ _0801EB82:
 	bgt _0801EB9C
 	cmp r4, #0
 	beq _0801EB90
-	b mcp_process
+	b mcp_process_return
 _0801EB90:
 	ldr r1, _0801EBD8
 	movs r3, #0x64
 	str r3, [r1]
 	bl fe_title_init
-	b mcp_process
+	b mcp_process_return
 _0801EB9C:
 	cmp r4, #2
 	beq _0801EBB2
 	cmp r4, #3
 	beq _0801EBA6
-	b mcp_process
+	b mcp_process_return
 _0801EBA6:
 	movs r1, #0xa5
 	ldr r0, _0801EBD8
@@ -3512,7 +3512,7 @@ _0801EBBC:
 	adds r0, #0x88
 	strh r2, [r0]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 	.byte 0x00, 0x00
 _0801EBD0:
 	.4byte 0x00000005
@@ -3541,7 +3541,7 @@ _0801EBFC:
 	adds r0, #0x88
 	strh r1, [r0]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 	.byte 0x00, 0x00
 _0801EC08:
 	.4byte 0x00000004
@@ -3576,15 +3576,15 @@ _0801EC36:
 	bgt _0801EC4E
 	cmp r0, #0
 	beq _0801EC48
-	b mcp_process
+	b mcp_process_return
 _0801EC48:
 	ldr r2, _0801EF1C
 	str r5, [r2]
-	b mcp_process
+	b mcp_process_return
 _0801EC4E:
 	cmp r0, #2
 	beq _0801EC54
-	b mcp_process
+	b mcp_process_return
 _0801EC54:
 	ldr r3, _0801EF20
 	ldr r0, _0801EF1C
@@ -3593,7 +3593,7 @@ _0801EC5A:
 	ldr r1, _0801EF1C
 	str r6, [r1]
 	bl fe_cups_win2_init
-	b mcp_process
+	b mcp_process_return
 _0801EC64:
 	cmp r4, #1
 	beq _0801ECCA
@@ -3601,7 +3601,7 @@ _0801EC64:
 	bgt _0801EC78
 	cmp r4, #0
 	beq _0801EC72
-	b mcp_process
+	b mcp_process_return
 _0801EC72:
 	ldr r3, _0801EF20
 	ldr r0, _0801EF1C
@@ -3609,7 +3609,7 @@ _0801EC72:
 _0801EC78:
 	cmp r4, #2
 	beq _0801EC7E
-	b mcp_process
+	b mcp_process_return
 _0801EC7E:
 	ldr r4, _0801EF24
 	movs r2, #0x2a
@@ -3648,13 +3648,13 @@ _0801EC90:
 	ldr r1, [r0, r2]
 	strh r1, [r4, #2]
 	bl game_init
-	b mcp_process
+	b mcp_process_return
 _0801ECCA:
 	ldr r0, _0801EF18
 	ldr r1, _0801EF1C
 	str r0, [r1]
 	bl fe_cups_scoreboard_init
-	b mcp_process
+	b mcp_process_return
 _0801ECD6:
 	movs r3, #0xa0
 	lsls r1, r3, #1
@@ -3669,7 +3669,7 @@ _0801ECE6:
 	beq _0801ECFC
 	cmp r4, #1
 	beq _0801ECF0
-	b mcp_process
+	b mcp_process_return
 _0801ECF0:
 	movs r0, #0xa1
 	lsls r3, r0, #1
@@ -3681,19 +3681,19 @@ _0801ECFC:
 	ldr r2, _0801EF1C
 	str r1, [r2]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801ED06:
 	cmp r4, #0
 	beq _0801ED1C
 	cmp r4, #1
 	beq _0801ED10
-	b mcp_process
+	b mcp_process_return
 _0801ED10:
 	ldr r0, _0801EF30
 	ldr r1, _0801EF1C
 	str r0, [r1]
 	bl fe_tracks_init
-	b mcp_process
+	b mcp_process_return
 _0801ED1C:
 	movs r3, #0x96
 	ldr r1, _0801EF1C
@@ -3703,25 +3703,25 @@ _0801ED1C:
 _0801ED26:
 	str r3, [r5]
 	bl fe_cups_init
-	b mcp_process
+	b mcp_process_return
 _0801ED2E:
 	cmp r4, #0
 	beq _0801ED44
 	cmp r4, #1
 	beq _0801ED38
-	b mcp_process
+	b mcp_process_return
 _0801ED38:
 	movs r1, #0x9c
 	lsls r0, r1, #1
 	str r0, [r5]
 	bl sub_0801E39C
-	b mcp_process
+	b mcp_process_return
 _0801ED44:
 	movs r2, #0x9b
 	lsls r1, r2, #1
 	str r1, [r5]
 	bl fe_characterselect_init
-	b mcp_process
+	b mcp_process_return
 _0801ED50:
 	movs r1, #0xcd
 	lsls r3, r1, #1
@@ -3752,7 +3752,7 @@ _0801ED7E:
 	beq _0801ED92
 	cmp r4, #1
 	beq _0801ED8A
-	bl mcp_process
+	bl mcp_process_return
 _0801ED8A:
 	ldr r0, _0801EF24
 	ldr r4, _0801EF1C
@@ -3762,13 +3762,13 @@ _0801ED92:
 	ldr r2, _0801EF1C
 	str r0, [r2]
 	bl fe_characterselect_init
-	bl mcp_process
+	bl mcp_process_return
 _0801ED9E:
 	cmp r4, #0
 	beq _0801EDAC
 	cmp r4, #1
 	beq _0801EDAA
-	bl mcp_process
+	bl mcp_process_return
 _0801EDAA:
 	b _0801EE56
 _0801EDAC:
@@ -3779,7 +3779,7 @@ _0801EDAC:
 _0801EDB4:
 	movs r0, #1
 	bl fe_spotscreen_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EDBE:
 	movs r3, #0xc8
 	lsls r1, r3, #1
@@ -3794,7 +3794,7 @@ _0801EDD0:
 	movs r0, #0
 	str r1, [r2]
 	bl fe_options_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EDDE:
 	cmp r4, #5
 	bhi _0801EEE0
@@ -3825,7 +3825,7 @@ _0801EE10:
 	str r3, [r0]
 	movs r0, #1
 	bl fe_options_init
-	bl mcp_process
+	bl mcp_process_return
 	.global _0801EE1C
 _0801EE1C:
 	ldr r0, _0801EF34
@@ -3833,21 +3833,21 @@ _0801EE1C:
 _0801EE20:
 	str r0, [r1]
 	bl fe_name_init
-	bl mcp_process
+	bl mcp_process_return
 	.global _0801EE2A
 _0801EE2A:
 	ldr r3, _0801EF34
 	ldr r1, _0801EF1C
 	str r3, [r1]
 	bl fe_boss_win_init
-	bl mcp_process
+	bl mcp_process_return
 	.global _0801EE38
 _0801EE38:
 	ldr r1, _0801EF34
 	ldr r0, _0801EF1C
 	str r1, [r0]
 	bl fe_credits_screen_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EE46:
 	cmp r4, #1
 	beq _0801EE70
@@ -3855,18 +3855,18 @@ _0801EE46:
 	bgt _0801EE64
 	cmp r4, #0
 	beq _0801EE56
-	bl mcp_process
+	bl mcp_process_return
 _0801EE56:
 	ldr r3, _0801EF3C
 	ldr r0, _0801EF1C
 _0801EE5A:
 	str r3, [r0]
 	bl fe_tracks_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EE64:
 	cmp r4, #2
 	beq _0801EE6C
-	bl mcp_process
+	bl mcp_process_return
 _0801EE6C:
 	ldr r0, _0801EF24
 	b _0801F162
@@ -3903,19 +3903,19 @@ _0801EE8E:
 	str r1, [r0]
 	movs r0, #0x9e
 	bl fe_cranky_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EEB6:
 	ldr r0, _0801EF1C
 	movs r3, #0xd3
 _0801EEBA:
 	str r3, [r0]
 	bl fe_cups_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EEC4:
 	ldr r2, _0801EF44
 	str r2, [r5]
 	bl fe_credits_screen_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EED0:
 	ldr r3, _0801EF48
 	cmp r2, r3
@@ -3930,7 +3930,7 @@ _0801EEE0:
 	movs r3, #0x64
 	str r3, [r0]
 	bl fe_title_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EEEE:
 	movs r2, #0xc8
 	str r2, [r5]
@@ -3941,7 +3941,7 @@ _0801EEEE:
 sub_0801EEF2: @ 0801EEF2
 	movs r0, #0
 	bl fe_spotscreen_init
-	bl mcp_process
+	bl mcp_process_return
 _0801EEFC:
 	ldr r1, _0801EF24
 	adds r0, r1, #0
@@ -3953,7 +3953,7 @@ _0801EEFC:
 	str r1, [r5]
 	movs r0, #0x9a
 	bl fe_cranky_init
-	bl mcp_process
+	bl mcp_process_return
 	.byte 0x00, 0x00
 _0801EF18:
 	.4byte 0x00000139
@@ -4229,7 +4229,7 @@ _0801F0F4:
 _0801F0F8:
 	bl sub_0801D698
 	bl fe_title_init
-	bl mcp_process
+	bl mcp_process_return
 _0801F104:
 	cmp r4, #1
 	beq _0801F126
@@ -4237,14 +4237,14 @@ _0801F104:
 	bgt _0801F118
 	cmp r4, #0
 	beq _0801F114
-	bl mcp_process
+	bl mcp_process_return
 _0801F114:
 	ldr r2, _0801F2A4
 	b _0801F144
 _0801F118:
 	cmp r4, #2
 	beq _0801F120
-	bl mcp_process
+	bl mcp_process_return
 _0801F120:
 	ldr r0, _0801F2A0
 	str r2, [r5]
@@ -4253,7 +4253,7 @@ _0801F126:
 	ldr r1, _0801F2A4
 	str r1, [r5]
 	bl fe_tracks_init
-	bl mcp_process
+	bl mcp_process_return
 
 	.global sub_0801F132
 	.thumb_func
@@ -4265,17 +4265,17 @@ sub_0801F132: @ 0801F132
 	bgt _0801F14E
 	cmp r4, #0
 	beq _0801F142
-	bl mcp_process
+	bl mcp_process_return
 _0801F142:
 	movs r2, #0xe7
 _0801F144:
 	str r2, [r5]
 	bl fe_tracks_init
-	bl mcp_process
+	bl mcp_process_return
 _0801F14E:
 	cmp r4, #2
 	beq _0801F156
-	bl mcp_process
+	bl mcp_process_return
 _0801F156:
 	ldr r0, _0801F2A0
 	movs r4, #0xfa
@@ -4302,7 +4302,7 @@ _0801F166:
 	ldr r1, [r4, r2]
 	strh r1, [r0, #2]
 	bl game_init
-	bl mcp_process
+	bl mcp_process_return
 _0801F186:
 	ldr r0, _0801F2A0
 	movs r6, #0xfa
@@ -4340,7 +4340,7 @@ _0801F1C4:
 	bl fe_cranky_init
 _0801F1C8:
 	bl sub_0801D698
-	bl mcp_process
+	bl mcp_process_return
 _0801F1D0:
 	ldr r2, [r0, #0x1c]
 	movs r1, #8

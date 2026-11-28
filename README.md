@@ -262,6 +262,13 @@ The coverage file comes from `DKP_COVER=build/emu/cover_race.bin python3
 tools/emu/repro_zinger_buzz.py`. `--why` explains why a block counts as
 used or unused.
 
+## Front-end flow
+
+[`docs/frontend_states.md`](docs/frontend_states.md) maps the front end's
+state machine (`mcp_process`, `gMcpState`). It lists every screen state and
+where each screen's result leads, as `tools/mcp_map.py` reads them from the
+code.
+
 ## Patches and play-testing
 
 `patches/` has a bug-fix IPS for the endless zinger buzz you get when a CPU

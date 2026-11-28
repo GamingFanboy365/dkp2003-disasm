@@ -67,13 +67,13 @@ looks right. Either way, the scene could not have shipped in this state.
 That may be part of why the game uses the FINISHED banner and the trophy
 screen instead, but nothing in the ROM says so.
 
-How a real cup ends: the front end's flow controller (`mcp_done` /
-`mcp_process`, state in `gMcpState`) goes to state `0xD6`,
+How a real cup ends: the front end's flow controller (`mcp_process`,
+state in `gMcpState`; see [`frontend_states.md`](frontend_states.md)) goes to state `0xD6`,
 `fe_cups_win2_init` (a plane towing a FINISHED banner). When that screen
 finishes, it moves to state `0x85D`, `fe_cups_trophy_init` (KONGRATULATIONS /
 You won). The podium has no state number, so the controller can never reach
 it. The podium and the trophy screen end the same way: both wait for the
-same key and then call `mcp_done(0)`. So the podium was written for the same
+same key and then call `mcp_process(0)`. So the podium was written for the same
 kind of slot. The source names, `fe_cups_win` for the podium and
 `fe_cups_win2` for the banner screen, suggest the podium is the older of the
 two.
