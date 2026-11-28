@@ -4,7 +4,7 @@ Rare's sprite container format (Diddy Kong Pilot), decode and exact re-encode.
 
 Used by every sprite set in the sprite table (characters, items, trackside
 objects, HUD) and by the track 'map' and 'theme' graphics.  Decoded at run
-time by the IWRAM routines sub_03000A80 (queue a frame) and sub_03000898
+time by the IWRAM routines rspr_queue_frame (0x03000A80) and rspr_upload_frames (0x03000898)
 (upload queued frames to sprite VRAM with DMA).
 
 Container (all values little-endian):

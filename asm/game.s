@@ -744,7 +744,7 @@ _08000A7C:
 _08000A80:
 	.4byte 0x03004378
 _08000A84:
-	.4byte sub_03000898
+	.4byte rspr_upload_frames
 _08000A88:
 	.4byte sub_03003D54
 _08000A8C:

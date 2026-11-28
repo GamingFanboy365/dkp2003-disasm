@@ -441,3 +441,6 @@
 0x08038538 __negsf2
 0x08038560 __make_fp
 0x08038578 __extendsfdf2
+# Rare sprite containers (tools/rare_sprite.py), decoded in IWRAM
+0x03000A80 rspr_queue_frame         # (container, frame): queue a frame for upload (traced in mGBA)
+0x03000898 rspr_upload_frames       # RLE-decode the queued frames into sprite VRAM with DMA

@@ -79,7 +79,7 @@ or palette entries, update the asset's size in `config/assets.txt` too.
 Every sprite in the game uses one container format: the character planes and
 their smaller level-of-detail versions, items, zingers, the zippers, trackside
 objects, HUD portraits and the track minimaps. It is decoded at run time by
-`sub_03000A80`/`sub_03000898` in IWRAM, straight into sprite VRAM with DMA.
+`rspr_queue_frame`/`rspr_upload_frames` in IWRAM, straight into sprite VRAM with DMA.
 `tools/rare_sprite.py` documents it:
 
 * a header (frame-table offset, `0x16`, size/16, bounding boxes, animation

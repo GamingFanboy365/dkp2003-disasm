@@ -619,9 +619,9 @@ sub_0300083C: @ 0300083C
 	pop {r4, r5, r6, r7, r8, sb, ip}
 	bx ip
 
-	.global sub_03000898
-	.type sub_03000898, %function
-sub_03000898: @ 03000898
+	.global rspr_upload_frames
+	.type rspr_upload_frames, %function
+rspr_upload_frames: @ 03000898
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	ldr r3, _03000A6C
 	ldr r2, [r3]
@@ -759,9 +759,9 @@ _03000A78:
 _03000A7C:
 	.4byte 0x02018EB0
 
-	.global sub_03000A80
-	.type sub_03000A80, %function
-sub_03000A80: @ 03000A80
+	.global rspr_queue_frame
+	.type rspr_queue_frame, %function
+rspr_queue_frame: @ 03000A80
 	push {r4, r5, r6, lr}
 	ldr ip, _03000BA8
 	ldr lr, [ip]
@@ -982,7 +982,7 @@ _03000D8C:
 	mov r2, r0
 	mov r0, r6
 	lsl r4, r2, #0xc
-	bl sub_03000A80
+	bl rspr_queue_frame
 	ldrh ip, [r6, #2]
 	lsl r1, r5, #1
 	add lr, r6, ip
@@ -2113,7 +2113,7 @@ _03001E48:
 	lsr r1, r7, #0x10
 	ldr r0, [fp, #-0x32c]
 	add r4, r2, r5, lsl #12
-	bl sub_03000A80
+	bl rspr_queue_frame
 	ldr r7, [fp, #-0x344]
 	ldr r2, [fp, #-0x344]
 	ldr r5, [fp, #-0x348]
@@ -2371,7 +2371,7 @@ _03002224:
 	mov ip, r0
 	ldr r0, [fp, #-0x32c]
 	lsl r5, ip, #0xc
-	bl sub_03000A80
+	bl rspr_queue_frame
 	ldr r3, [fp, #-0x32c]
 	ldrh r4, [r3, #2]
 	lsl r1, sb, #1
