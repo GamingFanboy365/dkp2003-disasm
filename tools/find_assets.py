@@ -39,6 +39,7 @@ import gen_asm  # noqa: E402
 import aipath  # noqa: E402
 import checkpoints  # noqa: E402
 import hits  # noqa: E402
+import edges  # noqa: E402
 from analyze import parse_cfg, ROM, ROM_BASE  # noqa: E402
 
 LEVELS = 0x7146C0
@@ -58,14 +59,16 @@ LEVEL_FIELDS = {0x00: ('palette', 'pal'), 0x04: ('bg_a', 'tiles8'), 0x08: ('bg_b
 for off in range(0x38, 0x74, 4):
     LEVEL_FIELDS[off] = ('data_%02x' % off, 'bin')
 # what reads each field (docs/levels.md); normal / reverse-direction pairs
-for off, name in {0x38: 'ai_path', 0x3C: 'ai_path_rev', 0x40: 'hits', 0x44: 'edges1', 0x48: 'edges1_rev',
-                  0x4C: 'edges2', 0x50: 'edges2_rev', 0x54: 'camera_ops', 0x58: 'camera_ops_rev',
+for off, name in {0x38: 'ai_path', 0x3C: 'ai_path_rev', 0x40: 'hits', 0x44: 'edges_in', 0x48: 'edges_out',
+                  0x4C: 'edges_in_rev', 0x50: 'edges_out_rev', 0x54: 'camera_ops', 0x58: 'camera_ops_rev',
                   0x5C: 'checkpoints', 0x60: 'checkpoints_rev', 0x64: 'camera', 0x68: 'camera_rev',
                   0x6C: 'autopilot', 0x70: 'autopilot_rev'}.items():
     LEVEL_FIELDS[off] = (name, LEVEL_FIELDS[off][1])
 LEVEL_FIELDS[0x38] = ('ai_path', 'aipath')
 LEVEL_FIELDS[0x3C] = ('ai_path_rev', 'aipath')
 LEVEL_FIELDS[0x40] = ('hits', 'hits')
+for off, nm in ((0x44, 'edges_in'), (0x48, 'edges_out'), (0x4C, 'edges_in_rev'), (0x50, 'edges_out_rev')):
+    LEVEL_FIELDS[off] = (nm, 'edges')
 LEVEL_FIELDS[0x5C] = ('checkpoints', 'checkpoints')
 LEVEL_FIELDS[0x60] = ('checkpoints_rev', 'checkpoints')
 
@@ -144,6 +147,8 @@ def collect(g, data):
                 add(p, 'levels/%02d/%s' % (L, fname), typ, checkpoints.size(data, p))
             elif typ == 'hits':
                 add(p, 'levels/%02d/%s' % (L, fname), typ, hits.size(data, p))
+            elif typ == 'edges':
+                add(p, 'levels/%02d/%s' % (L, fname), typ, edges.size(data, p))
             else:
                 add(p, 'levels/%02d/%s' % (L, fname), typ)
     # --- tracks ---

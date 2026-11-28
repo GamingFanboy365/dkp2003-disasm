@@ -56,3 +56,11 @@
 	.2byte \x, \z, \next, \prev, \nx, \nz
 	.4byte \d
 .endm
+
+@ a track edge (tools/edges.py)
+.macro track_edge x0, z0, x1, z1, nx, nz, d, cx, cz, cd, dx, dz, next, prev
+	.4byte \nx, \nz, \d, \cx, \cz, \cd
+	.4byte (\x0) << 8, (\z0) << 8, (\x1) << 8, (\z1) << 8
+	.4byte \dx, \dz
+	.2byte \next, \prev
+.endm

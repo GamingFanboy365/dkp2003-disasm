@@ -6903,19 +6903,19 @@ gUnk_087D0E0C:
 	.balign 16
 	.global gUnk_087D1000
 gUnk_087D1000:
-	.incbin "build/assets/levels/01/edges1.bin"   @ from assets/levels/01/edges1.bin
+	.include "assets/levels/01/edges_in.s"
 	.balign 8
 	.global gUnk_087D1D38
 gUnk_087D1D38:
-	.incbin "build/assets/levels/01/edges1_rev.bin"   @ from assets/levels/01/edges1_rev.bin
+	.include "assets/levels/01/edges_out.s"
 	.balign 16
 	.global gUnk_087D2F50
 gUnk_087D2F50:
-	.incbin "build/assets/levels/01/edges2_rev.bin"   @ from assets/levels/01/edges2_rev.bin
+	.include "assets/levels/01/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087D2F54
 gUnk_087D2F54:
-	.incbin "build/assets/levels/01/edges2.bin"   @ from assets/levels/01/edges2.bin
+	.include "assets/levels/01/edges_in_rev.s"
 	.balign 4
 	.global gUnk_087D39B4
 gUnk_087D39B4:
@@ -6959,19 +6959,19 @@ gUnk_087D56EC:
 	.balign 16
 	.global gUnk_087D5880
 gUnk_087D5880:
-	.incbin "build/assets/levels/02/edges1.bin"   @ from assets/levels/02/edges1.bin
+	.include "assets/levels/02/edges_in.s"
 	.balign 16
 	.global gUnk_087D6550
 gUnk_087D6550:
-	.incbin "build/assets/levels/02/edges1_rev.bin"   @ from assets/levels/02/edges1_rev.bin
+	.include "assets/levels/02/edges_out.s"
 	.balign 8
 	.global gUnk_087D7698
 gUnk_087D7698:
-	.incbin "build/assets/levels/02/edges2_rev.bin"   @ from assets/levels/02/edges2_rev.bin
+	.include "assets/levels/02/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087D7FF4
 gUnk_087D7FF4:
-	.incbin "build/assets/levels/02/edges2.bin"   @ from assets/levels/02/edges2.bin
+	.include "assets/levels/02/edges_in_rev.s"
 	.balign 4
 	.global gUnk_087D88B4
 gUnk_087D88B4:
@@ -7015,19 +7015,19 @@ gUnk_087DABCC:
 	.balign 16
 	.global gUnk_087DADF0
 gUnk_087DADF0:
-	.incbin "build/assets/levels/03/edges1.bin"   @ from assets/levels/03/edges1.bin
+	.include "assets/levels/03/edges_in.s"
 	.balign 8
 	.global gUnk_087DBA58
 gUnk_087DBA58:
-	.incbin "build/assets/levels/03/edges1_rev.bin"   @ from assets/levels/03/edges1_rev.bin
+	.include "assets/levels/03/edges_out.s"
 	.balign 8
 	.global gUnk_087DC998
 gUnk_087DC998:
-	.incbin "build/assets/levels/03/edges2_rev.bin"   @ from assets/levels/03/edges2_rev.bin
+	.include "assets/levels/03/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087DD1BC
 gUnk_087DD1BC:
-	.incbin "build/assets/levels/03/edges2.bin"   @ from assets/levels/03/edges2.bin
+	.include "assets/levels/03/edges_in_rev.s"
 	.balign 8
 	.global gUnk_087DDA48
 gUnk_087DDA48:
@@ -7071,19 +7071,19 @@ gUnk_087DF224:
 	.balign 8
 	.global gUnk_087DF3E8
 gUnk_087DF3E8:
-	.incbin "build/assets/levels/04/edges1.bin"   @ from assets/levels/04/edges1.bin
+	.include "assets/levels/04/edges_in.s"
 	.balign 16
 	.global gUnk_087DFC40
 gUnk_087DFC40:
-	.incbin "build/assets/levels/04/edges1_rev.bin"   @ from assets/levels/04/edges1_rev.bin
+	.include "assets/levels/04/edges_out.s"
 	.balign 4
 	.global gUnk_087E0874
 gUnk_087E0874:
-	.incbin "build/assets/levels/04/edges2_rev.bin"   @ from assets/levels/04/edges2_rev.bin
+	.include "assets/levels/04/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087E0F94
 gUnk_087E0F94:
-	.incbin "build/assets/levels/04/edges2.bin"   @ from assets/levels/04/edges2.bin
+	.include "assets/levels/04/edges_in_rev.s"
 	.balign 16
 	.global gUnk_087E1750
 gUnk_087E1750:
@@ -7127,19 +7127,19 @@ gUnk_087E2D94:
 	.balign 8
 	.global gUnk_087E2EF8
 gUnk_087E2EF8:
-	.incbin "build/assets/levels/05/edges1.bin"   @ from assets/levels/05/edges1.bin
+	.include "assets/levels/05/edges_in.s"
 	.balign 4
 	.global gUnk_087E34AC
 gUnk_087E34AC:
-	.incbin "build/assets/levels/05/edges1_rev.bin"   @ from assets/levels/05/edges1_rev.bin
+	.include "assets/levels/05/edges_out.s"
 	.balign 8
 	.global gUnk_087E3ED8
 gUnk_087E3ED8:
-	.incbin "build/assets/levels/05/edges2_rev.bin"   @ from assets/levels/05/edges2_rev.bin
+	.include "assets/levels/05/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087E44F4
 gUnk_087E44F4:
-	.incbin "build/assets/levels/05/edges2.bin"   @ from assets/levels/05/edges2.bin
+	.include "assets/levels/05/edges_in_rev.s"
 	.balign 8
 	.global gUnk_087E4B78
 gUnk_087E4B78:
@@ -7183,19 +7183,19 @@ gUnk_087E6450:
 	.balign 4
 	.global gUnk_087E65B4
 gUnk_087E65B4:
-	.incbin "build/assets/levels/06/edges1.bin"   @ from assets/levels/06/edges1.bin
+	.include "assets/levels/06/edges_in.s"
 	.balign 4
 	.global gUnk_087E6D3C
 gUnk_087E6D3C:
-	.incbin "build/assets/levels/06/edges1_rev.bin"   @ from assets/levels/06/edges1_rev.bin
+	.include "assets/levels/06/edges_out.s"
 	.balign 4
 	.global gUnk_087E786C
 gUnk_087E786C:
-	.incbin "build/assets/levels/06/edges2_rev.bin"   @ from assets/levels/06/edges2_rev.bin
+	.include "assets/levels/06/edges_out_rev.s"
 	.balign 8
 	.global gUnk_087E7F58
 gUnk_087E7F58:
-	.incbin "build/assets/levels/06/edges2.bin"   @ from assets/levels/06/edges2.bin
+	.include "assets/levels/06/edges_in_rev.s"
 	.balign 16
 	.global gUnk_087E86E0
 gUnk_087E86E0:
@@ -7239,19 +7239,19 @@ gUnk_087EA280:
 	.balign 4
 	.global gUnk_087EA404
 gUnk_087EA404:
-	.incbin "build/assets/levels/07/edges1.bin"   @ from assets/levels/07/edges1.bin
+	.include "assets/levels/07/edges_in.s"
 	.balign 16
 	.global gUnk_087EAC90
 gUnk_087EAC90:
-	.incbin "build/assets/levels/07/edges1_rev.bin"   @ from assets/levels/07/edges1_rev.bin
+	.include "assets/levels/07/edges_out.s"
 	.balign 4
 	.global gUnk_087EB92C
 gUnk_087EB92C:
-	.incbin "build/assets/levels/07/edges2_rev.bin"   @ from assets/levels/07/edges2_rev.bin
+	.include "assets/levels/07/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087EBFE4
 gUnk_087EBFE4:
-	.incbin "build/assets/levels/07/edges2.bin"   @ from assets/levels/07/edges2.bin
+	.include "assets/levels/07/edges_in_rev.s"
 	.balign 8
 	.global gUnk_087EC808
 gUnk_087EC808:
@@ -7295,19 +7295,19 @@ gUnk_087EED68:
 	.balign 4
 	.global gUnk_087EEECC
 gUnk_087EEECC:
-	.incbin "build/assets/levels/08/edges1.bin"   @ from assets/levels/08/edges1.bin
+	.include "assets/levels/08/edges_in.s"
 	.balign 4
 	.global gUnk_087EF994
 gUnk_087EF994:
-	.incbin "build/assets/levels/08/edges1_rev.bin"   @ from assets/levels/08/edges1_rev.bin
+	.include "assets/levels/08/edges_out.s"
 	.balign 4
 	.global gUnk_087F05FC
 gUnk_087F05FC:
-	.incbin "build/assets/levels/08/edges2_rev.bin"   @ from assets/levels/08/edges2_rev.bin
+	.include "assets/levels/08/edges_out_rev.s"
 	.balign 8
 	.global gUnk_087F0DB8
 gUnk_087F0DB8:
-	.incbin "build/assets/levels/08/edges2.bin"   @ from assets/levels/08/edges2.bin
+	.include "assets/levels/08/edges_in_rev.s"
 	.balign 4
 	.global gUnk_087F150C
 gUnk_087F150C:
@@ -7351,19 +7351,19 @@ gUnk_087F3368:
 	.balign 4
 	.global gUnk_087F346C
 gUnk_087F346C:
-	.incbin "build/assets/levels/09/edges1.bin"   @ from assets/levels/09/edges1.bin
+	.include "assets/levels/09/edges_in.s"
 	.balign 4
 	.global gUnk_087F3984
 gUnk_087F3984:
-	.incbin "build/assets/levels/09/edges1_rev.bin"   @ from assets/levels/09/edges1_rev.bin
+	.include "assets/levels/09/edges_out.s"
 	.balign 8
 	.global gUnk_087F40D8
 gUnk_087F40D8:
-	.incbin "build/assets/levels/09/edges2_rev.bin"   @ from assets/levels/09/edges2_rev.bin
+	.include "assets/levels/09/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087F45BC
 gUnk_087F45BC:
-	.incbin "build/assets/levels/09/edges2.bin"   @ from assets/levels/09/edges2.bin
+	.include "assets/levels/09/edges_in_rev.s"
 	.balign 16
 	.global gUnk_087F4B70
 gUnk_087F4B70:
@@ -7407,19 +7407,19 @@ gUnk_087F5EC8:
 	.balign 4
 	.global gUnk_087F5FBC
 gUnk_087F5FBC:
-	.incbin "build/assets/levels/10/edges1.bin"   @ from assets/levels/10/edges1.bin
+	.include "assets/levels/10/edges_in.s"
 	.balign 16
 	.global gUnk_087F6570
 gUnk_087F6570:
-	.incbin "build/assets/levels/10/edges1_rev.bin"   @ from assets/levels/10/edges1_rev.bin
+	.include "assets/levels/10/edges_out.s"
 	.balign 8
 	.global gUnk_087F6B58
 gUnk_087F6B58:
-	.incbin "build/assets/levels/10/edges2_rev.bin"   @ from assets/levels/10/edges2_rev.bin
+	.include "assets/levels/10/edges_out_rev.s"
 	.balign 8
 	.global gUnk_087F71A8
 gUnk_087F71A8:
-	.incbin "build/assets/levels/10/edges2.bin"   @ from assets/levels/10/edges2.bin
+	.include "assets/levels/10/edges_in_rev.s"
 	.balign 16
 	.global gUnk_087F7930
 gUnk_087F7930:
@@ -7463,19 +7463,19 @@ gUnk_087F99C0:
 	.balign 4
 	.global gUnk_087F9CB4
 gUnk_087F9CB4:
-	.incbin "build/assets/levels/11/edges1.bin"   @ from assets/levels/11/edges1.bin
+	.include "assets/levels/11/edges_in.s"
 	.balign 8
 	.global gUnk_087FA9B8
 gUnk_087FA9B8:
-	.incbin "build/assets/levels/11/edges1_rev.bin"   @ from assets/levels/11/edges1_rev.bin
+	.include "assets/levels/11/edges_out.s"
 	.balign 4
 	.global gUnk_087FB654
 gUnk_087FB654:
-	.incbin "build/assets/levels/11/edges2_rev.bin"   @ from assets/levels/11/edges2_rev.bin
+	.include "assets/levels/11/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087FC184
 gUnk_087FC184:
-	.incbin "build/assets/levels/11/edges2.bin"   @ from assets/levels/11/edges2.bin
+	.include "assets/levels/11/edges_in_rev.s"
 	.balign 4
 	.global gUnk_087FCB7C
 gUnk_087FCB7C:
@@ -7519,19 +7519,19 @@ gUnk_087FE0E4:
 	.balign 8
 	.global gUnk_087FE2E8
 gUnk_087FE2E8:
-	.incbin "build/assets/levels/12/edges1.bin"   @ from assets/levels/12/edges1.bin
+	.include "assets/levels/12/edges_in.s"
 	.balign 4
 	.global gUnk_087FE694
 gUnk_087FE694:
-	.incbin "build/assets/levels/12/edges1_rev.bin"   @ from assets/levels/12/edges1_rev.bin
+	.include "assets/levels/12/edges_out.s"
 	.balign 16
 	.global gUnk_087FEB10
 gUnk_087FEB10:
-	.incbin "build/assets/levels/12/edges2_rev.bin"   @ from assets/levels/12/edges2_rev.bin
+	.include "assets/levels/12/edges_out_rev.s"
 	.balign 4
 	.global gUnk_087FF12C
 gUnk_087FF12C:
-	.incbin "build/assets/levels/12/edges2.bin"   @ from assets/levels/12/edges2.bin
+	.include "assets/levels/12/edges_in_rev.s"
 	.balign 4
 	.global gUnk_087FF7E4
 gUnk_087FF7E4:
@@ -7579,19 +7579,19 @@ gUnk_08801E30:
 	.balign 4
 	.global gUnk_08801FF4
 gUnk_08801FF4:
-	.incbin "build/assets/levels/13/edges1.bin"   @ from assets/levels/13/edges1.bin
+	.include "assets/levels/13/edges_in.s"
 	.balign 8
 	.global gUnk_08802818
 gUnk_08802818:
-	.incbin "build/assets/levels/13/edges1_rev.bin"   @ from assets/levels/13/edges1_rev.bin
+	.include "assets/levels/13/edges_out.s"
 	.balign 8
 	.global gUnk_088031A8
 gUnk_088031A8:
-	.incbin "build/assets/levels/13/edges2_rev.bin"   @ from assets/levels/13/edges2_rev.bin
+	.include "assets/levels/13/edges_out_rev.s"
 	.balign 8
 	.global gUnk_08803A68
 gUnk_08803A68:
-	.incbin "build/assets/levels/13/edges2.bin"   @ from assets/levels/13/edges2.bin
+	.include "assets/levels/13/edges_in_rev.s"
 	.balign 4
 	.global gUnk_088043C4
 gUnk_088043C4:
@@ -7635,19 +7635,19 @@ gUnk_08806774:
 	.balign 8
 	.global gUnk_088068F8
 gUnk_088068F8:
-	.incbin "build/assets/levels/14/edges1.bin"   @ from assets/levels/14/edges1.bin
+	.include "assets/levels/14/edges_in.s"
 	.balign 4
 	.global gUnk_08806CA4
 gUnk_08806CA4:
-	.incbin "build/assets/levels/14/edges1_rev.bin"   @ from assets/levels/14/edges1_rev.bin
+	.include "assets/levels/14/edges_out.s"
 	.balign 16
 	.global gUnk_08807120
 gUnk_08807120:
-	.incbin "build/assets/levels/14/edges2_rev.bin"   @ from assets/levels/14/edges2_rev.bin
+	.include "assets/levels/14/edges_out_rev.s"
 	.balign 4
 	.global gUnk_088079AC
 gUnk_088079AC:
-	.incbin "build/assets/levels/14/edges2.bin"   @ from assets/levels/14/edges2.bin
+	.include "assets/levels/14/edges_in_rev.s"
 	.balign 4
 	.global gUnk_08808204
 gUnk_08808204:
@@ -7691,19 +7691,19 @@ gUnk_0880A298:
 	.balign 4
 	.global gUnk_0880A38C
 gUnk_0880A38C:
-	.incbin "build/assets/levels/15/edges1.bin"   @ from assets/levels/15/edges1.bin
+	.include "assets/levels/15/edges_in.s"
 	.balign 8
 	.global gUnk_0880A668
 gUnk_0880A668:
-	.incbin "build/assets/levels/15/edges1_rev.bin"   @ from assets/levels/15/edges1_rev.bin
+	.include "assets/levels/15/edges_out.s"
 	.balign 8
 	.global gUnk_0880AA48
 gUnk_0880AA48:
-	.incbin "build/assets/levels/15/edges2_rev.bin"   @ from assets/levels/15/edges2_rev.bin
+	.include "assets/levels/15/edges_out_rev.s"
 	.balign 8
 	.global gUnk_0880B168
 gUnk_0880B168:
-	.incbin "build/assets/levels/15/edges2.bin"   @ from assets/levels/15/edges2.bin
+	.include "assets/levels/15/edges_in_rev.s"
 	.balign 8
 	.global gUnk_0880B7B8
 gUnk_0880B7B8:
@@ -7747,19 +7747,19 @@ gUnk_0880D2D0:
 	.balign 4
 	.global gUnk_0880D3F4
 gUnk_0880D3F4:
-	.incbin "build/assets/levels/16/edges1.bin"   @ from assets/levels/16/edges1.bin
+	.include "assets/levels/16/edges_in.s"
 	.balign 4
 	.global gUnk_0880DC4C
 gUnk_0880DC4C:
-	.incbin "build/assets/levels/16/edges1_rev.bin"   @ from assets/levels/16/edges1_rev.bin
+	.include "assets/levels/16/edges_out.s"
 	.balign 4
 	.global gUnk_0880E6AC
 gUnk_0880E6AC:
-	.incbin "build/assets/levels/16/edges2_rev.bin"   @ from assets/levels/16/edges2_rev.bin
+	.include "assets/levels/16/edges_out_rev.s"
 	.balign 4
 	.global gUnk_0880EE34
 gUnk_0880EE34:
-	.incbin "build/assets/levels/16/edges2.bin"   @ from assets/levels/16/edges2.bin
+	.include "assets/levels/16/edges_in_rev.s"
 	.balign 16
 	.global gUnk_0880F5F0
 gUnk_0880F5F0:

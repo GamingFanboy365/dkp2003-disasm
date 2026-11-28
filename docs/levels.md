@@ -5,8 +5,9 @@
 `0x087146C0`, 34 entries of 0x94 bytes, indexed by level number
 (`gGameSetup + 0x86`). The table below says which code reads each field;
 the code was found by looking for the `level * 0x94 + field` pattern.
-Fields from `+0x38` to `+0x70` come in pairs: one for the normal direction
-and one for Reverse (play mode 1). `make extract` names the files
+Fields from `+0x38` to `+0x70` mostly come in pairs: one for the normal
+direction and one for Reverse (play mode 1). The track edges are two pairs:
+inside and outside, then the same for Reverse. `make extract` names the files
 `assets/levels/NN/<name>`.
 
 | Field | Asset name | Read by | Contents |
@@ -18,8 +19,8 @@ and one for Reverse (play mode 1). `make extract` names the files
 | `+0x34` | `objects` | `game_init` → `obj_spawn_level_object` | object list `{x, y, z, classinfo*}` |
 | `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` (`.s`) | `aiPlayerInit`, `ai_boss_init_1/2`; then `ai_update`, `ai_choose_next_node` | the CPU racers' path of gates (below); in RAM `gAiPathNodes`, `gAiPathLinks`, `gAiPathCount` |
 | `+0x40` | `hits` (`.txt`) | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined"), `hits_floor_type` | the ground's polygons, with a drag value (below) |
-| `+0x44` / `+0x48` | `edges1`, `edges1_rev` | `playerInit`, `sub_0800567C` | track edges ("not enough edge mask space for %d inside edges") |
-| `+0x4C` / `+0x50` | `edges2`, `edges2_rev` | `playerInit`, `sub_0800567C` | track edges |
+| `+0x44` / `+0x48` | `edges_in`, `edges_out` (`.s`) | `playerInit`, `player_track_edges` | the inside and outside walls of the track (below) |
+| `+0x4C` / `+0x50` | `edges_in_rev`, `edges_out_rev` (`.s`) | the same in Reverse | |
 | `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |
 | `+0x5C` / `+0x60` | `checkpoints`, `checkpoints_rev` (`.s`) | `init_race_monitor`, `race_check_checkpoint` | the checkpoint lines that count laps (below) |
 | `+0x64` / `+0x68` | `camera`, `camera_rev` | `init_camera` | camera data |
@@ -105,6 +106,27 @@ drag × (7 − item level) × a constant >> 8 during the race (values 0, 64,
 80, 96, 120, 128, 160, 200 occur; most of the track is 0). `kind` (0–9) is
 stored in obj+0x144. Levels 4 and 8 each have a polygon with a single
 vertex, which can never contain a point.
+
+## Track edges (`edges_in`, `edges_out`, `edges_in_rev`, `edges_out_rev`)
+
+The walls that keep the planes on the track: `playerInit` takes the inside
+and outside lists (`+0x44`/`+0x48`, or `+0x4C`/`+0x50` in Reverse) and
+`player_track_edges` keeps the plane between them. It allows at most 99
+inside edges ("not enough edge mask space for %d inside edges"). The battle
+arenas have only an outside edge. `make extract` writes each list as
+assembly with the `track_edge` macro (`tools/edges.py`); all 84 lists are
+accounted for exactly.
+
+```
+u32 count
+edge[count]   13 words:
+  s32 nx, nz, d         the edge's line (normal of length 256)
+  s32 cx, cz, cd        a second line, across the edge at its corner
+  s32 x0, z0, x1, z1    the segment, << 8; each edge starts where the
+                        previous one ended
+  s32 dx, dz            its direction, 16.16
+  u16 next, prev        neighbouring edges (the list is a loop)
+```
 
 ## Checkpoints (`checkpoints`, `checkpoints_rev`)
 

@@ -33,19 +33,19 @@ gUnk_08819BFC:
 	.balign 16
 	.global gUnk_08819D00
 gUnk_08819D00:
-	.incbin "build/assets/levels/17/edges1.bin"   @ from assets/levels/17/edges1.bin
+	.include "assets/levels/17/edges_in.s"
 	.balign 8
 	.global gUnk_0881A218
 gUnk_0881A218:
-	.incbin "build/assets/levels/17/edges1_rev.bin"   @ from assets/levels/17/edges1_rev.bin
+	.include "assets/levels/17/edges_out.s"
 	.balign 4
 	.global gUnk_0881A96C
 gUnk_0881A96C:
-	.incbin "build/assets/levels/17/edges2_rev.bin"   @ from assets/levels/17/edges2_rev.bin
+	.include "assets/levels/17/edges_out_rev.s"
 	.balign 16
 	.global gUnk_0881AE50
 gUnk_0881AE50:
-	.incbin "build/assets/levels/17/edges2.bin"   @ from assets/levels/17/edges2.bin
+	.include "assets/levels/17/edges_in_rev.s"
 	.balign 4
 	.global gUnk_0881B404
 gUnk_0881B404:
@@ -94,19 +94,19 @@ gUnk_0881F46C:
 	.balign 16
 	.global gUnk_0881F470
 gUnk_0881F470:
-	.incbin "build/assets/levels/21/edges1.bin"   @ from assets/levels/21/edges1.bin
+	.include "assets/levels/21/edges_in.s"
 	.balign 4
 	.global gUnk_0881F474
 gUnk_0881F474:
-	.incbin "build/assets/levels/21/edges1_rev.bin"   @ from assets/levels/21/edges1_rev.bin
+	.include "assets/levels/21/edges_out.s"
 	.balign 8
 	.global gUnk_0881F618
 gUnk_0881F618:
-	.incbin "build/assets/levels/21/edges2_rev.bin"   @ from assets/levels/21/edges2_rev.bin
+	.include "assets/levels/21/edges_out_rev.s"
 	.balign 4
 	.global gUnk_0881F61C
 gUnk_0881F61C:
-	.incbin "build/assets/levels/21/edges2.bin"   @ from assets/levels/21/edges2.bin
+	.include "assets/levels/21/edges_in_rev.s"
 	.balign 16
 	.global gUnk_0881F620
 gUnk_0881F620:
@@ -150,19 +150,19 @@ gUnk_0881F698:
 	.balign 4
 	.global gUnk_0881F69C
 gUnk_0881F69C:
-	.incbin "build/assets/levels/22/edges1.bin"   @ from assets/levels/22/edges1.bin
+	.include "assets/levels/22/edges_in.s"
 	.balign 16
 	.global gUnk_0881F6A0
 gUnk_0881F6A0:
-	.incbin "build/assets/levels/22/edges1_rev.bin"   @ from assets/levels/22/edges1_rev.bin
+	.include "assets/levels/22/edges_out.s"
 	.balign 16
 	.global gUnk_0881FF60
 gUnk_0881FF60:
-	.incbin "build/assets/levels/22/edges2_rev.bin"   @ from assets/levels/22/edges2_rev.bin
+	.include "assets/levels/22/edges_out_rev.s"
 	.balign 4
 	.global gUnk_0881FF64
 gUnk_0881FF64:
-	.incbin "build/assets/levels/22/edges2.bin"   @ from assets/levels/22/edges2.bin
+	.include "assets/levels/22/edges_in_rev.s"
 	.balign 8
 	.global gUnk_0881FF68
 gUnk_0881FF68:
@@ -206,19 +206,19 @@ gUnk_08820010:
 	.balign 4
 	.global gUnk_08820014
 gUnk_08820014:
-	.incbin "build/assets/levels/23/edges1.bin"   @ from assets/levels/23/edges1.bin
+	.include "assets/levels/23/edges_in.s"
 	.balign 8
 	.global gUnk_08820018
 gUnk_08820018:
-	.incbin "build/assets/levels/23/edges1_rev.bin"   @ from assets/levels/23/edges1_rev.bin
+	.include "assets/levels/23/edges_out.s"
 	.balign 8
 	.global gUnk_08820A78
 gUnk_08820A78:
-	.incbin "build/assets/levels/23/edges2_rev.bin"   @ from assets/levels/23/edges2_rev.bin
+	.include "assets/levels/23/edges_out_rev.s"
 	.balign 4
 	.global gUnk_08820A7C
 gUnk_08820A7C:
-	.incbin "build/assets/levels/23/edges2.bin"   @ from assets/levels/23/edges2.bin
+	.include "assets/levels/23/edges_in_rev.s"
 	.balign 16
 	.global gUnk_08820A80
 gUnk_08820A80:
@@ -262,19 +262,19 @@ gUnk_08820B04:
 	.balign 8
 	.global gUnk_08820B08
 gUnk_08820B08:
-	.incbin "build/assets/levels/24/edges1.bin"   @ from assets/levels/24/edges1.bin
+	.include "assets/levels/24/edges_in.s"
 	.balign 4
 	.global gUnk_08820B0C
 gUnk_08820B0C:
-	.incbin "build/assets/levels/24/edges1_rev.bin"   @ from assets/levels/24/edges1_rev.bin
+	.include "assets/levels/24/edges_out.s"
 	.balign 16
 	.global gUnk_088215A0
 gUnk_088215A0:
-	.incbin "build/assets/levels/24/edges2_rev.bin"   @ from assets/levels/24/edges2_rev.bin
+	.include "assets/levels/24/edges_out_rev.s"
 	.balign 4
 	.global gUnk_088215A4
 gUnk_088215A4:
-	.incbin "build/assets/levels/24/edges2.bin"   @ from assets/levels/24/edges2.bin
+	.include "assets/levels/24/edges_in_rev.s"
 	.balign 8
 	.global gUnk_088215A8
 gUnk_088215A8:
