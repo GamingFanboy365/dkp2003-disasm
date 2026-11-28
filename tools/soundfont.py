@@ -12,10 +12,10 @@ table at 0x08850948 (0xFF = none) to one of 41 instrument records listed at
         bytes; modes 1 and 3 play once (length = end - start)
   0x23  keyboard split: +0x1C points to 128 bytes (note -> index into the
         list at +0x20), the list holds 0x20 records
-  0x22  drum kit: the same shape; the keys play the drums at their own pitch
+  0x22  drum kit: the same shape; note-on replaces the note with the drum's
+        base note, so every drum plays at its own pitch
 
-The drum pitch (each drum at its own pitch) is inferred, and the
-result is a close preview, not an exact copy of the engine (no envelopes,
+The result is a close preview, not an exact copy of the engine (no envelopes,
 vibrato or volume curves).
 
   soundfont.py baserom.gba out.sf2

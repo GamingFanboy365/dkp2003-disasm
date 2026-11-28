@@ -13,7 +13,7 @@ Every sound is described by a 0x44-byte record whose first word is its type:
 |---|---|
 | `0x20` | one sample: mode, rate, base note, start, length, end (last byte), then volume/envelope bytes (99, 99, 99, 99) and sometimes vibrato values |
 | `0x23` | keyboard split: `+0x1C` points to 128 bytes (note → index), `+0x20` to a list of `0x20` records |
-| `0x22` | drum kit: the same shape; notes 24–58 are the drums |
+| `0x22` | drum kit: the same shape; notes 24–58 are the drums. Note-on replaces the note with the drum record's base note, so each drum plays at its own pitch (a split keeps the played note) |
 
 The mode is 1–4. The mixer (in `audio_arm.s`, where a voice reaches the
 record's end) stops the voice in modes 1 and 3, and in modes 2 and 4 moves the

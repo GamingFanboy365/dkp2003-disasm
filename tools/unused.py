@@ -258,12 +258,20 @@ def main():
 
     # fall-through: a "function" entered by running off the end of the one
     # before it (no return between them) is part of that function
+    insn_offs = sorted(g.insns)
+
     def falls_into(f):
-        prev = [p for p in starts if p < f]
-        if not prev:
+        # entered by running off the end of the code before it: the last
+        # instruction before f does not end the flow (e.g. an error path
+        # after a conditional branch in a handler reached by a computed jump)
+        k = bisect.bisect_left(insn_offs, f) - 1
+        if k < 0:
             return False
-        p = prev[-1]
-        return p in funcs and p in live and g.funcs[p]['thumb'] == g.funcs[f]['thumb'] and not ends_with_exit(p, f)
+        o = insn_offs[k]
+        size, thumb = g.insns[o]
+        if o + size != f or thumb != g.funcs[f]['thumb']:
+            return False
+        return not ends_with_exit(o, f)
 
     def ends_with_exit(p, f):
         # last decoded instruction of p before f
@@ -278,6 +286,8 @@ def main():
             h = struct.unpack_from('<H', data, o)[0]
             return (h & 0xFF00) == 0xBD00 or (h & 0xFF87) == 0x4700 or (h & 0xF800) == 0xE000 or h == 0xEFFF
         w = u32(o)
+        if w >> 28 != 0xE and w != 0xE7FFFFFF:
+            return False            # conditional: may fall through
         return (w & 0x0FFFFFF0) == 0x012FFF10 or (w >> 24) & 0xF == 0xA or (w & 0x0E108000) == 0x08108000 or \
             (w & 0x0FFFF000) == 0x01A0F000 or w == 0xE7FFFFFF
 
