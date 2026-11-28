@@ -95,3 +95,14 @@ A player in the top three gets a trophy, 3 − place (4 with 36 points),
 kept as the cup's best in `+0x6C + cup`; a gold also sets `+0x78 + cup`.
 The save is then written and `cup_next` returns 1. With no trophy it
 returns 2.
+
+## Boss races
+
+`game_init` takes the boss branch when `gGameSetup+0` (the mode) is 3: it
+calls `ai_boss_init_1` (the boss, class 0x35 `comp_boss`, AI state
+`gBossAi`) and `ai_boss_init_2` (the player's plane, class 0x32
+`player_boss`, `gPlayerBossAi`). To start one in mGBA from a saved race:
+write 3 to `gGameSetup+0`, a boss course and its level to `+0x84`/`+0x86`
+(course 36 and level 19 is Boss Bop), then `0x080004B9` (`game_init`) to
+`gStateFunc`. START skips the flyby. The boss moves forward while weaving
+(`boss_weave`) and bobbing (`boss_bob`) and fires orbs at the player.

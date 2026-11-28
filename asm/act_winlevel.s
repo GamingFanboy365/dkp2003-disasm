@@ -394,10 +394,10 @@ _08021350:
 _08021354:
 	.4byte gUnk_086437EE
 
-	.global sub_08021358
+	.global winlevel_path_eval
 	.thumb_func
-	.type sub_08021358, %function
-sub_08021358: @ 08021358
+	.type winlevel_path_eval, %function
+winlevel_path_eval: @ 08021358
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -576,17 +576,17 @@ _080214A4:
 	ldr r1, _080215A8
 	ldr r0, [r1]
 	movs r1, #0
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r4, _080215AC
 	movs r1, #1
 	ldr r0, [r4]
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r0, [r4, #4]
 	movs r1, #2
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r0, [r4, #8]
 	movs r1, #3
-	bl sub_08021358
+	bl winlevel_path_eval
 	b _08021468
 _080214D0:
 	adds r4, r0, #0
@@ -672,17 +672,17 @@ _08021568:
 	ldr r4, _080215A8
 	movs r1, #0
 	ldr r0, [r4]
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r4, _080215AC
 	movs r1, #1
 	ldr r0, [r4]
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r0, [r4, #4]
 	movs r1, #2
-	bl sub_08021358
+	bl winlevel_path_eval
 	ldr r0, [r4, #8]
 	movs r1, #3
-	bl sub_08021358
+	bl winlevel_path_eval
 	movs r0, #1
 	mov r2, sl
 	str r0, [r2]
@@ -5362,10 +5362,10 @@ _08023892:
 	b _0802359A
 	.byte 0x00, 0x00
 
-	.global sub_0802389C
+	.global player_boss_advance
 	.thumb_func
-	.type sub_0802389C, %function
-sub_0802389C: @ 0802389C
+	.type player_boss_advance, %function
+player_boss_advance: @ 0802389C
 	push {r4, r5, r6, r7, lr}
 	adds r6, r1, #0
 	adds r0, r6, #0
@@ -5758,10 +5758,10 @@ _08023B40:
 _08023B44:
 	.4byte gUnk_0884EF50
 
-	.global sub_08023B48
+	.global player_boss_particles
 	.thumb_func
-	.type sub_08023B48, %function
-sub_08023B48: @ 08023B48
+	.type player_boss_particles, %function
+player_boss_particles: @ 08023B48
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

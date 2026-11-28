@@ -1036,7 +1036,7 @@ act_player_boss_24E3C: @ 08024E3C
 	mov r0, sb
 	ldr r2, [sp, #0x28]
 	mov r1, fp
-	bl sub_0802389C
+	bl player_boss_advance
 	mov r0, sb
 	mov r1, fp
 	ldr r2, [sp, #0x28]
@@ -1050,7 +1050,7 @@ act_player_boss_24E3C: @ 08024E3C
 _08024E72:
 	mov r0, sb
 	mov r1, fp
-	bl sub_08023B48
+	bl player_boss_particles
 
 	.global act_player_boss_24E7A
 	.thumb_func

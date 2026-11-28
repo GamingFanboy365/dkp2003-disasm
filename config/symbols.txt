@@ -972,3 +972,11 @@ ovl_a:0x03004668 ovl_a_render       # ovl_a per-frame ground/sky renderer (race_
 ovl_b:0x03003FC8 ovl_b_stream_map   # ovl_b's map streaming
 ovl_b:0x03004378 ovl_b_render       # ovl_b per-frame renderer (race_vblank, gModeFlags bit 13)
 ovl_b:0x03004DA0 ovl_b_hblank       # hblank: BG2/BG3 affine registers and backdrop colour from a 32-byte-per-line table (0x02001C20): the perspective ground, line by line
+0x080267EC boss_weave               # (boss, gBossAi): forward along x/z (ai+0x70/+0x78) with a side-to-side weave (ai+0, +0xC; phase +0x80 += 2, a new random target every 0x40 steps); checked in mGBA in Boss Bop
+0x080269C8 boss_bob                 # (boss, gBossAi): up-and-down bob of the boss's y (ai+0x74; ai+4, +0x14; phase +0x88 += 2); checked in mGBA
+0x08026D6C boss_vertical_move       # (boss, gBossAi): height from ai+0x74 and the offsets ai+0xC0/+0xC4, when ai+0xBC is set (38% like player_boss_vertical_speed); not seen running in the test race
+0x080272E8 boss_path_gates          # gGameSetup+0x8C > 6: test the boss against the gate lines of its AI path nodes (node +0x1C/+0x1E/+0x20) and move its node indexes on
+0x0800D7CC comp_path_gates          # the same for a CPU racer (gate lines of gAiPathNodes, a random branch, atan2 aim)
+0x0802389C player_boss_advance      # (obj, gPlayerBossAi, in): moves the AI's position along z (+0x70) and +0x68; checked in mGBA
+0x08023B48 player_boss_particles    # particles from the plane's velocity, using gPlayerBossAi+0xE8/+0xEC; not seen running in the test race
+0x08021358 winlevel_path_eval       # (obj, i): a cubic spline over path records of 0x74 bytes (5 terms, __muldi3), as cam_path_eval; the win-level camera

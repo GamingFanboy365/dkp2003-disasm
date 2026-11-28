@@ -212,7 +212,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-898 functions are disassembled and 890 have real names:
+898 functions are disassembled and 898 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -240,7 +240,15 @@ print through AGBPrint and then hit an undefined-instruction trap
   emulator with `tools/fcall.py`, which runs any game function on chosen
   arguments, with RAM taken from an mGBA snapshot.
 
-The rest are `sub_XXXXXXXX`.
+* the remaining racer, CPU and boss code by running it: holding buttons from
+  a saved race and diffing what each function changes (`tools/emu/stepprof.py`),
+  coverage of a boss race, and instruction-by-instruction comparison with
+  functions already named (the boss levels reuse the plane code almost
+  unchanged).
+
+Every function now has a name. Names are as good as the evidence in their
+comment in `config/symbols.txt`: where a function was not seen running, the
+comment says so.
 
 File boundaries are taken from the first function in each region that
 references a given `src/*.c` string, so a few functions near a boundary may

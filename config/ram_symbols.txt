@@ -16,7 +16,7 @@
 0x03005670 gStateFunc               # main loop calls this every frame (current screen/mode)
 0x02018598 gDbgCursorX
 0x0201859C gDbgCursorY
-0x0202D74C gGameSetup               # +0 mode, +2 play mode (0 normal, 1 reverse, 3/4 flyby edit), +4 character per player, +0x86 level
+0x0202D74C gGameSetup               # +0 mode (3 = boss race), +2 play mode (0 normal, 1 reverse, 3/4 flyby edit), +4 character per player, +0x86 level
 0x0300565C gKeysHeld
 0x0300565E gKeysNew                 # keys pressed this frame
 0x020185A0 gDbgVolume               # -4..4

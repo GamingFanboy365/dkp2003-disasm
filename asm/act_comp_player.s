@@ -5832,10 +5832,10 @@ _0800D7C4:
 _0800D7C8:
 	.4byte cos_fx
 
-	.global sub_0800D7CC
+	.global comp_path_gates
 	.thumb_func
-	.type sub_0800D7CC, %function
-sub_0800D7CC: @ 0800D7CC
+	.type comp_path_gates, %function
+comp_path_gates: @ 0800D7CC
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -7245,7 +7245,7 @@ _0800E1D4:
 	bls _0800E238
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0800D7CC
+	bl comp_path_gates
 _0800E238:
 	adds r0, r4, #0
 	bl weaponManager

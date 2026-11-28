@@ -718,7 +718,7 @@ _08027970:
 	str r3, [r0, #8]
 	mov r1, r8
 	adds r0, r7, #0
-	bl sub_080267EC
+	bl boss_weave
 	mov r1, sl
 	ldr r3, [r1, #8]
 	cmp r3, #4
@@ -780,7 +780,7 @@ _08027A18:
 _08027A28:
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_08026D6C
+	bl boss_vertical_move
 _08027A30:
 	adds r0, r7, #0
 	mov r1, r8
@@ -958,7 +958,7 @@ _08027B74:
 	bls _08027B8E
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_080272E8
+	bl boss_path_gates
 _08027B8E:
 	adds r0, r7, #0
 	bl weaponbossManager
@@ -1170,7 +1170,7 @@ _08027D04:
 _08027D1A:
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_080269C8
+	bl boss_bob
 	b _08027A30
 _08027D24:
 	movs r0, #0x82

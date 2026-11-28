@@ -778,10 +778,10 @@ _080267E4:
 _080267E8:
 	.4byte udiv
 
-	.global sub_080267EC
+	.global boss_weave
 	.thumb_func
-	.type sub_080267EC, %function
-sub_080267EC: @ 080267EC
+	.type boss_weave, %function
+boss_weave: @ 080267EC
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -1009,10 +1009,10 @@ _080269C0:
 _080269C4:
 	.4byte atan2_fx
 
-	.global sub_080269C8
+	.global boss_bob
 	.thumb_func
-	.type sub_080269C8, %function
-sub_080269C8: @ 080269C8
+	.type boss_bob, %function
+boss_bob: @ 080269C8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1490,10 +1490,10 @@ _08026D2A:
 	subs r0, r3, r2
 	b _08026CEC
 
-	.global sub_08026D6C
+	.global boss_vertical_move
 	.thumb_func
-	.type sub_08026D6C, %function
-sub_08026D6C: @ 08026D6C
+	.type boss_vertical_move, %function
+boss_vertical_move: @ 08026D6C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2246,10 +2246,10 @@ _080272E0:
 _080272E4:
 	.4byte boss_engine_pitch2_cb
 
-	.global sub_080272E8
+	.global boss_path_gates
 	.thumb_func
-	.type sub_080272E8, %function
-sub_080272E8: @ 080272E8
+	.type boss_path_gates, %function
+boss_path_gates: @ 080272E8
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
