@@ -11147,7 +11147,7 @@ _0800A00C:
 _0800A010:
 	adds r5, #4
 	ldrsh r0, [r1, r5]
-	bl sub_080040EC
+	bl char_info
 	mov r1, sl
 	ldr r3, [r1]
 	ldr r1, _0800A184

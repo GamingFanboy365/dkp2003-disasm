@@ -696,7 +696,7 @@ _080215AC:
 _080215B0:
 	.4byte 0x02018F34
 _080215B4:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _080215B8:
 	.4byte gUnk_086437C4
 _080215BC:
@@ -1052,7 +1052,7 @@ _08021864:
 _08021868:
 	.4byte 0x02023FA4
 _0802186C:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08021870:
 	.4byte 0x040000D4
 _08021874:
@@ -1718,7 +1718,7 @@ _08021D74:
 _08021D78:
 	.4byte gUnk_0863C0E0
 _08021D7C:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08021D80:
 	.4byte 0x0202E610
 _08021D84:
@@ -1831,7 +1831,7 @@ _08021E4A:
 	b _08021C36
 _08021E58:
 	ldr r0, [r5, #0x14]
-	bl sub_080040EC
+	bl char_info
 	movs r4, #0x80
 	ldr r0, [r0, #0x14]
 	movs r1, #0x40
@@ -1850,7 +1850,7 @@ _08021E6E:
 _08021E7C:
 	mov r3, r8
 	ldr r0, [r3, #0x10]
-	bl sub_080040EC
+	bl char_info
 	movs r3, #0x80
 	ldr r0, [r0, #0x14]
 	movs r1, #0x40
@@ -1868,7 +1868,7 @@ _08021E96:
 	b _08021C20
 _08021EA2:
 	ldr r0, [r7, #0xc]
-	bl sub_080040EC
+	bl char_info
 	movs r6, #0x80
 	ldr r0, [r0, #0x14]
 	movs r1, #0x40
@@ -3363,7 +3363,7 @@ _08022A20:
 _08022A24:
 	.4byte 0x02023FA4
 _08022A28:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08022A2C:
 	.4byte 0x040000D4
 _08022A30:
@@ -3524,7 +3524,7 @@ _08022B58:
 _08022B5C:
 	.4byte gUnk_0863C0E0
 _08022B60:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08022B64:
 	.4byte 0x0202E670
 _08022B68:
@@ -3940,7 +3940,7 @@ _08022E70:
 	b _08022DC8
 _08022E82:
 	ldr r0, [r1, #0xc]
-	bl sub_080040EC
+	bl char_info
 	ldr r1, [r0, #0x10]
 	cmp r1, #1
 	beq _08022EA8
@@ -3971,7 +3971,7 @@ _08022EA8:
 	b _08022DC0
 _08022EC2:
 	ldr r0, [r1, #0x10]
-	bl sub_080040EC
+	bl char_info
 	ldr r6, [r0, #0x10]
 	cmp r6, #1
 	beq _08022F24

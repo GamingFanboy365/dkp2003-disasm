@@ -1103,7 +1103,7 @@ sub_0800B504: @ 0800B504
 	adds r5, #4
 	mov sl, r1
 	ldrsh r0, [r4, r5]
-	bl sub_080040EC
+	bl char_info
 	str r0, [sp, #0x2c]
 	ldr r0, [sp, #0x14]
 	mov r3, r8

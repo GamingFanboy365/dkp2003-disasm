@@ -8570,7 +8570,7 @@ _0801CEC0:
 _0801CEC4:
 	.4byte gModeFlags
 _0801CEC8:
-	.4byte sub_03003D54
+	.4byte pal_flush
 _0801CECC:
 	.4byte 0x0202D730
 _0801CED0:

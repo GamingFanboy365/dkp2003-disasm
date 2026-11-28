@@ -1965,7 +1965,7 @@ sub_08028250: @ 08028250
 	adds r7, #4
 	mov r1, r8
 	ldrsh r0, [r1, r7]
-	bl sub_080040EC
+	bl char_info
 	ldr r3, [r0, #0x68]
 	mov r5, sb
 	mov ip, r3

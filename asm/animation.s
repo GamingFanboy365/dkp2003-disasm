@@ -990,7 +990,7 @@ _0800374C:
 _08003750:
 	.4byte gGameSetup
 _08003754:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _08003758:
 	.4byte gUnk_08713650
 _0800375C:
@@ -1861,7 +1861,7 @@ _08003D9C:
 _08003DA8:
 	.4byte gGameSetup
 _08003DAC:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _08003DB0:
 	ldr r3, [sp, #0x18]
 	lsls r2, r3, #2
@@ -2211,10 +2211,10 @@ _08004020:
 _08004024:
 	.4byte udiv
 
-	.global sub_08004028
+	.global setup_char_bias
 	.thumb_func
-	.type sub_08004028, %function
-sub_08004028: @ 08004028
+	.type setup_char_bias, %function
+setup_char_bias: @ 08004028
 	push {r4, r5, lr}
 	ldr r4, _08004050
 	ldr r5, _08004054
@@ -2239,7 +2239,7 @@ _08004034:
 _08004050:
 	.4byte gGameSetup
 _08004054:
-	.4byte gUnk_0884DF48
+	.4byte gCharBiasTable
 
 	.global sub_08004058
 	.thumb_func
@@ -2270,10 +2270,10 @@ _08004080:
 _08004084:
 	.4byte 0x0000FFFF
 
-	.global sub_08004088
+	.global clear_char_bias
 	.thumb_func
-	.type sub_08004088, %function
-sub_08004088: @ 08004088
+	.type clear_char_bias, %function
+clear_char_bias: @ 08004088
 	push {lr}
 	ldr r3, _080040A0
 	movs r1, #0
@@ -2325,20 +2325,20 @@ sub_080040A4: @ 080040A4
 _080040E0:
 	.4byte gGameSetup
 _080040E4:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _080040E8:
 	.4byte 0x02018F34
 
-	.global sub_080040EC
+	.global char_info
 	.thumb_func
-	.type sub_080040EC, %function
-sub_080040EC: @ 080040EC
+	.type char_info, %function
+char_info: @ 080040EC
 	ldr r2, _080040F4
 	lsls r1, r0, #2
 	ldr r0, [r2, r1]
 	bx lr
 _080040F4:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 
 	.global sub_080040F8
 	.thumb_func
@@ -2400,7 +2400,7 @@ sub_08004128: @ 08004128
 _08004158:
 	.4byte gGameSetup
 _0800415C:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _08004160:
 	.4byte gUnk_08713650
 _08004164:
@@ -2449,7 +2449,7 @@ _080041AC:
 _080041B0:
 	.4byte gGameSetup
 _080041B4:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _080041B8:
 	.4byte 0x02018F34
 
@@ -2520,7 +2520,7 @@ _08004224:
 _08004228:
 	.4byte gGameSetup
 _0800422C:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _08004230:
 	.4byte gUnk_08713650
 _08004234:

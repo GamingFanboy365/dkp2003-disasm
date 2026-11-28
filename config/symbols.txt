@@ -547,3 +547,17 @@
 0x0800ABF8 player_sfx_remote_pitch_cb1
 0x0800AC1C player_sfx_remote_pitch_cb2
 0x0800AA6C booster_blue_sfx_end_cb  # end callback, player_touch_booster_blue
+# characters
+0x0884DF24 gCharInfo                # 9 pointers to 0x84-byte character records (each starts with its character number)
+0x080040EC char_info                # (character) -> record
+0x0884DF48 gCharBiasTable           # [player character][character] -> angle 0/0x4000/0x8000/0xC000 (the "bias" of the race setup debug print)
+0x08004028 setup_char_bias          # gGameSetup+0x48[i] = gCharBiasTable[player character][i]
+0x08004088 clear_char_bias
+# race setup
+0x08000CB8 race_setup_ovl_a         # copies ovl_a to IWRAM, loads the track's palettes and graphics
+0x08001020 race_setup_ovl_b         # the same for ovl_b (gModeFlags bit 13)
+0x08000FC8 dma0_stop                # DMA0CNT = 0 (the race's HBlank DMA)
+0x08001294 dma0_stop_2              # identical copy
+0x080012F8 obj_reset_all            # clear object RAM; gRacerObjects[0..7] at fixed 0x140-byte slots; 246 more on gObjFreeList
+0x03003BB8 pal_copy_bright          # (src, dst, count, brightness): colours scaled to black (<16) or white (>16); checked with tools/fcall.py
+0x03003D54 pal_flush                # copy the dirty banks of gPalBuffer to palette RAM at gBrightness

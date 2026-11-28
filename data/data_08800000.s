@@ -769,8 +769,8 @@ gUnk_0884DEA0:
 	.4byte gUnk_0884D8F4
 	.4byte gUnk_0863EFC0
 	.4byte gUnk_0863F100
-	.global gUnk_0884DF24
-gUnk_0884DF24:
+	.global gCharInfo
+gCharInfo:
 	.4byte gUnk_0884DA80
 	.4byte gUnk_0884DB04
 	.4byte gUnk_0884DB88
@@ -780,8 +780,8 @@ gUnk_0884DF24:
 	.4byte gUnk_0884DD14
 	.4byte gUnk_0884DE1C
 	.4byte gUnk_0884DEA0
-	.global gUnk_0884DF48
-gUnk_0884DF48:
+	.global gCharBiasTable
+gCharBiasTable:
 	.incbin "baserom.gba", 0x84DF48, 0x144
 	.global gUnk_0884E08C
 gUnk_0884E08C:

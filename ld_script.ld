@@ -6,6 +6,7 @@ gFrameCount = 0x02004348;
 gRacerObjects = 0x0200434C;
 gObjProcessList = 0x02004374;
 gObjStaticHitList = 0x02004378;
+gObjRacerPool = 0x0200438C;
 gObjFreeList = 0x0201838C;
 gDbgCursorX = 0x02018598;
 gDbgCursorY = 0x0201859C;

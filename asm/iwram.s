@@ -4136,9 +4136,9 @@ _03003B58:
 	ldm sp!, {lr}
 	bx lr
 
-	.global sub_03003BB8
-	.type sub_03003BB8, %function
-sub_03003BB8: @ 03003BB8
+	.global pal_copy_bright
+	.type pal_copy_bright, %function
+pal_copy_bright: @ 03003BB8
 	push {r4, r5, r6, r7, r8, sl, lr}
 	cmp r3, #0
 	mov r5, r0
@@ -4251,9 +4251,9 @@ _03003D34:
 	ldr r2, [ip, #8]
 	b _03003C60
 
-	.global sub_03003D54
-	.type sub_03003D54, %function
-sub_03003D54: @ 03003D54
+	.global pal_flush
+	.type pal_flush, %function
+pal_flush: @ 03003D54
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, fp, ip, lr, pc}
 	ldr r2, _03003EA0
@@ -4311,7 +4311,7 @@ _03003E14:
 	mov r1, r4
 	ldr r3, [r8]
 	mov r2, #0x10
-	bl sub_03003BB8
+	bl pal_copy_bright
 	ldr r0, [r7]
 	add r5, r5, #1
 	cmp r5, r0
@@ -4341,7 +4341,7 @@ _03003E60:
 	mov r2, #0x10
 	beq _03003E94
 	ldr r3, [lr]
-	bl sub_03003BB8
+	bl pal_copy_bright
 _03003E94:
 	cmp r4, #0xf
 	ble _03003E60

@@ -2720,7 +2720,7 @@ _08017DA0:
 _08017DA4:
 	.4byte gUnk_0863BFA0
 _08017DA8:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08017DAC:
 	.4byte 0x02024358
 _08017DB0:
@@ -2831,7 +2831,7 @@ _08017E64:
 _08017E68:
 	.4byte gModeFlags
 _08017E6C:
-	.4byte sub_03003D54
+	.4byte pal_flush
 _08017E70:
 	.4byte 0x02024390
 _08017E74:

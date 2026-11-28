@@ -33,3 +33,4 @@
 0x0201BD18 gFadeLevel               # 8.8 fixed point
 0x0201BD1C gFadeStep
 0x0201BD20 gFadeMode                # 0 to black, 1 to normal, 2 to white
+0x0200438C gObjRacerPool            # the 8 racer objects, 0x140 bytes each

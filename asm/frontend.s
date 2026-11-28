@@ -169,7 +169,7 @@ _080145C4:
 _080145C8:
 	.4byte gModeFlags
 _080145CC:
-	.4byte sub_03003D54
+	.4byte pal_flush
 _080145D0:
 	pop {r4}
 	pop {r0}
@@ -863,7 +863,7 @@ _08014AAC:
 _08014AB0:
 	.4byte gBrightness
 _08014AB4:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _08014AB8:
 	.4byte 0x040000D4
 _08014ABC:
@@ -1802,7 +1802,7 @@ _080151C4:
 _080151C8:
 	.4byte 0x02023FA4
 _080151CC:
-	.4byte sub_03003BB8
+	.4byte pal_copy_bright
 _080151D0:
 	.4byte 0x020240F0
 _080151D4:
@@ -3380,7 +3380,7 @@ _08015DAC:
 _08015DB0:
 	.4byte cos_fx
 _08015DB4:
-	.4byte gUnk_0884DF24
+	.4byte gCharInfo
 _08015DB8:
 	.4byte gUnk_0803F49C
 _08015DBC:

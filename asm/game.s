@@ -100,7 +100,7 @@ _08000568:
 	ldr r1, _080005D0
 	movs r3, #9
 	str r3, [r1]
-	bl sub_080012F8
+	bl obj_reset_all
 	movs r5, #0x80
 	ldr r0, [r4]
 	lsls r4, r5, #6
@@ -109,7 +109,7 @@ _08000568:
 	bne _08000580
 	b _080007EA
 _08000580:
-	bl sub_08001020
+	bl race_setup_ovl_b
 _08000584:
 	bl sub_08002EB0
 	bl sub_08002BCC
@@ -364,12 +364,12 @@ _08000778:
 	adds r1, #0x14
 	ldr r0, [r3, r1]
 	strh r0, [r5, #6]
-	bl sub_08004088
+	bl clear_char_bias
 	b _08000796
 _0800078E:
 	ldr r0, _080007B0
 	strh r0, [r5, #6]
-	bl sub_08004028
+	bl setup_char_bias
 _08000796:
 	adds r1, r5, #0
 	adds r1, #0x3e
@@ -407,7 +407,7 @@ _080007CC:
 	b _08000666
 _080007D6:
 	bl sub_08003DD4
-	bl sub_08004028
+	bl setup_char_bias
 	bl sub_080037F8
 	b _08000666
 _080007E4:
@@ -415,7 +415,7 @@ _080007E4:
 	str r5, [r1, #4]
 	b _080005F2
 _080007EA:
-	bl sub_08000CB8
+	bl race_setup_ovl_a
 	b _08000584
 _080007F0:
 	ldr r5, [r4]
@@ -540,7 +540,7 @@ _08000896:
 	ands r0, r3
 	cmp r0, #0
 	beq _080009B2
-	bl sub_08001294
+	bl dma0_stop_2
 _080008F2:
 	bl sub_0800435C
 	ldr r1, _0800093C
@@ -634,7 +634,7 @@ _0800098C:
 	bl mcp_process
 	b _08000964
 _080009B2:
-	bl sub_08000FC8
+	bl dma0_stop
 	b _080008F2
 _080009B8:
 	ldr r2, _080009E0
@@ -746,7 +746,7 @@ _08000A80:
 _08000A84:
 	.4byte rspr_upload_frames
 _08000A88:
-	.4byte sub_03003D54
+	.4byte pal_flush
 _08000A8C:
 	.4byte 0x03004668
 
@@ -802,13 +802,13 @@ sub_08000A9C: @ 08000A9C
 	ands r0, r1
 	cmp r0, #0
 	beq _08000AF6
-	bl sub_08001294
+	bl dma0_stop_2
 _08000AF0:
 	pop {r4, r5}
 	pop {r0}
 	bx r0
 _08000AF6:
-	bl sub_08000FC8
+	bl dma0_stop
 	b _08000AF0
 _08000AFC:
 	.4byte gIrqHandler
@@ -1062,10 +1062,10 @@ _08000CB0:
 _08000CB4:
 	.4byte 0x0600C000
 
-	.global sub_08000CB8
+	.global race_setup_ovl_a
 	.thumb_func
-	.type sub_08000CB8, %function
-sub_08000CB8: @ 08000CB8
+	.type race_setup_ovl_a, %function
+race_setup_ovl_a: @ 08000CB8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1474,10 +1474,10 @@ _08000FC0:
 _08000FC4:
 	.4byte 0x0000A001
 
-	.global sub_08000FC8
+	.global dma0_stop
 	.thumb_func
-	.type sub_08000FC8, %function
-sub_08000FC8: @ 08000FC8
+	.type dma0_stop, %function
+dma0_stop: @ 08000FC8
 	ldr r0, _08000FD0
 	movs r1, #0
 	str r1, [r0]
@@ -1528,10 +1528,10 @@ _08001018:
 _0800101C:
 	.4byte 0x04000008
 
-	.global sub_08001020
+	.global race_setup_ovl_b
 	.thumb_func
-	.type sub_08001020, %function
-sub_08001020: @ 08001020
+	.type race_setup_ovl_b, %function
+race_setup_ovl_b: @ 08001020
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1855,10 +1855,10 @@ _0800128C:
 _08001290:
 	.4byte 0x06008140
 
-	.global sub_08001294
+	.global dma0_stop_2
 	.thumb_func
-	.type sub_08001294, %function
-sub_08001294: @ 08001294
+	.type dma0_stop_2, %function
+dma0_stop_2: @ 08001294
 	ldr r0, _0800129C
 	movs r1, #0
 	str r1, [r0]
@@ -1915,10 +1915,10 @@ _080012F0:
 _080012F4:
 	.4byte 0x02023FA4
 
-	.global sub_080012F8
+	.global obj_reset_all
 	.thumb_func
-	.type sub_080012F8, %function
-sub_080012F8: @ 080012F8
+	.type obj_reset_all, %function
+obj_reset_all: @ 080012F8
 	push {r4, r5, r6, lr}
 	sub sp, #4
 	ldr r4, _0800133C
@@ -1953,7 +1953,7 @@ sub_080012F8: @ 080012F8
 _08001338:
 	.4byte 0x00000000
 _0800133C:
-	.4byte 0x0200438C
+	.4byte gObjRacerPool
 _08001340:
 	.4byte 0x0100A000
 _08001344:

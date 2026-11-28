@@ -586,7 +586,7 @@ sub_0802C828: @ 0802C828
 	adds r6, #4
 	mov r8, r0
 	ldrsh r0, [r0, r6]
-	bl sub_080040EC
+	bl char_info
 	adds r4, r0, #0
 	ldr r1, [r4, #0x70]
 	adds r6, r7, #0
