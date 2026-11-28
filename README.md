@@ -204,7 +204,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-900 functions are disassembled and 532 have real names:
+900 functions are disassembled and 534 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,

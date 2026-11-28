@@ -400,7 +400,7 @@ _08020582:
 	movs r2, #0
 	adds r0, r6, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r6, #0
 	bl obj_add_vector_hit
 	movs r5, #0x80

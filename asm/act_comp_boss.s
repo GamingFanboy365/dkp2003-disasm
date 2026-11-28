@@ -1888,10 +1888,10 @@ _08028248:
 _0802824C:
 	.4byte 0x00000842
 
-	.global sub_08028250
+	.global weapon_launch
 	.thumb_func
-	.type sub_08028250, %function
-sub_08028250: @ 08028250
+	.type weapon_launch, %function
+weapon_launch: @ 08028250
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

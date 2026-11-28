@@ -479,7 +479,7 @@ _0802C7BC:
 	b _0802C660
 _0802C7CC:
 	adds r0, r4, #0
-	bl sub_08028250
+	bl weapon_launch
 	cmp r0, #0
 	bne _0802C7D8
 	b _0802C678

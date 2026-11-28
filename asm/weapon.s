@@ -414,7 +414,7 @@ _0802C3C4:
 	b _0802C21E
 _0802C3D4:
 	adds r0, r5, #0
-	bl sub_08028250
+	bl weapon_launch
 	ldr r0, [r7]
 	movs r3, #4
 	orrs r0, r3

@@ -91,7 +91,7 @@ _08012AA4:
 	movs r2, #0
 	adds r0, r4, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r4, #0
 	bl obj_add_static_hit
 	ldr r1, [r5]

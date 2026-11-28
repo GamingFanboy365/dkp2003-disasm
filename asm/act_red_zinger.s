@@ -119,7 +119,7 @@ _08029244:
 	lsls r1, r2, #3
 	movs r3, #0
 	movs r2, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r7, #0
 	bl obj_add_vector_hit
 	add sp, #4

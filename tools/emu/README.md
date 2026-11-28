@@ -67,3 +67,6 @@ emulation: the repro gives the same result with and without it.
 hints for `config/dkp.cfg`: code that ran but that the analyzer did not
 decode. Add its output, run `tools/regen.sh`, and repeat until it prints
 nothing.
+`keycover.py` finds code that runs only while a button is held during a
+race: it records coverage from a saved state once per button and compares
+with no input. B, for example, runs `weapon_launch` and the pellet object.

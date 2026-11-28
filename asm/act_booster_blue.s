@@ -242,7 +242,7 @@ _08020C2C:
 	adds r0, r6, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r6, #0
 	bl obj_add_static_hit
 	movs r0, #1

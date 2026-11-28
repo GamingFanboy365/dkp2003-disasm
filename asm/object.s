@@ -1148,10 +1148,10 @@ _08001C20:
 _08001C24:
 	.4byte 0x0000015F
 
-	.global sub_08001C28
+	.global obj_set_hitbox
 	.thumb_func
-	.type sub_08001C28, %function
-sub_08001C28: @ 08001C28
+	.type obj_set_hitbox, %function
+obj_set_hitbox: @ 08001C28
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

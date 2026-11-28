@@ -68,7 +68,7 @@ _0800F670:
 	str r0, [sp]
 	movs r3, #0
 	adds r0, r5, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r5, #0
 	bl obj_add_static_hit
 	b _0800F668
@@ -81,7 +81,7 @@ _0800F68E:
 	movs r2, #0
 	adds r0, r5, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r5, #0
 	bl obj_add_static_hit
 	b _0800F668

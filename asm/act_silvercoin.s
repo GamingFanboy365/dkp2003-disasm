@@ -92,7 +92,7 @@ _08010D4C:
 	adds r0, r5, #0
 	lsls r1, r3, #3
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r5, #0
 	bl obj_add_static_hit
 	b _08010CE6

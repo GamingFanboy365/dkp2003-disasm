@@ -590,3 +590,5 @@
 0x0800D43C ai_wobble                # random offsets (ai+0xC0..0xDC) while racer flag 0x2000 is set (and 0x100 clear); otherwise they decay by 1/8
 0x0800D338 ai_ease_offsets          # when racer flag 0x200000 is set: ai+0xEC/F4/FC move 1/8 of the way towards ai+0xE8/F0/F8
 0x0800C628 ai_forward               # aiPlayerForward wrapper in ai_update: writes the velocity (obj+0x40/0x44) (tools/fprofile.py)
+0x08028250 weapon_launch            # called by weaponManager/weaponbossManager: new projectile object, aimed (atan2_fx, isqrt), sounds; runs when B is pressed
+0x08001C28 obj_set_hitbox           # (obj, sx, sy, sz, flags): sizes at obj+0x5C.., bounding box around the position; most init_* call it

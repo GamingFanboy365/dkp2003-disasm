@@ -410,7 +410,7 @@ _0802AD08:
 	adds r0, r4, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r4, #0
 	bl obj_add_vector_hit
 	add sp, #4

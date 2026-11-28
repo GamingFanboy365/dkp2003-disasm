@@ -40,7 +40,7 @@ _080112BE:
 	adds r0, r4, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r4, #0
 	b _08011300
 _080112F8:

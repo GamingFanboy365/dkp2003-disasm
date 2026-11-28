@@ -642,7 +642,7 @@ _0802B1CC:
 	movs r2, #0
 	lsls r1, r3, #3
 	movs r3, #0
-	bl sub_08001C28
+	bl obj_set_hitbox
 	adds r0, r7, #0
 	bl obj_add_vector_hit
 	ldr r2, _0802B3F4
