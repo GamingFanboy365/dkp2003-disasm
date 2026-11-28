@@ -1514,7 +1514,7 @@ _03005540:
 	str lr, [fp, #-0x68]
 	b _ovl_a_03004730
 _03005574:
-	.4byte sub_08000C1C
+	.4byte level_anim_tiles_update
 _03005578:
 	.4byte 0x0200436C
 _0300557C:

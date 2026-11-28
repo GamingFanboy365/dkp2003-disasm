@@ -84,19 +84,19 @@ _080042A8:
 _080042C4:
 	.4byte 0x00000000
 _080042C8:
-	.4byte 0x0201C570
+	.4byte gGhostAvailable
 _080042CC:
-	.4byte 0x0201C580
+	.4byte gGhostPlayLen
 _080042D0:
 	.4byte 0x0201C578
 _080042D4:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 _080042D8:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 _080042DC:
 	.4byte 0x00002A30
 _080042E0:
-	.4byte 0x0201C58C
+	.4byte gGhostInput
 _080042E4:
 	.4byte gUnk_0804FDF8
 _080042E8:
@@ -106,10 +106,10 @@ _080042EC:
 _080042F0:
 	.4byte gUnk_0804FE60
 
-	.global sub_080042F4
+	.global ghost_start
 	.thumb_func
-	.type sub_080042F4, %function
-sub_080042F4: @ 080042F4
+	.type ghost_start, %function
+ghost_start: @ 080042F4
 	push {r4, lr}
 	ldr r0, _08004338
 	movs r1, #0x80
@@ -149,26 +149,26 @@ _0800430A:
 _08004338:
 	.4byte gModeFlags
 _0800433C:
-	.4byte 0x0201C574
+	.4byte gGhostRecording
 _08004340:
-	.4byte 0x0201C588
+	.4byte gGhostActive
 _08004344:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 _08004348:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 _0800434C:
-	.4byte 0x0201C57C
+	.4byte gGhostRecLen
 _08004350:
-	.4byte 0x0201C580
+	.4byte gGhostPlayLen
 _08004354:
 	.4byte 0x0201C578
 _08004358:
 	.4byte 0x03005660
 
-	.global sub_0800435C
+	.global ghost_reset
 	.thumb_func
-	.type sub_0800435C, %function
-sub_0800435C: @ 0800435C
+	.type ghost_reset, %function
+ghost_reset: @ 0800435C
 	ldr r0, _08004378
 	movs r1, #0
 	str r1, [r0]
@@ -184,17 +184,17 @@ sub_0800435C: @ 0800435C
 	str r1, [r0]
 	bx lr
 _08004378:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 _0800437C:
-	.4byte 0x0201C588
+	.4byte gGhostActive
 _08004380:
-	.4byte 0x0201C57C
+	.4byte gGhostRecLen
 _08004384:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 _08004388:
-	.4byte 0x0201C570
+	.4byte gGhostAvailable
 _0800438C:
-	.4byte 0x0201C574
+	.4byte gGhostRecording
 	.byte 0x01, 0x49, 0x08, 0x68, 0x70, 0x47, 0x00, 0x00, 0x88, 0xC5, 0x01, 0x02
 
 	.global ghost_set_joy
@@ -239,15 +239,15 @@ _080043AC:
 _080043E0:
 	.4byte 0xFFFFFFF3
 _080043E4:
-	.4byte 0x0201C574
+	.4byte gGhostRecording
 _080043E8:
-	.4byte 0x0201C57C
+	.4byte gGhostRecLen
 _080043EC:
 	.4byte 0x00002A30
 _080043F0:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 _080043F4:
-	.4byte 0x0201C58C
+	.4byte gGhostInput
 _080043F8:
 	add sp, #4
 	pop {r4, r5, r6}
@@ -273,10 +273,10 @@ _08004420:
 _08004424:
 	.4byte gUnk_0804FE18
 
-	.global sub_08004428
+	.global ghost_play_buffer
 	.thumb_func
-	.type sub_08004428, %function
-sub_08004428: @ 08004428
+	.type ghost_play_buffer, %function
+ghost_play_buffer: @ 08004428
 	push {lr}
 	ldr r1, _08004448
 	ldr r0, [r1]
@@ -296,16 +296,16 @@ _08004440:
 	b _0800443C
 	.byte 0x00, 0x00
 _08004448:
-	.4byte 0x0201C570
+	.4byte gGhostAvailable
 _0800444C:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 _08004450:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 
-	.global sub_08004454
+	.global ghost_discard
 	.thumb_func
-	.type sub_08004454, %function
-sub_08004454: @ 08004454
+	.type ghost_discard, %function
+ghost_discard: @ 08004454
 	push {lr}
 	ldr r1, _08004470
 	ldr r0, [r1]
@@ -322,16 +322,16 @@ _0800446A:
 	bx r0
 	.byte 0x00, 0x00
 _08004470:
-	.4byte 0x0201C588
+	.4byte gGhostActive
 _08004474:
-	.4byte 0x0201C570
+	.4byte gGhostAvailable
 _08004478:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 
-	.global sub_0800447C
+	.global ghost_rec_buffer
 	.thumb_func
-	.type sub_0800447C, %function
-sub_0800447C: @ 0800447C
+	.type ghost_rec_buffer, %function
+ghost_rec_buffer: @ 0800447C
 	push {lr}
 	ldr r1, _08004498
 	ldr r0, [r1]
@@ -349,25 +349,25 @@ _08004492:
 	rsbs r0, r3, #0
 	b _0800448E
 _08004498:
-	.4byte 0x0201C574
+	.4byte gGhostRecording
 _0800449C:
-	.4byte 0x0201C584
+	.4byte gGhostBuffer
 
-	.global sub_080044A0
+	.global ghost_kept
 	.thumb_func
-	.type sub_080044A0, %function
-sub_080044A0: @ 080044A0
+	.type ghost_kept, %function
+ghost_kept: @ 080044A0
 	ldr r1, _080044A8
 	ldr r0, [r1]
 	bx lr
 	.byte 0x00, 0x00
 _080044A8:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 
-	.global sub_080044AC
+	.global ghost_keep
 	.thumb_func
-	.type sub_080044AC, %function
-sub_080044AC: @ 080044AC
+	.type ghost_keep, %function
+ghost_keep: @ 080044AC
 	push {lr}
 	ldr r1, _080044C4
 	ldr r0, [r1]
@@ -382,16 +382,16 @@ _080044C0:
 	pop {r0}
 	bx r0
 _080044C4:
-	.4byte 0x0201C588
+	.4byte gGhostActive
 _080044C8:
-	.4byte 0x020219EC
+	.4byte gGhostKeep
 _080044CC:
-	.4byte 0x0201C570
+	.4byte gGhostAvailable
 
-	.global sub_080044D0
+	.global cam_path_append
 	.thumb_func
-	.type sub_080044D0, %function
-sub_080044D0: @ 080044D0
+	.type cam_path_append, %function
+cam_path_append: @ 080044D0
 	push {r4, r5, r6, r7, lr}
 	ldr r5, _0800454C
 	ldr r3, [r5]
@@ -459,16 +459,16 @@ _08004548:
 	movs r0, #0
 	b _08004536
 _0800454C:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004550:
-	.4byte 0x020219F0
+	.4byte gCamPath
 _08004554:
 	.4byte gGameSetup
 
-	.global sub_08004558
+	.global cam_path_load
 	.thumb_func
-	.type sub_08004558, %function
-sub_08004558: @ 08004558
+	.type cam_path_load, %function
+cam_path_load: @ 08004558
 	push {r4, r5, r6, lr}
 	movs r3, #0
 	ldrsh r2, [r0, r3]
@@ -521,15 +521,15 @@ _080045B6:
 	ldr r0, _080045D0
 	movs r1, #1
 	str r1, [r0]
-	bl sub_08004B7C
+	bl cam_path_start
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 _080045C8:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _080045CC:
-	.4byte 0x020219F0
+	.4byte gCamPath
 _080045D0:
 	.4byte 0x02021D78
 
@@ -597,9 +597,9 @@ _0800464A:
 _08004650:
 	.4byte gUnk_0804FE8C
 _08004654:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004658:
-	.4byte 0x020219F0
+	.4byte gCamPath
 _0800465C:
 	.4byte gUnk_0804FE9C
 _08004660:
@@ -613,10 +613,10 @@ _0800466C:
 _08004670:
 	.4byte gUnk_0804FECC
 
-	.global sub_08004674
+	.global cam_path_eval
 	.thumb_func
-	.type sub_08004674, %function
-sub_08004674: @ 08004674
+	.type cam_path_eval, %function
+cam_path_eval: @ 08004674
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -821,7 +821,7 @@ _080047EE:
 	b _08004784
 	.byte 0x00, 0x00
 _080047F4:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _080047F8:
 	.4byte 0x02021DDC
 _080047FC:
@@ -833,7 +833,7 @@ _08004804:
 _08004808:
 	.4byte _08004740
 _0800480C:
-	.4byte 0x020219F0
+	.4byte gCamPath
 _08004810:
 	.4byte 0x02021D78
 _08004814:

@@ -140,8 +140,8 @@ Summary
       functions: initialise_monitor_handles
       strings: ":tt"
 
-  sub_08000A9C: 1 function(s), 0 data block(s), 120 bytes
-      functions: sub_08000A9C
+  race_shutdown: 1 function(s), 0 data block(s), 120 bytes
+      functions: race_shutdown
 
   sub_0800A864: 1 function(s), 0 data block(s), 112 bytes
       functions: sub_0800A864
@@ -155,8 +155,8 @@ Summary
   sound_set_master: 1 function(s), 0 data block(s), 96 bytes
       functions: sound_set_master
 
-  sub_08004BAC: 1 function(s), 0 data block(s), 96 bytes
-      functions: sub_08004BAC
+  cam_path_next_point: 1 function(s), 0 data block(s), 96 bytes
+      functions: cam_path_next_point
 
   mtx_mul_vec: 1 function(s), 0 data block(s), 92 bytes
       functions: mtx_mul_vec
@@ -175,8 +175,8 @@ Summary
   sub_08013258: 1 function(s), 0 data block(s), 80 bytes
       functions: sub_08013258
 
-  sub_08004B34: 1 function(s), 0 data block(s), 72 bytes
-      functions: sub_08004B34
+  cam_path_set: 1 function(s), 0 data block(s), 72 bytes
+      functions: cam_path_set
 
   _mprec_log10: 1 function(s), 0 data block(s), 68 bytes
       newlib (libc) code that was linked in but is never called
@@ -197,8 +197,8 @@ Summary
   music_set_tempo: 1 function(s), 0 data block(s), 44 bytes
       functions: music_set_tempo
 
-  sub_08004454: 1 function(s), 0 data block(s), 40 bytes
-      functions: sub_08004454
+  ghost_discard: 1 function(s), 0 data block(s), 40 bytes
+      functions: ghost_discard
 
   _times: 1 function(s), 0 data block(s), 40 bytes
       newlib (libc) code that was linked in but is never called
@@ -208,8 +208,8 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: __make_dp
 
-  sub_080044AC: 1 function(s), 0 data block(s), 36 bytes
-      functions: sub_080044AC
+  ghost_keep: 1 function(s), 0 data block(s), 36 bytes
+      functions: ghost_keep
 
   audio_err_delta_4: 1 function(s), 0 data block(s), 28 bytes
       functions: audio_err_delta_4
@@ -218,8 +218,8 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: _cleanup
 
-  sub_08000A90: 1 function(s), 0 data block(s), 12 bytes
-      functions: sub_08000A90
+  race_audio_update: 1 function(s), 0 data block(s), 12 bytes
+      functions: race_audio_update
 
   sdiv_veneer: 1 function(s), 0 data block(s), 4 bytes
       functions: sdiv_veneer
@@ -256,8 +256,8 @@ Summary
   address    bytes  file                     name
   080000F4       4  crt0.s                   sdiv_veneer
   080000FC       4  crt0.s                   smod_veneer
-  08000A90      12  game.s                   sub_08000A90
-  08000A9C     120  game.s                   sub_08000A9C
+  08000A90      12  game.s                   race_audio_update
+  08000A9C     120  game.s                   race_shutdown
   0800213C     172  object.s                 obj_remove_process
   080023E8     168  object.s                 dbg_putc
   08002490     328  object.s                 dbg_draw_values
@@ -267,10 +267,10 @@ Summary
   08002AE8      96  object.s                 dbg_putnum
   08002B48     132  object.s                 sub_08002B48
   08002D7C     252  object.s                 sub_08002D7C
-  08004454      40  ghost.s                  sub_08004454
-  080044AC      36  ghost.s                  sub_080044AC
-  08004B34      72  camera_pan.s             sub_08004B34
-  08004BAC      96  camera_pan.s             sub_08004BAC
+  08004454      40  ghost.s                  ghost_discard
+  080044AC      36  ghost.s                  ghost_keep
+  08004B34      72  camera_pan.s             cam_path_set
+  08004BAC      96  camera_pan.s             cam_path_next_point
   0800A864     112  act_player.s             sub_0800A864
   0800F5E0      56  act_null.s               act_null
   0800F790     124  act_static.s             react_lava_flame

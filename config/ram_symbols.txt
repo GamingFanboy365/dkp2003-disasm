@@ -87,3 +87,14 @@
 0x0202DEC0 gMusicJingleTimer
 0x0202DEC4 gMusicResumeSong         # song to go back to after the jingle (-1 none)
 0x0202E424 gGamesfxHold              # frames before gamesfxPendingNew runs again (gamesfx_hold)
+0x0201C570 gGhostAvailable          # a ghost can be played
+0x0201C574 gGhostRecording
+0x0201C57C gGhostRecLen             # frames recorded
+0x0201C580 gGhostPlayLen
+0x0201C584 gGhostBuffer             # which of the two buffers records
+0x0201C588 gGhostActive
+0x0201C58C gGhostInput              # 2 x 0x2A30 bytes: one byte of keys per frame (10800 frames, 3 minutes)
+0x020219EC gGhostKeep               # 1 = the last run is the new ghost
+0x020219F0 gCamPath                 # 32 x 0x1C: position, look-at, speed
+0x02021D70 gCamPathCount
+0x02021D74 gCamPathRead

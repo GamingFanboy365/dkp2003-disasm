@@ -95,7 +95,7 @@ _0800F144:
 	mov r1, fp
 	str r6, [r3, #4]
 	str r5, [r1, #8]
-	bl sub_08004AF0
+	bl cam_path_clear
 	ldr r2, _0800F268
 	ldr r6, _0800F26C
 	mov r8, r2
@@ -106,7 +106,7 @@ _0800F172:
 	adds r0, r4, r3
 	adds r1, r4, r6
 	subs r5, #1
-	bl sub_080044D0
+	bl cam_path_append
 	adds r4, #0xc
 	cmp r5, #0
 	bge _0800F172
@@ -187,15 +187,15 @@ _0800F172:
 	str r0, [sp, #0xc]
 	adds r1, r4, #0
 	adds r0, r2, #0
-	bl sub_080044D0
+	bl cam_path_append
 	add r3, sp, #0x14
 	adds r0, r3, #0
 	adds r1, r4, #0
-	bl sub_080044D0
+	bl cam_path_append
 	movs r1, #2
 	mov r2, fp
 	str r1, [r2, #4]
-	bl sub_08004B7C
+	bl cam_path_start
 	add sp, #0x20
 	pop {r3, r4, r5, r6}
 	mov r8, r3
@@ -290,7 +290,7 @@ _0800F2D0:
 	adds r1, #0x54
 _0800F2EC:
 	ldr r0, [r3, r1]
-	bl sub_08004558
+	bl cam_path_load
 	ldr r2, _0800F354
 	ldr r1, [r2]
 	movs r0, #1
@@ -418,7 +418,7 @@ _0800F3C8:
 _0800F3CC:
 	adds r0, r5, #0
 	bl sub_0800E9B8
-	bl sub_08004AF0
+	bl cam_path_clear
 	movs r1, #0xd3
 	ldr r0, _0800F448
 	ldr r2, _0800F44C

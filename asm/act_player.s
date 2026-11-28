@@ -8706,7 +8706,7 @@ _08008D94:
 	movs r2, #0
 	adds r5, r1, r0
 	mov sb, r2
-	bl sub_080044A0
+	bl ghost_kept
 	cmp r0, #0
 	bne _08008DBA
 	b _08008FB8
@@ -8974,7 +8974,7 @@ _08008FB4:
 	rsbs r1, r4, #0
 	b _08008F34
 _08008FB8:
-	bl sub_08004428
+	bl ghost_play_buffer
 	cmp r8, r0
 	beq _08008FC2
 	b _08008DC4
@@ -10244,7 +10244,7 @@ act_player: @ 0800991C
 	sub sp, #8
 	mov sb, r3
 	mov r8, r2
-	bl sub_08004428
+	bl ghost_play_buffer
 	cmp r4, r0
 	bne _08009956
 	.2byte 0xF000, 0xFC0F @ bl #0x800a174
@@ -10258,7 +10258,7 @@ _08009956:
 	ldrh r0, [r1, r2]
 	mov r1, r8
 	strh r0, [r1, #2]
-	bl sub_0800447C
+	bl ghost_rec_buffer
 	cmp r4, r0
 	bne _08009974
 	bl _0800A166

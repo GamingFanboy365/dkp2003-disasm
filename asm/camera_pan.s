@@ -193,32 +193,32 @@ _08004888:
 	adds r6, r7, r4
 	adds r1, r2, r4
 	adds r0, r6, #0
-	bl sub_08004C64
+	bl angle_unwrap
 	mov r3, sb
 	adds r5, r3, r4
 	adds r0, r6, #0
 	adds r1, r5, #0
 	add r4, fp
-	bl sub_08004C64
+	bl angle_unwrap
 	adds r1, r4, #0
 	mov r4, r8
 	adds r4, #0xc
 	adds r0, r5, #0
 	adds r5, r7, r4
 	mov r7, sl
-	bl sub_08004C64
+	bl angle_unwrap
 	adds r1, r7, r4
 	adds r0, r5, #0
-	bl sub_08004C64
+	bl angle_unwrap
 	mov r1, sb
 	adds r7, r1, r4
 	adds r0, r5, #0
 	adds r1, r7, #0
 	add r4, fp
-	bl sub_08004C64
+	bl angle_unwrap
 	adds r0, r7, #0
 	adds r1, r4, #0
-	bl sub_08004C64
+	bl angle_unwrap
 	ldr r7, [sp, #4]
 	mov r2, r8
 	adds r7, #0xc
@@ -352,7 +352,7 @@ _08004AB2:
 _08004AB8:
 	.4byte 0x02021DDC
 _08004ABC:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004AC0:
 	.4byte gUnk_0804FEFC
 _08004AC4:
@@ -366,7 +366,7 @@ _08004AD0:
 _08004AD4:
 	.4byte 0x02021D78
 _08004AD8:
-	.4byte 0x020219F0
+	.4byte gCamPath
 _08004ADC:
 	.4byte 0x02021D7C
 _08004AE0:
@@ -378,15 +378,15 @@ _08004AE8:
 _08004AEC:
 	.4byte 0x0000013F
 
-	.global sub_08004AF0
+	.global cam_path_clear
 	.thumb_func
-	.type sub_08004AF0, %function
-sub_08004AF0: @ 08004AF0
+	.type cam_path_clear, %function
+cam_path_clear: @ 08004AF0
 	push {r4, lr}
 	ldr r2, _08004B1C
 	movs r4, #0
 	str r4, [r2]
-	bl sub_08004B28
+	bl cam_path_rewind
 	ldr r2, _08004B20
 	ldr r1, _08004B24
 	str r4, [r2]
@@ -405,27 +405,27 @@ _08004B14:
 	bx r0
 	.byte 0x00, 0x00
 _08004B1C:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004B20:
 	.4byte 0x02021D78
 _08004B24:
 	.4byte gGameSetup
 
-	.global sub_08004B28
+	.global cam_path_rewind
 	.thumb_func
-	.type sub_08004B28, %function
-sub_08004B28: @ 08004B28
+	.type cam_path_rewind, %function
+cam_path_rewind: @ 08004B28
 	ldr r0, _08004B30
 	movs r1, #0
 	str r1, [r0]
 	bx lr
 _08004B30:
-	.4byte 0x02021D74
+	.4byte gCamPathRead
 
-	.global sub_08004B34
+	.global cam_path_set
 	.thumb_func
-	.type sub_08004B34, %function
-sub_08004B34: @ 08004B34
+	.type cam_path_set, %function
+cam_path_set: @ 08004B34
 	push {lr}
 	ldr r1, _08004B74
 	ldm r0!, {r2}
@@ -456,18 +456,18 @@ _08004B46:
 	cmp r1, ip
 	blo _08004B46
 _08004B6C:
-	bl sub_08004B7C
+	bl cam_path_start
 	pop {r0}
 	bx r0
 _08004B74:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004B78:
-	.4byte 0x020219F0
+	.4byte gCamPath
 
-	.global sub_08004B7C
+	.global cam_path_start
 	.thumb_func
-	.type sub_08004B7C, %function
-sub_08004B7C: @ 08004B7C
+	.type cam_path_start, %function
+cam_path_start: @ 08004B7C
 	push {lr}
 	ldr r1, _08004BA0
 	ldr r0, [r1]
@@ -487,16 +487,16 @@ _08004B92:
 	movs r0, #1
 	b _08004B8E
 _08004BA0:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004BA4:
 	.4byte gUnk_0804FEDC
 _08004BA8:
 	.4byte 0x02021DDC
 
-	.global sub_08004BAC
+	.global cam_path_next_point
 	.thumb_func
-	.type sub_08004BAC, %function
-sub_08004BAC: @ 08004BAC
+	.type cam_path_next_point, %function
+cam_path_next_point: @ 08004BAC
 	push {r4, r5, r6, lr}
 	ldr r2, _08004C00
 	ldr r6, _08004C04
@@ -542,16 +542,16 @@ _08004BFA:
 	b _08004BF4
 	.byte 0x00, 0x00
 _08004C00:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004C04:
-	.4byte 0x02021D74
+	.4byte gCamPathRead
 _08004C08:
-	.4byte 0x020219F0
+	.4byte gCamPath
 
-	.global sub_08004C0C
+	.global cam_path_close_loop
 	.thumb_func
-	.type sub_08004C0C, %function
-sub_08004C0C: @ 08004C0C
+	.type cam_path_close_loop, %function
+cam_path_close_loop: @ 08004C0C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -578,7 +578,7 @@ _08004C34:
 	mov r3, r8
 	adds r0, r4, r6
 	adds r1, r4, r3
-	bl sub_080044D0
+	bl cam_path_append
 	adds r5, #1
 	adds r2, r7, #3
 	adds r4, #0x1c
@@ -596,14 +596,14 @@ _08004C58:
 	movs r0, #0
 	b _08004C4E
 _08004C5C:
-	.4byte 0x02021D70
+	.4byte gCamPathCount
 _08004C60:
-	.4byte 0x020219F0
+	.4byte gCamPath
 
-	.global sub_08004C64
+	.global angle_unwrap
 	.thumb_func
-	.type sub_08004C64, %function
-sub_08004C64: @ 08004C64
+	.type angle_unwrap, %function
+angle_unwrap: @ 08004C64
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r3, #0x80

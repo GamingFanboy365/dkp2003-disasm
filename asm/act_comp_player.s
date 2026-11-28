@@ -8707,7 +8707,7 @@ sub_0800ED18: @ 0800ED18
 	adds r6, r1, #0
 	add r0, sp, #0xc
 	mov r1, sp
-	bl sub_08004674
+	bl cam_path_eval
 	cmp r0, #0
 	beq _0800EDDE
 	adds r2, r7, #0
@@ -8834,10 +8834,10 @@ cam_path_add_point: @ 0800EE0C
 	sub sp, #0x18
 	cmp r0, #0
 	beq _0800EE32
-	bl sub_08004B7C
+	bl cam_path_start
 	cmp r0, #0
 	beq _0800EE32
-	bl sub_08004C0C
+	bl cam_path_close_loop
 	adds r0, r6, #0
 	adds r0, #0xa0
 	movs r2, #1
@@ -8872,7 +8872,7 @@ _0800EE32:
 	mov r1, sp
 	str r0, [sp, #8]
 	add r0, sp, #0xc
-	bl sub_080044D0
+	bl cam_path_append
 	cmp r0, #0
 	bne _0800EE76
 	b _0800F07A

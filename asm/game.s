@@ -155,7 +155,7 @@ _080005D8:
 _080005DC:
 	.4byte 0x04000004
 _080005E0:
-	.4byte sub_080009E8
+	.4byte race_vblank
 _080005E4:
 	.4byte gIrqHandler
 _080005E8:
@@ -260,7 +260,7 @@ _08000688:
 	bl playerInit
 	bl weaponInit
 _080006A2:
-	bl sub_080042F4
+	bl ghost_start
 	bl gamesfx_init
 	bl music_queue_reset
 	ldr r4, _080007B4
@@ -542,7 +542,7 @@ _08000896:
 	beq _080009B2
 	bl dma0_stop_2
 _080008F2:
-	bl sub_0800435C
+	bl ghost_reset
 	ldr r1, _0800093C
 	ldr r3, _08000954
 	ldr r0, [r1]
@@ -663,10 +663,10 @@ _080009E0:
 _080009E4:
 	.4byte 0x0000030F
 
-	.global sub_080009E8
+	.global race_vblank
 	.thumb_func
-	.type sub_080009E8, %function
-sub_080009E8: @ 080009E8
+	.type race_vblank, %function
+race_vblank: @ 080009E8
 	push {r4, lr}
 	bl vblank_handler_noaudio
 	ldr r2, _08000A74
@@ -676,7 +676,7 @@ sub_080009E8: @ 080009E8
 	ands r0, r1
 	cmp r0, #0
 	beq _08000A6C
-	bl sub_080012A0
+	bl race_regs_commit_b
 _08000A00:
 	ldr r4, _08000A74
 	movs r1, #0x80
@@ -732,7 +732,7 @@ _08000A66:
 	bl sub_0800EC3C
 	b _08000A36
 _08000A6C:
-	bl sub_08000FD4
+	bl race_regs_commit_a
 	b _08000A00
 	.byte 0x00, 0x00
 _08000A74:
@@ -750,20 +750,20 @@ _08000A88:
 _08000A8C:
 	.4byte 0x03004668
 
-	.global sub_08000A90
+	.global race_audio_update
 	.thumb_func
-	.type sub_08000A90, %function
-sub_08000A90: @ 08000A90
+	.type race_audio_update, %function
+race_audio_update: @ 08000A90
 	push {lr}
 	bl snd_update
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_08000A9C
+	.global race_shutdown
 	.thumb_func
-	.type sub_08000A9C, %function
-sub_08000A9C: @ 08000A9C
+	.type race_shutdown, %function
+race_shutdown: @ 08000A9C
 	push {r4, r5, lr}
 	bl obj_free_all
 	bl gamesfx_stop_all
@@ -973,10 +973,10 @@ _08000C14:
 _08000C18:
 	.4byte gUnk_0804F690
 
-	.global sub_08000C1C
+	.global level_anim_tiles_update
 	.thumb_func
-	.type sub_08000C1C, %function
-sub_08000C1C: @ 08000C1C
+	.type level_anim_tiles_update, %function
+level_anim_tiles_update: @ 08000C1C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1485,10 +1485,10 @@ dma0_stop: @ 08000FC8
 _08000FD0:
 	.4byte 0x040000B8
 
-	.global sub_08000FD4
+	.global race_regs_commit_a
 	.thumb_func
-	.type sub_08000FD4, %function
-sub_08000FD4: @ 08000FD4
+	.type race_regs_commit_a, %function
+race_regs_commit_a: @ 08000FD4
 	ldr r0, _08001018
 	ldr r2, _0800101C
 	ldr r3, [r0]
@@ -1866,10 +1866,10 @@ dma0_stop_2: @ 08001294
 _0800129C:
 	.4byte 0x040000B8
 
-	.global sub_080012A0
+	.global race_regs_commit_b
 	.thumb_func
-	.type sub_080012A0, %function
-sub_080012A0: @ 080012A0
+	.type race_regs_commit_b, %function
+race_regs_commit_b: @ 080012A0
 	ldr r2, _080012EC
 	ldr r0, _080012F0
 	ldr r3, [r2]

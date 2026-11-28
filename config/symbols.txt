@@ -788,3 +788,34 @@
 0x0801BE48 fe_spot_hblank           # hblank: WIN0H/WIN1H for the next line
 0x0801BE84 fe_spot_set              # sets the spotlight variables; no caller
 0x0801CDA0 fe_movie_decode          # intro movie: next frame (until +0xC frames) from a u16 RLE stream into BG VRAM 0x06000000: bit 15 fill (low byte doubled, (code >> 8 & 0x7F) + 1 halfwords), else copy
+0x08033A00 _vfprintf_r_flush        # (part of _vfprintf_r) flush the uio buffer at the end
+0x08033A18 _vfprintf_r_result       # (part of _vfprintf_r) -1 on a stream error (flag 0x40), else the count
+0x08033A2C _vfprintf_r_return       # (part of _vfprintf_r) epilogue
+0x08033C5C quorem                   # newlib dtoa helper: big integer b / S, quotient digit (__mcmp, udiv)
+0x08034AA6 _dtoa_r_return           # (part of _dtoa_r) epilogue
+0x08035834 _mbtowc_r                # newlib "C" locale: *pwc = *s; -1 if n == 0; 0 for NUL or s == NULL
+0x080385A8 __lshrdi3                # libgcc: 64-bit logical shift right (lo r0, hi r1) >> r2
+0x080385E0 __negdi2                 # libgcc: 64-bit negate
+0x080009E8 race_vblank              # race vblank: register shadows (race_regs_commit_*), rspr_upload_frames, pal_flush, then the audio update
+0x08000A90 race_audio_update        # snd_update
+0x08000A9C race_shutdown            # end of a race: obj_free_all, gamesfx_stop_all, interrupts back to vblank_handler, DMA0 off
+0x08000C1C level_anim_tiles_update  # animated background tiles (list at level +0x50): per entry a timer, then DMA the next frame's tiles to 0x0600C000 (state at 0x020042F8)
+0x08000FD4 race_regs_commit_a       # copy the shadow BG registers (0x02000820) to BG0CNT.., the affine BG2, and the backdrop colour (ovl_a mode)
+0x080012A0 race_regs_commit_b       # the same for ovl_b mode (gModeFlags bit 13; shadows at 0x02001C20)
+0x080042F4 ghost_start              # time trial start (unless gModeFlags bit 10): record and play on, swap the two 0x2A30-byte input buffers when the last run is kept
+0x0800435C ghost_reset              # all ghost state off
+0x08004428 ghost_play_buffer        # -> the buffer to play back, -1 if there is no ghost
+0x08004454 ghost_discard            # keep the old ghost (the new run was not better)
+0x0800447C ghost_rec_buffer         # -> the buffer being recorded, -1 if not recording
+0x080044A0 ghost_kept               # -> gGhostKeep
+0x080044AC ghost_keep               # keep the run just recorded as the ghost (a new best)
+0x080044D0 cam_path_append          # (pos, look): append to the camera path (32 points of 0x1C at 0x020219F0); speed 0x80 in flyby edit (play mode 3/4), else 0x10; 0 if full
+0x08004558 cam_path_load            # from a s16 list: count, then 7 values per point (positions << 8)
+0x08004674 cam_path_eval            # (pos, look): the current cubic segment at t (Horner, __muldi3); next segment via campan_start_seg
+0x08004AF0 cam_path_clear           # no points; edit mode on in play modes 3/4
+0x08004B28 cam_path_rewind          # read index 0
+0x08004B34 cam_path_set             # (count, points): copy, then cam_path_start
+0x08004B7C cam_path_start           # needs more than 3 points ("Not enough points for a path"); segment 0, campan_start_seg
+0x08004BAC cam_path_next_point      # (&pos, &look) -> 0 at the end
+0x08004C0C cam_path_close_loop      # append the first 3 points again (a closed spline); 0 if full
+0x08004C64 angle_unwrap             # (&a, &b): move b by 0x10000 steps to within 0x8000 of a
