@@ -587,3 +587,5 @@
 0x0800DD5C comp_sfx_pitch_cb1       # pitch callbacks (r1)
 0x0800E940 comp_sfx_pitch_cb2
 0x0800C2E8 ai_aim_at_node           # angle (atan2_fx) and distance (udiv) to the target node
+0x0800D43C ai_wobble                # random offsets (ai+0xC0..0xDC) while racer flag 0x2000 is set (and 0x100 clear); otherwise they decay by 1/8
+0x0800D338 ai_ease_offsets          # when racer flag 0x200000 is set: ai+0xEC/F4/FC move 1/8 of the way towards ai+0xE8/F0/F8

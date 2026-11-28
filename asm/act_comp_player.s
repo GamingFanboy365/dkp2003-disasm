@@ -5203,10 +5203,10 @@ _0800D330:
 _0800D334:
 	.4byte gRacerObjects
 
-	.global sub_0800D338
+	.global ai_ease_offsets
 	.thumb_func
-	.type sub_0800D338, %function
-sub_0800D338: @ 0800D338
+	.type ai_ease_offsets, %function
+ai_ease_offsets: @ 0800D338
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -5339,10 +5339,10 @@ _0800D3FE:
 	b _0800D3BE
 	.byte 0x00, 0x00
 
-	.global sub_0800D43C
+	.global ai_wobble
 	.thumb_func
-	.type sub_0800D43C, %function
-sub_0800D43C: @ 0800D43C
+	.type ai_wobble, %function
+ai_wobble: @ 0800D43C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -5697,10 +5697,10 @@ _0800D670:
 	bl sub_0800C628
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_0800D43C
+	bl ai_wobble
 	mov r0, r8
 	adds r1, r7, #0
-	bl sub_0800D338
+	bl ai_ease_offsets
 _0800D6D2:
 	ldrh r2, [r7, #4]
 	lsls r0, r2, #3

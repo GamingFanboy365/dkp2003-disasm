@@ -45,5 +45,10 @@ Established from the code (the asserts name some of them):
 | `+0x3C`, `+0x40`, `+0x44` | s32 | velocity x, y, z | `ai_update` writes them from `sin_fx`/`cos_fx` |
 | `+0x54` | s32 | heading in the top 16 bits (16-bit angle) | `tools/emu/repro_zinger_buzz.py` reads it to steer the player |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
-| `+0xA0` | u32 | racer flags; bit 0 = holds a weapon | the zinger-buzz reproduction |
+| `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x2000`, `0x100`, `0x200000` switch the CPU's `ai_wobble` / `ai_ease_offsets`; `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |
+
+CPU racers also have a 0x158-byte AI state each (`gAiRacers`, 8 of them),
+passed with the object: `ai_update(obj, ai)`. A breakpoint in mGBA shows
+racer 2 as `obj = 0x0200460C` (`gObjRacerPool + 2 * 0x140`) with
+`ai = 0x0202375C` (`gAiRacers + 2 * 0x158`).
