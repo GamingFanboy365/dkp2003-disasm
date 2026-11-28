@@ -21,6 +21,7 @@ Asset types:
                                               -> assets/<name>.png + .json
   sample    8-bit signed PCM audio sample     -> assets/<name>.wav
   text      front-end strings + language tables -> assets/<name>.txt
+  anim      sprite animation scripts           -> assets/<name>.s (anim_* macros)
   gfx       other pointer-free graphics (tilemaps)
                                               -> assets/<name>.bin
   bin       anything else                     -> assets/<name>.bin
@@ -157,6 +158,8 @@ def collect(g, data):
         add(off, 'graphics/frontend/tiles_%06x' % off, 'tiles%d' % bpp, 2 + n * 32 * (bpp // 4))
     for off in FRONTEND_TILEMAPS:
         add(off, 'graphics/frontend/tilemap_%06x' % off, 'gfx', 0x800)
+    # sprite animation scripts (tools/anim.py), up to the level headers
+    add(0x71446B, 'graphics/sprites/anims', 'anim', LEVELS - 0x71446B)
     # front-end text: six language tables and the strings (tools/fetext.py)
     add(0x63FFDC, 'text/frontend', 'text', 0x64378A - 0x63FFDC)
     for off, name, typ, size in DEBUG_MENU:

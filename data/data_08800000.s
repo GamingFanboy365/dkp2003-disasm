@@ -15,474 +15,631 @@ gUnk_08800898:
 	.global gUnk_08800B80
 gUnk_08800B80:
 	.incbin "build/assets/levels/13/ai_path_rev.bin"   @ from assets/levels/13/ai_path_rev.bin
+	.balign 4
 	.global gUnk_08801C6C
 gUnk_08801C6C:
 	.incbin "build/assets/levels/13/race_monitor.bin"   @ from assets/levels/13/race_monitor.bin
+	.balign 16
 	.global gUnk_08801E30
 gUnk_08801E30:
 	.incbin "build/assets/levels/13/race_monitor_rev.bin"   @ from assets/levels/13/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_08801FF4
 gUnk_08801FF4:
 	.incbin "build/assets/levels/13/edges1.bin"   @ from assets/levels/13/edges1.bin
+	.balign 8
 	.global gUnk_08802818
 gUnk_08802818:
 	.incbin "build/assets/levels/13/edges1_rev.bin"   @ from assets/levels/13/edges1_rev.bin
+	.balign 8
 	.global gUnk_088031A8
 gUnk_088031A8:
 	.incbin "build/assets/levels/13/edges2_rev.bin"   @ from assets/levels/13/edges2_rev.bin
+	.balign 8
 	.global gUnk_08803A68
 gUnk_08803A68:
 	.incbin "build/assets/levels/13/edges2.bin"   @ from assets/levels/13/edges2.bin
+	.balign 4
 	.global gUnk_088043C4
 gUnk_088043C4:
 	.incbin "build/assets/levels/13/camera_ops.bin"   @ from assets/levels/13/camera_ops.bin
+	.balign 4
 	.global gUnk_088044DC
 gUnk_088044DC:
 	.incbin "build/assets/levels/13/camera_ops_rev.bin"   @ from assets/levels/13/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_08804624
 gUnk_08804624:
 	.incbin "build/assets/levels/13/camera.bin"   @ from assets/levels/13/camera.bin
+	.balign 4
 	.global gUnk_0880470C
 gUnk_0880470C:
 	.incbin "build/assets/levels/13/camera_rev.bin"   @ from assets/levels/13/camera_rev.bin
+	.balign 4
 	.global gUnk_088047F4
 gUnk_088047F4:
 	.incbin "build/assets/levels/13/autopilot.bin"   @ from assets/levels/13/autopilot.bin
+	.balign 8
 	.global gUnk_088047F8
 gUnk_088047F8:
 	.incbin "build/assets/levels/13/autopilot_rev.bin"   @ from assets/levels/13/autopilot_rev.bin
+	.balign 16
 	.global gUnk_088048E0
 gUnk_088048E0:
 	.incbin "build/assets/levels/14/ai_path.bin"   @ from assets/levels/14/ai_path.bin
+	.balign 8
 	.global gUnk_08805748
 gUnk_08805748:
 	.incbin "build/assets/levels/14/ai_path_rev.bin"   @ from assets/levels/14/ai_path_rev.bin
+	.balign 16
 	.global gUnk_088065F0
 gUnk_088065F0:
 	.incbin "build/assets/levels/14/race_monitor.bin"   @ from assets/levels/14/race_monitor.bin
+	.balign 4
 	.global gUnk_08806774
 gUnk_08806774:
 	.incbin "build/assets/levels/14/race_monitor_rev.bin"   @ from assets/levels/14/race_monitor_rev.bin
+	.balign 8
 	.global gUnk_088068F8
 gUnk_088068F8:
 	.incbin "build/assets/levels/14/edges1.bin"   @ from assets/levels/14/edges1.bin
+	.balign 4
 	.global gUnk_08806CA4
 gUnk_08806CA4:
 	.incbin "build/assets/levels/14/edges1_rev.bin"   @ from assets/levels/14/edges1_rev.bin
+	.balign 16
 	.global gUnk_08807120
 gUnk_08807120:
 	.incbin "build/assets/levels/14/edges2_rev.bin"   @ from assets/levels/14/edges2_rev.bin
+	.balign 4
 	.global gUnk_088079AC
 gUnk_088079AC:
 	.incbin "build/assets/levels/14/edges2.bin"   @ from assets/levels/14/edges2.bin
+	.balign 4
 	.global gUnk_08808204
 gUnk_08808204:
 	.include "assets/levels/14/camera_ops.s"
+	.balign 4
 	.global gUnk_0880831C
 gUnk_0880831C:
 	.incbin "build/assets/levels/14/camera_ops_rev.bin"   @ from assets/levels/14/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_0880844C
 gUnk_0880844C:
 	.incbin "build/assets/levels/14/camera.bin"   @ from assets/levels/14/camera.bin
+	.balign 16
 	.global gUnk_08808510
 gUnk_08808510:
 	.incbin "build/assets/levels/14/camera_rev.bin"   @ from assets/levels/14/camera_rev.bin
+	.balign 4
 	.global gUnk_088085EC
 gUnk_088085EC:
 	.incbin "build/assets/levels/14/autopilot.bin"   @ from assets/levels/14/autopilot.bin
+	.balign 16
 	.global gUnk_08808710
 gUnk_08808710:
 	.incbin "build/assets/levels/14/autopilot_rev.bin"   @ from assets/levels/14/autopilot_rev.bin
+	.balign 4
 	.global gUnk_08808714
 gUnk_08808714:
 	.incbin "build/assets/levels/15/ai_path.bin"   @ from assets/levels/15/ai_path.bin
+	.balign 4
 	.global gUnk_08809594
 gUnk_08809594:
 	.incbin "build/assets/levels/15/ai_path_rev.bin"   @ from assets/levels/15/ai_path_rev.bin
+	.balign 4
 	.global gUnk_0880A1A4
 gUnk_0880A1A4:
 	.incbin "build/assets/levels/15/race_monitor.bin"   @ from assets/levels/15/race_monitor.bin
+	.balign 8
 	.global gUnk_0880A298
 gUnk_0880A298:
 	.incbin "build/assets/levels/15/race_monitor_rev.bin"   @ from assets/levels/15/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_0880A38C
 gUnk_0880A38C:
 	.incbin "build/assets/levels/15/edges1.bin"   @ from assets/levels/15/edges1.bin
+	.balign 8
 	.global gUnk_0880A668
 gUnk_0880A668:
 	.incbin "build/assets/levels/15/edges1_rev.bin"   @ from assets/levels/15/edges1_rev.bin
+	.balign 8
 	.global gUnk_0880AA48
 gUnk_0880AA48:
 	.incbin "build/assets/levels/15/edges2_rev.bin"   @ from assets/levels/15/edges2_rev.bin
+	.balign 8
 	.global gUnk_0880B168
 gUnk_0880B168:
 	.incbin "build/assets/levels/15/edges2.bin"   @ from assets/levels/15/edges2.bin
+	.balign 8
 	.global gUnk_0880B7B8
 gUnk_0880B7B8:
 	.incbin "build/assets/levels/15/camera_ops.bin"   @ from assets/levels/15/camera_ops.bin
+	.balign 16
 	.global gUnk_0880B8A0
 gUnk_0880B8A0:
 	.incbin "build/assets/levels/15/camera_ops_rev.bin"   @ from assets/levels/15/camera_ops_rev.bin
+	.balign 16
 	.global gUnk_0880B970
 gUnk_0880B970:
 	.incbin "build/assets/levels/15/camera.bin"   @ from assets/levels/15/camera.bin
+	.balign 4
 	.global gUnk_0880BA1C
 gUnk_0880BA1C:
 	.incbin "build/assets/levels/15/camera_rev.bin"   @ from assets/levels/15/camera_rev.bin
+	.balign 4
 	.global gUnk_0880BABC
 gUnk_0880BABC:
 	.incbin "build/assets/levels/15/autopilot.bin"   @ from assets/levels/15/autopilot.bin
+	.balign 16
 	.global gUnk_0880BAC0
 gUnk_0880BAC0:
 	.incbin "build/assets/levels/15/autopilot_rev.bin"   @ from assets/levels/15/autopilot_rev.bin
+	.balign 4
 	.global gUnk_0880BAC4
 gUnk_0880BAC4:
 	.incbin "build/assets/levels/16/ai_path.bin"   @ from assets/levels/16/ai_path.bin
+	.balign 8
 	.global gUnk_0880C628
 gUnk_0880C628:
 	.incbin "build/assets/levels/16/ai_path_rev.bin"   @ from assets/levels/16/ai_path_rev.bin
+	.balign 4
 	.global gUnk_0880D1AC
 gUnk_0880D1AC:
 	.incbin "build/assets/levels/16/race_monitor.bin"   @ from assets/levels/16/race_monitor.bin
+	.balign 16
 	.global gUnk_0880D2D0
 gUnk_0880D2D0:
 	.incbin "build/assets/levels/16/race_monitor_rev.bin"   @ from assets/levels/16/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_0880D3F4
 gUnk_0880D3F4:
 	.incbin "build/assets/levels/16/edges1.bin"   @ from assets/levels/16/edges1.bin
+	.balign 4
 	.global gUnk_0880DC4C
 gUnk_0880DC4C:
 	.incbin "build/assets/levels/16/edges1_rev.bin"   @ from assets/levels/16/edges1_rev.bin
+	.balign 4
 	.global gUnk_0880E6AC
 gUnk_0880E6AC:
 	.incbin "build/assets/levels/16/edges2_rev.bin"   @ from assets/levels/16/edges2_rev.bin
+	.balign 4
 	.global gUnk_0880EE34
 gUnk_0880EE34:
 	.incbin "build/assets/levels/16/edges2.bin"   @ from assets/levels/16/edges2.bin
+	.balign 16
 	.global gUnk_0880F5F0
 gUnk_0880F5F0:
 	.incbin "build/assets/levels/16/camera_ops.bin"   @ from assets/levels/16/camera_ops.bin
+	.balign 4
 	.global gUnk_0880F6CC
 gUnk_0880F6CC:
 	.incbin "build/assets/levels/16/camera_ops_rev.bin"   @ from assets/levels/16/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_0880F79C
 gUnk_0880F79C:
 	.incbin "build/assets/levels/16/camera.bin"   @ from assets/levels/16/camera.bin
+	.balign 4
 	.global gUnk_0880F854
 gUnk_0880F854:
 	.incbin "build/assets/levels/16/camera_rev.bin"   @ from assets/levels/16/camera_rev.bin
+	.balign 8
 	.global gUnk_0880F8E8
 gUnk_0880F8E8:
 	.incbin "build/assets/levels/16/autopilot.bin"   @ from assets/levels/16/autopilot.bin
+	.balign 4
 	.global gUnk_0880F9F4
 gUnk_0880F9F4:
 	.incbin "build/assets/levels/16/autopilot_rev.bin"   @ from assets/levels/16/autopilot_rev.bin
+	.balign 16
 	.global gUnk_0880FB00
 gUnk_0880FB00:
 	.incbin "build/assets/levels/17/ai_path.bin"   @ from assets/levels/17/ai_path.bin
+	.balign 8
 	.global gUnk_08813958
 gUnk_08813958:
 	.incbin "build/assets/levels/18/ai_path.bin"   @ from assets/levels/18/ai_path.bin
+	.balign 16
 	.global gUnk_088177B0
 gUnk_088177B0:
 	.incbin "build/assets/levels/19/ai_path.bin"   @ from assets/levels/19/ai_path.bin
+	.balign 4
 	.global gUnk_08819AF4
 gUnk_08819AF4:
 	.incbin "build/assets/levels/17/ai_path_rev.bin"   @ from assets/levels/17/ai_path_rev.bin
+	.balign 8
 	.global gUnk_08819AF8
 gUnk_08819AF8:
 	.incbin "build/assets/levels/17/race_monitor.bin"   @ from assets/levels/17/race_monitor.bin
+	.balign 4
 	.global gUnk_08819BFC
 gUnk_08819BFC:
 	.incbin "build/assets/levels/17/race_monitor_rev.bin"   @ from assets/levels/17/race_monitor_rev.bin
+	.balign 16
 	.global gUnk_08819D00
 gUnk_08819D00:
 	.incbin "build/assets/levels/17/edges1.bin"   @ from assets/levels/17/edges1.bin
+	.balign 8
 	.global gUnk_0881A218
 gUnk_0881A218:
 	.incbin "build/assets/levels/17/edges1_rev.bin"   @ from assets/levels/17/edges1_rev.bin
+	.balign 4
 	.global gUnk_0881A96C
 gUnk_0881A96C:
 	.incbin "build/assets/levels/17/edges2_rev.bin"   @ from assets/levels/17/edges2_rev.bin
+	.balign 16
 	.global gUnk_0881AE50
 gUnk_0881AE50:
 	.incbin "build/assets/levels/17/edges2.bin"   @ from assets/levels/17/edges2.bin
+	.balign 4
 	.global gUnk_0881B404
 gUnk_0881B404:
 	.incbin "build/assets/levels/17/camera_ops.bin"   @ from assets/levels/17/camera_ops.bin
+	.balign 8
 	.global gUnk_0881B438
 gUnk_0881B438:
 	.incbin "build/assets/levels/17/camera_ops_rev.bin"   @ from assets/levels/17/camera_ops_rev.bin
+	.balign 8
 	.global gUnk_0881B4D8
 gUnk_0881B4D8:
 	.incbin "build/assets/levels/17/camera.bin"   @ from assets/levels/17/camera.bin
+	.balign 16
 	.global gUnk_0881B560
 gUnk_0881B560:
 	.incbin "build/assets/levels/17/camera_rev.bin"   @ from assets/levels/17/camera_rev.bin
+	.balign 16
 	.global gUnk_0881B600
 gUnk_0881B600:
 	.incbin "build/assets/levels/17/autopilot.bin"   @ from assets/levels/17/autopilot.bin
+	.balign 4
 	.global gUnk_0881B604
 gUnk_0881B604:
 	.incbin "build/assets/levels/17/autopilot_rev.bin"   @ from assets/levels/17/autopilot_rev.bin
+	.balign 8
 	.global gUnk_0881B608
 gUnk_0881B608:
 	.incbin "build/assets/levels/20/ai_path.bin"   @ from assets/levels/20/ai_path.bin
+	.balign 16
 	.global gUnk_0881F460
 gUnk_0881F460:
 	.incbin "build/assets/levels/21/ai_path.bin"   @ from assets/levels/21/ai_path.bin
+	.balign 4
 	.global gUnk_0881F464
 gUnk_0881F464:
 	.incbin "build/assets/levels/21/ai_path_rev.bin"   @ from assets/levels/21/ai_path_rev.bin
+	.balign 8
 	.global gUnk_0881F468
 gUnk_0881F468:
 	.incbin "build/assets/levels/21/race_monitor.bin"   @ from assets/levels/21/race_monitor.bin
+	.balign 4
 	.global gUnk_0881F46C
 gUnk_0881F46C:
 	.incbin "build/assets/levels/21/race_monitor_rev.bin"   @ from assets/levels/21/race_monitor_rev.bin
+	.balign 16
 	.global gUnk_0881F470
 gUnk_0881F470:
 	.incbin "build/assets/levels/21/edges1.bin"   @ from assets/levels/21/edges1.bin
+	.balign 4
 	.global gUnk_0881F474
 gUnk_0881F474:
 	.incbin "build/assets/levels/21/edges1_rev.bin"   @ from assets/levels/21/edges1_rev.bin
+	.balign 8
 	.global gUnk_0881F618
 gUnk_0881F618:
 	.incbin "build/assets/levels/21/edges2_rev.bin"   @ from assets/levels/21/edges2_rev.bin
+	.balign 4
 	.global gUnk_0881F61C
 gUnk_0881F61C:
 	.incbin "build/assets/levels/21/edges2.bin"   @ from assets/levels/21/edges2.bin
+	.balign 16
 	.global gUnk_0881F620
 gUnk_0881F620:
 	.incbin "build/assets/levels/21/camera_ops.bin"   @ from assets/levels/21/camera_ops.bin
+	.balign 8
 	.global gUnk_0881F678
 gUnk_0881F678:
 	.incbin "build/assets/levels/21/camera_ops_rev.bin"   @ from assets/levels/21/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_0881F67C
 gUnk_0881F67C:
 	.incbin "build/assets/levels/21/camera.bin"   @ from assets/levels/21/camera.bin
+	.balign 16
 	.global gUnk_0881F680
 gUnk_0881F680:
 	.incbin "build/assets/levels/21/camera_rev.bin"   @ from assets/levels/21/camera_rev.bin
+	.balign 4
 	.global gUnk_0881F684
 gUnk_0881F684:
 	.incbin "build/assets/levels/21/autopilot.bin"   @ from assets/levels/21/autopilot.bin
+	.balign 8
 	.global gUnk_0881F688
 gUnk_0881F688:
 	.incbin "build/assets/levels/21/autopilot_rev.bin"   @ from assets/levels/21/autopilot_rev.bin
+	.balign 4
 	.global gUnk_0881F68C
 gUnk_0881F68C:
 	.incbin "build/assets/levels/22/ai_path.bin"   @ from assets/levels/22/ai_path.bin
+	.balign 16
 	.global gUnk_0881F690
 gUnk_0881F690:
 	.incbin "build/assets/levels/22/ai_path_rev.bin"   @ from assets/levels/22/ai_path_rev.bin
+	.balign 4
 	.global gUnk_0881F694
 gUnk_0881F694:
 	.incbin "build/assets/levels/22/race_monitor.bin"   @ from assets/levels/22/race_monitor.bin
+	.balign 8
 	.global gUnk_0881F698
 gUnk_0881F698:
 	.incbin "build/assets/levels/22/race_monitor_rev.bin"   @ from assets/levels/22/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_0881F69C
 gUnk_0881F69C:
 	.incbin "build/assets/levels/22/edges1.bin"   @ from assets/levels/22/edges1.bin
+	.balign 16
 	.global gUnk_0881F6A0
 gUnk_0881F6A0:
 	.incbin "build/assets/levels/22/edges1_rev.bin"   @ from assets/levels/22/edges1_rev.bin
+	.balign 16
 	.global gUnk_0881FF60
 gUnk_0881FF60:
 	.incbin "build/assets/levels/22/edges2_rev.bin"   @ from assets/levels/22/edges2_rev.bin
+	.balign 4
 	.global gUnk_0881FF64
 gUnk_0881FF64:
 	.incbin "build/assets/levels/22/edges2.bin"   @ from assets/levels/22/edges2.bin
+	.balign 8
 	.global gUnk_0881FF68
 gUnk_0881FF68:
 	.incbin "build/assets/levels/22/camera_ops.bin"   @ from assets/levels/22/camera_ops.bin
+	.balign 16
 	.global gUnk_0881FFF0
 gUnk_0881FFF0:
 	.incbin "build/assets/levels/22/camera_ops_rev.bin"   @ from assets/levels/22/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_0881FFF4
 gUnk_0881FFF4:
 	.incbin "build/assets/levels/22/camera.bin"   @ from assets/levels/22/camera.bin
+	.balign 8
 	.global gUnk_0881FFF8
 gUnk_0881FFF8:
 	.incbin "build/assets/levels/22/camera_rev.bin"   @ from assets/levels/22/camera_rev.bin
+	.balign 4
 	.global gUnk_0881FFFC
 gUnk_0881FFFC:
 	.incbin "build/assets/levels/22/autopilot.bin"   @ from assets/levels/22/autopilot.bin
+	.balign 16
 	.global gUnk_08820000
 gUnk_08820000:
 	.incbin "build/assets/levels/22/autopilot_rev.bin"   @ from assets/levels/22/autopilot_rev.bin
+	.balign 4
 	.global gUnk_08820004
 gUnk_08820004:
 	.incbin "build/assets/levels/23/ai_path.bin"   @ from assets/levels/23/ai_path.bin
+	.balign 8
 	.global gUnk_08820008
 gUnk_08820008:
 	.incbin "build/assets/levels/23/ai_path_rev.bin"   @ from assets/levels/23/ai_path_rev.bin
+	.balign 4
 	.global gUnk_0882000C
 gUnk_0882000C:
 	.incbin "build/assets/levels/23/race_monitor.bin"   @ from assets/levels/23/race_monitor.bin
+	.balign 16
 	.global gUnk_08820010
 gUnk_08820010:
 	.incbin "build/assets/levels/23/race_monitor_rev.bin"   @ from assets/levels/23/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_08820014
 gUnk_08820014:
 	.incbin "build/assets/levels/23/edges1.bin"   @ from assets/levels/23/edges1.bin
+	.balign 8
 	.global gUnk_08820018
 gUnk_08820018:
 	.incbin "build/assets/levels/23/edges1_rev.bin"   @ from assets/levels/23/edges1_rev.bin
+	.balign 8
 	.global gUnk_08820A78
 gUnk_08820A78:
 	.incbin "build/assets/levels/23/edges2_rev.bin"   @ from assets/levels/23/edges2_rev.bin
+	.balign 4
 	.global gUnk_08820A7C
 gUnk_08820A7C:
 	.incbin "build/assets/levels/23/edges2.bin"   @ from assets/levels/23/edges2.bin
+	.balign 16
 	.global gUnk_08820A80
 gUnk_08820A80:
 	.incbin "build/assets/levels/23/camera_ops.bin"   @ from assets/levels/23/camera_ops.bin
+	.balign 4
 	.global gUnk_08820AE4
 gUnk_08820AE4:
 	.incbin "build/assets/levels/23/camera_ops_rev.bin"   @ from assets/levels/23/camera_ops_rev.bin
+	.balign 8
 	.global gUnk_08820AE8
 gUnk_08820AE8:
 	.incbin "build/assets/levels/23/camera.bin"   @ from assets/levels/23/camera.bin
+	.balign 4
 	.global gUnk_08820AEC
 gUnk_08820AEC:
 	.incbin "build/assets/levels/23/camera_rev.bin"   @ from assets/levels/23/camera_rev.bin
+	.balign 16
 	.global gUnk_08820AF0
 gUnk_08820AF0:
 	.incbin "build/assets/levels/23/autopilot.bin"   @ from assets/levels/23/autopilot.bin
+	.balign 4
 	.global gUnk_08820AF4
 gUnk_08820AF4:
 	.incbin "build/assets/levels/23/autopilot_rev.bin"   @ from assets/levels/23/autopilot_rev.bin
+	.balign 8
 	.global gUnk_08820AF8
 gUnk_08820AF8:
 	.incbin "build/assets/levels/24/ai_path.bin"   @ from assets/levels/24/ai_path.bin
+	.balign 4
 	.global gUnk_08820AFC
 gUnk_08820AFC:
 	.incbin "build/assets/levels/24/ai_path_rev.bin"   @ from assets/levels/24/ai_path_rev.bin
+	.balign 16
 	.global gUnk_08820B00
 gUnk_08820B00:
 	.incbin "build/assets/levels/24/race_monitor.bin"   @ from assets/levels/24/race_monitor.bin
+	.balign 4
 	.global gUnk_08820B04
 gUnk_08820B04:
 	.incbin "build/assets/levels/24/race_monitor_rev.bin"   @ from assets/levels/24/race_monitor_rev.bin
+	.balign 8
 	.global gUnk_08820B08
 gUnk_08820B08:
 	.incbin "build/assets/levels/24/edges1.bin"   @ from assets/levels/24/edges1.bin
+	.balign 4
 	.global gUnk_08820B0C
 gUnk_08820B0C:
 	.incbin "build/assets/levels/24/edges1_rev.bin"   @ from assets/levels/24/edges1_rev.bin
+	.balign 16
 	.global gUnk_088215A0
 gUnk_088215A0:
 	.incbin "build/assets/levels/24/edges2_rev.bin"   @ from assets/levels/24/edges2_rev.bin
+	.balign 4
 	.global gUnk_088215A4
 gUnk_088215A4:
 	.incbin "build/assets/levels/24/edges2.bin"   @ from assets/levels/24/edges2.bin
+	.balign 8
 	.global gUnk_088215A8
 gUnk_088215A8:
 	.incbin "build/assets/levels/24/camera_ops.bin"   @ from assets/levels/24/camera_ops.bin
+	.balign 8
 	.global gUnk_08821618
 gUnk_08821618:
 	.incbin "build/assets/levels/24/camera_ops_rev.bin"   @ from assets/levels/24/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_0882161C
 gUnk_0882161C:
 	.incbin "build/assets/levels/24/camera.bin"   @ from assets/levels/24/camera.bin
+	.balign 16
 	.global gUnk_08821620
 gUnk_08821620:
 	.incbin "build/assets/levels/24/camera_rev.bin"   @ from assets/levels/24/camera_rev.bin
+	.balign 4
 	.global gUnk_08821624
 gUnk_08821624:
 	.incbin "build/assets/levels/24/autopilot.bin"   @ from assets/levels/24/autopilot.bin
+	.balign 8
 	.global gUnk_08821628
 gUnk_08821628:
 	.incbin "build/assets/levels/24/autopilot_rev.bin"   @ from assets/levels/24/autopilot_rev.bin
+	.balign 4
 	.global gUnk_0882162C
 gUnk_0882162C:
 	.incbin "build/assets/levels/26/ai_path.bin"   @ from assets/levels/26/ai_path.bin
+	.balign 4
 	.global gUnk_08825484
 gUnk_08825484:
 	.incbin "build/assets/levels/27/ai_path.bin"   @ from assets/levels/27/ai_path.bin
+	.balign 4
 	.global gUnk_088292DC
 gUnk_088292DC:
 	.incbin "build/assets/levels/28/ai_path.bin"   @ from assets/levels/28/ai_path.bin
+	.balign 4
 	.global gUnk_0882D134
 gUnk_0882D134:
 	.incbin "build/assets/levels/29/ai_path.bin"   @ from assets/levels/29/ai_path.bin
+	.balign 4
 	.global gUnk_08830F8C
 gUnk_08830F8C:
 	.incbin "build/assets/levels/30/ai_path.bin"   @ from assets/levels/30/ai_path.bin
+	.balign 4
 	.global gUnk_08834DE4
 gUnk_08834DE4:
 	.incbin "build/assets/levels/31/ai_path.bin"   @ from assets/levels/31/ai_path.bin
+	.balign 4
 	.global gUnk_08838C3C
 gUnk_08838C3C:
 	.incbin "build/assets/levels/32/ai_path.bin"   @ from assets/levels/32/ai_path.bin
+	.balign 4
 	.global gUnk_0883CA94
 gUnk_0883CA94:
 	.incbin "build/assets/levels/33/ai_path.bin"   @ from assets/levels/33/ai_path.bin
+	.balign 4
 	.global gUnk_088408EC
 gUnk_088408EC:
 	.incbin "build/assets/levels/01/hits.bin"   @ from assets/levels/01/hits.bin
+	.balign 4
 	.global gUnk_088411D4
 gUnk_088411D4:
 	.incbin "build/assets/levels/02/hits.bin"   @ from assets/levels/02/hits.bin
+	.balign 16
 	.global gUnk_08841AC0
 gUnk_08841AC0:
 	.incbin "build/assets/levels/03/hits.bin"   @ from assets/levels/03/hits.bin
+	.balign 16
 	.global gUnk_088425A0
 gUnk_088425A0:
 	.incbin "build/assets/levels/04/hits.bin"   @ from assets/levels/04/hits.bin
+	.balign 8
 	.global gUnk_08843218
 gUnk_08843218:
 	.incbin "build/assets/levels/05/hits.bin"   @ from assets/levels/05/hits.bin
+	.balign 8
 	.global gUnk_088436A8
 gUnk_088436A8:
 	.incbin "build/assets/levels/06/hits.bin"   @ from assets/levels/06/hits.bin
+	.balign 16
 	.global gUnk_08843F30
 gUnk_08843F30:
 	.incbin "build/assets/levels/07/hits.bin"   @ from assets/levels/07/hits.bin
+	.balign 4
 	.global gUnk_08844BA4
 gUnk_08844BA4:
 	.incbin "build/assets/levels/08/hits.bin"   @ from assets/levels/08/hits.bin
+	.balign 4
 	.global gUnk_0884595C
 gUnk_0884595C:
 	.incbin "build/assets/levels/09/hits.bin"   @ from assets/levels/09/hits.bin
+	.balign 4
 	.global gUnk_08846404
 gUnk_08846404:
 	.incbin "build/assets/levels/10/hits.bin"   @ from assets/levels/10/hits.bin
+	.balign 16
 	.global gUnk_08846B20
 gUnk_08846B20:
 	.incbin "build/assets/levels/11/hits.bin"   @ from assets/levels/11/hits.bin
+	.balign 16
 	.global gUnk_08847710
 gUnk_08847710:
 	.incbin "build/assets/levels/12/hits.bin"   @ from assets/levels/12/hits.bin
+	.balign 4
 	.global gUnk_08847D74
 gUnk_08847D74:
 	.incbin "build/assets/levels/13/hits.bin"   @ from assets/levels/13/hits.bin
+	.balign 4
 	.global gUnk_08848CD4
 gUnk_08848CD4:
 	.incbin "build/assets/levels/14/hits.bin"   @ from assets/levels/14/hits.bin
+	.balign 4
 	.global gUnk_08849A24
 gUnk_08849A24:
 	.incbin "build/assets/levels/15/hits.bin"   @ from assets/levels/15/hits.bin
+	.balign 8
 	.global gUnk_0884A488
 gUnk_0884A488:
 	.incbin "build/assets/levels/16/hits.bin"   @ from assets/levels/16/hits.bin
+	.balign 16
 	.global gUnk_0884AE70
 gUnk_0884AE70:
 	.incbin "build/assets/levels/17/hits.bin"   @ from assets/levels/17/hits.bin
+	.balign 4
 	.global gUnk_0884AE84
 gUnk_0884AE84:
 	.include "assets/levels/21/hits.s"
+	.balign 16
 	.global gUnk_0884B3F0
 gUnk_0884B3F0:
 	.incbin "build/assets/levels/22/hits.bin"   @ from assets/levels/22/hits.bin
+	.balign 8
 	.global gUnk_0884BDD8
 gUnk_0884BDD8:
 	.incbin "build/assets/levels/23/hits.bin"   @ from assets/levels/23/hits.bin
+	.balign 4
 	.global gUnk_0884C424
 gUnk_0884C424:
 	.incbin "build/assets/levels/24/hits.bin"   @ from assets/levels/24/hits.bin
+	.balign 8
 	.global gUnk_0884CC48
 gUnk_0884CC48:
 	.byte 0x41, 0x53, 0x53, 0x45, 0x52, 0x54, 0x49, 0x4F, 0x4E, 0x20, 0x46, 0x41, 0x49, 0x4C, 0x45, 0x44
@@ -979,75 +1136,99 @@ gUnk_0884EC98:
 	.global gUnk_0884ECA8
 gUnk_0884ECA8:
 	.incbin "build/assets/levels/tracks/54_extra.bin"   @ from assets/levels/tracks/54_extra.bin
+	.balign 16
 	.global gUnk_0884ECB0
 gUnk_0884ECB0:
 	.incbin "build/assets/levels/tracks/55_extra.bin"   @ from assets/levels/tracks/55_extra.bin
+	.balign 8
 	.global gUnk_0884ECC8
 gUnk_0884ECC8:
 	.incbin "build/assets/levels/tracks/56_extra.bin"   @ from assets/levels/tracks/56_extra.bin
+	.balign 16
 	.global gUnk_0884ECD0
 gUnk_0884ECD0:
 	.incbin "build/assets/levels/tracks/57_extra.bin"   @ from assets/levels/tracks/57_extra.bin
+	.balign 8
 	.global gUnk_0884ECE8
 gUnk_0884ECE8:
 	.incbin "build/assets/levels/tracks/58_extra.bin"   @ from assets/levels/tracks/58_extra.bin
+	.balign 8
 	.global gUnk_0884ED08
 gUnk_0884ED08:
 	.incbin "build/assets/levels/tracks/59_extra.bin"   @ from assets/levels/tracks/59_extra.bin
+	.balign 16
 	.global gUnk_0884ED20
 gUnk_0884ED20:
 	.incbin "build/assets/levels/tracks/5a_extra.bin"   @ from assets/levels/tracks/5a_extra.bin
+	.balign 16
 	.global gUnk_0884ED30
 gUnk_0884ED30:
 	.incbin "build/assets/levels/tracks/5b_extra.bin"   @ from assets/levels/tracks/5b_extra.bin
+	.balign 16
 	.global gUnk_0884ED50
 gUnk_0884ED50:
 	.incbin "build/assets/levels/tracks/5c_extra.bin"   @ from assets/levels/tracks/5c_extra.bin
+	.balign 16
 	.global gUnk_0884ED60
 gUnk_0884ED60:
 	.incbin "build/assets/levels/tracks/5d_extra.bin"   @ from assets/levels/tracks/5d_extra.bin
+	.balign 16
 	.global gUnk_0884ED80
 gUnk_0884ED80:
 	.incbin "build/assets/levels/tracks/5e_extra.bin"   @ from assets/levels/tracks/5e_extra.bin
+	.balign 16
 	.global gUnk_0884EDA0
 gUnk_0884EDA0:
 	.incbin "build/assets/levels/tracks/5f_extra.bin"   @ from assets/levels/tracks/5f_extra.bin
+	.balign 8
 	.global gUnk_0884EDC8
 gUnk_0884EDC8:
 	.incbin "build/assets/levels/tracks/60_extra.bin"   @ from assets/levels/tracks/60_extra.bin
+	.balign 8
 	.global gUnk_0884EDE8
 gUnk_0884EDE8:
 	.incbin "build/assets/levels/tracks/61_extra.bin"   @ from assets/levels/tracks/61_extra.bin
+	.balign 8
 	.global gUnk_0884EE18
 gUnk_0884EE18:
 	.incbin "build/assets/levels/tracks/62_extra.bin"   @ from assets/levels/tracks/62_extra.bin
+	.balign 8
 	.global gUnk_0884EE38
 gUnk_0884EE38:
 	.incbin "build/assets/levels/tracks/63_extra.bin"   @ from assets/levels/tracks/63_extra.bin
+	.balign 16
 	.global gUnk_0884EE60
 gUnk_0884EE60:
 	.incbin "build/assets/levels/tracks/78_extra.bin"   @ from assets/levels/tracks/78_extra.bin
+	.balign 16
 	.global gUnk_0884EE80
 gUnk_0884EE80:
 	.incbin "build/assets/levels/tracks/79_extra.bin"   @ from assets/levels/tracks/79_extra.bin
+	.balign 16
 	.global gUnk_0884EEB0
 gUnk_0884EEB0:
 	.incbin "build/assets/levels/tracks/7a_extra.bin"   @ from assets/levels/tracks/7a_extra.bin
+	.balign 16
 	.global gUnk_0884EED0
 gUnk_0884EED0:
 	.incbin "build/assets/levels/tracks/7b_extra.bin"   @ from assets/levels/tracks/7b_extra.bin
+	.balign 8
 	.global gUnk_0884EEF8
 gUnk_0884EEF8:
 	.incbin "build/assets/levels/tracks/74_extra.bin"   @ from assets/levels/tracks/74_extra.bin
+	.balign 8
 	.global gUnk_0884EF18
 gUnk_0884EF18:
 	.incbin "build/assets/levels/tracks/75_extra.bin"   @ from assets/levels/tracks/75_extra.bin
+	.balign 16
 	.global gUnk_0884EF30
 gUnk_0884EF30:
 	.incbin "build/assets/levels/tracks/76_extra.bin"   @ from assets/levels/tracks/76_extra.bin
+	.balign 8
 	.global gUnk_0884EF38
 gUnk_0884EF38:
 	.incbin "build/assets/levels/tracks/77_extra.bin"   @ from assets/levels/tracks/77_extra.bin
+	.balign 16
 	.global gUnk_0884EF50
 gUnk_0884EF50:
 	.incbin "baserom.gba", 0x84EF50, 0x9C
@@ -5263,6 +5444,7 @@ gUnk_08857600:
 	.set gUnk_08857600_len, .Lasset_end_857600 - gUnk_08857600 - 1
 	.global gUnk_088592CF
 	.set gUnk_088592CF, .Lasset_end_857600 - 1
+	.balign 16
 	.global gUnk_088592D0
 gUnk_088592D0:
 	.incbin "build/assets/audio/samples/001_11025hz.bin"   @ from assets/audio/samples/001_11025hz.wav
@@ -5271,6 +5453,7 @@ gUnk_088592D0:
 	.set gUnk_088592D0_len, .Lasset_end_8592D0 - gUnk_088592D0 - 1
 	.global gUnk_08859F45
 	.set gUnk_08859F45, .Lasset_end_8592D0 - 1
+	.balign 2
 	.global gUnk_08859F46
 gUnk_08859F46:
 	.incbin "build/assets/audio/samples/002_11025hz.bin"   @ from assets/audio/samples/002_11025hz.wav
@@ -5287,6 +5470,7 @@ gUnk_0885BE27:
 	.set gUnk_0885BE27_len, .Lasset_end_85BE27 - gUnk_0885BE27 - 1
 	.global gUnk_0885C40B
 	.set gUnk_0885C40B, .Lasset_end_85BE27 - 1
+	.balign 4
 	.global gUnk_0885C40C
 gUnk_0885C40C:
 	.incbin "build/assets/audio/samples/004_11025hz.bin"   @ from assets/audio/samples/004_11025hz.wav
@@ -5295,6 +5479,7 @@ gUnk_0885C40C:
 	.set gUnk_0885C40C_len, .Lasset_end_85C40C - gUnk_0885C40C - 1
 	.global gUnk_0885DD2F
 	.set gUnk_0885DD2F, .Lasset_end_85C40C - 1
+	.balign 16
 	.global gUnk_0885DD30
 gUnk_0885DD30:
 	.incbin "build/assets/audio/samples/005_11025hz.bin"   @ from assets/audio/samples/005_11025hz.wav
@@ -5303,6 +5488,7 @@ gUnk_0885DD30:
 	.set gUnk_0885DD30_len, .Lasset_end_85DD30 - gUnk_0885DD30 - 1
 	.global gUnk_0885EEE3
 	.set gUnk_0885EEE3, .Lasset_end_85DD30 - 1
+	.balign 4
 	.global gUnk_0885EEE4
 gUnk_0885EEE4:
 	.incbin "build/assets/audio/samples/006_11025hz.bin"   @ from assets/audio/samples/006_11025hz.wav
@@ -5327,6 +5513,7 @@ gUnk_08866B03:
 	.set gUnk_08866B03_len, .Lasset_end_866B03 - gUnk_08866B03 - 1
 	.global gUnk_08869111
 	.set gUnk_08869111, .Lasset_end_866B03 - 1
+	.balign 2
 	.global gUnk_08869112
 gUnk_08869112:
 	.incbin "build/assets/audio/samples/009_11025hz.bin"   @ from assets/audio/samples/009_11025hz.wav
@@ -5335,6 +5522,7 @@ gUnk_08869112:
 	.set gUnk_08869112_len, .Lasset_end_869112 - gUnk_08869112 - 1
 	.global gUnk_0886A567
 	.set gUnk_0886A567, .Lasset_end_869112 - 1
+	.balign 8
 	.global gUnk_0886A568
 gUnk_0886A568:
 	.incbin "build/assets/audio/samples/010_11025hz.bin"   @ from assets/audio/samples/010_11025hz.wav
@@ -5343,6 +5531,7 @@ gUnk_0886A568:
 	.set gUnk_0886A568_len, .Lasset_end_86A568 - gUnk_0886A568 - 1
 	.global gUnk_0886CAAD
 	.set gUnk_0886CAAD, .Lasset_end_86A568 - 1
+	.balign 2
 	.global gUnk_0886CAAE
 gUnk_0886CAAE:
 	.incbin "build/assets/audio/samples/011_11025hz.bin"   @ from assets/audio/samples/011_11025hz.wav
@@ -5351,6 +5540,7 @@ gUnk_0886CAAE:
 	.set gUnk_0886CAAE_len, .Lasset_end_86CAAE - gUnk_0886CAAE - 1
 	.global gUnk_0886E3AF
 	.set gUnk_0886E3AF, .Lasset_end_86CAAE - 1
+	.balign 16
 	.global gUnk_0886E3B0
 gUnk_0886E3B0:
 	.incbin "build/assets/audio/samples/012_11025hz.bin"   @ from assets/audio/samples/012_11025hz.wav
@@ -5359,6 +5549,7 @@ gUnk_0886E3B0:
 	.set gUnk_0886E3B0_len, .Lasset_end_86E3B0 - gUnk_0886E3B0 - 1
 	.global gUnk_0886F5AB
 	.set gUnk_0886F5AB, .Lasset_end_86E3B0 - 1
+	.balign 4
 	.global gUnk_0886F5AC
 gUnk_0886F5AC:
 	.incbin "build/assets/audio/samples/013_11025hz.bin"   @ from assets/audio/samples/013_11025hz.wav
@@ -5367,6 +5558,7 @@ gUnk_0886F5AC:
 	.set gUnk_0886F5AC_len, .Lasset_end_86F5AC - gUnk_0886F5AC - 1
 	.global gUnk_08871701
 	.set gUnk_08871701, .Lasset_end_86F5AC - 1
+	.balign 2
 	.global gUnk_08871702
 gUnk_08871702:
 	.incbin "build/assets/audio/samples/014_11025hz.bin"   @ from assets/audio/samples/014_11025hz.wav
@@ -5375,6 +5567,7 @@ gUnk_08871702:
 	.set gUnk_08871702_len, .Lasset_end_871702 - gUnk_08871702 - 1
 	.global gUnk_088763FB
 	.set gUnk_088763FB, .Lasset_end_871702 - 1
+	.balign 4
 	.global gUnk_088763FC
 gUnk_088763FC:
 	.incbin "build/assets/audio/samples/015_11025hz.bin"   @ from assets/audio/samples/015_11025hz.wav
@@ -5383,6 +5576,7 @@ gUnk_088763FC:
 	.set gUnk_088763FC_len, .Lasset_end_8763FC - gUnk_088763FC - 1
 	.global gUnk_08879B2F
 	.set gUnk_08879B2F, .Lasset_end_8763FC - 1
+	.balign 16
 	.global gUnk_08879B30
 gUnk_08879B30:
 	.incbin "build/assets/audio/samples/016_11025hz.bin"   @ from assets/audio/samples/016_11025hz.wav
@@ -5391,6 +5585,7 @@ gUnk_08879B30:
 	.set gUnk_08879B30_len, .Lasset_end_879B30 - gUnk_08879B30 - 1
 	.global gUnk_0887F155
 	.set gUnk_0887F155, .Lasset_end_879B30 - 1
+	.balign 2
 	.global gUnk_0887F156
 gUnk_0887F156:
 	.incbin "build/assets/audio/samples/017_11025hz.bin"   @ from assets/audio/samples/017_11025hz.wav
@@ -5407,6 +5602,7 @@ gUnk_0887F5B3:
 	.set gUnk_0887F5B3_len, .Lasset_end_87F5B3 - gUnk_0887F5B3 - 1
 	.global gUnk_08880995
 	.set gUnk_08880995, .Lasset_end_87F5B3 - 1
+	.balign 2
 	.global gUnk_08880996
 gUnk_08880996:
 	.incbin "build/assets/audio/samples/019_11025hz.bin"   @ from assets/audio/samples/019_11025hz.wav
@@ -5415,6 +5611,7 @@ gUnk_08880996:
 	.set gUnk_08880996_len, .Lasset_end_880996 - gUnk_08880996 - 1
 	.global gUnk_08881D43
 	.set gUnk_08881D43, .Lasset_end_880996 - 1
+	.balign 4
 	.global gUnk_08881D44
 gUnk_08881D44:
 	.incbin "build/assets/audio/samples/020_11025hz.bin"   @ from assets/audio/samples/020_11025hz.wav
@@ -5447,6 +5644,7 @@ gUnk_08888A55:
 	.set gUnk_08888A55_len, .Lasset_end_888A55 - gUnk_08888A55 - 1
 	.global gUnk_08889C3F
 	.set gUnk_08889C3F, .Lasset_end_888A55 - 1
+	.balign 16
 	.global gUnk_08889C40
 gUnk_08889C40:
 	.incbin "build/assets/audio/samples/024_11025hz.bin"   @ from assets/audio/samples/024_11025hz.wav
@@ -5471,6 +5669,7 @@ gUnk_0888BFCD:
 	.set gUnk_0888BFCD_len, .Lasset_end_88BFCD - gUnk_0888BFCD - 1
 	.global gUnk_0888D12D
 	.set gUnk_0888D12D, .Lasset_end_88BFCD - 1
+	.balign 2
 	.global gUnk_0888D12E
 gUnk_0888D12E:
 	.incbin "build/assets/audio/samples/027_11025hz.bin"   @ from assets/audio/samples/027_11025hz.wav
@@ -5479,6 +5678,7 @@ gUnk_0888D12E:
 	.set gUnk_0888D12E_len, .Lasset_end_88D12E - gUnk_0888D12E - 1
 	.global gUnk_0888D941
 	.set gUnk_0888D941, .Lasset_end_88D12E - 1
+	.balign 2
 	.global gUnk_0888D942
 gUnk_0888D942:
 	.incbin "build/assets/audio/samples/028_48000hz.bin"   @ from assets/audio/samples/028_48000hz.wav
@@ -5487,6 +5687,7 @@ gUnk_0888D942:
 	.set gUnk_0888D942_len, .Lasset_end_88D942 - gUnk_0888D942 - 1
 	.global gUnk_088997BD
 	.set gUnk_088997BD, .Lasset_end_88D942 - 1
+	.balign 2
 	.global gUnk_088997BE
 gUnk_088997BE:
 	.incbin "build/assets/audio/samples/029_11025hz.bin"   @ from assets/audio/samples/029_11025hz.wav
@@ -5527,6 +5728,7 @@ gUnk_088A1C1F:
 	.set gUnk_088A1C1F_len, .Lasset_end_8A1C1F - gUnk_088A1C1F - 1
 	.global gUnk_088A38AD
 	.set gUnk_088A38AD, .Lasset_end_8A1C1F - 1
+	.balign 2
 	.global gUnk_088A38AE
 gUnk_088A38AE:
 	.incbin "build/assets/audio/samples/034_11025hz.bin"   @ from assets/audio/samples/034_11025hz.wav
@@ -5535,6 +5737,7 @@ gUnk_088A38AE:
 	.set gUnk_088A38AE_len, .Lasset_end_8A38AE - gUnk_088A38AE - 1
 	.global gUnk_088A48AD
 	.set gUnk_088A48AD, .Lasset_end_8A38AE - 1
+	.balign 2
 	.global gUnk_088A48AE
 gUnk_088A48AE:
 	.incbin "build/assets/audio/samples/035_11025hz.bin"   @ from assets/audio/samples/035_11025hz.wav
@@ -5543,6 +5746,7 @@ gUnk_088A48AE:
 	.set gUnk_088A48AE_len, .Lasset_end_8A48AE - gUnk_088A48AE - 1
 	.global gUnk_088A5697
 	.set gUnk_088A5697, .Lasset_end_8A48AE - 1
+	.balign 8
 	.global gUnk_088A5698
 gUnk_088A5698:
 	.incbin "build/assets/audio/samples/036_11025hz.bin"   @ from assets/audio/samples/036_11025hz.wav
@@ -5551,6 +5755,7 @@ gUnk_088A5698:
 	.set gUnk_088A5698_len, .Lasset_end_8A5698 - gUnk_088A5698 - 1
 	.global gUnk_088A6505
 	.set gUnk_088A6505, .Lasset_end_8A5698 - 1
+	.balign 2
 	.global gUnk_088A6506
 gUnk_088A6506:
 	.incbin "build/assets/audio/samples/037_11025hz.bin"   @ from assets/audio/samples/037_11025hz.wav
@@ -5567,6 +5772,7 @@ gUnk_088A7547:
 	.set gUnk_088A7547_len, .Lasset_end_8A7547 - gUnk_088A7547 - 1
 	.global gUnk_088AB16B
 	.set gUnk_088AB16B, .Lasset_end_8A7547 - 1
+	.balign 4
 	.global gUnk_088AB16C
 gUnk_088AB16C:
 	.incbin "build/assets/audio/samples/039_11025hz.bin"   @ from assets/audio/samples/039_11025hz.wav
@@ -5591,6 +5797,7 @@ gUnk_088ADE83:
 	.set gUnk_088ADE83_len, .Lasset_end_8ADE83 - gUnk_088ADE83 - 1
 	.global gUnk_088AEF7D
 	.set gUnk_088AEF7D, .Lasset_end_8ADE83 - 1
+	.balign 2
 	.global gUnk_088AEF7E
 gUnk_088AEF7E:
 	.incbin "build/assets/audio/samples/042_11025hz.bin"   @ from assets/audio/samples/042_11025hz.wav
@@ -5615,6 +5822,7 @@ gUnk_088B097B:
 	.set gUnk_088B097B_len, .Lasset_end_8B097B - gUnk_088B097B - 1
 	.global gUnk_088B1231
 	.set gUnk_088B1231, .Lasset_end_8B097B - 1
+	.balign 2
 	.global gUnk_088B1232
 gUnk_088B1232:
 	.incbin "build/assets/audio/samples/045_11025hz.bin"   @ from assets/audio/samples/045_11025hz.wav
@@ -5639,6 +5847,7 @@ gUnk_088B2525:
 	.set gUnk_088B2525_len, .Lasset_end_8B2525 - gUnk_088B2525 - 1
 	.global gUnk_088B2E31
 	.set gUnk_088B2E31, .Lasset_end_8B2525 - 1
+	.balign 2
 	.global gUnk_088B2E32
 gUnk_088B2E32:
 	.incbin "build/assets/audio/samples/048_11025hz.bin"   @ from assets/audio/samples/048_11025hz.wav
@@ -5647,6 +5856,7 @@ gUnk_088B2E32:
 	.set gUnk_088B2E32_len, .Lasset_end_8B2E32 - gUnk_088B2E32 - 1
 	.global gUnk_088B3875
 	.set gUnk_088B3875, .Lasset_end_8B2E32 - 1
+	.balign 2
 	.global gUnk_088B3876
 gUnk_088B3876:
 	.incbin "build/assets/audio/samples/049_11025hz.bin"   @ from assets/audio/samples/049_11025hz.wav
@@ -5663,6 +5873,7 @@ gUnk_088B41AF:
 	.set gUnk_088B41AF_len, .Lasset_end_8B41AF - gUnk_088B41AF - 1
 	.global gUnk_088B47F7
 	.set gUnk_088B47F7, .Lasset_end_8B41AF - 1
+	.balign 8
 	.global gUnk_088B47F8
 gUnk_088B47F8:
 	.incbin "build/assets/audio/samples/051_11025hz.bin"   @ from assets/audio/samples/051_11025hz.wav
@@ -5671,6 +5882,7 @@ gUnk_088B47F8:
 	.set gUnk_088B47F8_len, .Lasset_end_8B47F8 - gUnk_088B47F8 - 1
 	.global gUnk_088B4DC7
 	.set gUnk_088B4DC7, .Lasset_end_8B47F8 - 1
+	.balign 8
 	.global gUnk_088B4DC8
 gUnk_088B4DC8:
 	.incbin "build/assets/audio/samples/052_11025hz.bin"   @ from assets/audio/samples/052_11025hz.wav
@@ -5679,6 +5891,7 @@ gUnk_088B4DC8:
 	.set gUnk_088B4DC8_len, .Lasset_end_8B4DC8 - gUnk_088B4DC8 - 1
 	.global gUnk_088B523F
 	.set gUnk_088B523F, .Lasset_end_8B4DC8 - 1
+	.balign 16
 	.global gUnk_088B5240
 gUnk_088B5240:
 	.incbin "build/assets/audio/samples/053_14000hz.bin"   @ from assets/audio/samples/053_14000hz.wav
@@ -5687,6 +5900,7 @@ gUnk_088B5240:
 	.set gUnk_088B5240_len, .Lasset_end_8B5240 - gUnk_088B5240 - 1
 	.global gUnk_088B597F
 	.set gUnk_088B597F, .Lasset_end_8B5240 - 1
+	.balign 16
 	.global gUnk_088B5980
 gUnk_088B5980:
 	.incbin "build/assets/audio/samples/054_14000hz.bin"   @ from assets/audio/samples/054_14000hz.wav
@@ -5695,6 +5909,7 @@ gUnk_088B5980:
 	.set gUnk_088B5980_len, .Lasset_end_8B5980 - gUnk_088B5980 - 1
 	.global gUnk_088B60D3
 	.set gUnk_088B60D3, .Lasset_end_8B5980 - 1
+	.balign 4
 	.global gUnk_088B60D4
 gUnk_088B60D4:
 	.incbin "build/assets/audio/samples/055_14000hz.bin"   @ from assets/audio/samples/055_14000hz.wav
@@ -5703,6 +5918,7 @@ gUnk_088B60D4:
 	.set gUnk_088B60D4_len, .Lasset_end_8B60D4 - gUnk_088B60D4 - 1
 	.global gUnk_088B64F5
 	.set gUnk_088B64F5, .Lasset_end_8B60D4 - 1
+	.balign 2
 	.global gUnk_088B64F6
 gUnk_088B64F6:
 	.incbin "build/assets/audio/samples/056_14000hz.bin"   @ from assets/audio/samples/056_14000hz.wav
@@ -5719,6 +5935,7 @@ gUnk_088B6921:
 	.set gUnk_088B6921_len, .Lasset_end_8B6921 - gUnk_088B6921 - 1
 	.global gUnk_088B71B9
 	.set gUnk_088B71B9, .Lasset_end_8B6921 - 1
+	.balign 2
 	.global gUnk_088B71BA
 gUnk_088B71BA:
 	.incbin "build/assets/audio/samples/058_11025hz.bin"   @ from assets/audio/samples/058_11025hz.wav
@@ -5751,6 +5968,7 @@ gUnk_088B9547:
 	.set gUnk_088B9547_len, .Lasset_end_8B9547 - gUnk_088B9547 - 1
 	.global gUnk_088BA5DF
 	.set gUnk_088BA5DF, .Lasset_end_8B9547 - 1
+	.balign 16
 	.global gUnk_088BA5E0
 gUnk_088BA5E0:
 	.incbin "build/assets/audio/samples/062_11025hz.bin"   @ from assets/audio/samples/062_11025hz.wav
@@ -5759,6 +5977,7 @@ gUnk_088BA5E0:
 	.set gUnk_088BA5E0_len, .Lasset_end_8BA5E0 - gUnk_088BA5E0 - 1
 	.global gUnk_088BBB03
 	.set gUnk_088BBB03, .Lasset_end_8BA5E0 - 1
+	.balign 4
 	.global gUnk_088BBB04
 gUnk_088BBB04:
 	.incbin "build/assets/audio/samples/063_11025hz.bin"   @ from assets/audio/samples/063_11025hz.wav
@@ -5767,6 +5986,7 @@ gUnk_088BBB04:
 	.set gUnk_088BBB04_len, .Lasset_end_8BBB04 - gUnk_088BBB04 - 1
 	.global gUnk_088BD26B
 	.set gUnk_088BD26B, .Lasset_end_8BBB04 - 1
+	.balign 4
 	.global gUnk_088BD26C
 gUnk_088BD26C:
 	.incbin "build/assets/audio/samples/064_11025hz.bin"   @ from assets/audio/samples/064_11025hz.wav
@@ -5783,6 +6003,7 @@ gUnk_088BDAF5:
 	.set gUnk_088BDAF5_len, .Lasset_end_8BDAF5 - gUnk_088BDAF5 - 1
 	.global gUnk_088BE6E7
 	.set gUnk_088BE6E7, .Lasset_end_8BDAF5 - 1
+	.balign 8
 	.global gUnk_088BE6E8
 gUnk_088BE6E8:
 	.incbin "build/assets/audio/samples/066_11025hz.bin"   @ from assets/audio/samples/066_11025hz.wav
@@ -5791,6 +6012,7 @@ gUnk_088BE6E8:
 	.set gUnk_088BE6E8_len, .Lasset_end_8BE6E8 - gUnk_088BE6E8 - 1
 	.global gUnk_088BF5F9
 	.set gUnk_088BF5F9, .Lasset_end_8BE6E8 - 1
+	.balign 2
 	.global gUnk_088BF5FA
 gUnk_088BF5FA:
 	.incbin "build/assets/audio/samples/067_11025hz.bin"   @ from assets/audio/samples/067_11025hz.wav
@@ -5807,6 +6029,7 @@ gUnk_088C009F:
 	.set gUnk_088C009F_len, .Lasset_end_8C009F - gUnk_088C009F - 1
 	.global gUnk_088C0A61
 	.set gUnk_088C0A61, .Lasset_end_8C009F - 1
+	.balign 2
 	.global gUnk_088C0A62
 gUnk_088C0A62:
 	.incbin "build/assets/audio/samples/069_11025hz.bin"   @ from assets/audio/samples/069_11025hz.wav
@@ -5815,6 +6038,7 @@ gUnk_088C0A62:
 	.set gUnk_088C0A62_len, .Lasset_end_8C0A62 - gUnk_088C0A62 - 1
 	.global gUnk_088C1255
 	.set gUnk_088C1255, .Lasset_end_8C0A62 - 1
+	.balign 2
 	.global gUnk_088C1256
 gUnk_088C1256:
 	.incbin "build/assets/audio/samples/070_11025hz.bin"   @ from assets/audio/samples/070_11025hz.wav
@@ -5839,6 +6063,7 @@ gUnk_088C1FA1:
 	.set gUnk_088C1FA1_len, .Lasset_end_8C1FA1 - gUnk_088C1FA1 - 1
 	.global gUnk_088C2689
 	.set gUnk_088C2689, .Lasset_end_8C1FA1 - 1
+	.balign 2
 	.global gUnk_088C268A
 gUnk_088C268A:
 	.incbin "build/assets/audio/samples/073_11025hz.bin"   @ from assets/audio/samples/073_11025hz.wav
@@ -5847,6 +6072,7 @@ gUnk_088C268A:
 	.set gUnk_088C268A_len, .Lasset_end_8C268A - gUnk_088C268A - 1
 	.global gUnk_088C2F39
 	.set gUnk_088C2F39, .Lasset_end_8C268A - 1
+	.balign 2
 	.global gUnk_088C2F3A
 gUnk_088C2F3A:
 	.incbin "build/assets/audio/samples/074_11025hz.bin"   @ from assets/audio/samples/074_11025hz.wav
@@ -5855,6 +6081,7 @@ gUnk_088C2F3A:
 	.set gUnk_088C2F3A_len, .Lasset_end_8C2F3A - gUnk_088C2F3A - 1
 	.global gUnk_088C3F4B
 	.set gUnk_088C3F4B, .Lasset_end_8C2F3A - 1
+	.balign 4
 	.global gUnk_088C3F4C
 gUnk_088C3F4C:
 	.incbin "build/assets/audio/samples/075_11025hz.bin"   @ from assets/audio/samples/075_11025hz.wav
@@ -5863,6 +6090,7 @@ gUnk_088C3F4C:
 	.set gUnk_088C3F4C_len, .Lasset_end_8C3F4C - gUnk_088C3F4C - 1
 	.global gUnk_088C5067
 	.set gUnk_088C5067, .Lasset_end_8C3F4C - 1
+	.balign 8
 	.global gUnk_088C5068
 gUnk_088C5068:
 	.incbin "build/assets/audio/samples/076_11025hz.bin"   @ from assets/audio/samples/076_11025hz.wav
@@ -5903,6 +6131,7 @@ gUnk_088C9B8F:
 	.set gUnk_088C9B8F_len, .Lasset_end_8C9B8F - gUnk_088C9B8F - 1
 	.global gUnk_088CAE47
 	.set gUnk_088CAE47, .Lasset_end_8C9B8F - 1
+	.balign 8
 	.global gUnk_088CAE48
 gUnk_088CAE48:
 	.incbin "build/assets/audio/samples/081_8000hz.bin"   @ from assets/audio/samples/081_8000hz.wav
@@ -5919,6 +6148,7 @@ gUnk_088CCDBB:
 	.set gUnk_088CCDBB_len, .Lasset_end_8CCDBB - gUnk_088CCDBB - 1
 	.global gUnk_088CD0A1
 	.set gUnk_088CD0A1, .Lasset_end_8CCDBB - 1
+	.balign 2
 	.global gUnk_088CD0A2
 gUnk_088CD0A2:
 	.incbin "build/assets/audio/samples/083_11025hz.bin"   @ from assets/audio/samples/083_11025hz.wav
@@ -5935,6 +6165,7 @@ gUnk_088CD3E5:
 	.set gUnk_088CD3E5_len, .Lasset_end_8CD3E5 - gUnk_088CD3E5 - 1
 	.global gUnk_088CD619
 	.set gUnk_088CD619, .Lasset_end_8CD3E5 - 1
+	.balign 2
 	.global gUnk_088CD61A
 gUnk_088CD61A:
 	.incbin "build/assets/audio/samples/085_11025hz.bin"   @ from assets/audio/samples/085_11025hz.wav
@@ -5943,6 +6174,7 @@ gUnk_088CD61A:
 	.set gUnk_088CD61A_len, .Lasset_end_8CD61A - gUnk_088CD61A - 1
 	.global gUnk_088CD829
 	.set gUnk_088CD829, .Lasset_end_8CD61A - 1
+	.balign 2
 	.global gUnk_088CD82A
 gUnk_088CD82A:
 	.incbin "build/assets/audio/samples/086_11025hz.bin"   @ from assets/audio/samples/086_11025hz.wav
@@ -5959,6 +6191,7 @@ gUnk_088CE163:
 	.set gUnk_088CE163_len, .Lasset_end_8CE163 - gUnk_088CE163 - 1
 	.global gUnk_088CF1E1
 	.set gUnk_088CF1E1, .Lasset_end_8CE163 - 1
+	.balign 2
 	.global gUnk_088CF1E2
 gUnk_088CF1E2:
 	.incbin "build/assets/audio/samples/088_11025hz.bin"   @ from assets/audio/samples/088_11025hz.wav
@@ -5999,6 +6232,7 @@ gUnk_088D8663:
 	.set gUnk_088D8663_len, .Lasset_end_8D8663 - gUnk_088D8663 - 1
 	.global gUnk_088DA749
 	.set gUnk_088DA749, .Lasset_end_8D8663 - 1
+	.balign 2
 	.global gUnk_088DA74A
 gUnk_088DA74A:
 	.incbin "build/assets/audio/samples/093_11025hz.bin"   @ from assets/audio/samples/093_11025hz.wav
@@ -6015,6 +6249,7 @@ gUnk_088DC4E7:
 	.set gUnk_088DC4E7_len, .Lasset_end_8DC4E7 - gUnk_088DC4E7 - 1
 	.global gUnk_088E0B47
 	.set gUnk_088E0B47, .Lasset_end_8DC4E7 - 1
+	.balign 8
 	.global gUnk_088E0B48
 gUnk_088E0B48:
 	.incbin "build/assets/audio/samples/095_11025hz.bin"   @ from assets/audio/samples/095_11025hz.wav
@@ -6023,6 +6258,7 @@ gUnk_088E0B48:
 	.set gUnk_088E0B48_len, .Lasset_end_8E0B48 - gUnk_088E0B48 - 1
 	.global gUnk_088E2099
 	.set gUnk_088E2099, .Lasset_end_8E0B48 - 1
+	.balign 2
 	.global gUnk_088E209A
 gUnk_088E209A:
 	.incbin "build/assets/audio/samples/096_11025hz.bin"   @ from assets/audio/samples/096_11025hz.wav
@@ -6031,6 +6267,7 @@ gUnk_088E209A:
 	.set gUnk_088E209A_len, .Lasset_end_8E209A - gUnk_088E209A - 1
 	.global gUnk_088E35EB
 	.set gUnk_088E35EB, .Lasset_end_8E209A - 1
+	.balign 4
 	.global gUnk_088E35EC
 gUnk_088E35EC:
 	.incbin "build/assets/audio/samples/097_13379hz.bin"   @ from assets/audio/samples/097_13379hz.wav
@@ -6071,6 +6308,7 @@ gUnk_088EBAC3:
 	.set gUnk_088EBAC3_len, .Lasset_end_8EBAC3 - gUnk_088EBAC3 - 1
 	.global gUnk_088EDB75
 	.set gUnk_088EDB75, .Lasset_end_8EBAC3 - 1
+	.balign 2
 	.global gUnk_088EDB76
 gUnk_088EDB76:
 	.incbin "build/assets/audio/samples/102_11025hz.bin"   @ from assets/audio/samples/102_11025hz.wav
@@ -6079,6 +6317,7 @@ gUnk_088EDB76:
 	.set gUnk_088EDB76_len, .Lasset_end_8EDB76 - gUnk_088EDB76 - 1
 	.global gUnk_088F02BD
 	.set gUnk_088F02BD, .Lasset_end_8EDB76 - 1
+	.balign 2
 	.global gUnk_088F02BE
 gUnk_088F02BE:
 	.incbin "build/assets/audio/samples/103_11025hz.bin"   @ from assets/audio/samples/103_11025hz.wav
@@ -6087,6 +6326,7 @@ gUnk_088F02BE:
 	.set gUnk_088F02BE_len, .Lasset_end_8F02BE - gUnk_088F02BE - 1
 	.global gUnk_088F2949
 	.set gUnk_088F2949, .Lasset_end_8F02BE - 1
+	.balign 2
 	.global gUnk_088F294A
 gUnk_088F294A:
 	.incbin "build/assets/audio/samples/104_11025hz.bin"   @ from assets/audio/samples/104_11025hz.wav
@@ -6095,6 +6335,7 @@ gUnk_088F294A:
 	.set gUnk_088F294A_len, .Lasset_end_8F294A - gUnk_088F294A - 1
 	.global gUnk_088F4F81
 	.set gUnk_088F4F81, .Lasset_end_8F294A - 1
+	.balign 2
 	.global gUnk_088F4F82
 gUnk_088F4F82:
 	.incbin "build/assets/audio/samples/105_11025hz.bin"   @ from assets/audio/samples/105_11025hz.wav
@@ -6111,6 +6352,7 @@ gUnk_088F7823:
 	.set gUnk_088F7823_len, .Lasset_end_8F7823 - gUnk_088F7823 - 1
 	.global gUnk_088F9C0B
 	.set gUnk_088F9C0B, .Lasset_end_8F7823 - 1
+	.balign 4
 	.global gUnk_088F9C0C
 gUnk_088F9C0C:
 	.incbin "build/assets/audio/samples/107_11025hz.bin"   @ from assets/audio/samples/107_11025hz.wav
@@ -6127,6 +6369,7 @@ gUnk_088FC7E5:
 	.set gUnk_088FC7E5_len, .Lasset_end_8FC7E5 - gUnk_088FC7E5 - 1
 	.global gUnk_088FF227
 	.set gUnk_088FF227, .Lasset_end_8FC7E5 - 1
+	.balign 8
 	.global gUnk_088FF228
 gUnk_088FF228:
 	.incbin "build/assets/audio/samples/109_11025hz.bin"   @ from assets/audio/samples/109_11025hz.wav
@@ -6137,6 +6380,7 @@ gUnk_088FF228:
 	.set gUnk_08900080, gUnk_088FF228 + 0xE58
 	.global gUnk_08902017
 	.set gUnk_08902017, .Lasset_end_8FF228 - 1
+	.balign 8
 	.global gUnk_08902018
 gUnk_08902018:
 	.incbin "build/assets/audio/samples/110_11025hz.bin"   @ from assets/audio/samples/110_11025hz.wav
@@ -6145,6 +6389,7 @@ gUnk_08902018:
 	.set gUnk_08902018_len, .Lasset_end_902018 - gUnk_08902018 - 1
 	.global gUnk_089053D5
 	.set gUnk_089053D5, .Lasset_end_902018 - 1
+	.balign 2
 	.global gUnk_089053D6
 gUnk_089053D6:
 	.incbin "build/assets/audio/samples/111_11025hz.bin"   @ from assets/audio/samples/111_11025hz.wav
@@ -6177,6 +6422,7 @@ gUnk_0890BC49:
 	.set gUnk_0890BC49_len, .Lasset_end_90BC49 - gUnk_0890BC49 - 1
 	.global gUnk_0890E27B
 	.set gUnk_0890E27B, .Lasset_end_90BC49 - 1
+	.balign 4
 	.global gUnk_0890E27C
 gUnk_0890E27C:
 	.incbin "build/assets/audio/samples/115_11025hz.bin"   @ from assets/audio/samples/115_11025hz.wav
@@ -6193,6 +6439,7 @@ gUnk_08910E2B:
 	.set gUnk_08910E2B_len, .Lasset_end_910E2B - gUnk_08910E2B - 1
 	.global gUnk_08914C21
 	.set gUnk_08914C21, .Lasset_end_910E2B - 1
+	.balign 2
 	.global gUnk_08914C22
 gUnk_08914C22:
 	.incbin "build/assets/audio/samples/117_11025hz.bin"   @ from assets/audio/samples/117_11025hz.wav
@@ -6209,6 +6456,7 @@ gUnk_08918369:
 	.set gUnk_08918369_len, .Lasset_end_918369 - gUnk_08918369 - 1
 	.global gUnk_0891CA65
 	.set gUnk_0891CA65, .Lasset_end_918369 - 1
+	.balign 2
 	.global gUnk_0891CA66
 gUnk_0891CA66:
 	.incbin "build/assets/audio/samples/119_11025hz.bin"   @ from assets/audio/samples/119_11025hz.wav
@@ -6217,6 +6465,7 @@ gUnk_0891CA66:
 	.set gUnk_0891CA66_len, .Lasset_end_91CA66 - gUnk_0891CA66 - 1
 	.global gUnk_0891F153
 	.set gUnk_0891F153, .Lasset_end_91CA66 - 1
+	.balign 4
 	.global gUnk_0891F154
 gUnk_0891F154:
 	.incbin "build/assets/audio/samples/120_11025hz.bin"   @ from assets/audio/samples/120_11025hz.wav
@@ -6233,6 +6482,7 @@ gUnk_08921D7D:
 	.set gUnk_08921D7D_len, .Lasset_end_921D7D - gUnk_08921D7D - 1
 	.global gUnk_08923CC1
 	.set gUnk_08923CC1, .Lasset_end_921D7D - 1
+	.balign 2
 	.global gUnk_08923CC2
 gUnk_08923CC2:
 	.incbin "build/assets/audio/samples/122_11025hz.bin"   @ from assets/audio/samples/122_11025hz.wav
@@ -6241,6 +6491,7 @@ gUnk_08923CC2:
 	.set gUnk_08923CC2_len, .Lasset_end_923CC2 - gUnk_08923CC2 - 1
 	.global gUnk_08926D2B
 	.set gUnk_08926D2B, .Lasset_end_923CC2 - 1
+	.balign 4
 	.global gUnk_08926D2C
 gUnk_08926D2C:
 	.incbin "build/assets/audio/samples/123_11025hz.bin"   @ from assets/audio/samples/123_11025hz.wav
@@ -6249,6 +6500,7 @@ gUnk_08926D2C:
 	.set gUnk_08926D2C_len, .Lasset_end_926D2C - gUnk_08926D2C - 1
 	.global gUnk_08928EDB
 	.set gUnk_08928EDB, .Lasset_end_926D2C - 1
+	.balign 4
 	.global gUnk_08928EDC
 gUnk_08928EDC:
 	.incbin "build/assets/audio/samples/124_11025hz.bin"   @ from assets/audio/samples/124_11025hz.wav
@@ -6257,6 +6509,7 @@ gUnk_08928EDC:
 	.set gUnk_08928EDC_len, .Lasset_end_928EDC - gUnk_08928EDC - 1
 	.global gUnk_0892BFE3
 	.set gUnk_0892BFE3, .Lasset_end_928EDC - 1
+	.balign 4
 	.global gUnk_0892BFE4
 gUnk_0892BFE4:
 	.incbin "build/assets/audio/samples/125_11025hz.bin"   @ from assets/audio/samples/125_11025hz.wav
@@ -6273,6 +6526,7 @@ gUnk_0892ECD7:
 	.set gUnk_0892ECD7_len, .Lasset_end_92ECD7 - gUnk_0892ECD7 - 1
 	.global gUnk_089323DD
 	.set gUnk_089323DD, .Lasset_end_92ECD7 - 1
+	.balign 2
 	.global gUnk_089323DE
 gUnk_089323DE:
 	.incbin "build/assets/audio/samples/127_11025hz.bin"   @ from assets/audio/samples/127_11025hz.wav
@@ -6297,6 +6551,7 @@ gUnk_08937991:
 	.set gUnk_08937991_len, .Lasset_end_937991 - gUnk_08937991 - 1
 	.global gUnk_08938FD9
 	.set gUnk_08938FD9, .Lasset_end_937991 - 1
+	.balign 2
 	.global gUnk_08938FDA
 gUnk_08938FDA:
 	.incbin "build/assets/audio/samples/130_11025hz.bin"   @ from assets/audio/samples/130_11025hz.wav
@@ -6321,6 +6576,7 @@ gUnk_0893EF73:
 	.set gUnk_0893EF73_len, .Lasset_end_93EF73 - gUnk_0893EF73 - 1
 	.global gUnk_08941821
 	.set gUnk_08941821, .Lasset_end_93EF73 - 1
+	.balign 2
 	.global gUnk_08941822
 gUnk_08941822:
 	.incbin "build/assets/audio/samples/133_11025hz.bin"   @ from assets/audio/samples/133_11025hz.wav
@@ -6345,6 +6601,7 @@ gUnk_089465CD:
 	.set gUnk_089465CD_len, .Lasset_end_9465CD - gUnk_089465CD - 1
 	.global gUnk_08948609
 	.set gUnk_08948609, .Lasset_end_9465CD - 1
+	.balign 2
 	.global gUnk_0894860A
 gUnk_0894860A:
 	.incbin "build/assets/audio/samples/136_11025hz.bin"   @ from assets/audio/samples/136_11025hz.wav
@@ -6353,6 +6610,7 @@ gUnk_0894860A:
 	.set gUnk_0894860A_len, .Lasset_end_94860A - gUnk_0894860A - 1
 	.global gUnk_0894ADDF
 	.set gUnk_0894ADDF, .Lasset_end_94860A - 1
+	.balign 16
 	.global gUnk_0894ADE0
 gUnk_0894ADE0:
 	.incbin "build/assets/audio/samples/137_11025hz.bin"   @ from assets/audio/samples/137_11025hz.wav
@@ -6361,6 +6619,7 @@ gUnk_0894ADE0:
 	.set gUnk_0894ADE0_len, .Lasset_end_94ADE0 - gUnk_0894ADE0 - 1
 	.global gUnk_0894D11B
 	.set gUnk_0894D11B, .Lasset_end_94ADE0 - 1
+	.balign 4
 	.global gUnk_0894D11C
 gUnk_0894D11C:
 	.incbin "build/assets/audio/samples/138_11025hz.bin"   @ from assets/audio/samples/138_11025hz.wav
@@ -6377,6 +6636,7 @@ gUnk_0894EE15:
 	.set gUnk_0894EE15_len, .Lasset_end_94EE15 - gUnk_0894EE15 - 1
 	.global gUnk_0895163F
 	.set gUnk_0895163F, .Lasset_end_94EE15 - 1
+	.balign 16
 	.global gUnk_08951640
 gUnk_08951640:
 	.incbin "build/assets/audio/samples/140_11025hz.bin"   @ from assets/audio/samples/140_11025hz.wav
@@ -6385,6 +6645,7 @@ gUnk_08951640:
 	.set gUnk_08951640_len, .Lasset_end_951640 - gUnk_08951640 - 1
 	.global gUnk_0895448F
 	.set gUnk_0895448F, .Lasset_end_951640 - 1
+	.balign 16
 	.global gUnk_08954490
 gUnk_08954490:
 	.incbin "build/assets/audio/samples/141_11025hz.bin"   @ from assets/audio/samples/141_11025hz.wav
@@ -6401,6 +6662,7 @@ gUnk_08957255:
 	.set gUnk_08957255_len, .Lasset_end_957255 - gUnk_08957255 - 1
 	.global gUnk_0895952D
 	.set gUnk_0895952D, .Lasset_end_957255 - 1
+	.balign 2
 	.global gUnk_0895952E
 gUnk_0895952E:
 	.incbin "build/assets/audio/samples/143_11025hz.bin"   @ from assets/audio/samples/143_11025hz.wav
@@ -6425,6 +6687,7 @@ gUnk_0895E3ED:
 	.set gUnk_0895E3ED_len, .Lasset_end_95E3ED - gUnk_0895E3ED - 1
 	.global gUnk_089609B1
 	.set gUnk_089609B1, .Lasset_end_95E3ED - 1
+	.balign 2
 	.global gUnk_089609B2
 gUnk_089609B2:
 	.incbin "build/assets/audio/samples/146_11025hz.bin"   @ from assets/audio/samples/146_11025hz.wav
@@ -6449,6 +6712,7 @@ gUnk_0896534F:
 	.set gUnk_0896534F_len, .Lasset_end_96534F - gUnk_0896534F - 1
 	.global gUnk_08968015
 	.set gUnk_08968015, .Lasset_end_96534F - 1
+	.balign 2
 	.global gUnk_08968016
 gUnk_08968016:
 	.incbin "build/assets/audio/samples/149_11025hz.bin"   @ from assets/audio/samples/149_11025hz.wav
@@ -6481,6 +6745,7 @@ gUnk_0896D1FD:
 	.set gUnk_0896D1FD_len, .Lasset_end_96D1FD - gUnk_0896D1FD - 1
 	.global gUnk_0896F3E7
 	.set gUnk_0896F3E7, .Lasset_end_96D1FD - 1
+	.balign 8
 	.global gUnk_0896F3E8
 gUnk_0896F3E8:
 	.incbin "build/assets/audio/samples/153_11025hz.bin"   @ from assets/audio/samples/153_11025hz.wav
@@ -6521,6 +6786,7 @@ gUnk_089773A3:
 	.set gUnk_089773A3_len, .Lasset_end_9773A3 - gUnk_089773A3 - 1
 	.global gUnk_0897B92B
 	.set gUnk_0897B92B, .Lasset_end_9773A3 - 1
+	.balign 4
 	.global gUnk_0897B92C
 gUnk_0897B92C:
 	.incbin "build/assets/audio/samples/158_11025hz.bin"   @ from assets/audio/samples/158_11025hz.wav
@@ -6541,6 +6807,7 @@ gUnk_0897E06B:
 	.set gUnk_08980938, gUnk_0897E06B + 0x28CD
 	.global gUnk_08980AF3
 	.set gUnk_08980AF3, .Lasset_end_97E06B - 1
+	.balign 4
 	.global gUnk_08980AF4
 gUnk_08980AF4:
 	.incbin "build/assets/audio/samples/160_11025hz.bin"   @ from assets/audio/samples/160_11025hz.wav
@@ -6565,6 +6832,7 @@ gUnk_08984D87:
 	.set gUnk_08984D87_len, .Lasset_end_984D87 - gUnk_08984D87 - 1
 	.global gUnk_08987B87
 	.set gUnk_08987B87, .Lasset_end_984D87 - 1
+	.balign 8
 	.global gUnk_08987B88
 gUnk_08987B88:
 	.incbin "build/assets/audio/samples/163_11025hz.bin"   @ from assets/audio/samples/163_11025hz.wav
@@ -6573,6 +6841,7 @@ gUnk_08987B88:
 	.set gUnk_08987B88_len, .Lasset_end_987B88 - gUnk_08987B88 - 1
 	.global gUnk_089898F9
 	.set gUnk_089898F9, .Lasset_end_987B88 - 1
+	.balign 2
 	.global gUnk_089898FA
 gUnk_089898FA:
 	.incbin "build/assets/audio/samples/164_11025hz.bin"   @ from assets/audio/samples/164_11025hz.wav
@@ -6589,6 +6858,7 @@ gUnk_0898BDB9:
 	.set gUnk_0898BDB9_len, .Lasset_end_98BDB9 - gUnk_0898BDB9 - 1
 	.global gUnk_0898DB29
 	.set gUnk_0898DB29, .Lasset_end_98BDB9 - 1
+	.balign 2
 	.global gUnk_0898DB2A
 gUnk_0898DB2A:
 	.incbin "build/assets/audio/samples/166_11025hz.bin"   @ from assets/audio/samples/166_11025hz.wav
@@ -6605,6 +6875,7 @@ gUnk_0898F253:
 	.set gUnk_0898F253_len, .Lasset_end_98F253 - gUnk_0898F253 - 1
 	.global gUnk_08991363
 	.set gUnk_08991363, .Lasset_end_98F253 - 1
+	.balign 4
 	.global gUnk_08991364
 gUnk_08991364:
 	.incbin "build/assets/audio/samples/168_11025hz.bin"   @ from assets/audio/samples/168_11025hz.wav
@@ -6629,6 +6900,7 @@ gUnk_089956D9:
 	.set gUnk_089956D9_len, .Lasset_end_9956D9 - gUnk_089956D9 - 1
 	.global gUnk_089973E1
 	.set gUnk_089973E1, .Lasset_end_9956D9 - 1
+	.balign 2
 	.global gUnk_089973E2
 gUnk_089973E2:
 	.incbin "build/assets/audio/samples/171_11025hz.bin"   @ from assets/audio/samples/171_11025hz.wav
@@ -6653,6 +6925,7 @@ gUnk_0899DDE1:
 	.set gUnk_0899DDE1_len, .Lasset_end_99DDE1 - gUnk_0899DDE1 - 1
 	.global gUnk_089A05A1
 	.set gUnk_089A05A1, .Lasset_end_99DDE1 - 1
+	.balign 2
 	.global gUnk_089A05A2
 gUnk_089A05A2:
 	.incbin "build/assets/audio/samples/174_11025hz.bin"   @ from assets/audio/samples/174_11025hz.wav
@@ -6661,6 +6934,7 @@ gUnk_089A05A2:
 	.set gUnk_089A05A2_len, .Lasset_end_9A05A2 - gUnk_089A05A2 - 1
 	.global gUnk_089A3559
 	.set gUnk_089A3559, .Lasset_end_9A05A2 - 1
+	.balign 2
 	.global gUnk_089A355A
 gUnk_089A355A:
 	.incbin "build/assets/audio/samples/175_11025hz.bin"   @ from assets/audio/samples/175_11025hz.wav
@@ -6669,6 +6943,7 @@ gUnk_089A355A:
 	.set gUnk_089A355A_len, .Lasset_end_9A355A - gUnk_089A355A - 1
 	.global gUnk_089A5F79
 	.set gUnk_089A5F79, .Lasset_end_9A355A - 1
+	.balign 2
 	.global gUnk_089A5F7A
 gUnk_089A5F7A:
 	.incbin "build/assets/audio/samples/176_11025hz.bin"   @ from assets/audio/samples/176_11025hz.wav
@@ -6685,6 +6960,7 @@ gUnk_089A9147:
 	.set gUnk_089A9147_len, .Lasset_end_9A9147 - gUnk_089A9147 - 1
 	.global gUnk_089AD76D
 	.set gUnk_089AD76D, .Lasset_end_9A9147 - 1
+	.balign 2
 	.global gUnk_089AD76E
 gUnk_089AD76E:
 	.incbin "build/assets/audio/samples/178_11025hz.bin"   @ from assets/audio/samples/178_11025hz.wav
@@ -6693,6 +6969,7 @@ gUnk_089AD76E:
 	.set gUnk_089AD76E_len, .Lasset_end_9AD76E - gUnk_089AD76E - 1
 	.global gUnk_089B079D
 	.set gUnk_089B079D, .Lasset_end_9AD76E - 1
+	.balign 2
 	.global gUnk_089B079E
 gUnk_089B079E:
 	.incbin "build/assets/audio/samples/179_11025hz.bin"   @ from assets/audio/samples/179_11025hz.wav
@@ -6701,6 +6978,7 @@ gUnk_089B079E:
 	.set gUnk_089B079E_len, .Lasset_end_9B079E - gUnk_089B079E - 1
 	.global gUnk_089B2E01
 	.set gUnk_089B2E01, .Lasset_end_9B079E - 1
+	.balign 2
 	.global gUnk_089B2E02
 gUnk_089B2E02:
 	.incbin "build/assets/audio/samples/180_11025hz.bin"   @ from assets/audio/samples/180_11025hz.wav
@@ -6709,6 +6987,7 @@ gUnk_089B2E02:
 	.set gUnk_089B2E02_len, .Lasset_end_9B2E02 - gUnk_089B2E02 - 1
 	.global gUnk_089B6003
 	.set gUnk_089B6003, .Lasset_end_9B2E02 - 1
+	.balign 4
 	.global gUnk_089B6004
 gUnk_089B6004:
 	.incbin "build/assets/audio/samples/181_11025hz.bin"   @ from assets/audio/samples/181_11025hz.wav
@@ -6725,6 +7004,7 @@ gUnk_089B900F:
 	.set gUnk_089B900F_len, .Lasset_end_9B900F - gUnk_089B900F - 1
 	.global gUnk_089BD871
 	.set gUnk_089BD871, .Lasset_end_9B900F - 1
+	.balign 2
 	.global gUnk_089BD872
 gUnk_089BD872:
 	.incbin "build/assets/audio/samples/183_11025hz.bin"   @ from assets/audio/samples/183_11025hz.wav
@@ -6749,6 +7029,7 @@ gUnk_089C5F37:
 	.set gUnk_089C5F37_len, .Lasset_end_9C5F37 - gUnk_089C5F37 - 1
 	.global gUnk_089C9A45
 	.set gUnk_089C9A45, .Lasset_end_9C5F37 - 1
+	.balign 2
 	.global gUnk_089C9A46
 gUnk_089C9A46:
 	.incbin "build/assets/audio/samples/186_11025hz.bin"   @ from assets/audio/samples/186_11025hz.wav
@@ -6757,6 +7038,7 @@ gUnk_089C9A46:
 	.set gUnk_089C9A46_len, .Lasset_end_9C9A46 - gUnk_089C9A46 - 1
 	.global gUnk_089CCBC1
 	.set gUnk_089CCBC1, .Lasset_end_9C9A46 - 1
+	.balign 2
 	.global gUnk_089CCBC2
 gUnk_089CCBC2:
 	.incbin "build/assets/audio/samples/187_11025hz.bin"   @ from assets/audio/samples/187_11025hz.wav
@@ -6775,6 +7057,7 @@ gUnk_089D0A81:
 	.set gUnk_089D0A81_len, .Lasset_end_9D0A81 - gUnk_089D0A81 - 1
 	.global gUnk_089D2947
 	.set gUnk_089D2947, .Lasset_end_9D0A81 - 1
+	.balign 8
 	.global gUnk_089D2948
 gUnk_089D2948:
 	.incbin "build/assets/audio/samples/189_11025hz.bin"   @ from assets/audio/samples/189_11025hz.wav
@@ -6783,6 +7066,7 @@ gUnk_089D2948:
 	.set gUnk_089D2948_len, .Lasset_end_9D2948 - gUnk_089D2948 - 1
 	.global gUnk_089D4F11
 	.set gUnk_089D4F11, .Lasset_end_9D2948 - 1
+	.balign 2
 	.global gUnk_089D4F12
 gUnk_089D4F12:
 	.incbin "build/assets/audio/samples/190_11025hz.bin"   @ from assets/audio/samples/190_11025hz.wav
@@ -6799,6 +7083,7 @@ gUnk_089D78E3:
 	.set gUnk_089D78E3_len, .Lasset_end_9D78E3 - gUnk_089D78E3 - 1
 	.global gUnk_089D9C61
 	.set gUnk_089D9C61, .Lasset_end_9D78E3 - 1
+	.balign 2
 	.global gUnk_089D9C62
 gUnk_089D9C62:
 	.incbin "build/assets/audio/samples/192_11025hz.bin"   @ from assets/audio/samples/192_11025hz.wav
@@ -6807,6 +7092,7 @@ gUnk_089D9C62:
 	.set gUnk_089D9C62_len, .Lasset_end_9D9C62 - gUnk_089D9C62 - 1
 	.global gUnk_089DCE4B
 	.set gUnk_089DCE4B, .Lasset_end_9D9C62 - 1
+	.balign 4
 	.global gUnk_089DCE4C
 gUnk_089DCE4C:
 	.incbin "build/assets/audio/samples/193_11025hz.bin"   @ from assets/audio/samples/193_11025hz.wav
@@ -6823,6 +7109,7 @@ gUnk_089DE497:
 	.set gUnk_089DE497_len, .Lasset_end_9DE497 - gUnk_089DE497 - 1
 	.global gUnk_089DFFA5
 	.set gUnk_089DFFA5, .Lasset_end_9DE497 - 1
+	.balign 2
 	.global gUnk_089DFFA6
 gUnk_089DFFA6:
 	.incbin "build/assets/audio/samples/195_11025hz.bin"   @ from assets/audio/samples/195_11025hz.wav
@@ -6847,6 +7134,7 @@ gUnk_089E4097:
 	.set gUnk_089E4097_len, .Lasset_end_9E4097 - gUnk_089E4097 - 1
 	.global gUnk_089E64BB
 	.set gUnk_089E64BB, .Lasset_end_9E4097 - 1
+	.balign 4
 	.global gUnk_089E64BC
 gUnk_089E64BC:
 	.incbin "build/assets/audio/samples/198_11025hz.bin"   @ from assets/audio/samples/198_11025hz.wav
@@ -6871,6 +7159,7 @@ gUnk_089EAA59:
 	.set gUnk_089EAA59_len, .Lasset_end_9EAA59 - gUnk_089EAA59 - 1
 	.global gUnk_089ED413
 	.set gUnk_089ED413, .Lasset_end_9EAA59 - 1
+	.balign 4
 	.global gUnk_089ED414
 gUnk_089ED414:
 	.incbin "build/assets/audio/samples/201_11025hz.bin"   @ from assets/audio/samples/201_11025hz.wav
@@ -6879,6 +7168,7 @@ gUnk_089ED414:
 	.set gUnk_089ED414_len, .Lasset_end_9ED414 - gUnk_089ED414 - 1
 	.global gUnk_089EFC2B
 	.set gUnk_089EFC2B, .Lasset_end_9ED414 - 1
+	.balign 4
 	.global gUnk_089EFC2C
 gUnk_089EFC2C:
 	.incbin "build/assets/audio/samples/202_11025hz.bin"   @ from assets/audio/samples/202_11025hz.wav
@@ -6887,6 +7177,7 @@ gUnk_089EFC2C:
 	.set gUnk_089EFC2C_len, .Lasset_end_9EFC2C - gUnk_089EFC2C - 1
 	.global gUnk_089F29BF
 	.set gUnk_089F29BF, .Lasset_end_9EFC2C - 1
+	.balign 16
 	.global gUnk_089F29C0
 gUnk_089F29C0:
 	.incbin "build/assets/audio/samples/203_11025hz.bin"   @ from assets/audio/samples/203_11025hz.wav
@@ -6895,6 +7186,7 @@ gUnk_089F29C0:
 	.set gUnk_089F29C0_len, .Lasset_end_9F29C0 - gUnk_089F29C0 - 1
 	.global gUnk_089F5E0B
 	.set gUnk_089F5E0B, .Lasset_end_9F29C0 - 1
+	.balign 4
 	.global gUnk_089F5E0C
 gUnk_089F5E0C:
 	.incbin "build/assets/audio/samples/204_11025hz.bin"   @ from assets/audio/samples/204_11025hz.wav
@@ -6903,6 +7195,7 @@ gUnk_089F5E0C:
 	.set gUnk_089F5E0C_len, .Lasset_end_9F5E0C - gUnk_089F5E0C - 1
 	.global gUnk_089F8E61
 	.set gUnk_089F8E61, .Lasset_end_9F5E0C - 1
+	.balign 2
 	.global gUnk_089F8E62
 gUnk_089F8E62:
 	.incbin "build/assets/audio/samples/205_11025hz.bin"   @ from assets/audio/samples/205_11025hz.wav
@@ -6911,6 +7204,7 @@ gUnk_089F8E62:
 	.set gUnk_089F8E62_len, .Lasset_end_9F8E62 - gUnk_089F8E62 - 1
 	.global gUnk_089FCB3B
 	.set gUnk_089FCB3B, .Lasset_end_9F8E62 - 1
+	.balign 4
 	.global gUnk_089FCB3C
 gUnk_089FCB3C:
 	.incbin "build/assets/audio/samples/206_11025hz.bin"   @ from assets/audio/samples/206_11025hz.wav
@@ -6919,6 +7213,7 @@ gUnk_089FCB3C:
 	.set gUnk_089FCB3C_len, .Lasset_end_9FCB3C - gUnk_089FCB3C - 1
 	.global gUnk_089FFD33
 	.set gUnk_089FFD33, .Lasset_end_9FCB3C - 1
+	.balign 4
 	.global gUnk_089FFD34
 gUnk_089FFD34:
 	.incbin "build/assets/audio/samples/207_11025hz.bin"   @ from assets/audio/samples/207_11025hz.wav
@@ -6951,6 +7246,7 @@ gUnk_08A0A5AB:
 	.set gUnk_08A0A5AB_len, .Lasset_end_A0A5AB - gUnk_08A0A5AB - 1
 	.global gUnk_08A0E487
 	.set gUnk_08A0E487, .Lasset_end_A0A5AB - 1
+	.balign 8
 	.global gUnk_08A0E488
 gUnk_08A0E488:
 	.incbin "build/assets/audio/samples/211_11025hz.bin"   @ from assets/audio/samples/211_11025hz.wav
@@ -6967,6 +7263,7 @@ gUnk_08A12061:
 	.set gUnk_08A12061_len, .Lasset_end_A12061 - gUnk_08A12061 - 1
 	.global gUnk_08A16A15
 	.set gUnk_08A16A15, .Lasset_end_A12061 - 1
+	.balign 2
 	.global gUnk_08A16A16
 gUnk_08A16A16:
 	.incbin "build/assets/audio/samples/213_11025hz.bin"   @ from assets/audio/samples/213_11025hz.wav
@@ -7039,6 +7336,7 @@ gUnk_08A33371:
 	.set gUnk_08A33371_len, .Lasset_end_A33371 - gUnk_08A33371 - 1
 	.global gUnk_08A365E5
 	.set gUnk_08A365E5, .Lasset_end_A33371 - 1
+	.balign 2
 	.global gUnk_08A365E6
 gUnk_08A365E6:
 	.incbin "build/assets/audio/samples/222_11025hz.bin"   @ from assets/audio/samples/222_11025hz.wav
@@ -7055,6 +7353,7 @@ gUnk_08A3A081:
 	.set gUnk_08A3A081_len, .Lasset_end_A3A081 - gUnk_08A3A081 - 1
 	.global gUnk_08A3D71D
 	.set gUnk_08A3D71D, .Lasset_end_A3A081 - 1
+	.balign 2
 	.global gUnk_08A3D71E
 gUnk_08A3D71E:
 	.incbin "build/assets/audio/samples/224_11025hz.bin"   @ from assets/audio/samples/224_11025hz.wav
@@ -7063,6 +7362,7 @@ gUnk_08A3D71E:
 	.set gUnk_08A3D71E_len, .Lasset_end_A3D71E - gUnk_08A3D71E - 1
 	.global gUnk_08A3EDA3
 	.set gUnk_08A3EDA3, .Lasset_end_A3D71E - 1
+	.balign 4
 	.global gUnk_08A3EDA4
 gUnk_08A3EDA4:
 	.incbin "build/assets/audio/samples/225_11025hz.bin"   @ from assets/audio/samples/225_11025hz.wav
@@ -7073,6 +7373,7 @@ gUnk_08A3EDA4:
 	.set gUnk_08A4008C, gUnk_08A3EDA4 + 0x12E8
 	.global gUnk_08A41503
 	.set gUnk_08A41503, .Lasset_end_A3EDA4 - 1
+	.balign 4
 	.global gUnk_08A41504
 gUnk_08A41504:
 	.incbin "build/assets/audio/samples/226_11025hz.bin"   @ from assets/audio/samples/226_11025hz.wav
@@ -7113,6 +7414,7 @@ gUnk_08A51871:
 	.set gUnk_08A51871_len, .Lasset_end_A51871 - gUnk_08A51871 - 1
 	.global gUnk_08A53BA1
 	.set gUnk_08A53BA1, .Lasset_end_A51871 - 1
+	.balign 2
 	.global gUnk_08A53BA2
 gUnk_08A53BA2:
 	.incbin "build/assets/audio/samples/231_11025hz.bin"   @ from assets/audio/samples/231_11025hz.wav
@@ -7121,6 +7423,7 @@ gUnk_08A53BA2:
 	.set gUnk_08A53BA2_len, .Lasset_end_A53BA2 - gUnk_08A53BA2 - 1
 	.global gUnk_08A57E87
 	.set gUnk_08A57E87, .Lasset_end_A53BA2 - 1
+	.balign 8
 	.global gUnk_08A57E88
 gUnk_08A57E88:
 	.incbin "build/assets/audio/samples/232_11025hz.bin"   @ from assets/audio/samples/232_11025hz.wav
@@ -7129,6 +7432,7 @@ gUnk_08A57E88:
 	.set gUnk_08A57E88_len, .Lasset_end_A57E88 - gUnk_08A57E88 - 1
 	.global gUnk_08A5BBD9
 	.set gUnk_08A5BBD9, .Lasset_end_A57E88 - 1
+	.balign 2
 	.global gUnk_08A5BBDA
 gUnk_08A5BBDA:
 	.incbin "build/assets/audio/samples/233_11025hz.bin"   @ from assets/audio/samples/233_11025hz.wav
@@ -7137,6 +7441,7 @@ gUnk_08A5BBDA:
 	.set gUnk_08A5BBDA_len, .Lasset_end_A5BBDA - gUnk_08A5BBDA - 1
 	.global gUnk_08A5D603
 	.set gUnk_08A5D603, .Lasset_end_A5BBDA - 1
+	.balign 4
 	.global gUnk_08A5D604
 gUnk_08A5D604:
 	.incbin "build/assets/audio/samples/234_11025hz.bin"   @ from assets/audio/samples/234_11025hz.wav
@@ -7145,6 +7450,7 @@ gUnk_08A5D604:
 	.set gUnk_08A5D604_len, .Lasset_end_A5D604 - gUnk_08A5D604 - 1
 	.global gUnk_08A5EEE3
 	.set gUnk_08A5EEE3, .Lasset_end_A5D604 - 1
+	.balign 4
 	.global gUnk_08A5EEE4
 gUnk_08A5EEE4:
 	.incbin "build/assets/audio/samples/235_12000hz.bin"   @ from assets/audio/samples/235_12000hz.wav
@@ -7153,6 +7459,7 @@ gUnk_08A5EEE4:
 	.set gUnk_08A5EEE4_len, .Lasset_end_A5EEE4 - gUnk_08A5EEE4 - 1
 	.global gUnk_08A61CB1
 	.set gUnk_08A61CB1, .Lasset_end_A5EEE4 - 1
+	.balign 2
 	.global gUnk_08A61CB2
 gUnk_08A61CB2:
 	.incbin "build/assets/audio/samples/236_12000hz.bin"   @ from assets/audio/samples/236_12000hz.wav
@@ -7169,6 +7476,7 @@ gUnk_08A64A43:
 	.set gUnk_08A64A43_len, .Lasset_end_A64A43 - gUnk_08A64A43 - 1
 	.global gUnk_08A67859
 	.set gUnk_08A67859, .Lasset_end_A64A43 - 1
+	.balign 2
 	.global gUnk_08A6785A
 gUnk_08A6785A:
 	.incbin "build/assets/audio/samples/238_12000hz.bin"   @ from assets/audio/samples/238_12000hz.wav
@@ -7201,6 +7509,7 @@ gUnk_08A723C9:
 	.set gUnk_08A723C9_len, .Lasset_end_A723C9 - gUnk_08A723C9 - 1
 	.global gUnk_08A757AB
 	.set gUnk_08A757AB, .Lasset_end_A723C9 - 1
+	.balign 4
 	.global gUnk_08A757AC
 gUnk_08A757AC:
 	.incbin "build/assets/audio/samples/242_12000hz.bin"   @ from assets/audio/samples/242_12000hz.wav
@@ -7217,6 +7526,7 @@ gUnk_08A7846D:
 	.set gUnk_08A7846D_len, .Lasset_end_A7846D - gUnk_08A7846D - 1
 	.global gUnk_08A7C339
 	.set gUnk_08A7C339, .Lasset_end_A7846D - 1
+	.balign 2
 	.global gUnk_08A7C33A
 gUnk_08A7C33A:
 	.incbin "build/assets/audio/samples/244_11025hz.bin"   @ from assets/audio/samples/244_11025hz.wav
@@ -7249,6 +7559,7 @@ gUnk_08A82B11:
 	.set gUnk_08A82B11_len, .Lasset_end_A82B11 - gUnk_08A82B11 - 1
 	.global gUnk_08A88F1B
 	.set gUnk_08A88F1B, .Lasset_end_A82B11 - 1
+	.balign 4
 	.global gUnk_08A88F1C
 gUnk_08A88F1C:
 	.incbin "build/assets/audio/samples/248_11025hz.bin"   @ from assets/audio/samples/248_11025hz.wav
@@ -7265,6 +7576,7 @@ gUnk_08A8AC39:
 	.set gUnk_08A8AC39_len, .Lasset_end_A8AC39 - gUnk_08A8AC39 - 1
 	.global gUnk_08A8C49F
 	.set gUnk_08A8C49F, .Lasset_end_A8AC39 - 1
+	.balign 16
 	.global gUnk_08A8C4A0
 gUnk_08A8C4A0:
 	.incbin "build/assets/audio/samples/250_8000hz.bin"   @ from assets/audio/samples/250_8000hz.wav
@@ -7273,6 +7585,7 @@ gUnk_08A8C4A0:
 	.set gUnk_08A8C4A0_len, .Lasset_end_A8C4A0 - gUnk_08A8C4A0 - 1
 	.global gUnk_08A8C859
 	.set gUnk_08A8C859, .Lasset_end_A8C4A0 - 1
+	.balign 2
 	.global gUnk_08A8C85A
 gUnk_08A8C85A:
 	.incbin "build/assets/audio/samples/251_8000hz.bin"   @ from assets/audio/samples/251_8000hz.wav
@@ -7289,6 +7602,7 @@ gUnk_08A8CF01:
 	.set gUnk_08A8CF01_len, .Lasset_end_A8CF01 - gUnk_08A8CF01 - 1
 	.global gUnk_08A8DEE3
 	.set gUnk_08A8DEE3, .Lasset_end_A8CF01 - 1
+	.balign 4
 	.global gUnk_08A8DEE4
 gUnk_08A8DEE4:
 	.incbin "build/assets/audio/samples/253_13379hz.bin"   @ from assets/audio/samples/253_13379hz.wav
@@ -7321,6 +7635,7 @@ gUnk_08A97AD5:
 	.set gUnk_08A97AD5_len, .Lasset_end_A97AD5 - gUnk_08A97AD5 - 1
 	.global gUnk_08A9A175
 	.set gUnk_08A9A175, .Lasset_end_A97AD5 - 1
+	.balign 2
 	.global gUnk_08A9A176
 gUnk_08A9A176:
 	.incbin "build/assets/audio/samples/257_8000hz.bin"   @ from assets/audio/samples/257_8000hz.wav
@@ -7337,6 +7652,7 @@ gUnk_08A9D377:
 	.set gUnk_08A9D377_len, .Lasset_end_A9D377 - gUnk_08A9D377 - 1
 	.global gUnk_08A9FD77
 	.set gUnk_08A9FD77, .Lasset_end_A9D377 - 1
+	.balign 8
 	.global gUnk_08A9FD78
 gUnk_08A9FD78:
 	.incbin "build/assets/audio/samples/259_12000hz.bin"   @ from assets/audio/samples/259_12000hz.wav
@@ -7353,6 +7669,7 @@ gUnk_08AA21F9:
 	.set gUnk_08AA21F9_len, .Lasset_end_AA21F9 - gUnk_08AA21F9 - 1
 	.global gUnk_08AA7D79
 	.set gUnk_08AA7D79, .Lasset_end_AA21F9 - 1
+	.balign 2
 	.global gUnk_08AA7D7A
 gUnk_08AA7D7A:
 	.incbin "build/assets/audio/samples/261_11025hz.bin"   @ from assets/audio/samples/261_11025hz.wav
@@ -7377,6 +7694,7 @@ gUnk_08AAD515:
 	.set gUnk_08AAD515_len, .Lasset_end_AAD515 - gUnk_08AAD515 - 1
 	.global gUnk_08AAF355
 	.set gUnk_08AAF355, .Lasset_end_AAD515 - 1
+	.balign 2
 	.global gUnk_08AAF356
 gUnk_08AAF356:
 	.incbin "build/assets/audio/samples/264_12000hz.bin"   @ from assets/audio/samples/264_12000hz.wav
@@ -7417,6 +7735,7 @@ gUnk_08AB5101:
 	.set gUnk_08AB5101_len, .Lasset_end_AB5101 - gUnk_08AB5101 - 1
 	.global gUnk_08AB5F91
 	.set gUnk_08AB5F91, .Lasset_end_AB5101 - 1
+	.balign 2
 	.global gUnk_08AB5F92
 gUnk_08AB5F92:
 	.incbin "build/assets/audio/samples/269_12000hz.bin"   @ from assets/audio/samples/269_12000hz.wav
@@ -7433,6 +7752,7 @@ gUnk_08AB6ACF:
 	.set gUnk_08AB6ACF_len, .Lasset_end_AB6ACF - gUnk_08AB6ACF - 1
 	.global gUnk_08AB710D
 	.set gUnk_08AB710D, .Lasset_end_AB6ACF - 1
+	.balign 2
 	.global gUnk_08AB710E
 gUnk_08AB710E:
 	.incbin "build/assets/audio/samples/271_12000hz.bin"   @ from assets/audio/samples/271_12000hz.wav
@@ -7449,6 +7769,7 @@ gUnk_08AB7629:
 	.set gUnk_08AB7629_len, .Lasset_end_AB7629 - gUnk_08AB7629 - 1
 	.global gUnk_08AB7C71
 	.set gUnk_08AB7C71, .Lasset_end_AB7629 - 1
+	.balign 2
 	.global gUnk_08AB7C72
 gUnk_08AB7C72:
 	.incbin "build/assets/audio/samples/273_11025hz.bin"   @ from assets/audio/samples/273_11025hz.wav
@@ -7481,6 +7802,7 @@ gUnk_08ABF351:
 	.set gUnk_08ABF351_len, .Lasset_end_ABF351 - gUnk_08ABF351 - 1
 	.global gUnk_08ABFD2B
 	.set gUnk_08ABFD2B, .Lasset_end_ABF351 - 1
+	.balign 4
 	.global gUnk_08ABFD2C
 gUnk_08ABFD2C:
 	.incbin "build/assets/audio/samples/277_11025hz.bin"   @ from assets/audio/samples/277_11025hz.wav
@@ -7513,6 +7835,7 @@ gUnk_08AC26DB:
 	.set gUnk_08AC26DB_len, .Lasset_end_AC26DB - gUnk_08AC26DB - 1
 	.global gUnk_08AC27E7
 	.set gUnk_08AC27E7, .Lasset_end_AC26DB - 1
+	.balign 8
 	.global gUnk_08AC27E8
 gUnk_08AC27E8:
 	.incbin "build/assets/audio/samples/281_11025hz.bin"   @ from assets/audio/samples/281_11025hz.wav
@@ -7521,6 +7844,7 @@ gUnk_08AC27E8:
 	.set gUnk_08AC27E8_len, .Lasset_end_AC27E8 - gUnk_08AC27E8 - 1
 	.global gUnk_08AC2A07
 	.set gUnk_08AC2A07, .Lasset_end_AC27E8 - 1
+	.balign 8
 	.global gUnk_08AC2A08
 gUnk_08AC2A08:
 	.incbin "build/assets/audio/samples/282_13379hz.bin"   @ from assets/audio/samples/282_13379hz.wav
@@ -7529,6 +7853,7 @@ gUnk_08AC2A08:
 	.set gUnk_08AC2A08_len, .Lasset_end_AC2A08 - gUnk_08AC2A08 - 1
 	.global gUnk_08AC59E5
 	.set gUnk_08AC59E5, .Lasset_end_AC2A08 - 1
+	.balign 2
 	.global gUnk_08AC59E6
 gUnk_08AC59E6:
 	.incbin "build/assets/audio/samples/283_12000hz.bin"   @ from assets/audio/samples/283_12000hz.wav
@@ -7561,6 +7886,7 @@ gUnk_08ACDF5B:
 	.set gUnk_08ACDF5B_len, .Lasset_end_ACDF5B - gUnk_08ACDF5B - 1
 	.global gUnk_08AD06A9
 	.set gUnk_08AD06A9, .Lasset_end_ACDF5B - 1
+	.balign 2
 	.global gUnk_08AD06AA
 gUnk_08AD06AA:
 	.incbin "build/assets/audio/samples/287_12000hz.bin"   @ from assets/audio/samples/287_12000hz.wav
@@ -7577,6 +7903,7 @@ gUnk_08AD3539:
 	.set gUnk_08AD3539_len, .Lasset_end_AD3539 - gUnk_08AD3539 - 1
 	.global gUnk_08AD49B3
 	.set gUnk_08AD49B3, .Lasset_end_AD3539 - 1
+	.balign 4
 	.global gUnk_08AD49B4
 gUnk_08AD49B4:
 	.incbin "build/assets/audio/samples/289_11025hz.bin"   @ from assets/audio/samples/289_11025hz.wav
@@ -7593,6 +7920,7 @@ gUnk_08AD7FF5:
 	.set gUnk_08AD7FF5_len, .Lasset_end_AD7FF5 - gUnk_08AD7FF5 - 1
 	.global gUnk_08AD84CB
 	.set gUnk_08AD84CB, .Lasset_end_AD7FF5 - 1
+	.balign 4
 	.global gUnk_08AD84CC
 gUnk_08AD84CC:
 	.incbin "build/assets/audio/samples/291_11025hz.bin"   @ from assets/audio/samples/291_11025hz.wav
@@ -7601,6 +7929,7 @@ gUnk_08AD84CC:
 	.set gUnk_08AD84CC_len, .Lasset_end_AD84CC - gUnk_08AD84CC - 1
 	.global gUnk_08AD8B3D
 	.set gUnk_08AD8B3D, .Lasset_end_AD84CC - 1
+	.balign 2
 	.global gUnk_08AD8B3E
 gUnk_08AD8B3E:
 	.incbin "build/assets/audio/samples/292_12000hz.bin"   @ from assets/audio/samples/292_12000hz.wav
@@ -7617,6 +7946,7 @@ gUnk_08AD96C3:
 	.set gUnk_08AD96C3_len, .Lasset_end_AD96C3 - gUnk_08AD96C3 - 1
 	.global gUnk_08ADD103
 	.set gUnk_08ADD103, .Lasset_end_AD96C3 - 1
+	.balign 4
 	.global gUnk_08ADD104
 gUnk_08ADD104:
 	.incbin "build/assets/audio/samples/294_12000hz.bin"   @ from assets/audio/samples/294_12000hz.wav
@@ -7641,6 +7971,7 @@ gUnk_08AE809B:
 	.set gUnk_08AE809B_len, .Lasset_end_AE809B - gUnk_08AE809B - 1
 	.global gUnk_08AEDC1B
 	.set gUnk_08AEDC1B, .Lasset_end_AE809B - 1
+	.balign 4
 	.global gUnk_08AEDC1C
 gUnk_08AEDC1C:
 	.incbin "build/assets/audio/samples/297_11025hz.bin"   @ from assets/audio/samples/297_11025hz.wav
@@ -7649,6 +7980,7 @@ gUnk_08AEDC1C:
 	.set gUnk_08AEDC1C_len, .Lasset_end_AEDC1C - gUnk_08AEDC1C - 1
 	.global gUnk_08AEDE75
 	.set gUnk_08AEDE75, .Lasset_end_AEDC1C - 1
+	.balign 2
 	.global gUnk_08AEDE76
 gUnk_08AEDE76:
 	.incbin "build/assets/audio/samples/298_12000hz.bin"   @ from assets/audio/samples/298_12000hz.wav
@@ -7657,6 +7989,7 @@ gUnk_08AEDE76:
 	.set gUnk_08AEDE76_len, .Lasset_end_AEDE76 - gUnk_08AEDE76 - 1
 	.global gUnk_08AEFC63
 	.set gUnk_08AEFC63, .Lasset_end_AEDE76 - 1
+	.balign 4
 	.global gUnk_08AEFC64
 gUnk_08AEFC64:
 	.incbin "build/assets/audio/samples/299_13379hz.bin"   @ from assets/audio/samples/299_13379hz.wav
@@ -7665,6 +7998,7 @@ gUnk_08AEFC64:
 	.set gUnk_08AEFC64_len, .Lasset_end_AEFC64 - gUnk_08AEFC64 - 1
 	.global gUnk_08AF0A0B
 	.set gUnk_08AF0A0B, .Lasset_end_AEFC64 - 1
+	.balign 4
 	.global gUnk_08AF0A0C
 gUnk_08AF0A0C:
 	.incbin "build/assets/audio/samples/300_13379hz.bin"   @ from assets/audio/samples/300_13379hz.wav
@@ -7681,6 +8015,7 @@ gUnk_08AF1745:
 	.set gUnk_08AF1745_len, .Lasset_end_AF1745 - gUnk_08AF1745 - 1
 	.global gUnk_08AF1BDF
 	.set gUnk_08AF1BDF, .Lasset_end_AF1745 - 1
+	.balign 16
 	.global gUnk_08AF1BE0
 gUnk_08AF1BE0:
 	.incbin "build/assets/audio/samples/302_13379hz.bin"   @ from assets/audio/samples/302_13379hz.wav
@@ -7689,3 +8024,4 @@ gUnk_08AF1BE0:
 	.set gUnk_08AF1BE0_len, .Lasset_end_AF1BE0 - gUnk_08AF1BE0 - 1
 	.global gUnk_08AF20FF
 	.set gUnk_08AF20FF, .Lasset_end_AF1BE0 - 1
+	.balign 16

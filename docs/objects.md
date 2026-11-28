@@ -43,7 +43,24 @@ the script (`+0x10`), the frame delay (`+0x14`) and a user count (`+0x1C`).
 `anims_update` counts each timer down; when it runs out, the next script
 byte is either a frame number or 0xFF followed by a command (0–4). In
 double-speed mode the delays are halved. `anims_clear` empties the table and
-`anim_get` gives a sprite slot a player. The object then goes
+`anim_get(slot, owner, script)` gives a sprite slot a player (sprites of
+the same object running the same script share one). The script comes from
+the sprite table's third word; 40 of the 152 entries have one.
+
+Script bytes (`tools/anim.py`, `make extract` writes them to
+`assets/graphics/sprites/anims.s` with the `anim_*` macros):
+
+| Bytes | Macro | Meaning |
+|---|---|---|
+| `n` (< 0xFF) | `anim_frames n` | show frame n for the current delay |
+| `FF 00 s16` | `anim_goto label` | continue at the address of the s16 plus s16 |
+| `FF 01 n` | `anim_delay n` | frames per animation frame |
+| `FF 02` | `anim_stop` | stop |
+| `FF 03` | `anim_done` | set flag bit 0 (before a held last frame) |
+| `FF 04` | `anim_restart` | clear flag bit 1 (set by `anim_stop`) |
+
+A typical script plays frames 0–4, marks itself done and loops on frame 5.
+Three scripts in the block are not used by any sprite. The object then goes
 on one of the two draw lists, linked through `obj+0x0C`/`+0x10`.
 
 ## Particles

@@ -9,6 +9,7 @@
 	.global gUnk_08713650
 gUnk_08713650:
 	.include "assets/graphics/sprites/sprite_table.s"
+	.balign 16
 	.global gUnk_08713FD0
 gUnk_08713FD0:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -204,941 +205,1154 @@ gUnk_08713FD0:
 	.incbin "baserom.gba", 0x714368, 0x103
 	.global gUnk_0871446B
 gUnk_0871446B:
-	.byte 0xFF, 0x01, 0x02, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0xFF, 0x03, 0x09, 0xFF
-	.byte 0x00, 0xFD, 0xFF, 0xFF, 0x01, 0x05, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x06, 0x05
-	.byte 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF0, 0xFF, 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x04
-	.byte 0x05, 0x06, 0x07, 0x06, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF0, 0xFF
-	.global gUnk_087144A8
-gUnk_087144A8:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x01, 0xFF, 0x00, 0xFA, 0xFF
-	.global gUnk_087144B3
-gUnk_087144B3:
-	.byte 0xFF, 0x01, 0x02, 0x00, 0x01, 0x02, 0x03, 0x04, 0xFF, 0x03, 0x05, 0xFF, 0x00, 0xFD, 0xFF, 0xFF
-	.byte 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0xFF, 0x00, 0xF8, 0xFF
-	.global gUnk_087144CF
-gUnk_087144CF:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0E, 0xFF, 0x03, 0x0F, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_087144E8
-gUnk_087144E8:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0E, 0xFF, 0x03, 0x0F, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_08714501
-gUnk_08714501:
-	.byte 0xFF, 0x01, 0x03, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0xFF, 0x03, 0x13, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_0871451E
-gUnk_0871451E:
-	.byte 0xFF, 0x01, 0x0C, 0x00, 0x01, 0x02, 0x03, 0x04, 0xFF, 0x00, 0xF9, 0xFF
-	.global gUnk_0871452A
-gUnk_0871452A:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0E, 0xFF, 0x00, 0xEF, 0xFF
-	.global gUnk_08714540
-gUnk_08714540:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0xFF
-	.byte 0x00, 0xF2, 0xFF
-	.global gUnk_08714553
-gUnk_08714553:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0E, 0x0F, 0xFF, 0x00, 0xEE, 0xFF
-	.global gUnk_0871456A
-gUnk_0871456A:
-	.byte 0xFF, 0x01, 0x02, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0xFF, 0x03, 0x09, 0xFF
-	.byte 0x00, 0xFD, 0xFF
-	.global gUnk_0871457D
-gUnk_0871457D:
-	.byte 0xFF, 0x01, 0x02, 0x00, 0x01, 0x02, 0x03, 0xFF, 0x03, 0x04, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_0871458B
-gUnk_0871458B:
-	.byte 0xFF, 0x01, 0x02, 0x00, 0x01, 0x02, 0x03, 0x04, 0xFF, 0x03, 0x05, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_0871459A
-gUnk_0871459A:
-	.byte 0xFF, 0x01, 0x0C, 0x00, 0x01, 0x02, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF8, 0xFF
-	.global gUnk_087145A7
-gUnk_087145A7:
-	.byte 0xFF, 0x01, 0x02, 0x04, 0xFF, 0x03, 0x05, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_087145B2
-gUnk_087145B2:
-	.byte 0xFF, 0x01, 0x0C, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x06, 0x05, 0x04, 0x03, 0x02
-	.byte 0x01, 0xFF, 0x00, 0xF0, 0xFF
-	.global gUnk_087145C7
-gUnk_087145C7:
-	.byte 0xFF, 0x01, 0x0C, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C
-	.byte 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0D, 0x0C, 0x0B, 0x0A, 0x09
-	.byte 0x08, 0x07, 0x06, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xD9, 0xFF
-	.global gUnk_087145F3
-gUnk_087145F3:
-	.byte 0xFF, 0x01, 0x0C, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF4
-	.byte 0xFF
-	.global gUnk_08714604
-gUnk_08714604:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0xFF, 0x00, 0xFA, 0xFF
-	.global gUnk_0871460F
-gUnk_0871460F:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0xFF, 0x00, 0xF8, 0xFF
-	.global gUnk_0871461C
-gUnk_0871461C:
-	.byte 0xFF, 0x01, 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF4
-	.byte 0xFF
-	.global gUnk_0871462D
-gUnk_0871462D:
-	.byte 0xFF, 0x01, 0x04, 0x06, 0xFF, 0x03, 0x07, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_08714638
-gUnk_08714638:
-	.byte 0xFF, 0x01, 0x04, 0x05, 0x06, 0xFF, 0x03, 0x07, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_08714644
-gUnk_08714644:
-	.byte 0xFF, 0x01, 0x04, 0x06, 0x07, 0x08, 0xFF, 0x03, 0x09, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_08714651
-gUnk_08714651:
-	.byte 0xFF, 0x01, 0x02, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0xFF, 0x03, 0x09, 0xFF, 0x00, 0xFD
-	.byte 0xFF
-	.global gUnk_08714662
-gUnk_08714662:
-	.byte 0xFF, 0x01, 0x04, 0x04, 0x05, 0x06, 0xFF, 0x03, 0x07, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_0871466F
-gUnk_0871466F:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF8, 0xFF
-	.global gUnk_0871467C
-gUnk_0871467C:
-	.byte 0xFF, 0x01, 0x04, 0x04, 0xFF, 0x03, 0x05, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_08714687
-gUnk_08714687:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF4
-	.byte 0xFF
-	.global gUnk_08714698
-gUnk_08714698:
-	.byte 0xFF, 0x01, 0x04, 0x06, 0x07, 0xFF, 0x03, 0x08, 0xFF, 0x00, 0xFD, 0xFF
-	.global gUnk_087146A4
-gUnk_087146A4:
-	.byte 0xFF, 0x01, 0x04, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x04, 0x03, 0x02, 0x01, 0xFF, 0x00, 0xF4
-	.byte 0xFF
-	.global gUnk_087146B5
-gUnk_087146B5:
-	.byte 0xFF, 0x01, 0x04, 0x06, 0xFF, 0x03, 0x07, 0xFF, 0x00, 0xFD, 0xFF
+	.include "assets/graphics/sprites/anims.s"
+	.balign 16
 	.global gUnk_087146C0
 gUnk_087146C0:
 	.include "assets/levels/level_headers.s"
+	.balign 8
 	.global gUnk_08715A68
 gUnk_08715A68:
 	.incbin "baserom.gba", 0x715A68, 0x1088
 	.global gUnk_08716AF0
 gUnk_08716AF0:
 	.incbin "build/assets/graphics/sprites/084.bin"   @ from assets/graphics/sprites/084.png
+	.balign 16
 	.global gUnk_08716D20
 gUnk_08716D20:
 	.incbin "build/assets/graphics/sprites/047.bin"   @ from assets/graphics/sprites/047.png
+	.balign 16
 .Lasset_717600:
 	.incbin "build/assets/graphics/sprites/047_2.bin"   @ from assets/graphics/sprites/047_2.png
+	.balign 16
 .Lasset_717890:
 	.incbin "build/assets/graphics/sprites/047_3.bin"   @ from assets/graphics/sprites/047_3.png
+	.balign 16
 	.global gUnk_087179A0
 gUnk_087179A0:
 	.incbin "build/assets/graphics/sprites/048.bin"   @ from assets/graphics/sprites/048.png
+	.balign 16
 .Lasset_718F80:
 	.incbin "build/assets/graphics/sprites/048_2.bin"   @ from assets/graphics/sprites/048_2.png
+	.balign 16
 .Lasset_719720:
 	.incbin "build/assets/graphics/sprites/048_3.bin"   @ from assets/graphics/sprites/048_3.png
+	.balign 16
 	.global gUnk_08719A00
 gUnk_08719A00:
 	.incbin "build/assets/graphics/sprites/107.bin"   @ from assets/graphics/sprites/107.png
+	.balign 16
 .Lasset_71A0D0:
 	.incbin "build/assets/graphics/sprites/107_2.bin"   @ from assets/graphics/sprites/107_2.png
+	.balign 16
 .Lasset_71A2E0:
 	.incbin "build/assets/graphics/sprites/107_3.bin"   @ from assets/graphics/sprites/107_3.png
+	.balign 16
 	.global gUnk_0871A390
 gUnk_0871A390:
 	.incbin "build/assets/graphics/sprites/056.bin"   @ from assets/graphics/sprites/056.png
+	.balign 16
 .Lasset_71A7B0:
 	.incbin "build/assets/graphics/sprites/056_2.bin"   @ from assets/graphics/sprites/056_2.png
+	.balign 16
 .Lasset_71A930:
 	.incbin "build/assets/graphics/sprites/056_3.bin"   @ from assets/graphics/sprites/056_3.png
+	.balign 16
 	.global gUnk_0871A9E0
 gUnk_0871A9E0:
 	.incbin "build/assets/graphics/sprites/073.bin"   @ from assets/graphics/sprites/073.png
+	.balign 16
 .Lasset_71D060:
 	.incbin "build/assets/graphics/sprites/073_2.bin"   @ from assets/graphics/sprites/073_2.png
+	.balign 16
 .Lasset_71DE20:
 	.incbin "build/assets/graphics/sprites/073_3.bin"   @ from assets/graphics/sprites/073_3.png
+	.balign 16
 	.global gUnk_0871E310
 gUnk_0871E310:
 	.incbin "build/assets/graphics/sprites/051.bin"   @ from assets/graphics/sprites/051.png
+	.balign 16
 .Lasset_725AB0:
 	.incbin "build/assets/graphics/sprites/051_2.bin"   @ from assets/graphics/sprites/051_2.png
+	.balign 16
 .Lasset_728850:
 	.incbin "build/assets/graphics/sprites/051_3.bin"   @ from assets/graphics/sprites/051_3.png
+	.balign 16
 	.global gUnk_08729780
 gUnk_08729780:
 	.incbin "build/assets/graphics/sprites/050.bin"   @ from assets/graphics/sprites/050.png
+	.balign 16
 	.global gUnk_0872B380
 gUnk_0872B380:
 	.incbin "build/assets/graphics/sprites/106.bin"   @ from assets/graphics/sprites/106.png
+	.balign 16
 .Lasset_72DF80:
 	.incbin "build/assets/graphics/sprites/106_2.bin"   @ from assets/graphics/sprites/106_2.png
+	.balign 16
 .Lasset_72EF70:
 	.incbin "build/assets/graphics/sprites/106_3.bin"   @ from assets/graphics/sprites/106_3.png
+	.balign 16
 	.global gUnk_0872F590
 gUnk_0872F590:
 	.incbin "build/assets/graphics/sprites/068.bin"   @ from assets/graphics/sprites/068.png
+	.balign 16
 	.global gUnk_0872FDE0
 gUnk_0872FDE0:
 	.incbin "build/assets/graphics/sprites/065.bin"   @ from assets/graphics/sprites/065.png
+	.balign 16
 	.global gUnk_08730440
 gUnk_08730440:
 	.incbin "build/assets/graphics/sprites/116.bin"   @ from assets/graphics/sprites/116.png
+	.balign 16
 .Lasset_730760:
 	.incbin "build/assets/graphics/sprites/116_2.bin"   @ from assets/graphics/sprites/116_2.png
+	.balign 16
 .Lasset_730880:
 	.incbin "build/assets/graphics/sprites/116_3.bin"   @ from assets/graphics/sprites/116_3.png
+	.balign 16
 	.global gUnk_087308F0
 gUnk_087308F0:
 	.incbin "build/assets/graphics/sprites/064.bin"   @ from assets/graphics/sprites/064.png
+	.balign 16
 	.global gUnk_08731150
 gUnk_08731150:
 	.incbin "build/assets/graphics/sprites/063.bin"   @ from assets/graphics/sprites/063.png
+	.balign 16
 	.global gUnk_087314D0
 gUnk_087314D0:
 	.incbin "build/assets/graphics/sprites/100.bin"   @ from assets/graphics/sprites/100.png
+	.balign 16
 .Lasset_7316F0:
 	.incbin "build/assets/graphics/sprites/100_2.bin"   @ from assets/graphics/sprites/100_2.png
+	.balign 16
 .Lasset_7317E0:
 	.incbin "build/assets/graphics/sprites/100_3.bin"   @ from assets/graphics/sprites/100_3.png
+	.balign 16
 	.global gUnk_08731860
 gUnk_08731860:
 	.incbin "build/assets/graphics/sprites/101.bin"   @ from assets/graphics/sprites/101.png
+	.balign 16
 .Lasset_731B30:
 	.incbin "build/assets/graphics/sprites/101_2.bin"   @ from assets/graphics/sprites/101_2.png
+	.balign 16
 .Lasset_731C40:
 	.incbin "build/assets/graphics/sprites/101_3.bin"   @ from assets/graphics/sprites/101_3.png
+	.balign 16
 	.global gUnk_08731CC0
 gUnk_08731CC0:
 	.incbin "build/assets/graphics/sprites/095.bin"   @ from assets/graphics/sprites/095.png
+	.balign 16
 .Lasset_732A60:
 	.incbin "build/assets/graphics/sprites/095_2.bin"   @ from assets/graphics/sprites/095_2.png
+	.balign 16
 .Lasset_732E60:
 	.incbin "build/assets/graphics/sprites/095_3.bin"   @ from assets/graphics/sprites/095_3.png
+	.balign 16
 	.global gUnk_08732F90
 gUnk_08732F90:
 	.incbin "build/assets/graphics/sprites/096.bin"   @ from assets/graphics/sprites/096.png
+	.balign 16
 .Lasset_7335A0:
 	.incbin "build/assets/graphics/sprites/096_2.bin"   @ from assets/graphics/sprites/096_2.png
+	.balign 16
 .Lasset_733780:
 	.incbin "build/assets/graphics/sprites/096_3.bin"   @ from assets/graphics/sprites/096_3.png
+	.balign 16
 	.global gUnk_08733830
 gUnk_08733830:
 	.incbin "build/assets/graphics/sprites/097.bin"   @ from assets/graphics/sprites/097.png
+	.balign 16
 .Lasset_733E60:
 	.incbin "build/assets/graphics/sprites/097_2.bin"   @ from assets/graphics/sprites/097_2.png
+	.balign 16
 .Lasset_734050:
 	.incbin "build/assets/graphics/sprites/097_3.bin"   @ from assets/graphics/sprites/097_3.png
+	.balign 16
 	.global gUnk_08734100
 gUnk_08734100:
 	.incbin "build/assets/graphics/sprites/098.bin"   @ from assets/graphics/sprites/098.png
+	.balign 16
 .Lasset_7347F0:
 	.incbin "build/assets/graphics/sprites/098_2.bin"   @ from assets/graphics/sprites/098_2.png
+	.balign 16
 .Lasset_734A00:
 	.incbin "build/assets/graphics/sprites/098_3.bin"   @ from assets/graphics/sprites/098_3.png
+	.balign 16
 	.global gUnk_08734AC0
 gUnk_08734AC0:
 	.incbin "build/assets/graphics/sprites/099.bin"   @ from assets/graphics/sprites/099.png
+	.balign 16
 .Lasset_734DF0:
 	.incbin "build/assets/graphics/sprites/099_2.bin"   @ from assets/graphics/sprites/099_2.png
+	.balign 16
 .Lasset_734F30:
 	.incbin "build/assets/graphics/sprites/099_3.bin"   @ from assets/graphics/sprites/099_3.png
+	.balign 16
 	.global gUnk_08734FB0
 gUnk_08734FB0:
 	.incbin "build/assets/graphics/sprites/094.bin"   @ from assets/graphics/sprites/094.png
+	.balign 16
 .Lasset_735B60:
 	.incbin "build/assets/graphics/sprites/094_2.bin"   @ from assets/graphics/sprites/094_2.png
+	.balign 16
 .Lasset_735EF0:
 	.incbin "build/assets/graphics/sprites/094_3.bin"   @ from assets/graphics/sprites/094_3.png
+	.balign 16
 	.global gUnk_08736030
 gUnk_08736030:
 	.incbin "build/assets/graphics/sprites/108.bin"   @ from assets/graphics/sprites/108.png
+	.balign 16
 .Lasset_736B90:
 	.incbin "build/assets/graphics/sprites/108_2.bin"   @ from assets/graphics/sprites/108_2.png
+	.balign 16
 .Lasset_736EF0:
 	.incbin "build/assets/graphics/sprites/108_3.bin"   @ from assets/graphics/sprites/108_3.png
+	.balign 16
 	.global gUnk_08737000
 gUnk_08737000:
 	.incbin "build/assets/graphics/sprites/109.bin"   @ from assets/graphics/sprites/109.png
+	.balign 16
 .Lasset_737B90:
 	.incbin "build/assets/graphics/sprites/109_2.bin"   @ from assets/graphics/sprites/109_2.png
+	.balign 16
 .Lasset_737F60:
 	.incbin "build/assets/graphics/sprites/109_3.bin"   @ from assets/graphics/sprites/109_3.png
+	.balign 16
 	.global gUnk_08738090
 gUnk_08738090:
 	.incbin "build/assets/graphics/sprites/110.bin"   @ from assets/graphics/sprites/110.png
+	.balign 16
 .Lasset_73BF30:
 	.incbin "build/assets/graphics/sprites/110_2.bin"   @ from assets/graphics/sprites/110_2.png
+	.balign 16
 .Lasset_73D3C0:
 	.incbin "build/assets/graphics/sprites/110_3.bin"   @ from assets/graphics/sprites/110_3.png
+	.balign 16
 	.global gUnk_0873DA70
 gUnk_0873DA70:
 	.incbin "build/assets/graphics/sprites/111.bin"   @ from assets/graphics/sprites/111.png
+	.balign 16
 .Lasset_73E0F0:
 	.incbin "build/assets/graphics/sprites/111_2.bin"   @ from assets/graphics/sprites/111_2.png
+	.balign 16
 .Lasset_73E2F0:
 	.incbin "build/assets/graphics/sprites/111_3.bin"   @ from assets/graphics/sprites/111_3.png
+	.balign 16
 	.global gUnk_0873E3A0
 gUnk_0873E3A0:
 	.incbin "build/assets/graphics/sprites/103.bin"   @ from assets/graphics/sprites/103.png
+	.balign 16
 .Lasset_73EA90:
 	.incbin "build/assets/graphics/sprites/103_2.bin"   @ from assets/graphics/sprites/103_2.png
+	.balign 16
 .Lasset_73ECF0:
 	.incbin "build/assets/graphics/sprites/103_3.bin"   @ from assets/graphics/sprites/103_3.png
+	.balign 16
 	.global gUnk_0873EDE0
 gUnk_0873EDE0:
 	.incbin "build/assets/graphics/sprites/105.bin"   @ from assets/graphics/sprites/105.png
+	.balign 16
 .Lasset_73F010:
 	.incbin "build/assets/graphics/sprites/105_2.bin"   @ from assets/graphics/sprites/105_2.png
+	.balign 16
 .Lasset_73F110:
 	.incbin "build/assets/graphics/sprites/105_3.bin"   @ from assets/graphics/sprites/105_3.png
+	.balign 16
 	.global gUnk_0873F180
 gUnk_0873F180:
 	.incbin "build/assets/graphics/sprites/113.bin"   @ from assets/graphics/sprites/113.png
+	.balign 16
 .Lasset_7403E0:
 	.incbin "build/assets/graphics/sprites/113_2.bin"   @ from assets/graphics/sprites/113_2.png
+	.balign 16
 .Lasset_740A10:
 	.incbin "build/assets/graphics/sprites/113_3.bin"   @ from assets/graphics/sprites/113_3.png
+	.balign 16
 	.global gUnk_08740C40
 gUnk_08740C40:
 	.incbin "build/assets/graphics/sprites/112.bin"   @ from assets/graphics/sprites/112.png
+	.balign 16
 .Lasset_7424D0:
 	.incbin "build/assets/graphics/sprites/112_2.bin"   @ from assets/graphics/sprites/112_2.png
+	.balign 16
 .Lasset_742DD0:
 	.incbin "build/assets/graphics/sprites/112_3.bin"   @ from assets/graphics/sprites/112_3.png
+	.balign 16
 	.global gUnk_08743170
 gUnk_08743170:
 	.incbin "build/assets/graphics/sprites/093.bin"   @ from assets/graphics/sprites/093.png
+	.balign 16
 	.incbin "baserom.gba", 0x7494F0, 0x2A20
 	.global gUnk_0874BF10
 gUnk_0874BF10:
 	.incbin "build/assets/graphics/sprites/067.bin"   @ from assets/graphics/sprites/067.png
+	.balign 16
 .Lasset_74C410:
 	.incbin "build/assets/graphics/sprites/067_2.bin"   @ from assets/graphics/sprites/067_2.png
+	.balign 16
 .Lasset_74C5C0:
 	.incbin "build/assets/graphics/sprites/067_3.bin"   @ from assets/graphics/sprites/067_3.png
+	.balign 16
 	.global gUnk_0874C670
 gUnk_0874C670:
 	.incbin "build/assets/graphics/sprites/069.bin"   @ from assets/graphics/sprites/069.png
+	.balign 16
 	.global gUnk_0874CB70
 gUnk_0874CB70:
 	.incbin "build/assets/graphics/sprites/091.bin"   @ from assets/graphics/sprites/091.png
+	.balign 16
 .Lasset_74EFA0:
 	.incbin "build/assets/graphics/sprites/091_2.bin"   @ from assets/graphics/sprites/091_2.png
+	.balign 16
 .Lasset_74FD80:
 	.incbin "build/assets/graphics/sprites/091_3.bin"   @ from assets/graphics/sprites/091_3.png
+	.balign 16
 	.global gUnk_087503A0
 gUnk_087503A0:
 	.incbin "build/assets/graphics/sprites/092.bin"   @ from assets/graphics/sprites/092.png
+	.balign 16
 .Lasset_7522B0:
 	.incbin "build/assets/graphics/sprites/092_2.bin"   @ from assets/graphics/sprites/092_2.png
+	.balign 16
 .Lasset_753070:
 	.incbin "build/assets/graphics/sprites/092_3.bin"   @ from assets/graphics/sprites/092_3.png
+	.balign 16
 	.global gUnk_08753530
 gUnk_08753530:
 	.incbin "build/assets/graphics/sprites/017.bin"   @ from assets/graphics/sprites/017.png
+	.balign 16
 .Lasset_753C20:
 	.incbin "build/assets/graphics/sprites/017_2.bin"   @ from assets/graphics/sprites/017_2.png
+	.balign 16
 .Lasset_753E40:
 	.incbin "build/assets/graphics/sprites/017_3.bin"   @ from assets/graphics/sprites/017_3.png
+	.balign 16
 	.global gUnk_08753F00
 gUnk_08753F00:
 	.incbin "build/assets/graphics/sprites/014.bin"   @ from assets/graphics/sprites/014.png
+	.balign 16
 .Lasset_754630:
 	.incbin "build/assets/graphics/sprites/014_2.bin"   @ from assets/graphics/sprites/014_2.png
+	.balign 16
 .Lasset_754850:
 	.incbin "build/assets/graphics/sprites/014_3.bin"   @ from assets/graphics/sprites/014_3.png
+	.balign 16
 	.global gUnk_08754910
 gUnk_08754910:
 	.incbin "build/assets/graphics/sprites/016.bin"   @ from assets/graphics/sprites/016.png
+	.balign 16
 .Lasset_755050:
 	.incbin "build/assets/graphics/sprites/016_2.bin"   @ from assets/graphics/sprites/016_2.png
+	.balign 16
 .Lasset_755270:
 	.incbin "build/assets/graphics/sprites/016_3.bin"   @ from assets/graphics/sprites/016_3.png
+	.balign 16
 	.global gUnk_08755330
 gUnk_08755330:
 	.incbin "build/assets/graphics/sprites/015.bin"   @ from assets/graphics/sprites/015.png
+	.balign 16
 .Lasset_755A20:
 	.incbin "build/assets/graphics/sprites/015_2.bin"   @ from assets/graphics/sprites/015_2.png
+	.balign 16
 .Lasset_755C40:
 	.incbin "build/assets/graphics/sprites/015_3.bin"   @ from assets/graphics/sprites/015_3.png
+	.balign 16
 	.global gUnk_08755D00
 gUnk_08755D00:
 	.incbin "build/assets/graphics/sprites/044.bin"   @ from assets/graphics/sprites/044.png
+	.balign 16
 	.global gUnk_08756F80
 gUnk_08756F80:
 	.incbin "build/assets/graphics/sprites/089.bin"   @ from assets/graphics/sprites/089.png
+	.balign 16
 .Lasset_7573A0:
 	.incbin "build/assets/graphics/sprites/089_2.bin"   @ from assets/graphics/sprites/089_2.png
+	.balign 16
 .Lasset_757550:
 	.incbin "build/assets/graphics/sprites/089_3.bin"   @ from assets/graphics/sprites/089_3.png
+	.balign 16
 	.global gUnk_087575F0
 gUnk_087575F0:
 	.incbin "build/assets/graphics/sprites/090.bin"   @ from assets/graphics/sprites/090.png
+	.balign 16
 .Lasset_7577C0:
 	.incbin "build/assets/graphics/sprites/090_2.bin"   @ from assets/graphics/sprites/090_2.png
+	.balign 16
 .Lasset_757860:
 	.incbin "build/assets/graphics/sprites/090_3.bin"   @ from assets/graphics/sprites/090_3.png
+	.balign 16
 	.global gUnk_087578D0
 gUnk_087578D0:
 	.incbin "build/assets/graphics/sprites/088.bin"   @ from assets/graphics/sprites/088.png
+	.balign 16
 .Lasset_757AA0:
 	.incbin "build/assets/graphics/sprites/088_2.bin"   @ from assets/graphics/sprites/088_2.png
+	.balign 16
 .Lasset_757B40:
 	.incbin "build/assets/graphics/sprites/088_3.bin"   @ from assets/graphics/sprites/088_3.png
+	.balign 16
 	.global gUnk_08757BA0
 gUnk_08757BA0:
 	.incbin "build/assets/graphics/sprites/087.bin"   @ from assets/graphics/sprites/087.png
+	.balign 16
 .Lasset_757FA0:
 	.incbin "build/assets/graphics/sprites/087_2.bin"   @ from assets/graphics/sprites/087_2.png
+	.balign 16
 .Lasset_758150:
 	.incbin "build/assets/graphics/sprites/087_3.bin"   @ from assets/graphics/sprites/087_3.png
+	.balign 16
 	.global gUnk_087581F0
 gUnk_087581F0:
 	.incbin "build/assets/graphics/sprites/079.bin"   @ from assets/graphics/sprites/079.png
+	.balign 16
 	.global gUnk_08758430
 gUnk_08758430:
 	.incbin "build/assets/graphics/sprites/080.bin"   @ from assets/graphics/sprites/080.png
+	.balign 16
 	.global gUnk_08758670
 gUnk_08758670:
 	.incbin "build/assets/graphics/sprites/055.bin"   @ from assets/graphics/sprites/055.png
+	.balign 16
 .Lasset_758AB0:
 	.incbin "build/assets/graphics/sprites/055_2.bin"   @ from assets/graphics/sprites/055_2.png
+	.balign 16
 .Lasset_758C30:
 	.incbin "build/assets/graphics/sprites/055_3.bin"   @ from assets/graphics/sprites/055_3.png
+	.balign 16
 	.global gUnk_08758CE0
 gUnk_08758CE0:
 	.incbin "build/assets/graphics/sprites/072.bin"   @ from assets/graphics/sprites/072.png
+	.balign 16
 .Lasset_75B390:
 	.incbin "build/assets/graphics/sprites/072_2.bin"   @ from assets/graphics/sprites/072_2.png
+	.balign 16
 .Lasset_75C150:
 	.incbin "build/assets/graphics/sprites/072_3.bin"   @ from assets/graphics/sprites/072_3.png
+	.balign 16
 	.global gUnk_0875C640
 gUnk_0875C640:
 	.incbin "build/assets/graphics/sprites/078.bin"   @ from assets/graphics/sprites/078.png
+	.balign 16
 	.global gUnk_0875C870
 gUnk_0875C870:
 	.incbin "build/assets/graphics/sprites/062.bin"   @ from assets/graphics/sprites/062.png
+	.balign 16
 	.global gUnk_0875D8E0
 gUnk_0875D8E0:
 	.incbin "build/assets/graphics/sprites/083.bin"   @ from assets/graphics/sprites/083.png
+	.balign 16
 	.global gUnk_0875DB20
 gUnk_0875DB20:
 	.incbin "build/assets/graphics/sprites/066.bin"   @ from assets/graphics/sprites/066.png
+	.balign 16
 	.global gUnk_0875E0A0
 gUnk_0875E0A0:
 	.incbin "build/assets/graphics/sprites/104.bin"   @ from assets/graphics/sprites/104.png
+	.balign 16
 .Lasset_75E900:
 	.incbin "build/assets/graphics/sprites/104_2.bin"   @ from assets/graphics/sprites/104_2.png
+	.balign 16
 .Lasset_75EBC0:
 	.incbin "build/assets/graphics/sprites/104_3.bin"   @ from assets/graphics/sprites/104_3.png
+	.balign 16
 	.global gUnk_0875ECC0
 gUnk_0875ECC0:
 	.incbin "build/assets/graphics/sprites/114.bin"   @ from assets/graphics/sprites/114.png
+	.balign 16
 .Lasset_75EE00:
 	.incbin "build/assets/graphics/sprites/114_2.bin"   @ from assets/graphics/sprites/114_2.png
+	.balign 16
 .Lasset_75EE90:
 	.incbin "build/assets/graphics/sprites/114_3.bin"   @ from assets/graphics/sprites/114_3.png
+	.balign 16
 	.global gUnk_0875EEF0
 gUnk_0875EEF0:
 	.incbin "build/assets/graphics/sprites/115.bin"   @ from assets/graphics/sprites/115.png
+	.balign 16
 .Lasset_75F070:
 	.incbin "build/assets/graphics/sprites/115_2.bin"   @ from assets/graphics/sprites/115_2.png
+	.balign 16
 .Lasset_75F110:
 	.incbin "build/assets/graphics/sprites/115_3.bin"   @ from assets/graphics/sprites/115_3.png
+	.balign 16
 	.global gUnk_0875F170
 gUnk_0875F170:
 	.incbin "build/assets/graphics/sprites/046.bin"   @ from assets/graphics/sprites/046.png
+	.balign 16
 .Lasset_75F320:
 	.incbin "build/assets/graphics/sprites/046_2.bin"   @ from assets/graphics/sprites/046_2.png
+	.balign 16
 .Lasset_75F3E0:
 	.incbin "build/assets/graphics/sprites/046_3.bin"   @ from assets/graphics/sprites/046_3.png
+	.balign 16
 	.global gUnk_0875F440
 gUnk_0875F440:
 	.incbin "build/assets/graphics/sprites/045.bin"   @ from assets/graphics/sprites/045.png
+	.balign 16
 .Lasset_75F7F0:
 	.incbin "build/assets/graphics/sprites/045_2.bin"   @ from assets/graphics/sprites/045_2.png
+	.balign 16
 .Lasset_75F920:
 	.incbin "build/assets/graphics/sprites/045_3.bin"   @ from assets/graphics/sprites/045_3.png
+	.balign 16
 	.global gUnk_0875F9A0
 gUnk_0875F9A0:
 	.incbin "build/assets/graphics/sprites/074.bin"   @ from assets/graphics/sprites/074.png
+	.balign 16
 .Lasset_760920:
 	.incbin "build/assets/graphics/sprites/074_2.bin"   @ from assets/graphics/sprites/074_2.png
+	.balign 16
 .Lasset_760E20:
 	.incbin "build/assets/graphics/sprites/074_3.bin"   @ from assets/graphics/sprites/074_3.png
+	.balign 16
 	.global gUnk_08761020
 gUnk_08761020:
 	.incbin "build/assets/graphics/sprites/082.bin"   @ from assets/graphics/sprites/082.png
+	.balign 16
 .Lasset_761260:
 	.incbin "build/assets/graphics/sprites/082_2.bin"   @ from assets/graphics/sprites/082_2.png
+	.balign 16
 .Lasset_761320:
 	.incbin "build/assets/graphics/sprites/082_3.bin"   @ from assets/graphics/sprites/082_3.png
+	.balign 16
 	.global gUnk_08761380
 gUnk_08761380:
 	.incbin "build/assets/graphics/sprites/081.bin"   @ from assets/graphics/sprites/081.png
+	.balign 16
 	.global gUnk_087615C0
 gUnk_087615C0:
 	.incbin "build/assets/graphics/sprites/070.bin"   @ from assets/graphics/sprites/070.png
+	.balign 16
 	.global gUnk_08761F60
 gUnk_08761F60:
 	.incbin "build/assets/graphics/sprites/076.bin"   @ from assets/graphics/sprites/076.png
+	.balign 16
 	.global gUnk_08762190
 gUnk_08762190:
 	.incbin "build/assets/graphics/sprites/077.bin"   @ from assets/graphics/sprites/077.png
+	.balign 16
 	.global gUnk_087623C0
 gUnk_087623C0:
 	.incbin "build/assets/graphics/sprites/075.bin"   @ from assets/graphics/sprites/075.png
+	.balign 16
 	.global gUnk_087625F0
 gUnk_087625F0:
 	.incbin "build/assets/graphics/sprites/054.bin"   @ from assets/graphics/sprites/054.png
+	.balign 16
 .Lasset_762B10:
 	.incbin "build/assets/graphics/sprites/054_2.bin"   @ from assets/graphics/sprites/054_2.png
+	.balign 16
 .Lasset_762CF0:
 	.incbin "build/assets/graphics/sprites/054_3.bin"   @ from assets/graphics/sprites/054_3.png
+	.balign 16
 	.global gUnk_08762DA0
 gUnk_08762DA0:
 	.incbin "build/assets/graphics/sprites/071.bin"   @ from assets/graphics/sprites/071.png
+	.balign 16
 .Lasset_764FC0:
 	.incbin "build/assets/graphics/sprites/071_2.bin"   @ from assets/graphics/sprites/071_2.png
+	.balign 16
 .Lasset_765C10:
 	.incbin "build/assets/graphics/sprites/071_3.bin"   @ from assets/graphics/sprites/071_3.png
+	.balign 16
 	.global gUnk_08765FF0
 gUnk_08765FF0:
 	.incbin "build/assets/graphics/sprites/085.bin"   @ from assets/graphics/sprites/085.png
+	.balign 16
 .Lasset_766310:
 	.incbin "build/assets/graphics/sprites/085_2.bin"   @ from assets/graphics/sprites/085_2.png
+	.balign 16
 .Lasset_766410:
 	.incbin "build/assets/graphics/sprites/085_3.bin"   @ from assets/graphics/sprites/085_3.png
+	.balign 16
 	.global gUnk_08766480
 gUnk_08766480:
 	.incbin "build/assets/graphics/sprites/086.bin"   @ from assets/graphics/sprites/086.png
+	.balign 16
 .Lasset_769210:
 	.incbin "build/assets/graphics/sprites/086_2.bin"   @ from assets/graphics/sprites/086_2.png
+	.balign 16
 .Lasset_76A110:
 	.incbin "build/assets/graphics/sprites/086_3.bin"   @ from assets/graphics/sprites/086_3.png
+	.balign 16
 	.global gUnk_0876A650
 gUnk_0876A650:
 	.incbin "build/assets/graphics/sprites/057.bin"   @ from assets/graphics/sprites/057.png
+	.balign 16
 .Lasset_76AFC0:
 	.incbin "build/assets/graphics/sprites/057_2.bin"   @ from assets/graphics/sprites/057_2.png
+	.balign 16
 .Lasset_76B300:
 	.incbin "build/assets/graphics/sprites/057_3.bin"   @ from assets/graphics/sprites/057_3.png
+	.balign 16
 	.global gUnk_0876B420
 gUnk_0876B420:
 	.incbin "build/assets/graphics/sprites/060.bin"   @ from assets/graphics/sprites/060.png
+	.balign 16
 .Lasset_76D050:
 	.incbin "build/assets/graphics/sprites/060_2.bin"   @ from assets/graphics/sprites/060_2.png
+	.balign 16
 .Lasset_76D9D0:
 	.incbin "build/assets/graphics/sprites/060_3.bin"   @ from assets/graphics/sprites/060_3.png
+	.balign 16
 	.global gUnk_0876DD30
 gUnk_0876DD30:
 	.incbin "build/assets/graphics/sprites/117.bin"   @ from assets/graphics/sprites/117.png
+	.balign 16
 .Lasset_76DDF0:
 	.incbin "build/assets/graphics/sprites/117_2.bin"   @ from assets/graphics/sprites/117_2.png
+	.balign 16
 .Lasset_76DE50:
 	.incbin "build/assets/graphics/sprites/117_3.bin"   @ from assets/graphics/sprites/117_3.png
+	.balign 16
 	.global gUnk_0876DE90
 gUnk_0876DE90:
 	.incbin "build/assets/graphics/sprites/118.bin"   @ from assets/graphics/sprites/118.png
+	.balign 16
 .Lasset_76ECF0:
 	.incbin "build/assets/graphics/sprites/118_2.bin"   @ from assets/graphics/sprites/118_2.png
+	.balign 16
 .Lasset_76F260:
 	.incbin "build/assets/graphics/sprites/118_3.bin"   @ from assets/graphics/sprites/118_3.png
+	.balign 16
 	.global gUnk_0876F450
 gUnk_0876F450:
 	.incbin "build/assets/graphics/sprites/120.bin"   @ from assets/graphics/sprites/120.png
+	.balign 16
 .Lasset_7702B0:
 	.incbin "build/assets/graphics/sprites/120_2.bin"   @ from assets/graphics/sprites/120_2.png
+	.balign 16
 .Lasset_770830:
 	.incbin "build/assets/graphics/sprites/120_3.bin"   @ from assets/graphics/sprites/120_3.png
+	.balign 16
 	.global gUnk_08770A20
 gUnk_08770A20:
 	.incbin "build/assets/graphics/sprites/052.bin"   @ from assets/graphics/sprites/052.png
+	.balign 16
 .Lasset_777AC0:
 	.incbin "build/assets/graphics/sprites/052_2.bin"   @ from assets/graphics/sprites/052_2.png
+	.balign 16
 .Lasset_77A660:
 	.incbin "build/assets/graphics/sprites/052_3.bin"   @ from assets/graphics/sprites/052_3.png
+	.balign 16
 	.global gUnk_0877B530
 gUnk_0877B530:
 	.incbin "build/assets/graphics/sprites/058.bin"   @ from assets/graphics/sprites/058.png
+	.balign 16
 .Lasset_77C110:
 	.incbin "build/assets/graphics/sprites/058_2.bin"   @ from assets/graphics/sprites/058_2.png
+	.balign 16
 .Lasset_77C540:
 	.incbin "build/assets/graphics/sprites/058_3.bin"   @ from assets/graphics/sprites/058_3.png
+	.balign 16
 	.global gUnk_0877C6B0
 gUnk_0877C6B0:
 	.incbin "build/assets/graphics/sprites/053.bin"   @ from assets/graphics/sprites/053.png
+	.balign 16
 .Lasset_783AF0:
 	.incbin "build/assets/graphics/sprites/053_2.bin"   @ from assets/graphics/sprites/053_2.png
+	.balign 16
 .Lasset_786720:
 	.incbin "build/assets/graphics/sprites/053_3.bin"   @ from assets/graphics/sprites/053_3.png
+	.balign 16
 	.global gUnk_087875F0
 gUnk_087875F0:
 	.incbin "build/assets/graphics/sprites/123.bin"   @ from assets/graphics/sprites/123.png
+	.balign 16
 .Lasset_787EB0:
 	.incbin "build/assets/graphics/sprites/123_2.bin"   @ from assets/graphics/sprites/123_2.png
+	.balign 16
 .Lasset_788190:
 	.incbin "build/assets/graphics/sprites/123_3.bin"   @ from assets/graphics/sprites/123_3.png
+	.balign 16
 	.global gUnk_08788290
 gUnk_08788290:
 	.incbin "build/assets/graphics/sprites/124.bin"   @ from assets/graphics/sprites/124.png
+	.balign 16
 .Lasset_78D4E0:
 	.incbin "build/assets/graphics/sprites/124_2.bin"   @ from assets/graphics/sprites/124_2.png
+	.balign 16
 .Lasset_78EFC0:
 	.incbin "build/assets/graphics/sprites/124_3.bin"   @ from assets/graphics/sprites/124_3.png
+	.balign 16
 	.global gUnk_0878F850
 gUnk_0878F850:
 	.incbin "build/assets/graphics/sprites/102.bin"   @ from assets/graphics/sprites/102.png
+	.balign 16
 .Lasset_796EA0:
 	.incbin "build/assets/graphics/sprites/102_2.bin"   @ from assets/graphics/sprites/102_2.png
+	.balign 16
 .Lasset_799500:
 	.incbin "build/assets/graphics/sprites/102_3.bin"   @ from assets/graphics/sprites/102_3.png
+	.balign 16
 	.global gUnk_0879A2A0
 gUnk_0879A2A0:
 	.incbin "build/assets/graphics/sprites/059.bin"   @ from assets/graphics/sprites/059.png
+	.balign 16
 .Lasset_79AD50:
 	.incbin "build/assets/graphics/sprites/059_2.bin"   @ from assets/graphics/sprites/059_2.png
+	.balign 16
 .Lasset_79B120:
 	.incbin "build/assets/graphics/sprites/059_3.bin"   @ from assets/graphics/sprites/059_3.png
+	.balign 16
 	.global gUnk_0879B250
 gUnk_0879B250:
 	.incbin "build/assets/graphics/sprites/126.bin"   @ from assets/graphics/sprites/126.png
 	.global gUnk_0879C7C9
 	.set gUnk_0879C7C9, gUnk_0879B250 + 0x1579
+	.balign 16
 .Lasset_7A0730:
 	.incbin "build/assets/graphics/sprites/126_2.bin"   @ from assets/graphics/sprites/126_2.png
+	.balign 16
 .Lasset_7A2380:
 	.incbin "build/assets/graphics/sprites/126_3.bin"   @ from assets/graphics/sprites/126_3.png
+	.balign 16
 	.global gUnk_087A2C10
 gUnk_087A2C10:
 	.incbin "build/assets/graphics/sprites/127.bin"   @ from assets/graphics/sprites/127.png
+	.balign 16
 .Lasset_7A3750:
 	.incbin "build/assets/graphics/sprites/127_2.bin"   @ from assets/graphics/sprites/127_2.png
+	.balign 16
 .Lasset_7A3AE0:
 	.incbin "build/assets/graphics/sprites/127_3.bin"   @ from assets/graphics/sprites/127_3.png
+	.balign 16
 	.global gUnk_087A3C40
 gUnk_087A3C40:
 	.incbin "build/assets/graphics/sprites/128.bin"   @ from assets/graphics/sprites/128.png
+	.balign 16
 .Lasset_7A5E40:
 	.incbin "build/assets/graphics/sprites/128_2.bin"   @ from assets/graphics/sprites/128_2.png
+	.balign 16
 .Lasset_7A6AB0:
 	.incbin "build/assets/graphics/sprites/128_3.bin"   @ from assets/graphics/sprites/128_3.png
+	.balign 16
 	.global gUnk_087A6DC0
 gUnk_087A6DC0:
 	.incbin "build/assets/graphics/sprites/130.bin"   @ from assets/graphics/sprites/130.png
+	.balign 16
 .Lasset_7A8320:
 	.incbin "build/assets/graphics/sprites/130_2.bin"   @ from assets/graphics/sprites/130_2.png
+	.balign 16
 .Lasset_7A8A00:
 	.incbin "build/assets/graphics/sprites/130_3.bin"   @ from assets/graphics/sprites/130_3.png
+	.balign 16
 	.global gUnk_087A8C50
 gUnk_087A8C50:
 	.incbin "build/assets/graphics/sprites/132.bin"   @ from assets/graphics/sprites/132.png
+	.balign 16
 .Lasset_7AB460:
 	.incbin "build/assets/graphics/sprites/132_2.bin"   @ from assets/graphics/sprites/132_2.png
+	.balign 16
 .Lasset_7AC0E0:
 	.incbin "build/assets/graphics/sprites/132_3.bin"   @ from assets/graphics/sprites/132_3.png
+	.balign 16
 	.global gUnk_087AC4F0
 gUnk_087AC4F0:
 	.incbin "build/assets/graphics/sprites/134.bin"   @ from assets/graphics/sprites/134.png
+	.balign 16
 .Lasset_7B01E0:
 	.incbin "build/assets/graphics/sprites/134_2.bin"   @ from assets/graphics/sprites/134_2.png
+	.balign 16
 .Lasset_7B15F0:
 	.incbin "build/assets/graphics/sprites/134_3.bin"   @ from assets/graphics/sprites/134_3.png
+	.balign 16
 	.global gUnk_087B1B50
 gUnk_087B1B50:
 	.incbin "build/assets/graphics/sprites/139.bin"   @ from assets/graphics/sprites/139.png
+	.balign 16
 .Lasset_7B2F70:
 	.incbin "build/assets/graphics/sprites/139_2.bin"   @ from assets/graphics/sprites/139_2.png
+	.balign 16
 .Lasset_7B3820:
 	.incbin "build/assets/graphics/sprites/139_3.bin"   @ from assets/graphics/sprites/139_3.png
+	.balign 16
 	.global gUnk_087B3B50
 gUnk_087B3B50:
 	.incbin "build/assets/graphics/sprites/137.bin"   @ from assets/graphics/sprites/137.png
+	.balign 16
 .Lasset_7B8660:
 	.incbin "build/assets/graphics/sprites/137_2.bin"   @ from assets/graphics/sprites/137_2.png
+	.balign 16
 .Lasset_7B9F70:
 	.incbin "build/assets/graphics/sprites/137_3.bin"   @ from assets/graphics/sprites/137_3.png
+	.balign 16
 	.global gUnk_087BA6A0
 gUnk_087BA6A0:
 	.incbin "build/assets/graphics/sprites/141.bin"   @ from assets/graphics/sprites/141.png
+	.balign 16
 .Lasset_7BBF00:
 	.incbin "build/assets/graphics/sprites/141_2.bin"   @ from assets/graphics/sprites/141_2.png
+	.balign 16
 .Lasset_7BC770:
 	.incbin "build/assets/graphics/sprites/141_3.bin"   @ from assets/graphics/sprites/141_3.png
+	.balign 16
 	.global gUnk_087BCA90
 gUnk_087BCA90:
 	.incbin "build/assets/graphics/sprites/143.bin"   @ from assets/graphics/sprites/143.png
+	.balign 16
 .Lasset_7BCB50:
 	.incbin "build/assets/graphics/sprites/143_2.bin"   @ from assets/graphics/sprites/143_2.png
+	.balign 16
 .Lasset_7BCBB0:
 	.incbin "build/assets/graphics/sprites/143_3.bin"   @ from assets/graphics/sprites/143_3.png
+	.balign 16
 	.global gUnk_087BCC00
 gUnk_087BCC00:
 	.incbin "build/assets/graphics/sprites/144.bin"   @ from assets/graphics/sprites/144.png
+	.balign 16
 .Lasset_7BCCC0:
 	.incbin "build/assets/graphics/sprites/144_2.bin"   @ from assets/graphics/sprites/144_2.png
+	.balign 16
 .Lasset_7BCD20:
 	.incbin "build/assets/graphics/sprites/144_3.bin"   @ from assets/graphics/sprites/144_3.png
+	.balign 16
 	.global gUnk_087BCD70
 gUnk_087BCD70:
 	.incbin "build/assets/graphics/sprites/145.bin"   @ from assets/graphics/sprites/145.png
+	.balign 16
 .Lasset_7BCE20:
 	.incbin "build/assets/graphics/sprites/145_2.bin"   @ from assets/graphics/sprites/145_2.png
+	.balign 16
 .Lasset_7BCE80:
 	.incbin "build/assets/graphics/sprites/145_3.bin"   @ from assets/graphics/sprites/145_3.png
+	.balign 16
 	.global gUnk_087BCED0
 gUnk_087BCED0:
 	.incbin "build/assets/graphics/sprites/146.bin"   @ from assets/graphics/sprites/146.png
+	.balign 16
 .Lasset_7BCF70:
 	.incbin "build/assets/graphics/sprites/146_2.bin"   @ from assets/graphics/sprites/146_2.png
+	.balign 16
 .Lasset_7BCFD0:
 	.incbin "build/assets/graphics/sprites/146_3.bin"   @ from assets/graphics/sprites/146_3.png
+	.balign 16
 	.global gUnk_087BD020
 gUnk_087BD020:
 	.incbin "build/assets/graphics/sprites/147.bin"   @ from assets/graphics/sprites/147.png
+	.balign 16
 .Lasset_7BD0E0:
 	.incbin "build/assets/graphics/sprites/147_2.bin"   @ from assets/graphics/sprites/147_2.png
+	.balign 16
 .Lasset_7BD140:
 	.incbin "build/assets/graphics/sprites/147_3.bin"   @ from assets/graphics/sprites/147_3.png
+	.balign 16
 	.global gUnk_087BD190
 gUnk_087BD190:
 	.incbin "build/assets/graphics/sprites/148.bin"   @ from assets/graphics/sprites/148.png
+	.balign 16
 .Lasset_7BD250:
 	.incbin "build/assets/graphics/sprites/148_2.bin"   @ from assets/graphics/sprites/148_2.png
+	.balign 16
 .Lasset_7BD2B0:
 	.incbin "build/assets/graphics/sprites/148_3.bin"   @ from assets/graphics/sprites/148_3.png
+	.balign 16
 	.global gUnk_087BD300
 gUnk_087BD300:
 	.incbin "build/assets/graphics/sprites/149.bin"   @ from assets/graphics/sprites/149.png
+	.balign 16
 .Lasset_7BD3B0:
 	.incbin "build/assets/graphics/sprites/149_2.bin"   @ from assets/graphics/sprites/149_2.png
+	.balign 16
 .Lasset_7BD410:
 	.incbin "build/assets/graphics/sprites/149_3.bin"   @ from assets/graphics/sprites/149_3.png
+	.balign 16
 	.global gUnk_087BD460
 gUnk_087BD460:
 	.incbin "build/assets/graphics/sprites/150.bin"   @ from assets/graphics/sprites/150.png
+	.balign 16
 .Lasset_7BD510:
 	.incbin "build/assets/graphics/sprites/150_2.bin"   @ from assets/graphics/sprites/150_2.png
+	.balign 16
 .Lasset_7BD570:
 	.incbin "build/assets/graphics/sprites/150_3.bin"   @ from assets/graphics/sprites/150_3.png
+	.balign 16
 	.global gUnk_087BD5C0
 gUnk_087BD5C0:
 	.incbin "build/assets/graphics/sprites/151.bin"   @ from assets/graphics/sprites/151.png
+	.balign 16
 .Lasset_7BD660:
 	.incbin "build/assets/graphics/sprites/151_2.bin"   @ from assets/graphics/sprites/151_2.png
+	.balign 16
 .Lasset_7BD6C0:
 	.incbin "build/assets/graphics/sprites/151_3.bin"   @ from assets/graphics/sprites/151_3.png
+	.balign 16
 	.global gUnk_087BD710
 gUnk_087BD710:
 	.incbin "build/assets/graphics/sprites/018_palette.bin"   @ from assets/graphics/sprites/018_palette.pal
+	.balign 16
 	.global gUnk_087BD730
 gUnk_087BD730:
 	.incbin "build/assets/graphics/sprites/018.bin"   @ from assets/graphics/sprites/018.png
+	.balign 16
 	.global gUnk_087BDC00
 gUnk_087BDC00:
 	.incbin "build/assets/graphics/sprites/019.bin"   @ from assets/graphics/sprites/019.png
+	.balign 16
 	.global gUnk_087BDFD0
 gUnk_087BDFD0:
 	.incbin "build/assets/graphics/sprites/020.bin"   @ from assets/graphics/sprites/020.png
+	.balign 16
 	.global gUnk_087BE3A0
 gUnk_087BE3A0:
 	.incbin "build/assets/graphics/sprites/021.bin"   @ from assets/graphics/sprites/021.png
+	.balign 16
 	.global gUnk_087BE710
 gUnk_087BE710:
 	.incbin "build/assets/graphics/sprites/022.bin"   @ from assets/graphics/sprites/022.png
+	.balign 16
 	.global gUnk_087BEAE0
 gUnk_087BEAE0:
 	.incbin "build/assets/graphics/sprites/023.bin"   @ from assets/graphics/sprites/023.png
+	.balign 16
 	.global gUnk_087BEE50
 gUnk_087BEE50:
 	.incbin "build/assets/graphics/sprites/024.bin"   @ from assets/graphics/sprites/024.png
+	.balign 16
 	.global gUnk_087BF2C0
 gUnk_087BF2C0:
 	.incbin "build/assets/graphics/sprites/025.bin"   @ from assets/graphics/sprites/025.png
+	.balign 16
 	.global gUnk_087BF740
 gUnk_087BF740:
 	.incbin "build/assets/graphics/sprites/026.bin"   @ from assets/graphics/sprites/026.png
+	.balign 16
 	.global gUnk_087BFB80
 gUnk_087BFB80:
 	.incbin "build/assets/graphics/sprites/027.bin"   @ from assets/graphics/sprites/027.png
+	.balign 16
 	.global gUnk_087BFF80
 gUnk_087BFF80:
 	.incbin "build/assets/graphics/sprites/028.bin"   @ from assets/graphics/sprites/028.png
+	.balign 16
 	.global gUnk_087C0400
 gUnk_087C0400:
 	.incbin "build/assets/graphics/sprites/029.bin"   @ from assets/graphics/sprites/029.png
+	.balign 16
 	.global gUnk_087C0820
 gUnk_087C0820:
 	.incbin "build/assets/graphics/sprites/030.bin"   @ from assets/graphics/sprites/030.png
+	.balign 16
 	.global gUnk_087C0BF0
 gUnk_087C0BF0:
 	.incbin "build/assets/graphics/sprites/031.bin"   @ from assets/graphics/sprites/031.png
+	.balign 16
 	.global gUnk_087C0FA0
 gUnk_087C0FA0:
 	.incbin "build/assets/graphics/sprites/032.bin"   @ from assets/graphics/sprites/032.png
+	.balign 16
 	.global gUnk_087C1400
 gUnk_087C1400:
 	.incbin "build/assets/graphics/sprites/033.bin"   @ from assets/graphics/sprites/033.png
+	.balign 16
 	.global gUnk_087C17A0
 gUnk_087C17A0:
 	.incbin "build/assets/graphics/sprites/034.bin"   @ from assets/graphics/sprites/034.png
+	.balign 16
 	.global gUnk_087C1910
 gUnk_087C1910:
 	.incbin "build/assets/graphics/sprites/035.bin"   @ from assets/graphics/sprites/035.png
+	.balign 16
 	.global gUnk_087C1A80
 gUnk_087C1A80:
 	.incbin "build/assets/graphics/sprites/036.bin"   @ from assets/graphics/sprites/036.png
+	.balign 16
 	.global gUnk_087C1BF0
 gUnk_087C1BF0:
 	.incbin "build/assets/graphics/sprites/037.bin"   @ from assets/graphics/sprites/037.png
+	.balign 16
 	.global gUnk_087C1D60
 gUnk_087C1D60:
 	.incbin "build/assets/graphics/sprites/038.bin"   @ from assets/graphics/sprites/038.png
+	.balign 16
 	.global gUnk_087C22C0
 gUnk_087C22C0:
 	.incbin "build/assets/graphics/sprites/039.bin"   @ from assets/graphics/sprites/039.png
+	.balign 16
 	.global gUnk_087C2620
 gUnk_087C2620:
 	.incbin "build/assets/graphics/sprites/040.bin"   @ from assets/graphics/sprites/040.png
+	.balign 16
 	.global gUnk_087C2AD0
 gUnk_087C2AD0:
 	.incbin "build/assets/graphics/sprites/041.bin"   @ from assets/graphics/sprites/041.png
+	.balign 16
 	.global gUnk_087C2F60
 gUnk_087C2F60:
 	.incbin "build/assets/graphics/sprites/061.bin"   @ from assets/graphics/sprites/061.png
+	.balign 16
 	.global gUnk_087C31A0
 gUnk_087C31A0:
 	.incbin "build/assets/graphics/sprites/125_palette.bin"   @ from assets/graphics/sprites/125_palette.pal
+	.balign 16
 	.global gUnk_087C31C0
 gUnk_087C31C0:
 	.incbin "build/assets/graphics/sprites/084_palette.bin"   @ from assets/graphics/sprites/084_palette.pal
+	.balign 16
 	.global gUnk_087C31E0
 gUnk_087C31E0:
 	.incbin "build/assets/graphics/sprites/047_palette.bin"   @ from assets/graphics/sprites/047_palette.pal
+	.balign 16
 	.global gUnk_087C3200
 gUnk_087C3200:
 	.incbin "build/assets/graphics/sprites/107_palette.bin"   @ from assets/graphics/sprites/107_palette.pal
+	.balign 16
 	.global gUnk_087C3220
 gUnk_087C3220:
 	.incbin "build/assets/graphics/sprites/052_palette.bin"   @ from assets/graphics/sprites/052_palette.pal
+	.balign 16
 	.global gUnk_087C3240
 gUnk_087C3240:
 	.incbin "build/assets/graphics/sprites/106_palette.bin"   @ from assets/graphics/sprites/106_palette.pal
+	.balign 16
 	.global gUnk_087C3260
 gUnk_087C3260:
 	.incbin "build/assets/graphics/sprites/116_palette.bin"   @ from assets/graphics/sprites/116_palette.pal
+	.balign 16
 	.global gUnk_087C3280
 gUnk_087C3280:
 	.incbin "build/assets/graphics/sprites/094_palette.bin"   @ from assets/graphics/sprites/094_palette.pal
+	.balign 16
 	.global gUnk_087C32A0
 gUnk_087C32A0:
 	.incbin "build/assets/graphics/sprites/095_palette.bin"   @ from assets/graphics/sprites/095_palette.pal
+	.balign 16
 	.global gUnk_087C32C0
 gUnk_087C32C0:
 	.incbin "build/assets/graphics/sprites/108_palette.bin"   @ from assets/graphics/sprites/108_palette.pal
+	.balign 16
 	.global gUnk_087C32E0
 gUnk_087C32E0:
 	.incbin "build/assets/graphics/sprites/103_palette.bin"   @ from assets/graphics/sprites/103_palette.pal
+	.balign 16
 	.global gUnk_087C3300
 gUnk_087C3300:
 	.incbin "build/assets/graphics/sprites/112_palette.bin"   @ from assets/graphics/sprites/112_palette.pal
+	.balign 16
 	.global gUnk_087C3320
 gUnk_087C3320:
 	.incbin "build/assets/graphics/sprites/093_palette.bin"   @ from assets/graphics/sprites/093_palette.pal
+	.balign 16
 	.global gUnk_087C3340
 gUnk_087C3340:
 	.incbin "build/assets/graphics/sprites/091_palette.bin"   @ from assets/graphics/sprites/091_palette.pal
+	.balign 16
 	.global gUnk_087C3360
 gUnk_087C3360:
 	.incbin "build/assets/graphics/sprites/014_palette.bin"   @ from assets/graphics/sprites/014_palette.pal
+	.balign 16
 	.global gUnk_087C3380
 gUnk_087C3380:
 	.incbin "build/assets/graphics/sprites/079_palette.bin"   @ from assets/graphics/sprites/079_palette.pal
+	.balign 16
 	.global gUnk_087C33A0
 gUnk_087C33A0:
 	.incbin "build/assets/graphics/sprites/080_palette.bin"   @ from assets/graphics/sprites/080_palette.pal
+	.balign 16
 	.global gUnk_087C33C0
 gUnk_087C33C0:
 	.incbin "build/assets/graphics/sprites/078_palette.bin"   @ from assets/graphics/sprites/078_palette.pal
+	.balign 16
 	.global gUnk_087C33E0
 gUnk_087C33E0:
 	.incbin "build/assets/graphics/sprites/083_palette.bin"   @ from assets/graphics/sprites/083_palette.pal
+	.balign 16
 	.global gUnk_087C3400
 gUnk_087C3400:
 	.incbin "build/assets/graphics/sprites/114_palette.bin"   @ from assets/graphics/sprites/114_palette.pal
+	.balign 16
 	.global gUnk_087C3420
 gUnk_087C3420:
 	.incbin "build/assets/graphics/sprites/115_palette.bin"   @ from assets/graphics/sprites/115_palette.pal
+	.balign 16
 	.global gUnk_087C3440
 gUnk_087C3440:
 	.incbin "build/assets/graphics/sprites/046_palette.bin"   @ from assets/graphics/sprites/046_palette.pal
+	.balign 16
 	.global gUnk_087C3460
 gUnk_087C3460:
 	.incbin "build/assets/graphics/sprites/045_palette.bin"   @ from assets/graphics/sprites/045_palette.pal
+	.balign 16
 	.global gUnk_087C3480
 gUnk_087C3480:
 	.incbin "build/assets/graphics/sprites/082_palette.bin"   @ from assets/graphics/sprites/082_palette.pal
+	.balign 16
 	.global gUnk_087C34A0
 gUnk_087C34A0:
 	.incbin "build/assets/graphics/sprites/081_palette.bin"   @ from assets/graphics/sprites/081_palette.pal
+	.balign 16
 	.global gUnk_087C34C0
 gUnk_087C34C0:
 	.incbin "build/assets/graphics/sprites/076_palette.bin"   @ from assets/graphics/sprites/076_palette.pal
+	.balign 16
 	.global gUnk_087C34E0
 gUnk_087C34E0:
 	.incbin "build/assets/graphics/sprites/077_palette.bin"   @ from assets/graphics/sprites/077_palette.pal
+	.balign 16
 	.global gUnk_087C3500
 gUnk_087C3500:
 	.incbin "build/assets/graphics/sprites/075_palette.bin"   @ from assets/graphics/sprites/075_palette.pal
+	.balign 16
 	.global gUnk_087C3520
 gUnk_087C3520:
 	.incbin "build/assets/graphics/sprites/136_palette.bin"   @ from assets/graphics/sprites/136_palette.pal
+	.balign 16
 	.global gUnk_087C3540
 gUnk_087C3540:
 	.incbin "build/assets/graphics/sprites/060_palette.bin"   @ from assets/graphics/sprites/060_palette.pal
+	.balign 16
 	.global gUnk_087C3560
 gUnk_087C3560:
 	.incbin "build/assets/graphics/sprites/118_palette.bin"   @ from assets/graphics/sprites/118_palette.pal
+	.balign 16
 	.global gUnk_087C3580
 gUnk_087C3580:
 	.incbin "build/assets/graphics/sprites/123_palette.bin"   @ from assets/graphics/sprites/123_palette.pal
+	.balign 16
 	.global gUnk_087C35A0
 gUnk_087C35A0:
 	.incbin "build/assets/graphics/sprites/124_palette.bin"   @ from assets/graphics/sprites/124_palette.pal
+	.balign 16
 	.global gUnk_087C35C0
 gUnk_087C35C0:
 	.incbin "build/assets/graphics/sprites/102_palette.bin"   @ from assets/graphics/sprites/102_palette.pal
+	.balign 16
 	.global gUnk_087C35E0
 gUnk_087C35E0:
 	.incbin "build/assets/graphics/sprites/126_palette.bin"   @ from assets/graphics/sprites/126_palette.pal
+	.balign 16
 	.global gUnk_087C3600
 gUnk_087C3600:
 	.incbin "build/assets/graphics/sprites/127_palette.bin"   @ from assets/graphics/sprites/127_palette.pal
+	.balign 16
 	.global gUnk_087C3620
 gUnk_087C3620:
 	.incbin "build/assets/graphics/sprites/128_palette.bin"   @ from assets/graphics/sprites/128_palette.pal
+	.balign 16
 	.global gUnk_087C3640
 gUnk_087C3640:
 	.incbin "build/assets/graphics/sprites/130_palette.bin"   @ from assets/graphics/sprites/130_palette.pal
+	.balign 16
 	.global gUnk_087C3660
 gUnk_087C3660:
 	.incbin "build/assets/graphics/sprites/132_palette.bin"   @ from assets/graphics/sprites/132_palette.pal
+	.balign 16
 	.global gUnk_087C3680
 gUnk_087C3680:
 	.incbin "build/assets/graphics/sprites/134_palette.bin"   @ from assets/graphics/sprites/134_palette.pal
+	.balign 16
 	.global gUnk_087C36A0
 gUnk_087C36A0:
 	.incbin "build/assets/graphics/sprites/139_palette.bin"   @ from assets/graphics/sprites/139_palette.pal
+	.balign 16
 	.global gUnk_087C36C0
 gUnk_087C36C0:
 	.incbin "build/assets/graphics/sprites/137_palette.bin"   @ from assets/graphics/sprites/137_palette.pal
+	.balign 16
 	.global gUnk_087C36E0
 gUnk_087C36E0:
 	.incbin "build/assets/graphics/sprites/141_palette.bin"   @ from assets/graphics/sprites/141_palette.pal
+	.balign 16
 	.global gUnk_087C3700
 gUnk_087C3700:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
@@ -1401,6 +1615,7 @@ gUnk_087C3AC4:
 	.global gUnk_087C3ACC
 gUnk_087C3ACC:
 	.include "assets/levels/01/objects.s"
+	.balign 4
 	.global gUnk_087C400C
 gUnk_087C400C:
 	.byte 0x04, 0x67, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -1814,6 +2029,7 @@ gUnk_087C44D4:
 	.global gUnk_087C44D8
 gUnk_087C44D8:
 	.include "assets/levels/02/objects.s"
+	.balign 8
 	.global gUnk_087C4D68
 gUnk_087C4D68:
 	.byte 0x1B, 0x00, 0x00, 0x00
@@ -2171,6 +2387,7 @@ gUnk_087C5220:
 	.global gUnk_087C522C
 gUnk_087C522C:
 	.include "assets/levels/03/objects.s"
+	.balign 4
 	.global gUnk_087C597C
 gUnk_087C597C:
 	.byte 0x04, 0x5E, 0x28, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2470,6 +2687,7 @@ gUnk_087C5D68:
 	.global gUnk_087C5D6C
 gUnk_087C5D6C:
 	.include "assets/levels/04/objects.s"
+	.balign 4
 	.global gUnk_087C638C
 gUnk_087C638C:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
@@ -2742,6 +2960,7 @@ gUnk_087C66F4:
 	.global gUnk_087C6700
 gUnk_087C6700:
 	.include "assets/levels/05/objects.s"
+	.balign 16
 	.global gUnk_087C6C90
 gUnk_087C6C90:
 	.byte 0x18, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2992,6 +3211,7 @@ gUnk_087C7008:
 	.global gUnk_087C7010
 gUnk_087C7010:
 	.include "assets/levels/06/objects.s"
+	.balign 16
 	.global gUnk_087C7510
 gUnk_087C7510:
 	.byte 0x1B, 0x00, 0x00, 0x00
@@ -3263,6 +3483,7 @@ gUnk_087C78C0:
 	.global gUnk_087C78C8
 gUnk_087C78C8:
 	.include "assets/levels/07/objects.s"
+	.balign 8
 	.global gUnk_087C7E48
 gUnk_087C7E48:
 	.byte 0x08, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -3660,6 +3881,7 @@ gUnk_087C8358:
 	.global gUnk_087C8360
 gUnk_087C8360:
 	.include "assets/levels/08/objects.s"
+	.balign 16
 	.global gUnk_087C8B80
 gUnk_087C8B80:
 	.byte 0x2D, 0xC4, 0x05, 0x00, 0xF0, 0x00, 0x6E, 0x00, 0x04, 0xFF, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
@@ -3928,6 +4150,7 @@ gUnk_087C8F3C:
 	.global gUnk_087C8F58
 gUnk_087C8F58:
 	.include "assets/levels/09/objects.s"
+	.balign 8
 	.global gUnk_087C94C8
 gUnk_087C94C8:
 	.byte 0x04, 0x65, 0x8C, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -4224,6 +4447,7 @@ gUnk_087C98F0:
 	.global gUnk_087C98FC
 gUnk_087C98FC:
 	.include "assets/levels/10/objects.s"
+	.balign 4
 	.global gUnk_087C9EEC
 gUnk_087C9EEC:
 	.byte 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -4514,6 +4738,7 @@ gUnk_087CA2A8:
 	.global gUnk_087CA2B0
 gUnk_087CA2B0:
 	.include "assets/levels/11/objects.s"
+	.balign 16
 	.global gUnk_087CA8A0
 gUnk_087CA8A0:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
@@ -4834,6 +5059,7 @@ gUnk_087CAC74:
 	.global gUnk_087CAC80
 gUnk_087CAC80:
 	.include "assets/levels/12/objects.s"
+	.balign 16
 	.global gUnk_087CB320
 gUnk_087CB320:
 	.byte 0x04, 0x59, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -5370,6 +5596,7 @@ gUnk_087CB9B4:
 	.global gUnk_087CB9BC
 gUnk_087CB9BC:
 	.include "assets/levels/13/objects.s"
+	.balign 4
 	.global gUnk_087CC4BC
 gUnk_087CC4BC:
 	.byte 0x08, 0x04, 0x80, 0x00, 0x01, 0x00, 0x00, 0x00
@@ -5689,6 +5916,7 @@ gUnk_087CC8DC:
 	.global gUnk_087CC8E4
 gUnk_087CC8E4:
 	.include "assets/levels/14/objects.s"
+	.balign 4
 	.global gUnk_087CCF64
 gUnk_087CCF64:
 	.byte 0x13, 0x00, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -5977,6 +6205,7 @@ gUnk_087CD320:
 	.global gUnk_087CD32C
 gUnk_087CD32C:
 	.include "assets/levels/15/objects.s"
+	.balign 4
 	.global gUnk_087CD90C
 gUnk_087CD90C:
 	.byte 0x18, 0x03, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6215,6 +6444,7 @@ gUnk_087CDC24:
 	.global gUnk_087CDC30
 gUnk_087CDC30:
 	.include "assets/levels/16/objects.s"
+	.balign 16
 	.global gUnk_087CE110
 gUnk_087CE110:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6296,6 +6526,7 @@ gUnk_087CE234:
 	.global gUnk_087CE240
 gUnk_087CE240:
 	.include "assets/levels/17/objects.s"
+	.balign 16
 	.global gUnk_087CE3F0
 gUnk_087CE3F0:
 	.byte 0x04, 0x67, 0x00, 0x00, 0x02, 0x03, 0x14, 0x00
@@ -6386,6 +6617,7 @@ gUnk_087CE51C:
 	.global gUnk_087CE528
 gUnk_087CE528:
 	.include "assets/levels/21/objects.s"
+	.balign 8
 	.global gUnk_087CE708
 gUnk_087CE708:
 	.byte 0x04, 0x61, 0x50, 0x00, 0x02, 0x06, 0x14, 0x00
@@ -6455,6 +6687,7 @@ gUnk_087CE7DC:
 	.global gUnk_087CE7E8
 gUnk_087CE7E8:
 	.include "assets/levels/22/objects.s"
+	.balign 8
 	.global gUnk_087CE958
 gUnk_087CE958:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6533,6 +6766,7 @@ gUnk_087CEA54:
 	.global gUnk_087CEA60
 gUnk_087CEA60:
 	.include "assets/levels/23/objects.s"
+	.balign 16
 	.global gUnk_087CEC00
 gUnk_087CEC00:
 	.byte 0x0F, 0x05, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6629,6 +6863,7 @@ gUnk_087CED30:
 	.global gUnk_087CED38
 gUnk_087CED38:
 	.include "assets/levels/24/objects.s"
+	.balign 8
 	.global gUnk_087CEF38
 gUnk_087CEF38:
 	.byte 0x04, 0x57, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6649,510 +6884,680 @@ gUnk_087CEF60:
 	.byte 0x04, 0x57, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00
 .Lasset_7CEF68:
 	.include "assets/levels/25/objects.s"
+	.balign 8
 	.global gUnk_087CEFD8
 gUnk_087CEFD8:
 	.incbin "build/assets/levels/01/ai_path.bin"   @ from assets/levels/01/ai_path.bin
+	.balign 8
 	.global gUnk_087CFEA8
 gUnk_087CFEA8:
 	.incbin "build/assets/levels/01/ai_path_rev.bin"   @ from assets/levels/01/ai_path_rev.bin
+	.balign 8
 	.global gUnk_087D0B08
 gUnk_087D0B08:
 	.incbin "build/assets/levels/01/race_monitor.bin"   @ from assets/levels/01/race_monitor.bin
+	.balign 4
 	.global gUnk_087D0E0C
 gUnk_087D0E0C:
 	.incbin "build/assets/levels/01/race_monitor_rev.bin"   @ from assets/levels/01/race_monitor_rev.bin
+	.balign 16
 	.global gUnk_087D1000
 gUnk_087D1000:
 	.incbin "build/assets/levels/01/edges1.bin"   @ from assets/levels/01/edges1.bin
+	.balign 8
 	.global gUnk_087D1D38
 gUnk_087D1D38:
 	.incbin "build/assets/levels/01/edges1_rev.bin"   @ from assets/levels/01/edges1_rev.bin
+	.balign 16
 	.global gUnk_087D2F50
 gUnk_087D2F50:
 	.incbin "build/assets/levels/01/edges2_rev.bin"   @ from assets/levels/01/edges2_rev.bin
+	.balign 4
 	.global gUnk_087D2F54
 gUnk_087D2F54:
 	.incbin "build/assets/levels/01/edges2.bin"   @ from assets/levels/01/edges2.bin
+	.balign 4
 	.global gUnk_087D39B4
 gUnk_087D39B4:
 	.incbin "build/assets/levels/01/camera_ops.bin"   @ from assets/levels/01/camera_ops.bin
+	.balign 4
 	.global gUnk_087D3A9C
 gUnk_087D3A9C:
 	.incbin "build/assets/levels/01/camera_ops_rev.bin"   @ from assets/levels/01/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087D3BE4
 gUnk_087D3BE4:
 	.incbin "build/assets/levels/01/camera.bin"   @ from assets/levels/01/camera.bin
+	.balign 16
 	.global gUnk_087D3C60
 gUnk_087D3C60:
 	.incbin "build/assets/levels/01/camera_rev.bin"   @ from assets/levels/01/camera_rev.bin
+	.balign 4
 	.global gUnk_087D3CDC
 gUnk_087D3CDC:
 	.incbin "build/assets/levels/01/autopilot.bin"   @ from assets/levels/01/autopilot.bin
+	.balign 16
 	.global gUnk_087D3CE0
 gUnk_087D3CE0:
 	.incbin "build/assets/levels/01/autopilot_rev.bin"   @ from assets/levels/01/autopilot_rev.bin
+	.balign 4
 	.global gUnk_087D3CE4
 gUnk_087D3CE4:
 	.incbin "build/assets/levels/02/ai_path.bin"   @ from assets/levels/02/ai_path.bin
+	.balign 4
 	.global gUnk_087D4824
 gUnk_087D4824:
 	.incbin "build/assets/levels/02/ai_path_rev.bin"   @ from assets/levels/02/ai_path_rev.bin
+	.balign 8
 	.global gUnk_087D5558
 gUnk_087D5558:
 	.incbin "build/assets/levels/02/race_monitor.bin"   @ from assets/levels/02/race_monitor.bin
+	.balign 4
 	.global gUnk_087D56EC
 gUnk_087D56EC:
 	.incbin "build/assets/levels/02/race_monitor_rev.bin"   @ from assets/levels/02/race_monitor_rev.bin
+	.balign 16
 	.global gUnk_087D5880
 gUnk_087D5880:
 	.incbin "build/assets/levels/02/edges1.bin"   @ from assets/levels/02/edges1.bin
+	.balign 16
 	.global gUnk_087D6550
 gUnk_087D6550:
 	.incbin "build/assets/levels/02/edges1_rev.bin"   @ from assets/levels/02/edges1_rev.bin
+	.balign 8
 	.global gUnk_087D7698
 gUnk_087D7698:
 	.incbin "build/assets/levels/02/edges2_rev.bin"   @ from assets/levels/02/edges2_rev.bin
+	.balign 4
 	.global gUnk_087D7FF4
 gUnk_087D7FF4:
 	.incbin "build/assets/levels/02/edges2.bin"   @ from assets/levels/02/edges2.bin
+	.balign 4
 	.global gUnk_087D88B4
 gUnk_087D88B4:
 	.incbin "build/assets/levels/02/camera_ops.bin"   @ from assets/levels/02/camera_ops.bin
+	.balign 16
 	.global gUnk_087D8990
 gUnk_087D8990:
 	.incbin "build/assets/levels/02/camera_ops_rev.bin"   @ from assets/levels/02/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087D8AB4
 gUnk_087D8AB4:
 	.incbin "build/assets/levels/02/camera.bin"   @ from assets/levels/02/camera.bin
+	.balign 16
 	.global gUnk_087D8B60
 gUnk_087D8B60:
 	.incbin "build/assets/levels/02/camera_rev.bin"   @ from assets/levels/02/camera_rev.bin
+	.balign 4
 	.global gUnk_087D8C24
 gUnk_087D8C24:
 	.incbin "build/assets/levels/02/autopilot.bin"   @ from assets/levels/02/autopilot.bin
+	.balign 8
 	.global gUnk_087D8DA8
 gUnk_087D8DA8:
 	.incbin "build/assets/levels/02/autopilot_rev.bin"   @ from assets/levels/02/autopilot_rev.bin
+	.balign 4
 	.global gUnk_087D8DAC
 gUnk_087D8DAC:
 	.incbin "build/assets/levels/03/ai_path.bin"   @ from assets/levels/03/ai_path.bin
+	.balign 16
 	.global gUnk_087D9BF0
 gUnk_087D9BF0:
 	.incbin "build/assets/levels/03/ai_path_rev.bin"   @ from assets/levels/03/ai_path_rev.bin
+	.balign 8
 	.global gUnk_087DA9A8
 gUnk_087DA9A8:
 	.incbin "build/assets/levels/03/race_monitor.bin"   @ from assets/levels/03/race_monitor.bin
+	.balign 4
 	.global gUnk_087DABCC
 gUnk_087DABCC:
 	.incbin "build/assets/levels/03/race_monitor_rev.bin"   @ from assets/levels/03/race_monitor_rev.bin
+	.balign 16
 	.global gUnk_087DADF0
 gUnk_087DADF0:
 	.incbin "build/assets/levels/03/edges1.bin"   @ from assets/levels/03/edges1.bin
+	.balign 8
 	.global gUnk_087DBA58
 gUnk_087DBA58:
 	.incbin "build/assets/levels/03/edges1_rev.bin"   @ from assets/levels/03/edges1_rev.bin
+	.balign 8
 	.global gUnk_087DC998
 gUnk_087DC998:
 	.incbin "build/assets/levels/03/edges2_rev.bin"   @ from assets/levels/03/edges2_rev.bin
+	.balign 4
 	.global gUnk_087DD1BC
 gUnk_087DD1BC:
 	.incbin "build/assets/levels/03/edges2.bin"   @ from assets/levels/03/edges2.bin
+	.balign 8
 	.global gUnk_087DDA48
 gUnk_087DDA48:
 	.incbin "build/assets/levels/03/camera_ops.bin"   @ from assets/levels/03/camera_ops.bin
+	.balign 8
 	.global gUnk_087DDB48
 gUnk_087DDB48:
 	.incbin "build/assets/levels/03/camera_ops_rev.bin"   @ from assets/levels/03/camera_ops_rev.bin
+	.balign 16
 	.global gUnk_087DDC30
 gUnk_087DDC30:
 	.incbin "build/assets/levels/03/camera.bin"   @ from assets/levels/03/camera.bin
+	.balign 4
 	.global gUnk_087DDCC4
 gUnk_087DDCC4:
 	.incbin "build/assets/levels/03/camera_rev.bin"   @ from assets/levels/03/camera_rev.bin
+	.balign 16
 	.global gUnk_087DDDA0
 gUnk_087DDDA0:
 	.incbin "build/assets/levels/03/autopilot.bin"   @ from assets/levels/03/autopilot.bin
+	.balign 4
 	.global gUnk_087DDDA4
 gUnk_087DDDA4:
 	.incbin "build/assets/levels/03/autopilot_rev.bin"   @ from assets/levels/03/autopilot_rev.bin
+	.balign 8
 	.global gUnk_087DDDA8
 gUnk_087DDDA8:
 	.incbin "build/assets/levels/04/ai_path.bin"   @ from assets/levels/04/ai_path.bin
+	.balign 16
 	.global gUnk_087DE5E0
 gUnk_087DE5E0:
 	.incbin "build/assets/levels/04/ai_path_rev.bin"   @ from assets/levels/04/ai_path_rev.bin
+	.balign 16
 	.global gUnk_087DF060
 gUnk_087DF060:
 	.incbin "build/assets/levels/04/race_monitor.bin"   @ from assets/levels/04/race_monitor.bin
+	.balign 4
 	.global gUnk_087DF224
 gUnk_087DF224:
 	.incbin "build/assets/levels/04/race_monitor_rev.bin"   @ from assets/levels/04/race_monitor_rev.bin
+	.balign 8
 	.global gUnk_087DF3E8
 gUnk_087DF3E8:
 	.incbin "build/assets/levels/04/edges1.bin"   @ from assets/levels/04/edges1.bin
+	.balign 16
 	.global gUnk_087DFC40
 gUnk_087DFC40:
 	.incbin "build/assets/levels/04/edges1_rev.bin"   @ from assets/levels/04/edges1_rev.bin
+	.balign 4
 	.global gUnk_087E0874
 gUnk_087E0874:
 	.incbin "build/assets/levels/04/edges2_rev.bin"   @ from assets/levels/04/edges2_rev.bin
+	.balign 4
 	.global gUnk_087E0F94
 gUnk_087E0F94:
 	.incbin "build/assets/levels/04/edges2.bin"   @ from assets/levels/04/edges2.bin
+	.balign 16
 	.global gUnk_087E1750
 gUnk_087E1750:
 	.incbin "build/assets/levels/04/camera_ops.bin"   @ from assets/levels/04/camera_ops.bin
+	.balign 4
 	.global gUnk_087E182C
 gUnk_087E182C:
 	.incbin "build/assets/levels/04/camera_ops_rev.bin"   @ from assets/levels/04/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087E1914
 gUnk_087E1914:
 	.incbin "build/assets/levels/04/camera.bin"   @ from assets/levels/04/camera.bin
+	.balign 16
 	.global gUnk_087E19C0
 gUnk_087E19C0:
 	.incbin "build/assets/levels/04/camera_rev.bin"   @ from assets/levels/04/camera_rev.bin
+	.balign 16
 	.global gUnk_087E1A90
 gUnk_087E1A90:
 	.incbin "build/assets/levels/04/autopilot.bin"   @ from assets/levels/04/autopilot.bin
+	.balign 4
 	.global gUnk_087E1A94
 gUnk_087E1A94:
 	.incbin "build/assets/levels/04/autopilot_rev.bin"   @ from assets/levels/04/autopilot_rev.bin
+	.balign 8
 	.global gUnk_087E1A98
 gUnk_087E1A98:
 	.incbin "build/assets/levels/05/ai_path.bin"   @ from assets/levels/05/ai_path.bin
+	.balign 16
 	.global gUnk_087E2270
 gUnk_087E2270:
 	.incbin "build/assets/levels/05/ai_path_rev.bin"   @ from assets/levels/05/ai_path_rev.bin
+	.balign 16
 	.global gUnk_087E2C30
 gUnk_087E2C30:
 	.incbin "build/assets/levels/05/race_monitor.bin"   @ from assets/levels/05/race_monitor.bin
+	.balign 4
 	.global gUnk_087E2D94
 gUnk_087E2D94:
 	.incbin "build/assets/levels/05/race_monitor_rev.bin"   @ from assets/levels/05/race_monitor_rev.bin
+	.balign 8
 	.global gUnk_087E2EF8
 gUnk_087E2EF8:
 	.incbin "build/assets/levels/05/edges1.bin"   @ from assets/levels/05/edges1.bin
+	.balign 4
 	.global gUnk_087E34AC
 gUnk_087E34AC:
 	.incbin "build/assets/levels/05/edges1_rev.bin"   @ from assets/levels/05/edges1_rev.bin
+	.balign 8
 	.global gUnk_087E3ED8
 gUnk_087E3ED8:
 	.incbin "build/assets/levels/05/edges2_rev.bin"   @ from assets/levels/05/edges2_rev.bin
+	.balign 4
 	.global gUnk_087E44F4
 gUnk_087E44F4:
 	.incbin "build/assets/levels/05/edges2.bin"   @ from assets/levels/05/edges2.bin
+	.balign 8
 	.global gUnk_087E4B78
 gUnk_087E4B78:
 	.include "assets/levels/05/camera_ops.s"
+	.balign 16
 	.global gUnk_087E4C30
 gUnk_087E4C30:
 	.incbin "build/assets/levels/05/camera_ops_rev.bin"   @ from assets/levels/05/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087E4CF4
 gUnk_087E4CF4:
 	.incbin "build/assets/levels/05/camera.bin"   @ from assets/levels/05/camera.bin
+	.balign 4
 	.global gUnk_087E4D64
 gUnk_087E4D64:
 	.incbin "build/assets/levels/05/camera_rev.bin"   @ from assets/levels/05/camera_rev.bin
+	.balign 4
 	.global gUnk_087E4E1C
 gUnk_087E4E1C:
 	.incbin "build/assets/levels/05/autopilot.bin"   @ from assets/levels/05/autopilot.bin
+	.balign 16
 	.global gUnk_087E4E20
 gUnk_087E4E20:
 	.incbin "build/assets/levels/05/autopilot_rev.bin"   @ from assets/levels/05/autopilot_rev.bin
+	.balign 4
 	.global gUnk_087E4E54
 gUnk_087E4E54:
 	.incbin "build/assets/levels/06/ai_path.bin"   @ from assets/levels/06/ai_path.bin
+	.balign 16
 	.global gUnk_087E5A50
 gUnk_087E5A50:
 	.incbin "build/assets/levels/06/ai_path_rev.bin"   @ from assets/levels/06/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087E62EC
 gUnk_087E62EC:
 	.incbin "build/assets/levels/06/race_monitor.bin"   @ from assets/levels/06/race_monitor.bin
+	.balign 16
 	.global gUnk_087E6450
 gUnk_087E6450:
 	.incbin "build/assets/levels/06/race_monitor_rev.bin"   @ from assets/levels/06/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087E65B4
 gUnk_087E65B4:
 	.incbin "build/assets/levels/06/edges1.bin"   @ from assets/levels/06/edges1.bin
+	.balign 4
 	.global gUnk_087E6D3C
 gUnk_087E6D3C:
 	.incbin "build/assets/levels/06/edges1_rev.bin"   @ from assets/levels/06/edges1_rev.bin
+	.balign 4
 	.global gUnk_087E786C
 gUnk_087E786C:
 	.incbin "build/assets/levels/06/edges2_rev.bin"   @ from assets/levels/06/edges2_rev.bin
+	.balign 8
 	.global gUnk_087E7F58
 gUnk_087E7F58:
 	.incbin "build/assets/levels/06/edges2.bin"   @ from assets/levels/06/edges2.bin
+	.balign 16
 	.global gUnk_087E86E0
 gUnk_087E86E0:
 	.incbin "build/assets/levels/06/camera_ops.bin"   @ from assets/levels/06/camera_ops.bin
+	.balign 4
 	.global gUnk_087E87BC
 gUnk_087E87BC:
 	.incbin "build/assets/levels/06/camera_ops_rev.bin"   @ from assets/levels/06/camera_ops_rev.bin
+	.balign 8
 	.global gUnk_087E8898
 gUnk_087E8898:
 	.incbin "build/assets/levels/06/camera.bin"   @ from assets/levels/06/camera.bin
+	.balign 4
 	.global gUnk_087E8944
 gUnk_087E8944:
 	.incbin "build/assets/levels/06/camera_rev.bin"   @ from assets/levels/06/camera_rev.bin
+	.balign 16
 	.global gUnk_087E89F0
 gUnk_087E89F0:
 	.incbin "build/assets/levels/06/autopilot.bin"   @ from assets/levels/06/autopilot.bin
+	.balign 4
 	.global gUnk_087E89F4
 gUnk_087E89F4:
 	.incbin "build/assets/levels/06/autopilot_rev.bin"   @ from assets/levels/06/autopilot_rev.bin
+	.balign 8
 	.global gUnk_087E89F8
 gUnk_087E89F8:
 	.incbin "build/assets/levels/07/ai_path.bin"   @ from assets/levels/07/ai_path.bin
+	.balign 16
 	.global gUnk_087E96B0
 gUnk_087E96B0:
 	.incbin "build/assets/levels/07/ai_path_rev.bin"   @ from assets/levels/07/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087EA0FC
 gUnk_087EA0FC:
 	.incbin "build/assets/levels/07/race_monitor.bin"   @ from assets/levels/07/race_monitor.bin
+	.balign 16
 	.global gUnk_087EA280
 gUnk_087EA280:
 	.incbin "build/assets/levels/07/race_monitor_rev.bin"   @ from assets/levels/07/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087EA404
 gUnk_087EA404:
 	.incbin "build/assets/levels/07/edges1.bin"   @ from assets/levels/07/edges1.bin
+	.balign 16
 	.global gUnk_087EAC90
 gUnk_087EAC90:
 	.incbin "build/assets/levels/07/edges1_rev.bin"   @ from assets/levels/07/edges1_rev.bin
+	.balign 4
 	.global gUnk_087EB92C
 gUnk_087EB92C:
 	.incbin "build/assets/levels/07/edges2_rev.bin"   @ from assets/levels/07/edges2_rev.bin
+	.balign 4
 	.global gUnk_087EBFE4
 gUnk_087EBFE4:
 	.incbin "build/assets/levels/07/edges2.bin"   @ from assets/levels/07/edges2.bin
+	.balign 8
 	.global gUnk_087EC808
 gUnk_087EC808:
 	.incbin "build/assets/levels/07/camera_ops.bin"   @ from assets/levels/07/camera_ops.bin
+	.balign 16
 	.global gUnk_087EC8F0
 gUnk_087EC8F0:
 	.incbin "build/assets/levels/07/camera_ops_rev.bin"   @ from assets/levels/07/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087ECA2C
 gUnk_087ECA2C:
 	.incbin "build/assets/levels/07/camera.bin"   @ from assets/levels/07/camera.bin
+	.balign 16
 	.global gUnk_087ECAF0
 gUnk_087ECAF0:
 	.incbin "build/assets/levels/07/camera_rev.bin"   @ from assets/levels/07/camera_rev.bin
+	.balign 4
 	.global gUnk_087ECBE4
 gUnk_087ECBE4:
 	.incbin "build/assets/levels/07/autopilot.bin"   @ from assets/levels/07/autopilot.bin
+	.balign 8
 	.global gUnk_087ECBE8
 gUnk_087ECBE8:
 	.incbin "build/assets/levels/07/autopilot_rev.bin"   @ from assets/levels/07/autopilot_rev.bin
+	.balign 4
 	.global gUnk_087ECD84
 gUnk_087ECD84:
 	.incbin "build/assets/levels/08/ai_path.bin"   @ from assets/levels/08/ai_path.bin
+	.balign 16
 	.global gUnk_087EDE30
 gUnk_087EDE30:
 	.incbin "build/assets/levels/08/ai_path_rev.bin"   @ from assets/levels/08/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087EEC04
 gUnk_087EEC04:
 	.incbin "build/assets/levels/08/race_monitor.bin"   @ from assets/levels/08/race_monitor.bin
+	.balign 8
 	.global gUnk_087EED68
 gUnk_087EED68:
 	.incbin "build/assets/levels/08/race_monitor_rev.bin"   @ from assets/levels/08/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087EEECC
 gUnk_087EEECC:
 	.incbin "build/assets/levels/08/edges1.bin"   @ from assets/levels/08/edges1.bin
+	.balign 4
 	.global gUnk_087EF994
 gUnk_087EF994:
 	.incbin "build/assets/levels/08/edges1_rev.bin"   @ from assets/levels/08/edges1_rev.bin
+	.balign 4
 	.global gUnk_087F05FC
 gUnk_087F05FC:
 	.incbin "build/assets/levels/08/edges2_rev.bin"   @ from assets/levels/08/edges2_rev.bin
+	.balign 8
 	.global gUnk_087F0DB8
 gUnk_087F0DB8:
 	.incbin "build/assets/levels/08/edges2.bin"   @ from assets/levels/08/edges2.bin
+	.balign 4
 	.global gUnk_087F150C
 gUnk_087F150C:
 	.incbin "build/assets/levels/08/camera_ops.bin"   @ from assets/levels/08/camera_ops.bin
+	.balign 4
 	.global gUnk_087F15DC
 gUnk_087F15DC:
 	.incbin "build/assets/levels/08/camera_ops_rev.bin"   @ from assets/levels/08/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087F16C4
 gUnk_087F16C4:
 	.incbin "build/assets/levels/08/camera.bin"   @ from assets/levels/08/camera.bin
+	.balign 8
 	.global gUnk_087F1788
 gUnk_087F1788:
 	.incbin "build/assets/levels/08/camera_rev.bin"   @ from assets/levels/08/camera_rev.bin
+	.balign 4
 	.global gUnk_087F184C
 gUnk_087F184C:
 	.incbin "build/assets/levels/08/autopilot.bin"   @ from assets/levels/08/autopilot.bin
+	.balign 16
 	.global gUnk_087F1850
 gUnk_087F1850:
 	.incbin "build/assets/levels/08/autopilot_rev.bin"   @ from assets/levels/08/autopilot_rev.bin
+	.balign 8
 	.global gUnk_087F1968
 gUnk_087F1968:
 	.incbin "build/assets/levels/09/ai_path.bin"   @ from assets/levels/09/ai_path.bin
+	.balign 8
 	.global gUnk_087F2638
 gUnk_087F2638:
 	.incbin "build/assets/levels/09/ai_path_rev.bin"   @ from assets/levels/09/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087F3264
 gUnk_087F3264:
 	.incbin "build/assets/levels/09/race_monitor.bin"   @ from assets/levels/09/race_monitor.bin
+	.balign 8
 	.global gUnk_087F3368
 gUnk_087F3368:
 	.incbin "build/assets/levels/09/race_monitor_rev.bin"   @ from assets/levels/09/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087F346C
 gUnk_087F346C:
 	.incbin "build/assets/levels/09/edges1.bin"   @ from assets/levels/09/edges1.bin
+	.balign 4
 	.global gUnk_087F3984
 gUnk_087F3984:
 	.incbin "build/assets/levels/09/edges1_rev.bin"   @ from assets/levels/09/edges1_rev.bin
+	.balign 8
 	.global gUnk_087F40D8
 gUnk_087F40D8:
 	.incbin "build/assets/levels/09/edges2_rev.bin"   @ from assets/levels/09/edges2_rev.bin
+	.balign 4
 	.global gUnk_087F45BC
 gUnk_087F45BC:
 	.incbin "build/assets/levels/09/edges2.bin"   @ from assets/levels/09/edges2.bin
+	.balign 16
 	.global gUnk_087F4B70
 gUnk_087F4B70:
 	.incbin "build/assets/levels/09/camera_ops.bin"   @ from assets/levels/09/camera_ops.bin
+	.balign 8
 	.global gUnk_087F4C58
 gUnk_087F4C58:
 	.incbin "build/assets/levels/09/camera_ops_rev.bin"   @ from assets/levels/09/camera_ops_rev.bin
+	.balign 8
 	.global gUnk_087F4CF8
 gUnk_087F4CF8:
 	.incbin "build/assets/levels/09/camera.bin"   @ from assets/levels/09/camera.bin
+	.balign 16
 	.global gUnk_087F4D80
 gUnk_087F4D80:
 	.incbin "build/assets/levels/09/camera_rev.bin"   @ from assets/levels/09/camera_rev.bin
+	.balign 16
 	.global gUnk_087F4E20
 gUnk_087F4E20:
 	.incbin "build/assets/levels/09/autopilot.bin"   @ from assets/levels/09/autopilot.bin
+	.balign 4
 	.global gUnk_087F4E24
 gUnk_087F4E24:
 	.incbin "build/assets/levels/09/autopilot_rev.bin"   @ from assets/levels/09/autopilot_rev.bin
+	.balign 8
 	.global gUnk_087F4E28
 gUnk_087F4E28:
 	.incbin "build/assets/levels/10/ai_path.bin"   @ from assets/levels/10/ai_path.bin
+	.balign 4
 	.global gUnk_087F54D4
 gUnk_087F54D4:
 	.incbin "build/assets/levels/10/ai_path_rev.bin"   @ from assets/levels/10/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087F5DD4
 gUnk_087F5DD4:
 	.incbin "build/assets/levels/10/race_monitor.bin"   @ from assets/levels/10/race_monitor.bin
+	.balign 8
 	.global gUnk_087F5EC8
 gUnk_087F5EC8:
 	.incbin "build/assets/levels/10/race_monitor_rev.bin"   @ from assets/levels/10/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087F5FBC
 gUnk_087F5FBC:
 	.incbin "build/assets/levels/10/edges1.bin"   @ from assets/levels/10/edges1.bin
+	.balign 16
 	.global gUnk_087F6570
 gUnk_087F6570:
 	.incbin "build/assets/levels/10/edges1_rev.bin"   @ from assets/levels/10/edges1_rev.bin
+	.balign 8
 	.global gUnk_087F6B58
 gUnk_087F6B58:
 	.incbin "build/assets/levels/10/edges2_rev.bin"   @ from assets/levels/10/edges2_rev.bin
+	.balign 8
 	.global gUnk_087F71A8
 gUnk_087F71A8:
 	.incbin "build/assets/levels/10/edges2.bin"   @ from assets/levels/10/edges2.bin
+	.balign 16
 	.global gUnk_087F7930
 gUnk_087F7930:
 	.incbin "build/assets/levels/10/camera_ops.bin"   @ from assets/levels/10/camera_ops.bin
+	.balign 16
 	.global gUnk_087F7A00
 gUnk_087F7A00:
 	.incbin "build/assets/levels/10/camera_ops_rev.bin"   @ from assets/levels/10/camera_ops_rev.bin
+	.balign 16
 	.global gUnk_087F7AA0
 gUnk_087F7AA0:
 	.incbin "build/assets/levels/10/camera.bin"   @ from assets/levels/10/camera.bin
+	.balign 16
 	.global gUnk_087F7BA0
 gUnk_087F7BA0:
 	.incbin "build/assets/levels/10/camera_rev.bin"   @ from assets/levels/10/camera_rev.bin
+	.balign 4
 	.global gUnk_087F7C7C
 gUnk_087F7C7C:
 	.incbin "build/assets/levels/10/autopilot.bin"   @ from assets/levels/10/autopilot.bin
+	.balign 16
 	.global gUnk_087F7C80
 gUnk_087F7C80:
 	.incbin "build/assets/levels/10/autopilot_rev.bin"   @ from assets/levels/10/autopilot_rev.bin
+	.balign 4
 	.global gUnk_087F7C84
 gUnk_087F7C84:
 	.incbin "build/assets/levels/11/ai_path.bin"   @ from assets/levels/11/ai_path.bin
+	.balign 4
 	.global gUnk_087F88E4
 gUnk_087F88E4:
 	.incbin "build/assets/levels/11/ai_path_rev.bin"   @ from assets/levels/11/ai_path_rev.bin
+	.balign 4
 	.global gUnk_087F96CC
 gUnk_087F96CC:
 	.incbin "build/assets/levels/11/race_monitor.bin"   @ from assets/levels/11/race_monitor.bin
+	.balign 16
 	.global gUnk_087F99C0
 gUnk_087F99C0:
 	.incbin "build/assets/levels/11/race_monitor_rev.bin"   @ from assets/levels/11/race_monitor_rev.bin
+	.balign 4
 	.global gUnk_087F9CB4
 gUnk_087F9CB4:
 	.incbin "build/assets/levels/11/edges1.bin"   @ from assets/levels/11/edges1.bin
+	.balign 8
 	.global gUnk_087FA9B8
 gUnk_087FA9B8:
 	.incbin "build/assets/levels/11/edges1_rev.bin"   @ from assets/levels/11/edges1_rev.bin
+	.balign 4
 	.global gUnk_087FB654
 gUnk_087FB654:
 	.incbin "build/assets/levels/11/edges2_rev.bin"   @ from assets/levels/11/edges2_rev.bin
+	.balign 4
 	.global gUnk_087FC184
 gUnk_087FC184:
 	.incbin "build/assets/levels/11/edges2.bin"   @ from assets/levels/11/edges2.bin
+	.balign 4
 	.global gUnk_087FCB7C
 gUnk_087FCB7C:
 	.incbin "build/assets/levels/11/camera_ops.bin"   @ from assets/levels/11/camera_ops.bin
+	.balign 4
 	.global gUnk_087FCC94
 gUnk_087FCC94:
 	.incbin "build/assets/levels/11/camera_ops_rev.bin"   @ from assets/levels/11/camera_ops_rev.bin
+	.balign 8
 	.global gUnk_087FCD88
 gUnk_087FCD88:
 	.incbin "build/assets/levels/11/camera.bin"   @ from assets/levels/11/camera.bin
+	.balign 16
 	.global gUnk_087FCE40
 gUnk_087FCE40:
 	.incbin "build/assets/levels/11/camera_rev.bin"   @ from assets/levels/11/camera_rev.bin
+	.balign 8
 	.global gUnk_087FCEF8
 gUnk_087FCEF8:
 	.incbin "build/assets/levels/11/autopilot.bin"   @ from assets/levels/11/autopilot.bin
+	.balign 4
 	.global gUnk_087FCEFC
 gUnk_087FCEFC:
 	.incbin "build/assets/levels/11/autopilot_rev.bin"   @ from assets/levels/11/autopilot_rev.bin
+	.balign 16
 	.global gUnk_087FCF00
 gUnk_087FCF00:
 	.incbin "build/assets/levels/12/ai_path.bin"   @ from assets/levels/12/ai_path.bin
+	.balign 8
 	.global gUnk_087FD648
 gUnk_087FD648:
 	.incbin "build/assets/levels/12/ai_path_rev.bin"   @ from assets/levels/12/ai_path_rev.bin
+	.balign 16
 	.global gUnk_087FDEE0
 gUnk_087FDEE0:
 	.incbin "build/assets/levels/12/race_monitor.bin"   @ from assets/levels/12/race_monitor.bin
+	.balign 4
 	.global gUnk_087FE0E4
 gUnk_087FE0E4:
 	.incbin "build/assets/levels/12/race_monitor_rev.bin"   @ from assets/levels/12/race_monitor_rev.bin
+	.balign 8
 	.global gUnk_087FE2E8
 gUnk_087FE2E8:
 	.incbin "build/assets/levels/12/edges1.bin"   @ from assets/levels/12/edges1.bin
+	.balign 4
 	.global gUnk_087FE694
 gUnk_087FE694:
 	.incbin "build/assets/levels/12/edges1_rev.bin"   @ from assets/levels/12/edges1_rev.bin
+	.balign 16
 	.global gUnk_087FEB10
 gUnk_087FEB10:
 	.incbin "build/assets/levels/12/edges2_rev.bin"   @ from assets/levels/12/edges2_rev.bin
+	.balign 4
 	.global gUnk_087FF12C
 gUnk_087FF12C:
 	.incbin "build/assets/levels/12/edges2.bin"   @ from assets/levels/12/edges2.bin
+	.balign 4
 	.global gUnk_087FF7E4
 gUnk_087FF7E4:
 	.incbin "build/assets/levels/12/camera_ops.bin"   @ from assets/levels/12/camera_ops.bin
+	.balign 4
 	.global gUnk_087FF89C
 gUnk_087FF89C:
 	.incbin "build/assets/levels/12/camera_ops_rev.bin"   @ from assets/levels/12/camera_ops_rev.bin
+	.balign 4
 	.global gUnk_087FF984
 gUnk_087FF984:
 	.incbin "build/assets/levels/12/camera.bin"   @ from assets/levels/12/camera.bin
+	.balign 8
 	.global gUnk_087FFA48
 gUnk_087FFA48:
 	.incbin "build/assets/levels/12/camera_rev.bin"   @ from assets/levels/12/camera_rev.bin
+	.balign 4
 	.global gUnk_087FFB0C
 gUnk_087FFB0C:
 	.incbin "build/assets/levels/12/autopilot.bin"   @ from assets/levels/12/autopilot.bin
+	.balign 4
 	.global gUnk_087FFC0C
 gUnk_087FFC0C:
 	.incbin "build/assets/levels/12/autopilot_rev.bin"   @ from assets/levels/12/autopilot_rev.bin
+	.balign 16
 	.global gUnk_087FFC10
 gUnk_087FFC10:
 	.incbin "build/assets/levels/13/ai_path.bin"   @ from assets/levels/13/ai_path.bin
+	.balign 16

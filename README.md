@@ -45,6 +45,7 @@ offsets, sizes and types.
 | Tables (7) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
 | Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
 | Audio samples (343) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–48000 Hz) |
+| Animation scripts (1) | `graphics/sprites/anims.s` | every sprite animation, written with `anim_*` macros (frames, delay, goto, stop); three of them are unused |
 | Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
 | Other (399) | `*.bin` | level data blocks, named by the code that reads them (AI path, collision, track edges, cameras, …; see [`docs/levels.md`](docs/levels.md)); their formats are mostly not decoded yet |
@@ -156,7 +157,10 @@ numbers:
   linker symbols `__<name>_lma` and `__audio_size`, and calls between ROM,
   `text32` and the overlays are symbolic;
 * data files keep their original alignment, which the intro movie and the
-  sine table rely on.
+  sine table rely on, and each asset is followed by `.balign` to the
+  alignment the next item had, so an asset that grows by one byte does not
+  misalign the pointer table after it (tested by lengthening an animation
+  script: identical boot and race).
 
 This is checked in mGBA with `tools/emu/shift_test.sh`. It inserts padding
 into an asm file and requires the shifted ROM to play exactly like the

@@ -7,122 +7,168 @@
 
 .Lasset_628F00:
 	.incbin "build/assets/graphics/sprites/043_3.bin"   @ from assets/graphics/sprites/043_3.png
+	.balign 16
 	.global gUnk_08629010
 gUnk_08629010:
 	.incbin "build/assets/graphics/sprites/043_4.bin"   @ from assets/graphics/sprites/043_4.png
+	.balign 16
 	.global gUnk_08629650
 gUnk_08629650:
 	.incbin "build/assets/graphics/sprites/043_5.bin"   @ from assets/graphics/sprites/043_5.png
+	.balign 16
 	.global gUnk_086296B0
 gUnk_086296B0:
 	.incbin "build/assets/levels/tracks/58_theme.bin"   @ from assets/levels/tracks/58_theme.png
+	.balign 16
 	.global gUnk_08629760
 gUnk_08629760:
 	.incbin "build/assets/levels/tracks/56_theme.bin"   @ from assets/levels/tracks/56_theme.png
+	.balign 16
 	.global gUnk_08629820
 gUnk_08629820:
 	.incbin "build/assets/levels/tracks/5d_theme.bin"   @ from assets/levels/tracks/5d_theme.png
+	.balign 16
 	.global gUnk_086298A0
 gUnk_086298A0:
 	.incbin "build/assets/levels/tracks/5a_theme.bin"   @ from assets/levels/tracks/5a_theme.png
+	.balign 16
 	.global gUnk_08629940
 gUnk_08629940:
 	.incbin "build/assets/levels/tracks/60_theme.bin"   @ from assets/levels/tracks/60_theme.png
+	.balign 16
 	.global gUnk_086299C0
 gUnk_086299C0:
 	.incbin "build/assets/levels/tracks/5f_theme.bin"   @ from assets/levels/tracks/5f_theme.png
+	.balign 16
 	.global gUnk_08629A40
 gUnk_08629A40:
 	.incbin "build/assets/levels/tracks/5f_theme_2.bin"   @ from assets/levels/tracks/5f_theme_2.png
+	.balign 16
 	.global gUnk_08629BC0
 gUnk_08629BC0:
 	.incbin "build/assets/levels/tracks/5f_theme_3.bin"   @ from assets/levels/tracks/5f_theme_3.png
+	.balign 16
 	.global gUnk_08629C80
 gUnk_08629C80:
 	.incbin "build/assets/levels/tracks/5f_theme_4.bin"   @ from assets/levels/tracks/5f_theme_4.png
+	.balign 16
 	.global gUnk_08629D40
 gUnk_08629D40:
 	.incbin "build/assets/levels/tracks/5f_theme_5.bin"   @ from assets/levels/tracks/5f_theme_5.png
+	.balign 16
 	.global gUnk_08629E00
 gUnk_08629E00:
 	.incbin "build/assets/levels/tracks/5f_theme_6.bin"   @ from assets/levels/tracks/5f_theme_6.png
+	.balign 16
 	.global gUnk_08629EE0
 gUnk_08629EE0:
 	.incbin "build/assets/levels/tracks/5f_theme_7.bin"   @ from assets/levels/tracks/5f_theme_7.png
+	.balign 16
 	.global gUnk_0862A080
 gUnk_0862A080:
 	.incbin "build/assets/levels/tracks/5f_theme_8.bin"   @ from assets/levels/tracks/5f_theme_8.png
+	.balign 16
 	.global gUnk_0862A510
 gUnk_0862A510:
 	.incbin "build/assets/graphics/sprites/122.bin"   @ from assets/graphics/sprites/122.png
+	.balign 16
 .Lasset_62B1A0:
 	.incbin "build/assets/graphics/sprites/122_2.bin"   @ from assets/graphics/sprites/122_2.png
+	.balign 16
 .Lasset_62B570:
 	.incbin "build/assets/graphics/sprites/122_3.bin"   @ from assets/graphics/sprites/122_3.png
+	.balign 16
 	.global gUnk_0862B6A0
 gUnk_0862B6A0:
 	.incbin "build/assets/graphics/sprites/122_4.bin"   @ from assets/graphics/sprites/122_4.png
+	.balign 16
 .Lasset_62BC00:
 	.incbin "build/assets/graphics/sprites/122_5.bin"   @ from assets/graphics/sprites/122_5.png
+	.balign 16
 .Lasset_62BEA0:
 	.incbin "build/assets/graphics/sprites/122_6.bin"   @ from assets/graphics/sprites/122_6.png
+	.balign 16
 	.global gUnk_0862BFF0
 gUnk_0862BFF0:
 	.incbin "build/assets/graphics/sprites/122_7.bin"   @ from assets/graphics/sprites/122_7.png
+	.balign 16
 .Lasset_62C140:
 	.incbin "build/assets/graphics/sprites/122_8.bin"   @ from assets/graphics/sprites/122_8.png
+	.balign 16
 .Lasset_62C1C0:
 	.incbin "build/assets/graphics/sprites/122_9.bin"   @ from assets/graphics/sprites/122_9.png
+	.balign 16
 	.global gUnk_0862C220
 gUnk_0862C220:
 	.incbin "build/assets/graphics/sprites/122_10.bin"   @ from assets/graphics/sprites/122_10.png
+	.balign 16
 .Lasset_62C390:
 	.incbin "build/assets/graphics/sprites/122_11.bin"   @ from assets/graphics/sprites/122_11.png
+	.balign 16
 .Lasset_62C450:
 	.incbin "build/assets/graphics/sprites/122_12.bin"   @ from assets/graphics/sprites/122_12.png
+	.balign 16
 	.global gUnk_0862C4B0
 gUnk_0862C4B0:
 	.incbin "build/assets/graphics/sprites/122_13.bin"   @ from assets/graphics/sprites/122_13.png
+	.balign 16
 .Lasset_62D5D0:
 	.incbin "build/assets/graphics/sprites/122_14.bin"   @ from assets/graphics/sprites/122_14.png
+	.balign 16
 .Lasset_62DDB0:
 	.incbin "build/assets/graphics/sprites/122_15.bin"   @ from assets/graphics/sprites/122_15.png
+	.balign 16
 	.global gUnk_0862E080
 gUnk_0862E080:
 	.incbin "build/assets/graphics/sprites/122_16.bin"   @ from assets/graphics/sprites/122_16.png
+	.balign 16
 .Lasset_62EA30:
 	.incbin "build/assets/graphics/sprites/122_17.bin"   @ from assets/graphics/sprites/122_17.png
+	.balign 16
 .Lasset_62EDF0:
 	.incbin "build/assets/graphics/sprites/122_18.bin"   @ from assets/graphics/sprites/122_18.png
+	.balign 16
 	.global gUnk_0862EF70
 gUnk_0862EF70:
 	.incbin "build/assets/graphics/sprites/122_19.bin"   @ from assets/graphics/sprites/122_19.png
+	.balign 16
 .Lasset_62F6E0:
 	.incbin "build/assets/graphics/sprites/122_20.bin"   @ from assets/graphics/sprites/122_20.png
+	.balign 16
 .Lasset_62F970:
 	.incbin "build/assets/graphics/sprites/122_21.bin"   @ from assets/graphics/sprites/122_21.png
+	.balign 16
 .Lasset_62FAF0:
 	.incbin "build/assets/graphics/sprites/122_22.bin"   @ from assets/graphics/sprites/122_22.png
+	.balign 16
 .Lasset_6330E0:
 	.incbin "build/assets/graphics/sprites/122_23.bin"   @ from assets/graphics/sprites/122_23.png
+	.balign 16
 .Lasset_6342E0:
 	.incbin "build/assets/graphics/sprites/122_24.bin"   @ from assets/graphics/sprites/122_24.png
+	.balign 16
 	.global gUnk_08634A90
 gUnk_08634A90:
 	.incbin "build/assets/graphics/sprites/122_25.bin"   @ from assets/graphics/sprites/122_25.png
+	.balign 16
 .Lasset_637690:
 	.incbin "build/assets/graphics/sprites/122_26.bin"   @ from assets/graphics/sprites/122_26.png
+	.balign 16
 .Lasset_6385B0:
 	.incbin "build/assets/graphics/sprites/122_27.bin"   @ from assets/graphics/sprites/122_27.png
+	.balign 16
 	.global gUnk_08638C30
 gUnk_08638C30:
 	.incbin "build/assets/graphics/sprites/042_palette.bin"   @ from assets/graphics/sprites/042_palette.pal
+	.balign 16
 	.global gUnk_08638C50
 gUnk_08638C50:
 	.incbin "build/assets/graphics/sprites/042.bin"   @ from assets/graphics/sprites/042.png
+	.balign 16
 	.global gUnk_086391B0
 gUnk_086391B0:
 	.incbin "build/assets/graphics/sprites/042_2.bin"   @ from assets/graphics/sprites/042_2.png
+	.balign 16
 	.byte 0x00, 0x00, 0x1F, 0x00, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C, 0x00, 0x7C
 	.global gUnk_08639220
 gUnk_08639220:
@@ -130,123 +176,163 @@ gUnk_08639220:
 	.global gUnk_086393E0
 gUnk_086393E0:
 	.incbin "build/assets/levels/tracks/54_sky.bin"   @ from assets/levels/tracks/54_sky.pal
+	.balign 16
 	.global gUnk_086394E0
 gUnk_086394E0:
 	.incbin "build/assets/levels/tracks/55_sky.bin"   @ from assets/levels/tracks/55_sky.pal
+	.balign 16
 	.global gUnk_086395E0
 gUnk_086395E0:
 	.incbin "build/assets/levels/tracks/56_sky.bin"   @ from assets/levels/tracks/56_sky.pal
+	.balign 16
 	.global gUnk_086396E0
 gUnk_086396E0:
 	.incbin "build/assets/levels/tracks/57_sky.bin"   @ from assets/levels/tracks/57_sky.pal
+	.balign 16
 	.global gUnk_086397E0
 gUnk_086397E0:
 	.incbin "build/assets/levels/tracks/58_sky.bin"   @ from assets/levels/tracks/58_sky.pal
+	.balign 16
 	.global gUnk_086398E0
 gUnk_086398E0:
 	.incbin "build/assets/levels/tracks/59_sky.bin"   @ from assets/levels/tracks/59_sky.pal
+	.balign 16
 	.global gUnk_086399E0
 gUnk_086399E0:
 	.incbin "build/assets/levels/tracks/5a_sky.bin"   @ from assets/levels/tracks/5a_sky.pal
+	.balign 16
 	.global gUnk_08639AE0
 gUnk_08639AE0:
 	.incbin "build/assets/levels/tracks/5b_sky.bin"   @ from assets/levels/tracks/5b_sky.pal
+	.balign 16
 	.global gUnk_08639BE0
 gUnk_08639BE0:
 	.incbin "build/assets/levels/tracks/5c_sky.bin"   @ from assets/levels/tracks/5c_sky.pal
+	.balign 16
 	.global gUnk_08639CE0
 gUnk_08639CE0:
 	.incbin "build/assets/levels/tracks/5d_sky.bin"   @ from assets/levels/tracks/5d_sky.pal
+	.balign 16
 	.global gUnk_08639DE0
 gUnk_08639DE0:
 	.incbin "build/assets/levels/tracks/5e_sky.bin"   @ from assets/levels/tracks/5e_sky.pal
+	.balign 16
 	.global gUnk_08639EE0
 gUnk_08639EE0:
 	.incbin "build/assets/levels/tracks/5f_sky.bin"   @ from assets/levels/tracks/5f_sky.pal
+	.balign 16
 	.global gUnk_08639FE0
 gUnk_08639FE0:
 	.incbin "build/assets/levels/tracks/60_sky.bin"   @ from assets/levels/tracks/60_sky.pal
+	.balign 16
 	.global gUnk_0863A0E0
 gUnk_0863A0E0:
 	.incbin "build/assets/levels/tracks/61_sky.bin"   @ from assets/levels/tracks/61_sky.pal
+	.balign 16
 	.global gUnk_0863A1E0
 gUnk_0863A1E0:
 	.incbin "build/assets/levels/tracks/62_sky.bin"   @ from assets/levels/tracks/62_sky.pal
+	.balign 16
 	.global gUnk_0863A2E0
 gUnk_0863A2E0:
 	.incbin "build/assets/levels/tracks/63_sky.bin"   @ from assets/levels/tracks/63_sky.pal
+	.balign 16
 	.global gUnk_0863A3E0
 gUnk_0863A3E0:
 	.incbin "build/assets/levels/tracks/78_sky.bin"   @ from assets/levels/tracks/78_sky.pal
+	.balign 16
 	.global gUnk_0863A4E0
 gUnk_0863A4E0:
 	.incbin "build/assets/levels/tracks/79_sky.bin"   @ from assets/levels/tracks/79_sky.pal
+	.balign 16
 	.global gUnk_0863A5E0
 gUnk_0863A5E0:
 	.incbin "build/assets/levels/tracks/7a_sky.bin"   @ from assets/levels/tracks/7a_sky.pal
+	.balign 16
 	.global gUnk_0863A6E0
 gUnk_0863A6E0:
 	.incbin "build/assets/levels/tracks/7b_sky.bin"   @ from assets/levels/tracks/7b_sky.pal
+	.balign 16
 	.global gUnk_0863A7E0
 gUnk_0863A7E0:
 	.incbin "build/assets/levels/tracks/64_sky.bin"   @ from assets/levels/tracks/64_sky.pal
+	.balign 16
 	.global gUnk_0863A8E0
 gUnk_0863A8E0:
 	.incbin "build/assets/levels/tracks/65_sky.bin"   @ from assets/levels/tracks/65_sky.pal
+	.balign 16
 	.global gUnk_0863A9E0
 gUnk_0863A9E0:
 	.incbin "build/assets/levels/tracks/66_sky.bin"   @ from assets/levels/tracks/66_sky.pal
+	.balign 16
 	.global gUnk_0863AAE0
 gUnk_0863AAE0:
 	.incbin "build/assets/levels/tracks/67_sky.bin"   @ from assets/levels/tracks/67_sky.pal
+	.balign 16
 	.global gUnk_0863ABE0
 gUnk_0863ABE0:
 	.incbin "build/assets/levels/tracks/68_sky.bin"   @ from assets/levels/tracks/68_sky.pal
+	.balign 16
 	.global gUnk_0863ACE0
 gUnk_0863ACE0:
 	.incbin "build/assets/levels/tracks/69_sky.bin"   @ from assets/levels/tracks/69_sky.pal
+	.balign 16
 	.global gUnk_0863ADE0
 gUnk_0863ADE0:
 	.incbin "build/assets/levels/tracks/6a_sky.bin"   @ from assets/levels/tracks/6a_sky.pal
+	.balign 16
 	.global gUnk_0863AEE0
 gUnk_0863AEE0:
 	.incbin "build/assets/levels/tracks/6b_sky.bin"   @ from assets/levels/tracks/6b_sky.pal
+	.balign 16
 	.global gUnk_0863AFE0
 gUnk_0863AFE0:
 	.incbin "build/assets/levels/tracks/6c_sky.bin"   @ from assets/levels/tracks/6c_sky.pal
+	.balign 16
 	.global gUnk_0863B0E0
 gUnk_0863B0E0:
 	.incbin "build/assets/levels/tracks/6d_sky.bin"   @ from assets/levels/tracks/6d_sky.pal
+	.balign 16
 	.global gUnk_0863B1E0
 gUnk_0863B1E0:
 	.incbin "build/assets/levels/tracks/6e_sky.bin"   @ from assets/levels/tracks/6e_sky.pal
+	.balign 16
 	.global gUnk_0863B2E0
 gUnk_0863B2E0:
 	.incbin "build/assets/levels/tracks/6f_sky.bin"   @ from assets/levels/tracks/6f_sky.pal
+	.balign 16
 	.global gUnk_0863B3E0
 gUnk_0863B3E0:
 	.incbin "build/assets/levels/tracks/70_sky.bin"   @ from assets/levels/tracks/70_sky.pal
+	.balign 16
 	.global gUnk_0863B4E0
 gUnk_0863B4E0:
 	.incbin "build/assets/levels/tracks/71_sky.bin"   @ from assets/levels/tracks/71_sky.pal
+	.balign 16
 	.global gUnk_0863B5E0
 gUnk_0863B5E0:
 	.incbin "build/assets/levels/tracks/72_sky.bin"   @ from assets/levels/tracks/72_sky.pal
+	.balign 16
 	.global gUnk_0863B6E0
 gUnk_0863B6E0:
 	.incbin "build/assets/levels/tracks/73_sky.bin"   @ from assets/levels/tracks/73_sky.pal
+	.balign 16
 	.global gUnk_0863B7E0
 gUnk_0863B7E0:
 	.incbin "build/assets/levels/tracks/74_sky.bin"   @ from assets/levels/tracks/74_sky.pal
+	.balign 16
 	.global gUnk_0863B8E0
 gUnk_0863B8E0:
 	.incbin "build/assets/levels/tracks/75_sky.bin"   @ from assets/levels/tracks/75_sky.pal
+	.balign 16
 	.global gUnk_0863B9E0
 gUnk_0863B9E0:
 	.incbin "build/assets/levels/tracks/76_sky.bin"   @ from assets/levels/tracks/76_sky.pal
+	.balign 16
 	.global gUnk_0863BAE0
 gUnk_0863BAE0:
 	.incbin "build/assets/levels/tracks/77_sky.bin"   @ from assets/levels/tracks/77_sky.pal
+	.balign 16
 	.global gUnk_0863BBE0
 gUnk_0863BBE0:
 	.incbin "baserom.gba", 0x63BBE0, 0x140
@@ -283,51 +369,67 @@ gUnk_0863CC20:
 	.global gUnk_0863CE20
 gUnk_0863CE20:
 	.incbin "build/assets/levels/tracks/64_palette.bin"   @ from assets/levels/tracks/64_palette.pal
+	.balign 16
 	.global gUnk_0863D020
 gUnk_0863D020:
 	.incbin "build/assets/levels/tracks/65_palette.bin"   @ from assets/levels/tracks/65_palette.pal
+	.balign 16
 	.global gUnk_0863D220
 gUnk_0863D220:
 	.incbin "build/assets/levels/tracks/66_palette.bin"   @ from assets/levels/tracks/66_palette.pal
+	.balign 16
 	.global gUnk_0863D420
 gUnk_0863D420:
 	.incbin "build/assets/levels/tracks/67_palette.bin"   @ from assets/levels/tracks/67_palette.pal
+	.balign 16
 	.global gUnk_0863D620
 gUnk_0863D620:
 	.incbin "build/assets/levels/tracks/68_palette.bin"   @ from assets/levels/tracks/68_palette.pal
+	.balign 16
 	.global gUnk_0863D820
 gUnk_0863D820:
 	.incbin "build/assets/levels/tracks/69_palette.bin"   @ from assets/levels/tracks/69_palette.pal
+	.balign 16
 	.global gUnk_0863DA20
 gUnk_0863DA20:
 	.incbin "build/assets/levels/tracks/6a_palette.bin"   @ from assets/levels/tracks/6a_palette.pal
+	.balign 16
 	.global gUnk_0863DC20
 gUnk_0863DC20:
 	.incbin "build/assets/levels/tracks/6b_palette.bin"   @ from assets/levels/tracks/6b_palette.pal
+	.balign 16
 	.global gUnk_0863DE20
 gUnk_0863DE20:
 	.incbin "build/assets/levels/tracks/6c_palette.bin"   @ from assets/levels/tracks/6c_palette.pal
+	.balign 16
 	.global gUnk_0863E020
 gUnk_0863E020:
 	.incbin "build/assets/levels/tracks/6d_palette.bin"   @ from assets/levels/tracks/6d_palette.pal
+	.balign 16
 	.global gUnk_0863E220
 gUnk_0863E220:
 	.incbin "build/assets/levels/tracks/6e_palette.bin"   @ from assets/levels/tracks/6e_palette.pal
+	.balign 16
 	.global gUnk_0863E420
 gUnk_0863E420:
 	.incbin "build/assets/levels/tracks/6f_palette.bin"   @ from assets/levels/tracks/6f_palette.pal
+	.balign 16
 	.global gUnk_0863E620
 gUnk_0863E620:
 	.incbin "build/assets/levels/tracks/70_palette.bin"   @ from assets/levels/tracks/70_palette.pal
+	.balign 16
 	.global gUnk_0863E820
 gUnk_0863E820:
 	.incbin "build/assets/levels/tracks/71_palette.bin"   @ from assets/levels/tracks/71_palette.pal
+	.balign 16
 	.global gUnk_0863EA20
 gUnk_0863EA20:
 	.incbin "build/assets/levels/tracks/72_palette.bin"   @ from assets/levels/tracks/72_palette.pal
+	.balign 16
 	.global gUnk_0863EC20
 gUnk_0863EC20:
 	.incbin "build/assets/levels/tracks/73_palette.bin"   @ from assets/levels/tracks/73_palette.pal
+	.balign 16
 	.global gUnk_0863EE20
 gUnk_0863EE20:
 	.byte 0xFF, 0x7F, 0x37, 0x02, 0x15, 0x06, 0xF4, 0x05, 0xD2, 0x09, 0x90, 0x0D, 0x6F, 0x0D, 0x4D, 0x11
@@ -439,6 +541,7 @@ gUnk_0863F160:
 	.global gUnk_0863F180
 gUnk_0863F180:
 	.incbin "build/assets/graphics/sprites/049_palette.bin"   @ from assets/graphics/sprites/049_palette.pal
+	.balign 16
 	.global gUnk_0863F1A0
 gUnk_0863F1A0:
 	.byte 0xE0, 0x03, 0x13, 0x00, 0x1F, 0x00, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D, 0xCD, 0x4D
@@ -458,6 +561,7 @@ gUnk_0863F200:
 	.global gUnk_0863F220
 gUnk_0863F220:
 	.incbin "build/assets/graphics/sprites/009_palette.bin"   @ from assets/graphics/sprites/009_palette.pal
+	.balign 16
 	.global gUnk_0863F240
 gUnk_0863F240:
 	.byte 0xE0, 0x03, 0x55, 0x29, 0x1F, 0x00, 0x1E, 0x3E, 0x27, 0x00, 0x9B, 0x25, 0x7F, 0x4B, 0xB0, 0x00
@@ -473,90 +577,119 @@ gUnk_0863F280:
 	.global gUnk_0863F2A0
 gUnk_0863F2A0:
 	.incbin "build/assets/graphics/sprites/001_palette.bin"   @ from assets/graphics/sprites/001_palette.pal
+	.balign 16
 	.global gUnk_0863F2C0
 gUnk_0863F2C0:
 	.incbin "build/assets/graphics/sprites/012_palette.bin"   @ from assets/graphics/sprites/012_palette.pal
+	.balign 16
 	.global gUnk_0863F2E0
 gUnk_0863F2E0:
 	.incbin "build/assets/graphics/sprites/011_palette.bin"   @ from assets/graphics/sprites/011_palette.pal
+	.balign 16
 	.global gUnk_0863F300
 gUnk_0863F300:
 	.incbin "build/assets/graphics/sprites/002_palette.bin"   @ from assets/graphics/sprites/002_palette.pal
+	.balign 16
 	.global gUnk_0863F320
 gUnk_0863F320:
 	.incbin "build/assets/graphics/sprites/013_palette.bin"   @ from assets/graphics/sprites/013_palette.pal
+	.balign 16
 	.global gUnk_0863F340
 gUnk_0863F340:
 	.incbin "build/assets/levels/tracks/54_pal16.bin"   @ from assets/levels/tracks/54_pal16.pal
+	.balign 16
 	.global gUnk_0863F360
 gUnk_0863F360:
 	.incbin "build/assets/levels/tracks/55_pal16.bin"   @ from assets/levels/tracks/55_pal16.pal
+	.balign 16
 	.global gUnk_0863F380
 gUnk_0863F380:
 	.incbin "build/assets/levels/tracks/56_pal16.bin"   @ from assets/levels/tracks/56_pal16.pal
+	.balign 16
 	.global gUnk_0863F3A0
 gUnk_0863F3A0:
 	.incbin "build/assets/levels/tracks/57_pal16.bin"   @ from assets/levels/tracks/57_pal16.pal
+	.balign 16
 	.global gUnk_0863F3C0
 gUnk_0863F3C0:
 	.incbin "build/assets/levels/tracks/58_pal16.bin"   @ from assets/levels/tracks/58_pal16.pal
+	.balign 16
 	.global gUnk_0863F3E0
 gUnk_0863F3E0:
 	.incbin "build/assets/levels/tracks/59_pal16.bin"   @ from assets/levels/tracks/59_pal16.pal
+	.balign 16
 	.global gUnk_0863F400
 gUnk_0863F400:
 	.incbin "build/assets/levels/tracks/5a_pal16.bin"   @ from assets/levels/tracks/5a_pal16.pal
+	.balign 16
 	.global gUnk_0863F420
 gUnk_0863F420:
 	.incbin "build/assets/levels/tracks/5b_pal16.bin"   @ from assets/levels/tracks/5b_pal16.pal
+	.balign 16
 	.global gUnk_0863F440
 gUnk_0863F440:
 	.incbin "build/assets/levels/tracks/5c_pal16.bin"   @ from assets/levels/tracks/5c_pal16.pal
+	.balign 16
 	.global gUnk_0863F460
 gUnk_0863F460:
 	.incbin "build/assets/levels/tracks/5d_pal16.bin"   @ from assets/levels/tracks/5d_pal16.pal
+	.balign 16
 	.global gUnk_0863F480
 gUnk_0863F480:
 	.incbin "build/assets/levels/tracks/5e_pal16.bin"   @ from assets/levels/tracks/5e_pal16.pal
+	.balign 16
 	.global gUnk_0863F4A0
 gUnk_0863F4A0:
 	.incbin "build/assets/levels/tracks/5f_pal16.bin"   @ from assets/levels/tracks/5f_pal16.pal
+	.balign 16
 	.global gUnk_0863F4C0
 gUnk_0863F4C0:
 	.incbin "build/assets/levels/tracks/60_pal16.bin"   @ from assets/levels/tracks/60_pal16.pal
+	.balign 16
 	.global gUnk_0863F4E0
 gUnk_0863F4E0:
 	.incbin "build/assets/levels/tracks/61_pal16.bin"   @ from assets/levels/tracks/61_pal16.pal
+	.balign 16
 	.global gUnk_0863F500
 gUnk_0863F500:
 	.incbin "build/assets/levels/tracks/62_pal16.bin"   @ from assets/levels/tracks/62_pal16.pal
+	.balign 16
 	.global gUnk_0863F520
 gUnk_0863F520:
 	.incbin "build/assets/levels/tracks/63_pal16.bin"   @ from assets/levels/tracks/63_pal16.pal
+	.balign 16
 	.global gUnk_0863F540
 gUnk_0863F540:
 	.incbin "build/assets/levels/tracks/78_pal16.bin"   @ from assets/levels/tracks/78_pal16.pal
+	.balign 16
 	.global gUnk_0863F560
 gUnk_0863F560:
 	.incbin "build/assets/levels/tracks/79_pal16.bin"   @ from assets/levels/tracks/79_pal16.pal
+	.balign 16
 	.global gUnk_0863F580
 gUnk_0863F580:
 	.incbin "build/assets/levels/tracks/7a_pal16.bin"   @ from assets/levels/tracks/7a_pal16.pal
+	.balign 16
 	.global gUnk_0863F5A0
 gUnk_0863F5A0:
 	.incbin "build/assets/levels/tracks/7b_pal16.bin"   @ from assets/levels/tracks/7b_pal16.pal
+	.balign 16
 	.global gUnk_0863F5C0
 gUnk_0863F5C0:
 	.incbin "build/assets/levels/tracks/74_pal16.bin"   @ from assets/levels/tracks/74_pal16.pal
+	.balign 16
 	.global gUnk_0863F5E0
 gUnk_0863F5E0:
 	.incbin "build/assets/levels/tracks/75_pal16.bin"   @ from assets/levels/tracks/75_pal16.pal
+	.balign 16
 	.global gUnk_0863F600
 gUnk_0863F600:
 	.incbin "build/assets/levels/tracks/76_pal16.bin"   @ from assets/levels/tracks/76_pal16.pal
+	.balign 16
 	.global gUnk_0863F620
 gUnk_0863F620:
 	.incbin "build/assets/levels/tracks/77_pal16.bin"   @ from assets/levels/tracks/77_pal16.pal
+	.balign 16
 	.global gUnk_0863F640
 gUnk_0863F640:
 	.byte 0xE0, 0x03, 0x88, 0x00, 0x2C, 0x01, 0xB1, 0x01, 0x54, 0x02, 0xB7, 0x06, 0x3B, 0x0F, 0x7D, 0x07
@@ -572,6 +705,7 @@ gUnk_0863F680:
 	.global gUnk_0863F6A0
 gUnk_0863F6A0:
 	.incbin "build/assets/graphics/sprites/006_palette.bin"   @ from assets/graphics/sprites/006_palette.pal
+	.balign 16
 	.global gUnk_0863F6C0
 gUnk_0863F6C0:
 	.byte 0xE0, 0x03, 0xFF, 0x5B, 0x1F, 0x00, 0x4B, 0x00, 0xFE, 0x56, 0x58, 0x26, 0x91, 0x09, 0xD1, 0x1D
@@ -579,12 +713,15 @@ gUnk_0863F6C0:
 	.global gUnk_0863F6E0
 gUnk_0863F6E0:
 	.incbin "build/assets/levels/tracks/56_theme_pal.bin"   @ from assets/levels/tracks/56_theme_pal.pal
+	.balign 16
 	.global gUnk_0863F700
 gUnk_0863F700:
 	.incbin "build/assets/levels/tracks/5d_theme_pal.bin"   @ from assets/levels/tracks/5d_theme_pal.pal
+	.balign 16
 	.global gUnk_0863F720
 gUnk_0863F720:
 	.incbin "build/assets/levels/tracks/5a_theme_pal.bin"   @ from assets/levels/tracks/5a_theme_pal.pal
+	.balign 16
 	.global gUnk_0863F740
 gUnk_0863F740:
 	.byte 0x00, 0x00, 0xD6, 0x5A, 0x5B, 0x04, 0x32, 0x00, 0x4A, 0x04, 0x3C, 0x1D, 0x32, 0x1D, 0x5E, 0x36
@@ -604,6 +741,7 @@ gUnk_0863F7A0:
 	.global gUnk_0863F7C0
 gUnk_0863F7C0:
 	.incbin "build/assets/graphics/sprites/004_palette.bin"   @ from assets/graphics/sprites/004_palette.pal
+	.balign 16
 	.global gUnk_0863F7E0
 gUnk_0863F7E0:
 	.byte 0xE0, 0x03, 0x27, 0x7E, 0xDF, 0x5A, 0x1F, 0x00, 0xBD, 0x7F, 0xCA, 0x7E, 0xA5, 0x7D, 0xCC, 0x69
@@ -615,9 +753,11 @@ gUnk_0863F800:
 	.global gUnk_0863F820
 gUnk_0863F820:
 	.incbin "build/assets/graphics/sprites/003_palette.bin"   @ from assets/graphics/sprites/003_palette.pal
+	.balign 16
 	.global gUnk_0863F840
 gUnk_0863F840:
 	.incbin "build/assets/graphics/sprites/008_palette.bin"   @ from assets/graphics/sprites/008_palette.pal
+	.balign 16
 	.global gUnk_0863F860
 gUnk_0863F860:
 	.byte 0x00, 0x7C, 0x06, 0x00, 0xDF, 0x5A, 0x1F, 0x00, 0x78, 0x00, 0xFF, 0x7F, 0x30, 0x2E, 0xF9, 0x1F
@@ -625,9 +765,11 @@ gUnk_0863F860:
 	.global gUnk_0863F880
 gUnk_0863F880:
 	.incbin "build/assets/graphics/sprites/005_palette.bin"   @ from assets/graphics/sprites/005_palette.pal
+	.balign 16
 	.global gUnk_0863F8A0
 gUnk_0863F8A0:
 	.incbin "build/assets/graphics/sprites/010_palette.bin"   @ from assets/graphics/sprites/010_palette.pal
+	.balign 16
 	.global gUnk_0863F8C0
 gUnk_0863F8C0:
 	.byte 0x00, 0x7C, 0x89, 0x04, 0x31, 0x11, 0xED, 0x0C, 0xD9, 0x19, 0x73, 0x15, 0x95, 0x15, 0x78, 0x3E
@@ -679,12 +821,15 @@ gUnk_0863FA20:
 	.global gUnk_0863FA40
 gUnk_0863FA40:
 	.incbin "build/assets/graphics/sprites/007_palette.bin"   @ from assets/graphics/sprites/007_palette.pal
+	.balign 16
 	.global gUnk_0863FA60
 gUnk_0863FA60:
 	.incbin "build/assets/levels/tracks/60_theme_pal.bin"   @ from assets/levels/tracks/60_theme_pal.pal
+	.balign 16
 	.global gUnk_0863FA80
 gUnk_0863FA80:
 	.incbin "build/assets/levels/tracks/5f_theme_pal.bin"   @ from assets/levels/tracks/5f_theme_pal.pal
+	.balign 16
 	.global gUnk_0863FAA0
 gUnk_0863FAA0:
 	.byte 0xE0, 0x03, 0x04, 0x00, 0x09, 0x00, 0xFF, 0x7F, 0xDF, 0x5A, 0x1F, 0x00, 0xB5, 0x7F, 0xCF, 0x7E
@@ -708,6 +853,7 @@ gUnk_0863FB20:
 	.global gUnk_0863FB40
 gUnk_0863FB40:
 	.incbin "build/assets/levels/tracks/58_theme_pal.bin"   @ from assets/levels/tracks/58_theme_pal.pal
+	.balign 16
 	.global gUnk_0863FB60
 gUnk_0863FB60:
 	.byte 0x00, 0x7C, 0xDF, 0x6F, 0xDE, 0x37, 0xDE, 0x17, 0xFF, 0x4B, 0xFF, 0x2F, 0xFF, 0x1F, 0x59, 0x03
@@ -739,6 +885,7 @@ gUnk_0863FC20:
 	.global gUnk_0863FC40
 gUnk_0863FC40:
 	.incbin "build/assets/graphics/sprites/122_palette.bin"   @ from assets/graphics/sprites/122_palette.pal
+	.balign 16
 	.global gUnk_0863FC60
 gUnk_0863FC60:
 	.byte 0xE0, 0x03, 0xFF, 0x7F, 0xDD, 0x7F, 0xDB, 0x7F, 0xBA, 0x7F, 0xB8, 0x7F, 0xB6, 0x7F, 0xB5, 0x7F
@@ -819,6 +966,7 @@ gUnk_0863FF40:
 	.global gUnk_0863FFDC
 gUnk_0863FFDC:
 	.include "build/assets/text/frontend.s"   @ from assets/text/frontend.txt
+	.balign 2
 	.byte 0x00, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

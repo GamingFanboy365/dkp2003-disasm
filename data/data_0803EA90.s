@@ -1628,6 +1628,7 @@ gUnk_08051D40:
 	.set gUnk_08052101, gUnk_08051D40 + 0x3C1
 	.global gUnk_08052401
 	.set gUnk_08052401, gUnk_08051D40 + 0x6C1
+	.balign 16
 	.byte 0x00, 0x00, 0x00, 0x00, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.4byte gUnk_0805BC50
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -2362,6 +2363,7 @@ gUnk_08053800:
 	.global gUnk_08053850
 gUnk_08053850:
 	.incbin "build/assets/graphics/debug_menu/palette.bin"   @ from assets/graphics/debug_menu/palette.pal
+	.balign 16
 	.incbin "baserom.gba", 0x53A50, 0x2B1
 	.global gUnk_08053D01
 gUnk_08053D01:
@@ -2417,18 +2419,23 @@ gUnk_0805613E:
 	.global gUnk_08057450
 gUnk_08057450:
 	.incbin "build/assets/levels/01/palette.bin"   @ from assets/levels/01/palette.pal
+	.balign 16
 	.global gUnk_08057650
 gUnk_08057650:
 	.incbin "build/assets/levels/02/palette.bin"   @ from assets/levels/02/palette.pal
+	.balign 16
 	.global gUnk_08057850
 gUnk_08057850:
 	.incbin "build/assets/levels/03/palette.bin"   @ from assets/levels/03/palette.pal
+	.balign 16
 	.global gUnk_08057A50
 gUnk_08057A50:
 	.incbin "build/assets/levels/04/palette.bin"   @ from assets/levels/04/palette.pal
+	.balign 16
 	.global gUnk_08057C50
 gUnk_08057C50:
 	.incbin "build/assets/levels/05/palette.bin"   @ from assets/levels/05/palette.pal
+	.balign 16
 	.global gUnk_08057E50
 gUnk_08057E50:
 	.incbin "build/assets/levels/06/palette.bin"   @ from assets/levels/06/palette.pal
@@ -2444,63 +2451,82 @@ gUnk_08057E50:
 	.set gUnk_08057F41, gUnk_08057E50 + 0xF1
 	.global gUnk_08057F45
 	.set gUnk_08057F45, gUnk_08057E50 + 0xF5
+	.balign 16
 	.global gUnk_08058050
 gUnk_08058050:
 	.incbin "build/assets/levels/07/palette.bin"   @ from assets/levels/07/palette.pal
 	.global gUnk_08058201
 	.set gUnk_08058201, gUnk_08058050 + 0x1B1
+	.balign 16
 	.global gUnk_08058250
 gUnk_08058250:
 	.incbin "build/assets/levels/08/palette.bin"   @ from assets/levels/08/palette.pal
+	.balign 16
 	.global gUnk_08058450
 gUnk_08058450:
 	.incbin "build/assets/levels/09/palette.bin"   @ from assets/levels/09/palette.pal
+	.balign 16
 	.global gUnk_08058650
 gUnk_08058650:
 	.incbin "build/assets/levels/10/palette.bin"   @ from assets/levels/10/palette.pal
+	.balign 16
 	.global gUnk_08058850
 gUnk_08058850:
 	.incbin "build/assets/levels/11/palette.bin"   @ from assets/levels/11/palette.pal
+	.balign 16
 	.global gUnk_08058A50
 gUnk_08058A50:
 	.incbin "build/assets/levels/12/palette.bin"   @ from assets/levels/12/palette.pal
+	.balign 16
 	.global gUnk_08058C50
 gUnk_08058C50:
 	.incbin "build/assets/levels/13/palette.bin"   @ from assets/levels/13/palette.pal
+	.balign 16
 	.global gUnk_08058E50
 gUnk_08058E50:
 	.incbin "build/assets/levels/14/palette.bin"   @ from assets/levels/14/palette.pal
+	.balign 16
 	.global gUnk_08059050
 gUnk_08059050:
 	.incbin "build/assets/levels/15/palette.bin"   @ from assets/levels/15/palette.pal
+	.balign 16
 	.global gUnk_08059250
 gUnk_08059250:
 	.incbin "build/assets/levels/16/palette.bin"   @ from assets/levels/16/palette.pal
+	.balign 16
 	.incbin "baserom.gba", 0x59450, 0x200
 	.global gUnk_08059650
 gUnk_08059650:
 	.incbin "build/assets/levels/17/palette.bin"   @ from assets/levels/17/palette.pal
+	.balign 16
 	.global gUnk_08059850
 gUnk_08059850:
 	.incbin "build/assets/levels/18/palette.bin"   @ from assets/levels/18/palette.pal
+	.balign 16
 	.global gUnk_08059A50
 gUnk_08059A50:
 	.incbin "build/assets/levels/19/palette.bin"   @ from assets/levels/19/palette.pal
+	.balign 16
 	.global gUnk_08059C50
 gUnk_08059C50:
 	.incbin "build/assets/levels/20/palette.bin"   @ from assets/levels/20/palette.pal
+	.balign 16
 	.global gUnk_08059E50
 gUnk_08059E50:
 	.incbin "build/assets/levels/21/palette.bin"   @ from assets/levels/21/palette.pal
+	.balign 16
 	.global gUnk_0805A050
 gUnk_0805A050:
 	.incbin "build/assets/levels/22/palette.bin"   @ from assets/levels/22/palette.pal
+	.balign 16
 	.global gUnk_0805A250
 gUnk_0805A250:
 	.incbin "build/assets/levels/23/palette.bin"   @ from assets/levels/23/palette.pal
+	.balign 16
 	.global gUnk_0805A450
 gUnk_0805A450:
 	.incbin "build/assets/levels/24/palette.bin"   @ from assets/levels/24/palette.pal
+	.balign 16
 	.global gUnk_0805A650
 gUnk_0805A650:
 	.incbin "baserom.gba", 0x5A650, 0x200
@@ -2510,10 +2536,12 @@ gUnk_0805A850:
 	.global gUnk_0805BC50
 gUnk_0805BC50:
 	.incbin "build/assets/levels/25/palette.bin"   @ from assets/levels/25/palette.pal
+	.balign 16
 	.incbin "baserom.gba", 0x5BE50, 0x600
 	.global gUnk_0805C450
 gUnk_0805C450:
 	.incbin "build/assets/levels/06/bg_a.bin"   @ from assets/levels/06/bg_a.png
+	.balign 2
 .Lasset_05F692:
 	.incbin "build/assets/graphics/debug_menu/beach_tiles.bin"   @ from assets/graphics/debug_menu/beach_tiles.png
 	.global gUnk_0805F694
@@ -2556,37 +2584,46 @@ gUnk_0805C450:
 	.set gUnk_08068101, .Lasset_05F692 + 0x8A6F
 	.global gUnk_08068401
 	.set gUnk_08068401, .Lasset_05F692 + 0x8D6F
+	.balign 4
 	.global gUnk_08068B54
 gUnk_08068B54:
 	.incbin "build/assets/levels/06/bg_c.bin"   @ from assets/levels/06/bg_c.png
 	.global gUnk_08068B56
 	.set gUnk_08068B56, gUnk_08068B54 + 0x2
+	.balign 2
 	.global gUnk_0806BD36
 gUnk_0806BD36:
 	.incbin "build/assets/levels/06/bg_d.bin"   @ from assets/levels/06/bg_d.png
 	.global gUnk_0806BD38
 	.set gUnk_0806BD38, gUnk_0806BD36 + 0x2
+	.balign 8
 	.global gUnk_0806E4F8
 gUnk_0806E4F8:
 	.incbin "build/assets/levels/17/bg_a.bin"   @ from assets/levels/17/bg_a.png
 	.global gUnk_08070C01
 	.set gUnk_08070C01, gUnk_0806E4F8 + 0x2709
+	.balign 2
 	.global gUnk_080724FA
 gUnk_080724FA:
 	.incbin "build/assets/levels/18/bg_a.bin"   @ from assets/levels/18/bg_a.png
+	.balign 4
 	.global gUnk_080762BC
 gUnk_080762BC:
 	.incbin "build/assets/levels/19/bg_a.bin"   @ from assets/levels/19/bg_a.png
+	.balign 2
 	.global gUnk_0807A2BE
 gUnk_0807A2BE:
 	.incbin "build/assets/levels/20/bg_a.bin"   @ from assets/levels/20/bg_a.png
+	.balign 16
 	.global gUnk_0807E280
 gUnk_0807E280:
 	.incbin "build/assets/levels/17/bg_d.bin"   @ from assets/levels/17/bg_d.png
+	.balign 2
 .Lasset_081D02:
 	.incbin "build/assets/graphics/frontend/tiles_081d02.bin"   @ from assets/graphics/frontend/tiles_081d02.png
 	.global gUnk_08081D04
 	.set gUnk_08081D04, .Lasset_081D02 + 0x2
+	.balign 4
 	.byte 0xBE, 0x01
 	.global gUnk_08085C06
 gUnk_08085C06:
@@ -2611,14 +2648,17 @@ gUnk_080A698E:
 	.incbin "build/assets/graphics/frontend/tiles_0a698e.bin"   @ from assets/graphics/frontend/tiles_0a698e.png
 	.global gUnk_080A6992
 	.set gUnk_080A6992, gUnk_080A698E + 0x4
+	.balign 16
 .Lasset_0AE810:
 	.incbin "build/assets/graphics/frontend/tiles_0ae810.bin"   @ from assets/graphics/frontend/tiles_0ae810.png
 	.global gUnk_080AE812
 	.set gUnk_080AE812, .Lasset_0AE810 + 0x2
+	.balign 2
 .Lasset_0AFD52:
 	.incbin "build/assets/graphics/frontend/tiles_0afd52.bin"   @ from assets/graphics/frontend/tiles_0afd52.png
 	.global gUnk_080AFD54
 	.set gUnk_080AFD54, .Lasset_0AFD52 + 0x2
+	.balign 4
 	.byte 0x3F, 0x01
 	.global gUnk_080B4D56
 gUnk_080B4D56:
@@ -2629,16 +2669,20 @@ gUnk_080B9D18:
 	.global gUnk_080BED18
 gUnk_080BED18:
 	.incbin "build/assets/levels/03/bg_a.bin"   @ from assets/levels/03/bg_a.png
+	.balign 2
 	.global gUnk_080C295A
 gUnk_080C295A:
 	.incbin "build/assets/levels/03/bg_c.bin"   @ from assets/levels/03/bg_c.png
+	.balign 4
 	.global gUnk_080C5BDC
 gUnk_080C5BDC:
 	.incbin "build/assets/levels/03/bg_d.bin"   @ from assets/levels/03/bg_d.png
+	.balign 2
 	.byte 0x00, 0x00
 	.global gUnk_080C9BE0
 gUnk_080C9BE0:
 	.include "assets/levels/02/bg_b.s"
+	.balign 8
 	.global gUnk_080C9BE8
 gUnk_080C9BE8:
 	.byte 0x00, 0x00, 0x14, 0x00, 0x08, 0x00, 0x04, 0x00
@@ -2677,32 +2721,39 @@ gUnk_080CBF10:
 	.global gUnk_080CC410
 gUnk_080CC410:
 	.incbin "build/assets/levels/02/bg_a.bin"   @ from assets/levels/02/bg_a.png
+	.balign 2
 	.global gUnk_080D0212
 gUnk_080D0212:
 	.incbin "build/assets/levels/02/bg_c.bin"   @ from assets/levels/02/bg_c.png
 	.global gUnk_080D0214
 	.set gUnk_080D0214, gUnk_080D0212 + 0x2
+	.balign 4
 	.global gUnk_080D1794
 gUnk_080D1794:
 	.incbin "build/assets/levels/02/bg_d.bin"   @ from assets/levels/02/bg_d.png
 	.global gUnk_080D1796
 	.set gUnk_080D1796, gUnk_080D1794 + 0x2
+	.balign 2
 	.global gUnk_080D4216
 gUnk_080D4216:
 	.incbin "build/assets/levels/13/bg_a.bin"   @ from assets/levels/13/bg_a.png
+	.balign 8
 	.global gUnk_080D8218
 gUnk_080D8218:
 	.incbin "build/assets/levels/15/bg_a.bin"   @ from assets/levels/15/bg_a.png
+	.balign 2
 	.global gUnk_080DBD1A
 gUnk_080DBD1A:
 	.incbin "build/assets/levels/13/bg_c.bin"   @ from assets/levels/13/bg_c.png
 	.global gUnk_080DBD1C
 	.set gUnk_080DBD1C, gUnk_080DBD1A + 0x2
+	.balign 4
 	.global gUnk_080DDCDC
 gUnk_080DDCDC:
 	.incbin "build/assets/levels/13/bg_d.bin"   @ from assets/levels/13/bg_d.png
 	.global gUnk_080DDCDE
 	.set gUnk_080DDCDE, gUnk_080DDCDC + 0x2
+	.balign 2
 	.byte 0x7F, 0x00
 	.global gUnk_080E1AE0
 gUnk_080E1AE0:
@@ -2713,34 +2764,43 @@ gUnk_080E2AC2:
 	.global gUnk_080E40A2
 gUnk_080E40A2:
 	.incbin "build/assets/levels/01/bg_a.bin"   @ from assets/levels/01/bg_a.png
+	.balign 4
 	.global gUnk_080E7FE4
 gUnk_080E7FE4:
 	.incbin "build/assets/levels/09/bg_c.bin"   @ from assets/levels/09/bg_c.png
+	.balign 2
 	.global gUnk_080EAD26
 gUnk_080EAD26:
 	.incbin "build/assets/levels/09/bg_d.bin"   @ from assets/levels/09/bg_d.png
+	.balign 8
 	.global gUnk_080EDC68
 gUnk_080EDC68:
 	.incbin "build/assets/levels/01/bg_c.bin"   @ from assets/levels/01/bg_c.png
+	.balign 2
 	.global gUnk_080F09AA
 gUnk_080F09AA:
 	.incbin "build/assets/levels/01/bg_d.bin"   @ from assets/levels/01/bg_d.png
 	.global gUnk_080F0C0E
 	.set gUnk_080F0C0E, gUnk_080F09AA + 0x264
+	.balign 4
 	.global gUnk_080F496C
 gUnk_080F496C:
 	.incbin "build/assets/levels/12/bg_a.bin"   @ from assets/levels/12/bg_a.png
+	.balign 2
 	.global gUnk_080F82EE
 gUnk_080F82EE:
 	.incbin "build/assets/levels/14/bg_a.bin"   @ from assets/levels/14/bg_a.png
+	.balign 16
 	.global gUnk_080FC130
 gUnk_080FC130:
 	.incbin "build/assets/levels/12/bg_c.bin"   @ from assets/levels/12/bg_c.png
+	.balign 2
 	.global gUnk_080FEA52
 gUnk_080FEA52:
 	.incbin "build/assets/levels/12/bg_d.bin"   @ from assets/levels/12/bg_d.png
 	.global gUnk_08100810
 	.set gUnk_08100810, gUnk_080FEA52 + 0x1DBE
+	.balign 4
 	.byte 0x8C, 0x00
 	.global gUnk_08102A56
 gUnk_08102A56:

@@ -12,12 +12,15 @@ gUnk_08104D58:
 	.global gUnk_0810AE58
 gUnk_0810AE58:
 	.incbin "build/assets/levels/25/bg_a.bin"   @ from assets/levels/25/bg_a.png
+	.balign 2
 	.global gUnk_0810AF5A
 gUnk_0810AF5A:
 	.incbin "build/assets/levels/25/bg_c.bin"   @ from assets/levels/25/bg_c.png
+	.balign 4
 	.global gUnk_0810C99C
 gUnk_0810C99C:
 	.incbin "build/assets/levels/25/bg_d.bin"   @ from assets/levels/25/bg_d.png
+	.balign 2
 	.byte 0x00, 0x00
 	.global gUnk_081108A0
 gUnk_081108A0:
@@ -59,26 +62,33 @@ gUnk_081B0E12:
 	.global gUnk_081B8044
 gUnk_081B8044:
 	.incbin "build/assets/graphics/debug_menu/beach_tilemap.bin"   @ from assets/graphics/debug_menu/beach_tilemap.bin
+	.balign 4
 	.global gUnk_081B8544
 gUnk_081B8544:
 	.incbin "build/assets/levels/06/data_20.bin"   @ from assets/levels/06/data_20.bin
+	.balign 8
 	.global gUnk_081B85A8
 gUnk_081B85A8:
 	.incbin "build/assets/levels/06/data_24.bin"   @ from assets/levels/06/data_24.bin
+	.balign 4
 	.global gUnk_081B866C
 gUnk_081B866C:
 	.incbin "build/assets/levels/06/data_1c.bin"   @ from assets/levels/06/data_1c.bin
+	.balign 16
 	.global gUnk_081B8700
 gUnk_081B8700:
 	.incbin "build/assets/levels/17/data_20.bin"   @ from assets/levels/17/data_20.bin
+	.balign 4
 	.global gUnk_081B8794
 gUnk_081B8794:
 	.incbin "build/assets/levels/17/data_1c.bin"   @ from assets/levels/17/data_1c.bin
+	.balign 4
 	.global gUnk_081B885C
 gUnk_081B885C:
 	.incbin "build/assets/graphics/frontend/tilemap_1b885c.bin"   @ from assets/graphics/frontend/tilemap_1b885c.bin
 	.global gUnk_081B8D60
 	.set gUnk_081B8D60, gUnk_081B885C + 0x504
+	.balign 4
 	.incbin "baserom.gba", 0x1B905C, 0x208
 	.global gUnk_081B9264
 gUnk_081B9264:
@@ -128,6 +138,7 @@ gUnk_081BEF14:
 	.incbin "build/assets/graphics/frontend/tilemap_1bef14.bin"   @ from assets/graphics/frontend/tilemap_1bef14.bin
 	.global gUnk_081BF418
 	.set gUnk_081BF418, gUnk_081BEF14 + 0x504
+	.balign 4
 	.incbin "baserom.gba", 0x1BF714, 0x208
 	.global gUnk_081BF91C
 gUnk_081BF91C:
@@ -135,84 +146,111 @@ gUnk_081BF91C:
 	.global gUnk_081BFE1C
 gUnk_081BFE1C:
 	.incbin "build/assets/levels/03/data_24.bin"   @ from assets/levels/03/data_24.bin
+	.balign 16
 	.global gUnk_081BFE80
 gUnk_081BFE80:
 	.incbin "build/assets/levels/03/data_1c.bin"   @ from assets/levels/03/data_1c.bin
+	.balign 4
 	.global gUnk_081BFF44
 gUnk_081BFF44:
 	.incbin "build/assets/levels/03/data_20.bin"   @ from assets/levels/03/data_20.bin
+	.balign 8
 	.global gUnk_081BFFD8
 gUnk_081BFFD8:
 	.incbin "build/assets/levels/02/data_20.bin"   @ from assets/levels/02/data_20.bin
+	.balign 4
 	.global gUnk_081C007C
 gUnk_081C007C:
 	.incbin "build/assets/levels/02/data_1c.bin"   @ from assets/levels/02/data_1c.bin
+	.balign 16
 	.global gUnk_081C01C0
 gUnk_081C01C0:
 	.incbin "build/assets/levels/02/data_24.bin"   @ from assets/levels/02/data_24.bin
+	.balign 4
 	.global gUnk_081C0254
 gUnk_081C0254:
 	.incbin "build/assets/levels/13/data_20.bin"   @ from assets/levels/13/data_20.bin
+	.balign 8
 	.global gUnk_081C02B8
 gUnk_081C02B8:
 	.incbin "build/assets/levels/13/data_1c.bin"   @ from assets/levels/13/data_1c.bin
+	.balign 4
 	.global gUnk_081C037C
 gUnk_081C037C:
 	.incbin "build/assets/levels/13/data_24.bin"   @ from assets/levels/13/data_24.bin
+	.balign 16
 	.global gUnk_081C0410
 gUnk_081C0410:
 	.incbin "build/assets/levels/01/data_14.bin"   @ from assets/levels/01/data_14.bin
+	.balign 4
 	.global gUnk_081C4294
 gUnk_081C4294:
 	.incbin "build/assets/levels/02/data_14.bin"   @ from assets/levels/02/data_14.bin
+	.balign 8
 	.global gUnk_081C8CD8
 gUnk_081C8CD8:
 	.incbin "build/assets/levels/03/data_14.bin"   @ from assets/levels/03/data_14.bin
+	.balign 4
 	.global gUnk_081CCDDC
 gUnk_081CCDDC:
 	.incbin "build/assets/levels/04/data_14.bin"   @ from assets/levels/04/data_14.bin
+	.balign 16
 	.global gUnk_081D0810
 gUnk_081D0810:
 	.incbin "baserom.gba", 0x1D0810, 0xCB0
 	.global gUnk_081D14C0
 gUnk_081D14C0:
 	.incbin "build/assets/levels/05/data_14.bin"   @ from assets/levels/05/data_14.bin
+	.balign 4
 	.global gUnk_081D5344
 gUnk_081D5344:
 	.incbin "build/assets/levels/06/data_14.bin"   @ from assets/levels/06/data_14.bin
+	.balign 8
 	.global gUnk_081D80C8
 gUnk_081D80C8:
 	.incbin "build/assets/levels/07/data_14.bin"   @ from assets/levels/07/data_14.bin
+	.balign 4
 	.global gUnk_081DAECC
 gUnk_081DAECC:
 	.incbin "build/assets/levels/08/data_14.bin"   @ from assets/levels/08/data_14.bin
+	.balign 16
 	.global gUnk_081DF310
 gUnk_081DF310:
 	.incbin "build/assets/levels/09/data_14.bin"   @ from assets/levels/09/data_14.bin
+	.balign 4
 	.global gUnk_081E23F4
 gUnk_081E23F4:
 	.incbin "build/assets/levels/10/data_14.bin"   @ from assets/levels/10/data_14.bin
+	.balign 8
 	.global gUnk_081E6B38
 gUnk_081E6B38:
 	.incbin "build/assets/levels/11/data_14.bin"   @ from assets/levels/11/data_14.bin
+	.balign 4
 	.global gUnk_081EBBBC
 gUnk_081EBBBC:
 	.incbin "build/assets/levels/12/data_14.bin"   @ from assets/levels/12/data_14.bin
+	.balign 16
 	.global gUnk_081EF400
 gUnk_081EF400:
 	.incbin "build/assets/levels/13/data_14.bin"   @ from assets/levels/13/data_14.bin
+	.balign 4
 	.global gUnk_081F3004
 gUnk_081F3004:
 	.incbin "build/assets/levels/14/data_14.bin"   @ from assets/levels/14/data_14.bin
+	.balign 8
 	.global gUnk_081F7388
 gUnk_081F7388:
 	.incbin "build/assets/levels/15/data_14.bin"   @ from assets/levels/15/data_14.bin
+	.balign 4
 	.global gUnk_081FABCC
 gUnk_081FABCC:
 	.incbin "build/assets/levels/16/data_14.bin"   @ from assets/levels/16/data_14.bin
+	.balign 16
 	.global gUnk_081FD8D0
 gUnk_081FD8D0:
 	.incbin "build/assets/levels/17/data_24.bin"   @ from assets/levels/17/data_24.bin
+	.balign 4
 	.global gUnk_081FE0D4
 gUnk_081FE0D4:
 	.incbin "build/assets/levels/17/data_14.bin"   @ from assets/levels/17/data_14.bin
+	.balign 16

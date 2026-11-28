@@ -20,6 +20,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             definition keeps the real rate; the WAV's rate is ignored).
             Its length may change: the definition's end pointer and length
             follow it.
+  anim      sprite animation scripts, assembly with the anim_* macros
+            (tools/anim.py); the build includes it, scripts may change length
   text      the front end's strings and language tables, one string per line
             (tools/fetext.py); strings may change length
   gfx, bin  raw binary
@@ -37,7 +39,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s'}
 TILES_PER_ROW = 16
 
 
@@ -294,6 +296,10 @@ def extract(rom_path):
             wav_write(path, int(name.rsplit('_', 1)[1][:-2]), data)
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
+        elif typ == 'anim':
+            import anim
+            labels = {o: g.dlabel[o] for o in g.dlabel if off <= o < off + size}
+            open(path, 'w').write('\n'.join(anim.parse(rom, off, size, labels)) + '\n')
         elif typ == 'text':
             import fetext
             tables, strings = fetext.parse(rom, off, size)
@@ -346,7 +352,7 @@ def build():
     assets = load_manifest()
     made = 0
     for off, size, typ, name in assets:
-        if typ in ('objects', 'sdata'):
+        if typ in ('objects', 'sdata', 'anim'):
             continue
         src = os.path.join(SRC, name + EXT[typ])
         dst = os.path.join(OUT, name + ('.s' if typ == 'text' else '.bin'))
