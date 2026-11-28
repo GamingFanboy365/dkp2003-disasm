@@ -560,7 +560,7 @@ _08024A68:
 	ldr r2, _08024CCC
 	adds r1, r5, r2
 	ldr r2, _08024CD0
-	bl sub_080325DC
+	bl CpuSet
 	ldr r1, _08024CD4
 	str r4, [sp, #0x24]
 	str r4, [sp, #0x28]

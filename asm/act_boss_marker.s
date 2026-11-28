@@ -224,7 +224,7 @@ _080263CC:
 	strh r1, [r0]
 	ldr r2, _08026400
 	ldr r1, _08026404
-	bl sub_080325DC
+	bl CpuSet
 	add sp, #4
 	pop {r0}
 	bx r0

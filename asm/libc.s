@@ -7,10 +7,10 @@
 
 	.thumb
 
-	.global sub_080325DC
+	.global CpuSet
 	.thumb_func
-	.type sub_080325DC, %function
-sub_080325DC: @ 080325DC
+	.type CpuSet, %function
+CpuSet: @ 080325DC
 	svc #0xb
 	bx lr
 

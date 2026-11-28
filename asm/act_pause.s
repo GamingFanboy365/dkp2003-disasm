@@ -92,7 +92,7 @@ _08012C1A:
 	ldr r0, _08012D74
 	str r1, [r0]
 	bl audio_resume
-	bl sub_080200F8
+	bl gamesfx_unmute_all
 	movs r2, #0xa
 	str r2, [sp]
 	movs r2, #0x80
@@ -206,7 +206,7 @@ _08012D10:
 	b _08012BD4
 _08012D1E:
 	bl audio_pause
-	bl sub_080200C0
+	bl gamesfx_mute_all
 	movs r1, #0xa
 	movs r3, #0x80
 	str r1, [sp]

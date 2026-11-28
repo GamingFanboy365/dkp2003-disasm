@@ -24,7 +24,7 @@ playerInit: @ 08004E94
 	strh r1, [r0]
 	ldr r2, _08004EE4
 	ldr r1, _08004EE8
-	bl sub_080325DC
+	bl CpuSet
 	ldr r2, _08004EEC
 	movs r0, #2
 	ldrsh r1, [r2, r0]
@@ -1070,7 +1070,7 @@ _08005670:
 _08005674:
 	.4byte 0x01000040
 _08005678:
-	.4byte sub_0800AA6C
+	.4byte booster_blue_sfx_end_cb
 
 	.global sub_0800567C
 	.thumb_func
@@ -8832,7 +8832,7 @@ _08008E9C:
 	adds r6, r4, #0
 	ldr r2, _08008EFC
 	adds r6, #0x5a
-	bl sub_080325DC
+	bl CpuSet
 	ldrh r0, [r6]
 	cmp r0, #0xff
 	beq _08008F0E
@@ -9544,11 +9544,11 @@ _080093FE:
 	b _080090C8
 	.byte 0x00, 0x00
 _08009408:
-	.4byte sub_0800AAE4
+	.4byte player_sfx_local_vol_cb1
 _0800940C:
-	.4byte sub_0800AB1C
+	.4byte player_sfx_local_pitch_cb
 _08009410:
-	.4byte sub_0800AA78
+	.4byte player_sfx_local_vol_cb2
 _08009414:
 	.4byte gRacerData
 _08009418:
@@ -10172,7 +10172,7 @@ _080098B8:
 _080098C8:
 	.4byte gRacerData
 _080098CC:
-	.4byte sub_0800AB58
+	.4byte player_sfx_remote_vol_cb1
 _080098D0:
 	.4byte player_engine_sample_end
 _080098D4:
@@ -10182,11 +10182,11 @@ _080098D8:
 _080098DC:
 	.4byte gRacerObjects
 _080098E0:
-	.4byte sub_0800AC1C
+	.4byte player_sfx_remote_pitch_cb2
 _080098E4:
-	.4byte sub_0800ABB0
+	.4byte player_sfx_remote_vol_cb2
 _080098E8:
-	.4byte sub_0800ABF8
+	.4byte player_sfx_remote_pitch_cb1
 _080098EC:
 	movs r2, #0x94
 	lsls r3, r2, #1
@@ -12510,20 +12510,20 @@ _0800AA64:
 _0800AA68:
 	.4byte gLocalPlayerIndex
 
-	.global sub_0800AA6C
+	.global booster_blue_sfx_end_cb
 	.thumb_func
-	.type sub_0800AA6C, %function
-sub_0800AA6C: @ 0800AA6C
+	.type booster_blue_sfx_end_cb, %function
+booster_blue_sfx_end_cb: @ 0800AA6C
 	push {lr}
 	movs r0, #0x46
 	bl sub_0801E074
 	pop {r0}
 	bx r0
 
-	.global sub_0800AA78
+	.global player_sfx_local_vol_cb2
 	.thumb_func
-	.type sub_0800AA78, %function
-sub_0800AA78: @ 0800AA78
+	.type player_sfx_local_vol_cb2, %function
+player_sfx_local_vol_cb2: @ 0800AA78
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -12587,10 +12587,10 @@ _0800AAD8:
 _0800AAE0:
 	.4byte gRacerData
 
-	.global sub_0800AAE4
+	.global player_sfx_local_vol_cb1
 	.thumb_func
-	.type sub_0800AAE4, %function
-sub_0800AAE4: @ 0800AAE4
+	.type player_sfx_local_vol_cb1, %function
+player_sfx_local_vol_cb1: @ 0800AAE4
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -12622,10 +12622,10 @@ _0800AB14:
 _0800AB18:
 	.4byte gRacerData
 
-	.global sub_0800AB1C
+	.global player_sfx_local_pitch_cb
 	.thumb_func
-	.type sub_0800AB1C, %function
-sub_0800AB1C: @ 0800AB1C
+	.type player_sfx_local_pitch_cb, %function
+player_sfx_local_pitch_cb: @ 0800AB1C
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -12659,10 +12659,10 @@ _0800AB4E:
 _0800AB54:
 	.4byte gRacerData
 
-	.global sub_0800AB58
+	.global player_sfx_remote_vol_cb1
 	.thumb_func
-	.type sub_0800AB58, %function
-sub_0800AB58: @ 0800AB58
+	.type player_sfx_remote_vol_cb1, %function
+player_sfx_remote_vol_cb1: @ 0800AB58
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0
@@ -12709,10 +12709,10 @@ _0800AB84:
 _0800ABAC:
 	.4byte gRacerData
 
-	.global sub_0800ABB0
+	.global player_sfx_remote_vol_cb2
 	.thumb_func
-	.type sub_0800ABB0, %function
-sub_0800ABB0: @ 0800ABB0
+	.type player_sfx_remote_vol_cb2, %function
+player_sfx_remote_vol_cb2: @ 0800ABB0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0xa0
@@ -12751,10 +12751,10 @@ _0800ABDC:
 _0800ABF4:
 	.4byte gRacerData
 
-	.global sub_0800ABF8
+	.global player_sfx_remote_pitch_cb1
 	.thumb_func
-	.type sub_0800ABF8, %function
-sub_0800ABF8: @ 0800ABF8
+	.type player_sfx_remote_pitch_cb1, %function
+player_sfx_remote_pitch_cb1: @ 0800ABF8
 	push {lr}
 	ldr r2, _0800AC14
 	adds r1, r0, #0
@@ -12773,10 +12773,10 @@ _0800AC14:
 _0800AC18:
 	.4byte gRacerObjects
 
-	.global sub_0800AC1C
+	.global player_sfx_remote_pitch_cb2
 	.thumb_func
-	.type sub_0800AC1C, %function
-sub_0800AC1C: @ 0800AC1C
+	.type player_sfx_remote_pitch_cb2, %function
+player_sfx_remote_pitch_cb2: @ 0800AC1C
 	push {lr}
 	ldr r2, _0800AC38
 	adds r1, r0, #0
@@ -12857,7 +12857,7 @@ _0800AC9C:
 	strh r1, [r0]
 	ldr r2, _0800ACCC
 	ldr r1, _0800ACD0
-	bl sub_080325DC
+	bl CpuSet
 	b _0800ACD4
 	.byte 0x00, 0x00
 _0800ACB0:

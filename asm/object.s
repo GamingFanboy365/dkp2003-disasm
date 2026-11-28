@@ -527,7 +527,7 @@ _0800177A:
 	strh r2, [r0]
 	adds r1, r4, #0
 	ldr r2, _080017A4
-	bl sub_080325DC
+	bl CpuSet
 	ldr r5, _0800179C
 	ldr r3, [r5]
 	cmp r3, r4
@@ -3317,7 +3317,7 @@ sub_08002BCC: @ 08002BCC
 	strh r4, [r0]
 	ldr r1, _08002C10
 	ldr r2, _08002C14
-	bl sub_080325DC
+	bl CpuSet
 	ldr r1, _08002C18
 	ldr r5, _08002C1C
 	strh r4, [r1]
@@ -3785,7 +3785,7 @@ _08002F38:
 	ldr r2, _08002F84
 	adds r1, r0, r6
 	mov r0, r8
-	bl sub_080325DC
+	bl CpuSet
 	ldr r1, [r5]
 	adds r2, r1, #0
 	muls r2, r7, r2

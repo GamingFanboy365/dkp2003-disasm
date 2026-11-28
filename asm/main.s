@@ -181,7 +181,7 @@ _08000254:
 	ldr r5, _080002A4
 	str r4, [r5]
 	bl sound_init
-	bl sub_08003550
+	bl pal_init
 	bl link_init
 	bl eeprom_load
 	bl fe_start
@@ -394,10 +394,10 @@ sub_08000418: @ 08000418
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_0800041C
+	.global vblank_handler_noaudio
 	.thumb_func
-	.type sub_0800041C, %function
-sub_0800041C: @ 0800041C
+	.type vblank_handler_noaudio, %function
+vblank_handler_noaudio: @ 0800041C
 	push {lr}
 	ldr r0, _0800043C
 	ldr r2, [r0]
@@ -418,10 +418,10 @@ _0800043C:
 _08000440:
 	.4byte gIrqFlags
 
-	.global sub_08000444
+	.global snd_update_if_enabled
 	.thumb_func
-	.type sub_08000444, %function
-sub_08000444: @ 08000444
+	.type snd_update_if_enabled, %function
+snd_update_if_enabled: @ 08000444
 	push {lr}
 	ldr r2, _0800045C
 	ldr r0, [r2]

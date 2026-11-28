@@ -1330,7 +1330,7 @@ _08021A58:
 	lsls r0, r3, #9
 	adds r1, r2, r0
 	adds r0, r6, #0
-	bl sub_0802EFC6
+	bl snd_set_pitch
 	ldr r3, [r4]
 	ldr r0, _08021D90
 	adds r4, r3, #0
@@ -1343,7 +1343,7 @@ _08021A58:
 	asrs r1, r2, #0x16
 	adds r1, #0x7f
 	ldr r0, [r7, #0x48]
-	bl sub_0802EFF2
+	bl snd_set_volume
 	ldr r5, [r7, #0x1c]
 	ldr r4, [r7, #0x20]
 	adds r5, #1
@@ -1681,7 +1681,7 @@ _08021D1C:
 	cmp r0, #0
 	beq _08021D3A
 	ldr r0, [r6, r4]
-	bl sub_0802F01E
+	bl snd_stop
 	movs r1, #1
 	rsbs r0, r1, #0
 	str r0, [r6, r4]
@@ -1695,7 +1695,7 @@ _08021D3A:
 	cmp r0, #0
 	beq _08021D52
 	ldr r0, [r7, #0x48]
-	bl sub_0802F01E
+	bl snd_stop
 _08021D52:
 	movs r0, #0
 	bl mcp_process
@@ -1803,20 +1803,20 @@ _08021E0A:
 	ldr r3, [r4, #0x1c]
 	b _08021C92
 _08021E24:
-	bl sub_0802F01E
+	bl snd_stop
 	movs r2, #1
 	rsbs r0, r2, #0
 	mov r2, r8
 	str r0, [r2, #0x54]
 	b _08021C76
 _08021E32:
-	bl sub_0802F01E
+	bl snd_stop
 	movs r1, #1
 	rsbs r0, r1, #0
 	str r0, [r7, #0x50]
 	b _08021C60
 _08021E3E:
-	bl sub_0802F01E
+	bl snd_stop
 	movs r1, #1
 	rsbs r2, r1, #0
 	str r2, [r6, #0x4c]
@@ -1902,7 +1902,7 @@ _08021ED2:
 	beq _08021EF2
 	mov r6, r8
 	ldr r0, [r6, r4]
-	bl sub_0802F01E
+	bl snd_stop
 	movs r1, #1
 	rsbs r7, r1, #0
 	str r7, [r6, r4]
@@ -1918,7 +1918,7 @@ _08021EF2:
 	movs r5, #1
 	ldr r0, [r7, #0x48]
 	rsbs r4, r5, #0
-	bl sub_0802F01E
+	bl snd_stop
 	str r4, [r7, #0x48]
 _08021F10:
 	ldr r7, _08021F4C
@@ -2702,13 +2702,13 @@ _08022500:
 	.type sub_08022504, %function
 sub_08022504: @ 08022504
 	push {lr}
-	bl sub_0800041C
+	bl vblank_handler_noaudio
 	ldr r0, _0802251C
 	movs r2, #0xa0
 	ldrh r1, [r0]
 	lsls r0, r2, #0x13
 	strh r1, [r0]
-	bl sub_08000444
+	bl snd_update_if_enabled
 	pop {r0}
 	bx r0
 _0802251C:
@@ -3484,7 +3484,7 @@ _08022AF6:
 	beq _08022B1A
 	ldr r1, _08022B64
 	ldr r0, [r1, r4]
-	bl sub_0802F01E
+	bl snd_stop
 	movs r0, #1
 	ldr r1, _08022B64
 	rsbs r2, r0, #0
@@ -3500,7 +3500,7 @@ _08022B1A:
 	beq _08022B34
 	ldr r1, _08022B64
 	ldr r0, [r1, #0x2c]
-	bl sub_0802F01E
+	bl snd_stop
 _08022B34:
 	movs r0, #0
 	bl mcp_process
@@ -3553,7 +3553,7 @@ _08022B78:
 	lsls r3, r2, #9
 	adds r1, r0, r3
 	adds r0, r4, #0
-	bl sub_0802EFC6
+	bl snd_set_pitch
 	ldr r3, [r6]
 	ldr r0, _08022EF0
 	adds r4, r3, #0
@@ -3567,7 +3567,7 @@ _08022B78:
 	asrs r1, r3, #0x16
 	adds r1, #0x7f
 	ldr r0, [r4, #0x2c]
-	bl sub_0802EFF2
+	bl snd_set_volume
 	ldr r0, [r6]
 	ldr r2, _08022EF4
 	rsbs r3, r0, #0
@@ -4160,13 +4160,13 @@ _0802302C:
 	.type sub_08023030, %function
 sub_08023030: @ 08023030
 	push {lr}
-	bl sub_0800041C
+	bl vblank_handler_noaudio
 	ldr r0, _08023048
 	movs r2, #0xa0
 	ldrh r1, [r0]
 	lsls r0, r2, #0x13
 	strh r1, [r0]
-	bl sub_08000444
+	bl snd_update_if_enabled
 	pop {r0}
 	bx r0
 _08023048:
@@ -4244,7 +4244,7 @@ _080230B8:
 	strh r1, [r0]
 	ldr r2, _080230EC
 	ldr r1, _080230F0
-	bl sub_080325DC
+	bl CpuSet
 	add sp, #4
 	pop {r0}
 	bx r0

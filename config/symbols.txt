@@ -526,3 +526,24 @@
 0x08018A78 fe_text_width            # (str, font) -> width of the widest line
 0x08018B10 fe_text_draw             # (str, font, ...) -> fe_spr_plot per character
 0x0863FDC0 gFeTextTables            # one string table per language
+0x080325DC CpuSet                   # svc 0xB (BIOS)
+0x08003550 pal_init                 # all banks dirty, clear gPalBuffer, brightness 16
+0x0800041C vblank_handler_noaudio   # like vblank_handler, without the audio update
+0x08000444 snd_update_if_enabled    # snd_update when gModeFlags bit 14 is set
+0x0802EFF2 snd_set_volume           # (handle, volume); gamesfx keeps it in voice+0xC
+0x0802EFC6 snd_set_pitch            # (handle, value); the other per-sound parameter (from the pitch callback)
+0x0802F01E snd_stop                 # (handle)
+0x0801FBBC gamesfx_init             # clears the voice and pending tables (game_init)
+0x0801FC60 gamesfx_stop_all         # snd_stop on every playing voice
+0x080200C0 gamesfx_mute_all         # pause: volume 0 on every playing voice
+0x080200F8 gamesfx_unmute_all       # restore each voice's volume
+# sound callbacks passed to gamesfx_play_cb* by the engine-sound code
+# (role from the argument position: r0 = volume, r1 = pitch)
+0x0800AAE4 player_sfx_local_vol_cb1
+0x0800AA78 player_sfx_local_vol_cb2
+0x0800AB1C player_sfx_local_pitch_cb
+0x0800AB58 player_sfx_remote_vol_cb1
+0x0800ABB0 player_sfx_remote_vol_cb2
+0x0800ABF8 player_sfx_remote_pitch_cb1
+0x0800AC1C player_sfx_remote_pitch_cb2
+0x0800AA6C booster_blue_sfx_end_cb  # end callback, player_touch_booster_blue

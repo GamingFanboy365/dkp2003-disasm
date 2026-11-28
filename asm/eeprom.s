@@ -4516,7 +4516,7 @@ _0801F2FC:
 	b _0801F496
 _0801F30A:
 	ldr r0, [r6]
-	bl sub_0802F01E
+	bl snd_stop
 _0801F310:
 	movs r2, #0
 	str r2, [r6, #0x14]
@@ -4766,7 +4766,7 @@ _0801F4C4:
 	adds r4, r0, #0
 	adds r1, r4, #0
 	ldr r0, [r6]
-	bl sub_0802EFC6
+	bl snd_set_pitch
 	str r4, [r6, #0x10]
 	b _0801F314
 _0801F4D8:
@@ -4779,12 +4779,12 @@ _0801F4D8:
 	beq _0801F4F4
 	ldr r0, [r6]
 	adds r1, r7, #0
-	bl sub_0802EFF2
+	bl snd_set_volume
 	str r7, [r6, #0xc]
 	b _0801F4B4
 _0801F4F4:
 	ldr r0, [r6]
-	bl sub_0802F01E
+	bl snd_stop
 	mov r3, r8
 	str r3, [r6, #0x14]
 	b _0801F4B4
@@ -5768,10 +5768,10 @@ _0801FBB4:
 _0801FBB8:
 	.4byte gUnk_08051B7C
 
-	.global sub_0801FBBC
+	.global gamesfx_init
 	.thumb_func
-	.type sub_0801FBBC, %function
-sub_0801FBBC: @ 0801FBBC
+	.type gamesfx_init, %function
+gamesfx_init: @ 0801FBBC
 	push {r4, lr}
 	sub sp, #8
 	mov r0, sp
@@ -5780,18 +5780,18 @@ sub_0801FBBC: @ 0801FBBC
 	strh r4, [r0]
 	ldr r1, _0801FC04
 	ldr r2, _0801FC08
-	bl sub_080325DC
+	bl CpuSet
 	add r0, sp, #4
 	strh r4, [r0]
 	ldr r1, _0801FC0C
 	ldr r2, _0801FC10
-	bl sub_080325DC
+	bl CpuSet
 	mov r0, sp
 	adds r0, #2
 	strh r4, [r0]
 	ldr r1, _0801FC14
 	ldr r2, _0801FC18
-	bl sub_080325DC
+	bl CpuSet
 	ldr r1, _0801FC1C
 	movs r2, #0
 	ldr r0, _0801FC20
@@ -5853,10 +5853,10 @@ _0801FC58:
 _0801FC5C:
 	.4byte 0x0202E42C
 
-	.global sub_0801FC60
+	.global gamesfx_stop_all
 	.thumb_func
-	.type sub_0801FC60, %function
-sub_0801FC60: @ 0801FC60
+	.type gamesfx_stop_all, %function
+gamesfx_stop_all: @ 0801FC60
 	push {r4, r5, lr}
 	movs r5, #0
 _0801FC64:
@@ -5873,7 +5873,7 @@ _0801FC64:
 	cmp r0, #0
 	beq _0801FC88
 	ldr r0, [r4]
-	bl sub_0802F01E
+	bl snd_stop
 	movs r0, #0
 	str r0, [r4, #0x14]
 _0801FC88:
@@ -6494,10 +6494,10 @@ _080200B8:
 _080200BC:
 	.4byte gUnk_08051B7C
 
-	.global sub_080200C0
+	.global gamesfx_mute_all
 	.thumb_func
-	.type sub_080200C0, %function
-sub_080200C0: @ 080200C0
+	.type gamesfx_mute_all, %function
+gamesfx_mute_all: @ 080200C0
 	push {r4, r5, lr}
 	movs r5, #0
 _080200C4:
@@ -6515,7 +6515,7 @@ _080200C4:
 	beq _080200E6
 	ldr r0, [r4]
 	movs r1, #0
-	bl sub_0802EFF2
+	bl snd_set_volume
 _080200E6:
 	adds r5, #1
 	cmp r5, #3
@@ -6527,10 +6527,10 @@ _080200E6:
 _080200F4:
 	.4byte gSfxVoices
 
-	.global sub_080200F8
+	.global gamesfx_unmute_all
 	.thumb_func
-	.type sub_080200F8, %function
-sub_080200F8: @ 080200F8
+	.type gamesfx_unmute_all, %function
+gamesfx_unmute_all: @ 080200F8
 	push {r4, r5, lr}
 	movs r5, #0
 _080200FC:
@@ -6548,7 +6548,7 @@ _080200FC:
 	beq _0802011E
 	ldr r0, [r4]
 	ldr r1, [r4, #0xc]
-	bl sub_0802EFF2
+	bl snd_set_volume
 _0802011E:
 	adds r5, #1
 	cmp r5, #3

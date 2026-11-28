@@ -261,7 +261,7 @@ _08000688:
 	bl weaponInit
 _080006A2:
 	bl sub_080042F4
-	bl sub_0801FBBC
+	bl gamesfx_init
 	bl sub_0801E200
 	ldr r4, _080007B4
 	adds r2, r4, #0
@@ -505,7 +505,7 @@ _08000896:
 	cmp r0, #0
 	beq _08000964
 	bl sub_08002098
-	bl sub_0801FC60
+	bl gamesfx_stop_all
 	ldr r4, _08000940
 	ldr r5, _08000944
 	str r5, [r4]
@@ -668,7 +668,7 @@ _080009E4:
 	.type sub_080009E8, %function
 sub_080009E8: @ 080009E8
 	push {r4, lr}
-	bl sub_0800041C
+	bl vblank_handler_noaudio
 	ldr r2, _08000A74
 	movs r4, #0x80
 	ldr r0, [r2]
@@ -720,7 +720,7 @@ _08000A48:
 	ldr r0, _08000A88
 	bl _call_via_r0
 _08000A54:
-	bl sub_08000444
+	bl snd_update_if_enabled
 	pop {r4}
 	pop {r0}
 	bx r0
@@ -766,7 +766,7 @@ sub_08000A90: @ 08000A90
 sub_08000A9C: @ 08000A9C
 	push {r4, r5, lr}
 	bl sub_08002098
-	bl sub_0801FC60
+	bl gamesfx_stop_all
 	ldr r4, _08000AFC
 	ldr r5, _08000B00
 	str r5, [r4]
@@ -1928,7 +1928,7 @@ sub_080012F8: @ 080012F8
 	strh r2, [r0]
 	adds r1, r4, #0
 	ldr r2, _08001340
-	bl sub_080325DC
+	bl CpuSet
 	ldr r1, _08001344
 	movs r2, #0
 	ldr r0, _08001348

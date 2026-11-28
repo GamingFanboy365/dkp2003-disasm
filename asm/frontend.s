@@ -3180,13 +3180,13 @@ _08015C2C:
 	.type sub_08015C38, %function
 sub_08015C38: @ 08015C38
 	push {lr}
-	bl sub_0800041C
+	bl vblank_handler_noaudio
 	ldr r0, _08015C50
 	movs r2, #0xa0
 	ldrh r1, [r0]
 	lsls r0, r2, #0x13
 	strh r1, [r0]
-	bl sub_08000444
+	bl snd_update_if_enabled
 	pop {r0}
 	bx r0
 _08015C50:

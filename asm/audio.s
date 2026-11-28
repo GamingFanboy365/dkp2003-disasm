@@ -744,10 +744,10 @@ _0802EFBA:
 	movs r0, #1
 	mov pc, lr
 
-	.global sub_0802EFC6
+	.global snd_set_pitch
 	.thumb_func
-	.type sub_0802EFC6, %function
-sub_0802EFC6: @ 0802EFC6
+	.type snd_set_pitch, %function
+snd_set_pitch: @ 0802EFC6
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -771,10 +771,10 @@ _0802EFE0:
 	pop {r1}
 	bx r1
 
-	.global sub_0802EFF2
+	.global snd_set_volume
 	.thumb_func
-	.type sub_0802EFF2, %function
-sub_0802EFF2: @ 0802EFF2
+	.type snd_set_volume, %function
+snd_set_volume: @ 0802EFF2
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -798,10 +798,10 @@ _0802F00C:
 	pop {r1}
 	bx r1
 
-	.global sub_0802F01E
+	.global snd_stop
 	.thumb_func
-	.type sub_0802F01E, %function
-sub_0802F01E: @ 0802F01E
+	.type snd_stop, %function
+snd_stop: @ 0802F01E
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb

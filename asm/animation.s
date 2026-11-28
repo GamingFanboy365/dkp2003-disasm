@@ -696,10 +696,10 @@ _08003548:
 _0800354C:
 	.4byte gPalDirty
 
-	.global sub_08003550
+	.global pal_init
 	.thumb_func
-	.type sub_08003550, %function
-sub_08003550: @ 08003550
+	.type pal_init, %function
+pal_init: @ 08003550
 	push {lr}
 	movs r3, #1
 	ldr r1, _08003584
@@ -712,7 +712,7 @@ sub_08003550: @ 08003550
 	strh r2, [r0]
 	ldr r1, _08003588
 	ldr r2, _0800358C
-	bl sub_080325DC
+	bl CpuSet
 	ldr r0, _08003590
 	movs r3, #0x10
 	str r3, [r0]

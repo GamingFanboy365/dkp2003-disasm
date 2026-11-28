@@ -2749,13 +2749,13 @@ _08017DD4:
 	.type sub_08017DD8, %function
 sub_08017DD8: @ 08017DD8
 	push {lr}
-	bl sub_0800041C
+	bl vblank_handler_noaudio
 	ldr r0, _08017DF0
 	movs r2, #0xa0
 	ldrh r1, [r0]
 	lsls r0, r2, #0x13
 	strh r1, [r0]
-	bl sub_08000444
+	bl snd_update_if_enabled
 	pop {r0}
 	bx r0
 _08017DF0:
