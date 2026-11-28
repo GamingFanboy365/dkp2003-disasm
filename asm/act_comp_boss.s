@@ -54,7 +54,7 @@ _0802748A:
 _080274C4:
 	.4byte 0x00000001
 _080274C8:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _080274CC:
 	.4byte 0x0202EBFC
 _080274D0:
@@ -915,7 +915,7 @@ _08027AB6:
 _08027B30:
 	.4byte 0x00000000
 _08027B34:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _08027B38:
 	.4byte atan2_fx
 _08027B3C:
@@ -950,7 +950,7 @@ _08027B60:
 _08027B74:
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_08026FF0
+	bl boss_engine_sfx_update
 	ldr r0, _08027BE4
 	adds r0, #0x8c
 	ldr r2, [r0]
@@ -1510,10 +1510,10 @@ _08027FB4:
 _08027FB8:
 	.4byte gUnk_08052C3C
 
-	.global sub_08027FBC
+	.global boss_take_hit
 	.thumb_func
-	.type sub_08027FBC, %function
-sub_08027FBC: @ 08027FBC
+	.type boss_take_hit, %function
+boss_take_hit: @ 08027FBC
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	adds r0, #0xa0
@@ -1589,7 +1589,7 @@ _0802803A:
 	ldr r0, _08028054
 	b _08028026
 _08028048:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _0802804C:
 	.4byte gGameSetup
 _08028050:
@@ -1597,10 +1597,10 @@ _08028050:
 _08028054:
 	.4byte gUnk_0884F010
 
-	.global sub_08028058
+	.global boss_get_pos
 	.thumb_func
-	.type sub_08028058, %function
-sub_08028058: @ 08028058
+	.type boss_get_pos, %function
+boss_get_pos: @ 08028058
 	ldr r2, _08028064
 	ldr r3, [r2, #0x64]
 	str r3, [r0]
@@ -1608,12 +1608,12 @@ sub_08028058: @ 08028058
 	str r0, [r1]
 	bx lr
 _08028064:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 
-	.global sub_08028068
+	.global boss_monitor_set_speed
 	.thumb_func
-	.type sub_08028068, %function
-sub_08028068: @ 08028068
+	.type boss_monitor_set_speed, %function
+boss_monitor_set_speed: @ 08028068
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #8]
@@ -1650,14 +1650,14 @@ _08028096:
 	str r0, [r2]
 	b _08028082
 _080280A8:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _080280AC:
 	.4byte 0xFFFFC800
 
-	.global sub_080280B0
+	.global boss_engine_vol_cb
 	.thumb_func
-	.type sub_080280B0, %function
-sub_080280B0: @ 080280B0
+	.type boss_engine_vol_cb, %function
+boss_engine_vol_cb: @ 080280B0
 	push {r4, r5, lr}
 	ldr r4, _080280F4
 	movs r3, #0xec
@@ -1694,12 +1694,12 @@ _080280CC:
 	pop {r1}
 	bx r1
 _080280F4:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 
-	.global sub_080280F8
+	.global boss_engine_vol2_cb
 	.thumb_func
-	.type sub_080280F8, %function
-sub_080280F8: @ 080280F8
+	.type boss_engine_vol2_cb, %function
+boss_engine_vol2_cb: @ 080280F8
 	push {r4, lr}
 	ldr r1, _0802813C
 	adds r4, r0, #0
@@ -1737,12 +1737,12 @@ _08028136:
 	b _0802810E
 	.byte 0x00, 0x00
 _0802813C:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 
-	.global sub_08028140
+	.global boss_engine_pitch_cb
 	.thumb_func
-	.type sub_08028140, %function
-sub_08028140: @ 08028140
+	.type boss_engine_pitch_cb, %function
+boss_engine_pitch_cb: @ 08028140
 	push {r4, r5, lr}
 	ldr r4, _0802819C
 	adds r5, r0, #0
@@ -1792,7 +1792,7 @@ _08028194:
 	b _08028158
 	.byte 0x00, 0x00
 _0802819C:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _080281A0:
 	.4byte 0x0200436C
 _080281A4:
@@ -1832,13 +1832,13 @@ _080281D2:
 	ldr r1, [r2, #8]
 	adds r0, r5, #0
 	ldr r2, _08028230
-	bl sub_08027FBC
+	bl boss_take_hit
 	b _080281CA
 _080281E2:
 	cmp r3, #0x2b
 	bne _080281CA
 	adds r0, r5, #0
-	bl sub_08026B70
+	bl boss_on_hit
 	b _080281CA
 _080281EE:
 	adds r0, r4, #0
@@ -1846,7 +1846,7 @@ _080281EE:
 	ldr r1, [r0, #8]
 	ldr r2, _08028230
 	adds r0, r5, #0
-	bl sub_08027FBC
+	bl boss_take_hit
 	b _080281CA
 _080281FE:
 	ldr r0, _08028234

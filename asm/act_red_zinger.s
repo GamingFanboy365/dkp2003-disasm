@@ -849,7 +849,7 @@ _08029876:
 	mov r0, fp
 	ldr r1, [r3, #8]
 	movs r2, #0
-	bl sub_08027FBC
+	bl boss_take_hit
 	b _0802983C
 _08029884:
 	ldr r2, [sp, #0x44]

@@ -246,7 +246,7 @@ _080263FC:
 _08026400:
 	.4byte 0x010000F0
 _08026404:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _08026408:
 	ldr r0, _08026424
 	bl AGBPrintf
@@ -1222,10 +1222,10 @@ _08026B68:
 _08026B6C:
 	.4byte atan2_fx
 
-	.global sub_08026B70
+	.global boss_on_hit
 	.thumb_func
-	.type sub_08026B70, %function
-sub_08026B70: @ 08026B70
+	.type boss_on_hit, %function
+boss_on_hit: @ 08026B70
 	push {r4, r5, lr}
 	sub sp, #0x14
 	movs r4, #0x7f
@@ -1306,7 +1306,7 @@ _08026BF2:
 _08026C08:
 	.4byte 0x00000014
 _08026C0C:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _08026C10:
 	.4byte gGameSetup
 _08026C14:
@@ -1766,10 +1766,10 @@ _08026F4C:
 _08026F50:
 	.4byte 0xFFFFF449
 
-	.global sub_08026F54
+	.global boss_engine_pitch2_cb
 	.thumb_func
-	.type sub_08026F54, %function
-sub_08026F54: @ 08026F54
+	.type boss_engine_pitch2_cb, %function
+boss_engine_pitch2_cb: @ 08026F54
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _08026FE0
 	ldr r3, [r4, #0x10]
@@ -1843,7 +1843,7 @@ _08026FDC:
 	rsbs r0, r3, #0
 	b _08026F78
 _08026FE0:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _08026FE4:
 	.4byte 0x0200436C
 _08026FE8:
@@ -1851,10 +1851,10 @@ _08026FE8:
 _08026FEC:
 	.4byte gRacerObjects
 
-	.global sub_08026FF0
+	.global boss_engine_sfx_update
 	.thumb_func
-	.type sub_08026FF0, %function
-sub_08026FF0: @ 08026FF0
+	.type boss_engine_sfx_update, %function
+boss_engine_sfx_update: @ 08026FF0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -2123,7 +2123,7 @@ _080271D2:
 	str r1, [r2]
 	adds r0, r6, #0
 	mov sl, r1
-	bl sub_08026F54
+	bl boss_engine_pitch2_cb
 	ldr r1, _080272C8
 	movs r3, #0xec
 	lsls r4, r3, #1
@@ -2230,7 +2230,7 @@ _080272B8:
 	str r2, [r4]
 	b _0802702C
 _080272C8:
-	.4byte 0x0202EA14
+	.4byte gBossAi
 _080272CC:
 	.4byte 0x0200436C
 _080272D0:
@@ -2238,13 +2238,13 @@ _080272D0:
 _080272D4:
 	.4byte gRacerObjects
 _080272D8:
-	.4byte sub_08028140
+	.4byte boss_engine_pitch_cb
 _080272DC:
-	.4byte sub_080280F8
+	.4byte boss_engine_vol2_cb
 _080272E0:
-	.4byte sub_080280B0
+	.4byte boss_engine_vol_cb
 _080272E4:
-	.4byte sub_08026F54
+	.4byte boss_engine_pitch2_cb
 
 	.global sub_080272E8
 	.thumb_func

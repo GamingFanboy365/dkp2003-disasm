@@ -176,7 +176,7 @@ _08026010:
 	bl sub_08025C78
 	add r0, sp, #0xc
 	add r1, sp, #8
-	bl sub_08028058
+	bl boss_get_pos
 	ldr r2, [sp, #0x14]
 	ldr r0, [sp, #0xc]
 	subs r1, r2, r0
@@ -194,7 +194,7 @@ _08026010:
 	ldr r2, _0802622C
 	adds r1, r0, #0
 	ldr r0, [r2, #4]
-	bl sub_08028068
+	bl boss_monitor_set_speed
 	add sp, #0x18
 	pop {r4, r5}
 	pop {r0}

@@ -98,3 +98,4 @@
 0x020219F0 gCamPath                 # 32 x 0x1C: position, look-at, speed
 0x02021D70 gCamPathCount
 0x02021D74 gCamPathRead
+0x0202EA14 gBossAi                  # boss AI state (position +0x64/+0x6C, speed +0x108)

@@ -66,6 +66,7 @@ gSfxPendingList = 0x0202E38C;
 gSfxPendingMask = 0x0202E390;
 gSfxNextId = 0x0202E394;
 gGamesfxHold = 0x0202E424;
+gBossAi = 0x0202EA14;
 gRedZingerBuzzOwner = 0x0202EC04;
 gBlueZingerBuzzOwner = 0x0202EC0C;
 gAudioMixLimit = 0x0202EFF8;

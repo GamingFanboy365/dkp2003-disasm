@@ -264,7 +264,7 @@ _0802BB98:
 	movs r3, #0x80
 	adds r0, r6, #0
 	lsls r2, r3, #7
-	bl sub_08027FBC
+	bl boss_take_hit
 	mov r0, fp
 	bl obj_free
 	b _0802BABE

@@ -387,7 +387,7 @@ _0802B8F6:
 	ldr r1, [r3, #8]
 	adds r0, r4, #0
 	ldr r2, _0802B9EC
-	bl sub_08027FBC
+	bl boss_take_hit
 	b _0802B85A
 _0802B924:
 	mov r2, r8

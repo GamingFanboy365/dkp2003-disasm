@@ -803,11 +803,11 @@ _0802167C:
 _08021680:
 	.4byte 0x04000004
 _08021684:
-	.4byte sub_08022504
+	.4byte fe_cups_win2_vblank
 _08021688:
 	.4byte gIrqHandler
 _0802168C:
-	.4byte sub_08022520
+	.4byte fe_cups_win2_hblank
 _08021690:
 	movs r2, #0x80
 	ldr r0, _080216C8
@@ -1095,10 +1095,10 @@ _080218BC:
 	strb r6, [r2]
 	b _08021774
 
-	.global sub_080218C0
+	.global fe_cups_win2_draw
 	.thumb_func
-	.type sub_080218C0, %function
-sub_080218C0: @ 080218C0
+	.type fe_cups_win2_draw, %function
+fe_cups_win2_draw: @ 080218C0
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2222,7 +2222,7 @@ _08022134:
 _08022138:
 	ldr r1, [r7, #0x18]
 	movs r0, #0
-	bl sub_080218C0
+	bl fe_cups_win2_draw
 	ldr r3, [r7]
 	cmp r3, #0
 	ble _0802214E
@@ -2396,7 +2396,7 @@ _08022166:
 	str r0, [r7, #0x1c]
 	ldr r1, [r7, #0x18]
 	asrs r0, r6, #1
-	bl sub_080218C0
+	bl fe_cups_win2_draw
 	ldr r3, [r7, #0x24]
 	cmp r3, #0xff
 	bgt _080222F2
@@ -2697,10 +2697,10 @@ _080224FC:
 _08022500:
 	.4byte 0x000005E7
 
-	.global sub_08022504
+	.global fe_cups_win2_vblank
 	.thumb_func
-	.type sub_08022504, %function
-sub_08022504: @ 08022504
+	.type fe_cups_win2_vblank, %function
+fe_cups_win2_vblank: @ 08022504
 	push {lr}
 	bl vblank_handler_noaudio
 	ldr r0, _0802251C
@@ -2714,10 +2714,10 @@ sub_08022504: @ 08022504
 _0802251C:
 	.4byte 0x02023FA4
 
-	.global sub_08022520
+	.global fe_cups_win2_hblank
 	.thumb_func
-	.type sub_08022520, %function
-sub_08022520: @ 08022520
+	.type fe_cups_win2_hblank, %function
+fe_cups_win2_hblank: @ 08022520
 	push {lr}
 	ldr r0, _08022540
 	ldrh r1, [r0]
@@ -3173,11 +3173,11 @@ _080228A4:
 _080228A8:
 	.4byte 0x04000004
 _080228AC:
-	.4byte sub_08023030
+	.4byte fe_boss_win_vblank
 _080228B0:
 	.4byte gIrqHandler
 _080228B4:
-	.4byte sub_0802304C
+	.4byte fe_boss_win_hblank
 _080228B8:
 	str r0, [r6, #4]
 	ldr r6, _080228F0
@@ -4155,10 +4155,10 @@ _08023028:
 _0802302C:
 	.4byte gUnk_080511B4
 
-	.global sub_08023030
+	.global fe_boss_win_vblank
 	.thumb_func
-	.type sub_08023030, %function
-sub_08023030: @ 08023030
+	.type fe_boss_win_vblank, %function
+fe_boss_win_vblank: @ 08023030
 	push {lr}
 	bl vblank_handler_noaudio
 	ldr r0, _08023048
@@ -4172,10 +4172,10 @@ sub_08023030: @ 08023030
 _08023048:
 	.4byte 0x02023FA4
 
-	.global sub_0802304C
+	.global fe_boss_win_hblank
 	.thumb_func
-	.type sub_0802304C, %function
-sub_0802304C: @ 0802304C
+	.type fe_boss_win_hblank, %function
+fe_boss_win_hblank: @ 0802304C
 	push {lr}
 	ldr r0, _0802306C
 	ldrh r1, [r0]

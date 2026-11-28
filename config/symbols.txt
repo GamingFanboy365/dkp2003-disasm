@@ -855,3 +855,17 @@
 0x0802C828 weaponboss_fire          # weaponbossManager: obj_new(0x38) bossweapon from the boss, aimed with its heading
 0x0802C950 bossweapon_sfx_pitch_cb  # sfx_doppler against the local player
 0x0802C9C8 bossweapon_explode       # sprite swap, sound off, obj_new(0x31) bossbomb_fire
+0x08027FBC boss_take_hit            # (boss, ?, damage): unless already hit (+0xA0 & 0x1180): hit state, health (+0x124) -= table[character] x damage >> 12 (0x0884EFEC; 0x0884F010 when player 1 is character 8) -> 1 if hit (lightning, red zinger, TNT, react_comp_boss)
+0x08028058 boss_get_pos             # (&x, &z) from the boss AI (gBossAi +0x64, +0x6C)
+0x08028068 boss_monitor_set_speed   # gBossAi+0x108 from the boss monitor's stage (+0xA8): 0, (v - 0x3800) >> 3 or (0x3800 - v) >> 3
+0x080280B0 boss_engine_vol_cb       # boss engine sound callbacks: smoothed volume
+0x080280F8 boss_engine_vol2_cb
+0x08028140 boss_engine_pitch_cb     # sfx_doppler against the local player
+0x08026B70 boss_on_hit              # react_comp_boss: hit sound 0xF1 at the boss, racer_flash_palette, health check
+0x08026F54 boss_engine_pitch2_cb    # cubic pitch curve from the boss speed
+0x08026FF0 boss_engine_sfx_update   # act_comp_boss: start/stop/release the boss engine sounds with the boss_engine_* callbacks
+0x080218C0 fe_cups_win2_draw        # fe_cups_win2_process: the "you won" sprites, with sounds
+0x08022504 fe_cups_win2_vblank      # vblank/hblank pairs as on the title screen (per-line backdrop colour)
+0x08022520 fe_cups_win2_hblank
+0x08023030 fe_boss_win_vblank
+0x0802304C fe_boss_win_hblank
