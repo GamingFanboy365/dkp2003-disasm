@@ -34,7 +34,7 @@ It takes about 2 minutes per ROM.
 
 | File | Purpose |
 |---|---|
-| `dkprun.c` | Harness: reads commands on stdin: `run N KEYS`, `tap`, `peek`, `poke`, `str`, `save`/`load` states, `shot x.png`, `vlog` (per-frame dump of the gamesfx voices and pending queue), `regs`, `step N`, `until PC`, `trace FILE N` (pc, r0–r3, r6, r12, lr per instruction), `log on/off` (mGBA log, e.g. DMA sources). |
+| `dkprun.c` | Harness: reads commands on stdin: `run N KEYS`, `tap`, `peek`, `poke`, `str`, `save`/`load` states, `shot x.png`, `vlog` (per-frame dump of the gamesfx voices and pending queue), `regs`, `step N`, `until PC`, `trace FILE N` (pc, r0–r3, r6, r12, lr per instruction), `log on/off` (mGBA log, e.g. DMA sources), `cover FILE` / `cover off` (single-step every frame and record each executed instruction address in a bitmap: 1 bit per halfword, 16 MB of ROM then 32 KB of IWRAM; written on `cover off`). |
 | `drv.py` | Python wrapper; walks the object process list (`0x02004374`). |
 | `auto.py` | Autopilot: follows a recorded CPU racing line, with a forced waypoint (the zipper). |
 | `comp_tracks.json` | CPU racer positions recorded on Steamy Swoop, used as the racing line. |
@@ -57,3 +57,9 @@ Useful RAM, from the disassembly:
 
 Weapon slot values: 1/2/9 = yellow zinger, 3/4 = red (purple) zinger,
 5 = TNT barrel, 7 = lightning, 8 = blue zinger. Press B to fire.
+
+Code coverage: set `DKP_COVER=<file>` and any script that uses `drv.Emu`
+records the code it executes, e.g.
+`DKP_COVER=build/emu/cover_race.bin python3 tools/emu/repro_zinger_buzz.py`.
+`tools/unused.py --cover` uses this file. Recording does not change the
+emulation: the repro gives the same result with and without it.

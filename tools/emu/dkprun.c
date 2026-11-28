@@ -10,6 +10,9 @@
 //   peek <addr> [n]        print n 32-bit words
 //   poke <addr> <val>      write 32-bit word
 //   vlog <file>|off        per-frame log of gamesfx voice/pending tables
+//   cover <file>|off       while on, frames are single-stepped and each executed
+//                          instruction address (ROM, IWRAM) is marked; 'off' writes
+//                          the bitmap (1 bit per halfword: 16MB ROM then 32KB IWRAM)
 //   echo <text>
 #include <mgba-util/common.h>
 #include <mgba/core/core.h>
@@ -19,6 +22,7 @@
 #include <mgba-util/vfs.h>
 #include <mgba-util/image.h>
 #include <mgba/core/log.h>
+#include <mgba/internal/arm/arm.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -60,9 +64,30 @@ static void log_frame(void) {
 	fprintf(vlog, "\n");
 }
 
+#define ROM_BITS (0x1000000 / 2)
+#define IWRAM_BITS (0x8000 / 2)
+static uint8_t* cover;
+static char coverPath[256];
+
+static void mark(uint32_t a) {
+	uint32_t i;
+	if (a >= 0x08000000 && a < 0x09000000) i = (a - 0x08000000) >> 1;
+	else if (a >= 0x03000000 && a < 0x03008000) i = ROM_BITS + ((a - 0x03000000) >> 1);
+	else return;
+	cover[i >> 3] |= 1 << (i & 7);
+}
+
 static void frame(uint32_t keys) {
 	core->setKeys(core, keys);
-	core->runFrame(core);
+	if (cover) {
+		struct ARMCore* cpu = core->cpu;
+		uint32_t start = core->frameCounter(core);
+		while (core->frameCounter(core) == start) {
+			mark(cpu->gprs[ARM_PC] - (cpu->executionMode == MODE_THUMB ? 4 : 8));
+			core->step(core);
+		}
+	} else
+		core->runFrame(core);
 	++frameno;
 	log_frame();
 }
@@ -182,6 +207,17 @@ int main(int argc, char** argv) {
 				core->step(core);
 			}
 			fclose(tf);
+		} else if (!strcmp(cmd, "cover")) {
+			if (strcmp(a1, "off")) {
+				if (!cover) cover = calloc((ROM_BITS + IWRAM_BITS) / 8, 1);
+				strncpy(coverPath, a1, sizeof(coverPath) - 1);
+			} else if (cover) {
+				FILE* cf = fopen(coverPath, "wb");
+				fwrite(cover, 1, (ROM_BITS + IWRAM_BITS) / 8, cf);
+				fclose(cf);
+				free(cover);
+				cover = NULL;
+			}
 		} else if (!strcmp(cmd, "echo")) {
 			printf("%s", line + 5);
 		}

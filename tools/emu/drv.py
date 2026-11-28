@@ -17,6 +17,10 @@ class Emu:
         self.p = subprocess.Popen([os.environ.get('DKPRUN', os.path.join(S, 'dkprun')), rom], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                   text=True, bufsize=1)
         self.frame = 0
+        # DKP_COVER=<file>: record executed code (see 'cover' in dkprun.c)
+        self.cover = os.environ.get('DKP_COVER')
+        if self.cover:
+            self.cmd('cover ' + self.cover)
 
     def cmd(self, c):
         self.p.stdin.write(c + '\n')
@@ -66,5 +70,7 @@ class Emu:
         return tuple(s32(x) for x in self.peek(a + 0x24, 3))
 
     def close(self):
+        if self.cover:
+            self.cmd('cover off')
         self.p.stdin.close()
         self.p.wait()

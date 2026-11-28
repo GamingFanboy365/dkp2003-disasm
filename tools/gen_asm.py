@@ -238,9 +238,12 @@ class Gen:
                 accepted[o] = t
         # sample definitions: (start, length, end): two pointers 8 bytes apart
         # with a small integer between them and end a little after start
+        # (a definition of a known sample asset -- start and end match it
+        # exactly -- is accepted whatever the bytes of the pointer look like)
+        sample_end = {a[0]: a[0] + a[1] - 1 for a in self.assets if a[2] == 'sample'}
         for o, t in cand.items():
             if o + 8 in cand and words[(o + 4) // 4] < 0x1000000 and 0 < cand[o + 8] - t < 0x20000 \
-                    and len(set(struct.pack('<I', words[o // 4]))) == 4:
+                    and (len(set(struct.pack('<I', words[o // 4]))) == 4 or sample_end.get(t) == cand[o + 8]):
                 accepted[o] = t
                 accepted[o + 8] = cand[o + 8]
         # strided tables (arrays of structs with one pointer field, e.g. level

@@ -29,7 +29,7 @@ with `.incbin`.
 
 ## Assets: graphics, levels and audio
 
-`config/assets.txt` lists 1394 assets (about 9.4 MB, three quarters of the ROM)
+`config/assets.txt` lists 1396 assets (about 9.5 MB, three quarters of the ROM)
 found from the game's own tables: the level headers at `0x087146C0`, the track
 records at `0x08051D40`, the sprite table at `0x08713650`, the instrument
 definitions of the sound bank, and front-end graphics found with an mGBA DMA
@@ -43,7 +43,7 @@ offsets, sizes and types.
 | Object lists (22) | `levels/NN/objects.s` | one `level_object x, y, z, classinfo` per object, with the class name, then `level_objects_end` |
 | Tables (7) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
 | Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
-| Audio samples (341) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–14000 Hz) |
+| Audio samples (343) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–48000 Hz) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
 | Other (399) | `*.bin` | level data blocks whose format is not known yet (track paths, collision, …) |
 
@@ -105,7 +105,7 @@ zipper) gives a recoloured zipper in the race.
 
 Rare's sound bank describes each instrument with a 0x44-byte record that holds
 the sample rate, the base note (60), and the sample's start pointer, its
-length and its last byte. The 341 samples these records point at are 8-bit
+length and its last byte. The 343 samples these records point at are 8-bit
 signed PCM. They are extracted as unsigned 8-bit WAV files, which any audio
 editor opens. A sample can be replaced with one of a different length (mono,
 8-bit PCM; resample to the rate in its file name): the record's start, length
@@ -162,7 +162,7 @@ ld_script.ld, objects.mk   generated: place every object at its original address
 | `0x03222C` | `0x0803222C` | Nintendo AGBPrint debug library (`AGBPrintInit`, `AGBPrintf`, `AGBAssert`, …) |
 | `0x0325DC` | `0x080325DC` | newlib libc (`vsprintf`, …) |
 | `0x0385FC` | **`0x03000000`** | `text32`: ARM code copied to IWRAM at boot (`IntrMain`, fast division, …), 0x3FC8 bytes (`asm/iwram.s`) |
-| `0x03C5C4` | `0x0803C5C4` | ARM code run from ROM (`asm/arm_rom.s`) |
+| `0x03C5C4` | **`0x03003FC8`** | two ARM overlays (`asm/arm_rom.s`): `game_init` copies either `0x3C5C4`–`0x3DC1C` (`sub_08000CB8`) or `0x3DC1C`–`0x3EA90` (`sub_08001020`) to IWRAM right after `text32`. The asm still labels them with ROM addresses |
 | `0x03EA90` | `0x0803EA90` | rodata (sine table, strings, tables) followed by graphics, level, movie and audio data (`data/`) |
 
 Boot order (from `AgbMain`): DMA-clear RAM, copy `text32` to IWRAM, install
@@ -214,6 +214,37 @@ make compare
 Hints such as new entry points or data ranges go in `config/dkp.cfg`, names
 in `config/symbols.txt`, and file splits in `config/files.txt`.
 
+## Unused content
+
+[`docs/unused.txt`](docs/unused.txt) lists everything in the ROM that the game
+never uses, with offsets, sizes and names only. `tools/unused.py` generates it.
+It walks a reference graph of the whole ROM from the entry point. The graph
+counts calls, branches, literal pools, pointers in data, raw branch
+encodings in undecoded bytes, and the RAM overlays. The result is checked
+against an mGBA run that records every executed instruction. Highlights:
+
+* a debug menu (Level, Player, Cups scoreboard, Flyby, Edit Flyby, New
+  Frontend, Cup Win, Volume, Play Mode) with a track list that has four
+  `Newtest` placeholders;
+* level 25: a header with palette, tilesets, data and an object list, but no
+  track data. A stub track record for it (id 0) follows the 48 real ones;
+* the credits screen, a cup-win screen and a second "spot screen", which
+  nothing calls;
+* actors with no class-table entry: an intro sequence (plane, Diddy, Kong,
+  pilot), a banana and a null actor;
+* 88 functions in all (about 11.5 KB, many from newlib) and about 110 KB of
+  data.
+
+```sh
+python3 tools/unused.py baserom.gba build/db.json config/dkp.cfg \
+    --cover build/emu/cover_race.bin > docs/unused.txt
+python3 tools/unused.py baserom.gba build/db.json config/dkp.cfg --why 0x4FA64
+```
+
+The coverage file comes from `DKP_COVER=build/emu/cover_race.bin python3
+tools/emu/repro_zinger_buzz.py`. `--why` explains why a block counts as
+used or unused.
+
 ## Patches and play-testing
 
 `patches/` has a bug-fix IPS for the endless zinger buzz you get when a CPU
@@ -229,9 +260,10 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
   yet. If something breaks there, `tools/where.py <addr>` shows how a ROM
   address is emitted, and the `trace` command in `tools/emu/dkprun` finds the
   first instruction where two builds diverge.
-* `asm/arm_rom.s` calls the ROM image of the IWRAM overlay with 17 raw `bl`
-  instructions. These are relative, so they only break if code is inserted
-  between those two regions.
+* The two ARM overlays in `asm/arm_rom.s` run at `0x03003FC8` but are
+  disassembled at their ROM addresses. Their 17 calls into `text32` are raw
+  `bl` instructions; they are relative, so they stay correct when the ROM
+  shifts, as long as `text32` keeps its layout.
 * A few areas are still emitted as bytes: undecoded parts of the ARM audio
   engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
 * Decode the remaining level data blocks (`data_XX.bin`).

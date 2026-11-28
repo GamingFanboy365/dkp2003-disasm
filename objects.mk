@@ -74,6 +74,6 @@ OBJS := \
 	build/data/data_08628F00.o \
 	build/data/data_08700000.o \
 	build/data/data_08800000.o \
-	build/data/data_08AC6C00.o \
+	build/data/data_08AF2100.o \
 	build/data/data_08B7C200.o \
 
