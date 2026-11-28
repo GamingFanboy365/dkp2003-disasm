@@ -65,9 +65,9 @@ _08016938:
 _0801693C:
 	.4byte 0x04000200
 _08016940:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _08016944:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08016948:
 	strh r5, [r1]
 	adds r1, #2
@@ -408,7 +408,7 @@ _08016BE2:
 	str r0, [r4, #0x10]
 	b _08016A46
 _08016BF0:
-	.4byte sub_08016F48
+	.4byte fe_tracks_process
 _08016BF4:
 	.4byte gStateFunc
 _08016BF8:
@@ -827,10 +827,10 @@ _08016F40:
 _08016F44:
 	.4byte gUnk_0863F180
 
-	.global sub_08016F48
+	.global fe_tracks_process
 	.thumb_func
-	.type sub_08016F48, %function
-sub_08016F48: @ 08016F48
+	.type fe_tracks_process, %function
+fe_tracks_process: @ 08016F48
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	bl sub_08003478
@@ -1238,7 +1238,7 @@ _08017248:
 _0801724C:
 	.4byte 0x02024284
 _08017250:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08017254:
 	.4byte gGameSetup
 _08017258:
@@ -1641,9 +1641,9 @@ _08017568:
 _0801756C:
 	.4byte 0x04000200
 _08017570:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _08017574:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08017578:
 	adds r6, #8
 	strh r5, [r6]
@@ -1827,7 +1827,7 @@ _080176D4:
 _080176D8:
 	.4byte 0x02024324
 _080176DC:
-	.4byte sub_080176EC
+	.4byte fe_tracks_timesheet_process
 _080176E0:
 	.4byte gStateFunc
 _080176E4:
@@ -1835,10 +1835,10 @@ _080176E4:
 _080176E8:
 	.4byte gUnk_080514C8
 
-	.global sub_080176EC
+	.global fe_tracks_timesheet_process
 	.thumb_func
-	.type sub_080176EC, %function
-sub_080176EC: @ 080176EC
+	.type fe_tracks_timesheet_process, %function
+fe_tracks_timesheet_process: @ 080176EC
 	push {r4, lr}
 	bl sub_08003478
 	ldr r1, _080177BC
@@ -2052,7 +2052,7 @@ _08017878:
 _0801787C:
 	.4byte sub_08017DD8
 _08017880:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08017884:
 	.4byte sub_08017DF4
 _08017888:
@@ -2305,7 +2305,7 @@ _08017A5C:
 	bx r0
 	.byte 0x00, 0x00
 _08017A80:
-	.4byte sub_08017B24
+	.4byte fe_cranky_process
 _08017A84:
 	.4byte gStateFunc
 _08017A88:
@@ -2393,10 +2393,10 @@ _08017B1C:
 _08017B20:
 	.4byte 0x04000044
 
-	.global sub_08017B24
+	.global fe_cranky_process
 	.thumb_func
-	.type sub_08017B24, %function
-sub_08017B24: @ 08017B24
+	.type fe_cranky_process, %function
+fe_cranky_process: @ 08017B24
 	push {r4, r5, r6, r7, lr}
 	ldr r0, _08017D9C
 	ldr r1, _08017DA0
@@ -2732,7 +2732,7 @@ _08017DB8:
 _08017DBC:
 	.4byte 0x02024380
 _08017DC0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08017DC4:
 	.4byte gKeysNew
 _08017DC8:
@@ -2829,7 +2829,7 @@ _08017E60:
 _08017E64:
 	.4byte 0x04000208
 _08017E68:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08017E6C:
 	.4byte sub_03003D54
 _08017E70:

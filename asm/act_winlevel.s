@@ -805,7 +805,7 @@ _08021680:
 _08021684:
 	.4byte sub_08022504
 _08021688:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0802168C:
 	.4byte sub_08022520
 _08021690:
@@ -1082,7 +1082,7 @@ _080218A0:
 _080218A4:
 	.4byte 0x0202E610
 _080218A8:
-	.4byte sub_080219F8
+	.4byte fe_cups_win2_process
 _080218AC:
 	.4byte gStateFunc
 _080218B0:
@@ -1265,10 +1265,10 @@ _080219F0:
 _080219F4:
 	.4byte gUnk_0805281C
 
-	.global sub_080219F8
+	.global fe_cups_win2_process
 	.thumb_func
-	.type sub_080219F8, %function
-sub_080219F8: @ 080219F8
+	.type fe_cups_win2_process, %function
+fe_cups_win2_process: @ 080219F8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1752,7 +1752,7 @@ _08021DB8:
 _08021DBC:
 	.4byte 0x04000014
 _08021DC0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08021DC4:
 	.4byte gKeysNew
 _08021DC8:
@@ -2796,9 +2796,9 @@ _080225A8:
 _080225AC:
 	.4byte 0x04000200
 _080225B0:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _080225B4:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _080225B8:
 	strh r5, [r4]
 	ldr r0, _080225F4
@@ -2900,16 +2900,16 @@ _0802267C:
 _08022680:
 	.4byte 0x0202E668
 _08022684:
-	.4byte sub_08022690
+	.4byte fe_cups_trophy_process
 _08022688:
 	.4byte gStateFunc
 _0802268C:
 	.4byte gUnk_08052940
 
-	.global sub_08022690
+	.global fe_cups_trophy_process
 	.thumb_func
-	.type sub_08022690, %function
-sub_08022690: @ 08022690
+	.type fe_cups_trophy_process, %function
+fe_cups_trophy_process: @ 08022690
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	bl sub_08003478
@@ -3106,7 +3106,7 @@ _08022824:
 _08022828:
 	.4byte 0x0202E668
 _0802282C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08022830:
 	.4byte gKeysNew
 _08022834:
@@ -3175,7 +3175,7 @@ _080228A8:
 _080228AC:
 	.4byte sub_08023030
 _080228B0:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _080228B4:
 	.4byte sub_0802304C
 _080228B8:
@@ -3393,7 +3393,7 @@ _08022A5C:
 _08022A60:
 	.4byte gLocalPlayerIndex
 _08022A64:
-	.4byte sub_08022A7C
+	.4byte fe_boss_win_process
 _08022A68:
 	.4byte gStateFunc
 _08022A6C:
@@ -3406,10 +3406,10 @@ _08022A78:
 	strb r6, [r2]
 	b _08022992
 
-	.global sub_08022A7C
+	.global fe_boss_win_process
 	.thumb_func
-	.type sub_08022A7C, %function
-sub_08022A7C: @ 08022A7C
+	.type fe_boss_win_process, %function
+fe_boss_win_process: @ 08022A7C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -3528,7 +3528,7 @@ _08022B60:
 _08022B64:
 	.4byte 0x0202E670
 _08022B68:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08022B6C:
 	.4byte gKeysNew
 _08022B70:

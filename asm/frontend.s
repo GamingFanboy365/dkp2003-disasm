@@ -57,7 +57,7 @@ _080144F4:
 _080144F8:
 	.4byte gStateFunc
 _080144FC:
-	.4byte sub_0801429C
+	.4byte fe_credits_process
 _08014500:
 	str r1, [r0]
 	ldr r0, _0801450C
@@ -68,10 +68,10 @@ _08014500:
 _0801450C:
 	.4byte 0x00000001
 
-	.global sub_08014510
+	.global fe_boot_init
 	.thumb_func
-	.type sub_08014510, %function
-sub_08014510: @ 08014510
+	.type fe_boot_init, %function
+fe_boot_init: @ 08014510
 	push {r4, lr}
 	sub sp, #4
 	ldr r4, _08014558
@@ -122,17 +122,17 @@ _0801456C:
 _08014570:
 	.4byte gStateFunc
 _08014574:
-	.4byte sub_08014580
+	.4byte fe_boot_process
 _08014578:
 	pop {r4}
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_08014580
+	.global fe_boot_process
 	.thumb_func
-	.type sub_08014580, %function
-sub_08014580: @ 08014580
+	.type fe_boot_process, %function
+fe_boot_process: @ 08014580
 	push {r4, lr}
 	bl sub_08003478
 	ldr r4, _080145BC
@@ -167,7 +167,7 @@ _080145C0:
 _080145C4:
 	.4byte 0x04000208
 _080145C8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _080145CC:
 	.4byte sub_03003D54
 _080145D0:
@@ -747,7 +747,7 @@ _080149CC:
 _080149D0:
 	.4byte sub_08015C38
 _080149D4:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _080149D8:
 	.4byte sub_08015C54
 _080149DC:
@@ -1309,7 +1309,7 @@ _08014E28:
 _08014E2C:
 	.4byte 0x02024198
 _08014E30:
-	.4byte sub_08014EAC
+	.4byte fe_title_process
 _08014E34:
 	.4byte gStateFunc
 _08014E38:
@@ -1371,10 +1371,10 @@ _08014EA4:
 _08014EA8:
 	.4byte gUnk_080DBD1C
 
-	.global sub_08014EAC
+	.global fe_title_process
 	.thumb_func
-	.type sub_08014EAC, %function
-sub_08014EAC: @ 08014EAC
+	.type fe_title_process, %function
+fe_title_process: @ 08014EAC
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2378,7 +2378,7 @@ _08015624:
 _08015628:
 	.4byte 0x020240F0
 _0801562C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08015630:
 	.4byte 0x020240E4
 _08015634:
@@ -3685,9 +3685,9 @@ _08016004:
 _08016008:
 	.4byte 0x04000200
 _0801600C:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _08016010:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08016014:
 	adds r0, #2
 	strh r1, [r0]
@@ -3868,7 +3868,7 @@ _08016170:
 _08016174:
 	.4byte 0x02024214
 _08016178:
-	.4byte sub_08016188
+	.4byte fe_characterselect_process
 _0801617C:
 	.4byte gStateFunc
 _08016180:
@@ -3876,10 +3876,10 @@ _08016180:
 _08016184:
 	.4byte gUnk_08051400
 
-	.global sub_08016188
+	.global fe_characterselect_process
 	.thumb_func
-	.type sub_08016188, %function
-sub_08016188: @ 08016188
+	.type fe_characterselect_process, %function
+fe_characterselect_process: @ 08016188
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4584,7 +4584,7 @@ _080166A8:
 _080166AC:
 	.4byte 0x02024208
 _080166B0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _080166B4:
 	mov r1, r8
 	ldr r0, [r1, r7]

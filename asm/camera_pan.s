@@ -726,7 +726,7 @@ _08004D3C:
 _08004D40:
 	.4byte gStateFunc
 _08004D44:
-	.4byte sub_08004E18
+	.4byte fe_credits_screen_process
 _08004D48:
 	.4byte 0x04000208
 _08004D4C:
@@ -832,10 +832,10 @@ _08004E10:
 _08004E14:
 	.4byte gUnk_08054A50
 
-	.global sub_08004E18
+	.global fe_credits_screen_process
 	.thumb_func
-	.type sub_08004E18, %function
-sub_08004E18: @ 08004E18
+	.type fe_credits_screen_process, %function
+fe_credits_screen_process: @ 08004E18
 	push {lr}
 	bl sub_08003478
 	bl sub_08017E1C
@@ -897,6 +897,6 @@ _08004E82:
 _08004E88:
 	.4byte 0x02021DE8
 _08004E8C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08004E90:
 	.4byte gKeysNew

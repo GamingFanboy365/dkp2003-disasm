@@ -452,7 +452,7 @@ _08014234:
 _08014238:
 	.4byte _08013FF4
 _0801423C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08014240:
 	.4byte gKeysNew
 _08014244:
@@ -505,10 +505,10 @@ _08014294:
 _08014298:
 	.4byte gUnk_0884E34C
 
-	.global sub_0801429C
+	.global fe_credits_process
 	.thumb_func
-	.type sub_0801429C, %function
-sub_0801429C: @ 0801429C
+	.type fe_credits_process, %function
+fe_credits_process: @ 0801429C
 	push {r4, r5, lr}
 	sub sp, #0x10
 	bl sub_08003478
@@ -750,7 +750,7 @@ _08014468:
 _0801446C:
 	.4byte gUnk_0805A650
 _08014470:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08014474:
 	.4byte gUnk_08447820
 _08014478:

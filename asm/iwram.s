@@ -92,7 +92,7 @@ sub_03000104: @ 03000104
 	msr spsr_fc, r0
 	bx lr
 _0300012C:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _03000130:
 	.4byte 0x000020C2
 
@@ -749,7 +749,7 @@ _03000A48:
 	add lr, lr, r2, lsl #1
 	b _03000A34
 _03000A6C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _03000A70:
 	.4byte 0x02000008
 _03000A74:
@@ -842,7 +842,7 @@ _03000BA0:
 	pop {r4, r5, r6, lr}
 	bx lr
 _03000BA8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _03000BAC:
 	.4byte 0x0201A834
 _03000BB0:
@@ -1540,7 +1540,7 @@ _030015C4:
 _030015C8:
 	.4byte 0x020185AC
 _030015CC:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _030015D0:
 	.4byte gUnk_08BB4F90
 _030015D4:
@@ -4347,7 +4347,7 @@ _03003E94:
 	ble _03003E60
 	b _03003DE4
 _03003EA0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _03003EA4:
 	.4byte 0x0201BA9C
 _03003EA8:
@@ -4422,7 +4422,7 @@ _03003F94:
 	pop {r4, lr}
 	bx lr
 _03003F9C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _03003FA0:
 	.4byte 0x0201BA4C
 _03003FA4:

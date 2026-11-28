@@ -270,3 +270,28 @@
 0x0884CFC4 gDbgTrackCount
 0x0884CFC8 gDbgVolumeTable          # 17 volume steps; the menu uses every 4th
 0x0884D00C gDbgCharacterNames       # 9 names
+
+# Per-frame functions of the front-end screens: each *_init stores its
+# *_process in gStateFunc, which the main loop calls every frame
+0x08022A7C fe_boss_win_process
+0x08016188 fe_characterselect_process
+0x08017B24 fe_cranky_process
+0x0801429C fe_credits_process
+0x08004E18 fe_credits_screen_process
+0x080195CC fe_cups_process
+0x0801A41C fe_cups_scoreboard_process
+0x08022690 fe_cups_trophy_process
+0x080219F8 fe_cups_win2_process
+0x0801AC7C fe_cups_win_process
+0x0801CE80 fe_movie_process
+0x0801CB54 fe_name_process
+0x0801C14C fe_options_process
+0x0801C6F0 fe_retry_process
+0x0801D254 fe_spotscreen2_process
+0x0801B5F4 fe_spotscreen_process
+0x08014EAC fe_title_process
+0x08016F48 fe_tracks_process
+0x080176EC fe_tracks_timesheet_process
+0x08014510 fe_boot_init             # first screen after power-on (~30 frames, before the logo movie)
+0x08014580 fe_boot_process
+0x08000460 vblank_handler           # installed in gIrqHandler by most screens; counts frames, runs the audio update

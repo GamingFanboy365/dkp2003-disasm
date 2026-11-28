@@ -1500,7 +1500,7 @@ _08027FA0:
 _08027FA4:
 	.4byte sub_03000138
 _08027FA8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08027FAC:
 	.4byte gUnk_08052BD0
 _08027FB0:

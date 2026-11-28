@@ -143,7 +143,7 @@ _080005C0:
 _080005C4:
 	.4byte 0x00000010
 _080005C8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _080005CC:
 	.4byte 0xFFFFDDCC
 _080005D0:
@@ -157,7 +157,7 @@ _080005DC:
 _080005E0:
 	.4byte sub_080009E8
 _080005E4:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _080005E8:
 	cmp r0, #0
 	bne _080005EE
@@ -203,7 +203,7 @@ _08000630:
 _08000634:
 	.4byte 0x04000208
 _08000638:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0800063C:
 	.4byte game_process
 _08000640:
@@ -490,7 +490,7 @@ _08000880:
 _08000884:
 	.4byte 0x04000208
 _08000888:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0800088C:
 	.4byte gGameSetup
 _08000890:
@@ -577,11 +577,11 @@ _08000934:
 _08000938:
 	.4byte 0x00000010
 _0800093C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08000940:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08000944:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _08000948:
 	.4byte sub_08000418
 _0800094C:
@@ -736,7 +736,7 @@ _08000A6C:
 	b _08000A00
 	.byte 0x00, 0x00
 _08000A74:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08000A78:
 	.4byte 0xFFFF7FFF
 _08000A7C:
@@ -811,9 +811,9 @@ _08000AF6:
 	bl sub_08000FC8
 	b _08000AF0
 _08000AFC:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08000B00:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _08000B04:
 	.4byte sub_08000418
 _08000B08:
@@ -821,7 +821,7 @@ _08000B08:
 _08000B0C:
 	.4byte 0x04000004
 _08000B10:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 
 	.global sub_08000B14
 	.thumb_func

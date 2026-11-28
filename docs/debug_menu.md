@@ -26,7 +26,7 @@ UP/DOWN move the cursor, a sprite square in the left column.
 | 3 | **Flyby** | A, B or START | `game_init` with the current setup: a camera flyby of the track |
 | 4 | **Edit Flyby** | A, B or START | sets the play mode to 3 (or 4 if Reverse), then `game_init`. This is presumably the editor for the flyby camera paths |
 | 5 | **New Frontend** | A, B or START | `fe_title_init`: the normal front end, which suggests the debug menu was the "old" front end |
-| 6 | **Cup Win** | A, B or START | `fe_cups_win_init`: a cup podium scene (the racers' planes on a podium under a banner). Nothing else calls it: when a cup is won, the game uses `fe_cups_win2_init` and `fe_cups_trophy_init` instead. Without a finished cup its banner text is garbage |
+| 6 | **Cup Win** | A, B or START | `fe_cups_win_init`: a cup podium scene (the racers' planes on a podium under a banner). Nothing else calls it: when a cup is won, the game uses `fe_cups_win2_init` (a plane towing a FINISHED banner, then the racers flying past) and `fe_cups_trophy_init` (KONGRATULATIONS / You won) instead. Without a finished cup its banner text is garbage |
 | 7 | **Volume** *n* | LEFT / RIGHT | −4 … 4. Sets the music and effect volumes from `gDbgVolumeTable` and plays test sound 0x4E |
 | 8 | **Play Mode** *Normal/Reverse* | A / B | `gGameSetup + 2`: 0 Normal, 1 Reverse |
 

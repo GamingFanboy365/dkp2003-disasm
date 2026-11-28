@@ -617,7 +617,7 @@ _08011F44:
 _08011F48:
 	.4byte _08011C60
 _08011F4C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08011F50:
 	.4byte gKeysNew
 _08011F54:

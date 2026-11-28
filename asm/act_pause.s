@@ -250,7 +250,7 @@ _08012D78:
 _08012D7C:
 	.4byte gKeysNew
 _08012D80:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08012D84:
 	.4byte gUnk_08050CAC
 _08012D88:

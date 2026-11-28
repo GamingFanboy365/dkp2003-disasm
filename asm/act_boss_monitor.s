@@ -457,7 +457,7 @@ _08026228:
 _0802622C:
 	.4byte gRacerObjects
 _08026230:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08026234:
 	.4byte gKeysNew
 _08026238:

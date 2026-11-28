@@ -970,7 +970,7 @@ _ovl_b_03004D90:
 _ovl_b_03004D94:
 	.4byte gUnk_0803F49C
 _ovl_b_03004D98:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _ovl_b_03004D9C:
 	.4byte 0x02002B60
 

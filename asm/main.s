@@ -146,9 +146,9 @@ _0800021C:
 _08000220:
 	.4byte sub_08000418
 _08000224:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08000228:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0800022C:
 	.4byte 0x04000004
 _08000230:
@@ -160,7 +160,7 @@ _08000238:
 _0800023C:
 	.4byte gUnk_0804F4CC
 _08000240:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08000244:
 	.4byte 0x000022AC
 _08000248:
@@ -199,11 +199,11 @@ _08000294:
 _08000298:
 	.4byte 0x00000001
 _0800029C:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 _080002A0:
 	.4byte 0x03005660
 _080002A4:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _080002A8:
 	.4byte 0x00001105
 _080002AC:
@@ -291,7 +291,7 @@ _08000350:
 _08000354:
 	.4byte gKeysHeld
 _08000358:
-	.4byte 0x03005668
+	.4byte gVBlankCount
 _0800035C:
 	.4byte gStateFunc
 _08000360:
@@ -336,7 +336,7 @@ _08000398:
 _080003A8:
 	.4byte 0xFFFFFFFE
 _080003AC:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 _080003B0:
 	ldr r0, _080003FC
 	ldr r1, _08000400
@@ -414,9 +414,9 @@ sub_0800041C: @ 0800041C
 _08000438:
 	.4byte 0x00000001
 _0800043C:
-	.4byte 0x03005668
+	.4byte gVBlankCount
 _08000440:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 
 	.global sub_08000444
 	.thumb_func
@@ -435,12 +435,12 @@ _08000458:
 	pop {r0}
 	bx r0
 _0800045C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 
-	.global sub_08000460
+	.global vblank_handler
 	.thumb_func
-	.type sub_08000460, %function
-sub_08000460: @ 08000460
+	.type vblank_handler, %function
+vblank_handler: @ 08000460
 	push {lr}
 	ldr r0, _08000490
 	ldr r2, [r0]
@@ -464,11 +464,11 @@ sub_08000460: @ 08000460
 _0800048C:
 	.4byte 0x00000001
 _08000490:
-	.4byte 0x03005668
+	.4byte gVBlankCount
 _08000494:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 _08000498:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0800049C:
 	pop {r0}
 	bx r0

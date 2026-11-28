@@ -869,7 +869,7 @@ _0801D91C:
 _0801D920:
 	.4byte gLocalPlayerIndex
 _0801D924:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 _0801D928:
 	.4byte 0x0202DE78
 _0801D92C:
@@ -1022,7 +1022,7 @@ _0801DA30:
 _0801DA34:
 	.4byte sub_0801DFC4
 _0801DA38:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801DA3C:
 	.4byte sub_0801D6AC
 _0801DA40:
@@ -1479,7 +1479,7 @@ _0801DD74:
 _0801DD78:
 	.4byte gKeysNew
 _0801DD7C:
-	.4byte 0x03005664
+	.4byte gIrqFlags
 _0801DD80:
 	.4byte 0x0202DE6C
 _0801DD84:
@@ -4467,7 +4467,7 @@ sub_0801F2B0: @ 0801F2B0
 	ldr r0, _0801F2C0
 	movs r1, #0xa
 	str r1, [r0]
-	bl sub_08014510
+	bl fe_boot_init
 	pop {r0}
 	bx r0
 _0801F2C0:

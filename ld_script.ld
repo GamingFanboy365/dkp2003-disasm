@@ -22,8 +22,12 @@ gSfxPendingMask = 0x0202E390;
 gSfxNextId = 0x0202E394;
 gRedZingerBuzzOwner = 0x0202EC04;
 gBlueZingerBuzzOwner = 0x0202EC0C;
+gIrqHandler = 0x03005620;
 gKeysHeld = 0x0300565C;
 gKeysNew = 0x0300565E;
+gIrqFlags = 0x03005664;
+gVBlankCount = 0x03005668;
+gModeFlags = 0x0300566C;
 gStateFunc = 0x03005670;
 
 SECTIONS

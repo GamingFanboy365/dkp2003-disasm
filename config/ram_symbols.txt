@@ -22,3 +22,7 @@
 0x020185A0 gDbgVolume               # -4..4
 0x020185A4 gDbgTestSound            # handle of the test sound, -1 = none
 0x020185A8 gDbgMenuRow
+0x03005620 gIrqHandler              # interrupt callback; AgbMain and most screens set it to vblank_handler
+0x03005664 gIrqFlags                # bit 0 set by vblank_handler
+0x03005668 gVBlankCount
+0x0300566C gModeFlags               # bit 13: game_init loads ovl_b instead of ovl_a; bit 14: audio update in vblank

@@ -57,7 +57,7 @@ _08012522:
 _08012560:
 	.4byte 0x00001005
 _08012564:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08012568:
 	.4byte gGameSetup
 _0801256C:
@@ -524,7 +524,7 @@ _080128D0:
 	.2byte 0xEFFF @ debug trap
 	b _080126C6
 _080128E8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _080128EC:
 	.4byte gGameSetup
 _080128F0:

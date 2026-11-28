@@ -762,9 +762,9 @@ _08019394:
 _08019398:
 	.4byte gUnk_08051780
 _0801939C:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _080193A0:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _080193A4:
 	adds r1, #8
 	strh r7, [r1]
@@ -1026,7 +1026,7 @@ _08019560:
 	bx r0
 	.byte 0x00, 0x00
 _080195BC:
-	.4byte sub_080195CC
+	.4byte fe_cups_process
 _080195C0:
 	.4byte gStateFunc
 _080195C4:
@@ -1034,10 +1034,10 @@ _080195C4:
 _080195C8:
 	.4byte gUnk_08051780
 
-	.global sub_080195CC
+	.global fe_cups_process
 	.thumb_func
-	.type sub_080195CC, %function
-sub_080195CC: @ 080195CC
+	.type fe_cups_process, %function
+fe_cups_process: @ 080195CC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1479,7 +1479,7 @@ _0801992C:
 _08019930:
 	.4byte gKeysNew
 _08019934:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08019938:
 	ldr r1, _08019C5C
 	ldrh r2, [r1]
@@ -2574,9 +2574,9 @@ _0801A17C:
 _0801A180:
 	.4byte 0x04000200
 _0801A184:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0801A188:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801A18C:
 	adds r4, #8
 	strh r5, [r4]
@@ -2894,7 +2894,7 @@ _0801A404:
 _0801A408:
 	.4byte gUnk_08051824
 _0801A40C:
-	.4byte sub_0801A41C
+	.4byte fe_cups_scoreboard_process
 _0801A410:
 	.4byte gStateFunc
 _0801A414:
@@ -2902,10 +2902,10 @@ _0801A414:
 _0801A418:
 	.4byte gUnk_0805182C
 
-	.global sub_0801A41C
+	.global fe_cups_scoreboard_process
 	.thumb_func
-	.type sub_0801A41C, %function
-sub_0801A41C: @ 0801A41C
+	.type fe_cups_scoreboard_process, %function
+fe_cups_scoreboard_process: @ 0801A41C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -3836,7 +3836,7 @@ _0801AB40:
 _0801AB44:
 	.4byte gUnk_08657214
 _0801AB48:
-	.4byte sub_0801AC7C
+	.4byte fe_cups_win_process
 _0801AB4C:
 	.4byte gStateFunc
 _0801AB50:
@@ -4000,10 +4000,10 @@ _0801AC74:
 _0801AC78:
 	.4byte 0x0200000E
 
-	.global sub_0801AC7C
+	.global fe_cups_win_process
 	.thumb_func
-	.type sub_0801AC7C, %function
-sub_0801AC7C: @ 0801AC7C
+	.type fe_cups_win_process, %function
+fe_cups_win_process: @ 0801AC7C
 	push {r4, r5, lr}
 	bl sub_08003478
 	bl sub_08017E1C
@@ -4160,7 +4160,7 @@ _0801ADA0:
 _0801ADA4:
 	.4byte gUnk_08051884
 _0801ADA8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801ADAC:
 	.4byte gKeysNew
 _0801ADB0:
@@ -4856,7 +4856,7 @@ _0801B274:
 _0801B278:
 	.4byte sub_0801BE18
 _0801B27C:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801B280:
 	.4byte sub_0801BE48
 _0801B284:
@@ -5159,7 +5159,7 @@ _0801B4C0:
 _0801B4C4:
 	.4byte gUnk_08055050
 _0801B4C8:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801B4CC:
 	.4byte gUnk_0809E9AC
 _0801B4D0:
@@ -5296,9 +5296,9 @@ _0801B5CC:
 _0801B5D0:
 	.4byte 0x0202D3F0
 _0801B5D4:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801B5D8:
-	.4byte sub_0801B5F4
+	.4byte fe_spotscreen_process
 _0801B5DC:
 	.4byte gStateFunc
 _0801B5E0:
@@ -5312,10 +5312,10 @@ _0801B5EC:
 _0801B5F0:
 	.4byte gUnk_080A698E
 
-	.global sub_0801B5F4
+	.global fe_spotscreen_process
 	.thumb_func
-	.type sub_0801B5F4, %function
-sub_0801B5F4: @ 0801B5F4
+	.type fe_spotscreen_process, %function
+fe_spotscreen_process: @ 0801B5F4
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -5715,7 +5715,7 @@ _0801B8FC:
 	bne _0801B8DA
 	b _0801B7C2
 _0801B90C:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801B910:
 	.4byte gUnk_08051924
 _0801B914:
@@ -6177,7 +6177,7 @@ _0801BC6C:
 	b _0801BAF8
 	.byte 0x00, 0x00
 _0801BCA4:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801BCA8:
 	.4byte gUnk_08294DF0
 _0801BCAC:
@@ -6358,7 +6358,7 @@ _0801BE08:
 _0801BE0C:
 	.4byte 0x0202D3F0
 _0801BE10:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801BE14:
 	.4byte gUnk_08051918
 
@@ -6570,9 +6570,9 @@ _0801BF8C:
 _0801BF90:
 	.4byte 0x00000084
 _0801BF94:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0801BF98:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801BF9C:
 	.4byte 0x85000100
 _0801BFA0:
@@ -6775,7 +6775,7 @@ _0801C134:
 _0801C138:
 	.4byte 0x0202D6F4
 _0801C13C:
-	.4byte sub_0801C14C
+	.4byte fe_options_process
 _0801C140:
 	.4byte gStateFunc
 _0801C144:
@@ -6783,10 +6783,10 @@ _0801C144:
 _0801C148:
 	.4byte gUnk_080519A0
 
-	.global sub_0801C14C
+	.global fe_options_process
 	.thumb_func
-	.type sub_0801C14C, %function
-sub_0801C14C: @ 0801C14C
+	.type fe_options_process, %function
+fe_options_process: @ 0801C14C
 	push {r4, r5, r6, lr}
 	sub sp, #0x18
 	bl sub_08003478
@@ -7209,7 +7209,7 @@ _0801C478:
 _0801C47C:
 	.4byte gKeysNew
 _0801C480:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801C484:
 	.4byte _0801C3B4
 _0801C488:
@@ -7439,9 +7439,9 @@ _0801C640:
 _0801C644:
 	.4byte 0x04000200
 _0801C648:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0801C64C:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801C650:
 	strh r4, [r0]
 	ldr r1, _0801C68C
@@ -7514,16 +7514,16 @@ _0801C6AC:
 _0801C6E0:
 	.4byte 0x0202D704
 _0801C6E4:
-	.4byte sub_0801C6F0
+	.4byte fe_retry_process
 _0801C6E8:
 	.4byte gStateFunc
 _0801C6EC:
 	.4byte gUnk_080519E4
 
-	.global sub_0801C6F0
+	.global fe_retry_process
 	.thumb_func
-	.type sub_0801C6F0, %function
-sub_0801C6F0: @ 0801C6F0
+	.type fe_retry_process, %function
+fe_retry_process: @ 0801C6F0
 	push {r4, r5, lr}
 	bl sub_08003478
 	ldr r1, _0801C7DC
@@ -8011,9 +8011,9 @@ _0801CA90:
 _0801CA94:
 	.4byte 0x00000084
 _0801CA98:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0801CA9C:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801CAA0:
 	.4byte 0x040000D4
 _0801CAA4:
@@ -8095,7 +8095,7 @@ _0801CB3C:
 _0801CB40:
 	.4byte gGameSetup
 _0801CB44:
-	.4byte sub_0801CB54
+	.4byte fe_name_process
 _0801CB48:
 	.4byte gStateFunc
 _0801CB4C:
@@ -8103,10 +8103,10 @@ _0801CB4C:
 _0801CB50:
 	.4byte gUnk_08051A0C
 
-	.global sub_0801CB54
+	.global fe_name_process
 	.thumb_func
-	.type sub_0801CB54, %function
-sub_0801CB54: @ 0801CB54
+	.type fe_name_process, %function
+fe_name_process: @ 0801CB54
 	push {r4, r5, lr}
 	sub sp, #4
 	bl sub_08003478
@@ -8290,7 +8290,7 @@ _0801CCB8:
 _0801CCBC:
 	.4byte 0x0202D710
 _0801CCC0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801CCC4:
 	.4byte gKeysHeld
 _0801CCC8:
@@ -8531,10 +8531,10 @@ _0801CE72:
 	adds r4, r4, r1
 	b _0801CE12
 
-	.global sub_0801CE80
+	.global fe_movie_process
 	.thumb_func
-	.type sub_0801CE80, %function
-sub_0801CE80: @ 0801CE80
+	.type fe_movie_process, %function
+fe_movie_process: @ 0801CE80
 	push {r4, lr}
 	bl sub_08003478
 	ldr r4, _0801CEC0
@@ -8568,7 +8568,7 @@ _0801CEBC:
 _0801CEC0:
 	.4byte 0x04000208
 _0801CEC4:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801CEC8:
 	.4byte sub_03003D54
 _0801CECC:
@@ -8727,7 +8727,7 @@ _0801CFF8:
 _0801CFFC:
 	.4byte 0x0202D730
 _0801D000:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0801D004:
 	.4byte gUnk_0865A122
 
@@ -8802,7 +8802,7 @@ _0801D088:
 _0801D08C:
 	.4byte gStateFunc
 _0801D090:
-	.4byte sub_0801CE80
+	.4byte fe_movie_process
 
 	.global fe_spotscreen2_init
 	.thumb_func
@@ -8856,9 +8856,9 @@ _0801D0EC:
 _0801D0F0:
 	.4byte 0x04000200
 _0801D0F4:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0801D0F8:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _0801D0FC:
 	adds r1, #8
 	strh r4, [r1]
@@ -9019,7 +9019,7 @@ _0801D23C:
 _0801D240:
 	.4byte 0x0202D748
 _0801D244:
-	.4byte sub_0801D254
+	.4byte fe_spotscreen2_process
 _0801D248:
 	.4byte gStateFunc
 _0801D24C:
@@ -9027,10 +9027,10 @@ _0801D24C:
 _0801D250:
 	.4byte gUnk_08051A40
 
-	.global sub_0801D254
+	.global fe_spotscreen2_process
 	.thumb_func
-	.type sub_0801D254, %function
-sub_0801D254: @ 0801D254
+	.type fe_spotscreen2_process, %function
+fe_spotscreen2_process: @ 0801D254
 	push {lr}
 	sub sp, #0x10
 	bl sub_08003478
@@ -9104,4 +9104,4 @@ _0801D2E0:
 _0801D2E4:
 	.4byte 0x0202D748
 _0801D2E8:
-	.4byte 0x0300566C
+	.4byte gModeFlags

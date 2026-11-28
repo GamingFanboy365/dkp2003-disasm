@@ -2692,9 +2692,9 @@ _08002760:
 _08002764:
 	.4byte 0x04000200
 _08002768:
-	.4byte sub_08000460
+	.4byte vblank_handler
 _0800276C:
-	.4byte 0x03005620
+	.4byte gIrqHandler
 _08002770:
 	.4byte gDbgVolume
 _08002774:
@@ -3974,7 +3974,7 @@ _08003082:
 	b _0800306E
 	.byte 0x00, 0x00
 _08003088:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0800308C:
 	.4byte 0x0201A93C
 _08003090:

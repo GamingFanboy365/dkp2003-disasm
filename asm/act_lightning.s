@@ -177,7 +177,7 @@ _0802BB20:
 _0802BB24:
 	.4byte gRacerObjects
 _0802BB28:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0802BB2C:
 	.4byte 0x0000FFFF
 _0802BB30:
@@ -361,7 +361,7 @@ _0802BC98:
 _0802BC9C:
 	.4byte gRacerObjects
 _0802BCA0:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _0802BCA4:
 	.4byte 0xFFFFEFFF
 _0802BCA8:

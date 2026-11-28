@@ -905,7 +905,7 @@ _0801193C:
 _08011940:
 	.4byte 0x0202DE5C
 _08011944:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08011948:
 	.4byte gRacerObjects
 

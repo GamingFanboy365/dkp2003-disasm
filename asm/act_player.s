@@ -10641,7 +10641,7 @@ _08009C4C:
 _08009C50:
 	.4byte gLocalPlayerIndex
 _08009C54:
-	.4byte 0x0300566C
+	.4byte gModeFlags
 _08009C58:
 	cmp r4, #0
 	bne _08009C5E
