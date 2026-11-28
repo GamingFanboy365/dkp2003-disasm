@@ -389,7 +389,7 @@ _ovl_a_0300451C:
 _ovl_a_03004520:
 	.4byte gUnk_081108A0
 _ovl_a_03004524:
-	.4byte gUnk_081136E0
+	.4byte gGroundBlocks
 
 	.global ovl_a_horizon_lines
 	.type ovl_a_horizon_lines, %function
@@ -1534,7 +1534,7 @@ _03005594:
 _03005598:
 	.4byte 0x02001220
 _0300559C:
-	.4byte gUnk_081136E0
+	.4byte gGroundBlocks
 _030055A0:
 	.4byte 0x02001760
 	.incbin "baserom.gba", 0x3DBA0, 0x7C

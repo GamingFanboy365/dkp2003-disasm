@@ -46,6 +46,7 @@ offsets, sizes and types.
 | Checkpoints (42) | `levels/NN/checkpoints*.s` | the lines that count laps, one `checkpoint x, z, next, prev, nx, nz, d` each |
 | Hit polygons (21) | `levels/NN/hits.txt` | the ground's polygons as text: the play area, then `poly <drag> <kind>` and the vertices; the build computes boxes, grid masks and edge deltas |
 | Track edges (84) | `levels/NN/edges_*.s` | the inside and outside walls of each track, one `track_edge` per segment |
+| Ground and horizon maps (52) | `levels/NN/ground.txt`, `horizon_*.txt`, `ground_preview.png` | text grids; the ground in 4 × 4-tile blocks of `gGroundBlocks`, with a preview of the whole course from above |
 | Flyby camera paths (42) | `levels/NN/flyby*.s` | the course flyby's camera, one `flyby_point x, y, z, pitch, yaw, speed` per point |
 | Camera and autopilot points (84) | `levels/NN/camera*.s`, `autopilot*.s` | one `path_point x, y, z, next, a, b` per point |
 | Tables (4) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
@@ -54,14 +55,14 @@ offsets, sizes and types.
 | Animation scripts (1) | `graphics/sprites/anims.s` | every sprite animation, written with `anim_*` macros (frames, delay, goto, stop); three of them are unused |
 | Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
-| Other (76) | `*.bin` | level data blocks whose use is not known yet (`data_14`, `data_1c`…`data_24`) and the track records' icon positions (see [`docs/levels.md`](docs/levels.md)) |
+| Other (24) | `*.bin` | the track records' icon positions (see [`docs/levels.md`](docs/levels.md)) |
 
 Layout:
 ```
 assets/levels/NN/            33 levels: palette.pal, bg_a/bg_c/bg_d.png (tilesets),
                              objects.s, ai_path.s, checkpoints.s, hits.txt, edges_*.s, flyby*.s, camera*.s,
                              autopilot*.s, ... (docs/levels.md: which code reads each),
-                             data_XX.bin for fields whose use is not known yet
+                             ground.txt + ground_preview.png, horizon_*.txt
 assets/levels/tracks/        48 track records: sky gradients, palettes, map/theme sprites (PNG)
 assets/levels/level_headers.s, track_records.s
 assets/graphics/sprites/     sprite sheets NNN.png + NNN.json (sprite table entry NNN),
@@ -365,5 +366,7 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
   first instruction where two builds diverge.
 * A few areas are still emitted as bytes: undecoded parts of the ARM audio
   engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
-* Decode the remaining level data blocks (`data_XX.bin`).
+* Every level data block is decoded, but some fields' meanings are still open
+  (the horizon maps' cells, a few AI path and point values; see
+  [`docs/levels.md`](docs/levels.md)).
 * Music sequences are decoded (MIDI export) but still `.incbin` in the build.

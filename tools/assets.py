@@ -28,6 +28,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             checkpoint macro (tools/checkpoints.py)
   edges     a level's track edges (walls), assembly with the track_edge
             macro (tools/edges.py)
+  grid      a level's ground map (in 4 x 4-tile blocks) and horizon maps as
+            text grids (tools/grid.py); the ground also as a preview PNG
   flyby     a level's flyby camera path, assembly with the flyby_point
             macro (tools/flyby.py)
   points    the autopilot path and race camera points of a level, assembly
@@ -52,7 +54,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s', 'flyby': '.s'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s', 'flyby': '.s', 'grid': '.txt'}
 TILES_PER_ROW = 16
 
 
@@ -315,6 +317,16 @@ def extract(rom_path):
         elif typ == 'flyby':
             import flyby
             open(path, 'w').write('\n'.join(flyby.to_asm(rom, off, name)) + '\n')
+        elif typ == 'grid':
+            import grid
+            open(path, 'w').write(grid.to_text(rom, off, name))
+            if name.endswith('/ground'):
+                # preview with the level's tileset (bg_a) and palette
+                lv = int(name.split('/')[1])
+                hdr = 0x7146C0 + 0x94 * lv
+                tiles, pal = (struct.unpack_from('<I', rom, hdr + f)[0] - 0x08000000 for f in (0x04, 0x00))
+                w, h, px, cols = grid.ground_preview(rom, off, tiles, pal)
+                png_write(path[:-4] + '_preview.png', w, h, px, cols)
         elif typ == 'points':
             import points
             open(path, 'w').write('\n'.join(points.to_asm(rom, off, name)) + '\n')
@@ -416,6 +428,9 @@ def build():
             counts = [m['tiles'] for m in meta['frames']]
             w, h, px = png_read(src)
             data = rare_sprite.build(meta, rare_sprite.from_pixels(counts, w, h, px, src))
+        elif typ == 'grid':
+            import grid
+            data = grid.from_text(open(src).read(), os.path.relpath(src, ROOT))
         elif typ == 'hits':
             import hits
             data = hits.build(*hits.from_text(open(src).read()))

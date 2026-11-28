@@ -269,7 +269,7 @@ _ovl_b_03004320:
 _ovl_b_03004370:
 	.4byte 0x02004320
 _ovl_b_03004374:
-	.4byte gUnk_081136E0
+	.4byte gGroundBlocks
 
 	.global ovl_b_render
 	.type ovl_b_render, %function

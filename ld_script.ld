@@ -121,7 +121,7 @@ SECTIONS
 	.ovl_b 0x03003FC8 : AT(LOADADDR(.ovl_a) + SIZEOF(.ovl_a)) { build/asm/ovl_b.o(.ovl_b) }
 	__ovl_b_lma = LOADADDR(.ovl_b);
 	__ovl_b_size = SIZEOF(.ovl_b);
-	.rom6 LOADADDR(.ovl_b) + SIZEOF(.ovl_b) : AT(LOADADDR(.ovl_b) + SIZEOF(.ovl_b)) { build/data/data_0803EA90.o(.text) build/data/data_08102B00.o(.text) build/data/data_08200000.o(.text) build/data/data_083D1D00.o(.text) build/data/data_0843FB00.o(.text) build/data/data_08628F00.o(.text) build/data/data_08700000.o(.text) build/data/data_0880FB00.o(.text) build/data/data_08AF2100.o(.text) build/data/data_08B7C200.o(.text) }
+	.rom6 LOADADDR(.ovl_b) + SIZEOF(.ovl_b) : AT(LOADADDR(.ovl_b) + SIZEOF(.ovl_b)) { build/data/data_0803EA90.o(.text) build/data/data_08102B00.o(.text) build/data/data_08293500.o(.text) build/data/data_083D1D00.o(.text) build/data/data_0843FB00.o(.text) build/data/data_08628F00.o(.text) build/data/data_08700000.o(.text) build/data/data_0880FB00.o(.text) build/data/data_08AF2100.o(.text) build/data/data_08B7C200.o(.text) }
 
 	/DISCARD/ : { *(.ARM.attributes) *(.comment) }
 }

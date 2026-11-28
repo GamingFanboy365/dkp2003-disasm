@@ -69,7 +69,7 @@ OBJS := \
 	build/asm/ovl_b.o \
 	build/data/data_0803EA90.o \
 	build/data/data_08102B00.o \
-	build/data/data_08200000.o \
+	build/data/data_08293500.o \
 	build/data/data_083D1D00.o \
 	build/data/data_0843FB00.o \
 	build/data/data_08628F00.o \

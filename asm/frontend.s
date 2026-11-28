@@ -613,7 +613,7 @@ _080148D4:
 _080148D8:
 	.4byte 0x06000A80
 _080148DC:
-	.4byte gUnk_081136E0
+	.4byte gGroundBlocks
 _080148E0:
 	.4byte 0x020241D0
 _080148E4:
@@ -1025,7 +1025,7 @@ _08014BEC:
 _08014BF0:
 	.4byte 0x06000A80
 _08014BF4:
-	.4byte gUnk_081136E0
+	.4byte gGroundBlocks
 _08014BF8:
 	.4byte 0x06001280
 _08014BFC:

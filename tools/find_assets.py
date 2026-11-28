@@ -42,6 +42,7 @@ import hits  # noqa: E402
 import edges  # noqa: E402
 import points  # noqa: E402
 import flyby  # noqa: E402
+import grid  # noqa: E402
 from analyze import parse_cfg, ROM, ROM_BASE  # noqa: E402
 
 LEVELS = 0x7146C0
@@ -71,6 +72,10 @@ LEVEL_FIELDS[0x3C] = ('ai_path_rev', 'aipath')
 LEVEL_FIELDS[0x40] = ('hits', 'hits')
 for off, nm in ((0x44, 'edges_in'), (0x48, 'edges_out'), (0x4C, 'edges_in_rev'), (0x50, 'edges_out_rev')):
     LEVEL_FIELDS[off] = (nm, 'edges')
+LEVEL_FIELDS[0x14] = ('ground', 'grid')
+LEVEL_FIELDS[0x1C] = ('horizon_a', 'grid')
+LEVEL_FIELDS[0x20] = ('horizon_b', 'grid')
+LEVEL_FIELDS[0x24] = ('horizon_c', 'grid')
 LEVEL_FIELDS[0x54] = ('flyby', 'flyby')
 LEVEL_FIELDS[0x58] = ('flyby_rev', 'flyby')
 for off, nm in ((0x64, 'camera'), (0x68, 'camera_rev'), (0x6C, 'autopilot'), (0x70, 'autopilot_rev')):
@@ -159,6 +164,8 @@ def collect(g, data):
                 add(p, 'levels/%02d/%s' % (L, fname), typ, points.size(data, p))
             elif typ == 'flyby':
                 add(p, 'levels/%02d/%s' % (L, fname), typ, flyby.size(data, p))
+            elif typ == 'grid':
+                add(p, 'levels/%02d/%s' % (L, fname), typ, grid.size(data, p))
             else:
                 add(p, 'levels/%02d/%s' % (L, fname), typ)
     # --- tracks ---

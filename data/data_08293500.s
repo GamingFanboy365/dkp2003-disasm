@@ -1,99 +1,65 @@
-@ data/data_08200000.s: ROM 0x200000-0x3D1D00 (rom, VMA 0x08200000)
+@ data/data_08293500.s: ROM 0x293500-0x3D1D00 (rom, VMA 0x08293500)
 
 	.include "asm/macros.inc"
 
 	.section .text, "ax", %progbits
 	.balign 256
 
-	.incbin "baserom.gba", 0x200000, 0x1E0D8
-	.global gUnk_0821E0D8
-gUnk_0821E0D8:
-	.incbin "build/assets/levels/18/data_14.bin"   @ from assets/levels/18/data_14.bin
-	.balign 4
-	.global gUnk_0822008C
-gUnk_0822008C:
-	.incbin "baserom.gba", 0x22008C, 0x1E050
-	.global gUnk_0823E0DC
-gUnk_0823E0DC:
-	.incbin "build/assets/levels/19/data_14.bin"   @ from assets/levels/19/data_14.bin
-	.balign 16
-	.global gUnk_0825E0E0
-gUnk_0825E0E0:
-	.incbin "build/assets/levels/20/data_14.bin"   @ from assets/levels/20/data_14.bin
-	.balign 4
-	.global gUnk_0827E0E4
-gUnk_0827E0E4:
-	.incbin "build/assets/levels/21/data_14.bin"   @ from assets/levels/21/data_14.bin
-	.balign 8
-	.global gUnk_082828E8
-gUnk_082828E8:
-	.incbin "build/assets/levels/22/data_14.bin"   @ from assets/levels/22/data_14.bin
-	.balign 4
-	.global gUnk_08288AEC
-gUnk_08288AEC:
-	.incbin "build/assets/levels/23/data_14.bin"   @ from assets/levels/23/data_14.bin
-	.balign 16
-	.global gUnk_0828D2F0
-gUnk_0828D2F0:
-	.incbin "build/assets/levels/24/data_14.bin"   @ from assets/levels/24/data_14.bin
-	.balign 8
-	.global gUnk_082934F8
-gUnk_082934F8:
-	.incbin "baserom.gba", 0x2934F8, 0x504
+	.incbin "baserom.gba", 0x293500, 0x4FC
 	.global gUnk_082939FC
 gUnk_082939FC:
 	.incbin "baserom.gba", 0x2939FC, 0x500
 	.global gUnk_08293EFC
 gUnk_08293EFC:
-	.incbin "build/assets/levels/09/data_20.bin"   @ from assets/levels/09/data_20.bin
+	.incbin "build/assets/levels/09/horizon_b.bin"   @ from assets/levels/09/horizon_b.txt
 	.balign 16
 	.global gUnk_08293F60
 gUnk_08293F60:
-	.incbin "build/assets/levels/09/data_1c.bin"   @ from assets/levels/09/data_1c.bin
+	.incbin "build/assets/levels/09/horizon_a.bin"   @ from assets/levels/09/horizon_a.txt
 	.balign 4
 	.global gUnk_08294024
 gUnk_08294024:
-	.incbin "build/assets/levels/09/data_24.bin"   @ from assets/levels/09/data_24.bin
+	.incbin "build/assets/levels/09/horizon_c.bin"   @ from assets/levels/09/horizon_c.txt
 	.balign 8
 	.global gUnk_082940B8
 gUnk_082940B8:
-	.incbin "build/assets/levels/01/data_20.bin"   @ from assets/levels/01/data_20.bin
+	.incbin "build/assets/levels/01/horizon_b.bin"   @ from assets/levels/01/horizon_b.txt
 	.balign 4
 	.global gUnk_0829411C
 gUnk_0829411C:
-	.incbin "build/assets/levels/01/data_1c.bin"   @ from assets/levels/01/data_1c.bin
+	.incbin "build/assets/levels/01/horizon_a.bin"   @ from assets/levels/01/horizon_a.txt
 	.balign 16
 	.global gUnk_082941E0
 gUnk_082941E0:
-	.incbin "build/assets/levels/01/data_24.bin"   @ from assets/levels/01/data_24.bin
+	.incbin "build/assets/levels/01/horizon_c.bin"   @ from assets/levels/01/horizon_c.txt
 	.balign 4
 	.global gUnk_08294274
 gUnk_08294274:
-	.incbin "build/assets/levels/12/data_20.bin"   @ from assets/levels/12/data_20.bin
+	.incbin "build/assets/levels/12/horizon_b.bin"   @ from assets/levels/12/horizon_b.txt
 	.balign 8
 	.global gUnk_082942D8
 gUnk_082942D8:
-	.incbin "build/assets/levels/12/data_24.bin"   @ from assets/levels/12/data_24.bin
+	.incbin "build/assets/levels/12/horizon_c.bin"   @ from assets/levels/12/horizon_c.txt
 	.balign 4
 	.global gUnk_0829439C
 gUnk_0829439C:
-	.incbin "build/assets/levels/12/data_1c.bin"   @ from assets/levels/12/data_1c.bin
+	.incbin "build/assets/levels/12/horizon_a.bin"   @ from assets/levels/12/horizon_a.txt
 	.balign 16
 	.global gUnk_08294430
 gUnk_08294430:
-	.incbin "build/assets/levels/25/data_14.bin"   @ from assets/levels/25/data_14.bin
+	.incbin "build/assets/levels/25/ground.bin"   @ from assets/levels/25/ground.txt
 	.balign 4
 	.global gUnk_08294C34
 gUnk_08294C34:
-	.incbin "build/assets/levels/25/data_24.bin"   @ from assets/levels/25/data_24.bin
+	.incbin "build/assets/levels/25/horizon_c.bin"   @ from assets/levels/25/horizon_c.txt
 	.balign 8
 	.global gUnk_08294C98
 gUnk_08294C98:
-	.incbin "build/assets/levels/25/data_1c.bin"   @ from assets/levels/25/data_1c.bin
+	.incbin "build/assets/levels/25/horizon_a.bin"   @ from assets/levels/25/horizon_a.txt
 	.balign 4
 	.global gUnk_08294D5C
 gUnk_08294D5C:
-	.incbin "build/assets/levels/25/data_20.bin"   @ from assets/levels/25/data_20.bin
+	.incbin "build/assets/levels/25/horizon_b.bin"   @ from assets/levels/25/horizon_b.txt
 	.balign 16
 	.global gUnk_08294DF0
 gUnk_08294DF0:

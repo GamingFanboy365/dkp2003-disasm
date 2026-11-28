@@ -980,3 +980,4 @@ ovl_b:0x03004DA0 ovl_b_hblank       # hblank: BG2/BG3 affine registers and backd
 0x0802389C player_boss_advance      # (obj, gPlayerBossAi, in): moves the AI's position along z (+0x70) and +0x68; checked in mGBA
 0x08023B48 player_boss_particles    # particles from the plane's velocity, using gPlayerBossAi+0xE8/+0xEC; not seen running in the test race
 0x08021358 winlevel_path_eval       # (obj, i): a cubic spline over path records of 0x74 bytes (5 terms, __muldi3), as cam_path_eval; the win-level camera
+0x081136E0 gGroundBlocks            # 42134 blocks of 4 x 4 one-byte tile numbers (16 bytes), shared by every level's ground map (level +0x14); ovl_a_render copies them into the affine BG map

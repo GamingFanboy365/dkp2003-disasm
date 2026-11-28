@@ -14,7 +14,8 @@ inside and outside, then the same for Reverse. `make extract` names the files
 |---|---|---|---|
 | `+0x00` | `palette` | `race_setup_ovl_a`, … | 256-colour BG palette |
 | `+0x04`–`+0x10` | `bg_a` … `bg_d` | race setup | tilesets |
-| `+0x14`, `+0x1C`–`+0x24` | `data_14`, `data_1c` … | | not known yet |
+| `+0x14` | `ground` (`.txt`, preview `.png`) | `race_setup_ovl_a` → `ovl_a_render` | the ground map, in blocks of 4 × 4 tiles (below) |
+| `+0x1C`–`+0x24` | `horizon_a`, `horizon_b`, `horizon_c` (`.txt`) | `race_setup_ovl_a/b` → `ovl_a_stream_map` | three small maps scrolled with wrap-around as the camera turns: the horizon (below) |
 | `+0x18` | | | a number (1) |
 | `+0x34` | `objects` | `game_init` → `obj_spawn_level_object` | object list `{x, y, z, classinfo*}` |
 | `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` (`.s`) | `aiPlayerInit`, `ai_boss_init_1/2`; then `ai_update`, `ai_choose_next_node` | the CPU racers' path of gates (below); in RAM `gAiPathNodes`, `gAiPathLinks`, `gAiPathCount` |
@@ -73,6 +74,31 @@ The boss levels each have their own copy of a 188-node path, followed by
 Checked in mGBA: with every node of Steamy Swoop's path moved 300 units
 along x, the CPU racers fly about 300 units off to the side, and the player,
 who was 5th, is 1st after 20 seconds.
+
+## Ground and horizon maps (`ground`, `horizon_a`–`c`)
+
+All four are grids: `u16 width, height`, then `width × height` u16 cells.
+`make extract` writes them as text (`size W H`, then one row of cells per
+line; `tools/grid.py`), and the build converts them back. All 52 are exact,
+which also gives level 4's and the boss levels' ground maps their full
+size; before, they were cut at the next label.
+
+The **ground** (`+0x14`, 32 × 32 to 256 × 256) is the terrain under the
+track. A cell is the number of a block in `gGroundBlocks` (`0x081136E0`):
+42,134 blocks of 4 × 4 one-byte tile numbers, shared by all levels; the
+table ends exactly where the debug menu's map begins. `ovl_a_render`
+copies the blocks around the camera into the affine BG map at
+`0x06008000`, clamping at the edges. One block is 32 world units, so the
+map lines up with the object, path and checkpoint coordinates.
+`make extract` also draws each ground with the level's tileset (`bg_a`) and
+palette as `ground_preview.png`: the whole course seen from above (a
+preview; not read back). Checked in mGBA: with every cell of Steamy
+Swoop's ground set to the grass block, the race is flown over grass.
+
+The **horizon** maps (`+0x1C`, `+0x20`, `+0x24`; 16–32 × 3–5) are
+scrolled with wrap-around as the camera turns (`ovl_a_stream_map`). Their
+cells are not plain text-BG entries; what exactly they index is not known
+yet.
 
 ## Hit polygons (`hits`)
 
