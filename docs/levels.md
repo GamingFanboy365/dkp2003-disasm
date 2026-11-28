@@ -23,8 +23,8 @@ inside and outside, then the same for Reverse. `make extract` names the files
 | `+0x4C` / `+0x50` | `edges_in_rev`, `edges_out_rev` (`.s`) | the same in Reverse | |
 | `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |
 | `+0x5C` / `+0x60` | `checkpoints`, `checkpoints_rev` (`.s`) | `init_race_monitor`, `race_check_checkpoint` | the checkpoint lines that count laps (below) |
-| `+0x64` / `+0x68` | `camera`, `camera_rev` | `init_camera` | camera data |
-| `+0x6C` / `+0x70` | `autopilot`, `autopilot_rev` | `player_touch_booster_autopilot` | the path the autopilot booster flies |
+| `+0x64` / `+0x68` | `camera`, `camera_rev` (`.s`) | `init_camera` | the race camera's points (below) |
+| `+0x6C` / `+0x70` | `autopilot`, `autopilot_rev` (`.s`) | `player_touch_booster_autopilot`, `plane_autopilot` | the path the autopilot booster flies (below) |
 | `+0x74`, `+0x78`, `+0x8C` | | race monitors, `act_hud_lapcounter` | numbers |
 | `+0x7C` | | `init_hud_map` | a number (the map) |
 | `+0x80`–`+0x88`, `+0x90` | | `sub_080033C4` (`+0x90`) | numbers |
@@ -127,6 +127,21 @@ edge[count]   13 words:
   s32 dx, dz            its direction, 16.16
   u16 next, prev        neighbouring edges (the list is a loop)
 ```
+
+## Camera and autopilot points (`camera*`, `autopilot*`)
+
+Both are lists of points, written by `make extract` with the `path_point`
+macro (`tools/points.py`); all 84 lists are accounted for:
+
+```
+u32 count
+point[count]   s16 x, y, z; s16 next; s16 a, b       (12 bytes)
+```
+
+The camera's lists loop (`next` of the last point is 0); an autopilot path
+runs to its end. `a` takes small values (0–9) and `b` is almost always 0;
+neither is known yet. Steamy Swoop's autopilot path is empty forwards and
+has four points in Reverse; levels without an autopilot booster have none.
 
 ## Checkpoints (`checkpoints`, `checkpoints_rev`)
 

@@ -6927,19 +6927,19 @@ gUnk_087D3A9C:
 	.balign 4
 	.global gUnk_087D3BE4
 gUnk_087D3BE4:
-	.incbin "build/assets/levels/01/camera.bin"   @ from assets/levels/01/camera.bin
+	.include "assets/levels/01/camera.s"
 	.balign 16
 	.global gUnk_087D3C60
 gUnk_087D3C60:
-	.incbin "build/assets/levels/01/camera_rev.bin"   @ from assets/levels/01/camera_rev.bin
+	.include "assets/levels/01/camera_rev.s"
 	.balign 4
 	.global gUnk_087D3CDC
 gUnk_087D3CDC:
-	.incbin "build/assets/levels/01/autopilot.bin"   @ from assets/levels/01/autopilot.bin
+	.include "assets/levels/01/autopilot.s"
 	.balign 16
 	.global gUnk_087D3CE0
 gUnk_087D3CE0:
-	.incbin "build/assets/levels/01/autopilot_rev.bin"   @ from assets/levels/01/autopilot_rev.bin
+	.include "assets/levels/01/autopilot_rev.s"
 	.balign 4
 	.global gUnk_087D3CE4
 gUnk_087D3CE4:
@@ -6983,19 +6983,19 @@ gUnk_087D8990:
 	.balign 4
 	.global gUnk_087D8AB4
 gUnk_087D8AB4:
-	.incbin "build/assets/levels/02/camera.bin"   @ from assets/levels/02/camera.bin
+	.include "assets/levels/02/camera.s"
 	.balign 16
 	.global gUnk_087D8B60
 gUnk_087D8B60:
-	.incbin "build/assets/levels/02/camera_rev.bin"   @ from assets/levels/02/camera_rev.bin
+	.include "assets/levels/02/camera_rev.s"
 	.balign 4
 	.global gUnk_087D8C24
 gUnk_087D8C24:
-	.incbin "build/assets/levels/02/autopilot.bin"   @ from assets/levels/02/autopilot.bin
+	.include "assets/levels/02/autopilot.s"
 	.balign 8
 	.global gUnk_087D8DA8
 gUnk_087D8DA8:
-	.incbin "build/assets/levels/02/autopilot_rev.bin"   @ from assets/levels/02/autopilot_rev.bin
+	.include "assets/levels/02/autopilot_rev.s"
 	.balign 4
 	.global gUnk_087D8DAC
 gUnk_087D8DAC:
@@ -7039,19 +7039,19 @@ gUnk_087DDB48:
 	.balign 16
 	.global gUnk_087DDC30
 gUnk_087DDC30:
-	.incbin "build/assets/levels/03/camera.bin"   @ from assets/levels/03/camera.bin
+	.include "assets/levels/03/camera.s"
 	.balign 4
 	.global gUnk_087DDCC4
 gUnk_087DDCC4:
-	.incbin "build/assets/levels/03/camera_rev.bin"   @ from assets/levels/03/camera_rev.bin
+	.include "assets/levels/03/camera_rev.s"
 	.balign 16
 	.global gUnk_087DDDA0
 gUnk_087DDDA0:
-	.incbin "build/assets/levels/03/autopilot.bin"   @ from assets/levels/03/autopilot.bin
+	.include "assets/levels/03/autopilot.s"
 	.balign 4
 	.global gUnk_087DDDA4
 gUnk_087DDDA4:
-	.incbin "build/assets/levels/03/autopilot_rev.bin"   @ from assets/levels/03/autopilot_rev.bin
+	.include "assets/levels/03/autopilot_rev.s"
 	.balign 8
 	.global gUnk_087DDDA8
 gUnk_087DDDA8:
@@ -7095,19 +7095,19 @@ gUnk_087E182C:
 	.balign 4
 	.global gUnk_087E1914
 gUnk_087E1914:
-	.incbin "build/assets/levels/04/camera.bin"   @ from assets/levels/04/camera.bin
+	.include "assets/levels/04/camera.s"
 	.balign 16
 	.global gUnk_087E19C0
 gUnk_087E19C0:
-	.incbin "build/assets/levels/04/camera_rev.bin"   @ from assets/levels/04/camera_rev.bin
+	.include "assets/levels/04/camera_rev.s"
 	.balign 16
 	.global gUnk_087E1A90
 gUnk_087E1A90:
-	.incbin "build/assets/levels/04/autopilot.bin"   @ from assets/levels/04/autopilot.bin
+	.include "assets/levels/04/autopilot.s"
 	.balign 4
 	.global gUnk_087E1A94
 gUnk_087E1A94:
-	.incbin "build/assets/levels/04/autopilot_rev.bin"   @ from assets/levels/04/autopilot_rev.bin
+	.include "assets/levels/04/autopilot_rev.s"
 	.balign 8
 	.global gUnk_087E1A98
 gUnk_087E1A98:
@@ -7151,19 +7151,19 @@ gUnk_087E4C30:
 	.balign 4
 	.global gUnk_087E4CF4
 gUnk_087E4CF4:
-	.incbin "build/assets/levels/05/camera.bin"   @ from assets/levels/05/camera.bin
+	.include "assets/levels/05/camera.s"
 	.balign 4
 	.global gUnk_087E4D64
 gUnk_087E4D64:
-	.incbin "build/assets/levels/05/camera_rev.bin"   @ from assets/levels/05/camera_rev.bin
+	.include "assets/levels/05/camera_rev.s"
 	.balign 4
 	.global gUnk_087E4E1C
 gUnk_087E4E1C:
-	.incbin "build/assets/levels/05/autopilot.bin"   @ from assets/levels/05/autopilot.bin
+	.include "assets/levels/05/autopilot.s"
 	.balign 16
 	.global gUnk_087E4E20
 gUnk_087E4E20:
-	.incbin "build/assets/levels/05/autopilot_rev.bin"   @ from assets/levels/05/autopilot_rev.bin
+	.include "assets/levels/05/autopilot_rev.s"
 	.balign 4
 	.global gUnk_087E4E54
 gUnk_087E4E54:
@@ -7207,19 +7207,19 @@ gUnk_087E87BC:
 	.balign 8
 	.global gUnk_087E8898
 gUnk_087E8898:
-	.incbin "build/assets/levels/06/camera.bin"   @ from assets/levels/06/camera.bin
+	.include "assets/levels/06/camera.s"
 	.balign 4
 	.global gUnk_087E8944
 gUnk_087E8944:
-	.incbin "build/assets/levels/06/camera_rev.bin"   @ from assets/levels/06/camera_rev.bin
+	.include "assets/levels/06/camera_rev.s"
 	.balign 16
 	.global gUnk_087E89F0
 gUnk_087E89F0:
-	.incbin "build/assets/levels/06/autopilot.bin"   @ from assets/levels/06/autopilot.bin
+	.include "assets/levels/06/autopilot.s"
 	.balign 4
 	.global gUnk_087E89F4
 gUnk_087E89F4:
-	.incbin "build/assets/levels/06/autopilot_rev.bin"   @ from assets/levels/06/autopilot_rev.bin
+	.include "assets/levels/06/autopilot_rev.s"
 	.balign 8
 	.global gUnk_087E89F8
 gUnk_087E89F8:
@@ -7263,19 +7263,19 @@ gUnk_087EC8F0:
 	.balign 4
 	.global gUnk_087ECA2C
 gUnk_087ECA2C:
-	.incbin "build/assets/levels/07/camera.bin"   @ from assets/levels/07/camera.bin
+	.include "assets/levels/07/camera.s"
 	.balign 16
 	.global gUnk_087ECAF0
 gUnk_087ECAF0:
-	.incbin "build/assets/levels/07/camera_rev.bin"   @ from assets/levels/07/camera_rev.bin
+	.include "assets/levels/07/camera_rev.s"
 	.balign 4
 	.global gUnk_087ECBE4
 gUnk_087ECBE4:
-	.incbin "build/assets/levels/07/autopilot.bin"   @ from assets/levels/07/autopilot.bin
+	.include "assets/levels/07/autopilot.s"
 	.balign 8
 	.global gUnk_087ECBE8
 gUnk_087ECBE8:
-	.incbin "build/assets/levels/07/autopilot_rev.bin"   @ from assets/levels/07/autopilot_rev.bin
+	.include "assets/levels/07/autopilot_rev.s"
 	.balign 4
 	.global gUnk_087ECD84
 gUnk_087ECD84:
@@ -7319,19 +7319,19 @@ gUnk_087F15DC:
 	.balign 4
 	.global gUnk_087F16C4
 gUnk_087F16C4:
-	.incbin "build/assets/levels/08/camera.bin"   @ from assets/levels/08/camera.bin
+	.include "assets/levels/08/camera.s"
 	.balign 8
 	.global gUnk_087F1788
 gUnk_087F1788:
-	.incbin "build/assets/levels/08/camera_rev.bin"   @ from assets/levels/08/camera_rev.bin
+	.include "assets/levels/08/camera_rev.s"
 	.balign 4
 	.global gUnk_087F184C
 gUnk_087F184C:
-	.incbin "build/assets/levels/08/autopilot.bin"   @ from assets/levels/08/autopilot.bin
+	.include "assets/levels/08/autopilot.s"
 	.balign 16
 	.global gUnk_087F1850
 gUnk_087F1850:
-	.incbin "build/assets/levels/08/autopilot_rev.bin"   @ from assets/levels/08/autopilot_rev.bin
+	.include "assets/levels/08/autopilot_rev.s"
 	.balign 8
 	.global gUnk_087F1968
 gUnk_087F1968:
@@ -7375,19 +7375,19 @@ gUnk_087F4C58:
 	.balign 8
 	.global gUnk_087F4CF8
 gUnk_087F4CF8:
-	.incbin "build/assets/levels/09/camera.bin"   @ from assets/levels/09/camera.bin
+	.include "assets/levels/09/camera.s"
 	.balign 16
 	.global gUnk_087F4D80
 gUnk_087F4D80:
-	.incbin "build/assets/levels/09/camera_rev.bin"   @ from assets/levels/09/camera_rev.bin
+	.include "assets/levels/09/camera_rev.s"
 	.balign 16
 	.global gUnk_087F4E20
 gUnk_087F4E20:
-	.incbin "build/assets/levels/09/autopilot.bin"   @ from assets/levels/09/autopilot.bin
+	.include "assets/levels/09/autopilot.s"
 	.balign 4
 	.global gUnk_087F4E24
 gUnk_087F4E24:
-	.incbin "build/assets/levels/09/autopilot_rev.bin"   @ from assets/levels/09/autopilot_rev.bin
+	.include "assets/levels/09/autopilot_rev.s"
 	.balign 8
 	.global gUnk_087F4E28
 gUnk_087F4E28:
@@ -7431,19 +7431,19 @@ gUnk_087F7A00:
 	.balign 16
 	.global gUnk_087F7AA0
 gUnk_087F7AA0:
-	.incbin "build/assets/levels/10/camera.bin"   @ from assets/levels/10/camera.bin
+	.include "assets/levels/10/camera.s"
 	.balign 16
 	.global gUnk_087F7BA0
 gUnk_087F7BA0:
-	.incbin "build/assets/levels/10/camera_rev.bin"   @ from assets/levels/10/camera_rev.bin
+	.include "assets/levels/10/camera_rev.s"
 	.balign 4
 	.global gUnk_087F7C7C
 gUnk_087F7C7C:
-	.incbin "build/assets/levels/10/autopilot.bin"   @ from assets/levels/10/autopilot.bin
+	.include "assets/levels/10/autopilot.s"
 	.balign 16
 	.global gUnk_087F7C80
 gUnk_087F7C80:
-	.incbin "build/assets/levels/10/autopilot_rev.bin"   @ from assets/levels/10/autopilot_rev.bin
+	.include "assets/levels/10/autopilot_rev.s"
 	.balign 4
 	.global gUnk_087F7C84
 gUnk_087F7C84:
@@ -7487,19 +7487,19 @@ gUnk_087FCC94:
 	.balign 8
 	.global gUnk_087FCD88
 gUnk_087FCD88:
-	.incbin "build/assets/levels/11/camera.bin"   @ from assets/levels/11/camera.bin
+	.include "assets/levels/11/camera.s"
 	.balign 16
 	.global gUnk_087FCE40
 gUnk_087FCE40:
-	.incbin "build/assets/levels/11/camera_rev.bin"   @ from assets/levels/11/camera_rev.bin
+	.include "assets/levels/11/camera_rev.s"
 	.balign 8
 	.global gUnk_087FCEF8
 gUnk_087FCEF8:
-	.incbin "build/assets/levels/11/autopilot.bin"   @ from assets/levels/11/autopilot.bin
+	.include "assets/levels/11/autopilot.s"
 	.balign 4
 	.global gUnk_087FCEFC
 gUnk_087FCEFC:
-	.incbin "build/assets/levels/11/autopilot_rev.bin"   @ from assets/levels/11/autopilot_rev.bin
+	.include "assets/levels/11/autopilot_rev.s"
 	.balign 16
 	.global gUnk_087FCF00
 gUnk_087FCF00:
@@ -7543,19 +7543,19 @@ gUnk_087FF89C:
 	.balign 4
 	.global gUnk_087FF984
 gUnk_087FF984:
-	.incbin "build/assets/levels/12/camera.bin"   @ from assets/levels/12/camera.bin
+	.include "assets/levels/12/camera.s"
 	.balign 8
 	.global gUnk_087FFA48
 gUnk_087FFA48:
-	.incbin "build/assets/levels/12/camera_rev.bin"   @ from assets/levels/12/camera_rev.bin
+	.include "assets/levels/12/camera_rev.s"
 	.balign 4
 	.global gUnk_087FFB0C
 gUnk_087FFB0C:
-	.incbin "build/assets/levels/12/autopilot.bin"   @ from assets/levels/12/autopilot.bin
+	.include "assets/levels/12/autopilot.s"
 	.balign 4
 	.global gUnk_087FFC0C
 gUnk_087FFC0C:
-	.incbin "build/assets/levels/12/autopilot_rev.bin"   @ from assets/levels/12/autopilot_rev.bin
+	.include "assets/levels/12/autopilot_rev.s"
 	.balign 16
 	.global gUnk_087FFC10
 gUnk_087FFC10:
@@ -7603,19 +7603,19 @@ gUnk_088044DC:
 	.balign 4
 	.global gUnk_08804624
 gUnk_08804624:
-	.incbin "build/assets/levels/13/camera.bin"   @ from assets/levels/13/camera.bin
+	.include "assets/levels/13/camera.s"
 	.balign 4
 	.global gUnk_0880470C
 gUnk_0880470C:
-	.incbin "build/assets/levels/13/camera_rev.bin"   @ from assets/levels/13/camera_rev.bin
+	.include "assets/levels/13/camera_rev.s"
 	.balign 4
 	.global gUnk_088047F4
 gUnk_088047F4:
-	.incbin "build/assets/levels/13/autopilot.bin"   @ from assets/levels/13/autopilot.bin
+	.include "assets/levels/13/autopilot.s"
 	.balign 8
 	.global gUnk_088047F8
 gUnk_088047F8:
-	.incbin "build/assets/levels/13/autopilot_rev.bin"   @ from assets/levels/13/autopilot_rev.bin
+	.include "assets/levels/13/autopilot_rev.s"
 	.balign 16
 	.global gUnk_088048E0
 gUnk_088048E0:
@@ -7659,19 +7659,19 @@ gUnk_0880831C:
 	.balign 4
 	.global gUnk_0880844C
 gUnk_0880844C:
-	.incbin "build/assets/levels/14/camera.bin"   @ from assets/levels/14/camera.bin
+	.include "assets/levels/14/camera.s"
 	.balign 16
 	.global gUnk_08808510
 gUnk_08808510:
-	.incbin "build/assets/levels/14/camera_rev.bin"   @ from assets/levels/14/camera_rev.bin
+	.include "assets/levels/14/camera_rev.s"
 	.balign 4
 	.global gUnk_088085EC
 gUnk_088085EC:
-	.incbin "build/assets/levels/14/autopilot.bin"   @ from assets/levels/14/autopilot.bin
+	.include "assets/levels/14/autopilot.s"
 	.balign 16
 	.global gUnk_08808710
 gUnk_08808710:
-	.incbin "build/assets/levels/14/autopilot_rev.bin"   @ from assets/levels/14/autopilot_rev.bin
+	.include "assets/levels/14/autopilot_rev.s"
 	.balign 4
 	.global gUnk_08808714
 gUnk_08808714:
@@ -7715,19 +7715,19 @@ gUnk_0880B8A0:
 	.balign 16
 	.global gUnk_0880B970
 gUnk_0880B970:
-	.incbin "build/assets/levels/15/camera.bin"   @ from assets/levels/15/camera.bin
+	.include "assets/levels/15/camera.s"
 	.balign 4
 	.global gUnk_0880BA1C
 gUnk_0880BA1C:
-	.incbin "build/assets/levels/15/camera_rev.bin"   @ from assets/levels/15/camera_rev.bin
+	.include "assets/levels/15/camera_rev.s"
 	.balign 4
 	.global gUnk_0880BABC
 gUnk_0880BABC:
-	.incbin "build/assets/levels/15/autopilot.bin"   @ from assets/levels/15/autopilot.bin
+	.include "assets/levels/15/autopilot.s"
 	.balign 16
 	.global gUnk_0880BAC0
 gUnk_0880BAC0:
-	.incbin "build/assets/levels/15/autopilot_rev.bin"   @ from assets/levels/15/autopilot_rev.bin
+	.include "assets/levels/15/autopilot_rev.s"
 	.balign 4
 	.global gUnk_0880BAC4
 gUnk_0880BAC4:
@@ -7771,17 +7771,17 @@ gUnk_0880F6CC:
 	.balign 4
 	.global gUnk_0880F79C
 gUnk_0880F79C:
-	.incbin "build/assets/levels/16/camera.bin"   @ from assets/levels/16/camera.bin
+	.include "assets/levels/16/camera.s"
 	.balign 4
 	.global gUnk_0880F854
 gUnk_0880F854:
-	.incbin "build/assets/levels/16/camera_rev.bin"   @ from assets/levels/16/camera_rev.bin
+	.include "assets/levels/16/camera_rev.s"
 	.balign 8
 	.global gUnk_0880F8E8
 gUnk_0880F8E8:
-	.incbin "build/assets/levels/16/autopilot.bin"   @ from assets/levels/16/autopilot.bin
+	.include "assets/levels/16/autopilot.s"
 	.balign 4
 	.global gUnk_0880F9F4
 gUnk_0880F9F4:
-	.incbin "build/assets/levels/16/autopilot_rev.bin"   @ from assets/levels/16/autopilot_rev.bin
+	.include "assets/levels/16/autopilot_rev.s"
 	.balign 16

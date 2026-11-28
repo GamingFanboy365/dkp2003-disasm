@@ -28,6 +28,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             checkpoint macro (tools/checkpoints.py)
   edges     a level's track edges (walls), assembly with the track_edge
             macro (tools/edges.py)
+  points    the autopilot path and race camera points of a level, assembly
+            with the path_point macro (tools/points.py)
   hits      a level's hit polygons as text: the play area, then each
             polygon's type and vertices (tools/hits.py); the build works out
             the boxes, grid masks and edge deltas
@@ -48,7 +50,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s'}
 TILES_PER_ROW = 16
 
 
@@ -308,6 +310,9 @@ def extract(rom_path):
         elif typ == 'edges':
             import edges
             open(path, 'w').write('\n'.join(edges.to_asm(rom, off, name)) + '\n')
+        elif typ == 'points':
+            import points
+            open(path, 'w').write('\n'.join(points.to_asm(rom, off, name)) + '\n')
         elif typ == 'hits':
             import hits
             area, polys, _ = hits.parse(rom, off)
@@ -382,7 +387,7 @@ def build():
     assets = load_manifest()
     made = 0
     for off, size, typ, name in assets:
-        if typ in ('objects', 'sdata', 'anim', 'aipath', 'checkpoints', 'edges'):
+        if typ in ('objects', 'sdata', 'anim', 'aipath', 'checkpoints', 'edges', 'points'):
             continue
         src = os.path.join(SRC, name + EXT[typ])
         dst = os.path.join(OUT, name + ('.s' if typ == 'text' else '.bin'))

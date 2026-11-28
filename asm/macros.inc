@@ -64,3 +64,8 @@
 	.4byte \dx, \dz
 	.2byte \next, \prev
 .endm
+
+@ a point of the autopilot path or the race camera (tools/points.py)
+.macro path_point x, y, z, next, a, b
+	.2byte \x, \y, \z, \next, \a, \b
+.endm

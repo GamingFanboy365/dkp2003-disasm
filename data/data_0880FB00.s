@@ -57,19 +57,19 @@ gUnk_0881B438:
 	.balign 8
 	.global gUnk_0881B4D8
 gUnk_0881B4D8:
-	.incbin "build/assets/levels/17/camera.bin"   @ from assets/levels/17/camera.bin
+	.include "assets/levels/17/camera.s"
 	.balign 16
 	.global gUnk_0881B560
 gUnk_0881B560:
-	.incbin "build/assets/levels/17/camera_rev.bin"   @ from assets/levels/17/camera_rev.bin
+	.include "assets/levels/17/camera_rev.s"
 	.balign 16
 	.global gUnk_0881B600
 gUnk_0881B600:
-	.incbin "build/assets/levels/17/autopilot.bin"   @ from assets/levels/17/autopilot.bin
+	.include "assets/levels/17/autopilot.s"
 	.balign 4
 	.global gUnk_0881B604
 gUnk_0881B604:
-	.incbin "build/assets/levels/17/autopilot_rev.bin"   @ from assets/levels/17/autopilot_rev.bin
+	.include "assets/levels/17/autopilot_rev.s"
 	.balign 8
 	.global gUnk_0881B608
 gUnk_0881B608:
@@ -118,19 +118,19 @@ gUnk_0881F678:
 	.balign 4
 	.global gUnk_0881F67C
 gUnk_0881F67C:
-	.incbin "build/assets/levels/21/camera.bin"   @ from assets/levels/21/camera.bin
+	.include "assets/levels/21/camera.s"
 	.balign 16
 	.global gUnk_0881F680
 gUnk_0881F680:
-	.incbin "build/assets/levels/21/camera_rev.bin"   @ from assets/levels/21/camera_rev.bin
+	.include "assets/levels/21/camera_rev.s"
 	.balign 4
 	.global gUnk_0881F684
 gUnk_0881F684:
-	.incbin "build/assets/levels/21/autopilot.bin"   @ from assets/levels/21/autopilot.bin
+	.include "assets/levels/21/autopilot.s"
 	.balign 8
 	.global gUnk_0881F688
 gUnk_0881F688:
-	.incbin "build/assets/levels/21/autopilot_rev.bin"   @ from assets/levels/21/autopilot_rev.bin
+	.include "assets/levels/21/autopilot_rev.s"
 	.balign 4
 	.global gUnk_0881F68C
 gUnk_0881F68C:
@@ -174,19 +174,19 @@ gUnk_0881FFF0:
 	.balign 4
 	.global gUnk_0881FFF4
 gUnk_0881FFF4:
-	.incbin "build/assets/levels/22/camera.bin"   @ from assets/levels/22/camera.bin
+	.include "assets/levels/22/camera.s"
 	.balign 8
 	.global gUnk_0881FFF8
 gUnk_0881FFF8:
-	.incbin "build/assets/levels/22/camera_rev.bin"   @ from assets/levels/22/camera_rev.bin
+	.include "assets/levels/22/camera_rev.s"
 	.balign 4
 	.global gUnk_0881FFFC
 gUnk_0881FFFC:
-	.incbin "build/assets/levels/22/autopilot.bin"   @ from assets/levels/22/autopilot.bin
+	.include "assets/levels/22/autopilot.s"
 	.balign 16
 	.global gUnk_08820000
 gUnk_08820000:
-	.incbin "build/assets/levels/22/autopilot_rev.bin"   @ from assets/levels/22/autopilot_rev.bin
+	.include "assets/levels/22/autopilot_rev.s"
 	.balign 4
 	.global gUnk_08820004
 gUnk_08820004:
@@ -230,19 +230,19 @@ gUnk_08820AE4:
 	.balign 8
 	.global gUnk_08820AE8
 gUnk_08820AE8:
-	.incbin "build/assets/levels/23/camera.bin"   @ from assets/levels/23/camera.bin
+	.include "assets/levels/23/camera.s"
 	.balign 4
 	.global gUnk_08820AEC
 gUnk_08820AEC:
-	.incbin "build/assets/levels/23/camera_rev.bin"   @ from assets/levels/23/camera_rev.bin
+	.include "assets/levels/23/camera_rev.s"
 	.balign 16
 	.global gUnk_08820AF0
 gUnk_08820AF0:
-	.incbin "build/assets/levels/23/autopilot.bin"   @ from assets/levels/23/autopilot.bin
+	.include "assets/levels/23/autopilot.s"
 	.balign 4
 	.global gUnk_08820AF4
 gUnk_08820AF4:
-	.incbin "build/assets/levels/23/autopilot_rev.bin"   @ from assets/levels/23/autopilot_rev.bin
+	.include "assets/levels/23/autopilot_rev.s"
 	.balign 8
 	.global gUnk_08820AF8
 gUnk_08820AF8:
@@ -286,19 +286,19 @@ gUnk_08821618:
 	.balign 4
 	.global gUnk_0882161C
 gUnk_0882161C:
-	.incbin "build/assets/levels/24/camera.bin"   @ from assets/levels/24/camera.bin
+	.include "assets/levels/24/camera.s"
 	.balign 16
 	.global gUnk_08821620
 gUnk_08821620:
-	.incbin "build/assets/levels/24/camera_rev.bin"   @ from assets/levels/24/camera_rev.bin
+	.include "assets/levels/24/camera_rev.s"
 	.balign 4
 	.global gUnk_08821624
 gUnk_08821624:
-	.incbin "build/assets/levels/24/autopilot.bin"   @ from assets/levels/24/autopilot.bin
+	.include "assets/levels/24/autopilot.s"
 	.balign 8
 	.global gUnk_08821628
 gUnk_08821628:
-	.incbin "build/assets/levels/24/autopilot_rev.bin"   @ from assets/levels/24/autopilot_rev.bin
+	.include "assets/levels/24/autopilot_rev.s"
 	.balign 4
 	.global gUnk_0882162C
 gUnk_0882162C:
