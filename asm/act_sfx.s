@@ -391,7 +391,7 @@ _08013EAC:
 	movs r3, #0x10
 	orrs r1, r3
 	strb r1, [r4]
-	bl sub_0800A7E0
+	bl racer_battle_out
 	ldr r4, _08013ED4
 	b _08013E62
 	.byte 0x00, 0x00

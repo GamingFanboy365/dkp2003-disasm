@@ -127,7 +127,7 @@ _08025F88:
 	str r2, [r0, #4]
 _08025F9E:
 	adds r0, r4, #0
-	bl sub_08025DF0
+	bl boss_monitor_result
 	bl fade_update
 	ldr r3, [r5]
 	cmp r3, #0xa
@@ -173,7 +173,7 @@ _08025FE4:
 _08026010:
 	add r0, sp, #0x14
 	add r1, sp, #0x10
-	bl sub_08025C78
+	bl boss2_get_pos
 	add r0, sp, #0xc
 	add r1, sp, #8
 	bl boss_get_pos

@@ -168,7 +168,7 @@ _0802BAF4:
 _0802BB12:
 	adds r0, r6, #0
 	movs r2, #1
-	bl sub_0800E35C
+	bl comp_hit
 	adds r7, r0, #0
 	b _0802BAE8
 	.byte 0x00, 0x00
@@ -377,10 +377,10 @@ _0802BCB8:
 _0802BCBC:
 	.4byte gUnk_080530A4
 
-	.global sub_0802BCC0
+	.global weapon_cast_lightning
 	.thumb_func
-	.type sub_0802BCC0, %function
-sub_0802BCC0: @ 0802BCC0
+	.type weapon_cast_lightning, %function
+weapon_cast_lightning: @ 0802BCC0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x24

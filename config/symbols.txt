@@ -587,7 +587,7 @@
 0x0800C2E8 ai_aim_at_node           # angle (atan2_fx) and distance (udiv) to the target node
 0x0800D43C ai_wobble                # random offsets (ai+0xC0..0xDC) while racer flag 0x2000 is set (and 0x100 clear); otherwise they decay by 1/8
 0x0800D338 ai_ease_offsets          # when racer flag 0x200000 is set: ai+0xEC/F4/FC move 1/8 of the way towards ai+0xE8/F0/F8
-0x0800C628 ai_forward               # aiPlayerForward wrapper in ai_update: writes the velocity (obj+0x40/0x44) (tools/fprofile.py)
+0x0800C628 ai_forward               # aiPlayerForward wrapper in ai_update: writes the velocity (obj+0x40/0x44) (tools/fprofile.py); runs to 0x0800D338 with the parts ai_forward_*, which include the CPU racers using items (obj_new, sounds)
 0x08028250 weapon_launch            # called by weaponManager/weaponbossManager: new projectile object, aimed (atan2_fx, isqrt), sounds; runs when B is pressed
 0x08001C28 obj_set_hitbox           # (obj, sx, sy, sz, flags): sizes at obj+0x5C.., bounding box around the position; most init_* call it
 0x08005CE0 plane_turn               # planeControl step: turn rate obj+0xB0 from LEFT/RIGHT (and L/R); found with dkprun `watch`
@@ -869,3 +869,77 @@
 0x08022520 fe_cups_win2_hblank
 0x08023030 fe_boss_win_vblank
 0x0802304C fe_boss_win_hblank
+0x0800567C player_track_edges       # act_player: keep the plane inside the level's track edges (level +0x44/+0x48, reversed lists in reverse courses)
+0x08005BE0 plane_ground_spray       # flying low (y < 0x800) and fast: particles thrown up from the ground under the plane
+0x0800685C plane_roll               # stunt state 1 (pd+0x54): L + LEFT/RIGHT starts a barrel roll (pd+0x58 roll speed, +0x5C angle); also eases pd+0x70 back to 0
+0x080069F0 plane_loop               # planePlayer, stunt state 2: the loop (L + DOWN); pitch angle pd+0x5C turns by pd+0x58 -> vertical speed
+0x08006B90 plane_hit_tumble         # planePlayer, stunt state 3: knocked out of the air by a hit (player_hit)
+0x08006F44 plane_spin               # planePlayer, stunt state 4: the spin of player_hit_spin
+0x08007170 plane_boost_update       # boost stages pd+0x24 (1 ring, 2, 3 flame trail, 4 end; checked in mGBA through a booster with A held); turbo flame object 0x25
+0x08007404 plane_wobble             # like ai_wobble for the player: random offsets while racer flag 0x2000 is set (0x100 clear), else they decay by 1/8
+0x080077D8 plane_ease_offsets       # like ai_ease_offsets (racer flag 0x200000)
+0x080078E4 plane_booster_stunt      # stunt state 5: the automatic stunt after a blue booster (pd+0x78, boost stage 2)
+0x08007A18 plane_autopilot          # racer flag 0x800000: fly the autopilot path (4-point ring at pd+0x1A8.., set by player_touch_booster_autopilot)
+0x080098FC plane_free_steer         # heading (obj+0x56) += in+4, pitch (obj+0x54) += in+8, no physics
+0x0800A798 racer_finish             # stop the engine sound, racer flag 0x8000, state +0xA8 = 2, boost to its end stage
+0x0800A7E0 racer_battle_out         # battle: racer flag 0x40000, state +0xA8 = 2
+0x0800A804 racer_item_level         # gGameSetup+0x98+racer; in mode 5 raised by half the gap to the leader (max 7)
+0x0800A864 racer_finish_alt         # like racer_finish; no caller
+0x08008FF8 player_engine_vol        # engine sound level from the speed and racer data
+0x08009420 player_engine_pitch_remote # another racer's engine: sfx_doppler against the local player
+0x0800A6C0 player_on_hit            # react_player: sound 0xF1, racer_flash_palette, knock-back
+0x0800A8D4 player_hit_tnt           # act_tnt_barrel: voice 0xB and sound 0x9E for the racer hit by the barrel
+0x0800A9FC racer_start_invincible   # weapon type 5 (player): racer flag 0x1000 for 300 + item level frames (obj+0xFE), palette pulse; jingle song 0x10 for the local player
+0x0800E840 comp_start_invincible    # weapon type 5 for a CPU racer
+0x0802BCC0 weapon_cast_lightning    # weapon type 6 (player only)
+0x0800C664 ai_forward_C664        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C678 ai_forward_C678        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C690 ai_forward_C690        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C692 ai_forward_C692        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C6B2 ai_forward_C6B2        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C6DC ai_forward_C6DC        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C6F2 ai_forward_C6F2        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C6F4 ai_forward_C6F4        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C73E ai_forward_C73E        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C750 ai_forward_C750        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C768 ai_forward_C768        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C76A ai_forward_C76A        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C776 ai_forward_C776        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800C79E ai_forward_C79E        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D012 ai_forward_D012        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D0AC ai_forward_D0AC        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D0E0 ai_forward_D0E0        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D13E ai_forward_D13E        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D154 ai_forward_D154        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D160 ai_forward_D160        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D166 ai_forward_D166        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D172 ai_forward_D172        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800D204 ai_forward_D204        # (part of ai_forward: 0x0800C628-0x0800D338 is one function that uses bl as a long branch)
+0x0800B504 racer_ai_drive           # fly a racer along the AI path (gAiPath*); act_player uses it once the player has finished (racer state +0xA8 = 2)
+0x0800E35C comp_hit                 # like player_hit for a CPU racer: nothing while hit or invincible (+0xA0 & 0x1180)
+0x0800E6A8 comp_on_hit              # react_comp_player: sound 0xF1, racer_flash_palette (as player_on_hit)
+0x0800E740 comp_stun                # (obj, a, b, chance): AI stunned (ai+0x11C..0x138; TNT barrel: 60, 60, 0); with chance, a random roll per difficulty (gGameSetup+0x14) ends it early
+0x0800E820 comp_finish              # stop the engine sound, racer flag 0x8000 (as racer_finish)
+0x08024E10 act_player_boss_24E10   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08024E2A act_player_boss_24E2A   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08024E38 act_player_boss_24E38   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08024E3C act_player_boss_24E3C   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08024E7A act_player_boss_24E7A   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08024ECE act_player_boss_24ECE   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x080256AE act_player_boss_256AE   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x080256C8 act_player_boss_256C8   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x080256DE act_player_boss_256DE   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x0802572E act_player_boss_2572E   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08025762 act_player_boss_25762   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08025794 act_player_boss_25794   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x080257C6 act_player_boss_257C6   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x0802585E act_player_boss_2585E   # (part of act_player_boss, 0x08024CF8 to its return; reached by bl used as a long branch)
+0x08025C78 boss2_get_pos            # (&x, &z) from the second boss AI (gBossAi2 +0x5C, +0x64), as boss_get_pos
+0x08025C88 player_boss_start_invincible # weaponbossManager: invincibility in boss levels (palette pulse, jingle 0x10)
+0x08025CCC player_boss_on_hit       # sound 0xF1, racer_flash_palette; no caller
+0x08025D58 boss2_engine_vol_cb      # the second boss's engine sound callbacks (as boss_engine_*)
+0x08025D8C boss2_engine_vol2_cb
+0x08025DBC boss2_engine_pitch_cb
+0x08025DF0 boss_monitor_result      # when racer 0 finishes or is out (state 2/3): winner and loser at gGameSetup+0xA8/+0xA9, item levels +0x98
+0x08024490 boss2_engine_pitch2_cb
+0x08024508 boss2_engine_sfx_update  # start/stop/release the second boss's engine sounds

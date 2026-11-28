@@ -107,7 +107,9 @@ Established from the code (the asserts name some of them):
 | `+0x0C`, `+0x10` | ptr | draw list links | `obj_setup_sprite` |
 | `+0x5A` | u16 | sprite slot in `gSprites` | `obj_setup_sprite` |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
-| `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x2000`, `0x100`, `0x200000` switch the CPU's `ai_wobble` / `ai_ease_offsets`; `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
+| `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x80` hit; `0x1000` invincible (`racer_start_invincible`; hits are ignored while `0x1180` is set); `0x8000` finished (`racer_finish`); `0x40000` out of a battle; `0x2000`, `0x100`, `0x200000` switch `ai_wobble`/`plane_wobble` and `ai_ease_offsets`/`plane_ease_offsets`; `0x800000` on autopilot (`plane_autopilot`); `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
+| `+0xA8` | u32 | racer state: 2 = finished | `racer_finish`; `act_player` then calls `racer_ai_drive` |
+| `+0xFE` | u16 | invincibility timer: 300 frames and more with the item level | `racer_start_invincible` |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |
 
 CPU racers also have a 0x158-byte AI state each (`gAiRacers`, 8 of them),
@@ -123,3 +125,27 @@ and B fires.
 `tools/emu/stepprof.py` does the same per function: it stops at the
 function during a race with a button held and prints what the call
 changes.
+
+## Stunts and boosts
+
+The player's racer data (`gRacerData`, 0x208 bytes per racer, passed to
+`planeControl`/`planePlayer` as the second argument) has two state fields,
+mapped by holding buttons in mGBA from a saved race (screenshots of each):
+
+| `pd+0x54` | Stunt | Started by | Handler |
+|---|---|---|---|
+| 0 | none | | `plane_vertical_speed` |
+| 1 | barrel roll | L + LEFT/RIGHT | `plane_roll` (`+0x58` roll speed, `+0x5C` angle; about 40 frames) |
+| 2 | loop | L + DOWN | `plane_loop` |
+| 3 | knocked down | `player_hit` | `plane_hit_tumble` |
+| 4 | spin | `player_hit_spin` | `plane_spin` |
+| 5 | automatic stunt | a blue booster (`+0x78`) during boost stage 2 | `plane_booster_stunt` |
+
+L + UP and R with a direction do nothing in this build.
+
+`pd+0x24` is the boost (`plane_boost_update`): 1 through the booster ring,
+2, 3 with the flame trail (the `turbo` object, class 0x25), 4 at the end.
+
+The input block (`0x02004224`) holds the keys at `+0` (held) and `+2`
+(new), the steering at `+4` (−0x100 left, 0x100 right) and the pitch at `+8`
+(0x100 down).

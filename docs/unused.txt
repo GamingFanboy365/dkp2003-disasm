@@ -125,8 +125,8 @@ Summary
       functions: react_lava_flame
       strings: "react_lava_flame"
 
-  sub_08025CCC: 1 function(s), 0 data block(s), 140 bytes
-      functions: sub_08025CCC
+  player_boss_on_hit: 1 function(s), 0 data block(s), 140 bytes
+      functions: player_boss_on_hit
 
   __s2b: 1 function(s), 0 data block(s), 136 bytes
       newlib (libc) code that was linked in but is never called
@@ -143,8 +143,8 @@ Summary
   race_shutdown: 1 function(s), 0 data block(s), 120 bytes
       functions: race_shutdown
 
-  sub_0800A864: 1 function(s), 0 data block(s), 112 bytes
-      functions: sub_0800A864
+  racer_finish_alt: 1 function(s), 0 data block(s), 112 bytes
+      functions: racer_finish_alt
 
   sound_set_sfx_volume: 1 function(s), 0 data block(s), 100 bytes
       functions: sound_set_sfx_volume
@@ -271,7 +271,7 @@ Summary
   080044AC      36  ghost.s                  ghost_keep
   08004B34      72  camera_pan.s             cam_path_set
   08004BAC      96  camera_pan.s             cam_path_next_point
-  0800A864     112  act_player.s             sub_0800A864
+  0800A864     112  act_player.s             racer_finish_alt
   0800F5E0      56  act_null.s               act_null
   0800F790     124  act_static.s             react_lava_flame
   080112B4     128  act_banana.s             init_banana
@@ -293,7 +293,7 @@ Summary
   0801E014      96  eeprom.s                 sound_set_master
   0801E0D8     100  eeprom.s                 sound_set_sfx_volume
   0801E13C     100  eeprom.s                 sound_set_balance
-  08025CCC     140  act_player_boss.s        sub_08025CCC
+  08025CCC     140  act_player_boss.s        player_boss_on_hit
   03006BC0      28  audio_arm.s              audio_err_delta_4
   0802F0AE      44  audio.s                  music_set_tempo
   08032598      68  libagbprint.s            AGBAssert

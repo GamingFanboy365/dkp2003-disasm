@@ -355,7 +355,7 @@ _0802B8D8:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	b _0802B8AC
 _0802B8E4:
 	ldr r2, _0802B9F0
@@ -461,7 +461,7 @@ _0802B9AE:
 	movs r1, #0x3c
 	movs r2, #0x3c
 	movs r3, #0
-	bl sub_0800E740
+	bl comp_stun
 	b _0802B764
 _0802B9BC:
 	movs r3, #0x3c
@@ -470,7 +470,7 @@ _0802B9BC:
 	movs r1, #0
 	str r3, [sp]
 	str r4, [sp, #4]
-	bl sub_0800A8D4
+	bl player_hit_tnt
 	b _0802B764
 	.byte 0x00, 0x00
 _0802B9D0:

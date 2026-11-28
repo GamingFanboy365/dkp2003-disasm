@@ -881,7 +881,7 @@ _08005506:
 	mov r0, r8
 	bl racer_pal_pulse_reset
 	mov r0, r8
-	bl sub_0800A804
+	bl racer_item_level
 	ldr r2, _08005534
 	muls r2, r0, r2
 	b _08005538
@@ -1072,10 +1072,10 @@ _08005674:
 _08005678:
 	.4byte booster_blue_sfx_end_cb
 
-	.global sub_0800567C
+	.global player_track_edges
 	.thumb_func
-	.type sub_0800567C, %function
-sub_0800567C: @ 0800567C
+	.type player_track_edges, %function
+player_track_edges: @ 0800567C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1807,10 +1807,10 @@ _08005BD8:
 _08005BDC:
 	.4byte 0x02022E60
 
-	.global sub_08005BE0
+	.global plane_ground_spray
 	.thumb_func
-	.type sub_08005BE0, %function
-sub_08005BE0: @ 08005BE0
+	.type plane_ground_spray, %function
+plane_ground_spray: @ 08005BE0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -3609,10 +3609,10 @@ _08006854:
 _08006858:
 	.4byte udiv
 
-	.global sub_0800685C
+	.global plane_roll
 	.thumb_func
-	.type sub_0800685C, %function
-sub_0800685C: @ 0800685C
+	.type plane_roll, %function
+plane_roll: @ 0800685C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r1, #0
 	ldr r1, [r4, #0x54]
@@ -3837,10 +3837,10 @@ _080069E8:
 _080069EC:
 	.4byte 0xFFFF0000
 
-	.global sub_080069F0
+	.global plane_loop
 	.thumb_func
-	.type sub_080069F0, %function
-sub_080069F0: @ 080069F0
+	.type plane_loop, %function
+plane_loop: @ 080069F0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -4063,10 +4063,10 @@ _08006B88:
 _08006B8C:
 	.4byte 0x01000040
 
-	.global sub_08006B90
+	.global plane_hit_tumble
 	.thumb_func
-	.type sub_08006B90, %function
-sub_08006B90: @ 08006B90
+	.type plane_hit_tumble, %function
+plane_hit_tumble: @ 08006B90
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4550,10 +4550,10 @@ _08006F3C:
 _08006F40:
 	.4byte 0x00000513
 
-	.global sub_08006F44
+	.global plane_spin
 	.thumb_func
-	.type sub_08006F44, %function
-sub_08006F44: @ 08006F44
+	.type plane_spin, %function
+plane_spin: @ 08006F44
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4853,10 +4853,10 @@ _08007168:
 _0800716C:
 	.4byte gUnk_0884E08C
 
-	.global sub_08007170
+	.global plane_boost_update
 	.thumb_func
-	.type sub_08007170, %function
-sub_08007170: @ 08007170
+	.type plane_boost_update, %function
+plane_boost_update: @ 08007170
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -5162,7 +5162,7 @@ _08007376:
 	cmp r0, #1
 	beq _080073E2
 	mov r0, sl
-	bl sub_0800A804
+	bl racer_item_level
 	ldr r1, _080073FC
 	muls r1, r0, r1
 	ldr r3, [r7, #0x48]
@@ -5212,10 +5212,10 @@ _080073FC:
 _08007400:
 	.4byte 0x0000CCCC
 
-	.global sub_08007404
+	.global plane_wobble
 	.thumb_func
-	.type sub_08007404, %function
-sub_08007404: @ 08007404
+	.type plane_wobble, %function
+plane_wobble: @ 08007404
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -5766,10 +5766,10 @@ _0800779E:
 _080077D4:
 	.4byte udiv
 
-	.global sub_080077D8
+	.global plane_ease_offsets
 	.thumb_func
-	.type sub_080077D8, %function
-sub_080077D8: @ 080077D8
+	.type plane_ease_offsets, %function
+plane_ease_offsets: @ 080077D8
 	push {r4, r5, r6, r7, lr}
 	adds r0, #0xa0
 	adds r5, r1, #0
@@ -5906,10 +5906,10 @@ _080078A2:
 	subs r0, r3, r2
 	b _08007864
 
-	.global sub_080078E4
+	.global plane_booster_stunt
 	.thumb_func
-	.type sub_080078E4, %function
-sub_080078E4: @ 080078E4
+	.type plane_booster_stunt, %function
+plane_booster_stunt: @ 080078E4
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6093,10 +6093,10 @@ _08007A10:
 _08007A14:
 	.4byte 0xFFFFFF00
 
-	.global sub_08007A18
+	.global plane_autopilot
 	.thumb_func
-	.type sub_08007A18, %function
-sub_08007A18: @ 08007A18
+	.type plane_autopilot, %function
+plane_autopilot: @ 08007A18
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -7672,7 +7672,7 @@ _08008600:
 	b _080084AA
 _0800860C:
 	mov r0, sl
-	bl sub_0800A804
+	bl racer_item_level
 	ldr r2, _08008790
 	mov r8, r2
 	subs r2, r4, r0
@@ -8191,19 +8191,19 @@ _080089C2:
 _080089CE:
 	adds r1, r7, #0
 	mov r0, sl
-	bl sub_08006F44
+	bl plane_spin
 	b _080089FA
 _080089D8:
 	mov r0, sl
 	adds r1, r7, #0
-	bl sub_080069F0
+	bl plane_loop
 	mov r3, sl
 	str r0, [r3, #0x40]
 	b _080083FA
 _080089E6:
 	mov r0, sl
 	adds r1, r7, #0
-	bl sub_08006B90
+	bl plane_hit_tumble
 	b _080083F6
 _080089F0:
 	adds r1, r7, #0
@@ -8325,21 +8325,21 @@ _08008AA8:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_0800685C
+	bl plane_roll
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_080078E4
+	bl plane_booster_stunt
 	adds r2, r4, #0
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08007170
+	bl plane_boost_update
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08007404
+	bl plane_wobble
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_080077D8
+	bl plane_ease_offsets
 	mov r1, r8
 	ldr r0, [r1]
 	movs r5, #0x80
@@ -8351,7 +8351,7 @@ _08008AA8:
 _08008B04:
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08007A18
+	bl plane_autopilot
 _08008B0C:
 	adds r5, r6, #0
 	adds r5, #0xe0
@@ -9006,10 +9006,10 @@ _08008FF0:
 _08008FF4:
 	.4byte 0x0000118A
 
-	.global sub_08008FF8
+	.global player_engine_vol
 	.thumb_func
-	.type sub_08008FF8, %function
-sub_08008FF8: @ 08008FF8
+	.type player_engine_vol, %function
+player_engine_vol: @ 08008FF8
 	push {r4, r5, r6, lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -9248,7 +9248,7 @@ _080091B0:
 	bl __umodsi3
 	adds r4, r0, #0
 	adds r0, r7, #0
-	bl sub_08008FF8
+	bl player_engine_vol
 	adds r1, r7, #0
 	adds r1, #0xa0
 	ldr r2, [r1, #4]
@@ -9316,7 +9316,7 @@ _08009232:
 	bl __umodsi3
 	adds r4, r0, #0
 	adds r0, r7, #0
-	bl sub_08008FF8
+	bl player_engine_vol
 	adds r1, r7, #0
 	adds r1, #0xa0
 	ldr r2, [r1, #4]
@@ -9480,7 +9480,7 @@ _08009362:
 	str r1, [r5]
 	adds r0, r7, #0
 	mov sb, r2
-	bl sub_08008FF8
+	bl player_engine_vol
 	adds r2, r7, #0
 	adds r2, #0xa0
 	ldr r0, [r2, #4]
@@ -9552,14 +9552,14 @@ _08009410:
 _08009414:
 	.4byte gRacerData
 _08009418:
-	.4byte sub_08008FF8
+	.4byte player_engine_vol
 _0800941C:
 	.4byte player_engine_sample_end
 
-	.global sub_08009420
+	.global player_engine_pitch_remote
 	.thumb_func
-	.type sub_08009420, %function
-sub_08009420: @ 08009420
+	.type player_engine_pitch_remote, %function
+player_engine_pitch_remote: @ 08009420
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	adds r2, r6, #0
@@ -9768,7 +9768,7 @@ _0800959A:
 	bl __umodsi3
 	adds r6, r0, #0
 	adds r0, r5, #0
-	bl sub_08008FF8
+	bl player_engine_vol
 	ldr r3, [r4, #4]
 	lsls r4, r3, #6
 	adds r1, r4, r3
@@ -9819,7 +9819,7 @@ _080095FA:
 	bl __umodsi3
 	adds r6, r0, #0
 	adds r0, r5, #0
-	bl sub_08008FF8
+	bl player_engine_vol
 	ldr r3, [r4, #4]
 	lsls r4, r3, #6
 	adds r1, r4, r3
@@ -10041,7 +10041,7 @@ _080097A4:
 	adds r6, r7, r0
 	str r2, [r6]
 	adds r0, r5, #0
-	bl sub_08008FF8
+	bl player_engine_vol
 	ldr r3, [r4, #4]
 	lsls r0, r3, #6
 	adds r1, r0, r3
@@ -10176,7 +10176,7 @@ _080098CC:
 _080098D0:
 	.4byte player_engine_sample_end
 _080098D4:
-	.4byte sub_08009420
+	.4byte player_engine_pitch_remote
 _080098D8:
 	.4byte gLocalPlayerIndex
 _080098DC:
@@ -10196,10 +10196,10 @@ _080098EC:
 	str r0, [r4]
 	b _0800950E
 
-	.global sub_080098FC
+	.global plane_free_steer
 	.thumb_func
-	.type sub_080098FC, %function
-sub_080098FC: @ 080098FC
+	.type plane_free_steer, %function
+plane_free_steer: @ 080098FC
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r4, #0x54
@@ -10896,12 +10896,12 @@ _08009E20:
 	bne _08009D4E
 	adds r0, r6, #0
 	mov r1, sb
-	bl sub_08005BE0
+	bl plane_ground_spray
 	b _08009D4E
 _08009E36:
 	adds r0, r6, #0
 	mov r1, sb
-	bl sub_0800567C
+	bl player_track_edges
 	b _08009D3A
 _08009E40:
 	movs r1, #0x80
@@ -10947,7 +10947,7 @@ _08009E78:
 	str r4, [r0, #8]
 	mov r1, sb
 	adds r0, r6, #0
-	bl sub_0800567C
+	bl player_track_edges
 	adds r0, r6, #0
 	mov r1, sb
 	mov r2, r8
@@ -11032,7 +11032,7 @@ _08009F04:
 	b _080099BC
 _08009F34:
 	adds r0, r6, #0
-	bl sub_0800B504
+	bl racer_ai_drive
 	b _080099BC
 _08009F3C:
 	ldr r1, _08009F60
@@ -11291,7 +11291,7 @@ _0800A114:
 	adds r0, r6, #0
 	mov r1, sb
 	mov r2, r8
-	bl sub_080098FC
+	bl plane_free_steer
 	cmp r0, #0
 	bne _0800A126
 	bl _080099BC
@@ -11925,7 +11925,7 @@ _0800A622:
 	.global _0800A638
 _0800A638:
 	adds r0, r5, #0
-	bl sub_0800A6C0
+	bl player_on_hit
 	b _0800A2D0
 	.global _0800A640
 _0800A640:
@@ -11994,10 +11994,10 @@ _0800A6B8:
 _0800A6BC:
 	.4byte 0x00001687
 
-	.global sub_0800A6C0
+	.global player_on_hit
 	.thumb_func
-	.type sub_0800A6C0, %function
-sub_0800A6C0: @ 0800A6C0
+	.type player_on_hit, %function
+player_on_hit: @ 0800A6C0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r4, #0
@@ -12109,10 +12109,10 @@ _0800A780:
 	bl gamesfx_play
 	b _0800A6F6
 
-	.global sub_0800A798
+	.global racer_finish
 	.thumb_func
-	.type sub_0800A798, %function
-sub_0800A798: @ 0800A798
+	.type racer_finish, %function
+racer_finish: @ 0800A798
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r4, #0xa0
@@ -12150,10 +12150,10 @@ _0800A7D6:
 _0800A7DC:
 	.4byte gRacerData
 
-	.global sub_0800A7E0
+	.global racer_battle_out
 	.thumb_func
-	.type sub_0800A7E0, %function
-sub_0800A7E0: @ 0800A7E0
+	.type racer_battle_out, %function
+racer_battle_out: @ 0800A7E0
 	adds r1, r0, #0
 	adds r1, #0xa0
 	ldr r3, [r1]
@@ -12173,10 +12173,10 @@ sub_0800A7E0: @ 0800A7E0
 _0800A800:
 	.4byte 0x00000000
 
-	.global sub_0800A804
+	.global racer_item_level
 	.thumb_func
-	.type sub_0800A804, %function
-sub_0800A804: @ 0800A804
+	.type racer_item_level, %function
+racer_item_level: @ 0800A804
 	push {r4, lr}
 	ldr r2, _0800A85C
 	adds r1, r0, #0
@@ -12228,10 +12228,10 @@ _0800A85C:
 _0800A860:
 	.4byte gRacerObjects
 
-	.global sub_0800A864
+	.global racer_finish_alt
 	.thumb_func
-	.type sub_0800A864, %function
-sub_0800A864: @ 0800A864
+	.type racer_finish_alt, %function
+racer_finish_alt: @ 0800A864
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r5, r4, #0
@@ -12286,10 +12286,10 @@ _0800A8CC:
 _0800A8D0:
 	.4byte gLocalPlayerIndex
 
-	.global sub_0800A8D4
+	.global player_hit_tnt
 	.thumb_func
-	.type sub_0800A8D4, %function
-sub_0800A8D4: @ 0800A8D4
+	.type player_hit_tnt, %function
+player_hit_tnt: @ 0800A8D4
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -12450,10 +12450,10 @@ _0800A9F4:
 _0800A9F8:
 	.4byte gRacerData
 
-	.global sub_0800A9FC
+	.global racer_start_invincible
 	.thumb_func
-	.type sub_0800A9FC, %function
-sub_0800A9FC: @ 0800A9FC
+	.type racer_start_invincible, %function
+racer_start_invincible: @ 0800A9FC
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r4, r5, #0
@@ -12464,7 +12464,7 @@ sub_0800A9FC: @ 0800A9FC
 	ldr r1, _0800AA60
 	lsls r2, r6, #3
 	adds r6, r2, r1
-	bl sub_0800A804
+	bl racer_item_level
 	ldr r3, _0800AA64
 	muls r3, r0, r3
 	movs r0, #0x96

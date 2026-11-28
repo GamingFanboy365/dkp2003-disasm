@@ -4266,7 +4266,7 @@ _080230E8:
 _080230EC:
 	.4byte 0x010000FC
 _080230F0:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _080230F4:
 	ldr r0, _08023110
 	bl AGBPrintf
@@ -7092,10 +7092,10 @@ _0802444E:
 	subs r0, r3, r2
 	b _08024410
 
-	.global sub_08024490
+	.global boss2_engine_pitch2_cb
 	.thumb_func
-	.type sub_08024490, %function
-sub_08024490: @ 08024490
+	.type boss2_engine_pitch2_cb, %function
+boss2_engine_pitch2_cb: @ 08024490
 	push {r4, r5, r6, lr}
 	ldr r0, _08024504
 	ldr r3, [r0, #0x10]
@@ -7158,12 +7158,12 @@ _08024500:
 	rsbs r4, r2, #0
 	b _080244B6
 _08024504:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 
-	.global sub_08024508
+	.global boss2_engine_sfx_update
 	.thumb_func
-	.type sub_08024508, %function
-sub_08024508: @ 08024508
+	.type boss2_engine_sfx_update, %function
+boss2_engine_sfx_update: @ 08024508
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -7323,7 +7323,7 @@ _0802461C:
 	str r0, [r7]
 	adds r0, r6, #0
 	mov r8, r2
-	bl sub_08024490
+	bl boss2_engine_pitch2_cb
 	ldr r1, _080246B4
 	movs r3, #0xc2
 	lsls r2, r3, #1
@@ -7376,12 +7376,12 @@ _080246A2:
 	b _08024534
 	.byte 0x00, 0x00
 _080246AC:
-	.4byte sub_08025D8C
+	.4byte boss2_engine_vol2_cb
 _080246B0:
-	.4byte sub_08025DBC
+	.4byte boss2_engine_pitch_cb
 _080246B4:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _080246B8:
-	.4byte sub_08025D58
+	.4byte boss2_engine_vol_cb
 _080246BC:
-	.4byte sub_08024490
+	.4byte boss2_engine_pitch2_cb

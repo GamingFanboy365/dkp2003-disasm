@@ -58,7 +58,7 @@ _080246D6:
 _08024718:
 	.4byte 0x00000001
 _0802471C:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _08024720:
 	.4byte 0x0202EA10
 _08024724:
@@ -933,11 +933,11 @@ _08024D54:
 	ldr r3, [r1, #8]
 	cmp r3, #4
 	bne _08024DAA
-	bl sub_0802585E
+	bl act_player_boss_2585E
 _08024DAA:
 	cmp r3, #2
 	bne _08024DB2
-	bl sub_080257C6
+	bl act_player_boss_257C6
 _08024DB2:
 	mov r1, fp
 	ldr r0, [r1, #0x10]
@@ -975,56 +975,56 @@ _08024DB2:
 	ldr r3, [r6, #8]
 	cmp r3, #1
 	bne _08024E02
-	bl sub_08025794
+	bl act_player_boss_25794
 _08024E02:
 	cmp r3, #3
 	bne _08024E0A
-	bl sub_08025762
+	bl act_player_boss_25762
 _08024E0A:
 	ldr r3, [sp, #0x28]
 	mov r5, r8
 	str r5, [r3, #4]
 
-	.global sub_08024E10
+	.global act_player_boss_24E10
 	.thumb_func
-	.type sub_08024E10, %function
-sub_08024E10: @ 08024E10
+	.type act_player_boss_24E10, %function
+act_player_boss_24E10: @ 08024E10
 	ldr r0, [sp, #0x20]
 	ldr r3, [r0, #8]
 	cmp r3, #1
 	bne _08024E1C
-	bl sub_0802572E
+	bl act_player_boss_2572E
 _08024E1C:
 	cmp r3, #3
 	bne _08024E24
-	bl sub_0802572E
+	bl act_player_boss_2572E
 _08024E24:
 	ldr r1, [sp, #0x28]
 	movs r4, #0
 	str r4, [r1, #8]
 
-	.global sub_08024E2A
+	.global act_player_boss_24E2A
 	.thumb_func
-	.type sub_08024E2A, %function
-sub_08024E2A: @ 08024E2A
+	.type act_player_boss_24E2A, %function
+act_player_boss_24E2A: @ 08024E2A
 	mov r0, fp
 	adds r0, #0xc8
 	ldr r1, [r0]
 	cmp r1, #0
-	bne sub_08024E38
-	bl sub_080256DE
+	bne act_player_boss_24E38
+	bl act_player_boss_256DE
 
-	.global sub_08024E38
+	.global act_player_boss_24E38
 	.thumb_func
-	.type sub_08024E38, %function
-sub_08024E38: @ 08024E38
+	.type act_player_boss_24E38, %function
+act_player_boss_24E38: @ 08024E38
 	mov r7, fp
 	adds r7, #0xfc
 
-	.global sub_08024E3C
+	.global act_player_boss_24E3C
 	.thumb_func
-	.type sub_08024E3C, %function
-sub_08024E3C: @ 08024E3C
+	.type act_player_boss_24E3C, %function
+act_player_boss_24E3C: @ 08024E3C
 	ldr r2, [sp, #0x28]
 	mov r0, sb
 	mov r1, fp
@@ -1046,16 +1046,16 @@ sub_08024E3C: @ 08024E3C
 	ldr r6, [r3]
 	cmp r6, #0
 	bne _08024E72
-	bl sub_080256C8
+	bl act_player_boss_256C8
 _08024E72:
 	mov r0, sb
 	mov r1, fp
 	bl sub_08023B48
 
-	.global sub_08024E7A
+	.global act_player_boss_24E7A
 	.thumb_func
-	.type sub_08024E7A, %function
-sub_08024E7A: @ 08024E7A
+	.type act_player_boss_24E7A, %function
+act_player_boss_24E7A: @ 08024E7A
 	mov r1, fp
 	ldr r6, [r1, #0x6c]
 	adds r2, r6, r0
@@ -1092,13 +1092,13 @@ sub_08024E7A: @ 08024E7A
 	lsls r3, r4, #9
 	ands r0, r3
 	cmp r0, #0
-	bne sub_08024ECE
-	bl sub_080256AE
+	bne act_player_boss_24ECE
+	bl act_player_boss_256AE
 
-	.global sub_08024ECE
+	.global act_player_boss_24ECE
 	.thumb_func
-	.type sub_08024ECE, %function
-sub_08024ECE: @ 08024ECE
+	.type act_player_boss_24ECE, %function
+act_player_boss_24ECE: @ 08024ECE
 	mov r1, sb
 	ldr r0, [r1, #0x24]
 	ldr r4, [r1, #0x28]
@@ -1209,7 +1209,7 @@ _08024FA2:
 _08024FA4:
 	.4byte 0x00000000
 _08024FA8:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _08024FAC:
 	.4byte 0x02004224
 _08024FB0:
@@ -1363,7 +1363,7 @@ _080250D0:
 	mov r1, fp
 	adds r7, #0xf0
 	movs r4, #1
-	bl sub_08024508
+	bl boss2_engine_sfx_update
 	rsbs r3, r4, #0
 	ldr r2, [r7]
 	mov ip, r3
@@ -2163,10 +2163,10 @@ _080256A8:
 	adds r6, #0xf8
 	b _08024FF8
 
-	.global sub_080256AE
+	.global act_player_boss_256AE
 	.thumb_func
-	.type sub_080256AE, %function
-sub_080256AE: @ 080256AE
+	.type act_player_boss_256AE, %function
+act_player_boss_256AE: @ 080256AE
 	mov r5, sb
 	ldr r4, [r5, #0x24]
 	mov r2, sb
@@ -2178,12 +2178,12 @@ sub_080256AE: @ 080256AE
 	ldr r1, [r5, #0x2c]
 	adds r2, #4
 	str r1, [r2]
-	bl sub_08024ECE
+	bl act_player_boss_24ECE
 
-	.global sub_080256C8
+	.global act_player_boss_256C8
 	.thumb_func
-	.type sub_080256C8, %function
-sub_080256C8: @ 080256C8
+	.type act_player_boss_256C8, %function
+act_player_boss_256C8: @ 080256C8
 	mov r1, fp
 	mov r0, sb
 	ldr r2, [sp, #0x28]
@@ -2192,12 +2192,12 @@ sub_080256C8: @ 080256C8
 	adds r5, r1, r0
 	lsls r4, r5, #0xe
 	asrs r0, r4, #0x10
-	bl sub_08024E7A
+	bl act_player_boss_24E7A
 
-	.global sub_080256DE
+	.global act_player_boss_256DE
 	.thumb_func
-	.type sub_080256DE, %function
-sub_080256DE: @ 080256DE
+	.type act_player_boss_256DE, %function
+act_player_boss_256DE: @ 080256DE
 	ldr r5, [sp, #0x28]
 	movs r2, #0x80
 	ldrh r7, [r5]
@@ -2205,12 +2205,12 @@ sub_080256DE: @ 080256DE
 	ands r6, r7
 	cmp r6, #0
 	bne _080256F0
-	bl sub_08024E38
+	bl act_player_boss_24E38
 _080256F0:
 	ldr r4, [r5, #4]
 	cmp r4, #0
 	bne _080256FA
-	bl sub_08024E38
+	bl act_player_boss_24E38
 _080256FA:
 	mov r3, fp
 	adds r3, #0xd0
@@ -2236,12 +2236,12 @@ _080256FA:
 	adds r7, #0xfc
 	str r6, [r1]
 	str r0, [r5]
-	bl sub_08024E3C
+	bl act_player_boss_24E3C
 
-	.global sub_0802572E
+	.global act_player_boss_2572E
 	.thumb_func
-	.type sub_0802572E, %function
-sub_0802572E: @ 0802572E
+	.type act_player_boss_2572E, %function
+act_player_boss_2572E: @ 0802572E
 	ldr r0, [sp, #0x28]
 	ldrh r2, [r0]
 	movs r7, #0x40
@@ -2250,7 +2250,7 @@ sub_0802572E: @ 0802572E
 	beq _08025742
 	ldr r4, _08025AC8
 	str r4, [r0, #8]
-	bl sub_08024E2A
+	bl act_player_boss_24E2A
 _08025742:
 	movs r5, #0x80
 	ands r5, r2
@@ -2262,16 +2262,16 @@ _08025742:
 	ldr r6, [sp, #0x28]
 	lsls r2, r0, #1
 	str r2, [r6, #8]
-	bl sub_08024E2A
+	bl act_player_boss_24E2A
 _0802575A:
 	ldr r7, [sp, #0x28]
 	str r3, [r7, #8]
-	bl sub_08024E2A
+	bl act_player_boss_24E2A
 
-	.global sub_08025762
+	.global act_player_boss_25762
 	.thumb_func
-	.type sub_08025762, %function
-sub_08025762: @ 08025762
+	.type act_player_boss_25762, %function
+act_player_boss_25762: @ 08025762
 	ldr r1, [sp, #0x28]
 	ldrh r2, [r1]
 	movs r0, #0x20
@@ -2281,7 +2281,7 @@ sub_08025762: @ 08025762
 	movs r4, #0x80
 	lsls r7, r4, #1
 	str r7, [r1, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 _08025778:
 	movs r1, #0x10
 	ands r1, r2
@@ -2290,17 +2290,17 @@ _08025778:
 	ldr r6, _08025AC8
 	ldr r5, [sp, #0x28]
 	str r6, [r5, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 _0802578A:
 	ldr r2, [sp, #0x28]
 	mov r3, r8
 	str r3, [r2, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 
-	.global sub_08025794
+	.global act_player_boss_25794
 	.thumb_func
-	.type sub_08025794, %function
-sub_08025794: @ 08025794
+	.type act_player_boss_25794, %function
+act_player_boss_25794: @ 08025794
 	ldr r5, [sp, #0x28]
 	ldrh r2, [r5]
 	movs r7, #0x20
@@ -2309,7 +2309,7 @@ sub_08025794: @ 08025794
 	beq _080257A8
 	ldr r4, _08025AC8
 	str r4, [r5, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 _080257A8:
 	movs r1, #0x10
 	ands r1, r2
@@ -2319,17 +2319,17 @@ _080257A8:
 	ldr r5, [sp, #0x28]
 	lsls r6, r2, #1
 	str r6, [r5, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 _080257BC:
 	ldr r3, [sp, #0x28]
 	mov r7, r8
 	str r7, [r3, #4]
-	bl sub_08024E10
+	bl act_player_boss_24E10
 
-	.global sub_080257C6
+	.global act_player_boss_257C6
 	.thumb_func
-	.type sub_080257C6, %function
-sub_080257C6: @ 080257C6
+	.type act_player_boss_257C6, %function
+act_player_boss_257C6: @ 080257C6
 	movs r0, #0x8a
 	lsls r1, r0, #1
 	add r1, fp
@@ -2386,7 +2386,7 @@ _080257EC:
 	adds r7, #0xfc
 	adds r1, r4, r3
 	str r1, [r0, #0x64]
-	bl sub_08024E3C
+	bl act_player_boss_24E3C
 _0802583C:
 	cmp r3, #0
 	bge _080257EC
@@ -2406,10 +2406,10 @@ _0802583C:
 	str r5, [r2]
 	b _080257EC
 
-	.global sub_0802585E
+	.global act_player_boss_2585E
 	.thumb_func
-	.type sub_0802585E, %function
-sub_0802585E: @ 0802585E
+	.type act_player_boss_2585E, %function
+act_player_boss_2585E: @ 0802585E
 	movs r4, #0x82
 	lsls r0, r4, #1
 	add r0, fp
@@ -2490,7 +2490,7 @@ _08025884:
 	adds r7, #0xfc
 	lsls r6, r4, #1
 	str r6, [r7]
-	bl sub_08024E3C
+	bl act_player_boss_24E3C
 _08025904:
 	ldr r5, [r7]
 	lsls r4, r5, #0x19
@@ -2514,7 +2514,7 @@ _08025904:
 	adds r7, #0xfc
 	asrs r5, r1, #0xc
 	str r5, [r7]
-	bl sub_08024E3C
+	bl act_player_boss_24E3C
 _08025936:
 	ldr r4, [sp, #0x20]
 	movs r1, #1
@@ -2737,7 +2737,7 @@ _08025C10:
 _08025C28:
 	.4byte 0x00000014
 _08025C2C:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _08025C30:
 	.4byte 0xFFFFD99A
 _08025C34:
@@ -2774,10 +2774,10 @@ _08025C70:
 _08025C74:
 	.4byte 0x00000BB5
 
-	.global sub_08025C78
+	.global boss2_get_pos
 	.thumb_func
-	.type sub_08025C78, %function
-sub_08025C78: @ 08025C78
+	.type boss2_get_pos, %function
+boss2_get_pos: @ 08025C78
 	ldr r2, _08025C84
 	ldr r3, [r2, #0x5c]
 	str r3, [r0]
@@ -2785,12 +2785,12 @@ sub_08025C78: @ 08025C78
 	str r0, [r1]
 	bx lr
 _08025C84:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 
-	.global sub_08025C88
+	.global player_boss_start_invincible
 	.thumb_func
-	.type sub_08025C88, %function
-sub_08025C88: @ 08025C88
+	.type player_boss_start_invincible, %function
+player_boss_start_invincible: @ 08025C88
 	push {r4, lr}
 	ldr r2, _08025CAC
 	adds r4, r0, #0
@@ -2826,10 +2826,10 @@ _08025CC0:
 	bl music_play_jingle
 	b _08025CB4
 
-	.global sub_08025CCC
+	.global player_boss_on_hit
 	.thumb_func
-	.type sub_08025CCC, %function
-sub_08025CCC: @ 08025CCC
+	.type player_boss_on_hit, %function
+player_boss_on_hit: @ 08025CCC
 	push {r4, r5, lr}
 	sub sp, #0x14
 	movs r5, #0x7f
@@ -2897,14 +2897,14 @@ _08025D0C:
 _08025D4C:
 	.4byte 0x00000014
 _08025D50:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 _08025D54:
 	.4byte 0xFFFFF334
 
-	.global sub_08025D58
+	.global boss2_engine_vol_cb
 	.thumb_func
-	.type sub_08025D58, %function
-sub_08025D58: @ 08025D58
+	.type boss2_engine_vol_cb, %function
+boss2_engine_vol_cb: @ 08025D58
 	push {lr}
 	ldr r0, _08025D88
 	movs r3, #0xc2
@@ -2931,12 +2931,12 @@ _08025D72:
 	bx r1
 	.byte 0x00, 0x00
 _08025D88:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 
-	.global sub_08025D8C
+	.global boss2_engine_vol2_cb
 	.thumb_func
-	.type sub_08025D8C, %function
-sub_08025D8C: @ 08025D8C
+	.type boss2_engine_vol2_cb, %function
+boss2_engine_vol2_cb: @ 08025D8C
 	push {lr}
 	ldr r2, _08025DB8
 	adds r0, r2, #0
@@ -2962,12 +2962,12 @@ _08025DB4:
 	movs r3, #0xa0
 	b _08025DA0
 _08025DB8:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 
-	.global sub_08025DBC
+	.global boss2_engine_pitch_cb
 	.thumb_func
-	.type sub_08025DBC, %function
-sub_08025DBC: @ 08025DBC
+	.type boss2_engine_pitch_cb, %function
+boss2_engine_pitch_cb: @ 08025DBC
 	push {lr}
 	ldr r2, _08025DEC
 	adds r0, r2, #0
@@ -2995,12 +2995,12 @@ _08025DE6:
 	lsls r3, r1, #0xa
 	b _08025DD2
 _08025DEC:
-	.4byte 0x0202E810
+	.4byte gBossAi2
 
-	.global sub_08025DF0
+	.global boss_monitor_result
 	.thumb_func
-	.type sub_08025DF0, %function
-sub_08025DF0: @ 08025DF0
+	.type boss_monitor_result, %function
+boss_monitor_result: @ 08025DF0
 	push {r4, r5, r6, r7, lr}
 	ldr r0, _08025EB4
 	ldr r7, [r0]

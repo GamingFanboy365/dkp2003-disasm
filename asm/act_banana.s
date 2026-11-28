@@ -726,11 +726,11 @@ _080117E8:
 	cmp r3, #2
 	bne _0801171A
 	adds r0, r4, #0
-	bl sub_0800E820
+	bl comp_finish
 	b _0801171A
 _080117FA:
 	adds r0, r4, #0
-	bl sub_0800A798
+	bl racer_finish
 	b _0801171A
 _08011802:
 	adds r0, r4, #0

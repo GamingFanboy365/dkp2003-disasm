@@ -99,3 +99,4 @@
 0x02021D70 gCamPathCount
 0x02021D74 gCamPathRead
 0x0202EA14 gBossAi                  # boss AI state (position +0x64/+0x6C, speed +0x108)
+0x0202E810 gBossAi2                 # the second boss AI (ai_boss_init_2; position +0x5C/+0x64)

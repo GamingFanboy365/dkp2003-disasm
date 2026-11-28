@@ -155,7 +155,7 @@ _0802C560:
 	ands r1, r3
 	cmp r1, #0
 	bne _0802C550
-	bl sub_0800A804
+	bl racer_item_level
 	adds r4, r0, #0
 	bl multi_lfsr_next
 	adds r7, r0, #0
@@ -414,7 +414,7 @@ _0802C754:
 	cmp r7, #0x32
 	bne _0802C772
 	adds r0, r4, #0
-	bl sub_08025C88
+	bl player_boss_start_invincible
 	b _0802C772
 	.byte 0x00, 0x00
 _0802C764:
@@ -433,7 +433,7 @@ _0802C772:
 	b _0802C6FC
 _0802C77A:
 	adds r0, r4, #0
-	bl sub_0802BCC0
+	bl weapon_cast_lightning
 	b _0802C772
 	.global _0802C782
 _0802C782:

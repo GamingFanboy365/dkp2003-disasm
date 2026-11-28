@@ -472,7 +472,7 @@ _08011E40:
 	ldr r2, _08011F64
 	lsls r1, r0, #2
 	ldr r0, [r2, r1]
-	bl sub_0800B504
+	bl racer_ai_drive
 	b _08011CBA
 	.global _08011E50
 _08011E50:

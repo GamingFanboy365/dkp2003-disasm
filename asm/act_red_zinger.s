@@ -856,7 +856,7 @@ _08029884:
 	mov r0, fp
 	ldr r1, [r2, #8]
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	b _0802983C
 _08029892:
 	ldr r4, [sp, #0x44]
@@ -3097,7 +3097,7 @@ _0802A9C4:
 	mov r0, fp
 	ldr r1, [r2, #8]
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	b _0802A99E
 _0802A9D2:
 	ldr r4, [sp, #0x14]

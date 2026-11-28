@@ -46,7 +46,7 @@ _0802C118:
 	ands r1, r3
 	cmp r1, #0
 	bne _0802C108
-	bl sub_0800A804
+	bl racer_item_level
 	adds r4, r0, #0
 	bl multi_lfsr_next
 	adds r7, r0, #0
@@ -330,11 +330,11 @@ _0802C33A:
 	b _0802C38A
 _0802C33E:
 	adds r0, r5, #0
-	bl sub_0800E840
+	bl comp_start_invincible
 	b _0802C33A
 _0802C346:
 	adds r0, r5, #0
-	bl sub_0800A9FC
+	bl racer_start_invincible
 	b _0802C33A
 	.global _0802C34E
 _0802C34E:
@@ -342,7 +342,7 @@ _0802C34E:
 	cmp r6, #1
 	bne _0802C2B6
 	adds r0, r5, #0
-	bl sub_0802BCC0
+	bl weapon_cast_lightning
 	b _0802C2B6
 _0802C35C:
 	.4byte 0x00000000

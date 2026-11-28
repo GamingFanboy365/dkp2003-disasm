@@ -1077,10 +1077,10 @@ _0800B4F8:
 	.4byte gUnk_08050248
 	.byte 0x3D, 0x01, 0x00, 0x00
 
-	.global sub_0800B504
+	.global racer_ai_drive
 	.thumb_func
-	.type sub_0800B504, %function
-sub_0800B504: @ 0800B504
+	.type racer_ai_drive, %function
+racer_ai_drive: @ 0800B504
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -3461,10 +3461,10 @@ _0800C65A:
 	adds r2, #0xa0
 	str r2, [sp, #0x18]
 
-	.global sub_0800C664
+	.global ai_forward_C664
 	.thumb_func
-	.type sub_0800C664, %function
-sub_0800C664: @ 0800C664
+	.type ai_forward_C664, %function
+ai_forward_C664: @ 0800C664
 	cmp r0, #0
 	bge _0800C66C
 	.2byte 0xF000, 0xFE59 @ bl #0x800d31e
@@ -3476,10 +3476,10 @@ _0800C674:
 	movs r5, #5
 	rsbs r1, r5, #0
 
-	.global sub_0800C678
+	.global ai_forward_C678
 	.thumb_func
-	.type sub_0800C678, %function
-sub_0800C678: @ 0800C678
+	.type ai_forward_C678, %function
+ai_forward_C678: @ 0800C678
 	movs r5, #0
 	lsls r3, r0, #1
 	lsls r6, r1, #1
@@ -3491,18 +3491,18 @@ sub_0800C678: @ 0800C678
 	.2byte 0xF000, 0xFE40 @ bl #0x800d30c
 _0800C68C:
 	cmp r0, r5
-	ble sub_0800C692
+	ble ai_forward_C692
 
-	.global sub_0800C690
+	.global ai_forward_C690
 	.thumb_func
-	.type sub_0800C690, %function
-sub_0800C690: @ 0800C690
+	.type ai_forward_C690, %function
+ai_forward_C690: @ 0800C690
 	movs r0, #0
 
-	.global sub_0800C692
+	.global ai_forward_C692
 	.thumb_func
-	.type sub_0800C692, %function
-sub_0800C692: @ 0800C692
+	.type ai_forward_C692, %function
+ai_forward_C692: @ 0800C692
 	ldr r5, [sp, #0x18]
 	str r0, [r5]
 	ldr r6, [sp, #0x30]
@@ -3520,10 +3520,10 @@ _0800C6AA:
 	str r1, [sp, #0x14]
 	ldr r1, [r1]
 
-	.global sub_0800C6B2
+	.global ai_forward_C6B2
 	.thumb_func
-	.type sub_0800C6B2, %function
-sub_0800C6B2: @ 0800C6B2
+	.type ai_forward_C6B2, %function
+ai_forward_C6B2: @ 0800C6B2
 	ldr r0, [sp, #0x30]
 	ldr r2, [r0]
 	movs r7, #0x80
@@ -3547,10 +3547,10 @@ _0800C6D6:
 	ldr r0, _0800C838
 	rsbs r5, r2, #0
 
-	.global sub_0800C6DC
+	.global ai_forward_C6DC
 	.thumb_func
-	.type sub_0800C6DC, %function
-sub_0800C6DC: @ 0800C6DC
+	.type ai_forward_C6DC, %function
+ai_forward_C6DC: @ 0800C6DC
 	lsls r6, r1, #1
 	lsls r7, r5, #1
 	adds r4, r6, r7
@@ -3561,18 +3561,18 @@ sub_0800C6DC: @ 0800C6DC
 	bl _0800D2D0
 _0800C6EE:
 	cmp r1, r0
-	ble sub_0800C6F4
+	ble ai_forward_C6F4
 
-	.global sub_0800C6F2
+	.global ai_forward_C6F2
 	.thumb_func
-	.type sub_0800C6F2, %function
-sub_0800C6F2: @ 0800C6F2
+	.type ai_forward_C6F2, %function
+ai_forward_C6F2: @ 0800C6F2
 	adds r1, r0, #0
 
-	.global sub_0800C6F4
+	.global ai_forward_C6F4
 	.thumb_func
-	.type sub_0800C6F4, %function
-sub_0800C6F4: @ 0800C6F4
+	.type ai_forward_C6F4, %function
+ai_forward_C6F4: @ 0800C6F4
 	ldr r0, [sp, #0x14]
 	str r1, [r0]
 	ldr r0, _0800C83C
@@ -3580,7 +3580,7 @@ sub_0800C6F4: @ 0800C6F4
 	ldrsh r1, [r0, r5]
 	cmp r1, #4
 	bne _0800C706
-	bl sub_0800D204
+	bl ai_forward_D204
 _0800C706:
 	ldr r4, _0800C840
 	ldr r2, [r4]
@@ -3591,13 +3591,13 @@ _0800C706:
 	ldrb r6, [r0, r1]
 	cmp r6, #3
 	bhi _0800C71C
-	bl sub_0800D172
+	bl ai_forward_D172
 _0800C71C:
 	movs r6, #0x14
 	ldrsh r5, [r0, r6]
 	cmp r5, #2
 	bne _0800C728
-	bl sub_0800D166
+	bl ai_forward_D166
 _0800C728:
 	movs r1, #0x90
 	lsls r3, r1, #1
@@ -3607,50 +3607,50 @@ _0800C728:
 	lsls r2, r6, #3
 	cmp r7, r2
 	bge _0800C73C
-	bl sub_0800D160
+	bl ai_forward_D160
 _0800C73C:
 	ldr r1, _0800C844
 
-	.global sub_0800C73E
+	.global ai_forward_C73E
 	.thumb_func
-	.type sub_0800C73E, %function
-sub_0800C73E: @ 0800C73E
+	.type ai_forward_C73E, %function
+ai_forward_C73E: @ 0800C73E
 	mov r0, fp
 	adds r0, #0xbc
 	ldr r4, [r0]
 	subs r3, r1, r4
 	cmp r3, #0
 	bgt _0800C74E
-	bl sub_0800D154
+	bl ai_forward_D154
 _0800C74E:
 	movs r5, #0x20
 
-	.global sub_0800C750
+	.global ai_forward_C750
 	.thumb_func
-	.type sub_0800C750, %function
-sub_0800C750: @ 0800C750
+	.type ai_forward_C750, %function
+ai_forward_C750: @ 0800C750
 	ldr r4, [r0]
 	lsls r7, r5, #1
 	adds r3, r4, r7
 	str r3, [r0]
 	cmp r5, #0
 	bgt _0800C760
-	bl sub_0800D13E
+	bl ai_forward_D13E
 _0800C760:
 	cmp r3, r1
-	bgt sub_0800C768
-	bl sub_0800D13E
+	bgt ai_forward_C768
+	bl ai_forward_D13E
 
-	.global sub_0800C768
+	.global ai_forward_C768
 	.thumb_func
-	.type sub_0800C768, %function
-sub_0800C768: @ 0800C768
+	.type ai_forward_C768, %function
+ai_forward_C768: @ 0800C768
 	str r1, [r0]
 
-	.global sub_0800C76A
+	.global ai_forward_C76A
 	.thumb_func
-	.type sub_0800C76A, %function
-sub_0800C76A: @ 0800C76A
+	.type ai_forward_C76A, %function
+ai_forward_C76A: @ 0800C76A
 	ldr r5, [r0]
 	movs r7, #0x80
 	ldr r6, [sp, #0x44]
@@ -3658,10 +3658,10 @@ sub_0800C76A: @ 0800C76A
 	adds r0, r5, r3
 	muls r0, r6, r0
 
-	.global sub_0800C776
+	.global ai_forward_C776
 	.thumb_func
-	.type sub_0800C776, %function
-sub_0800C776: @ 0800C776
+	.type ai_forward_C776, %function
+ai_forward_C776: @ 0800C776
 	asrs r1, r0, #0x10
 	str r1, [sp, #0x44]
 	movs r4, #0x8e
@@ -3672,20 +3672,20 @@ sub_0800C776: @ 0800C776
 	beq _0800C7B4
 	cmp r3, #2
 	bne _0800C78E
-	bl sub_0800D0E0
+	bl ai_forward_D0E0
 _0800C78E:
 	cmp r3, #2
 	ble _0800C796
-	bl sub_0800D0AC
+	bl ai_forward_D0AC
 _0800C796:
 	cmp r3, #1
-	bne sub_0800C79E
-	bl sub_0800D012
+	bne ai_forward_C79E
+	bl ai_forward_D012
 
-	.global sub_0800C79E
+	.global ai_forward_C79E
 	.thumb_func
-	.type sub_0800C79E, %function
-sub_0800C79E: @ 0800C79E
+	.type ai_forward_C79E, %function
+ai_forward_C79E: @ 0800C79E
 	movs r4, #0x90
 	lsls r2, r4, #1
 	add r2, fp
@@ -4750,10 +4750,10 @@ _0800CFEA:
 	str r2, [r5]
 	b _0800C944
 
-	.global sub_0800D012
+	.global ai_forward_D012
 	.thumb_func
-	.type sub_0800D012, %function
-sub_0800D012: @ 0800D012
+	.type ai_forward_D012, %function
+ai_forward_D012: @ 0800D012
 	movs r7, #0x90
 	lsls r2, r7, #1
 	add r2, fp
@@ -4810,7 +4810,7 @@ _0800D070:
 	str r2, [r5]
 	cmp r2, #0
 	ble _0800D084
-	bl sub_0800C79E
+	bl ai_forward_C79E
 _0800D084:
 	movs r0, #0x25
 	bl obj_new
@@ -4828,15 +4828,15 @@ _0800D084:
 	bl obj_initialise
 	movs r6, #4
 	str r6, [r5]
-	bl sub_0800C79E
+	bl ai_forward_C79E
 
-	.global sub_0800D0AC
+	.global ai_forward_D0AC
 	.thumb_func
-	.type sub_0800D0AC, %function
-sub_0800D0AC: @ 0800D0AC
+	.type ai_forward_D0AC, %function
+ai_forward_D0AC: @ 0800D0AC
 	cmp r3, #3
 	beq _0800D0B4
-	bl sub_0800C79E
+	bl ai_forward_C79E
 _0800D0B4:
 	movs r6, #0x90
 	lsls r2, r6, #1
@@ -4847,7 +4847,7 @@ _0800D0B4:
 	str r5, [r2]
 	cmp r5, #0
 	ble _0800D0CA
-	bl sub_0800C79E
+	bl ai_forward_C79E
 _0800D0CA:
 	movs r0, #0
 	str r0, [r2]
@@ -4858,12 +4858,12 @@ _0800D0CA:
 	rsbs r3, r5, #0
 	ands r1, r3
 	str r1, [r7]
-	bl sub_0800C79E
+	bl ai_forward_C79E
 
-	.global sub_0800D0E0
+	.global ai_forward_D0E0
 	.thumb_func
-	.type sub_0800D0E0, %function
-sub_0800D0E0: @ 0800D0E0
+	.type ai_forward_D0E0, %function
+ai_forward_D0E0: @ 0800D0E0
 	movs r7, #0x92
 	lsls r0, r7, #1
 	add r0, fp
@@ -4881,7 +4881,7 @@ _0800D0F0:
 	str r0, [r5]
 	cmp r0, #0
 	ble _0800D104
-	bl sub_0800C79E
+	bl ai_forward_C79E
 _0800D104:
 	movs r0, #0x25
 	bl obj_new
@@ -4899,7 +4899,7 @@ _0800D104:
 	bl obj_initialise
 	movs r1, #4
 	str r1, [r5]
-	bl sub_0800C79E
+	bl ai_forward_C79E
 _0800D12C:
 	movs r2, #3
 	str r2, [r1]
@@ -4911,52 +4911,52 @@ _0800D12C:
 	str r4, [r1]
 	b _0800D0F0
 
-	.global sub_0800D13E
+	.global ai_forward_D13E
 	.thumb_func
-	.type sub_0800D13E, %function
-sub_0800D13E: @ 0800D13E
+	.type ai_forward_D13E, %function
+ai_forward_D13E: @ 0800D13E
 	cmp r5, #0
 	blt _0800D146
-	bl sub_0800C76A
+	bl ai_forward_C76A
 _0800D146:
 	ldr r2, [r0]
 	cmp r2, r1
 	blt _0800D150
-	bl sub_0800C76A
+	bl ai_forward_C76A
 _0800D150:
-	bl sub_0800C768
+	bl ai_forward_C768
 
-	.global sub_0800D154
+	.global ai_forward_D154
 	.thumb_func
-	.type sub_0800D154, %function
-sub_0800D154: @ 0800D154
+	.type ai_forward_D154, %function
+ai_forward_D154: @ 0800D154
 	cmp r3, #0
 	bge _0800D1B0
 	movs r2, #0x20
 	rsbs r5, r2, #0
-	bl sub_0800C750
+	bl ai_forward_C750
 
-	.global sub_0800D160
+	.global ai_forward_D160
 	.thumb_func
-	.type sub_0800D160, %function
-sub_0800D160: @ 0800D160
+	.type ai_forward_D160, %function
+ai_forward_D160: @ 0800D160
 	movs r1, #0
-	bl sub_0800C73E
+	bl ai_forward_C73E
 
-	.global sub_0800D166
+	.global ai_forward_D166
 	.thumb_func
-	.type sub_0800D166, %function
-sub_0800D166: @ 0800D166
+	.type ai_forward_D166, %function
+ai_forward_D166: @ 0800D166
 	mov r0, fp
 	movs r5, #0
 	movs r1, #0
 	adds r0, #0xbc
-	bl sub_0800C750
+	bl ai_forward_C750
 
-	.global sub_0800D172
+	.global ai_forward_D172
 	.thumb_func
-	.type sub_0800D172, %function
-sub_0800D172: @ 0800D172
+	.type ai_forward_D172, %function
+ai_forward_D172: @ 0800D172
 	movs r6, #0x8c
 	lsls r0, r6, #1
 	ldr r3, [sp, #0x48]
@@ -4986,17 +4986,17 @@ _0800D19A:
 	cmp r3, #0
 	ble _0800D1AC
 	movs r5, #0x80
-	bl sub_0800C750
+	bl ai_forward_C750
 _0800D1AC:
 	cmp r3, #0
 	blt _0800D1B6
 _0800D1B0:
 	movs r5, #0
-	bl sub_0800C750
+	bl ai_forward_C750
 _0800D1B6:
 	movs r3, #0x40
 	rsbs r5, r3, #0
-	bl sub_0800C750
+	bl ai_forward_C750
 _0800D1BE:
 	cmp r2, #0
 	bne _0800D1CC
@@ -5036,10 +5036,10 @@ _0800D1FC:
 _0800D200:
 	.4byte 0xFEFFFFFF
 
-	.global sub_0800D204
+	.global ai_forward_D204
 	.thumb_func
-	.type sub_0800D204, %function
-sub_0800D204: @ 0800D204
+	.type ai_forward_D204, %function
+ai_forward_D204: @ 0800D204
 	ldr r2, _0800D330
 	movs r3, #1
 	rsbs r6, r3, #0
@@ -5120,7 +5120,7 @@ _0800D288:
 	lsls r3, r7, #9
 	adds r0, r5, r3
 	muls r0, r4, r0
-	bl sub_0800C776
+	bl ai_forward_C776
 _0800D298:
 	cmp r5, #0
 	bge _0800D288
@@ -5159,9 +5159,9 @@ _0800D2CC:
 _0800D2D0:
 	cmp r1, r0
 	blt _0800D2D8
-	bl sub_0800C6F4
+	bl ai_forward_C6F4
 _0800D2D8:
-	bl sub_0800C6F2
+	bl ai_forward_C6F2
 	cmp r1, #0
 	blt _0800D2F6
 	cmp r1, #0
@@ -5169,35 +5169,35 @@ _0800D2D8:
 	movs r3, #5
 	rsbs r5, r3, #0
 	movs r0, #0
-	bl sub_0800C6DC
+	bl ai_forward_C6DC
 _0800D2EE:
 	movs r5, #0
 	movs r0, #0
-	bl sub_0800C6DC
+	bl ai_forward_C6DC
 _0800D2F6:
 	movs r5, #5
 	movs r0, #0
-	bl sub_0800C6DC
+	bl ai_forward_C6DC
 	ldr r3, [sp, #0x48]
 	mov r0, fp
 	ldr r1, [r3, #0x4c]
 	adds r0, #0xa4
 	str r0, [sp, #0x14]
-	bl sub_0800C6B2
+	bl ai_forward_C6B2
 	cmp r0, r5
 	blt _0800D314
-	bl sub_0800C692
+	bl ai_forward_C692
 _0800D314:
-	bl sub_0800C690
+	bl ai_forward_C690
 	movs r1, #0
-	bl sub_0800C678
+	bl ai_forward_C678
 	movs r1, #5
-	bl sub_0800C678
+	bl ai_forward_C678
 	mov r3, fp
 	adds r3, #0xa0
 	str r3, [sp, #0x18]
 	ldr r0, [r3]
-	bl sub_0800C664
+	bl ai_forward_C664
 _0800D330:
 	.4byte gLinkPlayerCount
 _0800D334:
@@ -7398,10 +7398,10 @@ _0800E354:
 _0800E358:
 	.4byte 0xFFFFEFFF
 
-	.global sub_0800E35C
+	.global comp_hit
 	.thumb_func
-	.type sub_0800E35C, %function
-sub_0800E35C: @ 0800E35C
+	.type comp_hit, %function
+comp_hit: @ 0800E35C
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r1, r5, #0
@@ -7616,7 +7616,7 @@ _0800E518:
 	ldr r1, [r1, #4]
 	adds r0, r5, #0
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	cmp r0, #0
 	beq _0800E54C
 	adds r0, r4, #0
@@ -7658,7 +7658,7 @@ _0800E566:
 	ldr r1, [r0, #4]
 	movs r2, #0
 	adds r0, r5, #0
-	bl sub_0800E35C
+	bl comp_hit
 	b _0800E54C
 _0800E588:
 	adds r2, r5, #0
@@ -7705,7 +7705,7 @@ _0800E5D6:
 	ldr r1, [r2, #4]
 	adds r0, r5, #0
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	adds r2, r5, #0
 	adds r2, #0x90
 	str r4, [r2]
@@ -7743,7 +7743,7 @@ _0800E60E:
 	ldr r2, [r0, #4]
 	movs r3, #1
 	adds r0, r5, #0
-	bl sub_0800E740
+	bl comp_stun
 	b _0800E54C
 	.global _0800E626
 _0800E626:
@@ -7751,7 +7751,7 @@ _0800E626:
 	ldr r1, [r4, #8]
 	adds r0, r5, #0
 	movs r2, #0
-	bl sub_0800E35C
+	bl comp_hit
 	cmp r0, #0
 	bne _0800E638
 	b _0800E54C
@@ -7766,7 +7766,7 @@ _0800E638:
 	.global _0800E646
 _0800E646:
 	adds r0, r5, #0
-	bl sub_0800E6A8
+	bl comp_on_hit
 	b _0800E54C
 _0800E64E:
 	ldr r0, _0800E68C
@@ -7812,10 +7812,10 @@ _0800E6A0:
 _0800E6A4:
 	.4byte 0x00000B32
 
-	.global sub_0800E6A8
+	.global comp_on_hit
 	.thumb_func
-	.type sub_0800E6A8, %function
-sub_0800E6A8: @ 0800E6A8
+	.type comp_on_hit, %function
+comp_on_hit: @ 0800E6A8
 	push {r4, r5, lr}
 	sub sp, #0x14
 	movs r4, #0x7f
@@ -7893,10 +7893,10 @@ _0800E738:
 _0800E73C:
 	.4byte gAiRacers
 
-	.global sub_0800E740
+	.global comp_stun
 	.thumb_func
-	.type sub_0800E740, %function
-sub_0800E740: @ 0800E740
+	.type comp_stun, %function
+comp_stun: @ 0800E740
 	push {r4, r5, r6, lr}
 	adds r0, #0xa0
 	ldr r5, [r0, #4]
@@ -8017,10 +8017,10 @@ free_comp_player: @ 0800E7F0
 _0800E81C:
 	.4byte gAiRacers
 
-	.global sub_0800E820
+	.global comp_finish
 	.thumb_func
-	.type sub_0800E820, %function
-sub_0800E820: @ 0800E820
+	.type comp_finish, %function
+comp_finish: @ 0800E820
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x94
@@ -8037,10 +8037,10 @@ sub_0800E820: @ 0800E820
 	pop {r0}
 	bx r0
 
-	.global sub_0800E840
+	.global comp_start_invincible
 	.thumb_func
-	.type sub_0800E840, %function
-sub_0800E840: @ 0800E840
+	.type comp_start_invincible, %function
+comp_start_invincible: @ 0800E840
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r4, #0xa0
