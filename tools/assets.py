@@ -294,12 +294,44 @@ def extract(rom_path):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
         else:
             open(path, 'wb').write(data)
+            if name.endswith('_tilemap'):
+                bg_preview(rom, by_name, name, data)
         count[typ] = count.get(typ, 0) + 1
     open(os.path.join(SRC, 'README.txt'), 'w').write(
         'Generated from your baserom.gba by `make extract` (tools/assets.py).\n'
         'Edit these files and run `make`; see config/assets.txt for offsets and types.\n')
     print('extracted %d assets into assets/: %s' % (len(assets), ', '.join(
         '%d %s' % (v, k) for k, v in sorted(count.items()))))
+
+
+def bg_preview(rom, by_name, name, tilemap):
+    """<x>_tilemap with <x>_tiles (8bpp) and palette beside it: write
+    <x>_preview.png, the composed screen (a preview only, not used by the
+    build; edit the tiles, map and palette instead)."""
+    base, d = name[:-len('_tilemap')], os.path.dirname(name)
+    if base + '_tiles' not in by_name or d + '/palette' not in by_name:
+        return
+    to, ts, tt = by_name[base + '_tiles']
+    po, ps, _ = by_name[d + '/palette']
+    if tt != 'tiles8':
+        return
+    tiles = rom[to + 2:to + ts]
+    cols, rows = 32, len(tilemap) // 64
+    w, h = cols * 8, rows * 8
+    px = [0] * (w * h)
+    for i in range(cols * rows):
+        e = struct.unpack_from('<H', tilemap, 2 * i)[0]
+        t, hf, vf = e & 0x3FF, e & 0x400, e & 0x800
+        tb = tiles[64 * t:64 * t + 64]
+        if len(tb) < 64:
+            continue
+        for y in range(8):
+            for x in range(8):
+                sx, sy = (7 - x if hf else x), (7 - y if vf else y)
+                px[((i // cols) * 8 + sy) * w + (i % cols) * 8 + sx] = tb[y * 8 + x]
+    vw = min(w, 240)                       # the visible screen width
+    px = [px[y * w + x] for y in range(h) for x in range(vw)]
+    png_write(os.path.join(SRC, base + '_preview.png'), vw, h, px, pal_rgb(rom[po:po + ps]))
 
 
 # ------------------------------------------------------------------- build --

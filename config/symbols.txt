@@ -245,3 +245,13 @@
 0x08036B80 _call_via_r9
 0x08036B84 _call_via_r10
 0x08036B88 _call_via_r11
+
+# Debug menu (nothing calls it in this build; see docs/unused.txt).  Started
+# by storing debug_menu_init in gStateFunc (tools/emu: poke 0x03005670 0x0800271D).
+0x080023E8 dbg_putc                 # one character into the BG0 text map at the cursor
+0x08002490 dbg_draw_values          # current level / player / volume / play mode
+0x080025D8 dbg_setup_screen         # palette, beach background, font, tilemap (DMA)
+0x0800271C debug_menu_init          # 0x0801DFEC(4) plays song 4
+0x080027F0 debug_menu_process       # per-frame: cursor, A/B/START per item
+0x08002AE8 dbg_putnum               # decimal number via dbg_putc (recursive)
+0x0801DFEC music_play_if_changed    # (song) -> starts it unless it is already playing

@@ -1008,7 +1008,7 @@ _08019560:
 	ble _080194B6
 	bl sub_0801E1B4
 	movs r0, #4
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r3, _080195BC
 	ldr r1, _080195C0
@@ -1028,7 +1028,7 @@ _08019560:
 _080195BC:
 	.4byte sub_080195CC
 _080195C0:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _080195C4:
 	.4byte gUnk_08051790
 _080195C8:
@@ -2864,7 +2864,7 @@ _0801A3B2:
 	bl sub_0801A06C
 	bl fe_spr_init
 	movs r0, #3
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r3, _0801A40C
 	ldr r0, _0801A410
@@ -2896,7 +2896,7 @@ _0801A408:
 _0801A40C:
 	.4byte sub_0801A41C
 _0801A410:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801A414:
 	.4byte gUnk_0805180C
 _0801A418:
@@ -3838,7 +3838,7 @@ _0801AB44:
 _0801AB48:
 	.4byte sub_0801AC7C
 _0801AB4C:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801AB50:
 	.4byte gUnk_080518B8
 _0801AB54:
@@ -5238,7 +5238,7 @@ _0801B55C:
 	bl sub_0801B18C
 	bl fe_spr_init
 	movs r0, #4
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r0, _0801B5D8
 	ldr r1, _0801B5DC
@@ -5300,7 +5300,7 @@ _0801B5D4:
 _0801B5D8:
 	.4byte sub_0801B5F4
 _0801B5DC:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801B5E0:
 	.4byte gUnk_08051950
 _0801B5E4:
@@ -6740,7 +6740,7 @@ _0801C09C:
 _0801C0F6:
 	bl sub_0801E1B4
 	movs r0, #4
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r2, _0801C138
 	ldr r1, [r2, #8]
@@ -6771,7 +6771,7 @@ _0801C138:
 _0801C13C:
 	.4byte sub_0801C14C
 _0801C140:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801C144:
 	.4byte gUnk_080519BC
 _0801C148:
@@ -7493,7 +7493,7 @@ _0801C6AC:
 	str r2, [r0]
 	str r2, [r0, #4]
 	movs r0, #3
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r1, _0801C6E4
 	ldr r0, _0801C6E8
@@ -7510,7 +7510,7 @@ _0801C6E0:
 _0801C6E4:
 	.4byte sub_0801C6F0
 _0801C6E8:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801C6EC:
 	.4byte gUnk_080519E4
 
@@ -8058,7 +8058,7 @@ _0801CAA8:
 	strb r3, [r0, #0x12]
 _0801CB00:
 	movs r0, #3
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	movs r0, #0x8c
 	bl sub_0801931C
@@ -8091,7 +8091,7 @@ _0801CB40:
 _0801CB44:
 	.4byte sub_0801CB54
 _0801CB48:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801CB4C:
 	.4byte gUnk_080519FC
 _0801CB50:
@@ -8794,7 +8794,7 @@ _0801D084:
 _0801D088:
 	.4byte 0x0202D730
 _0801D08C:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801D090:
 	.4byte sub_0801CE80
 
@@ -8977,7 +8977,7 @@ _0801D190:
 	bl sub_0801931C
 	bl sub_0801E1B4
 	movs r0, #4
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	bl sub_08003634
 	ldr r1, _0801D244
 	ldr r0, _0801D248
@@ -9015,7 +9015,7 @@ _0801D240:
 _0801D244:
 	.4byte sub_0801D254
 _0801D248:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _0801D24C:
 	.4byte gUnk_08051A54
 _0801D250:

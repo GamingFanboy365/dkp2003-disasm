@@ -396,7 +396,8 @@ def main():
             continue
         if fs and all(file_of.get(f) == 'libc.s' for f in fs) and not note:
             note = ['newlib (libc) code that was linked in but is never called']
-        head = label(fs[0]) if fs else ('level 25' if any(n in NOTES and 'level 25' in NOTES[n] for n in ns) else label(ds[0]))
+        noted = [n for n in sorted(ns) if n in NOTES and n in funcs]
+        head = label(noted[0]) if noted else label(fs[0]) if fs else ('level 25' if any(n in NOTES and 'level 25' in NOTES[n] for n in ns) else label(ds[0]))
         w('  %s: %d function(s), %d data block(s), %d bytes' % (head, len(fs), len(ds), tot))
         for t in note[:1]:
             for line in wrap(t, 70):
@@ -556,10 +557,15 @@ def wrap(text, width):
 
 # hand-written descriptions, keyed by ROM offset of a function or block
 NOTES = {
-    0x00271C: 'a debug menu: Level, Player, Cups scoreboard, Flyby, Edit Flyby, '
-              'New Frontend, Cup Win, Volume and Play Mode, with a 20-entry track '
-              'list and a 9-character list.  Its "Cup Win" item opens the cup-win '
-              'screen (fe_cups_win_init), which nothing else uses.',
+    0x00271C: 'a debug menu (debug_menu_init): Level, Player, Cups scoreboard, '
+              'Flyby, Edit Flyby, New Frontend, Cup Win, Volume and Play Mode, with '
+              'a 20-entry track list under older track names and a 9-character '
+              'list.  It plays song 4 and shows its own title background (a beach '
+              'with the winged logo, graphics/debug_menu/), which nothing else '
+              'loads.  Its "Cup Win" item opens the cup-win screen '
+              '(fe_cups_win_init), which nothing else uses either.  To see it in '
+              'mGBA, write 0x0800271D to gStateFunc (0x03005670) at the language '
+              'screen; A/B change a value, START starts a race.',
     0x052580: 'level 25, an unfinished course: its header, a stub track record, '
               'tilesets, data blocks and object list (section 2)',
     0x0144A0: 'the credits screen: fe_credits_init and its graphics; nothing calls it',

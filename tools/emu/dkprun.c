@@ -83,7 +83,8 @@ static void frame(uint32_t keys) {
 		struct ARMCore* cpu = core->cpu;
 		uint32_t start = core->frameCounter(core);
 		while (core->frameCounter(core) == start) {
-			mark(cpu->gprs[ARM_PC] - (cpu->executionMode == MODE_THUMB ? 4 : 8));
+			// gprs[PC] is one instruction ahead of the one about to execute
+			mark(cpu->gprs[ARM_PC] - (cpu->executionMode == MODE_THUMB ? 2 : 4));
 			core->step(core);
 		}
 	} else

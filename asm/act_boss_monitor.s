@@ -164,7 +164,7 @@ _08025FE4:
 	adds r0, #0x8c
 	str r3, [r0]
 	movs r0, #7
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	adds r1, r4, #0
 	adds r1, #0xa0
 	movs r2, #0x78
@@ -251,7 +251,7 @@ _08026084:
 	movs r0, #2
 	bl camera_op_set
 	movs r0, #8
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	adds r0, r4, #0
 	adds r0, #0xa0
 	movs r1, #0xa0
@@ -381,7 +381,7 @@ _0802619A:
 	bls _080261B4
 	movs r0, #0xb
 _080261AA:
-	bl sub_0801DFEC
+	bl music_play_if_changed
 _080261AE:
 	ldr r1, _08026220
 	movs r3, #9
@@ -390,7 +390,7 @@ _080261B4:
 	cmp r3, #0
 	beq _080261C0
 	movs r0, #0xa
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _080261AE
 _080261C0:
 	movs r0, #9

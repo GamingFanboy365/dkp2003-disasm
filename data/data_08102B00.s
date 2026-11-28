@@ -58,7 +58,7 @@ gUnk_081B0E12:
 	.incbin "baserom.gba", 0x1B0E12, 0x7232
 	.global gUnk_081B8044
 gUnk_081B8044:
-	.incbin "baserom.gba", 0x1B8044, 0x500
+	.incbin "build/assets/graphics/debug_menu/beach_tilemap.bin"   @ from assets/graphics/debug_menu/beach_tilemap.bin
 	.global gUnk_081B8544
 gUnk_081B8544:
 	.incbin "build/assets/levels/06/data_20.bin"   @ from assets/levels/06/data_20.bin

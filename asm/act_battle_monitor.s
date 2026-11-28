@@ -183,7 +183,7 @@ _08014020:
 	str r3, [r0]
 	movs r0, #7
 _08014040:
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	.global _08014044
 _08014044:
 	add sp, #8
@@ -353,7 +353,7 @@ _0801416C:
 	bls _080141A2
 	movs r0, #0xb
 _0801418C:
-	bl sub_0801DFEC
+	bl music_play_if_changed
 _08014190:
 	ldr r1, _08014234
 	movs r3, #9
@@ -368,7 +368,7 @@ _080141A2:
 	cmp r3, #0
 	beq _080141AE
 	movs r0, #0xa
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _08014190
 _080141AE:
 	movs r0, #9
@@ -418,7 +418,7 @@ _080141F2:
 	b _080141D6
 _080141FA:
 	movs r0, #3
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _080141CA
 	.global _08014202
 _08014202:

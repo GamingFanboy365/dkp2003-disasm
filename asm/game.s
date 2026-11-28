@@ -207,7 +207,7 @@ _08000638:
 _0800063C:
 	.4byte game_process
 _08000640:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _08000644:
 	.4byte 0x0202D74C
 _08000648:

@@ -55,7 +55,7 @@ _080144F0:
 _080144F4:
 	.4byte 0x02023F98
 _080144F8:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _080144FC:
 	.4byte sub_0801429C
 _08014500:
@@ -120,7 +120,7 @@ _08014568:
 _0801456C:
 	.4byte 0x0000FFFF
 _08014570:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _08014574:
 	.4byte sub_08014580
 _08014578:
@@ -1158,17 +1158,17 @@ _08014CD4:
 	bx r0
 _08014D04:
 	movs r0, #5
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _08014CC0
 _08014D0C:
 	cmp r3, #2
 	bne _08014CC0
 	movs r0, #0x19
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _08014CC0
 _08014D18:
 	movs r0, #0x18
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	b _08014CC0
 _08014D20:
 	ldr r3, _08014E40
@@ -1311,7 +1311,7 @@ _08014E2C:
 _08014E30:
 	.4byte sub_08014EAC
 _08014E34:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _08014E38:
 	.4byte gUnk_080511A8
 _08014E3C:
@@ -3838,7 +3838,7 @@ _08016174:
 _08016178:
 	.4byte sub_08016188
 _0801617C:
-	.4byte 0x03005670
+	.4byte gStateFunc
 _08016180:
 	.4byte gUnk_080513E8
 _08016184:

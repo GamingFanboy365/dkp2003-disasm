@@ -17,8 +17,8 @@ tools/emu (DKP_COVER=<file> repro_zinger_buzz.py).
 Summary
 -------
      88 functions never called                     11558 bytes
-    146 data blocks never referenced              111269 bytes
-    136 blocks possibly unused (section 5)         13378 bytes
+    146 data blocks never referenced              108799 bytes
+    135 blocks possibly unused (section 5)         13376 bytes
   unused level: 25; a debug menu; the credits screen; a cup-win screen;
   a second spot screen; intro, banana and null actors
 
@@ -26,14 +26,19 @@ Summary
 ------------------
   Dead code together with the data only it uses.
 
-  sub_080023E8: 10 function(s), 90 data block(s), 67953 bytes
-      a debug menu: Level, Player, Cups scoreboard, Flyby, Edit Flyby, New
-      Frontend, Cup Win, Volume and Play Mode, with a 20-entry track list
-      and a 9-character list.  Its "Cup Win" item opens the cup-win screen
-      (fe_cups_win_init), which nothing else uses.
-      functions: sub_080023E8, sub_08002490, sub_080025D8, sub_0800271C,
-      sub_080027F0, sub_08002AE8, sub_08002B48, fe_cups_win_init,
-      sub_0801AB74, sub_0801AC7C
+  debug_menu_init: 10 function(s), 89 data block(s), 64794 bytes
+      a debug menu (debug_menu_init): Level, Player, Cups scoreboard, Flyby,
+      Edit Flyby, New Frontend, Cup Win, Volume and Play Mode, with a
+      20-entry track list under older track names and a 9-character list.
+      It plays song 4 and shows its own title background (a beach with the
+      winged logo, graphics/debug_menu/), which nothing else loads.  Its
+      "Cup Win" item opens the cup-win screen (fe_cups_win_init), which
+      nothing else uses either.  To see it in mGBA, write 0x0800271D to
+      gStateFunc (0x03005670) at the language screen; A/B change a value,
+      START starts a race.
+      functions: dbg_putc, dbg_draw_values, dbg_setup_screen,
+      debug_menu_init, debug_menu_process, dbg_putnum, sub_08002B48,
+      fe_cups_win_init, sub_0801AB74, sub_0801AC7C
       strings: "7.increase polyphony RAM\n           ...", "Level",
       "Player", "Cups scoreboard", "Flyby", "Edit Flyby", "New Frontend",
       "Cup Win", "Volume", "Play Mode", "00 - Icy Passage", "01 - Jungle
@@ -43,7 +48,7 @@ Summary
       level 25, an unfinished course: its header, a stub track record,
       tilesets, data blocks and object list (section 2)
 
-  sub_0801429C: 2 function(s), 12 data block(s), 18650 bytes
+  fe_credits_init: 2 function(s), 12 data block(s), 18650 bytes
       the credits screen: fe_credits_init and its graphics; nothing calls it
       functions: sub_0801429C, fe_credits_init
       strings: "%s: setup logo\n", "fe_credits_init"
@@ -260,12 +265,12 @@ Summary
   08000A90      12  game.s                   sub_08000A90
   08000A9C     120  game.s                   sub_08000A9C
   0800213C     172  object.s                 sub_0800213C
-  080023E8     168  object.s                 sub_080023E8
-  08002490     328  object.s                 sub_08002490
-  080025D8     324  object.s                 sub_080025D8
-  0800271C     212  object.s                 sub_0800271C
-  080027F0     760  object.s                 sub_080027F0
-  08002AE8      96  object.s                 sub_08002AE8
+  080023E8     168  object.s                 dbg_putc
+  08002490     328  object.s                 dbg_draw_values
+  080025D8     324  object.s                 dbg_setup_screen
+  0800271C     212  object.s                 debug_menu_init
+  080027F0     760  object.s                 debug_menu_process
+  08002AE8      96  object.s                 dbg_putnum
   08002B48     132  object.s                 sub_08002B48
   08002D7C     252  object.s                 sub_08002D7C
   08004454      40  ghost.s                  sub_08004454
@@ -421,20 +426,20 @@ Summary
   051A40         20  gUnk_08051A40                        text "fe_spotscreen2_init"
   051A54         12  gUnk_08051A54                        text "%s: leave\n"
   052580         44  gUnk_08052580                        table entry, level 25, an unfinished course
-  053850       1201  gUnk_08053850                        
+  053850        512  graphics/debug_menu/palette          pal
+  053A50        689  gUnk_08053A50                        
   054C50       1024  gUnk_08054C50                        
   05A650        512  gUnk_0805A650                        
   05A850       5120  gUnk_0805A850                        
   05BC50        512  levels/25/palette                    pal
   05BE50       1536  gUnk_0805BE50                        follows level 25's palette; several other level palettes are followed by a block like it, so it is probably more palette data for level 25
-  05F694       2470  gUnk_0805F694                        
   09950E      21662  gUnk_0809950E                        
   0E1AE0       4066  gUnk_080E1AE0                        
   0E2AC2       5600  gUnk_080E2AC2                        
   10AE58        258  levels/25/bg_a                       tiles8
   10AF5A       6722  levels/25/bg_c                       tiles4
   10C99C      16130  levels/25/bg_d                       tiles8
-  1B8044       1280  gUnk_081B8044                        
+  1B8044       1280  graphics/debug_menu/beach_tilemap    gfx
   1B9C6C       1284  gUnk_081B9C6C                        
   1BA170       1284  gUnk_081BA170                        
   1BA674       1280  gUnk_081BA674                        
@@ -502,7 +507,6 @@ Summary
   offset, so they are not certain.  Adjacent blocks are merged.
   offset      bytes  follows
   059450        512  levels/16/palette
-  05F692          2  levels/06/bg_a
   085C04          2  graphics/frontend/tiles_081d02
   0B4D54          2  graphics/frontend/tiles_0afd52
   0E1ADE          2  levels/13/bg_d

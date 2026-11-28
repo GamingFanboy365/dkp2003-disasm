@@ -7,6 +7,8 @@ gRacerObjects = 0x0200434C;
 gObjProcessList = 0x02004374;
 gObjStaticHitList = 0x02004378;
 gObjFreeList = 0x0201838C;
+gDbgCursorX = 0x02018598;
+gDbgCursorY = 0x0201859C;
 gRacerData = 0x02021E18;
 gLocalPlayerIndex = 0x0202DE58;
 gSfxVoices = 0x0202DECC;
@@ -16,6 +18,7 @@ gSfxPendingMask = 0x0202E390;
 gSfxNextId = 0x0202E394;
 gRedZingerBuzzOwner = 0x0202EC04;
 gBlueZingerBuzzOwner = 0x0202EC0C;
+gStateFunc = 0x03005670;
 
 SECTIONS
 {

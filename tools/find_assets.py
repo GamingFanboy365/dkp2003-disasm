@@ -61,6 +61,13 @@ TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'r
 # from the DMA survey (tools/emu): front-end tilesets (offset of the u16 count)
 FRONTEND_TILESETS = [(0x081D02, 4), (0x0A698E, 4), (0x0AE810, 4), (0x0AFD52, 8)]
 FRONTEND_TILEMAPS = [0x1B885C, 0x1BEF14]
+# the unused debug menu (dbg_setup_screen, from its DMA transfers in mGBA):
+# the beach title background (8bpp, BG1) with its palette and 32x20 map.
+# The game copies 0x800 bytes of map (0x300 past its end) and 8 KB of font
+# from 0x3062A, of which only 224 glyphs (up to 0x3222C) are font data; the
+# rest is AGBPrint code, so the font stays raw data.
+DEBUG_MENU = [(0x053850, 'palette', 'pal', 0x200), (0x05F692, 'beach_tiles', 'tiles8', None),
+              (0x1B8044, 'beach_tilemap', 'gfx', 0x500)]
 
 POINTER_FREE = ('pal', 'tiles4', 'tiles8', 'gfx', 'rsprite', 'sample')
 SAMPLE_RATES = (8000, 11025, 12000, 13379, 14000, 16000, 22050, 32000, 44100, 48000)
@@ -143,6 +150,10 @@ def collect(g, data):
         add(off, 'graphics/frontend/tiles_%06x' % off, 'tiles%d' % bpp, 2 + n * 32 * (bpp // 4))
     for off in FRONTEND_TILEMAPS:
         add(off, 'graphics/frontend/tilemap_%06x' % off, 'gfx', 0x800)
+    for off, name, typ, size in DEBUG_MENU:
+        if typ in ('tiles4', 'tiles8'):
+            size = 2 + u16(off) * (32 if typ == 'tiles4' else 64)
+        add(off, 'graphics/debug_menu/' + name, typ, size)
 
     # --- audio samples, from the instrument definitions of the sound bank:
     #     {type, rate, base note, start*, length, end* (inclusive), ...} ---

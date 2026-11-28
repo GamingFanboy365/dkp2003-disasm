@@ -1836,10 +1836,10 @@ _0801DFE8:
 	bx lr
 	.byte 0xC0, 0x46
 
-	.global sub_0801DFEC
+	.global music_play_if_changed
 	.thumb_func
-	.type sub_0801DFEC, %function
-sub_0801DFEC: @ 0801DFEC
+	.type music_play_if_changed, %function
+music_play_if_changed: @ 0801DFEC
 	push {r4, lr}
 	adds r4, r0, #0
 	cmp r4, #0

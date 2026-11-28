@@ -2361,7 +2361,8 @@ gUnk_08053800:
 	.incbin "baserom.gba", 0x53800, 0x50
 	.global gUnk_08053850
 gUnk_08053850:
-	.incbin "baserom.gba", 0x53850, 0x4B1
+	.incbin "build/assets/graphics/debug_menu/palette.bin"   @ from assets/graphics/debug_menu/palette.pal
+	.incbin "baserom.gba", 0x53A50, 0x2B1
 	.global gUnk_08053D01
 gUnk_08053D01:
 	.incbin "baserom.gba", 0x53D01, 0x700
@@ -2513,67 +2514,48 @@ gUnk_0805BC50:
 	.global gUnk_0805C450
 gUnk_0805C450:
 	.incbin "build/assets/levels/06/bg_a.bin"   @ from assets/levels/06/bg_a.png
-	.byte 0x53, 0x02
+.Lasset_05F692:
+	.incbin "build/assets/graphics/debug_menu/beach_tiles.bin"   @ from assets/graphics/debug_menu/beach_tiles.png
 	.global gUnk_0805F694
-gUnk_0805F694:
-	.incbin "baserom.gba", 0x5F694, 0x9A6
+	.set gUnk_0805F694, .Lasset_05F692 + 0x2
 	.global gUnk_0806003A
-gUnk_0806003A:
-	.byte 0x29, 0x00, 0x36, 0x04, 0x00
+	.set gUnk_0806003A, .Lasset_05F692 + 0x9A8
 	.global gUnk_0806003F
-gUnk_0806003F:
-	.incbin "baserom.gba", 0x6003F, 0x1C2
+	.set gUnk_0806003F, .Lasset_05F692 + 0x9AD
 	.global gUnk_08060201
-gUnk_08060201:
-	.incbin "baserom.gba", 0x60201, 0x100
+	.set gUnk_08060201, .Lasset_05F692 + 0xB6F
 	.global gUnk_08060301
-gUnk_08060301:
-	.incbin "baserom.gba", 0x60301, 0xFC
+	.set gUnk_08060301, .Lasset_05F692 + 0xC6F
 	.global gUnk_080603FD
-gUnk_080603FD:
-	.incbin "baserom.gba", 0x603FD, 0x904
+	.set gUnk_080603FD, .Lasset_05F692 + 0xD6B
 	.global gUnk_08060D01
-gUnk_08060D01:
-	.incbin "baserom.gba", 0x60D01, 0x1500
+	.set gUnk_08060D01, .Lasset_05F692 + 0x166F
 	.global gUnk_08062201
-gUnk_08062201:
-	.incbin "baserom.gba", 0x62201, 0x300
+	.set gUnk_08062201, .Lasset_05F692 + 0x2B6F
 	.global gUnk_08062501
-gUnk_08062501:
-	.incbin "baserom.gba", 0x62501, 0x200
+	.set gUnk_08062501, .Lasset_05F692 + 0x2E6F
 	.global gUnk_08062701
-gUnk_08062701:
-	.incbin "baserom.gba", 0x62701, 0xD00
+	.set gUnk_08062701, .Lasset_05F692 + 0x306F
 	.global gUnk_08063401
-gUnk_08063401:
-	.incbin "baserom.gba", 0x63401, 0x900
+	.set gUnk_08063401, .Lasset_05F692 + 0x3D6F
 	.global gUnk_08063D01
-gUnk_08063D01:
-	.incbin "baserom.gba", 0x63D01, 0x1C00
+	.set gUnk_08063D01, .Lasset_05F692 + 0x466F
 	.global gUnk_08065901
-gUnk_08065901:
-	.incbin "baserom.gba", 0x65901, 0x900
+	.set gUnk_08065901, .Lasset_05F692 + 0x626F
 	.global gUnk_08066201
-gUnk_08066201:
-	.incbin "baserom.gba", 0x66201, 0x100
+	.set gUnk_08066201, .Lasset_05F692 + 0x6B6F
 	.global gUnk_08066301
-gUnk_08066301:
-	.incbin "baserom.gba", 0x66301, 0x300
+	.set gUnk_08066301, .Lasset_05F692 + 0x6C6F
 	.global gUnk_08066601
-gUnk_08066601:
-	.incbin "baserom.gba", 0x66601, 0x600
+	.set gUnk_08066601, .Lasset_05F692 + 0x6F6F
 	.global gUnk_08066C01
-gUnk_08066C01:
-	.incbin "baserom.gba", 0x66C01, 0x500
+	.set gUnk_08066C01, .Lasset_05F692 + 0x756F
 	.global gUnk_08067101
-gUnk_08067101:
-	.incbin "baserom.gba", 0x67101, 0x1000
+	.set gUnk_08067101, .Lasset_05F692 + 0x7A6F
 	.global gUnk_08068101
-gUnk_08068101:
-	.incbin "baserom.gba", 0x68101, 0x300
+	.set gUnk_08068101, .Lasset_05F692 + 0x8A6F
 	.global gUnk_08068401
-gUnk_08068401:
-	.incbin "baserom.gba", 0x68401, 0x753
+	.set gUnk_08068401, .Lasset_05F692 + 0x8D6F
 	.global gUnk_08068B54
 gUnk_08068B54:
 	.incbin "build/assets/levels/06/bg_c.bin"   @ from assets/levels/06/bg_c.png

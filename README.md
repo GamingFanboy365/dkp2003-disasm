@@ -224,8 +224,13 @@ encodings in undecoded bytes, and the RAM overlays. The result is checked
 against an mGBA run that records every executed instruction. Highlights:
 
 * a debug menu (Level, Player, Cups scoreboard, Flyby, Edit Flyby, New
-  Frontend, Cup Win, Volume, Play Mode) with a track list that has four
-  `Newtest` placeholders;
+  Frontend, Cup Win, Volume, Play Mode). Its track list uses older track names
+  plus four `Newtest` placeholders. It draws over a title background that
+  nothing else loads: a beach with the winged logo, extracted to
+  `assets/graphics/debug_menu/` (`beach_preview.png` is the whole screen).
+  It still works. In mGBA, write `0x0800271D` to `gStateFunc` (`0x03005670`)
+  at the language screen. A/B change the value under the cursor and START
+  starts a race;
 * level 25: a header with palette, tilesets, data and an object list, but no
   track data. A stub track record for it (id 0) follows the 48 real ones;
 * the credits screen, a cup-win screen and a second "spot screen", which

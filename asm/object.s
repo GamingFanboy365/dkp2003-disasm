@@ -2212,10 +2212,10 @@ _080023E0:
 _080023E4:
 	.4byte gUnk_0804F73C
 
-	.global sub_080023E8
+	.global dbg_putc
 	.thumb_func
-	.type sub_080023E8, %function
-sub_080023E8: @ 080023E8
+	.type dbg_putc, %function
+dbg_putc: @ 080023E8
 	push {r4, lr}
 	lsls r1, r0, #0x18
 	lsrs r2, r1, #0x18
@@ -2255,9 +2255,9 @@ _08002418:
 _0800242C:
 	.4byte 0xFFFFD000
 _08002430:
-	.4byte 0x0201859C
+	.4byte gDbgCursorY
 _08002434:
-	.4byte 0x02018598
+	.4byte gDbgCursorX
 _08002438:
 	.4byte 0x0600A000
 _0800243C:
@@ -2302,16 +2302,16 @@ _08002472:
 	b _08002418
 	.byte 0x00, 0x00
 _08002484:
-	.4byte 0x02018598
+	.4byte gDbgCursorX
 _08002488:
-	.4byte 0x0201859C
+	.4byte gDbgCursorY
 _0800248C:
 	.4byte 0x0000FFF8
 
-	.global sub_08002490
+	.global dbg_draw_values
 	.thumb_func
-	.type sub_08002490, %function
-sub_08002490: @ 08002490
+	.type dbg_draw_values, %function
+dbg_draw_values: @ 08002490
 	push {r4, lr}
 	ldr r1, _080025B0
 	movs r4, #0xa
@@ -2333,7 +2333,7 @@ sub_08002490: @ 08002490
 _080024B4:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r2, [r4]
 	cmp r2, #0
 	bne _080024B4
@@ -2359,7 +2359,7 @@ _080024C2:
 _080024E6:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r2, [r4]
 	cmp r2, #0
 	bne _080024E6
@@ -2382,7 +2382,7 @@ _08002508:
 	cmp r1, #0
 	beq _08002598
 	movs r0, #2
-	bl sub_08002AE8
+	bl dbg_putnum
 _0800251C:
 	adds r0, r4, #0
 	movs r1, #0xa
@@ -2390,7 +2390,7 @@ _0800251C:
 	adds r0, #0x30
 	lsls r4, r0, #0x18
 	lsrs r0, r4, #0x18
-	bl sub_080023E8
+	bl dbg_putc
 	ldr r4, _080025CC
 	ldrb r2, [r4]
 	cmp r2, #0
@@ -2398,7 +2398,7 @@ _0800251C:
 _08002536:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r1, [r4]
 	cmp r1, #0
 	bne _08002536
@@ -2430,7 +2430,7 @@ _08002568:
 _08002570:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r2, [r4]
 	cmp r2, #0
 	bne _08002570
@@ -2443,26 +2443,26 @@ _08002580:
 _08002588:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r0, [r4]
 	cmp r0, #0
 	bne _08002588
 	b _08002562
 _08002598:
 	movs r0, #0x20
-	bl sub_080023E8
+	bl dbg_putc
 	movs r0, #0x20
-	bl sub_080023E8
+	bl dbg_putc
 	b _0800251C
 _080025A6:
 	movs r0, #0x2d
-	bl sub_080023E8
+	bl dbg_putc
 	rsbs r4, r4, #0
 	b _08002508
 _080025B0:
-	.4byte 0x02018598
+	.4byte gDbgCursorX
 _080025B4:
-	.4byte 0x0201859C
+	.4byte gDbgCursorY
 _080025B8:
 	.4byte 0x0202D74C
 _080025BC:
@@ -2480,10 +2480,10 @@ _080025D0:
 _080025D4:
 	.4byte gUnk_0804FD20
 
-	.global sub_080025D8
+	.global dbg_setup_screen
 	.thumb_func
-	.type sub_080025D8, %function
-sub_080025D8: @ 080025D8
+	.type dbg_setup_screen, %function
+dbg_setup_screen: @ 080025D8
 	push {r4, lr}
 	ldr r0, _08002614
 	ldr r1, _0800261C
@@ -2651,10 +2651,10 @@ _08002714:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_0800271C
+	.global debug_menu_init
 	.thumb_func
-	.type sub_0800271C, %function
-sub_0800271C: @ 0800271C
+	.type debug_menu_init, %function
+debug_menu_init: @ 0800271C
 	push {r4, r5, r6, r7, lr}
 	ldr r5, _08002760
 	ldr r0, _08002758
@@ -2669,14 +2669,14 @@ sub_0800271C: @ 0800271C
 	str r3, [r1]
 	strh r0, [r5]
 	movs r0, #4
-	bl sub_0801DFEC
+	bl music_play_if_changed
 	ldr r2, _08002770
 	ldr r1, _08002774
 	movs r0, #0
 	str r0, [r2]
 	subs r0, #1
 	str r0, [r1]
-	bl sub_080025D8
+	bl dbg_setup_screen
 	ldr r2, _08002778
 	ldr r1, _0800277C
 	movs r5, #7
@@ -2700,9 +2700,9 @@ _08002770:
 _08002774:
 	.4byte 0x020185A4
 _08002778:
-	.4byte 0x02018598
+	.4byte gDbgCursorX
 _0800277C:
-	.4byte 0x0201859C
+	.4byte gDbgCursorY
 _08002780:
 	str r5, [r2]
 	ldr r3, _080027DC
@@ -2728,7 +2728,7 @@ _08002792:
 _080027A8:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r1, [r4]
 	cmp r1, #0
 	bne _080027A8
@@ -2742,7 +2742,7 @@ _080027C0:
 	ldr r0, _080027E4
 	movs r1, #0
 	str r1, [r0]
-	bl sub_08002490
+	bl dbg_draw_values
 	ldr r3, _080027E8
 	ldr r1, _080027EC
 	str r3, [r1]
@@ -2758,14 +2758,14 @@ _080027E0:
 _080027E4:
 	.4byte 0x020185A8
 _080027E8:
-	.4byte sub_080027F0
+	.4byte debug_menu_process
 _080027EC:
-	.4byte 0x03005670
+	.4byte gStateFunc
 
-	.global sub_080027F0
+	.global debug_menu_process
 	.thumb_func
-	.type sub_080027F0, %function
-sub_080027F0: @ 080027F0
+	.type debug_menu_process, %function
+debug_menu_process: @ 080027F0
 	push {r4, r5, lr}
 	ldr r0, _08002838
 	ldr r1, [r0]
@@ -2813,7 +2813,7 @@ _0800283C:
 _08002840:
 	.4byte 0x0300565E
 _08002844:
-	bl sub_08002490
+	bl dbg_draw_values
 	ldr r1, _08002920
 	ldrh r3, [r1]
 	movs r0, #0xb
@@ -3103,7 +3103,7 @@ _08002A3A:
 _08002A50:
 	str r3, [r2]
 _08002A52:
-	bl sub_08002490
+	bl dbg_draw_values
 	ldr r2, _08002AD8
 	ldr r3, [r2]
 	cmp r3, #0
@@ -3182,10 +3182,10 @@ _08002AE0:
 _08002AE4:
 	.4byte gUnk_0884CF70
 
-	.global sub_08002AE8
+	.global dbg_putnum
 	.thumb_func
-	.type sub_08002AE8, %function
-sub_08002AE8: @ 08002AE8
+	.type dbg_putnum, %function
+dbg_putnum: @ 08002AE8
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	adds r4, r0, #0
@@ -3201,7 +3201,7 @@ _08002AF2:
 	cmp r1, #0
 	beq _08002B22
 	subs r0, r4, #1
-	bl sub_08002AE8
+	bl dbg_putnum
 _08002B0A:
 	adds r0, r5, #0
 	movs r1, #0xa
@@ -3209,7 +3209,7 @@ _08002B0A:
 	adds r0, #0x30
 	lsls r3, r0, #0x18
 	lsrs r0, r3, #0x18
-	bl sub_080023E8
+	bl dbg_putc
 	pop {r4, r5}
 	pop {r0}
 	bx r0
@@ -3221,7 +3221,7 @@ _08002B22:
 	beq _08002B0A
 _08002B2C:
 	movs r0, #0x20
-	bl sub_080023E8
+	bl dbg_putc
 	movs r2, #1
 	subs r4, #1
 	rsbs r0, r2, #0
@@ -3230,7 +3230,7 @@ _08002B2C:
 	b _08002B0A
 _08002B3E:
 	movs r0, #0x2d
-	bl sub_080023E8
+	bl dbg_putc
 	rsbs r5, r5, #0
 	b _08002AF2
 
@@ -3239,7 +3239,7 @@ _08002B3E:
 	.type sub_08002B48, %function
 sub_08002B48: @ 08002B48
 	push {r4, r5, r6, r7, lr}
-	bl sub_080025D8
+	bl dbg_setup_screen
 	ldr r2, _08002BB0
 	ldr r1, _08002BB4
 	movs r5, #7
@@ -3268,7 +3268,7 @@ _08002B68:
 _08002B7E:
 	ldrb r0, [r4]
 	adds r4, #1
-	bl sub_080023E8
+	bl dbg_putc
 	ldrb r1, [r4]
 	cmp r1, #0
 	bne _08002B7E
@@ -3282,7 +3282,7 @@ _08002B96:
 	ldr r0, _08002BC0
 	movs r1, #0
 	str r1, [r0]
-	bl sub_08002490
+	bl dbg_draw_values
 	ldr r3, _08002BC4
 	ldr r1, _08002BC8
 	str r3, [r1]
@@ -3291,9 +3291,9 @@ _08002B96:
 	pop {r0}
 	bx r0
 _08002BB0:
-	.4byte 0x02018598
+	.4byte gDbgCursorX
 _08002BB4:
-	.4byte 0x0201859C
+	.4byte gDbgCursorY
 _08002BB8:
 	.4byte gUnk_0884CF70
 _08002BBC:
@@ -3301,9 +3301,9 @@ _08002BBC:
 _08002BC0:
 	.4byte 0x020185A8
 _08002BC4:
-	.4byte sub_080027F0
+	.4byte debug_menu_process
 _08002BC8:
-	.4byte 0x03005670
+	.4byte gStateFunc
 
 	.global sub_08002BCC
 	.thumb_func
