@@ -107,7 +107,7 @@ _0802BF4A:
 	cmp r0, #0
 	beq _0802BF8C
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _0802BF8C:
 	add sp, #4
 	pop {r4}
@@ -141,10 +141,10 @@ _0802BFC4:
 _0802BFC8:
 	.4byte gUnk_08053190
 
-	.global sub_0802BFCC
+	.global weaponInit
 	.thumb_func
-	.type sub_0802BFCC, %function
-sub_0802BFCC: @ 0802BFCC
+	.type weaponInit, %function
+weaponInit: @ 0802BFCC
 	push {lr}
 	ldr r1, _0802C08C
 	ldr r3, _0802C090

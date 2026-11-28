@@ -304,7 +304,7 @@ _0802B86A:
 	bl sub_0802026C
 _0802B878:
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0802B764
 _0802B880:
 	ldr r0, [r4, #0x24]

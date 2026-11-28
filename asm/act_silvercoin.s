@@ -23,7 +23,7 @@ _08010CD6:
 	cmp r0, #2
 	beq _08010CF4
 	adds r0, r5, #0
-	bl sub_08001FE8
+	bl obj_free
 _08010CE6:
 	add sp, #4
 	pop {r4, r5, r6, r7}
@@ -173,7 +173,7 @@ _08010DE6:
 	cmp r0, #0
 	beq _08010DBE
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _08010DBE
 _08010E04:
 	ldr r3, [r5, #4]
@@ -317,7 +317,7 @@ _08010EFC:
 	adds r0, r4, #0
 	bl obj_project_to_screen
 	adds r0, r4, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrh r6, [r1]
@@ -503,7 +503,7 @@ _08011056:
 	b _0801103A
 _0801106E:
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0801103A
 _08011076:
 	adds r1, r4, #0

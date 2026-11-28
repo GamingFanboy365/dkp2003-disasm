@@ -147,7 +147,7 @@ _08013FD8:
 	adds r0, r4, #0
 	bl sub_08013D4C
 _08013FE2:
-	bl sub_08003478
+	bl fade_update
 	ldr r3, [r5]
 	cmp r3, #0xa
 	bhi _08014044
@@ -170,7 +170,7 @@ _08013FF4:
 	.4byte _08014202
 	.global _08014020
 _08014020:
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #7
 	bl sub_08001F58
 	movs r1, #0
@@ -206,7 +206,7 @@ _0801404C:
 	cmp r1, #0
 	beq _08014044
 	bl music_stop
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r1, _08014234
 	movs r3, #2
 	b _080141EC
@@ -219,7 +219,7 @@ _08014074:
 	ands r0, r1
 	cmp r0, #0
 	beq _08014044
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r0, _08014244
 	movs r2, #5
 	ldr r1, [r0]
@@ -404,7 +404,7 @@ _080141D6:
 	bne _080141E4
 	b _08014044
 _080141E4:
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r1, _08014234
 	movs r3, #0xa
 _080141EC:
@@ -511,7 +511,7 @@ _08014298:
 fe_credits_process: @ 0801429C
 	push {r4, r5, lr}
 	sub sp, #0x10
-	bl sub_08003478
+	bl fade_update
 	bl sub_08017E1C
 	ldr r5, _08014450
 	ldr r3, [r5]
@@ -554,8 +554,8 @@ _080142D4:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _0801446C
-	bl sub_080035C8
-	bl sub_08003634
+	bl pal_load
+	bl fade_to_normal
 	ldr r0, _08014450
 	movs r3, #1
 _0801430C:
@@ -608,7 +608,7 @@ _08014328:
 	str r2, [r5, #8]
 	b _0801430E
 _08014366:
-	bl sub_080035F8
+	bl fade_to_black
 	movs r2, #3
 	str r2, [r5]
 	b _0801430E
@@ -643,8 +643,8 @@ _08014370:
 	str r1, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _0801448C
-	bl sub_080035C8
-	bl sub_08003634
+	bl pal_load
+	bl fade_to_normal
 	ldr r0, _08014450
 	movs r3, #4
 	b _0801430C
@@ -714,7 +714,7 @@ _08014428:
 	str r3, [sp, #0xc]
 	b _080143EA
 _0801442C:
-	bl sub_080035F8
+	bl fade_to_black
 	movs r2, #6
 	str r2, [r5]
 	b _0801430E

@@ -120,7 +120,7 @@ _08012C66:
 	str r3, [sp, #4]
 	bl gamesfx_play
 	strb r4, [r5, #2]
-	bl sub_080035F8
+	bl fade_to_black
 	b _08012BD4
 _08012C7C:
 	ldrh r3, [r7]
@@ -186,7 +186,7 @@ _08012CD6:
 	bl audio_resume
 	b _08012BD4
 _08012CFC:
-	bl sub_08003478
+	bl fade_update
 	b _08012BD4
 _08012D02:
 	ldr r2, _08012D80
@@ -330,7 +330,7 @@ _08012DFE:
 _08012E04:
 	movs r0, #1
 	str r0, [r4]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r1, r0, #0xb
 	adds r1, #0x20
 	str r1, [r4, #4]
@@ -371,7 +371,7 @@ _08012E48:
 _08012E54:
 	movs r0, #2
 	str r0, [r4]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r3, r0, #0xc
 	lsls r2, r3, #1
 	adds r1, r2, r3
@@ -392,7 +392,7 @@ _08012E6E:
 	movs r0, #0x18
 	adds r4, r1, #0
 	muls r4, r0, r4
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, _08012E98
 	adds r4, #8
 	lsrs r1, r0, #0xa

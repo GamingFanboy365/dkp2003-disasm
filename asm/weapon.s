@@ -48,7 +48,7 @@ _0802C118:
 	bne _0802C108
 	bl sub_0800A804
 	adds r4, r0, #0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	adds r7, r0, #0
 	ldr r0, _0802C1B4
 	mov lr, r0

@@ -95,8 +95,8 @@ Summary
   sub_08002D7C: 1 function(s), 0 data block(s), 252 bytes
       functions: sub_08002D7C
 
-  sub_0800213C: 1 function(s), 1 data block(s), 196 bytes
-      functions: sub_0800213C
+  obj_remove_process: 1 function(s), 1 data block(s), 196 bytes
+      functions: obj_remove_process
       strings: "OV_FLAGS(o) & OF_ACT"
 
   _setlocale_r: 3 function(s), 1 data block(s), 188 bytes
@@ -258,7 +258,7 @@ Summary
   080000FC       4  crt0.s                   sub_080000FC
   08000A90      12  game.s                   sub_08000A90
   08000A9C     120  game.s                   sub_08000A9C
-  0800213C     172  object.s                 sub_0800213C
+  0800213C     172  object.s                 obj_remove_process
   080023E8     168  object.s                 dbg_putc
   08002490     328  object.s                 dbg_draw_values
   080025D8     324  object.s                 dbg_setup_screen

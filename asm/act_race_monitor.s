@@ -223,7 +223,7 @@ _08011C30:
 _08011C46:
 	adds r0, r5, #0
 	bl sub_080115A8
-	bl sub_08003478
+	bl fade_update
 	ldr r3, [r4]
 	cmp r3, #0xa
 	bhi _08011CBA
@@ -247,7 +247,7 @@ _08011C60:
 	.4byte _08011F0E
 	.global _08011C8C
 _08011C8C:
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #7
 	bl sub_08001F58
 	movs r1, #0
@@ -294,7 +294,7 @@ _08011CCE:
 	cmp r0, #0
 	beq _08011CBA
 	bl music_stop
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r0, _08011F44
 	movs r3, #2
 	adds r0, #0x8c
@@ -309,7 +309,7 @@ _08011CFA:
 	ands r1, r0
 	cmp r1, #0
 	beq _08011CBA
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r0, _08011F54
 	movs r2, #5
 	ldr r1, [r0]
@@ -564,7 +564,7 @@ _08011EDA:
 	bne _08011EE8
 	b _08011CBA
 _08011EE8:
-	bl sub_080035F8
+	bl fade_to_black
 	adds r0, r5, #0
 	bl sub_0801194C
 	ldr r1, _08011F44
@@ -1216,7 +1216,7 @@ _080123A6:
 _080123AC:
 	movs r0, #1
 	str r0, [r4]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #0xb
 	adds r1, #0x20
 	str r1, [r4, #4]

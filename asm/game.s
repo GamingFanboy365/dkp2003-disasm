@@ -256,9 +256,9 @@ _08000688:
 	ldrsh r2, [r1, r0]
 	cmp r2, #3
 	beq _0800074C
-	bl sub_0800AC50
-	bl sub_08004E94
-	bl sub_0802BFCC
+	bl aiPlayerInit
+	bl playerInit
+	bl weaponInit
 _080006A2:
 	bl sub_080042F4
 	bl sub_0801FBBC
@@ -823,10 +823,10 @@ _08000B0C:
 _08000B10:
 	.4byte gModeFlags
 
-	.global sub_08000B14
+	.global lfsr_next
 	.thumb_func
-	.type sub_08000B14, %function
-sub_08000B14: @ 08000B14
+	.type lfsr_next, %function
+lfsr_next: @ 08000B14
 	push {r4, lr}
 	ldr r4, _08000B50
 	ldr r2, [r4]
@@ -878,10 +878,10 @@ _08000B70:
 _08000B74:
 	.4byte gUnk_0804F674
 
-	.global sub_08000B78
+	.global multi_lfsr_next
 	.thumb_func
-	.type sub_08000B78, %function
-sub_08000B78: @ 08000B78
+	.type multi_lfsr_next, %function
+multi_lfsr_next: @ 08000B78
 	push {r4, lr}
 	ldr r4, _08000BB4
 	ldr r2, [r4]
@@ -933,10 +933,10 @@ _08000BD4:
 _08000BD8:
 	.4byte gUnk_0804F6A8
 
-	.global sub_08000BDC
+	.global lfsr_seed
 	.thumb_func
-	.type sub_08000BDC, %function
-sub_08000BDC: @ 08000BDC
+	.type lfsr_seed, %function
+lfsr_seed: @ 08000BDC
 	push {lr}
 	ldr r1, _08000BF0
 	ldr r0, _08000BF4
@@ -953,10 +953,10 @@ _08000BF4:
 _08000BF8:
 	.4byte gUnk_0804F664
 
-	.global sub_08000BFC
+	.global multi_lfsr_seed
 	.thumb_func
-	.type sub_08000BFC, %function
-sub_08000BFC: @ 08000BFC
+	.type multi_lfsr_seed, %function
+multi_lfsr_seed: @ 08000BFC
 	push {lr}
 	ldr r1, _08000C10
 	ldr r0, _08000C14
@@ -1139,7 +1139,7 @@ _08000D40:
 	str r0, [r7]
 	str r2, [r7, #4]
 	adds r5, #0x86
-	bl sub_080035C8
+	bl pal_load
 	movs r3, #0
 	ldrsh r2, [r5, r3]
 	movs r0, #0x94
@@ -1572,7 +1572,7 @@ sub_08001020: @ 08001020
 	str r7, [r6, #4]
 	adds r5, #0x86
 	sub sp, #4
-	bl sub_080035C8
+	bl pal_load
 	movs r3, #0
 	ldrsh r7, [r5, r3]
 	movs r0, #0x94

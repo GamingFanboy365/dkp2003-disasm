@@ -422,10 +422,10 @@ sub_0802ED94: @ 0802ED94
 	ldr r1, _0802EDC8
 	bx r1
 
-	.global sub_0802EDA0
+	.global audio_song_load
 	.thumb_func
-	.type sub_0802EDA0, %function
-sub_0802EDA0: @ 0802EDA0
+	.type audio_song_load, %function
+audio_song_load: @ 0802EDA0
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -542,7 +542,7 @@ _0802EE7C:
 _0802EE80:
 	.4byte 0x0202F018
 _0802EE84:
-	.4byte sub_03006D68
+	.4byte audio_seq_step
 _0802EE88:
 	.4byte sub_030067CC
 _0802EE8C:
@@ -554,7 +554,7 @@ _0802EE94:
 _0802EE98:
 	.4byte sub_0300663C
 _0802EE9C:
-	.4byte sub_0802EDA0
+	.4byte audio_song_load
 
 	.global sub_0802EEA0
 	.thumb_func
@@ -1380,10 +1380,10 @@ sub_0802F380: @ 0802F380
 	ldr r1, _0802F3F4
 	bx r1
 
-	.global sub_0802F39C
+	.global audio_fx_start
 	.thumb_func
-	.type sub_0802F39C, %function
-sub_0802F39C: @ 0802F39C
+	.type audio_fx_start, %function
+audio_fx_start: @ 0802F39C
 	pop {r0}
 	mov lr, r0
 	pop {r0, r1}
@@ -1499,6 +1499,6 @@ _0802F494:
 _0802F498:
 	.4byte gUnk_0802F3A8
 _0802F49C:
-	.4byte sub_0802F39C
+	.4byte audio_fx_start
 _0802F4A0:
 	.4byte 0x0802DFE0

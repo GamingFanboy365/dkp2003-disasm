@@ -73,7 +73,7 @@ _080262B4:
 	cmp r2, #0
 	beq _080262D2
 	adds r0, r5, #0
-	bl sub_080021E8
+	bl obj_add_draw
 _080262C6:
 	ldr r0, [r4, #0xc]
 	str r0, [r4, #0x10]
@@ -596,7 +596,7 @@ _0802668E:
 	bge _080266A2
 	b _080267C4
 _080266A2:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -879,7 +879,7 @@ _08026806:
 	ldr r4, [r1]
 	cmp r4, #0x3f
 	ble _080268D6
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r5, #0xfa
 	lsls r2, r5, #5
 	muls r2, r0, r2
@@ -1099,7 +1099,7 @@ _080269E8:
 	ldr r2, [r0]
 	cmp r2, #0x3f
 	ble _08026AAA
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _08026B5C
 	muls r1, r0, r1
 	mov r3, sb
@@ -1436,21 +1436,21 @@ _08026CF4:
 	movs r2, #0x86
 	lsls r1, r2, #1
 	adds r7, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r6, r0, #0x10
 	asrs r4, r6, #0x12
 	movs r0, #0x8a
 	lsls r3, r0, #1
 	str r4, [r7]
 	adds r6, r5, r3
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x12
 	movs r4, #0x8e
 	str r1, [r6]
 	lsls r0, r4, #1
 	adds r6, r5, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r7, r3, #0x12
 	str r7, [r6]

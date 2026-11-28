@@ -27,7 +27,7 @@ _08012A34:
 	beq _08012A4C
 _08012A38:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _08012A3E:
 	add sp, #4
 	pop {r4, r5}

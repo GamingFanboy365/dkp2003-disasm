@@ -294,7 +294,7 @@ _08010C7C:
 	mov r6, lr
 	strh r6, [r0, #0xa]
 	adds r0, r7, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	add sp, #0xc
 	pop {r3, r4, r5, r6}
 	mov r8, r3

@@ -561,7 +561,7 @@ _0800F4CC:
 	.global _0800F4DE
 _0800F4DE:
 	adds r0, r4, #0
-	bl sub_0800EE0C
+	bl cam_path_add_point
 	b _0800F4C4
 	.global _0800F4E6
 _0800F4E6:

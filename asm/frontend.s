@@ -93,7 +93,7 @@ fe_boot_init: @ 08014510
 	ldr r1, [r0]
 	orrs r1, r3
 	str r1, [r0]
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r0, _08014570
 	ldr r1, _08014574
 	str r1, [r0]
@@ -114,9 +114,9 @@ _0801455C:
 _08014560:
 	.4byte 0x81000100
 _08014564:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _08014568:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _0801456C:
 	.4byte 0x0000FFFF
 _08014570:
@@ -134,7 +134,7 @@ _08014578:
 	.type fe_boot_process, %function
 fe_boot_process: @ 08014580
 	push {r4, lr}
-	bl sub_08003478
+	bl fade_update
 	ldr r4, _080145BC
 	ldr r0, _080145C4
 	strh r4, [r0]
@@ -861,7 +861,7 @@ _08014AA8:
 _08014AAC:
 	.4byte 0x02024104
 _08014AB0:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08014AB4:
 	.4byte sub_03003BB8
 _08014AB8:
@@ -1094,13 +1094,13 @@ _08014C2C:
 	movs r4, #0
 	movs r5, #3
 _08014C7C:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xf0
 	muls r1, r0, r1
 	mov r2, sl
 	lsrs r0, r1, #0x10
 	str r0, [r4, r2]
-	bl sub_08000B14
+	bl lfsr_next
 	movs r2, #0x28
 	muls r2, r0, r2
 	lsrs r1, r2, #0x10
@@ -1109,7 +1109,7 @@ _08014C7C:
 	movs r0, #0
 	str r1, [r4, r2]
 	str r0, [r6, r4]
-	bl sub_08000B14
+	bl lfsr_next
 	subs r5, #1
 	lsrs r3, r0, #0xc
 	str r3, [r4, r7]
@@ -1140,7 +1140,7 @@ _08014CD4:
 	cmp r5, #0
 	bge _08014CD4
 	bl sub_0801DEDC
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r1, _08014E30
 	ldr r0, _08014E34
 	str r1, [r0]
@@ -1184,7 +1184,7 @@ _08014D20:
 	str r1, [r5]
 	str r3, [r0]
 	ldr r0, _08014E60
-	bl sub_080035C8
+	bl pal_load
 	ldr r6, _08014E64
 	str r6, [r4]
 	subs r6, #2
@@ -1226,7 +1226,7 @@ _08014D72:
 	str r1, [r0]
 	str r3, [r7]
 	ldr r0, _08014E84
-	bl sub_080035C8
+	bl pal_load
 	ldr r6, _08014E88
 	str r6, [r4]
 	subs r6, #2
@@ -1262,7 +1262,7 @@ _08014DBA:
 	str r1, [r6]
 	str r0, [r7]
 	ldr r0, _08014EA0
-	bl sub_080035C8
+	bl pal_load
 	ldr r5, _08014EA4
 	str r5, [r4]
 	subs r5, #2
@@ -1382,7 +1382,7 @@ fe_title_process: @ 08014EAC
 	mov r4, r8
 	push {r4, r5, r6, r7}
 	sub sp, #0x14
-	bl sub_08003478
+	bl fade_update
 	ldr r7, _080151C0
 	ldr r6, _080151C4
 	ldr r0, [r7]
@@ -1798,7 +1798,7 @@ _080151BC:
 _080151C0:
 	.4byte 0x02024104
 _080151C4:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _080151C8:
 	.4byte 0x02023FA4
 _080151CC:
@@ -2012,7 +2012,7 @@ _08015336:
 	ldr r2, [r4]
 	orrs r2, r5
 	str r2, [r4]
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r1, _08015624
 	movs r3, #2
 	str r3, [r1]
@@ -2030,9 +2030,9 @@ _08015336:
 _0801537E:
 	ldr r4, _08015634
 	adds r0, r4, #0
-	bl sub_08000BDC
+	bl lfsr_seed
 	adds r0, r4, #0
-	bl sub_08000BFC
+	bl multi_lfsr_seed
 _0801538C:
 	add sp, #0x14
 	pop {r3, r4, r5, r6}
@@ -2086,9 +2086,9 @@ _080153DE:
 	beq _08015336
 	ldr r5, _08015634
 	adds r0, r5, #0
-	bl sub_08000BDC
+	bl lfsr_seed
 	adds r0, r5, #0
-	bl sub_08000BFC
+	bl multi_lfsr_seed
 	bl snd_stop_all
 	ldr r0, _08015630
 	ldr r3, [r0]
@@ -2134,7 +2134,7 @@ _08015440:
 	cmp r2, #1
 	beq _08015460
 	bl sub_0801DEE8
-	bl sub_080035F8
+	bl fade_to_black
 	movs r2, #2
 	str r2, [r5]
 	b _08015336
@@ -2742,19 +2742,19 @@ sub_080158BA: @ 080158BA
 	mov r8, r0
 	movs r4, #0
 _080158C6:
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r1, r0, #0xa
 	rsbs r3, r1, #0
 	subs r3, #0x20
 	mov r1, r8
 	str r3, [r4, r1]
-	bl sub_08000B14
+	bl lfsr_next
 	lsls r3, r7, #5
 	lsrs r2, r0, #0xc
 	adds r1, r2, r3
 	adds r1, #0x20
 	str r1, [r4, r6]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r2, r0, #0xe
 	adds r2, #4
 	adds r7, #1
@@ -2983,13 +2983,13 @@ _08015A88:
 	movs r1, #0x7f
 	movs r0, #0xa6
 	bl snd_play
-	bl sub_08000B14
+	bl lfsr_next
 	movs r2, #0xf0
 	muls r2, r0, r2
 	ldr r0, _08015C08
 	lsrs r1, r2, #0x10
 	str r1, [r0]
-	bl sub_08000B14
+	bl lfsr_next
 	movs r4, #0xa
 	muls r4, r0, r4
 	ldr r1, _08015C0C
@@ -2998,7 +2998,7 @@ _08015A88:
 	movs r0, #0
 	str r2, [r1]
 	str r0, [r6]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r4, r0, #8
 	adds r4, #0x14
 	str r4, [r5]
@@ -3073,13 +3073,13 @@ _08015B34:
 	str r0, [r1, r5]
 	b _08015AE0
 _08015B3E:
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r0, r0, #0xe
 	cmp r0, #0
 	beq _08015B78
 	cmp r0, #1
 	beq _08015B62
-	bl sub_08000B14
+	bl lfsr_next
 	adds r2, r0, #0
 	lsrs r1, r2, #0xa
 	movs r4, #0x80
@@ -3089,7 +3089,7 @@ _08015B3E:
 	bl snd_play
 	b _08015B34
 _08015B62:
-	bl sub_08000B14
+	bl lfsr_next
 	adds r3, r0, #0
 	lsrs r1, r3, #0xa
 	movs r4, #0x80
@@ -3099,7 +3099,7 @@ _08015B62:
 	bl snd_play
 	b _08015B34
 _08015B78:
-	bl sub_08000B14
+	bl lfsr_next
 	adds r2, r0, #0
 	lsrs r1, r2, #0xa
 	movs r3, #0x80
@@ -3112,13 +3112,13 @@ _08015B8E:
 	movs r3, #0x5c
 	b _08015AFE
 _08015B92:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r2, #0xf0
 	muls r2, r0, r2
 	ldr r1, _08015C08
 	lsrs r0, r2, #0x10
 	str r0, [r1, r5]
-	bl sub_08000B14
+	bl lfsr_next
 	movs r4, #0x14
 	muls r4, r0, r4
 	lsrs r2, r4, #0x10
@@ -3127,7 +3127,7 @@ _08015B92:
 	mov r4, fp
 	str r2, [r4, r5]
 	str r0, [r6, r5]
-	bl sub_08000B14
+	bl lfsr_next
 	mov r1, sb
 	lsrs r3, r0, #0xa
 	str r3, [r1, r5]
@@ -3851,7 +3851,7 @@ _08016142:
 	movs r0, #0
 	bl sub_0801931C
 	bl fe_spr_init
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r3, _08016178
 	ldr r0, _0801617C
 	ldr r1, _08016180
@@ -3887,7 +3887,7 @@ fe_characterselect_process: @ 08016188
 	mov r4, r8
 	push {r4, r5, r6, r7}
 	sub sp, #0x18
-	bl sub_08003478
+	bl fade_update
 	ldr r2, _08016314
 	movs r0, #0x16
 	ldrsh r1, [r2, r0]
@@ -4253,7 +4253,7 @@ _0801642E:
 	movs r2, #3
 	str r4, [r3, #0x10]
 	str r2, [r1]
-	bl sub_080035F8
+	bl fade_to_black
 	b _08016398
 _0801645E:
 	ldr r3, [r7]
@@ -4431,7 +4431,7 @@ _08016572:
 	beq _0801658E
 	b _08016398
 _0801658E:
-	bl sub_080035F8
+	bl fade_to_black
 	b _08016398
 _08016594:
 	ldr r2, _080166B0
@@ -4520,7 +4520,7 @@ _08016610:
 	b _08016362
 _08016632:
 	str r3, [r7, r6]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r3, r0, #0xb
 	adds r3, #0x28
 	str r3, [r7, r4]
@@ -4541,7 +4541,7 @@ _08016652:
 	movs r1, #0x38
 	adds r4, r0, #0
 	muls r4, r1, r4
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r3, _080166A8
 	adds r4, #0x14
 	ldr r1, [r3, r4]

@@ -1646,10 +1646,10 @@ _08001FE0:
 _08001FE4:
 	.4byte 0x0000015F
 
-	.global sub_08001FE8
+	.global obj_free
 	.thumb_func
-	.type sub_08001FE8, %function
-sub_08001FE8: @ 08001FE8
+	.type obj_free, %function
+obj_free: @ 08001FE8
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x80
@@ -1840,10 +1840,10 @@ _08002134:
 _08002138:
 	.4byte 0x02018394
 
-	.global sub_0800213C
+	.global obj_remove_process
 	.thumb_func
-	.type sub_0800213C, %function
-sub_0800213C: @ 0800213C
+	.type obj_remove_process, %function
+obj_remove_process: @ 0800213C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	sub sp, #4
@@ -1933,10 +1933,10 @@ _080021E0:
 _080021E4:
 	.4byte gUnk_0804F73C
 
-	.global sub_080021E8
+	.global obj_add_draw
 	.thumb_func
-	.type sub_080021E8, %function
-sub_080021E8: @ 080021E8
+	.type obj_add_draw, %function
+obj_add_draw: @ 080021E8
 	push {r4, lr}
 	adds r4, r0, #0
 	sub sp, #4

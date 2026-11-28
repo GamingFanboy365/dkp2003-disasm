@@ -25,7 +25,7 @@ _0801330C:
 	beq _08013328
 _08013316:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _0801331C:
 	add sp, #4
 	pop {r4}
@@ -168,7 +168,7 @@ _0801340C:
 	bics r1, r2
 	cmp r1, #0
 	beq _08013408
-	bl sub_08001FE8
+	bl obj_free
 	b _08013408
 _08013424:
 	ldr r3, [r1, #4]
@@ -271,7 +271,7 @@ _080134CA:
 	adds r0, r4, #0
 	bl obj_project_to_screen
 	adds r0, r4, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrh r0, [r1]
@@ -524,7 +524,7 @@ _08013696:
 	cmp r5, #0
 	bge _08013696
 	adds r0, r4, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	add sp, #4
 	pop {r3, r4, r5}
 	mov r8, r3

@@ -303,7 +303,7 @@ _0802AF52:
 	str r5, [r4, #4]
 	str r5, [r4, #0xc]
 	str r5, [r4, #0x34]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #0xc
 	str r1, [r4, #0x1c]
 	b _0802AF98
@@ -314,19 +314,19 @@ _0802AF90:
 _0802AF94:
 	.4byte 0x02018F34
 _0802AF98:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r3, r0, #0xc
 	str r3, [r4, #0x20]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #0xc
 	str r2, [r4, #0x24]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #7
 	str r1, [r4, #0x28]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r3, r0, #7
 	str r3, [r4, #0x2c]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #7
 	str r2, [r4, #0x30]
 	ldr r1, _0802AFF4
@@ -717,7 +717,7 @@ _0802B286:
 	cmp r1, #0
 	beq _0802B2B6
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0802B08E
 _0802B2B6:
 	movs r0, #0x84

@@ -230,7 +230,7 @@ _0800F99C:
 	str r2, [r4, r1]
 	strh r5, [r0]
 	mov r0, r8
-	bl sub_080021E8
+	bl obj_add_draw
 _0800F9BC:
 	add sp, #8
 	pop {r3, r4, r5, r6}
@@ -243,7 +243,7 @@ _0800F9BC:
 	bx r0
 _0800F9CE:
 	mov r0, r8
-	bl sub_08001FE8
+	bl obj_free
 	b _0800F9BC
 _0800F9D6:
 	ldr r0, _0800F9F4
@@ -417,7 +417,7 @@ _0800FAEE:
 	b _0800FACC
 _0800FB0C:
 	mov r0, r8
-	bl sub_08001FE8
+	bl obj_free
 	b _0800FACC
 _0800FB14:
 	ldr r1, _0800FB48
@@ -584,7 +584,7 @@ _0800FC24:
 	ldr r0, _0800FC68
 	strh r0, [r1, #2]
 	adds r0, r4, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	movs r2, #1
 	rsbs r0, r2, #0
 	movs r1, #0
@@ -866,7 +866,7 @@ _0800FE54:
 	b _0800FD32
 _0800FE64:
 	adds r0, r5, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0800FD32
 _0800FE6C:
 	movs r4, #0
@@ -1307,7 +1307,7 @@ _08010188:
 	pop {r0}
 	bx r0
 _0801018C:
-	bl sub_08001FE8
+	bl obj_free
 	b _08010188
 	.byte 0x00, 0x00
 
@@ -1384,7 +1384,7 @@ _0801020C:
 	pop {r0}
 	bx r0
 _08010210:
-	bl sub_08001FE8
+	bl obj_free
 	b _0801020C
 	.byte 0x00, 0x00
 
@@ -1461,7 +1461,7 @@ _08010290:
 	pop {r0}
 	bx r0
 _08010294:
-	bl sub_08001FE8
+	bl obj_free
 	b _08010290
 	.byte 0x00, 0x00
 
@@ -1536,7 +1536,7 @@ _08010310:
 	pop {r0}
 	bx r0
 _08010314:
-	bl sub_08001FE8
+	bl obj_free
 	b _08010310
 	.byte 0x00, 0x00
 
@@ -1621,7 +1621,7 @@ _0801039C:
 	bx r0
 _080103A4:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0801039C
 _080103AC:
 	ldr r0, _080103C8

@@ -48,26 +48,26 @@ _08012F30:
 _08012F34:
 	.4byte 0x02018F34
 _08012F38:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	adds r4, r5, #0
 	adds r4, #0xa0
 	str r0, [r4]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #0xe
 	str r1, [r4, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #0xe
 	str r2, [r4, #0x14]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r3, r0, #0xe
 	str r3, [r4, #0x18]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #7
 	str r1, [r4, #4]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #7
 	str r2, [r4, #8]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r3, r0, #7
 	str r3, [r4, #0xc]
 	ldr r1, [r6]

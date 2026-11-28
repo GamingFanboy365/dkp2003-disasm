@@ -964,7 +964,7 @@ _ovl_b_03004D84:
 _ovl_b_03004D88:
 	.4byte 0x02023FA4
 _ovl_b_03004D8C:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _ovl_b_03004D90:
 	.4byte 0x02002620
 _ovl_b_03004D94:

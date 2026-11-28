@@ -529,7 +529,7 @@ act_winlevel: @ 0802144C
 	push {r6, r7}
 	adds r4, r0, #0
 	adds r4, #0xa0
-	bl sub_08003478
+	bl fade_update
 	ldr r3, [r4]
 	mov sl, r4
 	cmp r3, #0
@@ -602,7 +602,7 @@ _080214D0:
 	bl get_key
 	b _080214A4
 _080214EA:
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #6
 	bl camera_op_set
 	ldr r2, _080215B0
@@ -851,7 +851,7 @@ _080216DC:
 	adds r1, #0x36
 	strh r5, [r1]
 	ldr r0, _0802185C
-	bl sub_080035C8
+	bl pal_load
 	ldr r4, _08021860
 	ldr r0, _08021864
 	ldr r3, [r4]
@@ -1016,7 +1016,7 @@ _08021806:
 	str r3, [r1, r2]
 	cmp r4, #2
 	ble _08021806
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #0x1a
 	bl music_play_if_changed
 	ldr r1, _080218A8
@@ -1046,7 +1046,7 @@ _08021858:
 _0802185C:
 	.4byte gUnk_08055450
 _08021860:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08021864:
 	.4byte gUnk_0863C0E0
 _08021868:
@@ -1276,7 +1276,7 @@ fe_cups_win2_process: @ 080219F8
 	mov r4, r8
 	push {r4, r5, r6, r7}
 	sub sp, #0x10
-	bl sub_08003478
+	bl fade_update
 	ldr r0, _08021D70
 	ldr r1, _08021D74
 	ldr r3, [r0]
@@ -1709,10 +1709,10 @@ _08021D5A:
 	movs r2, #2
 	mov r5, r8
 	str r2, [r5, #4]
-	bl sub_08003680
+	bl fade_to_white
 	b _08021CE0
 _08021D70:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08021D74:
 	.4byte 0x02023FA4
 _08021D78:
@@ -1761,7 +1761,7 @@ _08021DC8:
 	bne _08021DD0
 	b _08021CB0
 _08021DD0:
-	bl sub_08003680
+	bl fade_to_white
 	b _08021CB0
 _08021DD6:
 	ldr r0, [r4, #0x14]
@@ -2018,7 +2018,7 @@ _08021F72:
 	add lr, r0
 	cmp r6, #0x13
 	ble _08021F68
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r2, _08021FE8
 	movs r1, #2
 	mov r8, r2
@@ -2526,7 +2526,7 @@ _0802238E:
 _0802239A:
 	movs r0, #2
 	str r0, [r5, #4]
-	bl sub_08003680
+	bl fade_to_white
 	b _08021CD0
 	.global _080223A4
 _080223A4:
@@ -2841,11 +2841,11 @@ _08022600:
 _08022604:
 	.4byte 0x81008000
 _08022608:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _0802260C:
 	.4byte 0x81000100
 _08022610:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _08022614:
 	ldr r3, [r1, #8]
 	ldr r2, _0802266C
@@ -2875,7 +2875,7 @@ _08022614:
 	str r2, [r0, #4]
 	movs r0, #0x1a
 	bl music_play_if_changed
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r1, _08022684
 	ldr r0, _08022688
 	str r1, [r0]
@@ -2912,7 +2912,7 @@ _0802268C:
 fe_cups_trophy_process: @ 08022690
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
-	bl sub_08003478
+	bl fade_update
 	bl sub_08017E1C
 	movs r1, #0
 	movs r0, #0xaf
@@ -2993,7 +2993,7 @@ _08022732:
 	ands r1, r0
 	cmp r1, #0
 	beq _08022714
-	bl sub_080035F8
+	bl fade_to_black
 	movs r1, #1
 	str r1, [r4]
 	b _08022714
@@ -3203,7 +3203,7 @@ _080228B8:
 	adds r4, #0x3a
 	strh r5, [r4]
 	ldr r0, _08022900
-	bl sub_080035C8
+	bl pal_load
 	ldr r2, _08022904
 	b _08022908
 _080228F0:
@@ -3217,7 +3217,7 @@ _080228FC:
 _08022900:
 	.4byte gUnk_08055450
 _08022904:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08022908:
 	ldr r0, _08022A20
 	ldr r3, [r2]
@@ -3336,7 +3336,7 @@ _080229D6:
 	adds r3, #0x24
 	cmp r1, #0
 	bge _080229D6
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #0x1a
 	bl music_play_if_changed
 	ldr r1, _08022A64
@@ -3417,7 +3417,7 @@ fe_boss_win_process: @ 08022A7C
 	mov r4, r8
 	push {r4, r5, r6, r7}
 	sub sp, #0x14
-	bl sub_08003478
+	bl fade_update
 	ldr r0, _08022B54
 	ldr r1, _08022B58
 	ldr r3, [r0]
@@ -3514,11 +3514,11 @@ _08022B3C:
 	ldr r2, _08022B64
 	movs r1, #2
 	str r1, [r2, #4]
-	bl sub_08003680
+	bl fade_to_white
 	b _08022ABA
 	.byte 0x00, 0x00
 _08022B54:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08022B58:
 	.4byte 0x02023FA4
 _08022B5C:
@@ -3897,7 +3897,7 @@ _08022E26:
 	cmp r0, #2
 	beq _08022DDA
 	movs r5, #2
-	bl sub_08003680
+	bl fade_to_white
 	str r5, [r4, #4]
 	b _08022DDA
 _08022E36:
@@ -4613,7 +4613,7 @@ _08023378:
 	cmp r1, #0
 	blt _0802345C
 _0802338A:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -5995,13 +5995,13 @@ _08023CDA:
 	str r2, [r4, #4]
 	ldr r0, [r7, #0x2c]
 	str r0, [r4, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	str r1, [r4, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	str r2, [r4, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _08023D70
 	movs r1, #0x28
@@ -6023,13 +6023,13 @@ _08023D20:
 	ldr r2, [r7, #0x2c]
 	adds r1, r2, r3
 	str r1, [r4, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	str r2, [r4, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	str r1, [r4, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _08023D70
 	movs r2, #0x28
@@ -7038,21 +7038,21 @@ _08024418:
 	movs r2, #0x98
 	lsls r1, r2, #1
 	adds r7, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r6, r0, #0x10
 	asrs r4, r6, #0x12
 	movs r0, #0x9c
 	lsls r3, r0, #1
 	str r4, [r7]
 	adds r6, r5, r3
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x12
 	movs r4, #0xa0
 	str r1, [r6]
 	lsls r0, r4, #1
 	adds r6, r5, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r7, r3, #0x12
 	str r7, [r6]

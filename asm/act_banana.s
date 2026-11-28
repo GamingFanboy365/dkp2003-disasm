@@ -95,7 +95,7 @@ _08011344:
 	cmp r0, r1
 	bhi _08011358
 	adds r0, r5, #0
-	bl sub_08001FE8
+	bl obj_free
 _08011358:
 	add sp, #4
 	pop {r4, r5}

@@ -710,7 +710,7 @@ _08004D10:
 	cmp r3, #0
 	beq _08004D4C
 _08004D24:
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r0, _08004D40
 	ldr r3, _08004D44
 	ldr r1, _08004D38
@@ -752,7 +752,7 @@ _08004D4C:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08004DFC
-	bl sub_080035C8
+	bl pal_load
 	b _08004D24
 _08004D7E:
 	cmp r3, #2
@@ -779,7 +779,7 @@ _08004D7E:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08004E08
-	bl sub_080035C8
+	bl pal_load
 	b _08004D24
 _08004DB4:
 	ldr r0, _08004DE8
@@ -804,7 +804,7 @@ _08004DB4:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08004E14
-	bl sub_080035C8
+	bl pal_load
 	b _08004D24
 	.byte 0x00, 0x00
 _08004DE8:
@@ -837,7 +837,7 @@ _08004E14:
 	.type fe_credits_screen_process, %function
 fe_credits_screen_process: @ 08004E18
 	push {lr}
-	bl sub_08003478
+	bl fade_update
 	bl sub_08017E1C
 	ldr r0, _08004E88
 	ldr r3, [r0]
@@ -885,7 +885,7 @@ _08004E64:
 	cmp r3, #0
 	beq _08004E82
 _08004E76:
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r0, _08004E88
 	movs r3, #2
 	str r3, [r0]

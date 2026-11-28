@@ -206,7 +206,7 @@ _0802D4A2:
 	mov r5, fp
 	muls r5, r7, r5
 	mov r0, r8
-	bl sub_080021E8
+	bl obj_add_draw
 	ldr r4, _0802D4CC
 	adds r2, r5, r4
 	mov sb, r2

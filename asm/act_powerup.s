@@ -34,7 +34,7 @@ _08010502:
 	beq _08010534
 _08010520:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _08010526:
 	add sp, #4
 	pop {r4, r5}

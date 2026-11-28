@@ -180,7 +180,7 @@ _08012654:
 	.4byte 0x0201A734
 _08012658:
 	mov r0, sl
-	bl sub_080021E8
+	bl obj_add_draw
 	add sp, #0x1c
 	pop {r3, r4, r5, r6}
 	mov r8, r3
@@ -454,7 +454,7 @@ _08012848:
 	ands r3, r2
 	str r3, [r0]
 	ldr r0, [sp, #0x20]
-	bl sub_08001FE8
+	bl obj_free
 	b _08012822
 _0801286C:
 	ldr r2, _080128EC

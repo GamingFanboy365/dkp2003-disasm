@@ -483,3 +483,30 @@
 0x0801E1D8 sound_init               # snd_init + audio_resume (first thing AgbMain does)
 0x0801E1C0 sound_vblank             # snd_vsync, from vblank_handler
 0x0801F2B0 fe_start                 # AgbMain: enters the front end (fe_boot_init)
+# palette fades (brightness 0 = black, 16 = normal, 32 = white; checked in mGBA)
+0x08003478 fade_update              # every frame: level += step (x2 with gModeFlags bit 14); at the target sets gModeFlags bit 11
+0x080035C8 pal_load                 # (src): DMA a 512-byte palette into gPalBuffer, mark all banks dirty
+0x080035F8 fade_to_black            # mode 0, step -0x80
+0x08003634 fade_to_normal           # mode 1, towards 16 from either side
+0x08003680 fade_to_white            # mode 2, step +0x80
+# from the "<function>: message" prefixes and assert FUNC strings they print
+0x08001FE8 obj_free                 # "obj_free: object delete list full"
+0x0800213C obj_remove_process       # assert FUNC=[obj_remove_process]
+0x080021E8 obj_add_draw             # assert FUNC=[obj_add_draw]
+0x030028D8 obj_check_hits           # "obj_check_hits: too many iterations"
+0x08004E94 playerInit               # "playerInit: not enough edge mask space"
+0x0800AC50 aiPlayerInit             # "aiPlayerInit: No AI path found"
+0x0802BFCC weaponInit               # "weaponInit: ... weapons table in use"
+# random numbers (debug messages "lfsr seeded %d" / "re-seeded")
+0x08000BDC lfsr_seed
+0x08000B14 lfsr_next                # re-seeds itself if the register reaches 0
+0x08000BFC multi_lfsr_seed
+0x08000B78 multi_lfsr_next
+# flyby camera paths (the debug menu's Edit Flyby)
+0x0800EE0C cam_path_add_point       # "Added point: X= Y= Z= ..." / "Cannot add any more points"
+0x080045D4 cam_path_print           # prints "camera path:" and every point
+# audio engine internals, from their AUDIO ERROR messages
+0x0802EDA0 audio_song_load          # "invalid tune number", "more than 16 tracks in song"
+0x0802F39C audio_fx_start           # "invalid fx number", "requested playback freq exceeds max freq"
+0x03006D68 audio_seq_step           # MIDI parsing: "midi delta time too big", "adsr_acts table exceeded"
+0x030076B0 audio_calc_pitch         # "pitch frequency too low/high"

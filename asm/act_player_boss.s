@@ -100,7 +100,7 @@ _08024756:
 	bge _0802476A
 	b _08024CA8
 _0802476A:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -186,7 +186,7 @@ _080247F6:
 	bge _0802480A
 	b _08024C94
 _0802480A:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -273,7 +273,7 @@ _08024898:
 	bge _080248AC
 	b _08024C82
 _080248AC:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -620,7 +620,7 @@ _08024B40:
 	bge _08024B54
 	b _08024C7A
 _08024B54:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r4, #0
 	mov ip, r0
 	movs r6, #0
@@ -1679,7 +1679,7 @@ _0802531A:
 	bge _0802532E
 	b _08025542
 _0802532E:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1787,7 +1787,7 @@ _080253E4:
 	bge _080253F8
 	b _0802553A
 _080253F8:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1893,7 +1893,7 @@ _080254AC:
 	cmp r0, #0
 	blt _08025532
 _080254BE:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0

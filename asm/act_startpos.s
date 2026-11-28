@@ -43,7 +43,7 @@ _080108FC:
 	beq _08010918
 _08010900:
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	add sp, #4
 	pop {r3}
 	mov r8, r3

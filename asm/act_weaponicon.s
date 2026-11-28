@@ -20,7 +20,7 @@ _08028A32:
 	adds r6, r5, #0
 	adds r6, #0xa0
 	ldr r4, [r6, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, _08028A70
 	lsrs r0, r0, #0xd
 	adds r0, #1
@@ -102,7 +102,7 @@ _08028AA8:
 	adds r0, r5, #0
 	bl obj_project_to_screen
 	adds r0, r5, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	b _08028A52
 _08028ADE:
 	ldr r0, _08028B04
@@ -228,7 +228,7 @@ _08028B96:
 _08028BBC:
 	ldr r4, [r7, #0x14]
 _08028BBE:
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r2, r0, #0xd
 	adds r6, r2, #1
 	str r6, [r7, #0x14]
@@ -348,7 +348,7 @@ _08028C9C:
 	.4byte gUnk_08713650
 _08028CA0:
 	adds r0, r5, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _08028B4A
 _08028CA8:
 	ldr r0, _08028DE8
@@ -441,7 +441,7 @@ _08028D46:
 	beq _08028DBE
 	ldr r4, [r7, #0x14]
 _08028D4C:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #7
 	bl __umodsi3
 	adds r0, #1

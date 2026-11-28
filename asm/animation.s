@@ -571,10 +571,10 @@ _08003470:
 _08003474:
 	.4byte gUnk_087146C0
 
-	.global sub_08003478
+	.global fade_update
 	.thumb_func
-	.type sub_08003478, %function
-sub_08003478: @ 08003478
+	.type fade_update, %function
+fade_update: @ 08003478
 	push {lr}
 	ldr r0, _08003538
 	ldr r1, [r0]
@@ -684,17 +684,17 @@ _08003532:
 	adds r2, r3, r1
 	b _08003498
 _08003538:
-	.4byte 0x0201BD1C
+	.4byte gFadeStep
 _0800353C:
 	.4byte gModeFlags
 _08003540:
-	.4byte 0x0201BD18
+	.4byte gFadeLevel
 _08003544:
-	.4byte 0x0201BD20
+	.4byte gFadeMode
 _08003548:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _0800354C:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 
 	.global sub_08003550
 	.thumb_func
@@ -726,13 +726,13 @@ sub_08003550: @ 08003550
 _08003580:
 	.4byte 0x00000000
 _08003584:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _08003588:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _0800358C:
 	.4byte 0x01000100
 _08003590:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08003594:
 	.4byte 0x0201BA4C
 _08003598:
@@ -768,10 +768,10 @@ _080035C0:
 _080035C4:
 	.4byte 0x0201BA4C
 
-	.global sub_080035C8
+	.global pal_load
 	.thumb_func
-	.type sub_080035C8, %function
-sub_080035C8: @ 080035C8
+	.type pal_load, %function
+pal_load: @ 080035C8
 	ldr r1, _080035E4
 	ldr r2, _080035E8
 	str r0, [r1]
@@ -789,18 +789,18 @@ sub_080035C8: @ 080035C8
 _080035E4:
 	.4byte 0x040000D4
 _080035E8:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _080035EC:
 	.4byte 0x80000100
 _080035F0:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _080035F4:
 	.4byte 0x0000FFFF
 
-	.global sub_080035F8
+	.global fade_to_black
 	.thumb_func
-	.type sub_080035F8, %function
-sub_080035F8: @ 080035F8
+	.type fade_to_black, %function
+fade_to_black: @ 080035F8
 	ldr r0, _0800361C
 	ldr r1, [r0]
 	ldr r0, _08003620
@@ -820,22 +820,22 @@ sub_080035F8: @ 080035F8
 	str r1, [r0]
 	bx lr
 _0800361C:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08003620:
-	.4byte 0x0201BD18
+	.4byte gFadeLevel
 _08003624:
 	.4byte gModeFlags
 _08003628:
 	.4byte 0xFFFFF7FF
 _0800362C:
-	.4byte 0x0201BD1C
+	.4byte gFadeStep
 _08003630:
-	.4byte 0x0201BD20
+	.4byte gFadeMode
 
-	.global sub_08003634
+	.global fade_to_normal
 	.thumb_func
-	.type sub_08003634, %function
-sub_08003634: @ 08003634
+	.type fade_to_normal, %function
+fade_to_normal: @ 08003634
 	push {lr}
 	ldr r1, _08003668
 	ldr r2, [r1]
@@ -865,22 +865,22 @@ _08003664:
 	movs r2, #0x80
 	b _08003656
 _08003668:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _0800366C:
-	.4byte 0x0201BD18
+	.4byte gFadeLevel
 _08003670:
 	.4byte gModeFlags
 _08003674:
 	.4byte 0xFFFFF7FF
 _08003678:
-	.4byte 0x0201BD1C
+	.4byte gFadeStep
 _0800367C:
-	.4byte 0x0201BD20
+	.4byte gFadeMode
 
-	.global sub_08003680
+	.global fade_to_white
 	.thumb_func
-	.type sub_08003680, %function
-sub_08003680: @ 08003680
+	.type fade_to_white, %function
+fade_to_white: @ 08003680
 	ldr r0, _080036A4
 	ldr r1, [r0]
 	ldr r0, _080036A8
@@ -900,17 +900,17 @@ sub_08003680: @ 08003680
 	bx lr
 	.byte 0x00, 0x00
 _080036A4:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _080036A8:
-	.4byte 0x0201BD18
+	.4byte gFadeLevel
 _080036AC:
 	.4byte gModeFlags
 _080036B0:
 	.4byte 0xFFFFF7FF
 _080036B4:
-	.4byte 0x0201BD1C
+	.4byte gFadeStep
 _080036B8:
-	.4byte 0x0201BD20
+	.4byte gFadeMode
 
 	.global sub_080036BC
 	.thumb_func
@@ -1947,7 +1947,7 @@ _08003E30:
 	mov r8, r0
 	adds r5, r1, #4
 _08003E42:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #7
 	ands r0, r2
 	movs r2, #1
@@ -2252,7 +2252,7 @@ sub_08004058: @ 08004058
 	adds r5, #0x48
 	movs r4, #8
 _08004064:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0x80
 	ands r0, r6
 	lsrs r2, r0, #1

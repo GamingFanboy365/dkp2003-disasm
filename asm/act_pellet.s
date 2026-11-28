@@ -288,7 +288,7 @@ _0802871A:
 	str r0, [r2, #0x18]
 _08028796:
 	adds r0, r6, #0
-	bl sub_08001FE8
+	bl obj_free
 _0802879C:
 	add sp, #0xc
 	pop {r3, r4, r5, r6}
@@ -307,7 +307,7 @@ _080287AE:
 	str r0, [r2, #0x18]
 _080287B8:
 	adds r0, r6, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0802879C
 _080287C0:
 	rsbs r0, r0, #0
@@ -452,7 +452,7 @@ _080288A6:
 	bx r0
 _080288AE:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _080288A6
 _080288B6:
 	ldr r0, _080288D0
@@ -509,7 +509,7 @@ _080288F0:
 	str r1, [r2, #0x18]
 _08028914:
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 	add sp, #4
 	pop {r4, r5}
 	pop {r0}

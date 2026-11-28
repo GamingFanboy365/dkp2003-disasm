@@ -533,10 +533,10 @@ _080045CC:
 _080045D0:
 	.4byte 0x02021D78
 
-	.global sub_080045D4
+	.global cam_path_print
 	.thumb_func
-	.type sub_080045D4, %function
-sub_080045D4: @ 080045D4
+	.type cam_path_print, %function
+cam_path_print: @ 080045D4
 	push {r4, r5, r6, r7, lr}
 	ldr r0, _08004650
 	bl AGBPrintf

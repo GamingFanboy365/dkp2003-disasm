@@ -347,7 +347,7 @@ _08016B6E:
 	bl sub_0801E1B4
 	movs r0, #4
 	bl music_play_if_changed
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r3, _08016BF0
 	ldr r0, _08016BF4
 	ldr r1, _08016BF8
@@ -833,7 +833,7 @@ _08016F44:
 fe_tracks_process: @ 08016F48
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
-	bl sub_08003478
+	bl fade_update
 	ldr r1, _0801708C
 	movs r2, #0x16
 	ldrsh r0, [r1, r2]
@@ -1056,7 +1056,7 @@ _080170E8:
 	str r4, [r6, #8]
 _08017100:
 	bl sub_0801932C
-	bl sub_080035F8
+	bl fade_to_black
 	b _080170C2
 _0801710A:
 	movs r0, #0x40
@@ -1776,7 +1776,7 @@ _08017664:
 	bl fe_spr_init
 	movs r0, #3
 	bl music_play_if_changed
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #0x15
 	bl sub_0801931C
 	ldr r3, _080176DC
@@ -1840,7 +1840,7 @@ _080176E8:
 	.type fe_tracks_timesheet_process, %function
 fe_tracks_timesheet_process: @ 080176EC
 	push {r4, lr}
-	bl sub_08003478
+	bl fade_update
 	ldr r1, _080177BC
 	movs r2, #0x16
 	ldrsh r0, [r1, r2]
@@ -1915,7 +1915,7 @@ _08017772:
 	ands r0, r1
 	cmp r0, #0
 	beq _08017722
-	bl sub_080035F8
+	bl fade_to_black
 	bl sub_0801932C
 	movs r3, #0x80
 	movs r0, #0xd8
@@ -2110,7 +2110,7 @@ _080178D8:
 	adds r4, #2
 	strh r0, [r4]
 	ldr r0, _08017920
-	bl sub_080035C8
+	bl pal_load
 	ldr r4, _08017924
 	ldr r5, _08017928
 	str r5, [r4]
@@ -2257,7 +2257,7 @@ _08017998:
 	strh r5, [r0, #8]
 	strh r5, [r0, #0xe]
 	strh r5, [r0, #0x14]
-	bl sub_08003634
+	bl fade_to_normal
 	b _08017A5C
 _08017A24:
 	.4byte 0x00000004
@@ -2406,7 +2406,7 @@ fe_cranky_process: @ 08017B24
 	ldr r5, _08017DA8
 	sub sp, #0x10
 	bl _call_via_r5
-	bl sub_08003478
+	bl fade_update
 	bl sub_08017E1C
 	ldr r7, _08017DAC
 	ldr r3, [r7, #8]
@@ -2545,7 +2545,7 @@ _08017C3A:
 	movs r1, #3
 	str r1, [r4, #8]
 	str r1, [r6, #4]
-	bl sub_080035F8
+	bl fade_to_black
 	b _08017BAC
 _08017C46:
 	movs r3, #0x80
@@ -2574,7 +2574,7 @@ _08017C68:
 	b _08017B86
 _08017C74:
 	str r4, [r5]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r6, r0, #0xc
 	ldr r0, [r5, #8]
 	adds r6, #5
@@ -2608,7 +2608,7 @@ _08017C98:
 _08017CB8:
 	movs r0, #1
 	str r0, [r5]
-	bl sub_08000B14
+	bl lfsr_next
 	movs r3, #0x80
 	lsrs r2, r0, #0xa
 	lsls r4, r3, #9
@@ -2714,7 +2714,7 @@ _08017D96:
 	str r0, [r7, #8]
 	b _08017B56
 _08017D9C:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 _08017DA0:
 	.4byte 0x02023FA4
 _08017DA4:

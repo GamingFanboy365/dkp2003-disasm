@@ -96,7 +96,7 @@ _08027502:
 	bge _08027516
 	b _080278FC
 _08027516:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -183,7 +183,7 @@ _080275A4:
 	bge _080275B8
 	b _080278E8
 _080275B8:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -268,7 +268,7 @@ _08027642:
 	bge _08027656
 	b _080278D4
 _08027656:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1137,7 +1137,7 @@ _08027CC6:
 	b _08027B60
 _08027CDE:
 	adds r0, r7, #0
-	bl sub_080021E8
+	bl obj_add_draw
 	b _08027AB6
 	.byte 0x00, 0x00
 _08027CE8:

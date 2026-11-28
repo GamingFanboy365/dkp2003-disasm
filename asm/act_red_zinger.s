@@ -280,15 +280,15 @@ _080293D6:
 	str r1, [r4, #4]
 	ldr r0, [r7, #0x2c]
 	str r0, [r4, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	adds r3, r5, r2
 	str r3, [r4, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	adds r2, r6, r1
 	str r2, [r4, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, _080296E0
 	asrs r3, r0, #9
 	add r3, r8
@@ -310,15 +310,15 @@ _0802942A:
 	ldr r0, [r7, #0x2c]
 	add r0, r8
 	str r0, [r4, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	adds r3, r5, r2
 	str r3, [r4, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	adds r2, r6, r1
 	str r2, [r4, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _080296E0
 	add r3, r8
@@ -634,7 +634,7 @@ _0802969E:
 	b _08029366
 _080296CC:
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _08029366
 _080296D4:
 	.4byte sub_03003750
@@ -2224,15 +2224,15 @@ _0802A2C4:
 	str r1, [r5, #4]
 	ldr r0, [r7, #0x2c]
 	str r0, [r5, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	adds r3, r4, r2
 	str r3, [r5, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	adds r2, r6, r1
 	str r2, [r5, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _0802A49C
 	add r3, r8
@@ -2254,15 +2254,15 @@ _0802A318:
 	ldr r0, [r7, #0x2c]
 	add r0, r8
 	str r0, [r5, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	adds r3, r4, r2
 	str r3, [r5, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	adds r2, r6, r1
 	str r2, [r5, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _0802A49C
 	add r3, r8
@@ -3134,7 +3134,7 @@ _0802A9E2:
 	b _0802A262
 _0802AA10:
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	b _0802A262
 	.byte 0x00, 0x21, 0x41, 0x60, 0xFF, 0xF7, 0xDB, 0xFB
 _0802AA20:

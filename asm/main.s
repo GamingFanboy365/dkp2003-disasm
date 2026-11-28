@@ -186,7 +186,7 @@ _08000254:
 	bl eeprom_load
 	bl fe_start
 	ldr r0, _080002A8
-	bl sub_08000BDC
+	bl lfsr_seed
 	ldr r0, _08000298
 	ldr r1, _080002AC
 	strh r0, [r1]

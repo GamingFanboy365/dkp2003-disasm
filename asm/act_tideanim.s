@@ -108,9 +108,9 @@ _080129B4:
 _080129B8:
 	.4byte 0x040000D4
 _080129BC:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _080129C0:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _080129C4:
 	.4byte gUnk_08050BA0
 _080129C8:

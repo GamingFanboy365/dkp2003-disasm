@@ -7,10 +7,10 @@
 
 	.thumb
 
-	.global sub_08004E94
+	.global playerInit
 	.thumb_func
-	.type sub_08004E94, %function
-sub_08004E94: @ 08004E94
+	.type playerInit, %function
+playerInit: @ 08004E94
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -631,7 +631,7 @@ _0800532A:
 	adds r4, r6, #0
 	adds r4, #0x6c
 	strh r0, [r4]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #1
 	ands r0, r2
 	cmp r0, #0
@@ -1852,20 +1852,20 @@ sub_08005BE0: @ 08005BE0
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08005C7C
-	bl sub_08000B14
+	bl lfsr_next
 	movs r2, #0x80
 	asrs r3, r0, #6
 	add r3, r8
 	lsls r0, r2, #1
 	str r3, [r5]
 	str r0, [r5, #4]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r4, r0, #6
 	add r4, sl
 	str r4, [r5, #8]
 	movs r4, #0
 	str r4, [r5, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	lsrs r1, r0, #9
 	adds r2, r1, r6
 	asrs r3, r7, #8
@@ -1890,20 +1890,20 @@ _08005C7C:
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08005CCE
-	bl sub_08000B14
+	bl lfsr_next
 	movs r2, #0x80
 	asrs r3, r0, #6
 	add r3, r8
 	lsls r0, r2, #1
 	str r3, [r5]
 	str r0, [r5, #4]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r4, r0, #6
 	add r4, sl
 	str r4, [r5, #8]
 	movs r4, #0
 	str r4, [r5, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r7, #8
 	lsrs r1, r0, #9
 	movs r0, #8
@@ -4192,7 +4192,7 @@ _08006C48:
 	adds r4, r6, #0
 	muls r4, r1, r4
 	mov r8, r0
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, _08006E58
 	ldr r3, _08006E5C
 	ands r2, r0
@@ -4499,13 +4499,13 @@ _08006EB0:
 	str r2, [r7, #4]
 	ldr r0, [r1, #0x2c]
 	str r0, [r7, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	str r1, [r7, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	str r2, [r7, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r3, r0, #9
 	ldr r0, _08006F40
 	movs r1, #0x28
@@ -4529,13 +4529,13 @@ _08006F02:
 	ldr r1, [r2, #0x2c]
 	adds r0, r1, r6
 	str r0, [r7, #8]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r2, r0, #9
 	str r2, [r7, #0xc]
-	bl sub_08000B14
+	bl lfsr_next
 	asrs r1, r0, #9
 	str r1, [r7, #0x10]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r1, _08006F40
 	asrs r3, r0, #9
 	movs r2, #0x28
@@ -4761,7 +4761,7 @@ _0800708E:
 	muls r4, r2, r4
 	asrs r2, r5, #0xc
 	mov r8, r2
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r1, _08007160
 	ldr r3, _08007164
 	ands r1, r0
@@ -5396,7 +5396,7 @@ _0800754A:
 	movs r0, #0x80
 	lsls r2, r0, #1
 	adds r4, r5, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x13
 	str r3, [r4]
@@ -5514,7 +5514,7 @@ _08007620:
 	movs r0, #0x86
 	lsls r2, r0, #1
 	adds r4, r5, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x13
 	str r3, [r4]
@@ -5624,7 +5624,7 @@ _080076EA:
 	movs r4, #0x8c
 	lsls r1, r4, #1
 	adds r4, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x13
 	str r3, [r4]
@@ -5744,21 +5744,21 @@ _0800779E:
 	lsls r1, r4, #1
 	str r0, [r2]
 	adds r4, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x13
 	movs r0, #0x86
 	lsls r1, r0, #1
 	str r2, [r4]
 	adds r4, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r2, r3, #0x13
 	str r2, [r4]
 	movs r4, #0x8c
 	lsls r0, r4, #1
 	adds r4, r5, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x13
 	str r3, [r4]
@@ -5852,21 +5852,21 @@ _0800786C:
 	movs r2, #0x94
 	lsls r1, r2, #1
 	adds r7, r5, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r6, r0, #0x10
 	asrs r4, r6, #0x12
 	movs r0, #0x98
 	lsls r3, r0, #1
 	str r4, [r7]
 	adds r6, r5, r3
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x12
 	movs r4, #0x9c
 	str r1, [r6]
 	lsls r0, r4, #1
 	adds r6, r5, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r7, r3, #0x12
 	str r7, [r6]
@@ -9243,7 +9243,7 @@ _080091AA:
 	str r0, [r1]
 	b _080090C8
 _080091B0:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r4, r0, #0
@@ -9311,7 +9311,7 @@ _08009232:
 	lsls r4, r0, #1
 	adds r0, r7, r4
 	bl gamesfx_stop
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r4, r0, #0
@@ -9763,7 +9763,7 @@ _08009592:
 	str r0, [r1]
 	b _0800950E
 _0800959A:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r6, r0, #0
@@ -9814,7 +9814,7 @@ _080095FA:
 	lsls r6, r0, #1
 	adds r0, r5, r6
 	bl gamesfx_stop
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r6, r0, #0
@@ -10457,7 +10457,7 @@ _08009AD2:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _08009B18
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r1, [r4]
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x10
@@ -10480,7 +10480,7 @@ _08009B18:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _08009A4A
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r1, [r4]
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x10
@@ -11217,7 +11217,7 @@ _0800A08A:
 	str r4, [r0]
 	b _080099BC
 _0800A09A:
-	bl sub_080035F8
+	bl fade_to_black
 	b _0800A08A
 	.global _0800A0A0
 _0800A0A0:
@@ -11248,7 +11248,7 @@ _0800A0BC:
 	str r2, [r4]
 	b _080099BC
 _0800A0D0:
-	bl sub_08003634
+	bl fade_to_normal
 	b _0800A0BC
 	.global _0800A0D6
 _0800A0D6:
@@ -12807,10 +12807,10 @@ free_player: @ 0800AC40
 	pop {r0}
 	bx r0
 
-	.global sub_0800AC50
+	.global aiPlayerInit
 	.thumb_func
-	.type sub_0800AC50, %function
-sub_0800AC50: @ 0800AC50
+	.type aiPlayerInit, %function
+aiPlayerInit: @ 0800AC50
 	push {lr}
 	ldr r2, _0800ACB4
 	movs r1, #0

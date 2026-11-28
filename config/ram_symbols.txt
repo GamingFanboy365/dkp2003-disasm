@@ -25,5 +25,11 @@
 0x03005620 gIrqHandler              # interrupt callback; AgbMain and most screens set it to vblank_handler
 0x03005664 gIrqFlags                # bit 0 set by vblank_handler
 0x03005668 gVBlankCount
-0x0300566C gModeFlags               # bit 13: game_init loads ovl_b instead of ovl_a; bit 14: audio update in vblank
+0x0300566C gModeFlags               # bit 11: fade finished; bit 13: game_init loads ovl_b instead of ovl_a; bit 14: audio update in vblank, double-speed fades
 0x0202DEC8 gMcpState                # front-end flow state (e.g. 0xD6 FINISHED banner, 0x85D trophy screen)
+0x0201BAEC gBrightness              # 0 black .. 16 normal .. 32 white
+0x0201BAF0 gPalDirty                # one bit per 16-colour bank
+0x0201BB18 gPalBuffer               # 512-byte BG palette, copied to VRAM through gBrightness
+0x0201BD18 gFadeLevel               # 8.8 fixed point
+0x0201BD1C gFadeStep
+0x0201BD20 gFadeMode                # 0 to black, 1 to normal, 2 to white

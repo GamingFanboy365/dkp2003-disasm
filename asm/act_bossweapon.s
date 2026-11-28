@@ -42,7 +42,7 @@ _0802CAA2:
 	str r0, [r4, #8]
 	str r0, [r4, #0x10]
 	str r0, [r4, #0x38]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	b _0802CAEC
 _0802CADC:
 	.4byte 0x00000001
@@ -55,19 +55,19 @@ _0802CAE8:
 _0802CAEC:
 	lsrs r1, r0, #0xc
 	str r1, [r4, #0x20]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #0xc
 	str r2, [r4, #0x24]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r3, r0, #0xc
 	str r3, [r4, #0x28]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r1, r0, #7
 	str r1, [r4, #0x2c]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsrs r2, r0, #7
 	str r2, [r4, #0x30]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0x96
 	lsrs r3, r0, #7
 	lsls r0, r1, #1
@@ -485,7 +485,7 @@ _0802CE1A:
 	cmp r0, #0
 	beq _0802CE48
 	adds r0, r7, #0
-	bl sub_08001FE8
+	bl obj_free
 	ldr r1, _0802CEA0
 	ldr r0, [r1]
 	subs r0, #1
@@ -993,7 +993,7 @@ _0802D1BE:
 	cmp r0, #0
 	beq _0802D200
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _0802D200:
 	add sp, #4
 	pop {r4}

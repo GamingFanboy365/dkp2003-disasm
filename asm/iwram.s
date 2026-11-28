@@ -2813,9 +2813,9 @@ _030028B4:
 	lsl r1, r0, #1
 	b _030028A0
 
-	.global sub_030028D8
-	.type sub_030028D8, %function
-sub_030028D8: @ 030028D8
+	.global obj_check_hits
+	.type obj_check_hits, %function
+obj_check_hits: @ 030028D8
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	mov r0, #0
@@ -4351,11 +4351,11 @@ _03003EA0:
 _03003EA4:
 	.4byte 0x0201BA9C
 _03003EA8:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _03003EAC:
-	.4byte 0x0201BB18
+	.4byte gPalBuffer
 _03003EB0:
-	.4byte 0x0201BAEC
+	.4byte gBrightness
 
 	.global sub_03003EB4
 	.type sub_03003EB4, %function

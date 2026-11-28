@@ -97,7 +97,7 @@ _0800AD88:
 	str r0, [r7, #0x10]
 	cmp r0, #0
 	beq _0800ADCA
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r5, [r4, #8]
 	lsls r2, r5, #1
 	muls r2, r0, r2
@@ -280,7 +280,7 @@ _0800AF00:
 	.4byte 0x020234A0
 _0800AF04:
 	adds r4, r0, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800B21C
 	subs r3, r4, r5
 	ands r2, r0
@@ -334,7 +334,7 @@ _0800AF5A:
 	bge _0800AF6E
 	b _0800B456
 _0800AF6E:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov lr, r0
 	movs r4, #0
@@ -388,7 +388,7 @@ _0800AFAA:
 	muls r4, r1, r4
 	asrs r2, r4, #0xf
 	adds r4, r0, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800B21C
 	subs r3, r4, r5
 	ands r1, r0
@@ -441,7 +441,7 @@ _0800B028:
 	bge _0800B03C
 	b _0800B44A
 _0800B03C:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -496,7 +496,7 @@ _0800B07A:
 	muls r4, r0, r4
 	asrs r0, r4, #0xf
 	adds r4, r1, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800B21C
 	subs r3, r4, r5
 	ands r2, r0
@@ -549,7 +549,7 @@ _0800B0F8:
 	bge _0800B10C
 	b _0800B43E
 _0800B10C:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -602,7 +602,7 @@ _0800B14A:
 	muls r4, r1, r4
 	asrs r2, r4, #0xf
 	adds r4, r0, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800B21C
 	subs r4, r4, r5
 	ands r1, r0
@@ -838,7 +838,7 @@ _0800B324:
 	bx r0
 _0800B336:
 	ldr r4, [r7, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -873,7 +873,7 @@ _0800B366:
 	b _0800B22C
 _0800B378:
 	ldr r4, [r7, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -908,7 +908,7 @@ _0800B3A8:
 	b _0800B20A
 _0800B3BA:
 	ldr r4, [r7, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -943,7 +943,7 @@ _0800B3EA:
 	b _0800B1F8
 _0800B3FC:
 	ldr r4, [r7, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x10
 	adds r2, r4, #0
@@ -1050,7 +1050,7 @@ _0800B4AC:
 	b _0800AD82
 _0800B4B0:
 	mov r0, fp
-	bl sub_08001FE8
+	bl obj_free
 	b _0800B324
 	.byte 0x10, 0x48, 0x08, 0x49, 0x00, 0x90, 0x08, 0x4A, 0x05, 0x48, 0x0F, 0x4B, 0x26, 0xF0, 0xCA, 0xFF
 	.byte 0x27, 0xF0, 0x5E, 0xF8, 0xFF, 0xEF, 0xFF, 0xF7, 0x21, 0xFC, 0x00, 0x00
@@ -1192,7 +1192,7 @@ _0800B5B6:
 	lsls r3, r7, #0x12
 	orrs r0, r3
 	str r0, [r1]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	mov r1, sl
 	str r0, [r1, #0x10]
 	adds r1, #0xac
@@ -1293,7 +1293,7 @@ _0800B68E:
 	bge _0800B6A6
 	b _0800BD34
 _0800B6A6:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1404,7 +1404,7 @@ _0800B760:
 	bge _0800B774
 	b _0800BD1A
 _0800B774:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1455,7 +1455,7 @@ _0800B7AA:
 	asrs r2, r4, #0xf
 	subs r5, r1, r3
 	adds r4, r1, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800B91C
 	ands r2, r0
 	subs r0, r4, r5
@@ -1508,7 +1508,7 @@ _0800B828:
 	bge _0800B83C
 	b _0800BD12
 _0800B83C:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1561,7 +1561,7 @@ _0800B874:
 	asrs r0, r4, #0xf
 	subs r5, r1, r3
 	adds r4, r1, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800B91C
 	subs r3, r4, r5
 	ands r1, r0
@@ -1627,7 +1627,7 @@ _0800B918:
 _0800B91C:
 	.4byte 0x00007FFF
 _0800B920:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1680,7 +1680,7 @@ _0800B958:
 	asrs r0, r4, #0xf
 	subs r5, r1, r3
 	adds r4, r1, r0
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800BCA0
 	subs r3, r4, r5
 	ands r2, r0
@@ -1733,7 +1733,7 @@ _0800B9D8:
 	bge _0800B9EC
 	b _0800BD02
 _0800B9EC:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -1784,7 +1784,7 @@ _0800BA24:
 	muls r4, r0, r4
 	asrs r2, r4, #0xf
 	adds r4, r1, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800BCA0
 	ands r1, r0
 	subs r0, r4, r5
@@ -1993,7 +1993,7 @@ _0800BB02:
 _0800BBDE:
 	mov r3, sl
 	ldr r4, [r3, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -2029,7 +2029,7 @@ _0800BC10:
 _0800BC22:
 	mov r0, sl
 	ldr r4, [r0, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -2065,7 +2065,7 @@ _0800BC54:
 _0800BC66:
 	mov r0, sl
 	ldr r4, [r0, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r1, r0, #0x10
 	asrs r3, r1, #0x10
 	adds r2, r4, #0
@@ -2111,7 +2111,7 @@ _0800BCAC:
 _0800BCBE:
 	mov r0, sl
 	ldr r4, [r0, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x10
 	adds r2, r4, #0
@@ -2229,7 +2229,7 @@ _0800BD76:
 	cmp r0, #0
 	blt _0800BDDE
 _0800BD8C:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r1, #0
 	mov ip, r0
 	movs r5, #0
@@ -2617,7 +2617,7 @@ _0800C062:
 	bge _0800C076
 	b _0800C2BA
 _0800C076:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #0
 	mov ip, r0
 	movs r4, #0
@@ -2671,7 +2671,7 @@ _0800C0B4:
 	muls r4, r0, r4
 	asrs r2, r4, #0xf
 	adds r4, r1, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800C2E4
 	ands r2, r0
 	subs r0, r4, r5
@@ -2903,7 +2903,7 @@ _0800C270:
 	b _0800C14C
 _0800C274:
 	ldr r4, [r6, #0x10]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r3, r2, #0x10
 	adds r1, r4, #0
@@ -5288,18 +5288,18 @@ _0800D3CA:
 	adds r3, r0, r5
 	str r1, [r2]
 	mov r8, r3
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r7, r2, #0x12
 	mov r1, r8
 	str r7, [r1]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	adds r7, r5, #0
 	lsls r4, r0, #0x10
 	asrs r6, r4, #0x12
 	adds r7, #0xf0
 	str r6, [r7]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	adds r6, r5, #0
 	lsls r1, r0, #0x10
 	adds r6, #0xf8
@@ -5456,7 +5456,7 @@ _0800D506:
 	cmp r2, r3
 	blt _0800D516
 _0800D50A:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r7, r0, #0x10
 	asrs r6, r7, #0x13
 	mov r2, r8
@@ -5502,7 +5502,7 @@ _0800D558:
 	cmp r2, r3
 	blt _0800D568
 _0800D55C:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r6, r0, #0x10
 	asrs r3, r6, #0x13
 	mov r2, sl
@@ -5550,7 +5550,7 @@ _0800D5AC:
 	bge _0800D5B2
 	b _0800D496
 _0800D5B2:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r1, r3, #0x13
 	mov r2, sb
@@ -5604,7 +5604,7 @@ _0800D602:
 	str r4, [r2]
 	adds r2, r7, r5
 	mov r8, r2
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r3, r0, #0x10
 	asrs r6, r3, #0x13
 	movs r0, #0xcc
@@ -5612,7 +5612,7 @@ _0800D602:
 	adds r1, r0, r5
 	str r6, [r3]
 	mov sl, r1
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r2, r0, #0x10
 	asrs r1, r2, #0x13
 	movs r4, #0xd8
@@ -5620,7 +5620,7 @@ _0800D602:
 	adds r3, r4, r5
 	str r1, [r2]
 	mov sb, r3
-	bl sub_08000B78
+	bl multi_lfsr_next
 	lsls r7, r0, #0x10
 	asrs r3, r7, #0x13
 	mov r1, sb
@@ -6069,7 +6069,7 @@ _0800D972:
 	ands r1, r3
 	cmp r1, #0
 	bne _0800D93C
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r2, _0800DAEC
 	movs r1, #0xfa
 	ands r0, r2
@@ -6160,7 +6160,7 @@ _0800DA0C:
 	ble _0800DA28
 	b _0800D93C
 _0800DA28:
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800DAEC
 	movs r2, #0xfa
 	ands r0, r1
@@ -6966,7 +6966,7 @@ _0800DFFE:
 	movs r2, #7
 	b _0800E050
 _0800E002:
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r5, r0, #0
@@ -7010,7 +7010,7 @@ _0800E056:
 	lsls r5, r7, #1
 	adds r0, r6, r5
 	bl gamesfx_stop
-	bl sub_08000B14
+	bl lfsr_next
 	movs r1, #0xa
 	bl __umodsi3
 	adds r5, r0, #0
@@ -7481,7 +7481,7 @@ _0800E3EA:
 	lsls r1, r4, #1
 	adds r4, r6, r1
 	strh r0, [r4]
-	bl sub_08000B78
+	bl multi_lfsr_next
 	movs r2, #1
 	ands r0, r2
 	cmp r0, #0
@@ -7938,7 +7938,7 @@ sub_0800E740: @ 0800E740
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _0800E7A8
-	bl sub_08000B78
+	bl multi_lfsr_next
 	ldr r1, _0800E7E0
 	movs r2, #0x14
 	ldrsh r3, [r1, r2]
@@ -8821,10 +8821,10 @@ _0800EE04:
 _0800EE08:
 	.4byte 0x02023F6C
 
-	.global sub_0800EE0C
+	.global cam_path_add_point
 	.thumb_func
-	.type sub_0800EE0C, %function
-sub_0800EE0C: @ 0800EE0C
+	.type cam_path_add_point, %function
+cam_path_add_point: @ 0800EE0C
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _0800F084
 	ldrh r1, [r4]
@@ -8991,7 +8991,7 @@ _0800EF56:
 	ands r1, r0
 	cmp r1, #0
 	beq _0800EF68
-	bl sub_080045D4
+	bl cam_path_print
 _0800EF68:
 	bl AGBPrintFlush
 	add sp, #0x18

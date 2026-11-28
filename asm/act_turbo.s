@@ -85,17 +85,17 @@ _0802BD70:
 	ldr r2, [r5, #0x2c]
 	subs r0, r2, r1
 	str r0, [r7, #0x2c]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, [r5, #0x3c]
 	asrs r3, r0, #9
 	adds r1, r2, r3
 	str r1, [r7, #0x3c]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, [r5, #0x40]
 	asrs r3, r0, #9
 	adds r1, r2, r3
 	str r1, [r7, #0x40]
-	bl sub_08000B14
+	bl lfsr_next
 	ldr r2, [r5, #0x44]
 	asrs r3, r0, #9
 	adds r1, r2, r3
@@ -198,7 +198,7 @@ _0802BE3A:
 	cmp r0, #0
 	beq _0802BE94
 	adds r0, r4, #0
-	bl sub_08001FE8
+	bl obj_free
 _0802BE94:
 	add sp, #4
 	pop {r4}

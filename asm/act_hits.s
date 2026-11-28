@@ -83,7 +83,7 @@ _08013ACC:
 _08013AE4:
 	.4byte gFrameCount
 _08013AE8:
-	.4byte sub_030028D8
+	.4byte obj_check_hits
 _08013AEC:
 	.4byte gUnk_08050FA4
 _08013AF0:

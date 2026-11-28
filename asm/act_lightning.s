@@ -119,7 +119,7 @@ _0802BAAC:
 	bl sub_0802026C
 _0802BAB8:
 	mov r0, fp
-	bl sub_08001FE8
+	bl obj_free
 _0802BABE:
 	add sp, #0x14
 	pop {r3, r4, r5, r6}
@@ -181,7 +181,7 @@ _0802BB28:
 _0802BB2C:
 	.4byte 0x0000FFFF
 _0802BB30:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _0802BB34:
 	.4byte gGameSetup
 _0802BB38:
@@ -266,7 +266,7 @@ _0802BB98:
 	lsls r2, r3, #7
 	bl sub_08027FBC
 	mov r0, fp
-	bl sub_08001FE8
+	bl obj_free
 	b _0802BABE
 _0802BBEC:
 	movs r0, #8
@@ -367,7 +367,7 @@ _0802BCA4:
 _0802BCA8:
 	.4byte 0x0000FFFF
 _0802BCAC:
-	.4byte 0x0201BAF0
+	.4byte gPalDirty
 _0802BCB0:
 	.4byte gUnk_08053074
 _0802BCB4:

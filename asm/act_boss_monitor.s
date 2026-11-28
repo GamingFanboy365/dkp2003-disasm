@@ -128,7 +128,7 @@ _08025F88:
 _08025F9E:
 	adds r0, r4, #0
 	bl sub_08025DF0
-	bl sub_08003478
+	bl fade_update
 	ldr r3, [r5]
 	cmp r3, #0xa
 	bhi _08026010
@@ -152,7 +152,7 @@ _08025FB8:
 	.4byte _080261EE
 	.global _08025FE4
 _08025FE4:
-	bl sub_08003634
+	bl fade_to_normal
 	movs r0, #7
 	bl sub_08001F58
 	movs r1, #0
@@ -222,7 +222,7 @@ _0802605C:
 	cmp r1, #0
 	beq _08026010
 	bl music_stop
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r1, _08026220
 	movs r3, #2
 	b _080261E0
@@ -235,7 +235,7 @@ _08026084:
 	ands r0, r1
 	cmp r0, #0
 	beq _08026010
-	bl sub_08003634
+	bl fade_to_normal
 	ldr r0, _08026238
 	movs r2, #5
 	ldr r1, [r0]
@@ -409,7 +409,7 @@ _080261CC:
 	cmp r0, #0
 	beq _080261E6
 _080261D8:
-	bl sub_080035F8
+	bl fade_to_black
 	ldr r1, _08026220
 	movs r3, #0xa
 _080261E0:

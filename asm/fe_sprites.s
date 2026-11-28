@@ -1878,7 +1878,7 @@ _08018C70:
 	str r1, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08018D24
-	bl sub_080035C8
+	bl pal_load
 	b _08018C6C
 _08018CA2:
 	cmp r3, #2
@@ -1905,7 +1905,7 @@ _08018CA2:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08018D30
-	bl sub_080035C8
+	bl pal_load
 	b _08018C6C
 _08018CD8:
 	ldr r0, _08018D10
@@ -1930,7 +1930,7 @@ _08018CD8:
 	str r2, [r0, #8]
 	ldr r3, [r0, #8]
 	ldr r0, _08018D3C
-	bl sub_080035C8
+	bl pal_load
 	b _08018C6C
 	.byte 0x00, 0x00
 _08018D0C:

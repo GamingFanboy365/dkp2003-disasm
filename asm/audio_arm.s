@@ -631,9 +631,9 @@ _03006D50:
 	bl sub_03006498
 	add pc, pc, #0x50
 
-	.global sub_03006D68
-	.type sub_03006D68, %function
-sub_03006D68: @ 03006D68
+	.global audio_seq_step
+	.type audio_seq_step, %function
+audio_seq_step: @ 03006D68
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	mov r0, #0
@@ -1329,9 +1329,9 @@ _03007690:
 	ldr r1, _03007734
 	bx r1
 
-	.global sub_030076B0
-	.type sub_030076B0, %function
-sub_030076B0: @ 030076B0
+	.global audio_calc_pitch
+	.type audio_calc_pitch, %function
+audio_calc_pitch: @ 030076B0
 	pop {r0, r1, lr}
 	mov r3, #0x3e
 _030076B8:
