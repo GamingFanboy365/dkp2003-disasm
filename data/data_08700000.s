@@ -6895,11 +6895,11 @@ gUnk_087CFEA8:
 	.balign 8
 	.global gUnk_087D0B08
 gUnk_087D0B08:
-	.incbin "build/assets/levels/01/race_monitor.bin"   @ from assets/levels/01/race_monitor.bin
+	.include "assets/levels/01/checkpoints.s"
 	.balign 4
 	.global gUnk_087D0E0C
 gUnk_087D0E0C:
-	.incbin "build/assets/levels/01/race_monitor_rev.bin"   @ from assets/levels/01/race_monitor_rev.bin
+	.include "assets/levels/01/checkpoints_rev.s"
 	.balign 16
 	.global gUnk_087D1000
 gUnk_087D1000:
@@ -6951,11 +6951,11 @@ gUnk_087D4824:
 	.balign 8
 	.global gUnk_087D5558
 gUnk_087D5558:
-	.incbin "build/assets/levels/02/race_monitor.bin"   @ from assets/levels/02/race_monitor.bin
+	.include "assets/levels/02/checkpoints.s"
 	.balign 4
 	.global gUnk_087D56EC
 gUnk_087D56EC:
-	.incbin "build/assets/levels/02/race_monitor_rev.bin"   @ from assets/levels/02/race_monitor_rev.bin
+	.include "assets/levels/02/checkpoints_rev.s"
 	.balign 16
 	.global gUnk_087D5880
 gUnk_087D5880:
@@ -7007,11 +7007,11 @@ gUnk_087D9BF0:
 	.balign 8
 	.global gUnk_087DA9A8
 gUnk_087DA9A8:
-	.incbin "build/assets/levels/03/race_monitor.bin"   @ from assets/levels/03/race_monitor.bin
+	.include "assets/levels/03/checkpoints.s"
 	.balign 4
 	.global gUnk_087DABCC
 gUnk_087DABCC:
-	.incbin "build/assets/levels/03/race_monitor_rev.bin"   @ from assets/levels/03/race_monitor_rev.bin
+	.include "assets/levels/03/checkpoints_rev.s"
 	.balign 16
 	.global gUnk_087DADF0
 gUnk_087DADF0:
@@ -7063,11 +7063,11 @@ gUnk_087DE5E0:
 	.balign 16
 	.global gUnk_087DF060
 gUnk_087DF060:
-	.incbin "build/assets/levels/04/race_monitor.bin"   @ from assets/levels/04/race_monitor.bin
+	.include "assets/levels/04/checkpoints.s"
 	.balign 4
 	.global gUnk_087DF224
 gUnk_087DF224:
-	.incbin "build/assets/levels/04/race_monitor_rev.bin"   @ from assets/levels/04/race_monitor_rev.bin
+	.include "assets/levels/04/checkpoints_rev.s"
 	.balign 8
 	.global gUnk_087DF3E8
 gUnk_087DF3E8:
@@ -7119,11 +7119,11 @@ gUnk_087E2270:
 	.balign 16
 	.global gUnk_087E2C30
 gUnk_087E2C30:
-	.incbin "build/assets/levels/05/race_monitor.bin"   @ from assets/levels/05/race_monitor.bin
+	.include "assets/levels/05/checkpoints.s"
 	.balign 4
 	.global gUnk_087E2D94
 gUnk_087E2D94:
-	.incbin "build/assets/levels/05/race_monitor_rev.bin"   @ from assets/levels/05/race_monitor_rev.bin
+	.include "assets/levels/05/checkpoints_rev.s"
 	.balign 8
 	.global gUnk_087E2EF8
 gUnk_087E2EF8:
@@ -7175,11 +7175,11 @@ gUnk_087E5A50:
 	.balign 4
 	.global gUnk_087E62EC
 gUnk_087E62EC:
-	.incbin "build/assets/levels/06/race_monitor.bin"   @ from assets/levels/06/race_monitor.bin
+	.include "assets/levels/06/checkpoints.s"
 	.balign 16
 	.global gUnk_087E6450
 gUnk_087E6450:
-	.incbin "build/assets/levels/06/race_monitor_rev.bin"   @ from assets/levels/06/race_monitor_rev.bin
+	.include "assets/levels/06/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087E65B4
 gUnk_087E65B4:
@@ -7231,11 +7231,11 @@ gUnk_087E96B0:
 	.balign 4
 	.global gUnk_087EA0FC
 gUnk_087EA0FC:
-	.incbin "build/assets/levels/07/race_monitor.bin"   @ from assets/levels/07/race_monitor.bin
+	.include "assets/levels/07/checkpoints.s"
 	.balign 16
 	.global gUnk_087EA280
 gUnk_087EA280:
-	.incbin "build/assets/levels/07/race_monitor_rev.bin"   @ from assets/levels/07/race_monitor_rev.bin
+	.include "assets/levels/07/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087EA404
 gUnk_087EA404:
@@ -7287,11 +7287,11 @@ gUnk_087EDE30:
 	.balign 4
 	.global gUnk_087EEC04
 gUnk_087EEC04:
-	.incbin "build/assets/levels/08/race_monitor.bin"   @ from assets/levels/08/race_monitor.bin
+	.include "assets/levels/08/checkpoints.s"
 	.balign 8
 	.global gUnk_087EED68
 gUnk_087EED68:
-	.incbin "build/assets/levels/08/race_monitor_rev.bin"   @ from assets/levels/08/race_monitor_rev.bin
+	.include "assets/levels/08/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087EEECC
 gUnk_087EEECC:
@@ -7343,11 +7343,11 @@ gUnk_087F2638:
 	.balign 4
 	.global gUnk_087F3264
 gUnk_087F3264:
-	.incbin "build/assets/levels/09/race_monitor.bin"   @ from assets/levels/09/race_monitor.bin
+	.include "assets/levels/09/checkpoints.s"
 	.balign 8
 	.global gUnk_087F3368
 gUnk_087F3368:
-	.incbin "build/assets/levels/09/race_monitor_rev.bin"   @ from assets/levels/09/race_monitor_rev.bin
+	.include "assets/levels/09/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087F346C
 gUnk_087F346C:
@@ -7399,11 +7399,11 @@ gUnk_087F54D4:
 	.balign 4
 	.global gUnk_087F5DD4
 gUnk_087F5DD4:
-	.incbin "build/assets/levels/10/race_monitor.bin"   @ from assets/levels/10/race_monitor.bin
+	.include "assets/levels/10/checkpoints.s"
 	.balign 8
 	.global gUnk_087F5EC8
 gUnk_087F5EC8:
-	.incbin "build/assets/levels/10/race_monitor_rev.bin"   @ from assets/levels/10/race_monitor_rev.bin
+	.include "assets/levels/10/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087F5FBC
 gUnk_087F5FBC:
@@ -7455,11 +7455,11 @@ gUnk_087F88E4:
 	.balign 4
 	.global gUnk_087F96CC
 gUnk_087F96CC:
-	.incbin "build/assets/levels/11/race_monitor.bin"   @ from assets/levels/11/race_monitor.bin
+	.include "assets/levels/11/checkpoints.s"
 	.balign 16
 	.global gUnk_087F99C0
 gUnk_087F99C0:
-	.incbin "build/assets/levels/11/race_monitor_rev.bin"   @ from assets/levels/11/race_monitor_rev.bin
+	.include "assets/levels/11/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_087F9CB4
 gUnk_087F9CB4:
@@ -7511,11 +7511,11 @@ gUnk_087FD648:
 	.balign 16
 	.global gUnk_087FDEE0
 gUnk_087FDEE0:
-	.incbin "build/assets/levels/12/race_monitor.bin"   @ from assets/levels/12/race_monitor.bin
+	.include "assets/levels/12/checkpoints.s"
 	.balign 4
 	.global gUnk_087FE0E4
 gUnk_087FE0E4:
-	.incbin "build/assets/levels/12/race_monitor_rev.bin"   @ from assets/levels/12/race_monitor_rev.bin
+	.include "assets/levels/12/checkpoints_rev.s"
 	.balign 8
 	.global gUnk_087FE2E8
 gUnk_087FE2E8:
@@ -7571,11 +7571,11 @@ gUnk_08800B80:
 	.balign 4
 	.global gUnk_08801C6C
 gUnk_08801C6C:
-	.incbin "build/assets/levels/13/race_monitor.bin"   @ from assets/levels/13/race_monitor.bin
+	.include "assets/levels/13/checkpoints.s"
 	.balign 16
 	.global gUnk_08801E30
 gUnk_08801E30:
-	.incbin "build/assets/levels/13/race_monitor_rev.bin"   @ from assets/levels/13/race_monitor_rev.bin
+	.include "assets/levels/13/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_08801FF4
 gUnk_08801FF4:
@@ -7627,11 +7627,11 @@ gUnk_08805748:
 	.balign 16
 	.global gUnk_088065F0
 gUnk_088065F0:
-	.incbin "build/assets/levels/14/race_monitor.bin"   @ from assets/levels/14/race_monitor.bin
+	.include "assets/levels/14/checkpoints.s"
 	.balign 4
 	.global gUnk_08806774
 gUnk_08806774:
-	.incbin "build/assets/levels/14/race_monitor_rev.bin"   @ from assets/levels/14/race_monitor_rev.bin
+	.include "assets/levels/14/checkpoints_rev.s"
 	.balign 8
 	.global gUnk_088068F8
 gUnk_088068F8:
@@ -7683,11 +7683,11 @@ gUnk_08809594:
 	.balign 4
 	.global gUnk_0880A1A4
 gUnk_0880A1A4:
-	.incbin "build/assets/levels/15/race_monitor.bin"   @ from assets/levels/15/race_monitor.bin
+	.include "assets/levels/15/checkpoints.s"
 	.balign 8
 	.global gUnk_0880A298
 gUnk_0880A298:
-	.incbin "build/assets/levels/15/race_monitor_rev.bin"   @ from assets/levels/15/race_monitor_rev.bin
+	.include "assets/levels/15/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_0880A38C
 gUnk_0880A38C:
@@ -7739,11 +7739,11 @@ gUnk_0880C628:
 	.balign 4
 	.global gUnk_0880D1AC
 gUnk_0880D1AC:
-	.incbin "build/assets/levels/16/race_monitor.bin"   @ from assets/levels/16/race_monitor.bin
+	.include "assets/levels/16/checkpoints.s"
 	.balign 16
 	.global gUnk_0880D2D0
 gUnk_0880D2D0:
-	.incbin "build/assets/levels/16/race_monitor_rev.bin"   @ from assets/levels/16/race_monitor_rev.bin
+	.include "assets/levels/16/checkpoints_rev.s"
 	.balign 4
 	.global gUnk_0880D3F4
 gUnk_0880D3F4:

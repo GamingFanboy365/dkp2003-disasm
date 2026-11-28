@@ -21,7 +21,7 @@ and one for Reverse (play mode 1). `make extract` names the files
 | `+0x44` / `+0x48` | `edges1`, `edges1_rev` | `playerInit`, `sub_0800567C` | track edges ("not enough edge mask space for %d inside edges") |
 | `+0x4C` / `+0x50` | `edges2`, `edges2_rev` | `playerInit`, `sub_0800567C` | track edges |
 | `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |
-| `+0x5C` / `+0x60` | `race_monitor`, `race_monitor_rev` | `init_race_monitor` | data for the lap/position monitor |
+| `+0x5C` / `+0x60` | `checkpoints`, `checkpoints_rev` (`.s`) | `init_race_monitor`, `race_check_checkpoint` | the checkpoint lines that count laps (below) |
 | `+0x64` / `+0x68` | `camera`, `camera_rev` | `init_camera` | camera data |
 | `+0x6C` / `+0x70` | `autopilot`, `autopilot_rev` | `player_touch_booster_autopilot` | the path the autopilot booster flies |
 | `+0x74`, `+0x78`, `+0x8C` | | race monitors, `act_hud_lapcounter` | numbers |
@@ -72,6 +72,27 @@ The boss levels each have their own copy of a 188-node path, followed by
 Checked in mGBA: with every node of Steamy Swoop's path moved 300 units
 along x, the CPU racers fly about 300 units off to the side, and the player,
 who was 5th, is 1st after 20 seconds.
+
+## Checkpoints (`checkpoints`, `checkpoints_rev`)
+
+Laps are counted with checkpoint lines. `make extract` writes them as
+assembly (`assets/levels/NN/checkpoints.s`, `tools/checkpoints.py`), one
+`checkpoint` macro per line; every byte of the 42 lists is accounted for.
+
+```
+u32 count
+checkpoint[count]   s16 x, z; s16 next, prev; s16 nx, nz; s32 d   (16 bytes)
+```
+
+`x, z` is a point on the line, `nx, nz` its normal (length 256) and
+`nx·x + nz·z + d = 0` on the line (true for every entry). `next` and `prev`
+link the checkpoints into a loop. Checkpoint 0 is the start/finish line.
+`init_race_monitor` gives each racer checkpoint 0's `prev` as its last one
+(obj+0x11A), so the first line it must cross is the finish.
+`race_check_checkpoint` sees a racer cross the next line when the sign of
+`nx·x + nz·z + d` changes between last frame's position and this frame's,
+and `race_update_progress` counts laps from that. The four battle arenas
+have no checkpoints (count 0). Steamy Swoop has 22.
 
 ## Cups and courses
 

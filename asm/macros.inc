@@ -50,3 +50,9 @@
 .macro ai_link node, weight
 	.2byte \node, \weight
 .endm
+
+@ a checkpoint line (tools/checkpoints.py)
+.macro checkpoint x, z, next, prev, nx, nz, d
+	.2byte \x, \z, \next, \prev, \nx, \nz
+	.4byte \d
+.endm

@@ -37,6 +37,7 @@ import sys, os, struct, json, io, contextlib, bisect
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_asm  # noqa: E402
 import aipath  # noqa: E402
+import checkpoints  # noqa: E402
 from analyze import parse_cfg, ROM, ROM_BASE  # noqa: E402
 
 LEVELS = 0x7146C0
@@ -58,11 +59,13 @@ for off in range(0x38, 0x74, 4):
 # what reads each field (docs/levels.md); normal / reverse-direction pairs
 for off, name in {0x38: 'ai_path', 0x3C: 'ai_path_rev', 0x40: 'hits', 0x44: 'edges1', 0x48: 'edges1_rev',
                   0x4C: 'edges2', 0x50: 'edges2_rev', 0x54: 'camera_ops', 0x58: 'camera_ops_rev',
-                  0x5C: 'race_monitor', 0x60: 'race_monitor_rev', 0x64: 'camera', 0x68: 'camera_rev',
+                  0x5C: 'checkpoints', 0x60: 'checkpoints_rev', 0x64: 'camera', 0x68: 'camera_rev',
                   0x6C: 'autopilot', 0x70: 'autopilot_rev'}.items():
     LEVEL_FIELDS[off] = (name, LEVEL_FIELDS[off][1])
 LEVEL_FIELDS[0x38] = ('ai_path', 'aipath')
 LEVEL_FIELDS[0x3C] = ('ai_path_rev', 'aipath')
+LEVEL_FIELDS[0x5C] = ('checkpoints', 'checkpoints')
+LEVEL_FIELDS[0x60] = ('checkpoints_rev', 'checkpoints')
 
 # track record fields
 TRACK_FIELDS = {0x0C: ('palette', 'pal'), 0x10: ('sky', 'pal'), 0x14: ('map', 'rsprite'),
@@ -135,6 +138,8 @@ def collect(g, data):
                 add(p, 'levels/%02d/%s' % (L, fname), typ, 2 + n * (32 if typ == 'tiles4' else 64))
             elif typ == 'aipath':
                 add(p, 'levels/%02d/%s' % (L, fname), typ, aipath.size(data, p))
+            elif typ == 'checkpoints':
+                add(p, 'levels/%02d/%s' % (L, fname), typ, checkpoints.size(data, p))
             else:
                 add(p, 'levels/%02d/%s' % (L, fname), typ)
     # --- tracks ---
