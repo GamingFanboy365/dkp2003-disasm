@@ -8,3 +8,5 @@ __pycache__/
 
 # Extracted game assets (generated from baserom.gba by make extract)
 assets/
+# Python packages (install with pip, never commit)
+*.whl

@@ -13,8 +13,9 @@ to the original.
 ## Building
 
 You need GNU binutils for ARM (`arm-none-eabi-as`, `-ld`, `-objcopy`; on
-Debian/Ubuntu: `apt install binutils-arm-none-eabi`) and your own copy of the
-ROM.
+Debian/Ubuntu: `apt install binutils-arm-none-eabi`), Python 3 and your own
+copy of the ROM. The tools that regenerate the asm also need
+`pip install capstone`, and `tools/fcall.py` needs `pip install unicorn`.
 
 ```sh
 cp /path/to/your/rom.gba baserom.gba   # never committed (see .gitignore)
