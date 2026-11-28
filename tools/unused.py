@@ -568,7 +568,8 @@ NOTES = {
               'list.  It plays song 4 and shows its own title background (a beach '
               'with the winged logo, graphics/debug_menu/), which nothing else '
               'loads.  Its "Cup Win" item opens the cup-win screen '
-              '(fe_cups_win_init), which nothing else uses either.  To see it in '
+              '(fe_cups_win_init), which nothing else uses either; that podium '
+              'scene\'s banner tiles are garbled in the ROM.  To see it in '
               'mGBA, write 0x0800271D to gStateFunc (0x03005670) at the language '
               'screen, or apply patches/debug_menu.ips; see docs/debug_menu.md.',
     0x052580: 'level 25, an unfinished course: its header, a stub track record, '

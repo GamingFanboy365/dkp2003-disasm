@@ -26,7 +26,7 @@ UP/DOWN move the cursor, a sprite square in the left column.
 | 3 | **Flyby** | A, B or START | `game_init` with the current setup: a camera flyby of the track |
 | 4 | **Edit Flyby** | A, B or START | sets the play mode to 3 (or 4 if Reverse), then `game_init`. This is presumably the editor for the flyby camera paths |
 | 5 | **New Frontend** | A, B or START | `fe_title_init`: the normal front end, which suggests the debug menu was the "old" front end |
-| 6 | **Cup Win** | A, B or START | `fe_cups_win_init`: a cup podium scene (the racers' planes on a podium under a banner). Nothing else calls it: when a cup is won, the game uses `fe_cups_win2_init` (a plane towing a FINISHED banner, then the racers flying past) and `fe_cups_trophy_init` (KONGRATULATIONS / You won) instead. Without a finished cup its banner text is garbage |
+| 6 | **Cup Win** | A, B or START | `fe_cups_win_init`: a cup podium scene (the racers' planes on a podium under a banner). Nothing else calls it: when a cup is won, the game uses `fe_cups_win2_init` (a plane towing a FINISHED banner, then the racers flying past) and `fe_cups_trophy_init` (KONGRATULATIONS / You won) instead. Its "CONGRATULATIONS" banner is garbled, and that is in the data itself (see below) |
 | 7 | **Volume** *n* | LEFT / RIGHT | −4 … 4. Sets the music and effect volumes from `gDbgVolumeTable` and plays test sound 0x4E |
 | 8 | **Play Mode** *Normal/Reverse* | A / B | `gGameSetup + 2`: 0 Normal, 1 Reverse |
 
@@ -51,3 +51,18 @@ bytes, but the map is 32×20 (0x500), so the last 0x300 bytes come from the
 next block (level 06 data). They land off-screen. The font DMA copies 8 KB,
 but only 224 glyphs (up to `0x3222C`) are stored there. The last 32 "glyphs"
 are AGBPrint library code and are never drawn.
+
+## The podium scene's banner is broken in the ROM
+
+The cup-win podium (`fe_cups_win_init`) draws its three background layers
+straight from the ROM: 4bpp tiles from `0x09950E` (676 tiles) and 32×32 maps
+from `0x1B9C6C`, `0x1BA170` and `0x1BA674`. Nothing is built at run time.
+Rendered from those bytes, the "CONGRATULATIONS" banner is garbled tile by
+tile: each 8×8 tile holds part of a letter, but the parts don't line up.
+Shifting every tile number by a constant doesn't fix it (the original
+numbering joins best), so the tiles aren't simply offset. The map seems to
+point at tiles from a different version of the tileset, as if the tileset
+was rebuilt after the map was made. The rest of the scene (jungle, podium)
+looks right. Either way, the scene could not have shipped in this state.
+That may be part of why the game uses the FINISHED banner and the trophy
+screen instead, but nothing in the ROM says so.
