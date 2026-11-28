@@ -351,7 +351,7 @@ class Gen:
     # -- extracted assets -----------------------------------------------------
     ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
                     'gfx': '.bin', 'bin': '.bin',
-                    'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s'}
+                    'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt'}
 
     def emit_asset(self, out, off):
         end = self.emit_asset_body(out, off)

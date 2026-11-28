@@ -17,7 +17,7 @@ and one for Reverse (play mode 1). `make extract` names the files
 | `+0x18` | | | a number (1) |
 | `+0x34` | `objects` | `game_init` → `obj_spawn_level_object` | object list `{x, y, z, classinfo*}` |
 | `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` (`.s`) | `aiPlayerInit`, `ai_boss_init_1/2`; then `ai_update`, `ai_choose_next_node` | the CPU racers' path of gates (below); in RAM `gAiPathNodes`, `gAiPathLinks`, `gAiPathCount` |
-| `+0x40` | `hits` | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined") | collision polygons |
+| `+0x40` | `hits` (`.txt`) | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined"), `hits_floor_type` | the ground's polygons, with a drag value (below) |
 | `+0x44` / `+0x48` | `edges1`, `edges1_rev` | `playerInit`, `sub_0800567C` | track edges ("not enough edge mask space for %d inside edges") |
 | `+0x4C` / `+0x50` | `edges2`, `edges2_rev` | `playerInit`, `sub_0800567C` | track edges |
 | `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |
@@ -72,6 +72,39 @@ The boss levels each have their own copy of a 188-node path, followed by
 Checked in mGBA: with every node of Steamy Swoop's path moved 300 units
 along x, the CPU racers fly about 300 units off to the side, and the player,
 who was 5th, is 1st after 20 seconds.
+
+## Hit polygons (`hits`)
+
+The ground is divided into polygons; `hits_floor_type` finds the one under a
+racer (a 32 × 32 grid of masks first, then `point_in_poly`).
+
+```
+u32 count
+s32 min x, max x, min z, max z          the play area
+polygon[count]:
+  u8  drag, kind
+  s16 x, z                              first vertex
+  s16 min x, max x, min z, max z        box
+  u16 n                                 vertices
+  u32 xmask, zmask                      grid cells the box covers
+  s16 dx, dz [n]                        next vertex = this one - (dx, dz)
+```
+
+The box, masks and deltas follow from the vertices: for all 1001 polygons
+of the 21 lists, recomputing them gives the same bytes. So `make extract`
+writes only what matters (`assets/levels/NN/hits.txt`, `tools/hits.py`):
+
+```
+area 512 2400 192 3040
+poly 0 0  640,1920 632,1720 624,1528 744,1528 752,1712 760,1920
+```
+
+and the build computes the rest. `drag` slows a racer down while it flies
+over the polygon: `act_player` lowers the top speed by
+drag × (7 − item level) × a constant >> 8 during the race (values 0, 64,
+80, 96, 120, 128, 160, 200 occur; most of the track is 0). `kind` (0–9) is
+stored in obj+0x144. Levels 4 and 8 each have a polygon with a single
+vertex, which can never contain a point.
 
 ## Checkpoints (`checkpoints`, `checkpoints_rev`)
 

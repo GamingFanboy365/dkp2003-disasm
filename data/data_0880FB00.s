@@ -342,87 +342,87 @@ gUnk_0883CA94:
 	.incbin "baserom.gba", 0x83EDD8, 0x1B14
 	.global gUnk_088408EC
 gUnk_088408EC:
-	.incbin "build/assets/levels/01/hits.bin"   @ from assets/levels/01/hits.bin
+	.incbin "build/assets/levels/01/hits.bin"   @ from assets/levels/01/hits.txt
 	.balign 4
 	.global gUnk_088411D4
 gUnk_088411D4:
-	.incbin "build/assets/levels/02/hits.bin"   @ from assets/levels/02/hits.bin
+	.incbin "build/assets/levels/02/hits.bin"   @ from assets/levels/02/hits.txt
 	.balign 16
 	.global gUnk_08841AC0
 gUnk_08841AC0:
-	.incbin "build/assets/levels/03/hits.bin"   @ from assets/levels/03/hits.bin
+	.incbin "build/assets/levels/03/hits.bin"   @ from assets/levels/03/hits.txt
 	.balign 16
 	.global gUnk_088425A0
 gUnk_088425A0:
-	.incbin "build/assets/levels/04/hits.bin"   @ from assets/levels/04/hits.bin
+	.incbin "build/assets/levels/04/hits.bin"   @ from assets/levels/04/hits.txt
 	.balign 8
 	.global gUnk_08843218
 gUnk_08843218:
-	.incbin "build/assets/levels/05/hits.bin"   @ from assets/levels/05/hits.bin
+	.incbin "build/assets/levels/05/hits.bin"   @ from assets/levels/05/hits.txt
 	.balign 8
 	.global gUnk_088436A8
 gUnk_088436A8:
-	.incbin "build/assets/levels/06/hits.bin"   @ from assets/levels/06/hits.bin
+	.incbin "build/assets/levels/06/hits.bin"   @ from assets/levels/06/hits.txt
 	.balign 16
 	.global gUnk_08843F30
 gUnk_08843F30:
-	.incbin "build/assets/levels/07/hits.bin"   @ from assets/levels/07/hits.bin
+	.incbin "build/assets/levels/07/hits.bin"   @ from assets/levels/07/hits.txt
 	.balign 4
 	.global gUnk_08844BA4
 gUnk_08844BA4:
-	.incbin "build/assets/levels/08/hits.bin"   @ from assets/levels/08/hits.bin
+	.incbin "build/assets/levels/08/hits.bin"   @ from assets/levels/08/hits.txt
 	.balign 4
 	.global gUnk_0884595C
 gUnk_0884595C:
-	.incbin "build/assets/levels/09/hits.bin"   @ from assets/levels/09/hits.bin
+	.incbin "build/assets/levels/09/hits.bin"   @ from assets/levels/09/hits.txt
 	.balign 4
 	.global gUnk_08846404
 gUnk_08846404:
-	.incbin "build/assets/levels/10/hits.bin"   @ from assets/levels/10/hits.bin
+	.incbin "build/assets/levels/10/hits.bin"   @ from assets/levels/10/hits.txt
 	.balign 16
 	.global gUnk_08846B20
 gUnk_08846B20:
-	.incbin "build/assets/levels/11/hits.bin"   @ from assets/levels/11/hits.bin
+	.incbin "build/assets/levels/11/hits.bin"   @ from assets/levels/11/hits.txt
 	.balign 16
 	.global gUnk_08847710
 gUnk_08847710:
-	.incbin "build/assets/levels/12/hits.bin"   @ from assets/levels/12/hits.bin
+	.incbin "build/assets/levels/12/hits.bin"   @ from assets/levels/12/hits.txt
 	.balign 4
 	.global gUnk_08847D74
 gUnk_08847D74:
-	.incbin "build/assets/levels/13/hits.bin"   @ from assets/levels/13/hits.bin
+	.incbin "build/assets/levels/13/hits.bin"   @ from assets/levels/13/hits.txt
 	.balign 4
 	.global gUnk_08848CD4
 gUnk_08848CD4:
-	.incbin "build/assets/levels/14/hits.bin"   @ from assets/levels/14/hits.bin
+	.incbin "build/assets/levels/14/hits.bin"   @ from assets/levels/14/hits.txt
 	.balign 4
 	.global gUnk_08849A24
 gUnk_08849A24:
-	.incbin "build/assets/levels/15/hits.bin"   @ from assets/levels/15/hits.bin
+	.incbin "build/assets/levels/15/hits.bin"   @ from assets/levels/15/hits.txt
 	.balign 8
 	.global gUnk_0884A488
 gUnk_0884A488:
-	.incbin "build/assets/levels/16/hits.bin"   @ from assets/levels/16/hits.bin
+	.incbin "build/assets/levels/16/hits.bin"   @ from assets/levels/16/hits.txt
 	.balign 16
 	.global gUnk_0884AE70
 gUnk_0884AE70:
-	.incbin "build/assets/levels/17/hits.bin"   @ from assets/levels/17/hits.bin
+	.incbin "build/assets/levels/17/hits.bin"   @ from assets/levels/17/hits.txt
 	.balign 4
 	.global gUnk_0884AE84
 gUnk_0884AE84:
-	.include "assets/levels/21/hits.s"
+	.incbin "build/assets/levels/21/hits.bin"   @ from assets/levels/21/hits.txt
 	.balign 16
 	.global gUnk_0884B3F0
 gUnk_0884B3F0:
-	.incbin "build/assets/levels/22/hits.bin"   @ from assets/levels/22/hits.bin
+	.incbin "build/assets/levels/22/hits.bin"   @ from assets/levels/22/hits.txt
 	.balign 8
 	.global gUnk_0884BDD8
 gUnk_0884BDD8:
-	.incbin "build/assets/levels/23/hits.bin"   @ from assets/levels/23/hits.bin
+	.incbin "build/assets/levels/23/hits.bin"   @ from assets/levels/23/hits.txt
 	.balign 4
 	.global gUnk_0884C424
 gUnk_0884C424:
-	.incbin "build/assets/levels/24/hits.bin"   @ from assets/levels/24/hits.bin
+	.incbin "build/assets/levels/24/hits.bin"   @ from assets/levels/24/hits.txt
 	.balign 8
 	.global gUnk_0884CC48
 gUnk_0884CC48:

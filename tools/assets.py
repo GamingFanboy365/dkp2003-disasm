@@ -26,6 +26,9 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             (tools/aipath.py); the build includes it, nodes may be added
   checkpoints  a level's checkpoint lines (laps), assembly with the
             checkpoint macro (tools/checkpoints.py)
+  hits      a level's hit polygons as text: the play area, then each
+            polygon's type and vertices (tools/hits.py); the build works out
+            the boxes, grid masks and edge deltas
   text      the front end's strings and language tables, one string per line
             (tools/fetext.py); strings may change length
   gfx, bin  raw binary
@@ -43,7 +46,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt'}
 TILES_PER_ROW = 16
 
 
@@ -300,6 +303,10 @@ def extract(rom_path):
             wav_write(path, int(name.rsplit('_', 1)[1][:-2]), data)
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
+        elif typ == 'hits':
+            import hits
+            area, polys, _ = hits.parse(rom, off)
+            open(path, 'w').write(hits.to_text(area, polys, name))
         elif typ == 'checkpoints':
             import checkpoints
             open(path, 'w').write('\n'.join(checkpoints.to_asm(rom, off, name)) + '\n')
@@ -394,6 +401,9 @@ def build():
             counts = [m['tiles'] for m in meta['frames']]
             w, h, px = png_read(src)
             data = rare_sprite.build(meta, rare_sprite.from_pixels(counts, w, h, px, src))
+        elif typ == 'hits':
+            import hits
+            data = hits.build(*hits.from_text(open(src).read()))
         elif typ == 'text':
             import fetext
             tables, strings = fetext.from_text(open(src, encoding='utf-8').read(), os.path.relpath(src, ROOT))

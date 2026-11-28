@@ -38,6 +38,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_asm  # noqa: E402
 import aipath  # noqa: E402
 import checkpoints  # noqa: E402
+import hits  # noqa: E402
 from analyze import parse_cfg, ROM, ROM_BASE  # noqa: E402
 
 LEVELS = 0x7146C0
@@ -64,6 +65,7 @@ for off, name in {0x38: 'ai_path', 0x3C: 'ai_path_rev', 0x40: 'hits', 0x44: 'edg
     LEVEL_FIELDS[off] = (name, LEVEL_FIELDS[off][1])
 LEVEL_FIELDS[0x38] = ('ai_path', 'aipath')
 LEVEL_FIELDS[0x3C] = ('ai_path_rev', 'aipath')
+LEVEL_FIELDS[0x40] = ('hits', 'hits')
 LEVEL_FIELDS[0x5C] = ('checkpoints', 'checkpoints')
 LEVEL_FIELDS[0x60] = ('checkpoints_rev', 'checkpoints')
 
@@ -140,6 +142,8 @@ def collect(g, data):
                 add(p, 'levels/%02d/%s' % (L, fname), typ, aipath.size(data, p))
             elif typ == 'checkpoints':
                 add(p, 'levels/%02d/%s' % (L, fname), typ, checkpoints.size(data, p))
+            elif typ == 'hits':
+                add(p, 'levels/%02d/%s' % (L, fname), typ, hits.size(data, p))
             else:
                 add(p, 'levels/%02d/%s' % (L, fname), typ)
     # --- tracks ---
