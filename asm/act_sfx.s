@@ -402,4 +402,4 @@ _08013ECC:
 _08013ED0:
 	.4byte 0x0202D7D4
 _08013ED4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount

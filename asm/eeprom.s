@@ -16,7 +16,7 @@ eeprom_update: @ 0801D2EC
 	ldr r1, _0801D378
 	bl AGBPrintf
 	bl AGBPrintFlush
-	bl sub_0801E1A0
+	bl sound_disable
 	ldr r5, _0801D37C
 	ldr r4, _0801D380
 	movs r7, #0
@@ -48,7 +48,7 @@ _0801D326:
 	cmp r4, #0
 	beq _0801D346
 _0801D336:
-	bl sub_0801E1B4
+	bl sound_enable
 	rsbs r1, r4, #0
 	orrs r1, r4
 	lsrs r0, r1, #0x1f
@@ -285,10 +285,10 @@ _0801D4E4:
 _0801D4E8:
 	.4byte 0xFFFFFE2A
 
-	.global sub_0801D4EC
+	.global save_defaults
 	.thumb_func
-	.type sub_0801D4EC, %function
-sub_0801D4EC: @ 0801D4EC
+	.type save_defaults, %function
+save_defaults: @ 0801D4EC
 	push {r4, lr}
 	ldr r2, _0801D528
 	ldr r0, _0801D524
@@ -375,7 +375,7 @@ eeprom_load: @ 0801D55C
 	ldr r1, _0801D5B4
 	bl AGBPrintf
 	bl AGBPrintFlush
-	bl sub_0801E1A0
+	bl sound_disable
 	ldr r4, _0801D5B8
 	ldr r6, _0801D5BC
 	movs r5, #0
@@ -412,7 +412,7 @@ _0801D5C0:
 	adds r6, #8
 	cmp r5, #0x3f
 	ble _0801D5C0
-	bl sub_0801E1B4
+	bl sound_enable
 	ldr r0, _0801D628
 	ldr r2, _0801D62C
 	ldr r3, [r0]
@@ -471,7 +471,7 @@ _0801D634:
 	pop {r0}
 	bx r0
 _0801D64A:
-	bl sub_0801D4EC
+	bl save_defaults
 	ldr r3, _0801D660
 	ldr r1, _0801D664
 	ldr r0, _0801D668
@@ -497,7 +497,7 @@ _0801D66C:
 	ble _0801D68A
 	ldr r0, _0801D694
 	bl AGBPrintf
-	bl sub_0801D4EC
+	bl save_defaults
 _0801D68A:
 	movs r3, #1
 	b _0801D5EE
@@ -507,10 +507,10 @@ _0801D690:
 _0801D694:
 	.4byte gUnk_08051A80
 
-	.global sub_0801D698
+	.global save_write
 	.thumb_func
-	.type sub_0801D698, %function
-sub_0801D698: @ 0801D698
+	.type save_write, %function
+save_write: @ 0801D698
 	push {lr}
 	ldr r0, _0801D6A8
 	bl save_pack
@@ -603,7 +603,7 @@ _0801D732:
 _0801D73C:
 	.4byte 0x04000120
 _0801D740:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801D744:
 	.4byte 0x0202DE70
 _0801D748:
@@ -683,7 +683,7 @@ _0801D7CC:
 _0801D7D0:
 	.4byte 0x0000FEA2
 _0801D7D4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801D7D8:
 	.4byte 0x0202DE88
 _0801D7DC:
@@ -809,7 +809,7 @@ _0801D8AC:
 _0801D8B0:
 	.4byte gLocalPlayerIndex
 _0801D8B4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801D8B8:
 	.4byte 0x0000FEA2
 _0801D8BC:
@@ -963,11 +963,11 @@ _0801D9C0:
 _0801D9C8:
 	.4byte 0x00001331
 _0801D9CC:
-	.4byte 0x0202DE68
+	.4byte gLinkTimeout
 _0801D9D0:
 	.4byte 0x0202DE6C
 _0801D9D4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801D9D8:
 	.4byte gLocalPlayerIndex
 _0801D9DC:
@@ -1070,7 +1070,7 @@ _0801DA8C:
 _0801DA90:
 	.4byte 0x00000001
 _0801DA94:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DA98:
 	.4byte 0x0202DE64
 _0801DA9C:
@@ -1078,13 +1078,13 @@ _0801DA9C:
 _0801DAA0:
 	.4byte gLocalPlayerIndex
 _0801DAA4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801DAA8:
 	.4byte 0x0202DE60
 _0801DAAC:
 	.4byte 0x0202DE70
 _0801DAB0:
-	.4byte 0x0202DE68
+	.4byte gLinkTimeout
 _0801DAB4:
 	.4byte 0x03005660
 _0801DAB8:
@@ -1099,10 +1099,10 @@ _0801DAC4:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_0801DACC
+	.global link_handshake
 	.thumb_func
-	.type sub_0801DACC, %function
-sub_0801DACC: @ 0801DACC
+	.type link_handshake, %function
+link_handshake: @ 0801DACC
 	push {r4, lr}
 	ldr r0, _0801DAFC
 	ldr r4, _0801DB00
@@ -1134,7 +1134,7 @@ _0801DAF6:
 _0801DAFC:
 	.4byte 0x04000128
 _0801DB00:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DB04:
 	lsls r4, r3, #0x10
 	lsrs r2, r4, #0x10
@@ -1178,9 +1178,9 @@ _0801DB4C:
 _0801DB50:
 	.4byte 0x0400012A
 _0801DB54:
-	.4byte 0x0202DE68
+	.4byte gLinkTimeout
 _0801DB58:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801DB5C:
 	ldr r0, _0801DBAC
 	movs r3, #1
@@ -1228,15 +1228,15 @@ _0801DBA8:
 _0801DBAC:
 	.4byte gLocalPlayerIndex
 _0801DBB0:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DBB4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801DBB8:
 	.4byte 0x0202DE60
 _0801DBBC:
 	.4byte 0x0202DE70
 _0801DBC0:
-	.4byte 0x0202DE68
+	.4byte gLinkTimeout
 _0801DBC4:
 	.4byte 0x03005660
 _0801DBC8:
@@ -1469,7 +1469,7 @@ _0801DD60:
 _0801DD64:
 	.4byte 0x0202DE64
 _0801DD68:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DD6C:
 	.4byte 0x0202DE48
 _0801DD70:
@@ -1621,7 +1621,7 @@ _0801DE78:
 _0801DE84:
 	.4byte 0x00000000
 _0801DE88:
-	.4byte 0x0202DE68
+	.4byte gLinkTimeout
 _0801DE8C:
 	.4byte 0x0202DE6C
 _0801DE90:
@@ -1639,7 +1639,7 @@ _0801DEA4:
 _0801DEA8:
 	.4byte 0x0202DE50
 _0801DEAC:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801DEB0:
 	.4byte gKeysHeld
 _0801DEB4:
@@ -1665,32 +1665,32 @@ _0801DED2:
 _0801DED8:
 	.4byte 0x0202DE88
 
-	.global sub_0801DEDC
+	.global link_begin
 	.thumb_func
-	.type sub_0801DEDC, %function
-sub_0801DEDC: @ 0801DEDC
+	.type link_begin, %function
+link_begin: @ 0801DEDC
 	ldr r0, _0801DEE4
 	movs r1, #1
 	str r1, [r0]
 	bx lr
 _0801DEE4:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 
-	.global sub_0801DEE8
+	.global link_reset
 	.thumb_func
-	.type sub_0801DEE8, %function
-sub_0801DEE8: @ 0801DEE8
+	.type link_reset, %function
+link_reset: @ 0801DEE8
 	ldr r0, _0801DEF0
 	movs r1, #6
 	str r1, [r0]
 	bx lr
 _0801DEF0:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 
-	.global sub_0801DEF4
+	.global link_start
 	.thumb_func
-	.type sub_0801DEF4, %function
-sub_0801DEF4: @ 0801DEF4
+	.type link_start, %function
+link_start: @ 0801DEF4
 	ldr r0, _0801DF2C
 	movs r1, #2
 	str r1, [r0]
@@ -1720,7 +1720,7 @@ _0801DF24:
 _0801DF28:
 	.4byte 0x00000001
 _0801DF2C:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DF30:
 	.4byte 0x04000208
 _0801DF34:
@@ -1733,10 +1733,10 @@ _0801DF40:
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_0801DF44
+	.global link_all_ready
 	.thumb_func
-	.type sub_0801DF44, %function
-sub_0801DF44: @ 0801DF44
+	.type link_all_ready, %function
+link_all_ready: @ 0801DF44
 	push {lr}
 	ldr r2, _0801DF68
 	ldr r1, [r2]
@@ -1760,14 +1760,14 @@ _0801DF54:
 _0801DF68:
 	.4byte gLocalPlayerIndex
 _0801DF6C:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801DF70:
 	.4byte 0x0202DE60
 
-	.global sub_0801DF74
+	.global link_stop
 	.thumb_func
-	.type sub_0801DF74, %function
-sub_0801DF74: @ 0801DF74
+	.type link_stop, %function
+link_stop: @ 0801DF74
 	push {r4, lr}
 	ldr r0, _0801DFAC
 	movs r4, #3
@@ -1797,7 +1797,7 @@ _0801DFA4:
 _0801DFA8:
 	.4byte 0x00000001
 _0801DFAC:
-	.4byte 0x0202DE74
+	.4byte gLinkState
 _0801DFB0:
 	.4byte 0x04000208
 _0801DFB4:
@@ -1859,10 +1859,10 @@ _0801E00E:
 	bl music_stop
 	b _0801E008
 
-	.global sub_0801E014
+	.global sound_set_master
 	.thumb_func
-	.type sub_0801E014, %function
-sub_0801E014: @ 0801E014
+	.type sound_set_master, %function
+sound_set_master: @ 0801E014
 	push {r4, r5, r6, lr}
 	ldr r1, _0801E06C
 	ldr r3, [r1, #4]
@@ -1910,14 +1910,14 @@ _0801E064:
 	asrs r6, r3, #4
 	b _0801E024
 _0801E06C:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 _0801E070:
-	.4byte gUnk_08051AD4
+	.4byte gSoundVolumeCurve
 
-	.global sub_0801E074
+	.global sound_set_music_volume
 	.thumb_func
-	.type sub_0801E074, %function
-sub_0801E074: @ 0801E074
+	.type sound_set_music_volume, %function
+sound_set_music_volume: @ 0801E074
 	push {r4, r5, r6, lr}
 	ldr r1, _0801E0D0
 	ldr r3, [r1, #4]
@@ -1967,14 +1967,14 @@ _0801E0C6:
 	b _0801E086
 	.byte 0x00, 0x00
 _0801E0D0:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 _0801E0D4:
-	.4byte gUnk_08051AD4
+	.4byte gSoundVolumeCurve
 
-	.global sub_0801E0D8
+	.global sound_set_sfx_volume
 	.thumb_func
-	.type sub_0801E0D8, %function
-sub_0801E0D8: @ 0801E0D8
+	.type sound_set_sfx_volume, %function
+sound_set_sfx_volume: @ 0801E0D8
 	push {r4, r5, r6, lr}
 	ldr r1, _0801E134
 	ldr r3, [r1, #4]
@@ -2024,14 +2024,14 @@ _0801E12A:
 	b _0801E0EA
 	.byte 0x00, 0x00
 _0801E134:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 _0801E138:
-	.4byte gUnk_08051AD4
+	.4byte gSoundVolumeCurve
 
-	.global sub_0801E13C
+	.global sound_set_balance
 	.thumb_func
-	.type sub_0801E13C, %function
-sub_0801E13C: @ 0801E13C
+	.type sound_set_balance, %function
+sound_set_balance: @ 0801E13C
 	push {r4, r5, r6, lr}
 	ldr r1, _0801E198
 	str r0, [r1, #4]
@@ -2081,14 +2081,14 @@ _0801E18C:
 	b _0801E14C
 	.byte 0x00, 0x00
 _0801E198:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 _0801E19C:
-	.4byte gUnk_08051AD4
+	.4byte gSoundVolumeCurve
 
-	.global sub_0801E1A0
+	.global sound_disable
 	.thumb_func
-	.type sub_0801E1A0, %function
-sub_0801E1A0: @ 0801E1A0
+	.type sound_disable, %function
+sound_disable: @ 0801E1A0
 	push {lr}
 	ldr r0, _0801E1B0
 	movs r1, #0
@@ -2097,18 +2097,18 @@ sub_0801E1A0: @ 0801E1A0
 	pop {r0}
 	bx r0
 _0801E1B0:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 
-	.global sub_0801E1B4
+	.global sound_enable
 	.thumb_func
-	.type sub_0801E1B4, %function
-sub_0801E1B4: @ 0801E1B4
+	.type sound_enable, %function
+sound_enable: @ 0801E1B4
 	ldr r0, _0801E1BC
 	movs r1, #1
 	str r1, [r0, #8]
 	bx lr
 _0801E1BC:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 
 	.global sound_vblank
 	.thumb_func
@@ -2125,7 +2125,7 @@ _0801E1CE:
 	bx r0
 	.byte 0x00, 0x00
 _0801E1D4:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 
 	.global sound_init
 	.thumb_func
@@ -2148,12 +2148,12 @@ sound_init: @ 0801E1D8
 	pop {r0}
 	bx r0
 _0801E1FC:
-	.4byte 0x0202DEA8
+	.4byte gSoundVolume
 
-	.global sub_0801E200
+	.global music_queue_reset
 	.thumb_func
-	.type sub_0801E200, %function
-sub_0801E200: @ 0801E200
+	.type music_queue_reset, %function
+music_queue_reset: @ 0801E200
 	ldr r0, _0801E214
 	ldr r2, _0801E218
 	movs r1, #0
@@ -2165,16 +2165,16 @@ sub_0801E200: @ 0801E200
 	bx lr
 	.byte 0x00, 0x00
 _0801E214:
-	.4byte 0x0202DEC0
+	.4byte gMusicJingleTimer
 _0801E218:
-	.4byte 0x0202DEBC
+	.4byte gMusicJingleOn
 _0801E21C:
-	.4byte 0x0202DEC4
+	.4byte gMusicResumeSong
 
-	.global sub_0801E220
+	.global music_request
 	.thumb_func
-	.type sub_0801E220, %function
-sub_0801E220: @ 0801E220
+	.type music_request, %function
+music_request: @ 0801E220
 	push {r4, lr}
 	adds r4, r0, #0
 	cmp r1, #0
@@ -2221,16 +2221,16 @@ _0801E278:
 	b _0801E24A
 	.byte 0x00, 0x00
 _0801E280:
-	.4byte 0x0202DEC0
+	.4byte gMusicJingleTimer
 _0801E284:
-	.4byte 0x0202DEBC
+	.4byte gMusicJingleOn
 _0801E288:
-	.4byte 0x0202DEC4
+	.4byte gMusicResumeSong
 
-	.global sub_0801E28C
+	.global music_play_jingle
 	.thumb_func
-	.type sub_0801E28C, %function
-sub_0801E28C: @ 0801E28C
+	.type music_play_jingle, %function
+music_play_jingle: @ 0801E28C
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	adds r4, r0, #0
@@ -2279,16 +2279,16 @@ _0801E2EC:
 	b _0801E2BA
 	.byte 0x00, 0x00
 _0801E2F4:
-	.4byte 0x0202DEBC
+	.4byte gMusicJingleOn
 _0801E2F8:
-	.4byte 0x0202DEC0
+	.4byte gMusicJingleTimer
 _0801E2FC:
-	.4byte 0x0202DEC4
+	.4byte gMusicResumeSong
 
-	.global sub_0801E300
+	.global music_jingle_set_timer
 	.thumb_func
-	.type sub_0801E300, %function
-sub_0801E300: @ 0801E300
+	.type music_jingle_set_timer, %function
+music_jingle_set_timer: @ 0801E300
 	ldr r2, _0801E30C
 	str r0, [r2]
 	ldr r0, _0801E310
@@ -2296,14 +2296,14 @@ sub_0801E300: @ 0801E300
 	str r1, [r0]
 	bx lr
 _0801E30C:
-	.4byte 0x0202DEC0
+	.4byte gMusicJingleTimer
 _0801E310:
-	.4byte 0x0202DEBC
+	.4byte gMusicJingleOn
 
-	.global sub_0801E314
+	.global music_jingle_update
 	.thumb_func
-	.type sub_0801E314, %function
-sub_0801E314: @ 0801E314
+	.type music_jingle_update, %function
+music_jingle_update: @ 0801E314
 	push {r4, r5, r6, lr}
 	ldr r6, _0801E38C
 	ldr r0, [r6]
@@ -2362,18 +2362,18 @@ _0801E384:
 	b _0801E32A
 	.byte 0x00, 0x00
 _0801E38C:
-	.4byte 0x0202DEBC
+	.4byte gMusicJingleOn
 _0801E390:
 	.4byte gFrameCount
 _0801E394:
-	.4byte 0x0202DEC0
+	.4byte gMusicJingleTimer
 _0801E398:
-	.4byte 0x0202DEC4
+	.4byte gMusicResumeSong
 
-	.global sub_0801E39C
+	.global cup_start
 	.thumb_func
-	.type sub_0801E39C, %function
-sub_0801E39C: @ 0801E39C
+	.type cup_start, %function
+cup_start: @ 0801E39C
 	push {r4, lr}
 	ldr r3, _0801E3E0
 	ldr r0, _0801E3D8
@@ -2412,7 +2412,7 @@ _0801E3DC:
 _0801E3E0:
 	.4byte gGameSetup
 _0801E3E4:
-	.4byte gUnk_08051654
+	.4byte gCups
 _0801E3E8:
 	strh r4, [r1]
 	ldrh r2, [r1]
@@ -2432,12 +2432,12 @@ _0801E3E8:
 	pop {r0}
 	bx r0
 _0801E40C:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 
-	.global sub_0801E410
+	.global cup_next
 	.thumb_func
-	.type sub_0801E410, %function
-sub_0801E410: @ 0801E410
+	.type cup_next, %function
+cup_next: @ 0801E410
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2633,7 +2633,7 @@ _0801E568:
 	cmp r1, #0
 	beq _0801E582
 _0801E57C:
-	bl sub_0801D698
+	bl save_write
 	b _0801E53A
 _0801E582:
 	movs r1, #1
@@ -2650,9 +2650,9 @@ _0801E58E:
 _0801E594:
 	.4byte gGameSetup
 _0801E598:
-	.4byte gUnk_08051654
+	.4byte gCups
 _0801E59C:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _0801E5A0:
 	.4byte gLocalPlayerIndex
 
@@ -2671,7 +2671,7 @@ mcp_process: @ 0801E5A4
 	ldr r2, [r5]
 	cmp r2, #0xe8
 	bne _0801E5C0
-	bl sub_0801F132
+	bl mcp_state_0E8
 _0801E5C0:
 	cmp r2, #0xe8
 	ble _0801E5C6
@@ -2797,7 +2797,7 @@ _0801E68C:
 	ldr r0, _0801E6AC
 	movs r3, #0xc8
 	str r3, [r0]
-	bl sub_0801EEF2
+	bl mcp_to_mode_menu
 	.byte 0x00, 0x00
 _0801E6A4:
 	.4byte 0x00000000
@@ -2822,7 +2822,7 @@ _0801E6C8:
 	ldr r1, _0801E710
 	lsls r0, r3, #1
 	str r0, [r1]
-	bl sub_0801EEF2
+	bl mcp_to_mode_menu
 _0801E6D4:
 	ldr r0, _0801E714
 	ldr r1, [r0]
@@ -2904,7 +2904,7 @@ _0801E754:
 	beq _0801E77A
 	orrs r2, r1
 	str r2, [r5, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r1, _0801E7BC
 	movs r0, #0xda
 	str r0, [r1]
@@ -2942,7 +2942,7 @@ _0801E7AA:
 	ldr r1, _0801E7BC
 	movs r0, #0xd4
 	str r0, [r1]
-	bl sub_0801E39C
+	bl cup_start
 	b mcp_process_return
 	.byte 0x00, 0x00
 _0801E7B8:
@@ -2960,7 +2960,7 @@ _0801E7C4:
 	beq _0801E7AA
 	orrs r2, r1
 	str r2, [r0, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r0, _0801E964
 	movs r3, #0xd7
 	str r3, [r0]
@@ -2977,7 +2977,7 @@ _0801E7E6:
 	beq _0801E7A2
 	orrs r2, r1
 	str r2, [r4, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r0, _0801E964
 	movs r1, #0xd7
 	str r1, [r0]
@@ -3026,7 +3026,7 @@ _0801E83E:
 	beq _0801E864
 	orrs r2, r0
 	str r2, [r4, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r1, _0801E964
 	movs r0, #0xdb
 	str r0, [r1]
@@ -3041,7 +3041,7 @@ _0801E864:
 	beq _0801E884
 	orrs r2, r0
 	str r2, [r4, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r1, _0801E964
 	movs r3, #0xdb
 	str r3, [r1]
@@ -3056,7 +3056,7 @@ _0801E884:
 	beq _0801E8A4
 	orrs r2, r0
 	str r2, [r4, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r0, _0801E964
 	movs r1, #0xdb
 	str r1, [r0]
@@ -3070,7 +3070,7 @@ _0801E8A4:
 	bl fe_retry_init
 	b mcp_process_return
 _0801E8B0:
-	bl sub_0801E410
+	bl cup_next
 	cmp r0, #1
 	beq _0801E8D2
 	cmp r0, #1
@@ -3330,7 +3330,7 @@ _0801EA70:
 	beq _0801EA92
 	orrs r3, r4
 	str r3, [r5, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r1, _0801EBD8
 	movs r0, #0xea
 	str r0, [r1]
@@ -3388,7 +3388,7 @@ _0801EAE4:
 	b _0801EDB4
 _0801EAEC:
 	bl sub_080177D0
-	bl sub_0801D698
+	bl save_write
 	movs r2, #0xdd
 	b _0801F144
 _0801EAF8:
@@ -3410,7 +3410,7 @@ _0801EB0A:
 _0801EB14:
 	movs r2, #0xd4
 	str r2, [r5]
-	bl sub_0801E39C
+	bl cup_start
 	b mcp_process_return
 _0801EB1E:
 	movs r0, #0xa1
@@ -3523,11 +3523,11 @@ _0801EBD8:
 _0801EBDC:
 	.4byte gGameSetup
 _0801EBE0:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _0801EBE4:
 	.4byte 0x00000137
 _0801EBE8:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801EBEC:
 	movs r3, #0x9b
 	ldr r0, _0801EC10
@@ -3569,7 +3569,7 @@ _0801EC22:
 	beq _0801EC36
 	b _0801E5EC
 _0801EC36:
-	bl sub_0801E410
+	bl cup_next
 	cmp r0, #1
 	beq _0801EC5A
 	cmp r0, #1
@@ -3714,7 +3714,7 @@ _0801ED38:
 	movs r1, #0x9c
 	lsls r0, r1, #1
 	str r0, [r5]
-	bl sub_0801E39C
+	bl cup_start
 	b mcp_process_return
 _0801ED44:
 	movs r2, #0x9b
@@ -3897,7 +3897,7 @@ _0801EE8E:
 	beq _0801EEB6
 	orrs r2, r1
 	str r2, [r0, #0x1c]
-	bl sub_0801D698
+	bl save_write
 	ldr r0, _0801EF1C
 	movs r1, #0xd8
 	str r1, [r0]
@@ -3935,10 +3935,10 @@ _0801EEEE:
 	movs r2, #0xc8
 	str r2, [r5]
 
-	.global sub_0801EEF2
+	.global mcp_to_mode_menu
 	.thumb_func
-	.type sub_0801EEF2, %function
-sub_0801EEF2: @ 0801EEF2
+	.type mcp_to_mode_menu, %function
+mcp_to_mode_menu: @ 0801EEF2
 	movs r0, #0
 	bl fe_spotscreen_init
 	bl mcp_process_return
@@ -3964,9 +3964,9 @@ _0801EF20:
 _0801EF24:
 	.4byte gGameSetup
 _0801EF28:
-	.4byte gUnk_08051654
+	.4byte gCups
 _0801EF2C:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _0801EF30:
 	.4byte 0x00000141
 _0801EF34:
@@ -4227,7 +4227,7 @@ _0801F0F4:
 	movs r1, #0x64
 	str r1, [r5]
 _0801F0F8:
-	bl sub_0801D698
+	bl save_write
 	bl fe_title_init
 	bl mcp_process_return
 _0801F104:
@@ -4255,10 +4255,10 @@ _0801F126:
 	bl fe_tracks_init
 	bl mcp_process_return
 
-	.global sub_0801F132
+	.global mcp_state_0E8
 	.thumb_func
-	.type sub_0801F132, %function
-sub_0801F132: @ 0801F132
+	.type mcp_state_0E8, %function
+mcp_state_0E8: @ 0801F132
 	cmp r4, #1
 	beq _0801F186
 	cmp r4, #1
@@ -4339,7 +4339,7 @@ _0801F1A2:
 _0801F1C4:
 	bl fe_cranky_init
 _0801F1C8:
-	bl sub_0801D698
+	bl save_write
 	bl mcp_process_return
 _0801F1D0:
 	ldr r2, [r0, #0x1c]
@@ -4455,7 +4455,7 @@ _0801F2A0:
 _0801F2A4:
 	.4byte 0x00000141
 _0801F2A8:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _0801F2AC:
 	.4byte 0x0000FFFF
 
@@ -4809,7 +4809,7 @@ _0801F51C:
 _0801F520:
 	.4byte gSfxPendingList
 _0801F524:
-	.4byte 0x0202E424
+	.4byte gGamesfxHold
 _0801F528:
 	.4byte 0x0202E42C
 _0801F52C:
@@ -5466,7 +5466,7 @@ _0801F978:
 _0801F994:
 	.4byte 0x0202E41C
 _0801F998:
-	.4byte 0x0202E424
+	.4byte gGamesfxHold
 _0801F99C:
 	.4byte 0x0202E420
 _0801F9A0:
@@ -5746,7 +5746,7 @@ _0801FB88:
 _0801FB8C:
 	.4byte 0x0202E428
 _0801FB90:
-	.4byte 0x0202E424
+	.4byte gGamesfxHold
 _0801FB94:
 	.4byte gUnk_08051B90
 _0801FB98:
@@ -5847,7 +5847,7 @@ _0801FC30:
 _0801FC50:
 	.4byte 0x0202E420
 _0801FC54:
-	.4byte 0x0202E424
+	.4byte gGamesfxHold
 _0801FC58:
 	.4byte 0x0202E428
 _0801FC5C:
@@ -6560,10 +6560,10 @@ _0802011E:
 _0802012C:
 	.4byte gSfxVoices
 
-	.global sub_08020130
+	.global sfx_doppler
 	.thumb_func
-	.type sub_08020130, %function
-sub_08020130: @ 08020130
+	.type sfx_doppler, %function
+sfx_doppler: @ 08020130
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -6676,16 +6676,16 @@ _080201FC:
 _08020200:
 	.4byte udiv
 
-	.global sub_08020204
+	.global gamesfx_hold
 	.thumb_func
-	.type sub_08020204, %function
-sub_08020204: @ 08020204
+	.type gamesfx_hold, %function
+gamesfx_hold: @ 08020204
 	ldr r1, _0802020C
 	str r0, [r1]
 	bx lr
 	.byte 0x00, 0x00
 _0802020C:
-	.4byte 0x0202E424
+	.4byte gGamesfxHold
 
 	.global voice_hit_victim
 	.thumb_func

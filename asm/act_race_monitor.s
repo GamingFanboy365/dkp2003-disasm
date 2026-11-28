@@ -260,7 +260,7 @@ _08011C8C:
 	str r3, [r1]
 	movs r0, #7
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	adds r0, r5, #0
 	adds r0, #0xa0
 	movs r2, #0x78
@@ -326,7 +326,7 @@ _08011CFA:
 	bl camera_op_set
 	movs r0, #8
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	adds r1, r5, #0
 	adds r1, #0xa0
 	movs r0, #0xa0
@@ -456,7 +456,7 @@ _08011E14:
 	adds r1, #0x74
 	ldr r0, [r3, r1]
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	adds r1, r4, #0
 	movs r2, #7
 	adds r1, #0x8c
@@ -499,7 +499,7 @@ _08011E66:
 	movs r0, #0xb
 _08011E76:
 	movs r1, #1
-	bl sub_0801E220
+	bl music_request
 _08011E7C:
 	ldr r1, _08011F44
 	movs r3, #9
@@ -509,7 +509,7 @@ _08011E82:
 	beq _08011E90
 	movs r0, #0xa
 	movs r1, #1
-	bl sub_0801E220
+	bl music_request
 	b _08011E7C
 _08011E90:
 	movs r0, #9
@@ -581,7 +581,7 @@ _08011EFC:
 _08011F04:
 	movs r0, #3
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	b _08011E9C
 	.global _08011F0E
 _08011F0E:
@@ -631,7 +631,7 @@ _08011F60:
 _08011F64:
 	.4byte gRacerObjects
 _08011F68:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08011F6C:
 	.4byte 0x0000030F
 _08011F70:

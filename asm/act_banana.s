@@ -700,7 +700,7 @@ _080117B8:
 	cmp r7, r1
 	bge _080117C6
 	movs r0, #0x3c
-	bl sub_08020204
+	bl gamesfx_hold
 _080117C6:
 	ldr r1, _0801193C
 	movs r0, #0
@@ -903,7 +903,7 @@ _08011938:
 _0801193C:
 	.4byte gGameSetup
 _08011940:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08011944:
 	.4byte gModeFlags
 _08011948:

@@ -617,7 +617,7 @@ _08020728:
 _0802072C:
 	.4byte gSpriteNext
 _08020730:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08020734:
 	.4byte 0x00007FFF
 _08020738:
@@ -846,7 +846,7 @@ _080208E0:
 _080208E4:
 	.4byte 0x0000011F
 _080208E8:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _080208EC:
 	.4byte gUnk_080525AC
 _080208F0:

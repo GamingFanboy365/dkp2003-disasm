@@ -85,7 +85,7 @@ _08000544:
 _08000548:
 	bl music_stop
 	bl snd_stop_all
-	bl sub_0801E1A0
+	bl sound_disable
 	ldr r4, _080005C8
 	ldr r3, _080005CC
 	ldr r0, [r4]
@@ -182,7 +182,7 @@ _080005F2:
 	ldr r1, _0800063C
 	ldr r0, _08000640
 	str r1, [r0]
-	bl sub_0801E1B4
+	bl sound_enable
 	ldr r5, _08000644
 	movs r0, #0
 	ldrsh r3, [r5, r0]
@@ -262,7 +262,7 @@ _08000688:
 _080006A2:
 	bl sub_080042F4
 	bl gamesfx_init
-	bl sub_0801E200
+	bl music_queue_reset
 	ldr r4, _080007B4
 	adds r2, r4, #0
 	adds r2, #0x86
@@ -398,7 +398,7 @@ _080007C0:
 _080007C4:
 	.4byte gUnk_0804F5A0
 _080007C8:
-	.4byte gUnk_08051654
+	.4byte gCups
 _080007CC:
 	movs r1, #0x2a
 	ldrsh r4, [r5, r1]
@@ -457,7 +457,7 @@ game_process: @ 08000824
 	bl _call_via_r4
 	ldr r5, _08000874
 	bl obj_flush_deletes
-	bl sub_0801E314
+	bl music_jingle_update
 	bl gamesfx_update
 	ldr r0, _08000884
 	ldr r4, _08000888
@@ -1131,7 +1131,7 @@ _08000D30:
 _08000D34:
 	.4byte gGameSetup
 _08000D38:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08000D3C:
 	.4byte 0x020042A4
 _08000D40:
@@ -1590,7 +1590,7 @@ _0800108C:
 _08001090:
 	.4byte gGameSetup
 _08001094:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08001098:
 	.4byte 0x02004320
 _0800109C:

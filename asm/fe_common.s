@@ -887,7 +887,7 @@ _08019468:
 	str r5, [r0, #0x14]
 	movs r0, #1
 	bl sub_0801931C
-	bl sub_0801E1A0
+	bl sound_disable
 	ldr r2, _080194FC
 	movs r1, #0x14
 	ldrsh r0, [r2, r1]
@@ -984,7 +984,7 @@ _08019554:
 _08019558:
 	.4byte 0x00000018
 _0801955C:
-	.4byte gUnk_08051654
+	.4byte gCups
 _08019560:
 	bl fe_get_text
 	mov r1, sl
@@ -1006,7 +1006,7 @@ _08019560:
 	adds r5, #4
 	cmp r6, #3
 	ble _080194B6
-	bl sub_0801E1B4
+	bl sound_enable
 	movs r0, #4
 	bl music_play_if_changed
 	bl fade_to_normal
@@ -1471,7 +1471,7 @@ _0801991C:
 _08019920:
 	.4byte gUnk_08296370
 _08019924:
-	.4byte gUnk_08051654
+	.4byte gCups
 _08019928:
 	.4byte 0x0202D23C
 _0801992C:
@@ -1893,7 +1893,7 @@ _08019C42:
 _08019C5C:
 	.4byte gKeysNew
 _08019C60:
-	.4byte gUnk_08051654
+	.4byte gCups
 _08019C64:
 	.4byte gUnk_080511B4
 _08019C68:
@@ -2633,7 +2633,7 @@ _0801A1EC:
 	ldr r0, _0801A26C
 	movs r1, #0
 	str r1, [r0]
-	bl sub_0801E1A0
+	bl sound_disable
 	bl sub_08018654
 	ldr r2, _0801A270
 	movs r5, #0
@@ -2770,7 +2770,7 @@ _0801A2FC:
 	adds r5, #4
 	cmp r7, #0
 	bge _0801A28C
-	bl sub_0801E1B4
+	bl sound_enable
 	ldr r3, _0801A3FC
 	movs r7, #0
 _0801A320:
@@ -3350,7 +3350,7 @@ _0801A788:
 _0801A78C:
 	.4byte gUnk_080517E0
 _0801A790:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801A794:
 	.4byte 0x0202D2C8
 _0801A798:
@@ -6595,7 +6595,7 @@ _0801BFA4:
 	str r4, [r5, #4]
 	str r4, [r5, #0xc]
 	str r6, [r5, #8]
-	bl sub_0801E1A0
+	bl sound_disable
 	bl sub_08018654
 	ldr r0, [r5, #8]
 	movs r3, #0xc
@@ -6744,7 +6744,7 @@ _0801C09C:
 	bge _0801C0F6
 	b _0801BFF6
 _0801C0F6:
-	bl sub_0801E1B4
+	bl sound_enable
 	movs r0, #4
 	bl music_play_if_changed
 	bl fade_to_normal
@@ -7169,8 +7169,8 @@ _0801C428:
 	b _0801C272
 	.global _0801C430
 _0801C430:
-	bl sub_0801D4EC
-	bl sub_0801D698
+	bl save_defaults
+	bl save_write
 	movs r0, #6
 	bl mcp_process
 	b _0801C272
@@ -8981,7 +8981,7 @@ _0801D190:
 	bl fe_spr_init
 	movs r0, #0xae
 	bl sub_0801931C
-	bl sub_0801E1B4
+	bl sound_enable
 	movs r0, #4
 	bl music_play_if_changed
 	bl fade_to_normal

@@ -923,7 +923,7 @@ _0800555A:
 	movs r6, #0
 	ldrsh r1, [r1, r6]
 	movs r0, #0x1b
-	bl sub_0801E28C
+	bl music_play_jingle
 	b _08005506
 _08005566:
 	adds r5, r2, #0
@@ -1043,7 +1043,7 @@ _08005626:
 	b _080055B4
 _0800563E:
 	movs r0, #0x23
-	bl sub_0801E074
+	bl sound_set_music_volume
 	ldr r2, [r6, #0x14]
 	movs r0, #0x80
 	str r2, [r4, #0x78]
@@ -6760,7 +6760,7 @@ _08007F28:
 	.4byte sin_fx
 _08007F2C:
 	movs r0, #4
-	bl sub_0801E300
+	bl music_jingle_set_timer
 	ldr r4, [sp, #0x28]
 	ldr r6, _08007F6C
 	movs r2, #0xb4
@@ -6917,7 +6917,7 @@ _0800805C:
 	b _08007D5A
 _0800806C:
 	movs r0, #4
-	bl sub_0801E300
+	bl music_jingle_set_timer
 	ldr r1, [sp, #0x28]
 	adds r1, #0xa0
 	str r1, [sp]
@@ -7134,7 +7134,7 @@ _08008200:
 	str r4, [sp]
 	strh r6, [r0]
 	movs r0, #4
-	bl sub_0801E300
+	bl music_jingle_set_timer
 	ldr r2, [sp]
 	movs r3, #0x80
 	ldrh r5, [r2, #0x38]
@@ -7269,7 +7269,7 @@ _0800830C:
 	adds r1, #0xfe
 	strh r4, [r1]
 	movs r0, #0x78
-	bl sub_0801E300
+	bl music_jingle_set_timer
 	ldr r2, _080083B8
 	mov fp, r2
 	movs r2, #0xbc
@@ -9627,7 +9627,7 @@ _0800945E:
 	ldr r1, _080094BC
 	ldr r0, [r1, r3]
 	adds r1, r6, #0
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r4, r5, r6, r7}
 	pop {r1}
 	bx r1
@@ -9919,7 +9919,7 @@ _080096B4:
 	ldr r0, [r4, r1]
 	lsls r2, r3, #0xa
 	adds r1, r5, #0
-	bl sub_08020130
+	bl sfx_doppler
 	movs r2, #0xc4
 	lsls r3, r2, #1
 	movs r4, #0x94
@@ -9990,7 +9990,7 @@ _08009742:
 	ldr r0, [r4, r1]
 	lsls r2, r3, #9
 	adds r1, r5, #0
-	bl sub_08020130
+	bl sfx_doppler
 	movs r2, #0xc4
 	lsls r3, r2, #1
 	movs r4, #0x94
@@ -12500,7 +12500,7 @@ _0800AA52:
 	movs r3, #0
 	ldrsh r1, [r1, r3]
 	movs r0, #0x10
-	bl sub_0801E28C
+	bl music_play_jingle
 	b _0800AA46
 	.byte 0x00, 0x00
 _0800AA60:
@@ -12516,7 +12516,7 @@ _0800AA68:
 booster_blue_sfx_end_cb: @ 0800AA6C
 	push {lr}
 	movs r0, #0x46
-	bl sub_0801E074
+	bl sound_set_music_volume
 	pop {r0}
 	bx r0
 
@@ -12764,7 +12764,7 @@ player_sfx_remote_pitch_cb1: @ 0800ABF8
 	ldr r0, [r2, r3]
 	movs r3, #0x80
 	lsls r2, r3, #9
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00
@@ -12786,7 +12786,7 @@ player_sfx_remote_pitch_cb2: @ 0800AC1C
 	ldr r0, [r2, r3]
 	movs r3, #0x80
 	lsls r2, r3, #0xa
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00

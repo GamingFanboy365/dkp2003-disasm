@@ -1782,7 +1782,7 @@ _08028180:
 	adds r1, r4, r3
 	ldr r2, [r1]
 	adds r1, r5, #0
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r4, r5}
 	pop {r1}
 	bx r1

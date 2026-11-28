@@ -5199,7 +5199,7 @@ _0800D314:
 	ldr r0, [r3]
 	bl sub_0800C664
 _0800D330:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0800D334:
 	.4byte gRacerObjects
 
@@ -6683,7 +6683,7 @@ _0800DDE6:
 	adds r1, r4, r3
 	ldr r2, [r1]
 	adds r1, r6, #0
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r4, r5, r6}
 	pop {r1}
 	bx r1
@@ -6811,7 +6811,7 @@ _0800DEA8:
 _0800DED0:
 	ldr r2, [r1]
 	adds r1, r6, #0
-	bl sub_08020130
+	bl sfx_doppler
 	movs r2, #0xac
 	adds r7, r0, #0
 	ldr r0, [r4, #4]
@@ -8234,7 +8234,7 @@ _0800E98C:
 	adds r1, r4, r3
 	ldr r2, [r1]
 	adds r1, r5, #0
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r4, r5}
 	pop {r1}
 	bx r1

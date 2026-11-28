@@ -120,7 +120,7 @@ _0801098C:
 _08010990:
 	.4byte gRacerObjects
 _08010994:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08010998:
 	.4byte gGameSetup
 _0801099C:
@@ -210,7 +210,7 @@ _08010A3C:
 _08010A40:
 	.4byte 0x00056B80
 _08010A44:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08010A48:
 	.4byte gUnk_08050708
 _08010A4C:

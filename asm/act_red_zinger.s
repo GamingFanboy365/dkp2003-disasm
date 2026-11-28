@@ -1566,7 +1566,7 @@ red_zinger_sfx_pitch_cb: @ 08029E28
 	ldr r0, [r2, r3]
 	movs r3, #0x80
 	lsls r2, r3, #9
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r1}
 	bx r1
 	.byte 0x00, 0x00

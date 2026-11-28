@@ -203,7 +203,7 @@ _08016A46:
 	str r1, [r6]
 	str r1, [r6, #4]
 	str r1, [r6, #8]
-	bl sub_0801E1A0
+	bl sound_disable
 	bl sub_08018654
 	ldr r1, _08016AE0
 	ldr r3, [r1, #0x10]
@@ -293,7 +293,7 @@ _08016AFC:
 _08016B00:
 	.4byte 0x0000400E
 _08016B04:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08016B08:
 	.4byte gUnk_0863FDE8
 _08016B0C:
@@ -344,7 +344,7 @@ _08016B54:
 	bge _08016B6E
 	b _08016A7C
 _08016B6E:
-	bl sub_0801E1B4
+	bl sound_enable
 	movs r0, #4
 	bl music_play_if_changed
 	bl fade_to_normal
@@ -482,7 +482,7 @@ _08016C70:
 _08016C74:
 	.4byte 0x04000044
 _08016C78:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08016C7C:
 	.4byte gUnk_0863FDF8
 _08016C80:
@@ -807,7 +807,7 @@ _08016F18:
 _08016F1C:
 	.4byte cos_fx
 _08016F20:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08016F24:
 	.4byte 0x02024390
 _08016F28:
@@ -2625,7 +2625,7 @@ _08017CB8:
 	bl snd_play
 	b _08017B86
 _08017CE2:
-	bl sub_0801E1A0
+	bl sound_disable
 	ldr r4, _08017DB0
 	ldr r0, [r4, #8]
 	bl sub_0801854C
@@ -2647,7 +2647,7 @@ _08017CE2:
 	adds r0, r5, #0
 	rsbs r3, r4, #0
 	bl sub_080188B8
-	bl sub_0801E1B4
+	bl sound_enable
 	movs r1, #1
 	str r1, [r7, #8]
 	b _08017B56

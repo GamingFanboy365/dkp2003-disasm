@@ -358,7 +358,7 @@ _0802616C:
 	adds r1, #0x74
 	ldr r0, [r3, r1]
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	adds r4, #0x8c
 	movs r0, #7
 	str r0, [r4]

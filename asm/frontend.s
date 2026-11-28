@@ -1139,7 +1139,7 @@ _08014CD4:
 	stm r3!, {r2}
 	cmp r5, #0
 	bge _08014CD4
-	bl sub_0801DEDC
+	bl link_begin
 	bl fade_to_normal
 	ldr r1, _08014E30
 	ldr r0, _08014E34
@@ -2006,7 +2006,7 @@ _08015336:
 	bics r0, r1
 	cmp r0, #0
 	beq _0801538C
-	bl sub_0801DACC
+	bl link_handshake
 	cmp r0, #0
 	beq _0801538C
 	ldr r2, [r4]
@@ -2072,7 +2072,7 @@ _080153C8:
 	lsls r2, r3, #9
 	movs r0, #0xcc
 	bl snd_play
-	bl sub_0801DF74
+	bl link_stop
 	movs r1, #1
 	str r1, [r5]
 	b _08015336
@@ -2133,13 +2133,13 @@ _08015440:
 	ldr r2, [r4]
 	cmp r2, #1
 	beq _08015460
-	bl sub_0801DEE8
+	bl link_reset
 	bl fade_to_black
 	movs r2, #2
 	str r2, [r5]
 	b _08015336
 _08015460:
-	bl sub_0801DEF4
+	bl link_start
 	ldr r0, _08015638
 	movs r1, #0x1e
 	movs r4, #3
@@ -2147,7 +2147,7 @@ _08015460:
 	str r4, [r5]
 	b _08015336
 _08015470:
-	bl sub_0801DF44
+	bl link_all_ready
 	cmp r0, #0
 	bne _08015440
 	movs r5, #0x80
@@ -4094,7 +4094,7 @@ _08016320:
 _08016324:
 	.4byte 0x02024208
 _08016328:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _0801632C:
 	.4byte 0x02024214
 _08016330:
@@ -4568,7 +4568,7 @@ _0801667C:
 	str r2, [r7, r1]
 	b _08016362
 _08016690:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08016694:
 	.4byte 0x020241D4
 _08016698:

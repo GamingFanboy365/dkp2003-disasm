@@ -1835,7 +1835,7 @@ _08026FC6:
 	ldr r1, [r2]
 	adds r2, r1, r7
 	mov r1, ip
-	bl sub_08020130
+	bl sfx_doppler
 	pop {r4, r5, r6, r7}
 	pop {r1}
 	bx r1
@@ -1947,7 +1947,7 @@ _0802706E:
 _08027096:
 	ldr r2, [r1]
 	adds r1, r6, #0
-	bl sub_08020130
+	bl sfx_doppler
 	ldr r1, _080272C8
 	adds r4, r1, #0
 	adds r4, #0xc4

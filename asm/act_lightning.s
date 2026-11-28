@@ -134,7 +134,7 @@ _0802BAD0:
 	movs r2, #0x96
 	movs r0, #0x14
 	lsls r1, r2, #1
-	bl sub_0801E28C
+	bl music_play_jingle
 	b _0802BAAC
 _0802BADC:
 	ldrb r3, [r6, #2]

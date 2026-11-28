@@ -818,7 +818,7 @@ _0800FDB2:
 	adds r1, #0x78
 	ldr r0, [r3, r1]
 	movs r1, #0
-	bl sub_0801E220
+	bl music_request
 	movs r0, #0x1d
 	bl obj_new
 	movs r1, #0

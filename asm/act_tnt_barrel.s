@@ -448,7 +448,7 @@ _0802B942:
 	str r4, [sp, #0x10]
 	bl gamesfx_play_at
 	movs r0, #0x3c
-	bl sub_08020204
+	bl gamesfx_hold
 	ldr r1, [sp, #0x18]
 	ldrb r3, [r1, #2]
 	cmp r3, #1

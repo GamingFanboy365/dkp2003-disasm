@@ -88,7 +88,7 @@ _0802C4E8:
 _0802C4EC:
 	.4byte 0x0202EC48
 _0802C4F0:
-	.4byte gUnk_08051654
+	.4byte gCups
 _0802C4F4:
 	.4byte gUnk_0884FA7C
 _0802C4F8:
@@ -695,7 +695,7 @@ sub_0802C950: @ 0802C950
 	lsls r1, r4, #2
 	ldr r2, [r3, r1]
 	adds r1, r5, #0
-	bl sub_08020130
+	bl sfx_doppler
 _0802C980:
 	pop {r4, r5}
 	pop {r1}

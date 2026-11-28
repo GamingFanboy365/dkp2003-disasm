@@ -79,3 +79,11 @@
 0x030063FC gAudioSfxHandles         # 4 x u32: handle id per sfx voice
 0x03005A7C gAudioPendingSong        # song to load next frame (-1 none), set by music_play
 0x03005A78 gAudioSong               # current song
+0x0202DE74 gLinkState               # link_handshake state (1, 2, 3, 5 connected, 6 reset)
+0x0202DE5C gLinkPlayerCount         # 1 when the handshake times out
+0x0202DE68 gLinkTimeout             # handshake frames left
+0x0202DEA8 gSoundVolume             # {master, balance, enabled, sfx volume, music volume}
+0x0202DEBC gMusicJingleOn
+0x0202DEC0 gMusicJingleTimer
+0x0202DEC4 gMusicResumeSong         # song to go back to after the jingle (-1 none)
+0x0202E424 gGamesfxHold              # frames before gamesfxPendingNew runs again (gamesfx_hold)

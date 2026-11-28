@@ -679,3 +679,31 @@
 0x0802F292 audio_pitchbend_init     # 16 channels: pitch bend 0x2000
 0x0802F2A2 audio_modulation_init    # 16 channels: modulation depth and phase 0
 0x03006BDC audio_cmd_note_on        # sequence command 05: free voice on the channel (else a releasing one; mono: the first), instrument split/drum lookup, audio_voice_start; errors "note on before prog chng", "incorrect note mapping for rhythm_set"
+0x0801D4EC save_defaults            # reset the saved fields of gGameSetup (eeprom_load, when the save is missing or bad)
+0x0801D698 save_write               # save_pack into 0x0202DC48, then eeprom_update
+0x0801DACC link_handshake           # per-frame link-cable state machine (gLinkState 1: send 0xA25E, 2: 0x2A2E, 3: 0xDEAD, 6: reset); 1 once connected (state 5)
+0x0801DEDC link_begin               # gLinkState = 1
+0x0801DEE8 link_reset               # gLinkState = 6
+0x0801DEF4 link_start               # gLinkState = 2, serial interrupt on, timer 3
+0x0801DF44 link_all_ready           # 1 if this is the master, with more than one player and all of them ready
+0x0801DF74 link_stop                # gLinkState = 3, serial interrupt off
+0x0801E014 sound_set_master         # gSoundVolume levels: +0 master (0..16), through the curve at 0x08051AD4
+0x0801E074 sound_set_music_volume   # +0x10 (sound_init: 0x46; act_player lowers it to 0x23)
+0x0801E0D8 sound_set_sfx_volume     # +0x0C (sound_init: 0x7F)
+0x0801E13C sound_set_balance        # +4: -16..16; below 0 turns the sfx down, above 0 the music
+0x0801E1A0 sound_disable            # +8 = 0 (no snd_vsync), audio_hw_stop
+0x0801E1B4 sound_enable             # +8 = 1
+0x0801E200 music_queue_reset        # no jingle, resume song -1 (game.s)
+0x0801E220 music_request            # (song, now): play the song, or if a jingle is on and !now, play it when the jingle ends (race/battle/boss monitors, HUD)
+0x0801E28C music_play_jingle        # (song, frames): play a jingle for a time, then go back to the song that was playing (player, lightning)
+0x0801E300 music_jingle_set_timer   # (frames)
+0x0801E314 music_jingle_update      # every other frame: count the jingle down; song 0x14 chains into 0x17 for 0x4A frames
+0x0801E39C cup_start                # first race of cup gGameSetup+0x28: points cleared, course from gCups, level and reverse flag from gCourses, game_init
+0x0801E410 cup_next                 # after a race: start the next of the 4, or rank the 8 racers by points; 0 next race, 1 trophy (saved), 2 no trophy
+0x08051654 gCups                    # 8 x 6 words: name text, 4 course numbers, order
+0x08051D40 gCourses                 # 48 x 0x2C: name text, level, reverse, palette, sky, map, map palette, theme, theme palette, icon count, icon positions
+0x08051AD4 gSoundVolumeCurve        # 17 volume levels
+0x08020130 sfx_doppler              # (listener, source, pitch): pitch x (0xDAC + v) / (0xDAC - v), v = closing speed from the distances last frame (+0x30) and now (+0x24); clamped 0..0x40000
+0x08020204 gamesfx_hold             # (frames): gGamesfxHold; the pending sfx queue waits until it runs out (act_banana: 60)
+0x0801EEF2 mcp_to_mode_menu         # inside mcp_process: fe_spotscreen_init(0), the mode menu
+0x0801F132 mcp_state_0E8            # inside mcp_process: the handler of state 0xE8

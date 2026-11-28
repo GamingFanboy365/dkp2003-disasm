@@ -2823,7 +2823,7 @@ _08025CC0:
 	movs r3, #0
 	ldrsh r1, [r0, r3]
 	movs r0, #0x10
-	bl sub_0801E28C
+	bl music_play_jingle
 	b _08025CB4
 
 	.global sub_08025CCC

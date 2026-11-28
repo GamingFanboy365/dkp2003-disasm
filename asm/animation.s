@@ -1225,7 +1225,7 @@ _08003902:
 	pop {r0}
 	bx r0
 _08003914:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08003918:
 	.4byte gGameSetup
 _0800391C:
@@ -1399,7 +1399,7 @@ _08003A42:
 _08003A54:
 	.4byte gGameSetup
 _08003A58:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08003A5C:
 	.4byte 0x0202D7D4
 _08003A60:
@@ -2012,7 +2012,7 @@ _08003EAC:
 	b _08003E02
 	.byte 0x00, 0x00
 _08003EB4:
-	.4byte 0x0202DE5C
+	.4byte gLinkPlayerCount
 _08003EB8:
 	.4byte gGameSetup
 

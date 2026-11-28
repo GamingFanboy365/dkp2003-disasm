@@ -61,7 +61,7 @@ _08012564:
 _08012568:
 	.4byte gGameSetup
 _0801256C:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _08012570:
 	bl fe_get_text
 	adds r4, r0, #0
@@ -389,7 +389,7 @@ _080127E4:
 _080127E8:
 	.4byte gGameSetup
 _080127EC:
-	.4byte gUnk_08051D40
+	.4byte gCourses
 _080127F0:
 	.4byte gUnk_0863FDD8
 _080127F4:

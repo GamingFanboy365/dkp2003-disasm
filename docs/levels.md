@@ -50,3 +50,48 @@ A node is 22 `s16` values. Established so far:
 | 14, 15 | between −256 and 256: probably a direction |
 | 4–9, 12, 13, 16–18 | not known yet (small counts, flags 0/255, angles) |
 | 19–21 | always 0 |
+
+## Cups and courses
+
+`gCourses` (`0x08051D40`) has 48 course records of 0x2C bytes:
+
+| Offset | Meaning |
+|---|---|
+| `+0x00` | name (front-end text number) |
+| `+0x04` | level (the level header number, 1–33) |
+| `+0x08` | 1 = the level is run in reverse |
+| `+0x0C` | palette |
+| `+0x10` | sky gradient |
+| `+0x14`, `+0x18` | track map (Rare sprite) and its palette, for the track-select preview |
+| `+0x1C`, `+0x20` | theme icon (Rare sprite) and its palette |
+| `+0x24`, `+0x28` | number of icons, and their (x, y) positions on the map preview |
+
+Courses 0–15 are the 16 race levels; 16–31 are the same levels in reverse,
+under their own names (Steamy Swoop → Monkey Rift, Icy Passage → Tundra
+Tumble, …); 32–35 are the battle arenas (levels 21–24); 36–47 are the four
+boss courses three times, on levels 17–20, 26–29 and 30–33. Level 25 is in
+no course (`docs/unused.txt`).
+
+`gCups` (`0x08051654`) has 8 cups of 6 words: the name, the four course
+numbers and a number from 0 to 7 (an order):
+
+| Cup | Courses | Order |
+|---|---|---|
+| Klap Trap Kup | 0–3 | 0 |
+| Kritter Kup | 4–7 | 3 |
+| Klump Kup | 8–11 | 6 |
+| K.Rool Kup | 12–15 | 7 |
+| Dixie Cup | 16–19 | 1 |
+| Diddy Cup | 20–23 | 2 |
+| Funky Cup | 24–27 | 4 |
+| Donkey Cup | 28–31 | 5 |
+
+`cup_start` starts the first race of the cup in `gGameSetup+0x28`. It clears
+the eight racers' points (`+0x2C`, 8 halfwords), stores the course
+(`+0x84`), its level (`+0x86`) and the reverse flag (`+0x02`), then calls
+`game_init`. After each race `cup_next` either starts the next of the four
+races (`+0x2A` counts them) and returns 0, or ranks the racers by points.
+A player in the top three gets a trophy, 3 − place (4 with 36 points),
+kept as the cup's best in `+0x6C + cup`; a gold also sets `+0x78 + cup`.
+The save is then written and `cup_next` returns 1. With no trophy it
+returns 2.
