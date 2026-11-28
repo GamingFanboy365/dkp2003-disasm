@@ -176,10 +176,10 @@ _080145D0:
 	bx r0
 	.byte 0xC0, 0x46
 
-	.global sub_080145D8
+	.global fe_title_draw
 	.thumb_func
-	.type sub_080145D8, %function
-sub_080145D8: @ 080145D8
+	.type fe_title_draw, %function
+fe_title_draw: @ 080145D8
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -745,11 +745,11 @@ _080149C8:
 _080149CC:
 	.4byte 0x04000004
 _080149D0:
-	.4byte sub_08015C38
+	.4byte fe_title_vblank
 _080149D4:
 	.4byte gIrqHandler
 _080149D8:
-	.4byte sub_08015C54
+	.4byte fe_title_hblank
 _080149DC:
 	lsls r4, r2, #0x13
 	strh r1, [r4]
@@ -1404,7 +1404,7 @@ fe_title_process: @ 08014EAC
 	strh r2, [r0]
 	asrs r0, r4, #2
 	asrs r2, r4, #4
-	bl sub_080145D8
+	bl fe_title_draw
 	bl sub_08017E1C
 	ldr r5, _080151D8
 	adds r0, r5, #0
@@ -1427,10 +1427,10 @@ _08014F0E:
 	ble _08014F00
 	movs r7, #0
 
-	.global sub_08014F16
+	.global fe_title_draw_14F16
 	.thumb_func
-	.type sub_08014F16, %function
-sub_08014F16: @ 08014F16
+	.type fe_title_draw_14F16, %function
+fe_title_draw_14F16: @ 08014F16
 	adds r6, r5, #0
 	adds r6, #0x26
 	ldrb r2, [r6]
@@ -1443,13 +1443,13 @@ sub_08014F16: @ 08014F16
 	.2byte 0xF000, 0xFE60 @ bl #0x8015bec
 _08014F2C:
 	cmp r2, #2
-	bne sub_08014F34
+	bne fe_title_draw_14F34
 	.2byte 0xF000, 0xFE52 @ bl #0x8015bd8
 
-	.global sub_08014F34
+	.global fe_title_draw_14F34
 	.thumb_func
-	.type sub_08014F34, %function
-sub_08014F34: @ 08014F34
+	.type fe_title_draw_14F34, %function
+fe_title_draw_14F34: @ 08014F34
 	adds r7, #1
 	cmp r7, #3
 	bgt _08014F3E
@@ -1465,7 +1465,7 @@ _08014F3E:
 	ands r1, r6
 	cmp r1, #0
 	beq _08014F6C
-	bl sub_080192E8
+	bl fe_theme_palette
 	adds r3, r0, #0
 	movs r0, #0
 	str r0, [sp]
@@ -1486,7 +1486,7 @@ _08014F6C:
 	ands r6, r5
 	cmp r6, #0
 	beq _08014F9E
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r6, #0x80
 	adds r3, r0, #0
 	lsls r1, r6, #6
@@ -1527,7 +1527,7 @@ _08014FA6:
 	adds r0, r4, #0
 	adds r2, r6, #0
 	bl fe_text_draw
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r5, #0
 	adds r3, r0, #0
 	movs r1, #0x8d
@@ -1543,56 +1543,56 @@ _08014FA6:
 	ldrsh r3, [r4, r0]
 	cmp r3, #1
 	bne _08015000
-	bl sub_08015AC4
+	bl fe_title_draw_15AC4
 _08015000:
 	cmp r3, #1
 	ble _08015008
-	bl sub_0801597E
+	bl fe_title_draw_1597E
 _08015008:
 	cmp r3, #0
-	bne sub_08015010
-	bl sub_08015928
+	bne fe_title_draw_15010
+	bl fe_title_draw_15928
 
-	.global sub_08015010
+	.global fe_title_draw_15010
 	.thumb_func
-	.type sub_08015010, %function
-sub_08015010: @ 08015010
+	.type fe_title_draw_15010, %function
+fe_title_draw_15010: @ 08015010
 	ldr r4, _080151D0
 	ldr r3, [r4]
 	adds r5, r3, #0
 	subs r5, #0x10
 	str r5, [sp, #0x10]
 	cmp r3, #0x11
-	bne sub_08015022
-	bl sub_08015914
+	bne fe_title_draw_15022
+	bl fe_title_draw_15914
 
-	.global sub_08015022
+	.global fe_title_draw_15022
 	.thumb_func
-	.type sub_08015022, %function
-sub_08015022: @ 08015022
+	.type fe_title_draw_15022, %function
+fe_title_draw_15022: @ 08015022
 	cmp r3, #0x52
-	bne sub_0801502A
-	bl sub_08015904
+	bne fe_title_draw_1502A
+	bl fe_title_draw_15904
 
-	.global sub_0801502A
+	.global fe_title_draw_1502A
 	.thumb_func
-	.type sub_0801502A, %function
-sub_0801502A: @ 0801502A
+	.type fe_title_draw_1502A, %function
+fe_title_draw_1502A: @ 0801502A
 	ldr r1, [sp, #0x10]
 	cmp r1, #0xf0
-	bne sub_08015034
-	bl sub_080158BA
+	bne fe_title_draw_15034
+	bl fe_title_draw_158BA
 
-	.global sub_08015034
+	.global fe_title_draw_15034
 	.thumb_func
-	.type sub_08015034, %function
-sub_08015034: @ 08015034
+	.type fe_title_draw_15034, %function
+fe_title_draw_15034: @ 08015034
 	ldr r3, _080151D8
 	movs r2, #0x16
 	ldrsh r0, [r3, r2]
 	cmp r0, #2
 	bne _08015042
-	bl sub_08015852
+	bl fe_title_draw_15852
 _08015042:
 	movs r6, #0xfa
 	ldr r5, _080151F8
@@ -1669,10 +1669,10 @@ _080150CA:
 	cmp r7, #3
 	ble _08015056
 
-	.global sub_080150D6
+	.global fe_title_draw_150D6
 	.thumb_func
-	.type sub_080150D6, %function
-sub_080150D6: @ 080150D6
+	.type fe_title_draw_150D6, %function
+fe_title_draw_150D6: @ 080150D6
 	ldr r0, [sp, #0x10]
 	subs r0, #1
 	cmp r0, #0x76
@@ -2676,17 +2676,17 @@ _08015846:
 _08015850:
 	b _0801519E
 
-	.global sub_08015852
+	.global fe_title_draw_15852
 	.thumb_func
-	.type sub_08015852, %function
-sub_08015852: @ 08015852
+	.type fe_title_draw_15852, %function
+fe_title_draw_15852: @ 08015852
 	ldr r1, _08015A44
 	movs r4, #0x96
 	ldr r2, [r1]
 	lsls r5, r4, #1
 	cmp r2, r5
 	blt _08015860
-	b sub_080150D6
+	b fe_title_draw_150D6
 _08015860:
 	ldr r5, _08015A48
 	ldr r0, [r5]
@@ -2729,12 +2729,12 @@ _08015860:
 	str r4, [sp, #4]
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080150D6
+	bl fe_title_draw_150D6
 
-	.global sub_080158BA
+	.global fe_title_draw_158BA
 	.thumb_func
-	.type sub_080158BA, %function
-sub_080158BA: @ 080158BA
+	.type fe_title_draw_158BA, %function
+fe_title_draw_158BA: @ 080158BA
 	ldr r0, _08015A44
 	ldr r6, _08015A5C
 	ldr r5, _08015A48
@@ -2767,23 +2767,23 @@ _080158C6:
 	movs r1, #0x7f
 	lsls r2, r4, #9
 	bl snd_play
-	bl sub_08015034
+	bl fe_title_draw_15034
 
-	.global sub_08015904
+	.global fe_title_draw_15904
 	.thumb_func
-	.type sub_08015904, %function
-sub_08015904: @ 08015904
+	.type fe_title_draw_15904, %function
+fe_title_draw_15904: @ 08015904
 	movs r5, #0x80
 	movs r0, #0xee
 	movs r1, #0x7f
 	lsls r2, r5, #9
 	bl snd_play
-	bl sub_0801502A
+	bl fe_title_draw_1502A
 
-	.global sub_08015914
+	.global fe_title_draw_15914
 	.thumb_func
-	.type sub_08015914, %function
-sub_08015914: @ 08015914
+	.type fe_title_draw_15914, %function
+fe_title_draw_15914: @ 08015914
 	movs r3, #0x80
 	lsls r2, r3, #9
 	movs r0, #0xed
@@ -2791,12 +2791,12 @@ sub_08015914: @ 08015914
 	bl snd_play
 	ldr r0, _08015A64
 	ldr r3, [r0]
-	bl sub_08015022
+	bl fe_title_draw_15022
 
-	.global sub_08015928
+	.global fe_title_draw_15928
 	.thumb_func
-	.type sub_08015928, %function
-sub_08015928: @ 08015928
+	.type fe_title_draw_15928, %function
+fe_title_draw_15928: @ 08015928
 	ldr r1, _08015A68
 	ldr r6, _08015A6C
 	movs r7, #0
@@ -2839,15 +2839,15 @@ _08015972:
 	adds r4, #4
 	cmp r7, #6
 	bls _08015934
-	bl sub_08015010
+	bl fe_title_draw_15010
 
-	.global sub_0801597E
+	.global fe_title_draw_1597E
 	.thumb_func
-	.type sub_0801597E, %function
-sub_0801597E: @ 0801597E
+	.type fe_title_draw_1597E, %function
+fe_title_draw_1597E: @ 0801597E
 	cmp r3, #2
 	beq _08015986
-	bl sub_08015010
+	bl fe_title_draw_15010
 _08015986:
 	ldr r5, _08015A78
 	ldr r3, [r5]
@@ -2855,7 +2855,7 @@ _08015986:
 	ble _08015996
 	subs r3, #1
 	str r3, [r5]
-	bl sub_08015010
+	bl fe_title_draw_15010
 _08015996:
 	ldr r6, _08015A7C
 	ldr r4, [r6]
@@ -2885,7 +2885,7 @@ _08015996:
 	ands r5, r3
 	cmp r5, #0
 	beq _080159D4
-	bl sub_08015010
+	bl fe_title_draw_15010
 _080159D4:
 	ldr r3, [r6]
 	cmp r3, #0
@@ -2893,7 +2893,7 @@ _080159D4:
 _080159DA:
 	adds r3, #1
 	str r3, [r6]
-	bl sub_08015010
+	bl fe_title_draw_15010
 _080159E2:
 	movs r3, #0x80
 	lsls r2, r3, #9
@@ -3002,12 +3002,12 @@ _08015A88:
 	lsrs r4, r0, #8
 	adds r4, #0x14
 	str r4, [r5]
-	bl sub_08015010
+	bl fe_title_draw_15010
 
-	.global sub_08015AC4
+	.global fe_title_draw_15AC4
 	.thumb_func
-	.type sub_08015AC4, %function
-sub_08015AC4: @ 08015AC4
+	.type fe_title_draw_15AC4, %function
+fe_title_draw_15AC4: @ 08015AC4
 	ldr r3, _08015C10
 	ldr r4, _08015C0C
 	movs r5, #0
@@ -3028,7 +3028,7 @@ _08015AE0:
 	adds r5, #4
 	cmp r7, #1
 	ble _08015AD2
-	bl sub_08015010
+	bl fe_title_draw_15010
 _08015AEC:
 	ldr r6, _08015C14
 	ldr r4, [r6, r5]
@@ -3136,7 +3136,7 @@ _08015B92:
 	.byte 0xEB, 0xF9
 _08015BD2:
 	ldr r5, _08015C24
-	bl sub_08014F16
+	bl fe_title_draw_14F16
 	movs r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -3152,7 +3152,7 @@ _08015BD2:
 _08015BFE:
 	bl fe_spr_plot
 	adds r4, #0x1c
-	bl sub_08014F34
+	bl fe_title_draw_14F34
 _08015C08:
 	.4byte 0x02024158
 _08015C0C:
@@ -3175,10 +3175,10 @@ _08015C2C:
 	.4byte gUnk_0862BFF0
 	.4byte gUnk_0863FC80
 
-	.global sub_08015C38
+	.global fe_title_vblank
 	.thumb_func
-	.type sub_08015C38, %function
-sub_08015C38: @ 08015C38
+	.type fe_title_vblank, %function
+fe_title_vblank: @ 08015C38
 	push {lr}
 	bl vblank_handler_noaudio
 	ldr r0, _08015C50
@@ -3192,10 +3192,10 @@ sub_08015C38: @ 08015C38
 _08015C50:
 	.4byte 0x02023FA4
 
-	.global sub_08015C54
+	.global fe_title_hblank
 	.thumb_func
-	.type sub_08015C54, %function
-sub_08015C54: @ 08015C54
+	.type fe_title_hblank, %function
+fe_title_hblank: @ 08015C54
 	push {lr}
 	ldr r0, _08015C74
 	ldrh r1, [r0]
@@ -3717,7 +3717,7 @@ _08016014:
 	ldr r1, _0801606C
 	adds r0, #2
 	strh r1, [r0]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r0, _08016074
 	ldr r2, _08016070
 	b _08016078
@@ -3849,7 +3849,7 @@ _08016142:
 	cmp r2, #0
 	bge _08016142
 	movs r0, #0
-	bl sub_0801931C
+	bl fe_title_letters_start
 	bl fe_spr_init
 	bl fade_to_normal
 	ldr r3, _08016178
@@ -4051,7 +4051,7 @@ _080162B8:
 	cmp r4, #0
 	bge _08016260
 	bl fe_draw_title
-	bl sub_08018D40
+	bl fe_load_screen_sprites
 	ldr r6, _08016324
 	ldr r4, _08016310
 	ldr r0, [r6, #8]
@@ -4247,7 +4247,7 @@ _0801642E:
 	mov r2, r8
 	str r5, [r7, #0x24]
 	str r5, [r2, #0x14]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	ldr r1, _080166AC
 	mov r3, r8
 	movs r2, #3
@@ -4420,7 +4420,7 @@ _08016572:
 	str r1, [r7, #0x24]
 	movs r1, #2
 	str r1, [r0, #0x14]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	movs r2, #0
 	mov r1, r8
 	str r2, [r1, #0x10]

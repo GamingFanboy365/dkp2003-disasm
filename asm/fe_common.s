@@ -649,10 +649,10 @@ _080192D8:
 _080192E4:
 	.4byte 0x0202CF10
 
-	.global sub_080192E8
+	.global fe_theme_palette
 	.thumb_func
-	.type sub_080192E8, %function
-sub_080192E8: @ 080192E8
+	.type fe_theme_palette, %function
+fe_theme_palette: @ 080192E8
 	push {lr}
 	ldr r0, _0801930C
 	movs r2, #0x16
@@ -684,10 +684,10 @@ _08019314:
 _08019318:
 	.4byte gUnk_0863EE40
 
-	.global sub_0801931C
+	.global fe_title_letters_start
 	.thumb_func
-	.type sub_0801931C, %function
-sub_0801931C: @ 0801931C
+	.type fe_title_letters_start, %function
+fe_title_letters_start: @ 0801931C
 	ldr r1, _08019328
 	movs r2, #0
 	str r2, [r1, #4]
@@ -697,10 +697,10 @@ sub_0801931C: @ 0801931C
 _08019328:
 	.4byte 0x0202CF10
 
-	.global sub_0801932C
+	.global fe_title_letters_leave
 	.thumb_func
-	.type sub_0801932C, %function
-sub_0801932C: @ 0801932C
+	.type fe_title_letters_leave, %function
+fe_title_letters_leave: @ 0801932C
 	ldr r0, _08019334
 	movs r1, #2
 	str r1, [r0, #4]
@@ -796,7 +796,7 @@ _080193A4:
 	strh r5, [r1]
 	adds r1, #2
 	strh r6, [r1]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r6, _08019400
 	b _08019404
 _080193E8:
@@ -886,14 +886,14 @@ _08019468:
 	str r5, [r0, #0x10]
 	str r5, [r0, #0x14]
 	movs r0, #1
-	bl sub_0801931C
+	bl fe_title_letters_start
 	bl sound_disable
 	ldr r2, _080194FC
 	movs r1, #0x14
 	ldrsh r0, [r2, r1]
 	lsls r3, r0, #2
 	mov sb, r3
-	bl sub_08018654
+	bl fe_spr_reset
 	ldr r2, _08019500
 	ldr r3, _08019504
 	ldr r7, _080194E0
@@ -906,7 +906,7 @@ _080194B6:
 	adds r4, r1, r0
 	movs r1, #0x1c
 	movs r0, #4
-	bl sub_080185A8
+	bl fe_spr_add
 	mov r1, r8
 	str r0, [r5, r1]
 	lsls r2, r0, #1
@@ -961,7 +961,7 @@ _0801950C:
 	strh r7, [r2, #8]
 	strh r7, [r2, #0xe]
 	ldr r0, [r5, r1]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	mov r3, sb
 	adds r0, r3, r6
 	movs r4, #0x18
@@ -1002,7 +1002,7 @@ _08019560:
 	mov r1, sl
 	adds r0, r4, #0
 	adds r6, #1
-	bl sub_080188B8
+	bl fe_spr_draw
 	adds r5, #4
 	cmp r6, #3
 	ble _080194B6
@@ -1060,7 +1060,7 @@ fe_cups_process: @ 080195CC
 _080195F4:
 	bl sub_08017E1C
 	bl fe_draw_title
-	bl sub_08018D40
+	bl fe_load_screen_sprites
 	movs r2, #0
 	ldrsh r7, [r4, r2]
 	cmp r7, #4
@@ -1143,7 +1143,7 @@ _0801967E:
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
 _080196A0:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r5, #0
 	adds r3, r0, #0
 	movs r1, #0x47
@@ -1315,7 +1315,7 @@ _080197C0:
 	b _080197B4
 _080197EE:
 	bl fade_to_black
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	movs r2, #2
 	str r4, [r5, #8]
 	str r2, [r5]
@@ -1330,7 +1330,7 @@ _080197FE:
 	movs r1, #0x7f
 	movs r0, #0xcc
 	bl snd_play
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	bl fade_to_black
 	movs r2, #3
 	str r2, [r5]
@@ -1498,7 +1498,7 @@ _0801994E:
 	movs r0, #0xcb
 	bl snd_play
 	str r0, [r5, #0xc]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	movs r2, #2
 	str r2, [r5]
 	bl fade_to_black
@@ -1767,7 +1767,7 @@ _08019B4A:
 	ldr r2, [r6, #4]
 	b _0801971A
 _08019B64:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	lsls r6, r1, #6
 	adds r3, r0, #0
@@ -1781,7 +1781,7 @@ _08019B64:
 	bl fe_spr_plot
 	b _0801967E
 _08019B82:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x3c
 	adds r3, r0, #0
 	ldr r2, _08019C90
@@ -1847,7 +1847,7 @@ _08019BE2:
 	bl fe_spr_plot
 	cmp r5, #3
 	ble _08019C1C
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x67
 	adds r3, r0, #0
 	ldr r2, _08019CA0
@@ -1865,7 +1865,7 @@ _08019C20:
 	ldr r6, _08019CA4
 	b _08019BE2
 _08019C24:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	lsls r5, r1, #6
 	adds r3, r0, #0
@@ -1879,7 +1879,7 @@ _08019C24:
 	bl fe_spr_plot
 	b _08019BCE
 _08019C42:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x5c
 	adds r3, r0, #0
 	ldr r2, _08019C90
@@ -1929,10 +1929,10 @@ _08019CA0:
 _08019CA4:
 	.4byte gUnk_0863FD80
 
-	.global sub_08019CA8
+	.global fe_scoreboard_draw_rows
 	.thumb_func
-	.type sub_08019CA8, %function
-sub_08019CA8: @ 08019CA8
+	.type fe_scoreboard_draw_rows, %function
+fe_scoreboard_draw_rows: @ 08019CA8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2121,7 +2121,7 @@ _08019DD4:
 	mov r0, fp
 	subs r1, r1, r2
 	movs r2, #0
-	bl sub_080187D0
+	bl fe_text_time
 _08019E14:
 	add r3, sp, #4
 	adds r0, r3, #0
@@ -2160,7 +2160,7 @@ _08019E4E:
 	ldr r1, [r2, r0]
 	mov r0, fp
 	movs r2, #1
-	bl sub_080187D0
+	bl fe_text_time
 	b _08019E14
 _08019E66:
 	ldr r5, _08019E88
@@ -2234,7 +2234,7 @@ _08019ED8:
 	lsls r0, r3, #2
 	ldr r1, [r2, r0]
 	mov r0, r8
-	bl sub_08018750
+	bl fe_text_number
 	adds r1, r7, #0
 	mov r0, r8
 	bl fe_text_width
@@ -2259,7 +2259,7 @@ _08019ED8:
 	mov r2, sl
 	ldr r1, [r0, r2]
 	mov r0, r8
-	bl sub_08018750
+	bl fe_text_number
 	adds r1, r7, #0
 	mov r0, r8
 	bl fe_text_width
@@ -2373,7 +2373,7 @@ _08019FEE:
 	mov r0, fp
 	ldr r1, [r0, r2]
 	mov r0, sb
-	bl sub_08018750
+	bl fe_text_number
 	mov r1, sl
 	mov r0, sb
 	bl fe_text_width
@@ -2427,10 +2427,10 @@ _0801A064:
 _0801A068:
 	.4byte 0x0202D2CC
 
-	.global sub_0801A06C
+	.global fe_scoreboard_wave
 	.thumb_func
-	.type sub_0801A06C, %function
-sub_0801A06C: @ 0801A06C
+	.type fe_scoreboard_wave, %function
+fe_scoreboard_wave: @ 0801A06C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2591,7 +2591,7 @@ _0801A18C:
 	strh r7, [r4]
 	adds r4, #4
 	strh r6, [r4]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	movs r0, #0xf8
 	str r0, [sp, #8]
 	ldr r7, _0801A1D8
@@ -2634,7 +2634,7 @@ _0801A1EC:
 	movs r1, #0
 	str r1, [r0]
 	bl sound_disable
-	bl sub_08018654
+	bl fe_spr_reset
 	ldr r2, _0801A270
 	movs r5, #0
 	mov r8, r2
@@ -2645,7 +2645,7 @@ _0801A20A:
 	movs r1, #8
 	adds r6, r0, r4
 	movs r0, #1
-	bl sub_080185A8
+	bl fe_spr_add
 	mov r3, r8
 	str r0, [r5, r3]
 	lsls r3, r0, #1
@@ -2661,7 +2661,7 @@ _0801A20A:
 	strh r1, [r0, #4]
 	strh r6, [r0, #2]
 	ldr r0, [r5, r2]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	ldr r1, _0801A278
 	ldr r0, [r1, r5]
 	movs r1, #0
@@ -2674,7 +2674,7 @@ _0801A20A:
 	subs r7, #1
 	str r4, [sp]
 	adds r5, #4
-	bl sub_080188B8
+	bl fe_spr_draw
 	b _0801A280
 	.byte 0x00, 0x00
 _0801A25C:
@@ -2708,7 +2708,7 @@ _0801A28C:
 	movs r1, #0x18
 	adds r4, r2, r0
 	movs r0, #3
-	bl sub_080185A8
+	bl fe_spr_add
 	mov r2, r8
 	str r0, [r5, r2]
 	lsls r3, r0, #1
@@ -2732,7 +2732,7 @@ _0801A28C:
 	strh r6, [r0, #8]
 	strh r6, [r0, #0xe]
 	ldr r0, [r5, r2]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	ldr r2, _0801A2F8
 	movs r1, #0
 	ldr r0, [r2, r5]
@@ -2766,7 +2766,7 @@ _0801A2FC:
 	movs r2, #0
 	ldr r1, _0801A3F8
 	subs r7, #1
-	bl sub_080188B8
+	bl fe_spr_draw
 	adds r5, #4
 	cmp r7, #0
 	bge _0801A28C
@@ -2861,7 +2861,7 @@ _0801A3B2:
 	adds r4, #4
 	cmp r7, #0
 	bge _0801A3B2
-	bl sub_0801A06C
+	bl fe_scoreboard_wave
 	bl fe_spr_init
 	movs r0, #3
 	bl music_play_if_changed
@@ -2937,7 +2937,7 @@ _0801A43C:
 	subs r0, #0x20
 	str r0, [r1]
 	bl sub_08017E1C
-	bl sub_0801A06C
+	bl fe_scoreboard_wave
 	ldr r2, _0801A76C
 	ldr r3, [r2]
 	cmp r3, #0xa
@@ -2979,11 +2979,11 @@ _0801A4A0:
 	movs r1, #0x7f
 	bl snd_play
 	movs r0, #0x2d
-	bl sub_0801931C
+	bl fe_title_letters_start
 	.global _0801A4C8
 _0801A4C8:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_1
 	ldr r2, _0801A760
 	ldr r3, [r2]
@@ -3012,7 +3012,7 @@ _0801A4F6:
 	.global _0801A4FE
 _0801A4FE:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_1
 	ldr r2, _0801A77C
 	ldrh r1, [r2]
@@ -3021,7 +3021,7 @@ _0801A4FE:
 	cmp r0, #0
 	beq _0801A4EA
 	movs r4, #0x80
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	lsls r2, r4, #9
 	movs r1, #0x7f
 	movs r0, #0xce
@@ -3072,7 +3072,7 @@ _0801A572:
 	.global _0801A57A
 _0801A57A:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_1
 	ldr r2, _0801A760
 	ldr r3, [r2]
@@ -3097,12 +3097,12 @@ _0801A5A8:
 	movs r3, #4
 	str r3, [r1]
 	movs r0, #0x2e
-	bl sub_0801931C
+	bl fe_title_letters_start
 	b _0801A4EA
 	.global _0801A5B6
 _0801A5B6:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
@@ -3140,7 +3140,7 @@ _0801A5EE:
 	.global _0801A5FC
 _0801A5FC:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
@@ -3172,7 +3172,7 @@ _0801A62E:
 	ldr r0, _0801A76C
 	movs r3, #6
 	str r3, [r0]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	b _0801A4EA
 _0801A646:
 	movs r5, #0xa
@@ -3211,7 +3211,7 @@ _0801A66C:
 	.global _0801A686
 _0801A686:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_2
 	ldr r2, _0801A760
 	ldr r3, [r2]
@@ -3227,7 +3227,7 @@ _0801A69E:
 	b _0801A878
 _0801A6A8:
 	movs r0, #0x2f
-	bl sub_0801931C
+	bl fe_title_letters_start
 	ldr r7, _0801A76C
 	movs r4, #7
 	ldr r5, _0801A798
@@ -3358,7 +3358,7 @@ _0801A798:
 	.global _0801A79C
 _0801A79C:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_3
 	ldr r2, _0801A890
 	ldr r3, [r2]
@@ -3388,7 +3388,7 @@ _0801A7CC:
 	.global _0801A7D4
 _0801A7D4:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_3
 	ldr r2, _0801A89C
 	ldrh r0, [r2]
@@ -3407,12 +3407,12 @@ _0801A7EE:
 	ldr r1, _0801A898
 	movs r3, #9
 	str r3, [r1]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	b _0801A4EA
 	.global _0801A80A
 _0801A80A:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_3
 	ldr r2, _0801A890
 	ldr r3, [r2]
@@ -3453,7 +3453,7 @@ _0801A844:
 	.global _0801A858
 _0801A858:
 	bl fe_draw_title
-	bl sub_08019CA8
+	bl fe_scoreboard_draw_rows
 	bl fe_scoreboard_draw_1
 	ldr r2, _0801A890
 	ldr r3, [r2]
@@ -3859,10 +3859,10 @@ _0801AB58:
 _0801AB70:
 	.4byte 0x04000208
 
-	.global sub_0801AB74
+	.global fe_cups_win_draw_spin
 	.thumb_func
-	.type sub_0801AB74, %function
-sub_0801AB74: @ 0801AB74
+	.type fe_cups_win_draw_spin, %function
+fe_cups_win_draw_spin: @ 0801AB74
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -4014,7 +4014,7 @@ _0801AC8A:
 	ldr r2, [r5]
 	ldr r0, _0801AD9C
 	adds r4, #1
-	bl sub_0801AB74
+	bl fe_cups_win_draw_spin
 	cmp r4, #1
 	ble _0801AC8A
 	ldr r5, _0801AD98
@@ -4024,7 +4024,7 @@ _0801AC9E:
 	ldr r2, [r5]
 	ldr r0, _0801ADA0
 	adds r4, #1
-	bl sub_0801AB74
+	bl fe_cups_win_draw_spin
 	cmp r4, #2
 	ble _0801AC9E
 	ldr r4, _0801AD98
@@ -4166,10 +4166,10 @@ _0801ADAC:
 _0801ADB0:
 	.4byte gUnk_08051B90
 
-	.global sub_0801ADB4
+	.global fe_spot_span_set
 	.thumb_func
-	.type sub_0801ADB4, %function
-sub_0801ADB4: @ 0801ADB4
+	.type fe_spot_span_set, %function
+fe_spot_span_set: @ 0801ADB4
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4342,10 +4342,10 @@ _0801AED2:
 	mov ip, r2
 	b _0801ADEC
 
-	.global sub_0801AEDC
+	.global fe_spot_span_merge
 	.thumb_func
-	.type sub_0801AEDC, %function
-sub_0801AEDC: @ 0801AEDC
+	.type fe_spot_span_merge, %function
+fe_spot_span_merge: @ 0801AEDC
 	push {r4, r5, r6, r7, lr}
 	adds r4, r1, #0
 	adds r1, r3, #0
@@ -4507,10 +4507,10 @@ _0801AFD8:
 	movs r3, #0
 	b _0801AF06
 
-	.global sub_0801AFDC
+	.global fe_spot_draw
 	.thumb_func
-	.type sub_0801AFDC, %function
-sub_0801AFDC: @ 0801AFDC
+	.type fe_spot_draw, %function
+fe_spot_draw: @ 0801AFDC
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -4543,7 +4543,7 @@ _0801B006:
 	adds r1, r7, #0
 	adds r3, r6, #0
 	ldr r0, _0801B0D0
-	bl sub_0801AEDC
+	bl fe_spot_span_merge
 	movs r5, #0xc8
 	ldr r0, [sp]
 	rsbs r3, r5, #0
@@ -4614,7 +4614,7 @@ _0801B006:
 	add r2, sp, #4
 	ldr r0, _0801B0D4
 	movs r1, #3
-	bl sub_0801ADB4
+	bl fe_spot_span_set
 	add sp, #0x1c
 	pop {r3, r4, r5, r6}
 	mov r8, r3
@@ -4633,10 +4633,10 @@ _0801B0D4:
 _0801B0D8:
 	.4byte isqrt
 
-	.global sub_0801B0DC
+	.global fe_spot_update
 	.thumb_func
-	.type sub_0801B0DC, %function
-sub_0801B0DC: @ 0801B0DC
+	.type fe_spot_update, %function
+fe_spot_update: @ 0801B0DC
 	push {r4, r5, r6, lr}
 	ldr r0, _0801B15C
 	ldr r4, _0801B160
@@ -4647,7 +4647,7 @@ sub_0801B0DC: @ 0801B0DC
 	subs r0, r1, r2
 	ldr r1, [r5]
 	ldr r2, [r6]
-	bl sub_0801AFDC
+	bl fe_spot_draw
 	ldr r3, _0801B16C
 	ldr r0, [r3]
 	cmp r0, #0
@@ -4725,10 +4725,10 @@ _0801B184:
 _0801B188:
 	.4byte 0x0202D420
 
-	.global sub_0801B18C
+	.global fe_spot_init
 	.thumb_func
-	.type sub_0801B18C, %function
-sub_0801B18C: @ 0801B18C
+	.type fe_spot_init, %function
+fe_spot_init: @ 0801B18C
 	push {r4, lr}
 	ldr r1, _0801B1E4
 	ldr r0, [r1]
@@ -4854,11 +4854,11 @@ _0801B270:
 _0801B274:
 	.4byte 0x04000004
 _0801B278:
-	.4byte sub_0801BE18
+	.4byte fe_spot_vblank
 _0801B27C:
 	.4byte gIrqHandler
 _0801B280:
-	.4byte sub_0801BE48
+	.4byte fe_spot_hblank
 _0801B284:
 	movs r2, #0x80
 	ldr r1, _0801B2BC
@@ -5235,7 +5235,7 @@ _0801B552:
 	str r3, [r1]
 	str r0, [r1, #0xc]
 _0801B55C:
-	bl sub_0801B18C
+	bl fe_spot_init
 	bl fe_spr_init
 	movs r0, #4
 	bl music_play_if_changed
@@ -5333,7 +5333,7 @@ _0801B60E:
 	mov r8, r0
 _0801B612:
 	bl fade_update
-	bl sub_0801B0DC
+	bl fe_spot_update
 	ldr r6, _0801B914
 	ldr r1, [r6, #0xc]
 	lsls r5, r1, #0x19
@@ -5474,7 +5474,7 @@ _0801B706:
 	adds r1, r5, #0
 	movs r2, #0
 	bl fe_text_draw
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0
 	adds r3, r0, #0
 	movs r1, #0x8d
@@ -5496,7 +5496,7 @@ _0801B706:
 	lsls r2, r3, #9
 	movs r0, #0xcb
 	bl snd_play
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	ldr r0, _0801B914
 	movs r1, #1
 	str r1, [r0]
@@ -5524,7 +5524,7 @@ _0801B788:
 	lsls r2, r3, #9
 	movs r0, #0xcc
 	bl snd_play
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	ldr r1, _0801B914
 	movs r0, #5
 	str r0, [r1]
@@ -5576,7 +5576,7 @@ _0801B7F2:
 	ldr r1, _0801B914
 	movs r0, #1
 	str r0, [r1, #4]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r0, #0xc0
 	movs r1, #0x7f
@@ -5627,7 +5627,7 @@ _0801B850:
 	beq _0801B870
 	ldr r1, _0801B914
 	str r2, [r1, #4]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r0, #0xc0
 	movs r1, #0x7f
@@ -5650,7 +5650,7 @@ _0801B87E:
 	ldr r1, _0801B914
 	movs r2, #1
 	str r2, [r1, #4]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r0, #0xc0
 	movs r1, #0x7f
@@ -5673,7 +5673,7 @@ _0801B8B0:
 	beq _0801B8CC
 	ldr r1, _0801B914
 	str r2, [r1, #4]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r0, #0xc0
 	movs r1, #0x7f
@@ -5698,7 +5698,7 @@ _0801B8E6:
 	ldr r1, _0801B914
 	str r5, [r1, #4]
 _0801B8EA:
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r1, #0x7f
 	lsls r2, r3, #9
@@ -5753,7 +5753,7 @@ _0801B948:
 	cmp r0, #0
 	beq _0801B9A8
 _0801B956:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x81
 	adds r3, r0, #0
 	ldr r2, _0801BCA8
@@ -5771,7 +5771,7 @@ _0801B96E:
 	cmp r4, #0
 	beq _0801B998
 _0801B97A:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0
 	adds r3, r0, #0
 	movs r5, #1
@@ -5807,7 +5807,7 @@ _0801B9B8:
 	beq _0801B9BE
 	b _0801B706
 _0801B9BE:
-	bl sub_080192E8
+	bl fe_theme_palette
 	ldr r5, _0801BCA8
 	adds r3, r0, #0
 	movs r0, #0x80
@@ -5821,7 +5821,7 @@ _0801B9BE:
 	str r4, [sp, #4]
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	adds r3, r0, #0
 	lsls r0, r1, #5
@@ -5842,7 +5842,7 @@ _0801B9BE:
 	cmp r0, #0
 	beq _0801BA24
 _0801BA0A:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x8d
 	adds r3, r0, #0
 	adds r2, r5, #0
@@ -5871,7 +5871,7 @@ _0801BA34:
 	cmp r0, #0
 	beq _0801BA7E
 _0801BA42:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0
 	adds r3, r0, #0
 	movs r1, #0x81
@@ -5883,7 +5883,7 @@ _0801BA42:
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
 _0801BA5C:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	adds r3, r0, #0
 	lsls r0, r1, #5
@@ -5909,7 +5909,7 @@ _0801BA7E:
 	b _0801BA5C
 _0801BA8E:
 	movs r0, #0xae
-	bl sub_0801931C
+	bl fe_title_letters_start
 	b _0801B6E4
 _0801BA96:
 	bl fe_draw_title
@@ -5931,7 +5931,7 @@ _0801BAAC:
 	str r3, [r4, #0xc]
 	b _0801B774
 _0801BAB8:
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r2, #2
 	str r2, [r4]
 	b _0801B774
@@ -5991,7 +5991,7 @@ _0801BAF8:
 	adds r0, r4, #0
 	movs r2, #0
 	bl fe_text_draw
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0
 	adds r3, r0, #0
 	movs r1, #0x8d
@@ -6013,7 +6013,7 @@ _0801BAF8:
 	movs r1, #0x7f
 	movs r0, #0xcb
 	bl snd_play
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	ldr r2, _0801BCB0
 	movs r0, #4
 	str r0, [r2]
@@ -6032,7 +6032,7 @@ _0801BB6C:
 	lsls r2, r3, #9
 	movs r0, #0xcc
 	bl snd_play
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	ldr r2, _0801BCA4
 	ldr r0, [r2]
 	movs r2, #0x80
@@ -6080,7 +6080,7 @@ _0801BBD4:
 	ldr r0, _0801BCB0
 	movs r2, #1
 	str r2, [r0, #8]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	lsls r2, r3, #9
 	movs r0, #0xc0
@@ -6101,7 +6101,7 @@ _0801BBFE:
 	beq _0801BC1C
 	ldr r2, _0801BCB0
 	str r1, [r2, #8]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	lsls r2, r3, #9
 	movs r0, #0xc0
@@ -6126,7 +6126,7 @@ _0801BC2E:
 	beq _0801BC4C
 	ldr r2, _0801BCB0
 	str r1, [r2, #8]
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	lsls r2, r3, #9
 	movs r0, #0xc0
@@ -6144,7 +6144,7 @@ _0801BC56:
 	ldr r0, _0801BCB0
 	str r5, [r0, #8]
 _0801BC5A:
-	bl sub_0801B18C
+	bl fe_spot_init
 	movs r3, #0x80
 	movs r1, #0x7f
 	lsls r2, r3, #9
@@ -6152,7 +6152,7 @@ _0801BC5A:
 	bl snd_play
 	b _0801B774
 _0801BC6C:
-	bl sub_080192E8
+	bl fe_theme_palette
 	ldr r5, _0801BCA8
 	adds r3, r0, #0
 	adds r2, r5, #0
@@ -6163,7 +6163,7 @@ _0801BC6C:
 	str r6, [sp, #8]
 	str r6, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #1
 	adds r3, r0, #0
 	str r1, [sp]
@@ -6197,7 +6197,7 @@ _0801BCC4:
 	beq _0801BCCA
 	b _0801BAF8
 _0801BCCA:
-	bl sub_080192E8
+	bl fe_theme_palette
 	ldr r5, _0801BE08
 	adds r3, r0, #0
 	movs r0, #0x80
@@ -6211,7 +6211,7 @@ _0801BCCA:
 	str r4, [sp, #4]
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	adds r3, r0, #0
 	lsls r0, r1, #5
@@ -6224,7 +6224,7 @@ _0801BCCA:
 	str r4, [sp, #4]
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x8d
 	adds r3, r0, #0
 	adds r2, r5, #0
@@ -6236,7 +6236,7 @@ _0801BCCA:
 	bl fe_spr_plot
 	b _0801BAF8
 _0801BD22:
-	bl sub_080192E8
+	bl fe_theme_palette
 	ldr r5, _0801BE08
 	movs r4, #0
 	adds r3, r0, #0
@@ -6248,7 +6248,7 @@ _0801BD22:
 	str r4, [sp, #8]
 	str r4, [sp, #0xc]
 	bl fe_spr_plot
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x80
 	adds r3, r0, #0
 	lsls r0, r1, #5
@@ -6263,7 +6263,7 @@ _0801BD22:
 	b _0801BAF8
 _0801BD5C:
 	movs r0, #5
-	bl sub_0801931C
+	bl fe_title_letters_start
 	b _0801BAD6
 _0801BD64:
 	bl fe_draw_title
@@ -6287,7 +6287,7 @@ _0801BD7A:
 _0801BD86:
 	movs r1, #0
 	str r1, [r4]
-	bl sub_0801B18C
+	bl fe_spot_init
 	b _0801B774
 	.global _0801BD90
 _0801BD90:
@@ -6362,10 +6362,10 @@ _0801BE10:
 _0801BE14:
 	.4byte gUnk_08051918
 
-	.global sub_0801BE18
+	.global fe_spot_vblank
 	.thumb_func
-	.type sub_0801BE18, %function
-sub_0801BE18: @ 0801BE18
+	.type fe_spot_vblank, %function
+fe_spot_vblank: @ 0801BE18
 	push {lr}
 	bl vblank_handler_noaudio
 	ldr r2, _0801BE38
@@ -6389,10 +6389,10 @@ _0801BE40:
 _0801BE44:
 	.4byte 0x04000042
 
-	.global sub_0801BE48
+	.global fe_spot_hblank
 	.thumb_func
-	.type sub_0801BE48, %function
-sub_0801BE48: @ 0801BE48
+	.type fe_spot_hblank, %function
+fe_spot_hblank: @ 0801BE48
 	push {lr}
 	ldr r0, _0801BE70
 	ldrh r1, [r0]
@@ -6425,10 +6425,10 @@ _0801BE7C:
 _0801BE80:
 	.4byte 0x04000042
 
-	.global sub_0801BE84
+	.global fe_spot_set
 	.thumb_func
-	.type sub_0801BE84, %function
-sub_0801BE84: @ 0801BE84
+	.type fe_spot_set, %function
+fe_spot_set: @ 0801BE84
 	push {r4, lr}
 	ldr r3, _0801BEB8
 	movs r4, #0x20
@@ -6554,7 +6554,7 @@ _0801BF48:
 	strh r7, [r4]
 	adds r4, #0x3a
 	strh r7, [r4]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r7, _0801BF9C
 	ldr r1, _0801BFA0
 	movs r2, #0xe0
@@ -6596,7 +6596,7 @@ _0801BFA4:
 	str r4, [r5, #0xc]
 	str r6, [r5, #8]
 	bl sound_disable
-	bl sub_08018654
+	bl fe_spr_reset
 	ldr r0, [r5, #8]
 	movs r3, #0xc
 	muls r3, r0, r3
@@ -6623,7 +6623,7 @@ _0801BFF6:
 	movs r1, #0x24
 	adds r4, r2, r0
 	movs r0, #5
-	bl sub_080185A8
+	bl fe_spr_add
 	mov r2, r8
 	str r0, [r5, r2]
 	lsls r3, r0, #1
@@ -6703,7 +6703,7 @@ _0801C098:
 	.4byte 0x00000020
 _0801C09C:
 	ldr r0, [r5, r2]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	mov r1, fp
 	ldr r4, [r1, #8]
 	mov r1, sb
@@ -6729,7 +6729,7 @@ _0801C09C:
 	str r0, [sp]
 	mov r1, sl
 	adds r0, r4, #0
-	bl sub_080188B8
+	bl fe_spr_draw
 	mov r2, fp
 	ldr r0, [r2, #8]
 	mov r2, sb
@@ -6754,7 +6754,7 @@ _0801C0F6:
 	muls r1, r0, r1
 	ldr r2, _0801C134
 	ldr r0, [r2, r1]
-	bl sub_0801931C
+	bl fe_title_letters_start
 	ldr r3, _0801C13C
 	ldr r1, _0801C140
 	ldr r0, _0801C144
@@ -6806,7 +6806,7 @@ _0801C168:
 	add r6, sp, #0x10
 	adds r0, r6, #0
 	movs r1, #0x16
-	bl sub_08018750
+	bl fe_text_number
 	movs r5, #0
 	adds r0, r6, #0
 	ldr r1, _0801C45C
@@ -6824,7 +6824,7 @@ _0801C168:
 	ands r0, r4
 	cmp r0, #0
 	beq _0801C1B6
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0x5c
 	adds r3, r0, #0
 	ldr r2, _0801C464
@@ -6851,7 +6851,7 @@ _0801C1B6:
 	ands r0, r4
 	cmp r0, #0
 	beq _0801C1F4
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0x80
 	lsls r1, r4, #6
 	adds r3, r0, #0
@@ -6908,7 +6908,7 @@ _0801C23A:
 	bgt _0801C242
 	b _0801C448
 _0801C242:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r1, #0
 	adds r3, r0, #0
 	str r1, [sp]
@@ -6965,7 +6965,7 @@ _0801C298:
 	bl snd_play
 	str r5, [r4, #0xc]
 _0801C2B0:
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	bl fade_to_black
 	b _0801C272
 _0801C2BA:
@@ -7288,7 +7288,7 @@ _0801C514:
 	adds r3, r4, #0
 	adds r0, r5, #0
 	bl fe_text_draw
-	bl sub_080192E8
+	bl fe_theme_palette
 	ldr r1, _0801C5D8
 	ldr r2, _0801C5D0
 	adds r3, r0, #0
@@ -7357,7 +7357,7 @@ _0801C58E:
 	movs r2, #0x3c
 	ldrsh r1, [r0, r2]
 	adds r0, r4, #0
-	bl sub_08018750
+	bl fe_text_number
 	movs r2, #0x6e
 	str r2, [sp]
 	adds r0, r4, #0
@@ -7455,7 +7455,7 @@ _0801C650:
 	ldr r1, _0801C694
 	adds r0, #4
 	strh r1, [r0]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	movs r1, #0xf8
 	str r1, [sp, #4]
 	ldr r1, _0801C698
@@ -7994,7 +7994,7 @@ _0801CA44:
 	strh r5, [r4]
 	adds r4, #0x3a
 	strh r5, [r4]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r0, _0801CAA0
 	movs r4, #0
 	add r2, sp, #4
@@ -8067,7 +8067,7 @@ _0801CB00:
 	bl music_play_if_changed
 	bl fade_to_normal
 	movs r0, #0x8c
-	bl sub_0801931C
+	bl fe_title_letters_start
 	ldr r3, _0801CB44
 	ldr r0, _0801CB48
 	ldr r1, _0801CB4C
@@ -8266,7 +8266,7 @@ _0801CC72:
 	ldr r0, _0801CCA0
 	orrs r1, r2
 	strh r1, [r0, #0x24]
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	bl fade_to_black
 	str r5, [r4, #0xc]
 	b _0801CBEC
@@ -8408,10 +8408,10 @@ _0801CD90:
 _0801CD9C:
 	.4byte 0x0202D710
 
-	.global sub_0801CDA0
+	.global fe_movie_decode
 	.thumb_func
-	.type sub_0801CDA0, %function
-sub_0801CDA0: @ 0801CDA0
+	.type fe_movie_decode, %function
+fe_movie_decode: @ 0801CDA0
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -8604,7 +8604,7 @@ _0801CEF4:
 	str r0, [r4]
 	str r1, [r4, #8]
 	str r2, [r4, #4]
-	bl sub_0801CDA0
+	bl fe_movie_decode
 	ldr r0, [r4, #0x10]
 	bl pal_load
 _0801CF1C:
@@ -8632,7 +8632,7 @@ _0801CF3A:
 	ands r1, r0
 	cmp r1, #0
 	beq _0801CF1C
-	bl sub_0801CDA0
+	bl fe_movie_decode
 	ldr r4, _0801CFFC
 	ldr r3, [r4, #8]
 	ldr r1, [r4, #0xc]
@@ -8664,7 +8664,7 @@ _0801CF5E:
 	movs r1, #0
 	str r1, [r4, #8]
 	str r0, [r4, #0x14]
-	bl sub_0801CDA0
+	bl fe_movie_decode
 	ldr r0, [r4, #0x10]
 	bl pal_load
 	bl fade_to_normal
@@ -8682,7 +8682,7 @@ _0801CFA2:
 	ands r1, r0
 	cmp r1, #0
 	beq _0801CF1C
-	bl sub_0801CDA0
+	bl fe_movie_decode
 	ldr r1, _0801CFFC
 	ldr r3, [r1, #8]
 	ldr r0, [r1, #0xc]
@@ -8784,7 +8784,7 @@ _0801D05C:
 	str r2, [r0, #8]
 	str r2, [r0, #0x10]
 	str r2, [r0, #0xc]
-	bl sub_0801CDA0
+	bl fe_movie_decode
 	bl fade_to_normal
 	ldr r0, _0801D08C
 	ldr r1, _0801D090
@@ -8886,7 +8886,7 @@ _0801D0FC:
 	strh r0, [r1]
 	adds r1, #0xc
 	strh r7, [r1]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r0, _0801D158
 	bl pal_load
 	ldr r1, _0801D15C
@@ -8980,7 +8980,7 @@ _0801D190:
 	str r0, [r2]
 	bl fe_spr_init
 	movs r0, #0xae
-	bl sub_0801931C
+	bl fe_title_letters_start
 	bl sound_enable
 	movs r0, #4
 	bl music_play_if_changed

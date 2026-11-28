@@ -504,10 +504,10 @@ _080182FC:
 _08018300:
 	.4byte gUnk_0805157C
 
-	.global sub_08018304
+	.global fe_spr_draw_frame
 	.thumb_func
-	.type sub_08018304, %function
-sub_08018304: @ 08018304
+	.type fe_spr_draw_frame, %function
+fe_spr_draw_frame: @ 08018304
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -813,10 +813,10 @@ _08018544:
 _08018548:
 	.4byte 0x000003FF
 
-	.global sub_0801854C
+	.global fe_spr_upload_frame
 	.thumb_func
-	.type sub_0801854C, %function
-sub_0801854C: @ 0801854C
+	.type fe_spr_upload_frame, %function
+fe_spr_upload_frame: @ 0801854C
 	push {r4, lr}
 	ldr r1, _08018594
 	ldrh r4, [r1]
@@ -865,10 +865,10 @@ _080185A0:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_080185A8
+	.global fe_spr_add
 	.thumb_func
-	.type sub_080185A8, %function
-sub_080185A8: @ 080185A8
+	.type fe_spr_add, %function
+fe_spr_add: @ 080185A8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -956,10 +956,10 @@ _0801864C:
 _08018650:
 	.4byte 0x02024FD0
 
-	.global sub_08018654
+	.global fe_spr_reset
 	.thumb_func
-	.type sub_08018654, %function
-sub_08018654: @ 08018654
+	.type fe_spr_reset, %function
+fe_spr_reset: @ 08018654
 	ldr r2, _08018690
 	movs r1, #0
 	str r1, [r2]
@@ -1038,10 +1038,10 @@ _080186DC:
 _080186E0:
 	.4byte 0x02024390
 
-	.global sub_080186E4
+	.global fe_list_nth
 	.thumb_func
-	.type sub_080186E4, %function
-sub_080186E4: @ 080186E4
+	.type fe_list_nth, %function
+fe_list_nth: @ 080186E4
 	push {lr}
 	b _080186F0
 _080186E8:
@@ -1060,10 +1060,10 @@ _080186FA:
 	bx r1
 	.byte 0xC0, 0x46
 
-	.global sub_08018700
+	.global fe_text_digits
 	.thumb_func
-	.type sub_08018700, %function
-sub_08018700: @ 08018700
+	.type fe_text_digits, %function
+fe_text_digits: @ 08018700
 	push {r4, r5, r6, lr}
 	mov r6, sb
 	mov r5, r8
@@ -1081,7 +1081,7 @@ sub_08018700: @ 08018700
 	bl __divsi3
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl sub_08018700
+	bl fe_text_digits
 	movs r1, #0xa
 	adds r5, r0, #0
 	adds r0, r6, #0
@@ -1103,10 +1103,10 @@ _0801873E:
 	bx r1
 	.byte 0x00, 0x00
 
-	.global sub_08018750
+	.global fe_text_number
 	.thumb_func
-	.type sub_08018750, %function
-sub_08018750: @ 08018750
+	.type fe_text_number, %function
+fe_text_number: @ 08018750
 	push {r4, r5, r6, lr}
 	mov r6, sb
 	push {r6}
@@ -1141,7 +1141,7 @@ sub_08018750: @ 08018750
 	adds r1, r0, #0
 	mov sb, r3
 	adds r0, r5, #0
-	bl sub_08018700
+	bl fe_text_digits
 	movs r1, #0xa
 	adds r4, r0, #0
 	adds r0, r6, #0
@@ -1172,10 +1172,10 @@ _080187C8:
 _080187CC:
 	.4byte gFeTextTables
 
-	.global sub_080187D0
+	.global fe_text_time
 	.thumb_func
-	.type sub_080187D0, %function
-sub_080187D0: @ 080187D0
+	.type fe_text_time, %function
+fe_text_time: @ 080187D0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -1287,10 +1287,10 @@ _080188B0:
 _080188B4:
 	.4byte gFeTextTables
 
-	.global sub_080188B8
+	.global fe_spr_draw
 	.thumb_func
-	.type sub_080188B8, %function
-sub_080188B8: @ 080188B8
+	.type fe_spr_draw, %function
+fe_spr_draw: @ 080188B8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1415,7 +1415,7 @@ _08018980:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	ldr r2, [sp, #0xc]
-	bl sub_08018304
+	bl fe_spr_draw_frame
 _080189AE:
 	ldrb r2, [r4, #1]
 	adds r5, r5, r2
@@ -1481,10 +1481,10 @@ _08018A0C:
 _08018A10:
 	.4byte gFeTextTables
 
-	.global sub_08018A14
+	.global fe_text_initials
 	.thumb_func
-	.type sub_08018A14, %function
-sub_08018A14: @ 08018A14
+	.type fe_text_initials, %function
+fe_text_initials: @ 08018A14
 	push {r4, r5, r6, lr}
 	adds r5, r1, #0
 	ldr r1, _08018A70
@@ -1592,10 +1592,10 @@ _08018AC2:
 	b _08018AA0
 	.byte 0x00, 0x00
 
-	.global sub_08018AC8
+	.global fe_text_height
 	.thumb_func
-	.type sub_08018AC8, %function
-sub_08018AC8: @ 08018AC8
+	.type fe_text_height, %function
+fe_text_height: @ 08018AC8
 	push {lr}
 	ldrh r2, [r1, #0xc]
 	ldrb r3, [r0]
@@ -1619,10 +1619,10 @@ _08018AE8:
 	adds r2, r2, r1
 	b _08018ADC
 
-	.global sub_08018AEC
+	.global fe_text_length
 	.thumb_func
-	.type sub_08018AEC, %function
-sub_08018AEC: @ 08018AEC
+	.type fe_text_length, %function
+fe_text_length: @ 08018AEC
 	push {lr}
 	ldrb r1, [r0]
 	movs r2, #0
@@ -1741,10 +1741,10 @@ _08018BAA:
 _08018BB0:
 	.4byte 0x0000FFFF
 
-	.global sub_08018BB4
+	.global fe_text_draw_font
 	.thumb_func
-	.type sub_08018BB4, %function
-sub_08018BB4: @ 08018BB4
+	.type fe_text_draw_font, %function
+fe_text_draw_font: @ 08018BB4
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1791,7 +1791,7 @@ _08018BE4:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	ldr r2, [sp, #0xc]
-	bl sub_08018304
+	bl fe_spr_draw_frame
 _08018C12:
 	ldrb r1, [r4, #1]
 	adds r5, r5, r1
@@ -1819,10 +1819,10 @@ _08018C34:
 _08018C38:
 	.4byte 0x0000FFFF
 
-	.global sub_08018C3C
+	.global fe_text_pages
 	.thumb_func
-	.type sub_08018C3C, %function
-sub_08018C3C: @ 08018C3C
+	.type fe_text_pages, %function
+fe_text_pages: @ 08018C3C
 	ldr r1, _08018C50
 	movs r2, #0x18
 	ldrsh r3, [r1, r2]
@@ -1838,10 +1838,10 @@ _08018C50:
 _08018C54:
 	.4byte gFeTextTables
 
-	.global sub_08018C58
+	.global fe_load_bg_palettes
 	.thumb_func
-	.type sub_08018C58, %function
-sub_08018C58: @ 08018C58
+	.type fe_load_bg_palettes, %function
+fe_load_bg_palettes: @ 08018C58
 	push {lr}
 	ldr r0, _08018D0C
 	movs r2, #0x16
@@ -1960,10 +1960,10 @@ _08018D38:
 _08018D3C:
 	.4byte gUnk_08056050
 
-	.global sub_08018D40
+	.global fe_load_screen_sprites
 	.thumb_func
-	.type sub_08018D40, %function
-sub_08018D40: @ 08018D40
+	.type fe_load_screen_sprites, %function
+fe_load_screen_sprites: @ 08018D40
 	push {lr}
 	ldr r0, _08018DEC
 	ldrh r3, [r0]
@@ -1987,7 +1987,7 @@ _08018D54:
 _08018D70:
 	movs r1, #1
 	ldr r0, _08018DF4
-	bl sub_080186E4
+	bl fe_list_nth
 	adds r2, r0, #0
 	movs r0, #0
 	str r0, [sp]

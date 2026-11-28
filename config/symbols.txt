@@ -740,3 +740,51 @@
 0x08004168 racer_flash_palette      # character info +0x80 palette for 10 frames (obj+0x106), flag 0x100000 in +0xA0
 0x080041BC racer_flash_update       # count down by 2, then racer_flash_end
 0x080041DC racer_flash_end          # normal palette, timer 0, flag cleared
+0x08018304 fe_spr_draw_frame        # (x, y, container, frame, ...): draw a frame of a sprite container part by part (6-byte parts, shape/size from 0x080537D8/0x080537E4)
+0x0801854C fe_spr_upload_frame      # DMA a frame's tiles from the loaded container (0x02024394) to VRAM; bit 15 marks it uploaded
+0x080185A8 fe_spr_add               # add an entry to the front-end sprite tables -> its index
+0x08018654 fe_spr_reset             # empty the tables; clip rectangle 0..240 x 0..160
+0x080186E4 fe_list_nth              # (list, n): skip n variable-size entries (+4 = size in 16-byte units)
+0x08018700 fe_text_digits           # recursive helper of fe_text_number (the digit glyphs come from its caller's frame)
+0x08018750 fe_text_number           # (buf, n): decimal in the front-end charset, 0x4E-terminated
+0x080187D0 fe_text_time             # (buf, frames, ...): m'ss"hh (frames / 3600 minutes)
+0x080188B8 fe_spr_draw              # fe_spr_draw_frame with the loaded container
+0x08018A14 fe_text_initials         # (buf, packed): 3 letters of 5 bits (bit 15 = set), else 3 placeholder characters
+0x08018AC8 fe_text_height           # (str, font): line height x lines
+0x08018AEC fe_text_length           # printable characters in a string (act_hud_flyby)
+0x08018BB4 fe_text_draw_font        # (str, font, x, y): glyph by glyph through fe_spr_draw_frame; unused
+0x08018C3C fe_text_pages            # (id) -> page count of text id in the current language
+0x08018C58 fe_load_bg_palettes      # palettes by gGameSetup+0x16 (pal_load)
+0x08018D40 fe_load_screen_sprites   # per screen type (7-way switch): sprite containers and palettes
+0x080145D8 fe_title_draw            # title screen drawing (fe_title_process); the code up to 0x08015C38 is one function that reaches its own parts with far bl:
+0x08014F16 fe_title_draw_14F16      # (part of fe_title_draw)
+0x08014F34 fe_title_draw_14F34      # (part of fe_title_draw)
+0x08015010 fe_title_draw_15010      # (part of fe_title_draw)
+0x08015022 fe_title_draw_15022      # (part of fe_title_draw)
+0x0801502A fe_title_draw_1502A      # (part of fe_title_draw)
+0x08015034 fe_title_draw_15034      # (part of fe_title_draw)
+0x080150D6 fe_title_draw_150D6      # (part of fe_title_draw)
+0x08015852 fe_title_draw_15852      # (part of fe_title_draw)
+0x080158BA fe_title_draw_158BA      # (part of fe_title_draw)
+0x08015904 fe_title_draw_15904      # (part of fe_title_draw)
+0x08015914 fe_title_draw_15914      # (part of fe_title_draw)
+0x08015928 fe_title_draw_15928      # (part of fe_title_draw)
+0x0801597E fe_title_draw_1597E      # (part of fe_title_draw)
+0x08015AC4 fe_title_draw_15AC4      # (part of fe_title_draw)
+0x08015C38 fe_title_vblank          # vblank: backdrop colour = gradient[0], then the audio update
+0x08015C54 fe_title_hblank          # hblank: backdrop colour = gradient[line + 1] (160 colours at 0x02023FA4): the sky gradient
+0x080192E8 fe_theme_palette         # -> one of three palettes by gGameSetup+0x16
+0x0801931C fe_title_letters_start   # (n): the title letters' animation (0x0202CF10) starts with n letters
+0x0801932C fe_title_letters_leave   # the title letters leave (state 2)
+0x08019CA8 fe_scoreboard_draw_rows  # the 8 standings rows, the local player highlighted
+0x0801A06C fe_scoreboard_wave       # scoreboard sprites on a sine wave
+0x0801AB74 fe_cups_win_draw_spin    # cup win: sprite turning with sin/cos
+0x0801ADB4 fe_spot_span_set         # one circle's spans into the window buffers (clipped to 240 x 160)
+0x0801AEDC fe_spot_span_merge       # the same, merged with the spans already there
+0x0801AFDC fe_spot_draw             # the two spotlights: circle spans (isqrt) into 0x0202D434 / 0x0202D574
+0x0801B0DC fe_spot_update           # move the spotlights (cos wobble) towards their targets
+0x0801B18C fe_spot_init             # spotlight positions and sizes from 0x080518C4 / 0x080518E8
+0x0801BE18 fe_spot_vblank           # vblank: WIN0H/WIN1H = line 0 spans, then the audio update
+0x0801BE48 fe_spot_hblank           # hblank: WIN0H/WIN1H for the next line
+0x0801BE84 fe_spot_set              # sets the spotlight variables; no caller
+0x0801CDA0 fe_movie_decode          # intro movie: next frame (until +0xC frames) from a u16 RLE stream into BG VRAM 0x06000000: bit 15 fill (low byte doubled, (code >> 8 & 0x7F) + 1 halfwords), else copy

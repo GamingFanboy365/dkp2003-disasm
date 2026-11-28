@@ -94,7 +94,7 @@ _08016948:
 	strh r4, [r1]
 	adds r1, #2
 	strh r6, [r1]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	ldr r0, _0801699C
 	mov r1, sp
 	b _080169A0
@@ -204,7 +204,7 @@ _08016A46:
 	str r1, [r6, #4]
 	str r1, [r6, #8]
 	bl sound_disable
-	bl sub_08018654
+	bl fe_spr_reset
 	ldr r1, _08016AE0
 	ldr r3, [r1, #0x10]
 	ldr r2, [r1, #0xc]
@@ -230,7 +230,7 @@ _08016A7C:
 	adds r4, r0, r1
 	movs r1, #0x1c
 	movs r0, #4
-	bl sub_080185A8
+	bl fe_spr_add
 	mov r3, sl
 	str r0, [r5, r3]
 	lsls r3, r0, #1
@@ -307,7 +307,7 @@ _08016B10:
 	strh r3, [r0, #8]
 	strh r2, [r0, #0x16]
 	ldr r0, [r5, r1]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	ldr r2, [r7, #0xc]
 	movs r1, #0x2c
 	adds r4, r2, r6
@@ -334,7 +334,7 @@ _08016B54:
 	str r0, [sp]
 	mov r1, sb
 	adds r0, r4, #0
-	bl sub_080188B8
+	bl fe_spr_draw
 	ldr r1, [r7, #0x10]
 	ldr r3, [r7, #0xc]
 	adds r6, #1
@@ -365,7 +365,7 @@ _08016B6E:
 	bx r0
 _08016B9C:
 	movs r0, #0x15
-	bl sub_0801931C
+	bl fe_title_letters_start
 	adds r1, r6, #0
 	str r5, [r4, #0xc]
 	adds r1, #0x21
@@ -386,7 +386,7 @@ _08016BBA:
 	b _08016A30
 _08016BC4:
 	movs r0, #3
-	bl sub_0801931C
+	bl fe_title_letters_start
 	movs r2, #0x20
 	movs r1, #0x24
 	str r2, [r4, #0xc]
@@ -395,14 +395,14 @@ _08016BD0:
 	b _08016A46
 _08016BD4:
 	movs r0, #0x14
-	bl sub_0801931C
+	bl fe_title_letters_start
 	movs r6, #0x20
 	str r5, [r4, #0xc]
 	str r6, [r4, #0x10]
 	b _08016A46
 _08016BE2:
 	movs r0, #0x16
-	bl sub_0801931C
+	bl fe_title_letters_start
 	movs r0, #0x10
 	str r5, [r4, #0xc]
 	str r0, [r4, #0x10]
@@ -688,7 +688,7 @@ _08016DF8:
 _08016E12:
 	movs r1, #1
 	ldr r0, _08016F40
-	bl sub_080186E4
+	bl fe_list_nth
 	ldr r6, _08016F14
 	ldr r1, [r6]
 	adds r2, r0, #0
@@ -736,7 +736,7 @@ _08016E3E:
 	adds r6, r5, r3
 	ldrh r1, [r0, r6]
 	adds r0, r4, #0
-	bl sub_08018A14
+	bl fe_text_initials
 	movs r1, #0x4e
 	mov r0, r8
 	rsbs r3, r1, #0
@@ -754,7 +754,7 @@ _08016E3E:
 	ldrh r1, [r0, r5]
 	movs r2, #1
 	adds r0, r4, #0
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r7, #0
 	adds r0, r4, #0
 	bl fe_text_width
@@ -772,7 +772,7 @@ _08016E3E:
 	adds r3, r6, r1
 	ldrh r1, [r3, #2]
 	adds r0, r4, #0
-	bl sub_08018A14
+	bl fe_text_initials
 	mov r3, sl
 	str r3, [sp]
 	adds r0, r4, #0
@@ -785,7 +785,7 @@ _08016E3E:
 	ldrh r1, [r3, #2]
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r7, #0
 	adds r0, r4, #0
 	bl fe_text_width
@@ -847,7 +847,7 @@ fe_tracks_process: @ 08016F48
 _08016F64:
 	bl sub_08017E1C
 	bl fe_draw_title
-	bl sub_08018D40
+	bl fe_load_screen_sprites
 	ldr r6, _08017098
 	ldr r1, [r6]
 	cmp r1, #0
@@ -858,7 +858,7 @@ _08016F64:
 	ands r0, r4
 	cmp r0, #0
 	beq _08016F9E
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r5, #0
 	adds r3, r0, #0
 	movs r1, #0x5c
@@ -883,7 +883,7 @@ _08016F9E:
 	ands r5, r1
 	cmp r5, #0
 	beq _08016FD6
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r5, #0x80
 	adds r3, r0, #0
 	movs r0, #0
@@ -937,7 +937,7 @@ _08017016:
 	bgt _0801701E
 	b _08017240
 _0801701E:
-	bl sub_080192E8
+	bl fe_theme_palette
 	movs r4, #0
 	adds r3, r0, #0
 	movs r1, #0x67
@@ -1055,7 +1055,7 @@ _080170E8:
 	bl snd_play
 	str r4, [r6, #8]
 _08017100:
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	bl fade_to_black
 	b _080170C2
 _0801710A:
@@ -1284,7 +1284,7 @@ _08017280:
 	adds r1, r7, #0
 	movs r2, #1
 	mov r0, sl
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r4, #0
 	mov r0, sl
 	bl fe_text_width
@@ -1329,7 +1329,7 @@ _080172E4:
 	adds r1, r7, #0
 	movs r2, #1
 	mov r0, sl
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r4, #0
 	mov r0, sl
 	bl fe_text_width
@@ -1374,7 +1374,7 @@ _08017338:
 	movs r2, #1
 	subs r1, r0, r7
 	mov r0, sl
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r4, #0
 	mov r0, sl
 	bl fe_text_width
@@ -1412,7 +1412,7 @@ _08017394:
 	ldr r1, [r0]
 	movs r2, #1
 	mov r0, sl
-	bl sub_080187D0
+	bl fe_text_time
 	adds r1, r7, #0
 	mov r0, sl
 	bl fe_text_width
@@ -1658,7 +1658,7 @@ _08017578:
 	strh r4, [r6]
 	adds r6, #4
 	strh r1, [r6]
-	bl sub_08018C58
+	bl fe_load_bg_palettes
 	movs r0, #0xf8
 	str r0, [sp, #4]
 	ldr r2, _080175C4
@@ -1778,7 +1778,7 @@ _08017664:
 	bl music_play_if_changed
 	bl fade_to_normal
 	movs r0, #0x15
-	bl sub_0801931C
+	bl fe_title_letters_start
 	ldr r3, _080176DC
 	ldr r0, _080176E0
 	ldr r1, _080176E4
@@ -1916,7 +1916,7 @@ _08017772:
 	cmp r0, #0
 	beq _08017722
 	bl fade_to_black
-	bl sub_0801932C
+	bl fe_title_letters_leave
 	movs r3, #0x80
 	movs r0, #0xd8
 	movs r1, #0x7f
@@ -2220,15 +2220,15 @@ _08017998:
 	str r1, [r4, #8]
 	str r5, [r4, #0xc]
 	str r5, [r4, #4]
-	bl sub_08018C3C
+	bl fe_text_pages
 	str r0, [r4, #0x10]
 	movs r0, #0xa0
 	str r0, [r4]
-	bl sub_08018654
+	bl fe_spr_reset
 	movs r2, #0x80
 	lsls r1, r2, #1
 	movs r0, #4
-	bl sub_080185A8
+	bl fe_spr_add
 	ldr r2, _08017A58
 	str r0, [r6, #8]
 	ldrh r3, [r2, #2]
@@ -2628,14 +2628,14 @@ _08017CE2:
 	bl sound_disable
 	ldr r4, _08017DB0
 	ldr r0, [r4, #8]
-	bl sub_0801854C
+	bl fe_spr_upload_frame
 	ldr r0, [r4, #0xc]
 	ldr r1, [r7, #0xc]
 	bl fe_get_text
 	ldr r6, _08017DD0
 	adds r1, r6, #0
 	adds r5, r0, #0
-	bl sub_08018AC8
+	bl fe_text_height
 	adds r0, #0xc
 	str r0, [r7, #0x14]
 	ldr r2, [r4, #8]
@@ -2646,7 +2646,7 @@ _08017CE2:
 	rsbs r2, r3, #0
 	adds r0, r5, #0
 	rsbs r3, r4, #0
-	bl sub_080188B8
+	bl fe_spr_draw
 	bl sound_enable
 	movs r1, #1
 	str r1, [r7, #8]

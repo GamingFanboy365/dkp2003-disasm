@@ -65,7 +65,7 @@ _0801256C:
 _08012570:
 	bl fe_get_text
 	adds r4, r0, #0
-	bl sub_08018AEC
+	bl fe_text_length
 	bl spr_get_info
 	mov r2, sl
 	adds r2, #0x5a

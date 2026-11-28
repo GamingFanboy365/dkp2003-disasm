@@ -4065,7 +4065,7 @@ _08022F58:
 	str r1, [r5, r0]
 	movs r1, #2
 	ldr r0, _0802301C
-	bl sub_080186E4
+	bl fe_list_nth
 	ldr r2, _08023020
 	adds r1, r6, #0
 	subs r4, #0x20
