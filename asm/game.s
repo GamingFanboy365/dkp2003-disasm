@@ -569,7 +569,7 @@ _080008F2:
 	bl AGBPrintFlush
 	movs r0, #0
 _0800092C:
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08000964
 	.byte 0x00, 0x00
 _08000934:
@@ -631,7 +631,7 @@ _0800098C:
 	bl AGBPrintf
 	bl AGBPrintFlush
 	movs r0, #2
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08000964
 _080009B2:
 	bl sub_08000FC8

@@ -158,7 +158,7 @@ fe_boot_process: @ 08014580
 	cmp r0, #0
 	beq _080145D0
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080145D0
 _080145BC:
 	.4byte 0x00000000
@@ -2099,7 +2099,7 @@ _080153DE:
 	cmp r3, #0
 	bne _08015336
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08015336
 _08015416:
 	cmp r3, #2
@@ -2107,11 +2107,11 @@ _08015416:
 	b _08015336
 _0801541C:
 	movs r0, #2
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08015336
 _08015424:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08015336
 _0801542C:
 	ldr r1, _0801563C
@@ -4449,7 +4449,7 @@ _080165A4:
 	b _08016398
 _080165AC:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08016398
 _080165B4:
 	ldr r2, _080166B0
@@ -4467,7 +4467,7 @@ _080165C4:
 	b _08016398
 _080165CC:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08016398
 _080165D4:
 	mov r0, fp

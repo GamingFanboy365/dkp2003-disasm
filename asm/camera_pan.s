@@ -872,7 +872,7 @@ _08004E4A:
 	cmp r1, #0
 	beq _08004E32
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08004E32
 _08004E64:
 	ldr r1, [r0, #4]

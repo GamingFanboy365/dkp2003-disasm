@@ -295,3 +295,4 @@
 0x08014510 fe_boot_init             # first screen after power-on (~30 frames, before the logo movie)
 0x08014580 fe_boot_process
 0x08000460 vblank_handler           # installed in gIrqHandler by most screens; counts frames, runs the audio update
+0x0801E5A4 mcp_done                 # (token): a screen has finished; picks the next state from gMcpState (debug print "mcp_process: state %i token %i")

@@ -15,6 +15,7 @@ gDbgMenuRow = 0x020185A8;
 gRacerData = 0x02021E18;
 gGameSetup = 0x0202D74C;
 gLocalPlayerIndex = 0x0202DE58;
+gMcpState = 0x0202DEC8;
 gSfxVoices = 0x0202DECC;
 gSfxPendingPool = 0x0202DF8C;
 gSfxPendingList = 0x0202E38C;

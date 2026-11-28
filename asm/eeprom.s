@@ -2656,10 +2656,10 @@ _0801E59C:
 _0801E5A0:
 	.4byte gLocalPlayerIndex
 
-	.global sub_0801E5A4
+	.global mcp_done
 	.thumb_func
-	.type sub_0801E5A4, %function
-sub_0801E5A4: @ 0801E5A4
+	.type mcp_done, %function
+mcp_done: @ 0801E5A4
 	push {r4, r5, r6, lr}
 	ldr r5, _0801E660
 	adds r4, r0, #0
@@ -2766,7 +2766,7 @@ _0801E658:
 _0801E65C:
 	.4byte 0x00000001
 _0801E660:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E664:
 	.4byte gUnk_08051B18
 _0801E668:
@@ -2804,7 +2804,7 @@ _0801E6A4:
 _0801E6A8:
 	.4byte 0x00000008
 _0801E6AC:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E6B0:
 	.4byte gGameSetup
 _0801E6B4:
@@ -2856,7 +2856,7 @@ _0801E6F6:
 _0801E70C:
 	.4byte 0x00000000
 _0801E710:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E714:
 	.4byte gLocalPlayerIndex
 _0801E718:
@@ -2948,7 +2948,7 @@ _0801E7AA:
 _0801E7B8:
 	.4byte 0x00000003
 _0801E7BC:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E7C0:
 	.4byte gGameSetup
 _0801E7C4:
@@ -3172,7 +3172,7 @@ _0801E95C:
 _0801E960:
 	.4byte 0x00000008
 _0801E964:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E968:
 	.4byte 0x0000085D
 _0801E96C:
@@ -3204,7 +3204,7 @@ _0801E998:
 _0801E99C:
 	.4byte 0x0000087B
 _0801E9A0:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801E9A4:
 	cmp r2, #0xdb
 	beq _0801E9CC
@@ -3254,7 +3254,7 @@ _0801E9F4:
 _0801E9F8:
 	.4byte 0x00000003
 _0801E9FC:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801EA00:
 	.4byte gGameSetup
 _0801EA04:
@@ -3519,7 +3519,7 @@ _0801EBD0:
 _0801EBD4:
 	.4byte 0x00000006
 _0801EBD8:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801EBDC:
 	.4byte gGameSetup
 _0801EBE0:
@@ -3548,7 +3548,7 @@ _0801EC08:
 _0801EC0C:
 	.4byte 0x00000008
 _0801EC10:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801EC14:
 	.4byte gGameSetup
 _0801EC18:
@@ -3958,7 +3958,7 @@ _0801EEFC:
 _0801EF18:
 	.4byte 0x00000139
 _0801EF1C:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801EF20:
 	.4byte 0x00000137
 _0801EF24:
@@ -4447,7 +4447,7 @@ _0801F280:
 	b _0801F1A2
 	.byte 0x00, 0x00
 _0801F298:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 _0801F29C:
 	.4byte 0x0000088F
 _0801F2A0:
@@ -4471,7 +4471,7 @@ sub_0801F2B0: @ 0801F2B0
 	pop {r0}
 	bx r0
 _0801F2C0:
-	.4byte 0x0202DEC8
+	.4byte gMcpState
 
 	.global gamesfx_update
 	.thumb_func

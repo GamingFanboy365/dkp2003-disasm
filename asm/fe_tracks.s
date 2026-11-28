@@ -1153,7 +1153,7 @@ _080171AA:
 	b _080170C2
 _080171BA:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080170C2
 _080171C2:
 	ldr r2, _08017250
@@ -1172,7 +1172,7 @@ _080171D2:
 	adds r1, #0x84
 	strh r0, [r1]
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080170C2
 _080171E6:
 	ldr r1, _0801724C
@@ -1900,7 +1900,7 @@ _0801775A:
 _08017762:
 	movs r0, #1
 _08017764:
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08017722
 _0801776A:
 	ldr r1, [r4, #0x10]
@@ -2500,7 +2500,7 @@ _08017BCC:
 	beq _08017BAC
 	bl sub_0802F04C
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _08017BAC
 _08017BEE:
 	ldr r2, _08017DAC

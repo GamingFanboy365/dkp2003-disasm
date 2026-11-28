@@ -1409,7 +1409,7 @@ _0801989A:
 	b _080197B4
 _080198AA:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080197B4
 _080198B2:
 	ldr r2, _08019934
@@ -1437,11 +1437,11 @@ _080198D2:
 	b _080197B4
 _080198DE:
 	movs r0, #2
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080197B4
 _080198E6:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _080197B4
 	.byte 0x00, 0x00
 _080198F0:
@@ -3448,7 +3448,7 @@ _0801A844:
 	cmp r2, #0
 	bge _0801A844
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801A4EA
 	.global _0801A858
 _0801A858:
@@ -3478,7 +3478,7 @@ _0801A882:
 	b _0801A4EA
 _0801A888:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801A4EA
 _0801A890:
 	.4byte 0x0202D2C0
@@ -4087,7 +4087,7 @@ _0801AD02:
 	cmp r0, #0
 	beq _0801ACE8
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801ACE8
 _0801AD1C:
 	ldr r1, _0801ADAC
@@ -6312,7 +6312,7 @@ _0801BDA4:
 	b _0801B774
 _0801BDB6:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801B774
 _0801BDBE:
 	cmp r3, #2
@@ -6320,11 +6320,11 @@ _0801BDBE:
 	b _0801B774
 _0801BDC4:
 	movs r0, #3
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801B774
 _0801BDCC:
 	movs r0, #2
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801B774
 	.global _0801BDD4
 _0801BDD4:
@@ -6339,7 +6339,7 @@ _0801BDD4:
 	b _0801B774
 _0801BDE8:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801B774
 _0801BDF0:
 	movs r3, #0x80
@@ -7071,7 +7071,7 @@ _0801C36A:
 	b _0801C272
 _0801C37A:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 _0801C382:
 	ldr r2, _0801C480
@@ -7112,12 +7112,12 @@ _0801C3B4:
 	.global _0801C3CC
 _0801C3CC:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 	.global _0801C3D4
 _0801C3D4:
 	movs r0, #2
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 	.global _0801C3DC
 _0801C3DC:
@@ -7152,7 +7152,7 @@ _0801C3F6:
 	orrs r1, r0
 	strb r1, [r2]
 	movs r0, #3
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 _0801C41C:
 	strb r0, [r2, #0xc]
@@ -7160,23 +7160,23 @@ _0801C41C:
 	.global _0801C420
 _0801C420:
 	movs r0, #4
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 	.global _0801C428
 _0801C428:
 	movs r0, #5
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 	.global _0801C430
 _0801C430:
 	bl sub_0801D4EC
 	bl sub_0801D698
 	movs r0, #6
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 _0801C440:
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C272
 _0801C448:
 	ldr r6, _0801C460
@@ -7588,11 +7588,11 @@ _0801C760:
 	cmp r3, #1
 	bne _0801C71E
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C71E
 _0801C772:
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801C71E
 _0801C77A:
 	bl sub_0801C48C
@@ -8195,7 +8195,7 @@ _0801CBF4:
 	cmp r1, #0
 	beq _0801CBEC
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801CBEC
 _0801CC0A:
 	ldrb r5, [r2, #0x13]
@@ -8717,7 +8717,7 @@ _0801CFDC:
 	cmp r0, #0
 	beq _0801CF1C
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801CF1C
 	.byte 0x00, 0x00
 _0801CFF4:
@@ -9077,7 +9077,7 @@ _0801D2A2:
 	cmp r1, #0
 	beq _0801D29C
 	movs r0, #0
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801D29C
 _0801D2B8:
 	ldr r2, _0801D2E8
@@ -9088,7 +9088,7 @@ _0801D2B8:
 	cmp r1, #0
 	beq _0801D29C
 	movs r0, #1
-	bl sub_0801E5A4
+	bl mcp_done
 	b _0801D29C
 	.byte 0x00, 0x00
 _0801D2D0:
