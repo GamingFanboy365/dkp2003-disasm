@@ -42,10 +42,10 @@ sdiv_veneer: @ 080000F4
 	ldr r2, _08000104
 	bx r2
 
-	.global udiv_veneer
+	.global ram_divide_veneer
 	.thumb_func
-	.type udiv_veneer, %function
-udiv_veneer: @ 080000F8
+	.type ram_divide_veneer, %function
+ram_divide_veneer: @ 080000F8
 	ldr r2, _08000108
 	bx r2
 
@@ -65,7 +65,7 @@ umod_veneer: @ 08000100
 _08000104:
 	.4byte sdiv
 _08000108:
-	.4byte udiv
+	.4byte ram_divide
 _0800010C:
 	.4byte smod
 _08000110:

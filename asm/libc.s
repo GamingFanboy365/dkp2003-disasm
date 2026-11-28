@@ -1761,7 +1761,7 @@ _0803328A:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl udiv_veneer
+	bl ram_divide_veneer
 	adds r4, r0, #0
 	cmp r4, #9
 	bhi _0803328A
@@ -3163,7 +3163,7 @@ _08033C78:
 	ldr r2, [r5]
 	mov sl, r2
 	mov r0, sl
-	bl udiv_veneer
+	bl ram_divide_veneer
 	str r0, [sp, #8]
 	mov r3, r8
 	str r3, [sp, #0x14]
@@ -5601,7 +5601,7 @@ _malloc_trim_r: @ 08034E84
 	adds r4, r4, r1
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl udiv_veneer
+	bl ram_divide_veneer
 	subs r0, #1
 	lsls r4, r0, #0xc
 	cmp r4, r5

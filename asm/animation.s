@@ -2209,7 +2209,7 @@ _0800401C:
 _08004020:
 	.4byte gSprites
 _08004024:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global setup_char_bias
 	.thumb_func

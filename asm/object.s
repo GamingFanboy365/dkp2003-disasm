@@ -2746,7 +2746,7 @@ _080027C0:
 	ldr r3, _080027E8
 	ldr r1, _080027EC
 	str r3, [r1]
-	bl music_stop
+	bl audio_halt_tune
 	pop {r4, r5, r6, r7}
 	pop {r0}
 	bx r0
@@ -3122,7 +3122,7 @@ _08002A6A:
 	bl music_set_volume
 	lsls r1, r5, #4
 	ldr r0, [r4, r1]
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	ldr r4, _08002AE0
 	movs r2, #1
 	ldr r0, [r4]
@@ -3286,7 +3286,7 @@ _08002B96:
 	ldr r3, _08002BC4
 	ldr r1, _08002BC8
 	str r3, [r1]
-	bl music_stop
+	bl audio_halt_tune
 	pop {r4, r5, r6, r7}
 	pop {r0}
 	bx r0

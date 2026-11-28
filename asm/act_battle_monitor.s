@@ -205,7 +205,7 @@ _0801404C:
 	ands r1, r0
 	cmp r1, #0
 	beq _08014044
-	bl music_stop
+	bl audio_halt_tune
 	bl fade_to_black
 	ldr r1, _08014234
 	movs r3, #2

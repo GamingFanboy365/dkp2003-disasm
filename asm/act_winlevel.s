@@ -1330,7 +1330,7 @@ _08021A58:
 	lsls r0, r3, #9
 	adds r1, r2, r0
 	adds r0, r6, #0
-	bl snd_set_pitch
+	bl audio_fx_pitch_mod
 	ldr r3, [r4]
 	ldr r0, _08021D90
 	adds r4, r3, #0
@@ -1343,7 +1343,7 @@ _08021A58:
 	asrs r1, r2, #0x16
 	adds r1, #0x7f
 	ldr r0, [r7, #0x48]
-	bl snd_set_volume
+	bl audio_fx_volume_mod
 	ldr r5, [r7, #0x1c]
 	ldr r4, [r7, #0x20]
 	adds r5, #1
@@ -1681,7 +1681,7 @@ _08021D1C:
 	cmp r0, #0
 	beq _08021D3A
 	ldr r0, [r6, r4]
-	bl snd_stop
+	bl audio_halt_fx
 	movs r1, #1
 	rsbs r0, r1, #0
 	str r0, [r6, r4]
@@ -1695,7 +1695,7 @@ _08021D3A:
 	cmp r0, #0
 	beq _08021D52
 	ldr r0, [r7, #0x48]
-	bl snd_stop
+	bl audio_halt_fx
 _08021D52:
 	movs r0, #0
 	bl mcp_process
@@ -1803,20 +1803,20 @@ _08021E0A:
 	ldr r3, [r4, #0x1c]
 	b _08021C92
 _08021E24:
-	bl snd_stop
+	bl audio_halt_fx
 	movs r2, #1
 	rsbs r0, r2, #0
 	mov r2, r8
 	str r0, [r2, #0x54]
 	b _08021C76
 _08021E32:
-	bl snd_stop
+	bl audio_halt_fx
 	movs r1, #1
 	rsbs r0, r1, #0
 	str r0, [r7, #0x50]
 	b _08021C60
 _08021E3E:
-	bl snd_stop
+	bl audio_halt_fx
 	movs r1, #1
 	rsbs r2, r1, #0
 	str r2, [r6, #0x4c]
@@ -1902,7 +1902,7 @@ _08021ED2:
 	beq _08021EF2
 	mov r6, r8
 	ldr r0, [r6, r4]
-	bl snd_stop
+	bl audio_halt_fx
 	movs r1, #1
 	rsbs r7, r1, #0
 	str r7, [r6, r4]
@@ -1918,7 +1918,7 @@ _08021EF2:
 	movs r5, #1
 	ldr r0, [r7, #0x48]
 	rsbs r4, r5, #0
-	bl snd_stop
+	bl audio_halt_fx
 	str r4, [r7, #0x48]
 _08021F10:
 	ldr r7, _08021F4C
@@ -3484,7 +3484,7 @@ _08022AF6:
 	beq _08022B1A
 	ldr r1, _08022B64
 	ldr r0, [r1, r4]
-	bl snd_stop
+	bl audio_halt_fx
 	movs r0, #1
 	ldr r1, _08022B64
 	rsbs r2, r0, #0
@@ -3500,7 +3500,7 @@ _08022B1A:
 	beq _08022B34
 	ldr r1, _08022B64
 	ldr r0, [r1, #0x2c]
-	bl snd_stop
+	bl audio_halt_fx
 _08022B34:
 	movs r0, #0
 	bl mcp_process
@@ -3553,7 +3553,7 @@ _08022B78:
 	lsls r3, r2, #9
 	adds r1, r0, r3
 	adds r0, r4, #0
-	bl snd_set_pitch
+	bl audio_fx_pitch_mod
 	ldr r3, [r6]
 	ldr r0, _08022EF0
 	adds r4, r3, #0
@@ -3567,7 +3567,7 @@ _08022B78:
 	asrs r1, r3, #0x16
 	adds r1, #0x7f
 	ldr r0, [r4, #0x2c]
-	bl snd_set_volume
+	bl audio_fx_volume_mod
 	ldr r0, [r6]
 	ldr r2, _08022EF4
 	rsbs r3, r0, #0
@@ -4751,7 +4751,7 @@ _08023478:
 _0802347C:
 	.4byte 0x0202EA0C
 _08023480:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global player_boss_turn
 	.thumb_func
@@ -5346,7 +5346,7 @@ _08023876:
 _0802387C:
 	.4byte 0x00010180
 _08023880:
-	.4byte udiv
+	.4byte ram_divide
 _08023884:
 	movs r3, #0xa8
 	lsls r2, r3, #1
@@ -5754,7 +5754,7 @@ _08023B26:
 	b _08023984
 	.byte 0x00, 0x00
 _08023B40:
-	.4byte udiv
+	.4byte ram_divide
 _08023B44:
 	.4byte gUnk_0884EF50
 
@@ -6040,7 +6040,7 @@ _08023D20:
 _08023D60:
 	.4byte _03000814
 _08023D64:
-	.4byte udiv
+	.4byte ram_divide
 _08023D68:
 	.4byte 0xFFFFF830
 _08023D6C:
@@ -6518,7 +6518,7 @@ _0802407E:
 	b _08023D94
 	.byte 0x00, 0x00
 _08024098:
-	.4byte udiv
+	.4byte ram_divide
 _0802409C:
 	.4byte gUnk_0884EF50
 
@@ -6702,7 +6702,7 @@ _080241BC:
 _080241CA:
 	b _080240C0
 _080241CC:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global player_boss_roll
 	.thumb_func
@@ -6946,7 +6946,7 @@ _08024372:
 	b _08024278
 	.byte 0x00, 0x00
 _08024378:
-	.4byte udiv
+	.4byte ram_divide
 _0802437C:
 	.4byte 0xFFFF8000
 _08024380:

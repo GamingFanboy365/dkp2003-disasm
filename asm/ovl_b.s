@@ -601,7 +601,7 @@ _ovl_b_030047D4:
 	sub r1, r1, sb, asr #31
 	eor r0, r5, r5, asr #31
 	sub r0, r0, r5, asr #31
-	bl udiv
+	bl ram_divide
 	teq r5, sb
 	rsbmi r0, r0, #0
 	ldr r3, [fp, #-0x54]
@@ -625,7 +625,7 @@ _ovl_b_0300485C:
 	sub r0, r0, r7, asr #31
 	eor r1, sl, sl, asr #31
 	sub r1, r1, sl, asr #31
-	bl udiv
+	bl ram_divide
 	teq r7, sl
 	rsbmi r0, r0, #0
 	mvn r4, r0

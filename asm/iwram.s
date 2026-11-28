@@ -144,9 +144,9 @@ tan_fx: @ 03000178
 	.byte 0x01, 0x1C, 0xA0, 0xC3, 0x60, 0x26, 0x9F, 0xE5, 0x81, 0x20, 0x82, 0xE0, 0xB0, 0x10, 0xD2, 0xE1
 	.byte 0x02, 0x09, 0x10, 0xE3, 0x00, 0x10, 0x61, 0x12, 0x01, 0x00, 0xA0, 0xE1, 0x1E, 0xFF, 0x2F, 0xE1
 
-	.global atan2_fx
-	.type atan2_fx, %function
-atan2_fx: @ 030001E8
+	.global ram_atan2
+	.type ram_atan2, %function
+ram_atan2: @ 030001E8
 	stmdb sp!, {lr}
 	cmp r1, #0
 	blt _0300029C
@@ -155,7 +155,7 @@ atan2_fx: @ 030001E8
 	cmp r0, r1
 	bge _03000220
 	lsl r0, r0, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -165,7 +165,7 @@ _03000220:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -177,7 +177,7 @@ _03000248:
 	cmp r0, r1
 	bge _03000274
 	lsl r0, r0, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -188,7 +188,7 @@ _03000274:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -202,7 +202,7 @@ _0300029C:
 	cmp r0, r1
 	bge _030002D0
 	lsl r0, r0, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -213,7 +213,7 @@ _030002D0:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -225,7 +225,7 @@ _030002F8:
 	cmp r0, r1
 	bge _03000324
 	lsl r0, r0, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -236,7 +236,7 @@ _03000324:
 	mov r2, r1
 	mov r1, r0
 	lsl r0, r2, #8
-	bl udiv
+	bl ram_divide
 	lsl r0, r0, #1
 	ldr r2, _03000838
 	ldrh r0, [r2, r0]
@@ -244,9 +244,9 @@ _03000324:
 	ldm sp!, {lr}
 	bx lr
 
-	.global udiv
-	.type udiv, %function
-udiv: @ 0300034C
+	.global ram_divide
+	.type ram_divide, %function
+ram_divide: @ 0300034C
 	mov r3, #0x1c
 	lsr r2, r0, #4
 	cmp r1, r2, lsr #12
@@ -374,7 +374,7 @@ sdiv: @ 03000518
 	rsbpl r1, r1, #0
 	eor ip, ip, r0, asr #1
 	rsbmi r0, r0, #0
-	bl udiv
+	bl ram_divide
 	lsls ip, ip, #1
 	rsbmi r0, r0, #0
 	rsbhs r1, r1, #0
@@ -385,7 +385,7 @@ sdiv: @ 03000518
 	.type umod, %function
 umod: @ 03000548
 	stmdb sp!, {lr}
-	bl udiv
+	bl ram_divide
 	mov r0, r1
 	ldm sp!, {ip}
 	bx ip
@@ -1713,7 +1713,7 @@ _030017FC:
 	lsr lr, ip, #4
 	mul sl, lr, r5
 	mul r6, lr, r4
-	bl atan2_fx
+	bl ram_atan2
 	mov r3, r0
 	lsl r0, r3, #0x10
 	asr r7, r0, #0x10
@@ -2267,7 +2267,7 @@ _03002060:
 _030020C8:
 	mov r1, r8
 	mov r0, r7
-	bl atan2_fx
+	bl ram_atan2
 	mov r7, r0
 	add ip, r7, #0x4100
 	lsr r0, ip, #9
@@ -2275,7 +2275,7 @@ _030020C8:
 	ldr r1, [fp, #-0x2f4]
 	ldr r0, [fp, #-0x2f0]
 	add r5, lr, lr, lsl #6
-	bl atan2_fx
+	bl ram_atan2
 	add r1, r0, #0x100
 	lsr r2, r1, #9
 	and r3, r2, #0x7f
@@ -2350,7 +2350,7 @@ _030021A8:
 	ldr sl, [r1, #0x2c]
 	rsb r0, r5, sb
 	rsb r1, r6, sl
-	bl atan2_fx
+	bl ram_atan2
 	ldr r3, [fp, #-0x2ec]
 	ldrh ip, [r3, #0x56]
 	rsb lr, r0, ip
@@ -3432,7 +3432,7 @@ hit_test_vectors: @ 03002F3C
 	sub r0, r0, r4, asr #31
 	eor r1, r5, r5, asr #31
 	sub r1, r1, r5, asr #31
-	bl udiv
+	bl ram_divide
 	teq r4, r5
 	rsbmi r0, r0, #0
 	mov r8, r0
@@ -3501,7 +3501,7 @@ hit_test_static: @ 03003224
 	eor r1, r6, r6, asr #31
 	sub r1, r1, r6, asr #31
 	mov r0, #0x10000
-	bl udiv
+	bl ram_divide
 	ldrh r4, [r8, #0x5c]
 	mov ip, r0
 	ldrh r0, [sl, #0x5c]
@@ -3515,7 +3515,7 @@ hit_test_static: @ 03003224
 	eor r1, r7, r7, asr #31
 	sub r1, r1, r7, asr #31
 	mov r6, ip
-	bl udiv
+	bl ram_divide
 	teq r5, r7
 	rsbmi r0, r0, #0
 	mov r5, #0x200
@@ -3575,7 +3575,7 @@ _030032E8:
 	str lr, [fp, #-0x40]
 	str r4, [fp, #-0x3c]
 	str ip, [fp, #-0x38]
-	bl udiv
+	bl ram_divide
 	ldr r1, [r8, #0xa0]
 	teq r6, r5
 	rsbmi r0, r0, #0
@@ -3813,7 +3813,7 @@ _03003728:
 	cmp r1, #0
 	rsblt r1, r1, #0
 	mov r0, #0x10000
-	bl udiv
+	bl ram_divide
 	mov r5, #0xcc
 	mov r6, r0
 	b _030032E8

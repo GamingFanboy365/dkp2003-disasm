@@ -685,7 +685,7 @@ snd_init: @ 0802D80C
 	.type snd_vsync, %function
 snd_vsync: @ 0802D818
 	push {lr}
-	bl audio_vsync
+	bl audio_vsync_asm
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
@@ -695,7 +695,7 @@ snd_vsync: @ 0802D818
 	.type snd_update, %function
 snd_update: @ 0802D824
 	push {lr}
-	bl audio_update
+	bl audio_asmprocess
 	pop {r0}
 	bx r0
 	.byte 0xC0, 0x46

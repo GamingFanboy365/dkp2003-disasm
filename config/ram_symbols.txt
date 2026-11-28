@@ -73,7 +73,7 @@
 0x0202F008 gAudioFrameSamples       # samples mixed per frame
 0x0202EFF8 gAudioMixLimit           # voices mixed per frame
 0x0202F018 gAudioMusicPaused        # audio_pause sets 1: no sequencing, mixing or advancing of the music voices
-0x0202F01C gAudioErrorFlag          # audio_error sets 1
+0x0202F01C gAudioErrorFlag          # print_text sets 1
 0x0202F014 gAudioSfxNextId          # last sfx handle id (skips -1)
 0x030063EC gAudioSfxTimers          # 4 x u32: frames before an sfx voice is released (0 = none)
 0x030063FC gAudioSfxHandles         # 4 x u32: handle id per sfx voice

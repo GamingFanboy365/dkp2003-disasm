@@ -852,7 +852,7 @@ _0800FE26:
 	bl obj_initialise
 	movs r2, #5
 	str r2, [r4]
-	bl music_stop
+	bl audio_halt_tune
 	b _0800FD32
 	.global _0800FE54
 _0800FE54:

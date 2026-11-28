@@ -481,7 +481,7 @@ _08027698:
 _080277F4:
 	.4byte 0x0000000B
 _080277F8:
-	.4byte udiv
+	.4byte ram_divide
 _080277FC:
 	.4byte 0x0202EBF8
 _08027800:
@@ -917,7 +917,7 @@ _08027B30:
 _08027B34:
 	.4byte gBossAi
 _08027B38:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08027B3C:
 	.4byte _03000814
 _08027B40:
@@ -2294,7 +2294,7 @@ _08028570:
 _08028574:
 	.4byte isqrt
 _08028578:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0802857C:
 	.4byte _03000814
 _08028580:

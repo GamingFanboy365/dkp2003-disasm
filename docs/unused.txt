@@ -540,7 +540,7 @@ Summary
     reached by stepping over the previous container, not by a pointer;
     the trace in mGBA shows the decoder reading them.
   * Reached in mGBA but not found by the static scan (kept as used):
-      03006BDC  audio_cmd_note_on
-      0802ED66  audio_update_mix
-      0802ED78  audio_update_adv_music
-      0802ED82  audio_update_adv_sfx
+      03006BDC  midicom_note_on
+      0802ED66  audio_asmprocess_mix
+      0802ED78  audio_asmprocess_adv_music
+      0802ED82  audio_asmprocess_adv_sfx

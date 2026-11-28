@@ -1057,6 +1057,6 @@ _080291DC:
 _080291E0:
 	.4byte gRacerObjects
 _080291E4:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _080291E8:
 	.4byte cos_fx

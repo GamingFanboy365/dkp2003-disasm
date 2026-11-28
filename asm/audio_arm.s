@@ -7,9 +7,9 @@
 
 	.arm
 
-	.global audio_voice_start
-	.type audio_voice_start, %function
-audio_voice_start: @ 03006498
+	.global setup_note_ARM
+	.type setup_note_ARM, %function
+setup_note_ARM: @ 03006498
 	stmdb sp!, {lr}
 	strb r3, [r5, #3]
 	str r1, [r5, #0x24]
@@ -47,7 +47,7 @@ audio_mix_frame: @ 030064E4
 _03006510:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x11
-	bleq audio_mix_voice_cb
+	bleq gab_play_note
 	subs r2, r2, #0x30
 	bgt _03006510
 	ldr r2, _03006E94
@@ -55,7 +55,7 @@ _03006510:
 _0300652C:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x12
-	bleq audio_mix_voice_cb
+	bleq gab_play_note
 	subs r2, r2, #0x30
 	bgt _0300652C
 	ldr r0, _03006E9C
@@ -69,7 +69,7 @@ _0300652C:
 _03006560:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x11
-	bleq audio_mix_voice_cb
+	bleq gab_play_note
 	subs r2, r2, #0x30
 	bgt _03006560
 	ldr r2, _03006EA0
@@ -77,7 +77,7 @@ _03006560:
 _0300657C:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x12
-	bleq audio_mix_voice_cb
+	bleq gab_play_note
 	subs r2, r2, #0x30
 	bgt _0300657C
 _03006590:
@@ -116,9 +116,9 @@ _030065F0:
 	add sp, sp, #0x24
 	bx lr
 
-	.global audio_mix_voice_cb
-	.type audio_mix_voice_cb, %function
-audio_mix_voice_cb: @ 03006608
+	.global gab_play_note
+	.type gab_play_note, %function
+gab_play_note: @ 03006608
 	str lr, [sp, #0xc]
 	str r0, [sp, #0x14]
 	str r2, [sp, #0x18]
@@ -170,7 +170,7 @@ audio_voice_advance: @ 0300668C
 	movs r7, r7
 	bne _030066A8
 	push {sl, fp, lr}
-	bl audio_voice_pitch
+	bl calc_phase_inc
 	pop {sl, fp, lr}
 _030066A8:
 	ldr r1, _03006EB8
@@ -422,12 +422,12 @@ _030069F8:
 	rsbne r2, r2, #0x20
 	orrne r1, r1, r3, lsl r2
 	add fp, fp, #3
-	bl audio_set_tempo
+	bl set_new_tempo
 	add pc, pc, #0x398
 
-	.global audio_set_tempo
-	.type audio_set_tempo, %function
-audio_set_tempo: @ 03006A20
+	.global set_new_tempo
+	.type set_new_tempo, %function
+set_new_tempo: @ 03006A20
 	stmdb sp!, {lr}
 	bic r0, r1, #0xff000000
 	ldr r2, _03006ECC
@@ -453,7 +453,7 @@ _03006A60:
 	mul r1, r2, r1
 	mov r0, #0
 	mov r2, r5
-	bl audio_udiv64
+	bl div_s64_s32_ARM
 	lsl r4, r1, #8
 	lsl r0, r0, #0x10
 	mov r1, r5
@@ -478,7 +478,7 @@ _03006ABC:
 	ldr r2, [r0]
 	umull r1, r0, r2, r1
 	mov r2, r5
-	bl audio_udiv64
+	bl div_s64_s32_ARM
 	lsr r6, r1, #0x18
 	lsl r4, r1, #8
 	lsl r0, r0, #0x10
@@ -519,9 +519,9 @@ audio_err_delta_4: @ 03006BC0
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0xFF, 0xFF, 0xFF, 0xE7
 
-	.global audio_cmd_note_on
-	.type audio_cmd_note_on, %function
-audio_cmd_note_on: @ 03006BDC
+	.global midicom_note_on
+	.type midicom_note_on, %function
+midicom_note_on: @ 03006BDC
 	ldrb r1, [fp], #1
 	ldr r4, _03006EE8
 	ldr r4, [r4]
@@ -623,13 +623,13 @@ _03006D50:
 	ldrb r3, [fp], #1
 	add r3, r3, #1
 	mov r1, #0x10000
-	bl audio_voice_start
+	bl setup_note_ARM
 _03006D64:
 	add pc, pc, #0x50
 
-	.global audio_seq_step
-	.type audio_seq_step, %function
-audio_seq_step: @ 03006D68
+	.global process_tune_ARM
+	.type process_tune_ARM, %function
+process_tune_ARM: @ 03006D68
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	mov r0, #0
@@ -718,7 +718,7 @@ _03006EA0:
 _03006EA4:
 	.4byte gAudioVoices
 _03006EA8:
-	.4byte audio_clear_mix
+	.4byte wipe_audio_buff
 _03006EAC:
 	.4byte gAudioBufFlip
 _03006EB0:
@@ -732,7 +732,7 @@ _03006EBC:
 _03006EC0:
 	.4byte gUnk_0802FB98
 _03006EC4:
-	.4byte audio_error
+	.4byte print_text
 _03006EC8:
 	.4byte gAudioEnvRates
 _03006ECC:
@@ -754,7 +754,7 @@ _03006EE8:
 _03006EEC:
 	.4byte gAudioChannelMono
 _03006EF0:
-	.4byte audio_err_channel_full
+	.4byte too_many_notes_on_1_voice_ERR
 _03006EF4:
 	.4byte gAudioChannelInstrument
 _03006EF8:
@@ -941,9 +941,9 @@ _030070C8:
 	bic r0, r0, r1, lsl #16
 	bx lr
 
-	.global audio_udiv64
-	.type audio_udiv64, %function
-audio_udiv64: @ 03007158
+	.global div_s64_s32_ARM
+	.type div_s64_s32_ARM, %function
+div_s64_s32_ARM: @ 03007158
 	cmp r0, r2
 	blt _03007164
 	.4byte 0xE7FFFFFF @ debug trap
@@ -1086,7 +1086,7 @@ _03007340:
 audio_voice_mix: @ 03007344
 	str lr, [sp, #0x1c]
 	str r0, [sp, #0x20]
-	bl audio_voice_pitch
+	bl calc_phase_inc
 	str r7, [r0, #8]
 	ldrsb r6, [r0, #6]
 	cmp r6, #0
@@ -1222,9 +1222,9 @@ _03007528:
 	ldr lr, [sp, #0x1c]
 	bx lr
 
-	.global audio_voice_pitch
-	.type audio_voice_pitch, %function
-audio_voice_pitch: @ 03007530
+	.global calc_phase_inc
+	.type calc_phase_inc, %function
+calc_phase_inc: @ 03007530
 	ldr r4, [r0, #0x20]
 	ldr r3, [r4, #0x34]
 	ldr r7, _03007714
@@ -1378,7 +1378,7 @@ _0300772C:
 _03007730:
 	.4byte gUnk_0802FB4B
 _03007734:
-	.4byte audio_error
+	.4byte print_text
 _03007738:
 	.4byte gUnk_0802F6A0
 _0300773C:

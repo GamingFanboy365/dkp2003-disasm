@@ -493,7 +493,7 @@ _080248EC:
 _08024A58:
 	.4byte 0x00000006
 _08024A5C:
-	.4byte udiv
+	.4byte ram_divide
 _08024A60:
 	.4byte 0x0202EA0C
 _08024A64:
@@ -833,7 +833,7 @@ _08024CD8:
 _08024CDC:
 	.4byte 0x0202EA0C
 _08024CE0:
-	.4byte udiv
+	.4byte ram_divide
 _08024CE4:
 	.4byte gUnk_080529BC
 _08024CE8:
@@ -1217,7 +1217,7 @@ _08024FB0:
 _08024FB4:
 	.4byte 0x0202DE50
 _08024FB8:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08024FBC:
 	.4byte _03000814
 _08024FC0:
@@ -2071,7 +2071,7 @@ _080255F8:
 _080255FC:
 	.4byte 0x0202EA0C
 _08025600:
-	.4byte udiv
+	.4byte ram_divide
 _08025604:
 	movs r6, #0x80
 	movs r7, #4

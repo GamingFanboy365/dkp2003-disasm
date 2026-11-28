@@ -83,7 +83,7 @@ _08000540:
 _08000544:
 	.4byte 0x81000200
 _08000548:
-	bl music_stop
+	bl audio_halt_tune
 	bl snd_stop_all
 	bl sound_disable
 	ldr r4, _080005C8

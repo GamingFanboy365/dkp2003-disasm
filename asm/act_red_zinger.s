@@ -1148,7 +1148,7 @@ _08029AD8:
 _08029ADC:
 	.4byte isqrt
 _08029AE0:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08029AE4:
 	.4byte _03000814
 _08029AE8:
@@ -1310,7 +1310,7 @@ _08029C3C:
 _08029C40:
 	.4byte red_zinger_sfx_pitch2_cb
 _08029C44:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08029C48:
 	.4byte _03000814
 _08029C4C:
@@ -2055,7 +2055,7 @@ _0802A1A4:
 _0802A1A8:
 	.4byte 0x00000684
 _0802A1AC:
-	.4byte atan2_fx
+	.4byte ram_atan2
 
 	.global act_blue_zinger
 	.thumb_func
@@ -2933,7 +2933,7 @@ _0802A87C:
 _0802A880:
 	.4byte isqrt
 _0802A884:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0802A888:
 	.4byte gLocalPlayerIndex
 _0802A88C:

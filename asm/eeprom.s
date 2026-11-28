@@ -1856,7 +1856,7 @@ _0801E008:
 	pop {r0}
 	bx r0
 _0801E00E:
-	bl music_stop
+	bl audio_halt_tune
 	b _0801E008
 
 	.global sound_set_master
@@ -1896,7 +1896,7 @@ _0801E036:
 	adds r1, r2, #0
 	muls r1, r0, r1
 	asrs r0, r1, #7
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -1952,7 +1952,7 @@ _0801E098:
 	adds r1, r2, #0
 	muls r1, r0, r1
 	asrs r0, r1, #7
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -2009,7 +2009,7 @@ _0801E0FC:
 	adds r1, r2, #0
 	muls r1, r0, r1
 	asrs r0, r1, #7
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -2065,7 +2065,7 @@ _0801E15E:
 	adds r1, r2, #0
 	muls r1, r0, r1
 	asrs r0, r1, #7
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
@@ -2217,7 +2217,7 @@ _0801E25E:
 	bl music_set_volume
 	b _0801E24A
 _0801E278:
-	bl music_stop
+	bl audio_halt_tune
 	b _0801E24A
 	.byte 0x00, 0x00
 _0801E280:
@@ -2275,7 +2275,7 @@ _0801E2CA:
 	bl music_set_volume
 	b _0801E2BA
 _0801E2EC:
-	bl music_stop
+	bl audio_halt_tune
 	b _0801E2BA
 	.byte 0x00, 0x00
 _0801E2F4:
@@ -2346,7 +2346,7 @@ _0801E330:
 	bl music_set_volume
 	b _0801E32A
 _0801E36A:
-	bl music_stop
+	bl audio_halt_tune
 	b _0801E32A
 _0801E370:
 	bl music_current
@@ -4516,7 +4516,7 @@ _0801F2FC:
 	b _0801F496
 _0801F30A:
 	ldr r0, [r6]
-	bl snd_stop
+	bl audio_halt_fx
 _0801F310:
 	movs r2, #0
 	str r2, [r6, #0x14]
@@ -4741,7 +4741,7 @@ _0801F496:
 	cmp r0, #0
 	beq _0801F4A8
 	ldr r0, [r6]
-	bl snd_release
+	bl audio_release_fx
 	b _0801F314
 _0801F4A8:
 	ldr r3, [r6, #0x20]
@@ -4766,7 +4766,7 @@ _0801F4C4:
 	adds r4, r0, #0
 	adds r1, r4, #0
 	ldr r0, [r6]
-	bl snd_set_pitch
+	bl audio_fx_pitch_mod
 	str r4, [r6, #0x10]
 	b _0801F314
 _0801F4D8:
@@ -4779,12 +4779,12 @@ _0801F4D8:
 	beq _0801F4F4
 	ldr r0, [r6]
 	adds r1, r7, #0
-	bl snd_set_volume
+	bl audio_fx_volume_mod
 	str r7, [r6, #0xc]
 	b _0801F4B4
 _0801F4F4:
 	ldr r0, [r6]
-	bl snd_stop
+	bl audio_halt_fx
 	mov r3, r8
 	str r3, [r6, #0x14]
 	b _0801F4B4
@@ -5873,7 +5873,7 @@ _0801FC64:
 	cmp r0, #0
 	beq _0801FC88
 	ldr r0, [r4]
-	bl snd_stop
+	bl audio_halt_fx
 	movs r0, #0
 	str r0, [r4, #0x14]
 _0801FC88:
@@ -6515,7 +6515,7 @@ _080200C4:
 	beq _080200E6
 	ldr r0, [r4]
 	movs r1, #0
-	bl snd_set_volume
+	bl audio_fx_volume_mod
 _080200E6:
 	adds r5, #1
 	cmp r5, #3
@@ -6548,7 +6548,7 @@ _080200FC:
 	beq _0802011E
 	ldr r0, [r4]
 	ldr r1, [r4, #0xc]
-	bl snd_set_volume
+	bl audio_fx_volume_mod
 _0802011E:
 	adds r5, #1
 	cmp r5, #3
@@ -6674,7 +6674,7 @@ _080201F8:
 _080201FC:
 	.4byte 0x00000DAC
 _08020200:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global gamesfx_hold
 	.thumb_func

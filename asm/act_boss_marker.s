@@ -776,7 +776,7 @@ _080267E0:
 _080267E4:
 	.4byte 0x0202EBF8
 _080267E8:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global boss_weave
 	.thumb_func
@@ -1007,7 +1007,7 @@ _080269BC:
 _080269C0:
 	.4byte gRacerObjects
 _080269C4:
-	.4byte atan2_fx
+	.4byte ram_atan2
 
 	.global boss_bob
 	.thumb_func
@@ -1220,7 +1220,7 @@ _08026B64:
 _08026B68:
 	.4byte isqrt
 _08026B6C:
-	.4byte atan2_fx
+	.4byte ram_atan2
 
 	.global boss_on_hit
 	.thumb_func
@@ -1762,7 +1762,7 @@ _08026F44:
 _08026F48:
 	.4byte 0xFFFFD000
 _08026F4C:
-	.4byte udiv
+	.4byte ram_divide
 _08026F50:
 	.4byte 0xFFFFF449
 

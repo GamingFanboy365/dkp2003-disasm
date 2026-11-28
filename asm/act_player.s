@@ -674,7 +674,7 @@ _08005374:
 _08005378:
 	.4byte isqrt
 _0800537C:
-	.4byte udiv
+	.4byte ram_divide
 _08005380:
 	.4byte 0xFFBFB3CF
 
@@ -1534,13 +1534,13 @@ _080059B0:
 _080059D8:
 	.4byte isqrt
 _080059DC:
-	.4byte udiv
+	.4byte ram_divide
 _080059E0:
 	.4byte gGameSetup
 _080059E4:
 	.4byte gUnk_087146C0
 _080059E8:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _080059EC:
 	.4byte 0xFFFF8001
 _080059F0:
@@ -1795,7 +1795,7 @@ _08005BC4:
 	rsbs r0, r4, #0
 	b _080056CE
 _08005BC8:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08005BCC:
 	.4byte 0xFFFF8001
 _08005BD0:
@@ -2605,7 +2605,7 @@ _08006168:
 _0800616C:
 	.4byte 0xFFFFE558
 _08006170:
-	.4byte udiv
+	.4byte ram_divide
 _08006174:
 	.4byte _03000814
 _08006178:
@@ -2900,7 +2900,7 @@ _08006356:
 _08006362:
 	b _08006258
 _08006364:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global plane_vertical_speed
 	.thumb_func
@@ -3318,7 +3318,7 @@ _0800661A:
 _08006634:
 	.4byte 0x00010180
 _08006638:
-	.4byte udiv
+	.4byte ram_divide
 _0800663C:
 	movs r3, #0
 	mov r1, fp
@@ -3607,7 +3607,7 @@ _08006850:
 _08006854:
 	.4byte gGameSetup
 _08006858:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global plane_roll
 	.thumb_func
@@ -3831,7 +3831,7 @@ _080069AE:
 	b _0800686C
 	.byte 0x00, 0x00
 _080069E4:
-	.4byte udiv
+	.4byte ram_divide
 _080069E8:
 	.4byte 0xFFFF8000
 _080069EC:
@@ -4043,7 +4043,7 @@ _08006B02:
 	strh r4, [r3]
 	b _08006A70
 _08006B68:
-	.4byte udiv
+	.4byte ram_divide
 _08006B6C:
 	.4byte sin_fx
 _08006B70:
@@ -5764,7 +5764,7 @@ _0800779E:
 	str r3, [r4]
 	b _08007484
 _080077D4:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global plane_ease_offsets
 	.thumb_func
@@ -6087,7 +6087,7 @@ _08007A06:
 	str r0, [r4, #0x58]
 	b _080079F8
 _08007A0C:
-	.4byte udiv
+	.4byte ram_divide
 _08007A10:
 	.4byte 0xFFFFF800
 _08007A14:
@@ -6751,7 +6751,7 @@ _08007F12:
 _08007F18:
 	.4byte 0x02022E5C
 _08007F1C:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08007F20:
 	.4byte _03000814
 _08007F24:
@@ -7112,7 +7112,7 @@ _080081DC:
 _080081E0:
 	.4byte isqrt
 _080081E4:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _080081E8:
 	.4byte sin_fx
 _080081EC:
@@ -7122,7 +7122,7 @@ _080081F0:
 _080081F4:
 	.4byte _03000814
 _080081F8:
-	.4byte udiv
+	.4byte ram_divide
 _080081FC:
 	.4byte 0xFFFFFD71
 _08008200:
@@ -7343,7 +7343,7 @@ _080083B0:
 _080083B4:
 	.4byte isqrt
 _080083B8:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _080083BC:
 	.4byte 0x0000028F
 
@@ -8994,7 +8994,7 @@ _08008FC8:
 	.2byte 0xEFFF @ debug trap
 	b _08008D94
 _08008FE0:
-	.4byte udiv
+	.4byte ram_divide
 _08008FE4:
 	.4byte gUnk_080500F8
 _08008FE8:
@@ -10544,7 +10544,7 @@ _08009B94:
 _08009B98:
 	.4byte 0x00002328
 _08009B9C:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08009BA0:
 	.4byte gLocalPlayerIndex
 _08009BA4:
@@ -10637,7 +10637,7 @@ _08009C3C:
 _08009C48:
 	.4byte 0x00000000
 _08009C4C:
-	.4byte udiv
+	.4byte ram_divide
 _08009C50:
 	.4byte gLocalPlayerIndex
 _08009C54:

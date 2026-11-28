@@ -1490,7 +1490,7 @@ _08019938:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	blt _0801994E
-	bl snd_stop
+	bl audio_halt_fx
 _0801994E:
 	movs r3, #0x80
 	lsls r2, r3, #9
@@ -1526,7 +1526,7 @@ _08019982:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	blt _0801999A
-	bl snd_stop
+	bl audio_halt_fx
 _0801999A:
 	ldr r1, [r5, #4]
 	movs r3, #0x18
@@ -1611,7 +1611,7 @@ _08019A26:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	blt _08019A40
-	bl snd_stop
+	bl audio_halt_fx
 	ldr r2, [r5, #4]
 _08019A40:
 	add r2, r8

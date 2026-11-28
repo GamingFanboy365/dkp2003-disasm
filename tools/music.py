@@ -2,7 +2,7 @@
 """
 The music: Rare's sequence format and conversion to standard MIDI files.
 
-Song table (loaded by audio_update): song count at 0x08BB4F84 (28), pointers to
+Song table (loaded by audio_asmprocess): song count at 0x08BB4F84 (28), pointers to
 the song records at 0x088506A8.  A song record is
 
   u32 tracks          number of tracks (up to 16, "more than 16 tracks in song")
@@ -10,7 +10,7 @@ the song records at 0x088506A8.  A song record is
   ptr track_list      the tracks' start addresses
   ptr, ptr            two tables shared by all songs (program -> instrument)
 
-A track is a byte stream of commands (audio_seq_step, 13-entry jump table):
+A track is a byte stream of commands (process_tune_ARM, 13-entry jump table):
 
   00 t0 t1 t2       tempo, microseconds per quarter note (24 bits, LE)
   01 d / 02 d0 d1 / 03 d0 d1 d2

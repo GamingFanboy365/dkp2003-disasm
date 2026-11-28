@@ -1129,7 +1129,7 @@ _08014CC0:
 	movs r0, #0x37
 	bl music_set_volume
 	movs r0, #0x7f
-	bl sfx_set_volume
+	bl audio_set_fx_vol
 	movs r3, #0xfa
 	lsls r2, r3, #2
 	ldr r3, _08014E2C

@@ -269,7 +269,7 @@ _0800AE80:
 _0800AEEC:
 	.4byte 0x00000000
 _0800AEF0:
-	.4byte udiv
+	.4byte ram_divide
 _0800AEF4:
 	.4byte gGameSetup
 _0800AEF8:
@@ -698,7 +698,7 @@ _0800B21C:
 _0800B220:
 	.4byte gAiPathLinks
 _0800B224:
-	.4byte udiv
+	.4byte ram_divide
 _0800B228:
 	.4byte gAiPathNodes
 _0800B22C:
@@ -1617,7 +1617,7 @@ _0800B908:
 	b _0800B920
 	.byte 0x00, 0x00
 _0800B90C:
-	.4byte udiv
+	.4byte ram_divide
 _0800B910:
 	.4byte gAiPathHeader
 _0800B914:
@@ -2095,7 +2095,7 @@ _0800BC9C:
 _0800BCA0:
 	.4byte 0x00007FFF
 _0800BCA4:
-	.4byte udiv
+	.4byte ram_divide
 _0800BCA8:
 	.4byte 0xFFFFF3FF
 _0800BCAC:
@@ -2284,7 +2284,7 @@ _0800BDE2:
 _0800BDF4:
 	.4byte gAiPathLinks
 _0800BDF8:
-	.4byte udiv
+	.4byte ram_divide
 _0800BDFC:
 	.4byte gAiPathHeader
 
@@ -2965,7 +2965,7 @@ _0800C2D8:
 _0800C2DC:
 	.4byte gAiPathLinks
 _0800C2E0:
-	.4byte udiv
+	.4byte ram_divide
 _0800C2E4:
 	.4byte 0x00007FFF
 
@@ -3140,11 +3140,11 @@ _0800C40E:
 	rsbs r1, r3, #0
 	b _0800C370
 _0800C414:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0800C418:
 	.4byte _03000814
 _0800C41C:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global aiPlayerForward
 	.thumb_func
@@ -5018,7 +5018,7 @@ _0800D1D8:
 _0800D1DC:
 	.4byte isqrt
 _0800D1E0:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0800D1E4:
 	.4byte cos_fx
 _0800D1E8:
@@ -6269,7 +6269,7 @@ _0800DAF4:
 _0800DAF8:
 	.4byte 0x000007CF
 _0800DAFC:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0800DB00:
 	.4byte 0x00000FFF
 _0800DB04:
@@ -7529,7 +7529,7 @@ _0800E43C:
 _0800E440:
 	.4byte isqrt
 _0800E444:
-	.4byte udiv
+	.4byte ram_divide
 
 	.global react_comp_player
 	.thumb_func
@@ -8577,7 +8577,7 @@ _0800EC30:
 _0800EC34:
 	.4byte _03000814
 _0800EC38:
-	.4byte atan2_fx
+	.4byte ram_atan2
 
 	.global camera_follow_vblank
 	.thumb_func
@@ -8688,7 +8688,7 @@ _0800ED04:
 _0800ED08:
 	.4byte gRacerObjects
 _0800ED0C:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _0800ED10:
 	.4byte isqrt
 _0800ED14:

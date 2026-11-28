@@ -293,7 +293,7 @@ _08011CCE:
 	ands r0, r1
 	cmp r0, #0
 	beq _08011CBA
-	bl music_stop
+	bl audio_halt_tune
 	bl fade_to_black
 	ldr r0, _08011F44
 	movs r3, #2
@@ -1124,7 +1124,7 @@ blue_zinger_steer: @ 080122AC
 	pop {r0}
 	bx r0
 _0801230C:
-	.4byte atan2_fx
+	.4byte ram_atan2
 _08012310:
 	.4byte _03000814
 

@@ -815,7 +815,7 @@ _ovl_a_03004AE0:
 	sub r0, r0, r5, asr #31
 	str r3, [fp, #-0x98]
 	str r2, [fp, #-0x9c]
-	bl udiv
+	bl ram_divide
 	teq r5, sl
 	rsbmi r0, r0, #0
 	ldr r1, [fp, #-0x68]
@@ -842,7 +842,7 @@ _ovl_a_03004B74:
 	sub r0, r0, r6, asr #31
 	eor r1, r8, r8, asr #31
 	sub r1, r1, r8, asr #31
-	bl udiv
+	bl ram_divide
 	teq r6, r8
 	rsbmi r0, r0, #0
 	ldr lr, [fp, #-0x60]

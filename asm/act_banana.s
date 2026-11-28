@@ -1097,4 +1097,4 @@ _08011AA0:
 _08011AA4:
 	.4byte 0x02023F88
 _08011AA8:
-	.4byte udiv
+	.4byte ram_divide

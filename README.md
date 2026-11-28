@@ -242,8 +242,8 @@ print through AGBPrint and then hit an undefined-instruction trap
 * the whole audio engine (ARM mixer and sequencer, and its Thumb glue), from
   its error messages, the sequence commands and the voice records
   ([`docs/audio.md`](docs/audio.md));
-* the fixed-point maths in IWRAM (`sin_fx`, `cos_fx`, `tan_fx`, `atan2_fx`,
-  `isqrt`, `udiv`, `umod`). These were identified by calling them in a CPU
+* the fixed-point maths in IWRAM (`sin_fx`, `cos_fx`, `tan_fx`, `ram_atan2`,
+  `isqrt`, `ram_divide`, `umod`). These were identified by calling them in a CPU
   emulator with `tools/fcall.py`, which runs any game function on chosen
   arguments, with RAM taken from an mGBA snapshot.
 
