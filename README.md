@@ -120,7 +120,9 @@ changed to match (length 7375 → 3687) and the ROM still built.
 
 The music is decoded too: [`docs/audio.md`](docs/audio.md) describes
 Rare's sequence format (MIDI events in its own encoding), and `make extract`
-converts the 28 songs to standard MIDI files in `assets/audio/music/`.
+converts the 28 songs to standard MIDI files in `assets/audio/music/`,
+with a SoundFont made from the game's own instruments (`dkp.sf2`) to play
+them with.
 
 ### Front-end text
 

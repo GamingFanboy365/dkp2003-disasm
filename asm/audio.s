@@ -512,7 +512,7 @@ _0802EE40:
 _0802EE44:
 	.4byte 0x0202F00C
 _0802EE48:
-	.4byte gInstrumentTable
+	.4byte gSfxTable
 _0802EE4C:
 	.4byte 0x00003443
 _0802EE50:

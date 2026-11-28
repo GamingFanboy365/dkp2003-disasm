@@ -316,6 +316,8 @@ def extract(rom_path):
     os.makedirs(mdir, exist_ok=True)
     for k, (division, tracks) in enumerate(music.songs(rom)):
         open(os.path.join(mdir, 'song_%02d.mid' % k), 'wb').write(music.to_midi(division, tracks))
+    import soundfont
+    open(os.path.join(mdir, 'dkp.sf2'), 'wb').write(soundfont.build(rom)[0])
     open(os.path.join(SRC, 'README.txt'), 'w').write(
         'Generated from your baserom.gba by `make extract` (tools/assets.py).\n'
         'Edit these files and run `make`; see config/assets.txt for offsets and types.\n')

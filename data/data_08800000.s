@@ -1348,8 +1348,8 @@ gUnk_088500E4:
 	.byte 0xF8, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF, 0xF8, 0xFF, 0xFF, 0xFF, 0xF8, 0xFF, 0xFF, 0xFF
 	.byte 0xFA, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF, 0xF8, 0xFF, 0xFF, 0xFF, 0xF8, 0xFF, 0xFF, 0xFF
 	.byte 0xFA, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00
-	.global gUnk_0885010C
-gUnk_0885010C:
+	.global gMusicInstruments
+gMusicInstruments:
 	.4byte gUnk_08851348
 	.4byte gUnk_0885138C
 	.4byte gUnk_088513D0
@@ -1457,8 +1457,8 @@ gUnk_0885021C:
 	.4byte gUnk_08852DD8
 	.4byte gUnk_08852E1C
 	.4byte gUnk_08852E60
-	.global gInstrumentTable
-gInstrumentTable:
+	.global gSfxTable
+gSfxTable:
 	.4byte gUnk_08852EA4
 	.4byte gUnk_08852EE8
 	.4byte gUnk_08852F2C
@@ -1749,172 +1749,172 @@ gSongTable:
 gUnk_08850718:
 	.byte 0x0C, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088572A4
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_0885072C
 gUnk_0885072C:
 	.byte 0x0B, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088572D4
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850740
 gUnk_08850740:
 	.byte 0x08, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857300
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850754
 gUnk_08850754:
 	.byte 0x07, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857320
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850768
 gUnk_08850768:
 	.byte 0x08, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_0885733C
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_0885077C
 gUnk_0885077C:
 	.byte 0x07, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_0885735C
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850790
 gUnk_08850790:
 	.byte 0x0C, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857378
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088507A4
 gUnk_088507A4:
 	.byte 0x04, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573A8
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088507B8
 gUnk_088507B8:
 	.byte 0x03, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573B8
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088507CC
 gUnk_088507CC:
 	.byte 0x05, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573C4
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088507E0
 gUnk_088507E0:
 	.byte 0x05, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573D8
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088507F4
 gUnk_088507F4:
 	.byte 0x04, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573EC
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850808
 gUnk_08850808:
 	.byte 0x0E, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088573FC
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_0885081C
 gUnk_0885081C:
 	.byte 0x09, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857434
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850830
 gUnk_08850830:
 	.byte 0x0B, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857458
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850844
 gUnk_08850844:
 	.byte 0x0C, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857484
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850858
 gUnk_08850858:
 	.byte 0x05, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088574B4
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_0885086C
 gUnk_0885086C:
 	.byte 0x0F, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088574C8
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850880
 gUnk_08850880:
 	.byte 0x0F, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857504
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850894
 gUnk_08850894:
 	.byte 0x06, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857540
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088508A8
 gUnk_088508A8:
 	.byte 0x03, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857558
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088508BC
 gUnk_088508BC:
 	.byte 0x07, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857564
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088508D0
 gUnk_088508D0:
 	.byte 0x08, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_08857580
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088508E4
 gUnk_088508E4:
 	.byte 0x03, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088575A0
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_088508F8
 gUnk_088508F8:
 	.byte 0x05, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088575AC
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_0885090C
 gUnk_0885090C:
 	.byte 0x05, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088575C0
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850920
 gUnk_08850920:
 	.byte 0x07, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088575D4
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
 	.global gUnk_08850934
 gUnk_08850934:
 	.byte 0x04, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00
 	.4byte gUnk_088575F0
-	.4byte gUnk_08850948
-	.4byte gUnk_0885010C
-	.global gUnk_08850948
-gUnk_08850948:
+	.4byte gMusicProgramMap
+	.4byte gMusicInstruments
+	.global gMusicProgramMap
+gMusicProgramMap:
 	.incbin "baserom.gba", 0x850948, 0x100
 	.global gUnk_08850A48
 gUnk_08850A48:

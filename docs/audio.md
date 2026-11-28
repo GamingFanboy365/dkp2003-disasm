@@ -7,11 +7,27 @@ Thumb glue (`asm/audio.s`). The game talks to it through `music_play`,
 
 ## Samples and instruments
 
-`gInstrumentTable` (`0x088502A8`) holds 256 pointers to 0x44-byte
-instrument records: the sample rate, the base note (60), and the sample's
-start, length and last byte. The 343 samples are 8-bit signed PCM;
-`make extract` writes them as WAV files (`assets/audio/samples/`, see
-the README).
+Every sound is described by a 0x44-byte record whose first word is its type:
+
+| Type | Contents |
+|---|---|
+| `0x20` | one sample: mode, rate, base note, start, length, end (last byte), then volume/envelope bytes (99, 99, 99, 99) and sometimes vibrato values |
+| `0x23` | keyboard split: `+0x1C` points to 128 bytes (note → index), `+0x20` to a list of `0x20` records |
+| `0x22` | drum kit: the same shape; notes 24–58 are the drums |
+
+The mode is 1–4. In modes 1 and 3, length is always end − start (one-shot
+samples). In mode 2 and mostly in mode 4, it is shorter: by the data, those
+samples loop from start + length to the end (inferred, not yet checked in the
+mixer).
+
+* `gSfxTable` (`0x088502A8`): 256 sound effects, the ids of `snd_play`.
+* `gMusicProgramMap` (`0x08850948`): 128 bytes mapping a song's program
+  number to one of the 41 music instruments (`0xFF` = none). Programs 0–39
+  map to themselves and 127 to the drum kit.
+* `gMusicInstruments` (`0x0885010C`): the 41 music instruments.
+
+The 343 samples are 8-bit signed PCM; `make extract` writes them as WAV files
+(`assets/audio/samples/`, see the README).
 
 ## Music
 
@@ -49,6 +65,15 @@ instruments, so the notes, rhythm and tempo are the game's but the sounds
 are not. The songs are 2 seconds (jingles) to 94 seconds long, at 60 to
 160 BPM. The MIDI files are a view: the build still uses the original
 sequence data.
+
+`make extract` also writes `assets/audio/music/dkp.sf2`, a SoundFont of the
+41 music instruments built from the game's own samples (`tools/soundfont.py`:
+90 samples, with the keyboard splits and the drum kit, and loops where the
+records have them). With it, a SoundFont player plays the MIDI files with
+the game's sounds, for example
+`fluidsynth -ni -F out.wav dkp.sf2 song_00.mid`. It has no envelopes,
+vibrato or volume curves, so it is a close preview, not an exact copy of
+the engine.
 
 Identified so far (the engine's current song is at `0x03005A78`, checked in
 mGBA): song 0 plays in the Steamy Swoop race; song 4 is the front-end
