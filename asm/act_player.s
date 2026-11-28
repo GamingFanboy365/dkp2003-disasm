@@ -12867,17 +12867,17 @@ _0800ACB4:
 _0800ACB8:
 	.4byte gUnk_087146C0
 _0800ACBC:
-	.4byte 0x020234A8
+	.4byte gAiPathHeader
 _0800ACC0:
-	.4byte 0x020234AA
+	.4byte gAiPathCount
 _0800ACC4:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800ACC8:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800ACCC:
 	.4byte 0x01000560
 _0800ACD0:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800ACD4:
 	add sp, #4
 	pop {r0}

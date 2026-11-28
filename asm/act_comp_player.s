@@ -64,9 +64,9 @@ _0800AD20:
 _0800AD60:
 	.4byte 0x00000001
 _0800AD64:
-	.4byte 0x020234AA
+	.4byte gAiPathCount
 _0800AD68:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800AD6C:
 	.4byte gGameSetup
 _0800AD70:
@@ -275,9 +275,9 @@ _0800AEF4:
 _0800AEF8:
 	.4byte gUnk_0805017C
 _0800AEFC:
-	.4byte 0x020234A8
+	.4byte gAiPathHeader
 _0800AF00:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800AF04:
 	adds r4, r0, r1
 	bl multi_lfsr_next
@@ -696,11 +696,11 @@ _0800B214:
 _0800B21C:
 	.4byte 0x00007FFF
 _0800B220:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800B224:
 	.4byte udiv
 _0800B228:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800B22C:
 	str r2, [r7, #0x3c]
 	ldr r0, [sp, #0x34]
@@ -1149,7 +1149,7 @@ sub_0800B504: @ 0800B504
 _0800B588:
 	.4byte 0x00000002
 _0800B58C:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800B590:
 	.4byte gGameSetup
 _0800B594:
@@ -1619,11 +1619,11 @@ _0800B908:
 _0800B90C:
 	.4byte udiv
 _0800B910:
-	.4byte 0x020234A8
+	.4byte gAiPathHeader
 _0800B914:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800B918:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800B91C:
 	.4byte 0x00007FFF
 _0800B920:
@@ -2089,9 +2089,9 @@ _0800BC8E:
 	ldr r2, [r3]
 	b _0800BADE
 _0800BC98:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800BC9C:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800BCA0:
 	.4byte 0x00007FFF
 _0800BCA4:
@@ -2282,16 +2282,16 @@ _0800BDE2:
 	b _0800BD76
 	.byte 0x40, 0x42, 0xFF, 0xF7, 0xE5, 0xFB, 0x61, 0x42, 0xFF, 0xF7, 0xD8, 0xFB, 0x00, 0x00
 _0800BDF4:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800BDF8:
 	.4byte udiv
 _0800BDFC:
-	.4byte 0x020234A8
+	.4byte gAiPathHeader
 
-	.global sub_0800BE00
+	.global ai_choose_next_node
 	.thumb_func
-	.type sub_0800BE00, %function
-sub_0800BE00: @ 0800BE00
+	.type ai_choose_next_node, %function
+ai_choose_next_node: @ 0800BE00
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2961,9 +2961,9 @@ _0800C2D2:
 	b _0800BE32
 	.byte 0x00, 0x00
 _0800C2D8:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800C2DC:
-	.4byte 0x020234A4
+	.4byte gAiPathLinks
 _0800C2E0:
 	.4byte udiv
 _0800C2E4:
@@ -5630,10 +5630,10 @@ _0800D602:
 _0800D640:
 	.4byte 0xFFFFFE00
 
-	.global sub_0800D644
+	.global ai_update
 	.thumb_func
-	.type sub_0800D644, %function
-sub_0800D644: @ 0800D644
+	.type ai_update, %function
+ai_update: @ 0800D644
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -5663,7 +5663,7 @@ _0800D670:
 	add r2, sp, #0xc
 	add r3, sp, #8
 	str r5, [sp]
-	bl sub_0800BE00
+	bl ai_choose_next_node
 	mov r1, r8
 	mov r3, r8
 	ldr r6, [r3, #0x24]
@@ -5822,7 +5822,7 @@ _0800D7AA:
 	b _0800D670
 	.byte 0x00, 0x00
 _0800D7B8:
-	.4byte 0x020234AA
+	.4byte gAiPathCount
 _0800D7BC:
 	.4byte gModeFlags
 _0800D7C0:
@@ -6255,7 +6255,7 @@ _0800DACA:
 	b _0800DA0C
 	.byte 0x00, 0x00
 _0800DAE0:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800DAE4:
 	.4byte 0xFFFFB1E0
 _0800DAE8:
@@ -6529,14 +6529,14 @@ _0800DCCE:
 	str r5, [r0, #0x5c]
 	b _0800D81A
 _0800DCD8:
-	.4byte 0x020234A0
+	.4byte gAiPathNodes
 _0800DCDC:
 	.4byte 0xFFFF15A0
 
-	.global sub_0800DCE0
+	.global comp_sfx_vol_cb1
 	.thumb_func
-	.type sub_0800DCE0, %function
-sub_0800DCE0: @ 0800DCE0
+	.type comp_sfx_vol_cb1, %function
+comp_sfx_vol_cb1: @ 0800DCE0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0
@@ -6599,14 +6599,14 @@ _0800DD40:
 	asrs r0, r1, #0x10
 	b _0800DD3A
 _0800DD54:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800DD58:
 	.4byte 0x0200436C
 
-	.global sub_0800DD5C
+	.global comp_sfx_pitch_cb1
 	.thumb_func
-	.type sub_0800DD5C, %function
-sub_0800DD5C: @ 0800DD5C
+	.type comp_sfx_pitch_cb1, %function
+comp_sfx_pitch_cb1: @ 0800DD5C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r2, r6, #0
@@ -6692,7 +6692,7 @@ _0800DDFA:
 	b _0800DD98
 	.byte 0x00, 0x00
 _0800DE00:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800DE04:
 	.4byte 0x0200436C
 _0800DE08:
@@ -6700,10 +6700,10 @@ _0800DE08:
 _0800DE0C:
 	.4byte gRacerObjects
 
-	.global sub_0800DE10
+	.global comp_engine_sound
 	.thumb_func
-	.type sub_0800DE10, %function
-sub_0800DE10: @ 0800DE10
+	.type comp_engine_sound, %function
+comp_engine_sound: @ 0800DE10
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -6937,7 +6937,7 @@ _0800DFBC:
 	adds r0, r6, r3
 	bl gamesfx_stop
 	adds r0, r6, #0
-	bl sub_0800DCE0
+	bl comp_sfx_vol_cb1
 	movs r4, #0x94
 	movs r2, #0x80
 	lsls r1, r4, #1
@@ -6971,10 +6971,10 @@ _0800E002:
 	bl __umodsi3
 	adds r5, r0, #0
 	adds r0, r6, #0
-	bl sub_0800DD5C
+	bl comp_sfx_pitch_cb1
 	adds r7, r0, #0
 	adds r0, r6, #0
-	bl sub_0800DCE0
+	bl comp_sfx_vol_cb1
 	movs r4, #0x94
 	lsls r3, r4, #1
 	str r0, [sp, #4]
@@ -7015,10 +7015,10 @@ _0800E056:
 	bl __umodsi3
 	adds r5, r0, #0
 	adds r0, r6, #0
-	bl sub_0800DD5C
+	bl comp_sfx_pitch_cb1
 	adds r7, r0, #0
 	adds r0, r6, #0
-	bl sub_0800DCE0
+	bl comp_sfx_vol_cb1
 	movs r4, #0x94
 	lsls r2, r4, #1
 	adds r4, r6, r2
@@ -7065,10 +7065,10 @@ _0800E0B4:
 	str r1, [r0]
 	str r4, [r7]
 	adds r0, r6, #0
-	bl sub_0800DD5C
+	bl comp_sfx_pitch_cb1
 	adds r7, r0, #0
 	adds r0, r6, #0
-	bl sub_0800DCE0
+	bl comp_sfx_vol_cb1
 	movs r2, #0x82
 	movs r5, #0x94
 	lsls r1, r2, #1
@@ -7162,7 +7162,7 @@ _0800E184:
 	str r0, [r4]
 	b _0800DE5C
 _0800E194:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E198:
 	.4byte 0x0200436C
 _0800E19C:
@@ -7170,13 +7170,13 @@ _0800E19C:
 _0800E1A0:
 	.4byte gRacerObjects
 _0800E1A4:
-	.4byte sub_0800E8C8
+	.4byte comp_sfx_vol_cb2
 _0800E1A8:
-	.4byte sub_0800E940
+	.4byte comp_sfx_pitch_cb2
 _0800E1AC:
-	.4byte sub_0800DCE0
+	.4byte comp_sfx_vol_cb1
 _0800E1B0:
-	.4byte sub_0800DD5C
+	.4byte comp_sfx_pitch_cb1
 _0800E1B4:
 	.4byte comp_engine_sample_end
 
@@ -7201,7 +7201,7 @@ act_comp_player: @ 0800E1B8
 _0800E1D4:
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0800D644
+	bl ai_update
 	adds r7, r4, #0
 	ldr r1, [r4, #0x24]
 	adds r7, #0x84
@@ -7316,7 +7316,7 @@ _0800E2B0:
 	bls _0800E2C2
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0800DE10
+	bl comp_engine_sound
 _0800E2C2:
 	movs r0, #0x96
 	lsls r1, r0, #1
@@ -7343,7 +7343,7 @@ _0800E2D2:
 _0800E2EC:
 	.4byte 0x00000000
 _0800E2F0:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E2F4:
 	.4byte sub_03003750
 _0800E2F8:
@@ -7525,7 +7525,7 @@ _0800E422:
 	b _0800E40E
 	.byte 0x00, 0x00
 _0800E43C:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E440:
 	.4byte isqrt
 _0800E444:
@@ -7891,7 +7891,7 @@ _0800E6E8:
 _0800E738:
 	.4byte 0x00000014
 _0800E73C:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 
 	.global sub_0800E740
 	.thumb_func
@@ -7977,7 +7977,7 @@ _0800E7C8:
 	b _0800E7A8
 	.byte 0x00, 0x00
 _0800E7D8:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E7DC:
 	.4byte 0x01000040
 _0800E7E0:
@@ -8015,7 +8015,7 @@ free_comp_player: @ 0800E7F0
 	bx r0
 	.byte 0x00, 0x00
 _0800E81C:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 
 	.global sub_0800E820
 	.thumb_func
@@ -8085,7 +8085,7 @@ _0800E890:
 _0800E894:
 	.4byte 0x00002492
 _0800E898:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 
 	.global comp_engine_sample_end
 	.thumb_func
@@ -8114,12 +8114,12 @@ _0800E8BC:
 	b _0800E8B8
 	.byte 0x00, 0x00
 _0800E8C4:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 
-	.global sub_0800E8C8
+	.global comp_sfx_vol_cb2
 	.thumb_func
-	.type sub_0800E8C8, %function
-sub_0800E8C8: @ 0800E8C8
+	.type comp_sfx_vol_cb2, %function
+comp_sfx_vol_cb2: @ 0800E8C8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0
@@ -8181,14 +8181,14 @@ _0800E934:
 	movs r0, #0xa0
 	b _0800E8EC
 _0800E938:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E93C:
 	.4byte 0x0200436C
 
-	.global sub_0800E940
+	.global comp_sfx_pitch_cb2
 	.thumb_func
-	.type sub_0800E940, %function
-sub_0800E940: @ 0800E940
+	.type comp_sfx_pitch_cb2, %function
+comp_sfx_pitch_cb2: @ 0800E940
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0xa0
@@ -8244,7 +8244,7 @@ _0800E9A0:
 	b _0800E964
 	.byte 0x00, 0x00
 _0800E9A8:
-	.4byte 0x020234AC
+	.4byte gAiRacers
 _0800E9AC:
 	.4byte 0x0200436C
 _0800E9B0:

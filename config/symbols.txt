@@ -578,3 +578,11 @@
 0x08026388 ai_boss_init_1               # 94% aiPlayerInit; prints "playerbossInit: No AI path found"
 0x08023074 ai_boss_init_2               # the same; game_init calls both in boss mode
 0x080139F0 hits_find_play_area       # level +0x40 collision polygons; "no hit polygons exist, so play area cannot be determined"
+# CPU racers (act_comp_player)
+0x0800D644 ai_update                # per frame from act_comp_player; walks the AI path (gAiPathCount)
+0x0800BE00 ai_choose_next_node      # nodes + links + random choice at branches
+0x0800DE10 comp_engine_sound        # the CPU racers' sounds (mirrors player_engine_sound_remote)
+0x0800DCE0 comp_sfx_vol_cb1         # volume callbacks (r0 of gamesfx_play_cb*)
+0x0800E8C8 comp_sfx_vol_cb2
+0x0800DD5C comp_sfx_pitch_cb1       # pitch callbacks (r1)
+0x0800E940 comp_sfx_pitch_cb2

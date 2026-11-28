@@ -34,3 +34,8 @@
 0x0201BD1C gFadeStep
 0x0201BD20 gFadeMode                # 0 to black, 1 to normal, 2 to white
 0x0200438C gObjRacerPool            # the 8 racer objects, 0x140 bytes each
+0x020234A0 gAiPathNodes             # the level's AI path (docs/levels.md): node array
+0x020234A4 gAiPathLinks             # its link table {next, alternative}
+0x020234A8 gAiPathHeader
+0x020234AA gAiPathCount
+0x020234AC gAiRacers                # 8 x 0x158-byte CPU racer states (0x560 halfwords, cleared by aiPlayerInit)
