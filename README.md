@@ -179,7 +179,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-900 functions are disassembled and 411 have real names:
+900 functions are disassembled and 444 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -195,7 +195,10 @@ print through AGBPrint and then hit an undefined-instruction trap
   malloc and the string functions from the call graph; and libgcc's integer
   division and software floating point (`fp-bit.c`). The compare functions
   confirm the order: they return 1, 1, −1, −1, 1, 1 for NaN, which is
-  `eq, ne, gt, ge, lt, le`.
+  `eq, ne, gt, ge, lt, le`;
+* Nintendo's EEPROM library, version `EEPROM_V122` (its version string sits
+  in the ROM next to its type tables), and the audio engine's Thumb glue and
+  link-cable code. These are named from the hardware registers they use.
 
 The rest are `sub_XXXXXXXX`.
 

@@ -51,10 +51,10 @@ _0802EB0C:
 	pop {r1}
 	bx r1
 
-	.global sub_0802EB22
+	.global audio_vsync
 	.thumb_func
-	.type sub_0802EB22, %function
-sub_0802EB22: @ 0802EB22
+	.type audio_vsync, %function
+audio_vsync: @ 0802EB22
 	ldr r0, _0802EDD0
 	ldr r2, [r0]
 	mvns r2, r2
@@ -77,10 +77,10 @@ _0802EB32:
 	strh r1, [r0]
 	bx lr
 
-	.global sub_0802EB4A
+	.global audio_init
 	.thumb_func
-	.type sub_0802EB4A, %function
-sub_0802EB4A: @ 0802EB4A
+	.type audio_init, %function
+audio_init: @ 0802EB4A
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -224,10 +224,10 @@ _0802EC32:
 	pop {r1}
 	bx r1
 
-	.global sub_0802EC6C
+	.global audio_update
 	.thumb_func
-	.type sub_0802EC6C, %function
-sub_0802EC6C: @ 0802EC6C
+	.type audio_update, %function
+audio_update: @ 0802EC6C
 	movs r0, #0
 	ldr r1, _0802EE50
 	str r0, [r1]
@@ -448,7 +448,7 @@ _0802EDC0:
 _0802EDC4:
 	.4byte sub_0802EB04
 _0802EDC8:
-	.4byte sub_0802F27C
+	.4byte audio_error
 _0802EDCC:
 	.4byte 0x03005A7C
 _0802EDD0:
@@ -705,7 +705,7 @@ snd_is_playing: @ 0802EF7A
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802EF9E
+	bl snd_find
 	pop {r3, r4, r5, r6, r7}
 	mov r8, r3
 	mov sb, r4
@@ -716,10 +716,10 @@ snd_is_playing: @ 0802EF7A
 	pop {r1}
 	bx r1
 
-	.global sub_0802EF9E
+	.global snd_find
 	.thumb_func
-	.type sub_0802EF9E, %function
-sub_0802EF9E: @ 0802EF9E
+	.type snd_find, %function
+snd_find: @ 0802EF9E
 	movs r6, #0
 	ldr r2, _0802F134
 	movs r3, #0
@@ -755,7 +755,7 @@ sub_0802EFC6: @ 0802EFC6
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802EF9E
+	bl snd_find
 	cmp r0, #0
 	beq _0802EFE0
 	ldr r2, _0802F150
@@ -782,7 +782,7 @@ sub_0802EFF2: @ 0802EFF2
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802EF9E
+	bl snd_find
 	cmp r0, #0
 	beq _0802F00C
 	ldr r2, _0802F154
@@ -809,7 +809,7 @@ sub_0802F01E: @ 0802F01E
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802EF9E
+	bl snd_find
 	cmp r0, #0
 	beq _0802F03A
 	ldr r2, _0802F134
@@ -826,10 +826,10 @@ _0802F03A:
 	pop {r1}
 	bx r1
 
-	.global sub_0802F04C
+	.global snd_stop_all
 	.thumb_func
-	.type sub_0802F04C, %function
-sub_0802F04C: @ 0802F04C
+	.type snd_stop_all, %function
+snd_stop_all: @ 0802F04C
 	push {r4, r5, r6, r7, lr}
 	mov r3, r8
 	mov r4, sb
@@ -911,19 +911,19 @@ sub_0802F0AE: @ 0802F0AE
 	.byte 0xF8, 0xBC, 0x98, 0x46, 0xA1, 0x46, 0xAA, 0x46, 0xB3, 0x46, 0xBC, 0x46, 0xF0, 0xBC, 0x02, 0xBC
 	.byte 0x08, 0x47
 
-	.global sub_0802F0DA
+	.global audio_pause
 	.thumb_func
-	.type sub_0802F0DA, %function
-sub_0802F0DA: @ 0802F0DA
+	.type audio_pause, %function
+audio_pause: @ 0802F0DA
 	movs r1, #1
 	ldr r0, _0802F16C
 	str r1, [r0]
 	bx lr
 
-	.global sub_0802F0E2
+	.global audio_resume
 	.thumb_func
-	.type sub_0802F0E2, %function
-sub_0802F0E2: @ 0802F0E2
+	.type audio_resume, %function
+audio_resume: @ 0802F0E2
 	movs r1, #0
 	ldr r0, _0802F16C
 	str r1, [r0]
@@ -940,7 +940,7 @@ sub_0802F0EA: @ 0802F0EA
 	mov r6, fp
 	mov r7, ip
 	push {r3, r4, r5, r6, r7}
-	bl sub_0802EF9E
+	bl snd_find
 	cmp r0, #0
 	beq _0802F10C
 	ldr r2, _0802F134
@@ -1181,10 +1181,10 @@ _0802F274:
 	bne _0802F274
 	mov pc, lr
 
-	.global sub_0802F27C
+	.global audio_error
 	.thumb_func
-	.type sub_0802F27C, %function
-sub_0802F27C: @ 0802F27C
+	.type audio_error, %function
+audio_error: @ 0802F27C
 	push {r2, r3, lr}
 	bl AGBPrintf
 	bl AGBPrintFlush
@@ -1415,7 +1415,7 @@ _0802F3EC:
 _0802F3F0:
 	.4byte sub_0802F198
 _0802F3F4:
-	.4byte sub_0802F27C
+	.4byte audio_error
 _0802F3F8:
 	.4byte 0x030063EC
 _0802F3FC:

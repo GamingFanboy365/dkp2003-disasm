@@ -84,7 +84,7 @@ _08000544:
 	.4byte 0x81000200
 _08000548:
 	bl music_stop
-	bl sub_0802F04C
+	bl snd_stop_all
 	bl sub_0801E1A0
 	ldr r4, _080005C8
 	ldr r3, _080005CC
@@ -755,7 +755,7 @@ _08000A8C:
 	.type sub_08000A90, %function
 sub_08000A90: @ 08000A90
 	push {lr}
-	bl sub_0802D824
+	bl snd_update
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00

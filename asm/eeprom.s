@@ -30,7 +30,7 @@ _0801D30E:
 	lsls r3, r6, #0x10
 	adds r1, r4, #0
 	lsrs r0, r3, #0x10
-	bl sub_0803287C
+	bl ProgramEepromDword
 	ldr r1, [r4]
 	str r1, [r5]
 	ldr r2, [r4, #4]
@@ -62,7 +62,7 @@ _0801D34A:
 	lsls r7, r6, #0x10
 	lsrs r0, r7, #0x10
 	adds r1, r5, #0
-	bl sub_08032958
+	bl VerifyEepromDword
 	lsls r2, r0, #0x10
 	orrs r2, r4
 	adds r6, #1
@@ -90,10 +90,10 @@ _0801D37C:
 _0801D380:
 	.4byte 0x0202DC48
 
-	.global sub_0801D384
+	.global save_pack
 	.thumb_func
-	.type sub_0801D384, %function
-sub_0801D384: @ 0801D384
+	.type save_pack, %function
+save_pack: @ 0801D384
 	push {r4, r5, lr}
 	ldr r1, _0801D438
 	adds r5, r0, #0
@@ -198,10 +198,10 @@ _0801D444:
 _0801D448:
 	.4byte 0x80000080
 
-	.global sub_0801D44C
+	.global save_unpack
 	.thumb_func
-	.type sub_0801D44C, %function
-sub_0801D44C: @ 0801D44C
+	.type save_unpack, %function
+save_unpack: @ 0801D44C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r2, _0801D4D4
@@ -367,10 +367,10 @@ eeprom_load: @ 0801D55C
 	str r1, [r0, #8]
 	ldr r3, [r0, #8]
 	movs r0, #4
-	bl sub_080325E0
+	bl IdentifyEeprom
 	ldr r1, _0801D5AC
 	movs r0, #2
-	bl sub_08032648
+	bl SetEepromTimerIntr
 	ldr r0, _0801D5B0
 	ldr r1, _0801D5B4
 	bl AGBPrintf
@@ -402,7 +402,7 @@ _0801D5C0:
 	lsls r3, r5, #0x10
 	adds r1, r4, #0
 	lsrs r0, r3, #0x10
-	bl sub_080327CC
+	bl ReadEepromDword
 	ldr r2, [r4]
 	str r2, [r6]
 	ldr r1, [r4, #4]
@@ -476,7 +476,7 @@ _0801D64A:
 	ldr r1, _0801D664
 	ldr r0, _0801D668
 	strh r3, [r1, #0x18]
-	bl sub_0801D384
+	bl save_pack
 	bl eeprom_update
 	b _0801D5F2
 _0801D660:
@@ -489,7 +489,7 @@ _0801D66C:
 	ldrb r2, [r0, #0x1b]
 	cmp r2, #0x16
 	bne _0801D5EC
-	bl sub_0801D44C
+	bl save_unpack
 	ldr r2, _0801D690
 	movs r1, #0x18
 	ldrsh r0, [r2, r1]
@@ -513,17 +513,17 @@ _0801D694:
 sub_0801D698: @ 0801D698
 	push {lr}
 	ldr r0, _0801D6A8
-	bl sub_0801D384
+	bl save_pack
 	bl eeprom_update
 	pop {r0}
 	bx r0
 _0801D6A8:
 	.4byte 0x0202DC48
 
-	.global sub_0801D6AC
+	.global link_serial_intr
 	.thumb_func
-	.type sub_0801D6AC, %function
-sub_0801D6AC: @ 0801D6AC
+	.type link_serial_intr, %function
+link_serial_intr: @ 0801D6AC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #8
 	ldr r2, _0801D73C
@@ -979,10 +979,10 @@ _0801D9E4:
 _0801D9E8:
 	.4byte 0x0400012A
 
-	.global sub_0801D9EC
+	.global link_init
 	.thumb_func
-	.type sub_0801D9EC, %function
-sub_0801D9EC: @ 0801D9EC
+	.type link_init, %function
+link_init: @ 0801D9EC
 	push {r4, lr}
 	ldr r3, _0801DA20
 	ldr r4, _0801DA2C
@@ -1020,11 +1020,11 @@ _0801DA2C:
 _0801DA30:
 	.4byte 0x04000200
 _0801DA34:
-	.4byte sub_0801DFC4
+	.4byte link_timer_intr
 _0801DA38:
 	.4byte gIrqHandler
 _0801DA3C:
-	.4byte sub_0801D6AC
+	.4byte link_serial_intr
 _0801DA40:
 	str r0, [r4, #0x1c]
 	ldr r1, _0801DA94
@@ -1306,10 +1306,10 @@ _0801DC38:
 _0801DC3C:
 	.4byte 0x04000128
 
-	.global sub_0801DC40
+	.global link_sync
 	.thumb_func
-	.type sub_0801DC40, %function
-sub_0801DC40: @ 0801DC40
+	.type link_sync, %function
+link_sync: @ 0801DC40
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _0801DD5C
 	ldrh r1, [r4]
@@ -1810,10 +1810,10 @@ _0801DFBC:
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_0801DFC4
+	.global link_timer_intr
 	.thumb_func
-	.type sub_0801DFC4, %function
-sub_0801DFC4: @ 0801DFC4
+	.type link_timer_intr, %function
+link_timer_intr: @ 0801DFC4
 	ldr r1, _0801DFD8
 	ldr r0, _0801DFE0
 	strh r1, [r0]
@@ -2110,16 +2110,16 @@ sub_0801E1B4: @ 0801E1B4
 _0801E1BC:
 	.4byte 0x0202DEA8
 
-	.global sub_0801E1C0
+	.global sound_vblank
 	.thumb_func
-	.type sub_0801E1C0, %function
-sub_0801E1C0: @ 0801E1C0
+	.type sound_vblank, %function
+sound_vblank: @ 0801E1C0
 	push {lr}
 	ldr r1, _0801E1D4
 	ldr r0, [r1, #8]
 	cmp r0, #0
 	beq _0801E1CE
-	bl sub_0802D818
+	bl snd_vsync
 _0801E1CE:
 	pop {r0}
 	bx r0
@@ -2127,12 +2127,12 @@ _0801E1CE:
 _0801E1D4:
 	.4byte 0x0202DEA8
 
-	.global sub_0801E1D8
+	.global sound_init
 	.thumb_func
-	.type sub_0801E1D8, %function
-sub_0801E1D8: @ 0801E1D8
+	.type sound_init, %function
+sound_init: @ 0801E1D8
 	push {lr}
-	bl sub_0802D80C
+	bl snd_init
 	ldr r0, _0801E1FC
 	movs r1, #0
 	str r1, [r0, #4]
@@ -2144,7 +2144,7 @@ sub_0801E1D8: @ 0801E1D8
 	movs r1, #0x46
 	str r2, [r0, #0xc]
 	str r1, [r0, #0x10]
-	bl sub_0802F0E2
+	bl audio_resume
 	pop {r0}
 	bx r0
 _0801E1FC:
@@ -4459,10 +4459,10 @@ _0801F2A8:
 _0801F2AC:
 	.4byte 0x0000FFFF
 
-	.global sub_0801F2B0
+	.global fe_start
 	.thumb_func
-	.type sub_0801F2B0, %function
-sub_0801F2B0: @ 0801F2B0
+	.type fe_start, %function
+fe_start: @ 0801F2B0
 	push {lr}
 	ldr r0, _0801F2C0
 	movs r1, #0xa
@@ -4579,7 +4579,7 @@ _0801F370:
 	bgt _0801F340
 	str r1, [r2]
 	movs r0, #0
-	bl sub_0801F800
+	bl gamesfxPendingNew
 	b _0801F340
 _0801F382:
 	ldr r5, _0801F530
@@ -5234,10 +5234,10 @@ _0801F7F8:
 _0801F7FC:
 	.4byte gSfxPendingMask
 
-	.global sub_0801F800
+	.global gamesfxPendingNew
 	.thumb_func
-	.type sub_0801F800, %function
-sub_0801F800: @ 0801F800
+	.type gamesfxPendingNew, %function
+gamesfxPendingNew: @ 0801F800
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -5490,7 +5490,7 @@ _0801F9C0:
 _0801F9C4:
 	.4byte 0x03005660
 _0801F9C8:
-	.4byte sub_0801F800
+	.4byte gamesfxPendingNew
 _0801F9CC:
 	.4byte gSfxPendingList
 _0801F9D0:
@@ -5760,7 +5760,7 @@ _0801FBA4:
 _0801FBA8:
 	.4byte 0x03005660
 _0801FBAC:
-	.4byte sub_0801F800
+	.4byte gamesfxPendingNew
 _0801FBB0:
 	.4byte gSfxPendingList
 _0801FBB4:

@@ -2498,7 +2498,7 @@ _08017BCC:
 	ands r0, r1
 	cmp r0, #0
 	beq _08017BAC
-	bl sub_0802F04C
+	bl snd_stop_all
 	movs r0, #0
 	bl mcp_process
 	b _08017BAC

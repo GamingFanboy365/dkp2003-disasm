@@ -180,11 +180,11 @@ _08000254:
 	str r4, [r5]
 	ldr r5, _080002A4
 	str r4, [r5]
-	bl sub_0801E1D8
+	bl sound_init
 	bl sub_08003550
-	bl sub_0801D9EC
+	bl link_init
 	bl eeprom_load
-	bl sub_0801F2B0
+	bl fe_start
 	ldr r0, _080002A8
 	bl sub_08000BDC
 	ldr r0, _08000298
@@ -232,7 +232,7 @@ _080002CC:
 	bne _080002E0
 	b _080003CA
 _080002E0:
-	bl sub_0801DC40
+	bl link_sync
 	ldr r6, _08000358
 	ldr r4, _0800035C
 	ldr r5, _08000360
@@ -350,14 +350,14 @@ _080003B0:
 	ldr r3, [r4]
 	b _080002F4
 _080003CA:
-	bl sub_0801DC40
+	bl link_sync
 	ldr r4, _08000410
 	ldr r3, [r4]
 	cmp r3, #0
 	beq _080003E0
 _080003D6:
 	bl _call_via_r3
-	bl sub_0802D824
+	bl snd_update
 	b _0800030C
 _080003E0:
 	ldr r2, _080003FC
@@ -403,7 +403,7 @@ sub_0800041C: @ 0800041C
 	ldr r2, [r0]
 	adds r2, #1
 	str r2, [r0]
-	bl sub_0801E1C0
+	bl sound_vblank
 	ldr r0, _08000440
 	ldr r3, _08000438
 	ldrh r1, [r0]
@@ -430,7 +430,7 @@ sub_08000444: @ 08000444
 	ands r0, r1
 	cmp r0, #0
 	beq _08000458
-	bl sub_0802D824
+	bl snd_update
 _08000458:
 	pop {r0}
 	bx r0
@@ -446,7 +446,7 @@ vblank_handler: @ 08000460
 	ldr r2, [r0]
 	adds r2, #1
 	str r2, [r0]
-	bl sub_0801E1C0
+	bl sound_vblank
 	ldr r0, _08000494
 	ldr r3, _0800048C
 	ldrh r1, [r0]
@@ -459,7 +459,7 @@ vblank_handler: @ 08000460
 	ands r0, r1
 	cmp r0, #0
 	beq _0800049C
-	bl sub_0802D824
+	bl snd_update
 	b _0800049C
 _0800048C:
 	.4byte 0x00000001

@@ -91,7 +91,7 @@ _08012C1A:
 	ldrb r1, [r5]
 	ldr r0, _08012D74
 	str r1, [r0]
-	bl sub_0802F0E2
+	bl audio_resume
 	bl sub_080200F8
 	movs r2, #0xa
 	str r2, [sp]
@@ -165,7 +165,7 @@ _08012CB0:
 	bl obj_destroy_sprite
 	ldrb r2, [r5]
 	str r2, [r7]
-	bl sub_0802F0E2
+	bl audio_resume
 	b _08012BD4
 _08012CD6:
 	ldr r1, _08012D80
@@ -183,7 +183,7 @@ _08012CD6:
 	bl obj_destroy_sprite
 	ldrb r1, [r5]
 	str r1, [r7]
-	bl sub_0802F0E2
+	bl audio_resume
 	b _08012BD4
 _08012CFC:
 	bl sub_08003478
@@ -205,7 +205,7 @@ _08012D10:
 	bne _08012D1E
 	b _08012BD4
 _08012D1E:
-	bl sub_0802F0DA
+	bl audio_pause
 	bl sub_080200C0
 	movs r1, #0xa
 	movs r3, #0x80

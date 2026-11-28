@@ -2089,7 +2089,7 @@ _080153DE:
 	bl sub_08000BDC
 	adds r0, r5, #0
 	bl sub_08000BFC
-	bl sub_0802F04C
+	bl snd_stop_all
 	ldr r0, _08015630
 	ldr r3, [r0]
 	cmp r3, #1

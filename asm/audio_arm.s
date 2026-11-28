@@ -736,7 +736,7 @@ _03006EBC:
 _03006EC0:
 	.4byte gUnk_0802FB98
 _03006EC4:
-	.4byte sub_0802F27C
+	.4byte audio_error
 _03006EC8:
 	.4byte gUnk_0802F6A4
 _03006ECC:
@@ -1382,7 +1382,7 @@ _0300772C:
 _03007730:
 	.4byte gUnk_0802FB4B
 _03007734:
-	.4byte sub_0802F27C
+	.4byte audio_error
 _03007738:
 	.4byte gUnk_0802F6A0
 _0300773C:

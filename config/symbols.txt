@@ -444,3 +444,42 @@
 # Rare sprite containers (tools/rare_sprite.py), decoded in IWRAM
 0x03000A80 rspr_queue_frame         # (container, frame): queue a frame for upload (traced in mGBA)
 0x03000898 rspr_upload_frames       # RLE-decode the queued frames into sprite VRAM with DMA
+# Audio engine Thumb glue (hand-written, so the names are descriptive)
+0x0802EB22 audio_vsync              # swap sound buffers: re-arm DMA1, SOUNDCNT_X (every VBlank)
+0x0802EB4A audio_init               # sound master off, DMA off, stop music and effects, set volumes
+0x0802EC6C audio_update             # per-frame sequencer step (into the ARM engine)
+0x0802D80C snd_init                 # Thumb wrapper -> audio_init
+0x0802D818 snd_vsync                # Thumb wrapper -> audio_vsync (from the VBlank code)
+0x0802D824 snd_update               # Thumb wrapper -> audio_update
+0x0802F27C audio_error              # AGBPrintf an "AUDIO ERROR, ..." message
+0x0802F0DA audio_pause              # sets the pause flag (act_pause)
+0x0802F0E2 audio_resume             # clears it
+0x0802EF9E snd_find                 # (handle) -> voice, 0 if the sound has ended
+0x0802F04C snd_stop_all             # stop every sound effect (game_init, Cranky)
+# Nintendo EEPROM library, "EEPROM_V122" (string at 0x0884CCAC, then the
+# 4 Kbit / 64 Kbit type tables); public names from the SDK, the static helpers
+# named by what they do
+0x080325E0 IdentifyEeprom           # selects one of the two type tables
+0x08032624 eeprom_timer_intr        # timer interrupt: counts down the timeout
+0x08032648 SetEepromTimerIntr       # timer number -> timer registers, interrupt handler
+0x08032680 eeprom_timer_start
+0x08032708 eeprom_timer_stop
+0x0803274C eeprom_dma3_transmit     # DMA3 with IME off
+0x080327CC ReadEepromDword
+0x0803287C ProgramEepromDword       # with timeout
+0x08032958 VerifyEepromDword        # read and compare
+0x080329B0 eeprom_program_verify    # program, then verify (unused here)
+# save data (the 512-byte image at 0x0202D948)
+0x0801D384 save_pack                # (buffer): header ID + gGameSetup fields packed two nibbles per byte
+0x0801D44C save_unpack              # (buffer): the reverse
+# sound effects bookkeeping (debug string "gamesfxPendingNew")
+0x0801F800 gamesfxPendingNew
+# link cable (multiplayer); names describe what the code does
+0x0801D9EC link_init                # at boot: installs the serial and timer interrupt callbacks, resets the player index
+0x0801D6AC link_serial_intr         # serial interrupt callback (SIODATA, SIOMLT_SEND, timer 3)
+0x0801DFC4 link_timer_intr          # timer interrupt callback
+0x0801DC40 link_sync                # once per main-loop pass; "Timeout !", "Out of sync, re-sync (%i) !"
+# game-side sound entry points
+0x0801E1D8 sound_init               # snd_init + audio_resume (first thing AgbMain does)
+0x0801E1C0 sound_vblank             # snd_vsync, from vblank_handler
+0x0801F2B0 fe_start                 # AgbMain: enters the front end (fe_boot_init)

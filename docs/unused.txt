@@ -185,9 +185,9 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: _mprec_log10
 
-  sub_080329B0: 1 function(s), 0 data block(s), 64 bytes
+  eeprom_program_verify: 1 function(s), 0 data block(s), 64 bytes
       newlib (libc) code that was linked in but is never called
-      functions: sub_080329B0
+      functions: eeprom_program_verify
 
   __cmpdf2: 1 function(s), 0 data block(s), 48 bytes
       newlib (libc) code that was linked in but is never called
@@ -300,7 +300,7 @@ Summary
   03006D24      68  audio_arm.s              sub_03006D24
   0802F0AE      44  audio.s                  sub_0802F0AE
   08032598      68  libagbprint.s            AGBAssert
-  080329B0      64  libc.s                   sub_080329B0
+  080329B0      64  libc.s                   eeprom_program_verify
   08034B8C      52  libc.s                   __sfmoreglue
   08034BC0     120  libc.s                   __sfp
   08034C48      20  libc.s                   _cleanup

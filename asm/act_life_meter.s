@@ -670,32 +670,32 @@ _0802D804:
 _0802D808:
 	.4byte 0x00000143
 
-	.global sub_0802D80C
+	.global snd_init
 	.thumb_func
-	.type sub_0802D80C, %function
-sub_0802D80C: @ 0802D80C
+	.type snd_init, %function
+snd_init: @ 0802D80C
 	push {lr}
-	bl sub_0802EB4A
+	bl audio_init
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_0802D818
+	.global snd_vsync
 	.thumb_func
-	.type sub_0802D818, %function
-sub_0802D818: @ 0802D818
+	.type snd_vsync, %function
+snd_vsync: @ 0802D818
 	push {lr}
-	bl sub_0802EB22
+	bl audio_vsync
 	pop {r0}
 	bx r0
 	.byte 0x00, 0x00
 
-	.global sub_0802D824
+	.global snd_update
 	.thumb_func
-	.type sub_0802D824, %function
-sub_0802D824: @ 0802D824
+	.type snd_update, %function
+snd_update: @ 0802D824
 	push {lr}
-	bl sub_0802EC6C
+	bl audio_update
 	pop {r0}
 	bx r0
 	.byte 0xC0, 0x46
