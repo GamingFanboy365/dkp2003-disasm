@@ -65,6 +65,8 @@ def main():
     rom_path, db_path, cfg_path = args[:3]
     with contextlib.redirect_stderr(io.StringIO()):
         g = gen_asm.make_gen(rom_path, db_path, cfg_path)
+    global OVERLAYS
+    OVERLAYS = [(sg.rom_start, sg.rom_end, sg.vma) for sg in g.rom.segs if sg.name != 'rom']
     data = g.rom.d
     size = len(data)
     u32 = lambda o: struct.unpack_from('<I', data, o)[0]  # noqa: E731
@@ -122,12 +124,13 @@ def main():
             link(src, o)
 
     # ------------------------------------------------- code -> asm symbols
-    sym_off = {}
-    for f in glob.glob(os.path.join(ROOT, 'asm', '*.s')):
-        for m in re.finditer(r'^(\w+):\s*@ ([0-9A-F]{8})', open(f).read(), re.M):
-            sym_off[m.group(1)] = addr_to_off(int(m.group(2), 16))
-
+    # symbol -> ROM offset, from the generator's own tables (labels in two
+    # overlays can share a run address, so addresses alone are ambiguous)
+    sym_off = {g.func_name(o): o for o in funcs}
+    for o, n in g.sym.items():
+        sym_off.setdefault(n, o)
     sym_off.update({v: k for k, v in g.dlabel.items()})
+    sym_off.update({v: k for k, v in g.overlay_lma.items()})
 
     def sym_to_off(name):
         if name in sym_off:
@@ -140,7 +143,7 @@ def main():
         for line in open(f):
             m = re.match(r'^(\w+):\s*@ ([0-9A-F]{8})', line)
             if m:
-                o = addr_to_off(int(m.group(2), 16))
+                o = sym_off.get(m.group(1))
                 if o in funcs:
                     cur = o
                 continue
@@ -285,15 +288,15 @@ def main():
         if o in g.names:
             return g.names[o]
         if o in funcs:
-            return 'sub_%08X' % vma(o)
+            return g.func_name(o)
         if o in assets:
             return assets[o][3]
         return 'gUnk_%08X' % vma(o)
 
     file_of = {}
     for f in glob.glob(os.path.join(ROOT, 'asm', '*.s')):
-        for m in re.finditer(r'^\w+:\s*@ ([0-9A-F]{8})', open(f).read(), re.M):
-            file_of[addr_to_off(int(m.group(1), 16))] = os.path.basename(f)
+        for m in re.finditer(r'^(\w+):\s*@ ([0-9A-F]{8})', open(f).read(), re.M):
+            file_of[sym_off.get(m.group(1))] = os.path.basename(f)
 
     def text_of(o, n=40):
         e = min(ends[o], o + 200)

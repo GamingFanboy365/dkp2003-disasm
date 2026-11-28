@@ -120,7 +120,10 @@ sub_03000138: @ 03000138
 	rsbne r1, r1, #0
 	asr r0, r1, #6
 	bx lr
-_03000178:
+
+	.global sub_03000178
+	.type sub_03000178, %function
+sub_03000178: @ 03000178
 	tst r0, #0x4000
 	rsbne r0, r0, #0
 	orrne r0, r0, #0x10000
@@ -4068,13 +4071,12 @@ sub_03003A14: @ 03003A14
 _03003AC4:
 	ldmdb fp, {r4, r5, r6, r7, r8, fp, sp, lr}
 	bx lr
-_03003ACC:
+
+	.global sub_03003ACC
+	.type sub_03003ACC, %function
+sub_03003ACC: @ 03003ACC
 	cmp r1, #0
 	mov r2, r0
-
-	.global sub_03003AD4
-	.type sub_03003AD4, %function
-sub_03003AD4: @ 03003AD4
 	str lr, [sp, #-4]!
 	moveq r0, r1
 	ldmeq sp!, {lr}

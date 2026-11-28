@@ -125,8 +125,11 @@ numbers:
 * pointers stored inside data (function tables, string tables, level object
   lists, sprite tables, sound-bank samples and lengths, newlib data) are emitted as
   `.4byte symbol`;
-* known RAM variables are named (`config/ram_symbols.txt`), and the IWRAM
-  overlay's load address is the linker symbol `__iwram_lma`;
+* known RAM variables are named (`config/ram_symbols.txt`);
+* code copied to RAM (`text32`, the audio engine and the two ARM overlays) is
+  assembled at its run address in its own section. The copy code uses the
+  linker symbols `__<name>_lma` and `__audio_size`, and calls between ROM,
+  `text32` and the overlays are symbolic;
 * data files keep their original alignment, which the intro movie and the
   sine table rely on.
 
@@ -157,12 +160,13 @@ ld_script.ld, objects.mk   generated: place every object at its original address
 |---|---|---|
 | `0x000000` | `0x08000000` | `crt0`: ARM start-up, IWRAM veneers (`asm/crt0.s`) |
 | `0x000114` | `0x08000114` | Game code, Thumb, gcc (`main.c`, `game.c`, `object.c`, about 55 `act_*.c` actors, `fe_*` front end, `weapon*.c`, …) |
-| `0x02D880` | `0x0802D880` | Rare's audio engine: hand-written ARM MIDI/sample driver (`asm/audio_arm.s`) plus Thumb glue (`asm/audio.s`) |
+| `0x02D834` | **`0x03006498`** | Rare's audio engine, hand-written ARM MIDI/sample driver (`asm/audio_arm.s`). The audio init copies it to IWRAM; its size word sits just before it (`__audio_size`) |
+| `0x02EAE0` | `0x0802EAE0` | Thumb glue for the audio engine (`asm/audio.s`) |
 | `0x02F4A4` | `0x0802F4A4` | Audio rodata (tables, "AUDIO ERROR…" messages) |
 | `0x03222C` | `0x0803222C` | Nintendo AGBPrint debug library (`AGBPrintInit`, `AGBPrintf`, `AGBAssert`, …) |
 | `0x0325DC` | `0x080325DC` | newlib libc (`vsprintf`, …) |
 | `0x0385FC` | **`0x03000000`** | `text32`: ARM code copied to IWRAM at boot (`IntrMain`, fast division, …), 0x3FC8 bytes (`asm/iwram.s`) |
-| `0x03C5C4` | **`0x03003FC8`** | two ARM overlays (`asm/arm_rom.s`): `game_init` copies either `0x3C5C4`–`0x3DC1C` (`sub_08000CB8`) or `0x3DC1C`–`0x3EA90` (`sub_08001020`) to IWRAM right after `text32`. The asm still labels them with ROM addresses |
+| `0x03C5C4` | **`0x03003FC8`** | two ARM overlays that `game_init` copies to IWRAM right after `text32`: `ovl_a` (`asm/ovl_a.s`, `0x3C5C4`–`0x3DC1C`, normal races) or `ovl_b` (`asm/ovl_b.s`, `0x3DC1C`–`0x3EA90`, when bit 13 of the mode flags at `0x0300566C` is set). They run at the same address, so their labels carry the overlay name (`sub_ovl_b_03003FC8`). `ovl_a` ends exactly at `0x03005620`, where IWRAM variables begin (the IRQ handler pointer), so it cannot grow |
 | `0x03EA90` | `0x0803EA90` | rodata (sine table, strings, tables) followed by graphics, level, movie and audio data (`data/`) |
 
 Boot order (from `AgbMain`): DMA-clear RAM, copy `text32` to IWRAM, install
@@ -212,7 +216,16 @@ make compare
   disassembly in a comment.
 
 Hints such as new entry points or data ranges go in `config/dkp.cfg`, names
-in `config/symbols.txt`, and file splits in `config/files.txt`.
+in `config/symbols.txt` (functions and data), and file splits in
+`config/files.txt`.
+
+Code that is only reached through computed jumps (mostly in the ARM audio
+engine) is found by running the game. `tools/emu/cover_hints.py` reads mGBA
+coverage files (see `tools/emu/README.md`). It prints a `code <address>` line
+for each place that ran but was not decoded, and `dkp.cfg` keeps those lines.
+The analyzer traces each one as part of the function around it. With the
+current hints, every instruction that ran in the test sessions (boot, menus,
+a race, and each debug-menu screen) is decoded.
 
 ## Unused content
 
@@ -265,10 +278,6 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
   yet. If something breaks there, `tools/where.py <addr>` shows how a ROM
   address is emitted, and the `trace` command in `tools/emu/dkprun` finds the
   first instruction where two builds diverge.
-* The two ARM overlays in `asm/arm_rom.s` run at `0x03003FC8` but are
-  disassembled at their ROM addresses. Their 17 calls into `text32` are raw
-  `bl` instructions; they are relative, so they stay correct when the ROM
-  shifts, as long as `text32` keeps its layout.
 * A few areas are still emitted as bytes: undecoded parts of the ARM audio
   engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
 * Decode the remaining level data blocks (`data_XX.bin`).

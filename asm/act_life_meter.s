@@ -1,4 +1,4 @@
-@ asm/act_life_meter.s: ROM 0x02D338-0x02D880 (rom, VMA 0x0802D338)
+@ asm/act_life_meter.s: ROM 0x02D338-0x02D834 (rom, VMA 0x0802D338)
 
 	.include "asm/macros.inc"
 
@@ -701,28 +701,4 @@ sub_0802D824: @ 0802D824
 	.byte 0xC0, 0x46
 	.global gUnk_0802D830
 gUnk_0802D830:
-	.byte 0xAC, 0x12, 0x00, 0x00
-	.arm
-
-	.global sub_0802D834
-	.type sub_0802D834, %function
-sub_0802D834: @ 0802D834
-	stmdb sp!, {lr}
-	strb r3, [r5, #3]
-	str r1, [r5, #0x24]
-	strb r7, [r5, #1]
-	strb r4, [r5, #2]
-	strb sb, [r5, #5]
-	ldr r1, [r2, #0x10]
-	str r1, [r5, #0xc]
-	mov r1, #0
-	str r1, [r5, #0x28]
-	str r1, [r5, #0x2c]
-	str r1, [r5, #0x10]
-	strb r1, [r5, #4]
-	str r1, [r5, #0x14]
-	str r2, [r5, #0x20]
-	mov r8, #0x11
-	strb r8, [r5]
-	ldm sp!, {lr}
-	bx lr
+	.4byte __audio_size

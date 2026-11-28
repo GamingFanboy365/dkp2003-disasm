@@ -46,13 +46,13 @@ class Gen:
             self.sym[o] = self.func_name(o)
         for o in self.labels:
             if o not in self.sym and o in self.item_start:
-                self.sym[o] = '_%08X' % self.vma(o)
+                self.sym[o] = '_%s' % self.vtag(o)
         for o in self.pools:
             if o not in self.sym:
-                self.sym[o] = '_%08X' % self.vma(o)
+                self.sym[o] = '_%s' % self.vtag(o)
         for o in self.jtables:
             if o not in self.sym:
-                self.sym[o] = '_%08X' % self.vma(o)
+                self.sym[o] = '_%s' % self.vtag(o)
         self.globals = set(self.funcs)
         self.ram_names = ram_names or {}
         # ROM start of each overlay image -> linker symbol for its load address
@@ -72,6 +72,24 @@ class Gen:
         # instrument definitions {start*, length, end*}: length == end - start
         # is written symbolically so a sample can change size
         self.derived = {}
+        # literal pools of code that copies an overlay: a word equal to the
+        # overlay's size, in a function that also loads the overlay's ROM
+        # address, becomes __<overlay>_size
+        self.pool_sym = {}
+        fstarts = sorted(self.funcs)
+        owner = lambda o: fstarts[bisect.bisect_right(fstarts, o) - 1]  # noqa: E731
+        for sg in rom.segs:
+            if sg.name == 'rom':
+                continue
+            users = {owner(o) for o, v in self.pools.items() if v == ROM_BASE + sg.rom_start}
+            for o, v in self.pools.items():
+                if v == sg.rom_end - sg.rom_start and owner(o) in users:
+                    self.pool_sym[o] = '__%s_size' % sg.name
+        # a word just before an overlay image holding its size (the copy code
+        # reads it) becomes __<overlay>_size
+        for sg in rom.segs:
+            if sg.name != 'rom' and sg.rom_start >= 4 and rom.u32(sg.rom_start - 4) == sg.rom_end - sg.rom_start:
+                self.derived[sg.rom_start - 4] = '__%s_size' % sg.name
         samples = {a[0]: a[1] for a in self.assets if a[2] == 'sample'}
         for o, (kind, t) in self.dptr.items():
             nx = self.dptr.get(o + 8)
@@ -87,18 +105,32 @@ class Gen:
     def vma(self, off):
         return self.rom.seg_of_rom(off).to_vma(off)
 
+    def vtag(self, off):
+        """Address part of a generated label: the run address, prefixed with
+        the overlay name when another overlay runs at the same addresses."""
+        seg = self.rom.seg_of_rom(off)
+        v = seg.to_vma(off)
+        if any(o is not seg and o.name != 'rom' and o.has_vma(v) for o in self.rom.segs):
+            return '%s_%08X' % (seg.name, v)
+        return '%08X' % v
+
     def func_name(self, o):
         if o in self.names:
             return self.names[o]
         n = self.funcs[o].get('name')
         if n:
             return n
-        return 'sub_%08X' % self.vma(o)
+        return 'sub_%s' % self.vtag(o)
 
     def target_sym(self, seg, vma, want_thumb):
-        """Symbol for a code address within segment seg, or None."""
+        """Symbol for a code address in segment seg, or in the one other
+        segment that runs at that address (calls between ROM and RAM code);
+        None if unknown or ambiguous (two overlays at the same address)."""
         if not seg.has_vma(vma):
-            return None
+            segs = [s for s in self.rom.segs if s.has_vma(vma)]
+            if len(segs) != 1:
+                return None
+            seg = segs[0]
         off = seg.to_rom(vma)
         if off in self.sym and off in self.insns:
             return self.sym[off]
@@ -107,7 +139,9 @@ class Gen:
     def value_expr(self, val):
         """Expression for a 32-bit data word (pool / jump table entry)."""
         if 0x03000000 <= val < 0x03008000:
-            segs = [s for s in self.rom.segs if s.name == 'iwram' and s.has_vma(val & ~1)]
+            segs = [s for s in self.rom.segs if s.name != 'rom' and s.has_vma(val & ~1)]
+            if len(segs) > 1:
+                segs = []       # overlays sharing a run address: ambiguous
         elif ROM_BASE <= val < ROM_BASE + 0x2000000:
             segs = [s for s in self.rom.segs if s.name == 'rom' and s.has_vma(val & ~1)]
         else:
@@ -485,7 +519,7 @@ class Gen:
                 off += size
                 continue
             if off in self.pools:
-                out.append('\t.4byte %s' % self.value_expr(self.pools[off]))
+                out.append('\t.4byte %s' % self.pool_sym.get(off, self.value_expr(self.pools[off])))
                 off += 4
                 continue
             if off in self.jtables:

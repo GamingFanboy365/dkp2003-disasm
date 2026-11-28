@@ -1,153 +1,179 @@
-@ asm/audio_arm.s: ROM 0x02D880-0x02EA0C (rom, VMA 0x0802D880)
+@ asm/audio_arm.s: ROM 0x02D834-0x02EAE0 (audio, VMA 0x03006498)
 
 	.include "asm/macros.inc"
 
-	.section .text, "ax", %progbits
+	.section .audio, "ax", %progbits
 	.balign 4
 
-_0802D880:
 	.arm
+
+	.global sub_03006498
+	.type sub_03006498, %function
+sub_03006498: @ 03006498
+	stmdb sp!, {lr}
+	strb r3, [r5, #3]
+	str r1, [r5, #0x24]
+	strb r7, [r5, #1]
+	strb r4, [r5, #2]
+	strb sb, [r5, #5]
+	ldr r1, [r2, #0x10]
+	str r1, [r5, #0xc]
+	mov r1, #0
+	str r1, [r5, #0x28]
+	str r1, [r5, #0x2c]
+	str r1, [r5, #0x10]
+	strb r1, [r5, #4]
+	str r1, [r5, #0x14]
+	str r2, [r5, #0x20]
+	mov r8, #0x11
+	strb r8, [r5]
+	ldm sp!, {lr}
+	bx lr
+
+	.global sub_030064E4
+	.type sub_030064E4, %function
+sub_030064E4: @ 030064E4
 	sub sp, sp, #0x24
 	str lr, [sp, #8]
-	ldr r5, _0802E228
+	ldr r5, _03006E8C
 	str r5, [sp, #4]
-	ldr r1, _0802E22C
+	ldr r1, _03006E90
 	ldr r1, [r1]
 	str r1, [sp, #0x10]
-	ldr r2, _0802E230
+	ldr r2, _03006E94
 	ldr r2, [r2]
-	ldr r0, _0802E234
+	ldr r0, _03006E98
 	add r0, r0, r2
-_0802D8AC:
+_03006510:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x11
-	bleq sub_0802D9A4
+	bleq sub_03006608
 	subs r2, r2, #0x30
-	bgt _0802D8AC
-	ldr r2, _0802E230
+	bgt _03006510
+	ldr r2, _03006E94
 	ldr r2, [r2]
-_0802D8C8:
+_0300652C:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x12
-	bleq sub_0802D9A4
+	bleq sub_03006608
 	subs r2, r2, #0x30
-	bgt _0802D8C8
-	ldr r0, _0802E238
+	bgt _0300652C
+	ldr r0, _03006E9C
 	ldr r1, [r0]
 	cmp r1, #1
-	beq _0802D92C
-	ldr r2, _0802E23C
+	beq _03006590
+	ldr r2, _03006EA0
 	ldr r2, [r2]
-	ldr r0, _0802E240
+	ldr r0, _03006EA4
 	add r0, r0, r2
-_0802D8FC:
+_03006560:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x11
-	bleq sub_0802D9A4
+	bleq sub_03006608
 	subs r2, r2, #0x30
-	bgt _0802D8FC
-	ldr r2, _0802E23C
+	bgt _03006560
+	ldr r2, _03006EA0
 	ldr r2, [r2]
-_0802D918:
+_0300657C:
 	ldrb r5, [r0, -r2]
 	cmp r5, #0x12
-	bleq sub_0802D9A4
+	bleq sub_03006608
 	subs r2, r2, #0x30
-	bgt _0802D918
-_0802D92C:
+	bgt _0300657C
+_03006590:
 	ldr r0, [sp, #0x10]
-	ldr r1, _0802E22C
+	ldr r1, _03006E90
 	ldr r1, [r1]
 	cmp r0, r1
-	bne _0802D94C
-	ldr r0, _0802E244
+	bne _030065B0
+	ldr r0, _03006EA8
 	add lr, pc, #0
 	bx r0
-_0802D94C:
-	ldr r0, _0802E248
+_030065B0:
+	ldr r0, _03006EAC
 	ldr r2, [r0]
-	ldr r1, _0802E24C
+	ldr r1, _03006EB0
 	cmp r2, #0
-	bne _0802D964
-	ldr r1, _0802E250
-_0802D964:
+	bne _030065C8
+	ldr r1, _03006EB4
+_030065C8:
 	ldr r1, [r1]
-	ldr r0, _0802E228
-	ldr r2, _0802E254
+	ldr r0, _03006E8C
+	ldr r2, _03006EB8
 	ldr r2, [r2]
-_0802D974:
+_030065D8:
 	ldrsh r3, [r0], #2
 	cmp r3, #0x7f
 	movgt r3, #0x7f
-	bgt _0802D98C
+	bgt _030065F0
 	cmn r3, #0x80
 	mvnlt r3, #0x7f
-_0802D98C:
+_030065F0:
 	strb r3, [r1], #1
 	subs r2, r2, #1
-	bne _0802D974
+	bne _030065D8
 	ldr lr, [sp, #8]
 	add sp, sp, #0x24
 	bx lr
 
-	.global sub_0802D9A4
-	.type sub_0802D9A4, %function
-sub_0802D9A4: @ 0802D9A4
+	.global sub_03006608
+	.type sub_03006608, %function
+sub_03006608: @ 03006608
 	str lr, [sp, #0xc]
 	str r0, [sp, #0x14]
 	str r2, [sp, #0x18]
 	sub r0, r0, r2
 	ldr r5, [sp, #4]
-	bl sub_0802E6E0
+	bl sub_03007344
 	ldr r1, [sp, #0x10]
 	subs r1, r1, #1
 	str r1, [sp, #0x10]
-	beq _0802D94C
+	beq _030065B0
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	ldr pc, [sp, #0xc]
 
-	.global sub_0802D9D8
-	.type sub_0802D9D8, %function
-sub_0802D9D8: @ 0802D9D8
+	.global sub_0300663C
+	.type sub_0300663C, %function
+sub_0300663C: @ 0300663C
 	stmdb sp!, {lr}
-	ldr fp, _0802E230
+	ldr fp, _03006E94
 	ldr fp, [fp]
-	ldr sl, _0802E234
+	ldr sl, _03006E98
 	add sl, sl, fp
-	b _0802DA04
+	b _03006668
 
-	.global sub_0802D9F0
-	.type sub_0802D9F0, %function
-sub_0802D9F0: @ 0802D9F0
+	.global sub_03006654
+	.type sub_03006654, %function
+sub_03006654: @ 03006654
 	stmdb sp!, {lr}
-	ldr fp, _0802E23C
+	ldr fp, _03006EA0
 	ldr fp, [fp]
-	ldr sl, _0802E240
+	ldr sl, _03006EA4
 	add sl, sl, fp
-_0802DA04:
+_03006668:
 	ldrb r2, [sl, -fp]
 	cmp r2, #0x11
-	bleq sub_0802DA28
+	bleq sub_0300668C
 	cmp r2, #0x12
-	bleq sub_0802DA28
+	bleq sub_0300668C
 	subs fp, fp, #0x30
-	bgt _0802DA04
+	bgt _03006668
 	ldm sp!, {lr}
 	bx lr
 
-	.global sub_0802DA28
-	.type sub_0802DA28, %function
-sub_0802DA28: @ 0802DA28
+	.global sub_0300668C
+	.type sub_0300668C, %function
+sub_0300668C: @ 0300668C
 	sub r0, sl, fp
 	ldr r7, [r0, #8]
 	movs r7, r7
-	bne _0802DA44
+	bne _030066A8
 	push {sl, fp, lr}
-	bl sub_0802E8CC
+	bl sub_03007530
 	pop {sl, fp, lr}
-_0802DA44:
-	ldr r1, _0802E254
+_030066A8:
+	ldr r1, _03006EB8
 	ldr r1, [r1]
 	ldr r2, [r0, #0x10]
 	ldr r3, [r0, #0xc]
@@ -160,133 +186,132 @@ _0802DA44:
 	orr r2, r2, r3, lsl #23
 	lsr r3, r3, #9
 	umlal r2, r3, r7, r1
-	ldr r4, _0802E258
+	ldr r4, _03006EBC
 	and r1, r2, r4
 	lsr r2, r2, #0x17
 	orr r2, r2, r3, lsl #9
 	ldr r3, [r0, #0x20]
 	ldr r3, [r3, #0x18]
 	cmp r2, r3
-	blt _0802DB10
+	blt _03006774
 	ldrb r4, [r0, #1]
 	cmp r4, #1
-	beq _0802DAE4
+	beq _03006748
 	cmp r4, #2
-	beq _0802DAC0
+	beq _03006724
 	cmp r4, #3
-	beq _0802DAD8
+	beq _0300673C
 	cmp r4, #4
-	beq _0802DAC0
+	beq _03006724
 	.4byte 0xE7FFFFFF @ debug trap
-_0802DAC0:
+_03006724:
 	ldr r4, [r0, #0x20]
 	ldr r4, [r4, #0x14]
-_0802DAC8:
+_0300672C:
 	sub r2, r2, r4
 	cmp r2, r3
-	bge _0802DAC8
-	b _0802DB10
-_0802DAD8:
+	bge _0300672C
+	b _03006774
+_0300673C:
 	mov r3, #0x10
 	strb r3, [r0]
-	b _0802DB10
-_0802DAE4:
+	b _03006774
+_03006748:
 	ldr r3, [r0, #0x20]
 	lsr r3, r3, #0x18
 	cmp r3, #2
-	bne _0802DB04
-	ldr r3, _0802E234
+	bne _03006768
+	ldr r3, _03006E98
 	cmp r0, r3
-	blt _0802DB04
-	b _0802DAD8
-_0802DB04:
+	blt _03006768
+	b _0300673C
+_03006768:
 	mov r3, #0x10
 	strb r3, [r8]
-	b _0802DB10
-_0802DB10:
+	b _03006774
+_03006774:
 	ldr r3, [r0, #0x28]
 	cmp r3, #0
-	beq _0802DB44
+	beq _030067A8
 	cmp r2, r3
-	beq _0802DB28
+	beq _0300678C
 	.4byte 0xE7FFFFFF @ debug trap
-_0802DB28:
+_0300678C:
 	ldr r3, [r0, #0x2c]
 	cmp r1, r3
-	beq _0802DB38
+	beq _0300679C
 	.4byte 0xE7FFFFFF @ debug trap
-_0802DB38:
+_0300679C:
 	mov r3, #0
 	str r3, [r0, #0x28]
 	str r3, [r0, #0x2c]
-_0802DB44:
+_030067A8:
 	str r2, [r0, #0xc]
 	str r1, [r0, #0x10]
 	mov pc, lr
 
-	.global sub_0802DB50
-	.type sub_0802DB50, %function
-sub_0802DB50: @ 0802DB50
+	.global sub_030067B4
+	.type sub_030067B4, %function
+sub_030067B4: @ 030067B4
 	stmdb sp!, {lr}
-	ldr fp, _0802E230
+	ldr fp, _03006E94
 	ldr fp, [fp]
-	ldr sl, _0802E234
+	ldr sl, _03006E98
 	add sl, sl, fp
-	b _0802DB7C
+	b _030067E0
 
-	.global sub_0802DB68
-	.type sub_0802DB68, %function
-sub_0802DB68: @ 0802DB68
+	.global sub_030067CC
+	.type sub_030067CC, %function
+sub_030067CC: @ 030067CC
 	stmdb sp!, {lr}
-	ldr fp, _0802E23C
+	ldr fp, _03006EA0
 	ldr fp, [fp]
-	ldr sl, _0802E240
+	ldr sl, _03006EA4
 	add sl, sl, fp
-_0802DB7C:
+_030067E0:
 	ldrb r2, [sl, -fp]
 	cmp r2, #0x11
-	bleq _0802DBA0
+	bleq sub_03006804
 	cmp r2, #0x12
-	bleq _0802DBA0
-_0802DB90:
+	bleq sub_03006804
+_030067F4:
 	subs fp, fp, #0x30
-	bgt _0802DB7C
+	bgt _030067E0
 	ldm sp!, {lr}
 	bx lr
-_0802DBA0:
+
+	.global sub_03006804
+	.type sub_03006804, %function
+sub_03006804: @ 03006804
 	sub ip, sl, fp
 	ldrb r1, [ip, #4]
 	cmp r1, #7
-	blt _0802DBCC
-
-	.global sub_0802DBB0
-	.type sub_0802DBB0, %function
-sub_0802DBB0: @ 0802DBB0
+	blt _03006830
 	push {r0, r1, lr}
-	ldr r0, _0802E25C
+	ldr r0, _03006EC0
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0xFF, 0xFF, 0xFF, 0xE7
-_0802DBCC:
+_03006830:
 	add r2, pc, #4
 	ldr r0, [r2, r1, lsl #2]
 	add pc, r0, r2
 	.byte 0x1C, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x98, 0x00, 0x00, 0x00, 0x04, 0x01, 0x00, 0x00
 	.byte 0x44, 0x01, 0x00, 0x00, 0x54, 0x01, 0x00, 0x00, 0x9C, 0x01, 0x00, 0x00
-_0802DBF4:
+_03006858:
 	ldr r3, [ip, #0x20]
 	ldr r1, [r3, #0x24]
 	rsb r2, r1, #0x63
 	lsl r0, r2, #5
 	mov r1, #0x63
-	bl sub_0802E43C
+	bl sub_030070A0
 	movs r0, r0
-	beq _0802DC5C
+	beq _030068C0
 	mov r1, r0
 	mov r0, #0x8000
 	add r1, r1, #1
-	bl sub_0802E43C
+	bl sub_030070A0
 	lsl r1, r1, #4
 	lsl r0, r0, #4
 	str r1, [ip, #0x14]
@@ -295,40 +320,40 @@ _0802DBF4:
 	strb r0, [ip, #4]
 	ldrb r1, [ip]
 	cmp r1, #0x12
-	beq _0802DD2C
+	beq _03006990
 	ldr r1, [ip, #0x18]
 	ldr r2, [ip, #0x14]
 	add r1, r1, r2
 	cmp r1, #0x80000
-	blt _0802DC68
-_0802DC5C:
+	blt _030068CC
+_030068C0:
 	mov r1, #2
 	strb r1, [ip, #4]
 	mov r1, #0x80000
-_0802DC68:
+_030068CC:
 	str r1, [ip, #0x14]
 	sub pc, pc, #0xe4
-_0802DC70:
+_030068D4:
 	ldr r3, [ip, #0x20]
 	ldr r0, [r3, #0x2c]
 	lsl r0, r0, #7
 	mov r1, #0x63
-	bl sub_0802E43C
+	bl sub_030070A0
 	lsl r4, r0, #8
 	lsl r0, r1, #8
 	mov r1, #0x63
-	bl sub_0802E43C
+	bl sub_030070A0
 	orr r0, r4, r0
 	lsl r1, r0, #4
 	str r1, [ip, #0x1c]
 	rsb r0, r0, #0x8000
 	ldr r1, [r3, #0x28]
-	ldr r2, _0802E264
+	ldr r2, _03006EC8
 	ldrb r1, [r2, r1]
 	movs r1, r1
-	beq _0802DD00
+	beq _03006964
 	add r1, r1, #1
-	bl sub_0802E43C
+	bl sub_030070A0
 	lsl r0, r0, #4
 	str r0, [ip, #0x18]
 	ldr r0, [ip, #0x14]
@@ -338,40 +363,40 @@ _0802DC70:
 	strb r1, [ip, #4]
 	ldrb r1, [ip]
 	cmp r1, #0x12
-	beq _0802DD2C
+	beq _03006990
 	ldr r1, [ip, #0x18]
 	ldr r2, [ip, #0x14]
 	ldr r3, [ip, #0x1c]
 	sub r1, r2, r1
 	cmp r1, r3
-	bgt _0802DD0C
-_0802DD00:
+	bgt _03006970
+_03006964:
 	mov r1, #4
 	strb r1, [ip, #4]
 	ldr r1, [ip, #0x1c]
-_0802DD0C:
+_03006970:
 	cmp r1, #0x1000
-	blt _0802DD84
+	blt _030069E8
 	str r1, [ip, #0x14]
 	sub pc, pc, #0x190
-_0802DD1C:
+_03006980:
 	ldrb r1, [ip]
 	cmp r1, #0x12
-	beq _0802DD2C
+	beq _03006990
 	sub pc, pc, #0x1a0
-_0802DD2C:
+_03006990:
 	ldr r3, [ip, #0x20]
 	ldr r0, [ip, #0x14]
 	ldr r1, [r3, #0x30]
-	ldr r2, _0802E264
+	ldr r2, _03006EC8
 	ldrb r1, [r2, r1]
 	movs r1, r1
-	beq _0802DD84
+	beq _030069E8
 	lsr r0, r0, #4
 	add r1, r1, #1
-	bl sub_0802E43C
+	bl sub_030070A0
 	lsls r0, r0, #4
-	beq _0802DD84
+	beq _030069E8
 	str r0, [ip, #0x18]
 	ldr r0, [ip, #0x14]
 	sub r0, r0, r1, lsl #4
@@ -381,14 +406,14 @@ _0802DD2C:
 	ldr r1, [ip, #0x18]
 	ldr r2, [ip, #0x14]
 	subs r1, r2, r1
-	bgt _0802DD8C
-_0802DD84:
+	bgt _030069F0
+_030069E8:
 	mov r1, #0x10
 	strb r1, [ip]
-_0802DD8C:
+_030069F0:
 	str r1, [ip, #0x14]
 	sub pc, pc, #0x208
-_0802DD94:
+_030069F8:
 	bic r2, fp, #3
 	ldm r2, {r1, r3}
 	and r2, fp, #3
@@ -397,72 +422,72 @@ _0802DD94:
 	rsbne r2, r2, #0x20
 	orrne r1, r1, r3, lsl r2
 	add fp, fp, #3
-	bl sub_0802DDBC
+	bl sub_03006A20
 	add pc, pc, #0x398
 
-	.global sub_0802DDBC
-	.type sub_0802DDBC, %function
-sub_0802DDBC: @ 0802DDBC
+	.global sub_03006A20
+	.type sub_03006A20, %function
+sub_03006A20: @ 03006A20
 	stmdb sp!, {lr}
 	bic r0, r1, #0xff000000
-	ldr r2, _0802E268
+	ldr r2, _03006ECC
 	str r0, [r2]
-	ldr r0, _0802E26C
+	ldr r0, _03006ED0
 	mov r1, #0xe10
-	bl sub_0802E43C
+	bl sub_030070A0
 	lsl r4, r0, #8
 	lsl r0, r1, #0x10
 	mov r1, #0xe10
-	bl sub_0802E43C
+	bl sub_030070A0
 	orr r0, r4, r0, lsr #8
-	ldr r2, _0802E270
+	ldr r2, _03006ED4
 	str r0, [r2]
 	ldm sp!, {lr}
 	bx lr
-_0802DDFC:
-	ldr r5, _0802E274
+_03006A60:
+	ldr r5, _03006ED8
 	ldr r5, [r5]
 	ldrb r1, [fp], #1
-	ldr r0, _0802E268
+	ldr r0, _03006ECC
 	ldr r2, [r0]
 	mul r1, r2, r1
 	mov r0, #0
 	mov r2, r5
-	bl sub_0802E4F4
+	bl sub_03007158
 	lsl r4, r1, #8
 	lsl r0, r0, #0x10
 	mov r1, r5
-	bl sub_0802E43C
+	bl sub_030070A0
 	orr r1, r4, r0, lsr #8
 	mov r2, #0
 	ldr r5, [sp]
-	ldr r0, _0802E278
+	ldr r0, _03006EDC
 	add r0, r0, r5, lsl #3
 	ldm r0, {r3, r4}
 	adds r1, r3, r1
 	adcs r2, r4, r2
 	stm r0, {r1, r2}
 	add pc, pc, #0x330
-_0802DE58:
-	ldr r5, _0802E274
+_03006ABC:
+	ldr r5, _03006ED8
 	ldr r5, [r5]
 	ldrb r0, [fp], #1
 	ldrb r1, [fp], #1
 	orr r1, r0, r1, lsl #8
-	ldr r0, _0802E268
+	ldr r0, _03006ECC
 	ldr r2, [r0]
 	umull r1, r0, r2, r1
 	mov r2, r5
-	bl sub_0802E4F4
+	bl sub_03007158
 	lsr r6, r1, #0x18
 	lsl r4, r1, #8
 	lsl r0, r0, #0x10
 	mov r1, r5
-	bl sub_0802E43C
+	bl sub_030070A0
 	orr r1, r4, r0, lsr #8
 	mov r2, r6
 	ldr r5, [sp]
-	ldr r0, _0802E278
+	ldr r0, _03006EDC
 	add r0, r0, r5, lsl #3
 	ldm r0, {r3, r4}
 	adds r1, r3, r1
@@ -474,210 +499,207 @@ _0802DE58:
 	.byte 0xFF, 0x14, 0xC1, 0xE3, 0x80, 0x03, 0x9F, 0xE5, 0x00, 0x20, 0x90, 0xE5, 0x92, 0x11, 0x80, 0xE0
 	.byte 0x80, 0x53, 0x9F, 0xE5, 0x00, 0x50, 0x95, 0xE5, 0x05, 0x00, 0x50, 0xE1, 0x06, 0x00, 0x00, 0xBA
 
-	.global sub_0802DEFC
-	.type sub_0802DEFC, %function
-sub_0802DEFC: @ 0802DEFC
+	.global sub_03006B60
+	.type sub_03006B60, %function
+sub_03006B60: @ 03006B60
 	push {r0, r1, lr}
-	ldr r0, _0802E27C
+	ldr r0, _03006EE0
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.incbin "baserom.gba", 0x2DF10, 0x4C
 
-	.global sub_0802DF5C
-	.type sub_0802DF5C, %function
-sub_0802DF5C: @ 0802DF5C
+	.global sub_03006BC0
+	.type sub_03006BC0, %function
+sub_03006BC0: @ 03006BC0
 	push {r0, r1, lr}
-	ldr r0, _0802E280
+	ldr r0, _03006EE4
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0xFF, 0xFF, 0xFF, 0xE7
-_0802DF78:
+_03006BDC:
 	ldrb r1, [fp], #1
-	ldr r4, _0802E284
+	ldr r4, _03006EE8
 	ldr r4, [r4]
-	ldr r3, _0802E240
+	ldr r3, _03006EA4
 	add r3, r3, r4
 	mla r5, r1, r4, r3
-	ldr r2, _0802E284
+	ldr r2, _03006EE8
 	ldr r2, [r2]
-	ldr r0, _0802E288
+	ldr r0, _03006EEC
 	ldrb r0, [r0, r1]
 	cmp r0, #0
-	bne _0802DFEC
-_0802DFA8:
+	bne _03006C50
+_03006C0C:
 	ldrb r0, [r5, -r2]
 	cmp r0, #0x10
-	beq _0802DFEC
+	beq _03006C50
 	subs r2, r2, #0x30
-	bgt _0802DFA8
-	ldr r2, _0802E284
+	bgt _03006C0C
+	ldr r2, _03006EE8
 	ldr r2, [r2]
-_0802DFC4:
+_03006C28:
 	ldrb r0, [r5, -r2]
 	cmp r0, #0x12
-	beq _0802DFEC
+	beq _03006C50
 	subs r2, r2, #0x30
-	bgt _0802DFC4
-	ldr r0, _0802E28C
+	bgt _03006C28
+	ldr r0, _03006EF0
 	bx r0
-	.global gUnk_0802DFE0
-gUnk_0802DFE0:
 	.byte 0x01, 0x40, 0xDB, 0xE4, 0x01, 0x00, 0xDB, 0xE4, 0x44, 0x00, 0x00, 0xEA
-_0802DFEC:
+_03006C50:
 	sub r5, r5, r2
 	ldrb r4, [fp], #1
 	mov sb, r4
 	mov r7, #4
-	ldr r6, _0802E290
+	ldr r6, _03006EF4
 	mla r2, r1, r7, r6
 	ldr r2, [r2]
 	stmdb sp!, {r2}
 	and r2, r2, #0xf000000
 	cmp r2, #0x8000000
-	beq _0802E044
+	beq _03006CA8
 	cmp r2, #0x2000000
-	beq _0802E044
+	beq _03006CA8
 
-	.global sub_0802E020
-	.type sub_0802E020, %function
-sub_0802E020: @ 0802E020
+	.global sub_03006C84
+	.type sub_03006C84, %function
+sub_03006C84: @ 03006C84
 	push {r0, r1, lr}
-	ldr r0, _0802E294
+	ldr r0, _03006EF8
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0x04, 0x00, 0xBD, 0xE8, 0x01, 0x30, 0xDB, 0xE4, 0x2E, 0x00, 0x00, 0xEA
-_0802E044:
+_03006CA8:
 	ldm sp!, {r2}
 	ldr r7, [r2]
 	cmp r7, #0x20
-	beq _0802E0EC
+	beq _03006D50
 	cmp r7, #0x21
-	beq _0802E0EC
+	beq _03006D50
 	cmp r7, #0x22
-	beq _0802E070
+	beq _03006CD4
 	cmp r7, #0x23
-	beq _0802E0B0
+	beq _03006D14
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E070:
+_03006CD4:
 	ldr r0, [r2, #0x1c]
 	ldrb r1, [r0, r4]
 	cmp r1, #0xff
-	bne _0802E0A0
+	bne _03006D04
 
-	.global sub_0802E080
-	.type sub_0802E080, %function
-sub_0802E080: @ 0802E080
+	.global sub_03006CE4
+	.type sub_03006CE4, %function
+sub_03006CE4: @ 03006CE4
 	push {r0, r1, lr}
-	ldr r0, _0802E298
+	ldr r0, _03006EFC
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0x01, 0x30, 0xDB, 0xE4, 0x17, 0x00, 0x00, 0xEA
-_0802E0A0:
+_03006D04:
 	ldr r0, [r2, #0x20]
 	ldr r2, [r0, r1, lsl #2]
 	ldr sb, [r2, #0xc]
-	b _0802E0EC
-_0802E0B0:
+	b _03006D50
+_03006D14:
 	ldr r0, [r2, #0x1c]
 	ldrb r1, [r0, r4]
 	cmp r1, #0xff
-	bne _0802E0E0
+	bne _03006D44
 
-	.global sub_0802E0C0
-	.type sub_0802E0C0, %function
-sub_0802E0C0: @ 0802E0C0
+	.global sub_03006D24
+	.type sub_03006D24, %function
+sub_03006D24: @ 03006D24
 	push {r0, r1, lr}
-	ldr r0, _0802E298
+	ldr r0, _03006EFC
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0x01, 0x30, 0xDB, 0xE4, 0x07, 0x00, 0x00, 0xEA
-_0802E0E0:
+_03006D44:
 	ldr r0, [r2, #0x20]
 	ldr r2, [r0, r1, lsl #2]
-	b _0802E0EC
-_0802E0EC:
+	b _03006D50
+_03006D50:
 	ldr r7, [r2, #4]
 	ldrb r3, [fp], #1
 	add r3, r3, #1
 	mov r1, #0x10000
-	bl sub_0802D834
+	bl sub_03006498
 	add pc, pc, #0x50
-_0802E104:
+
+	.global sub_03006D68
+	.type sub_03006D68, %function
+sub_03006D68: @ 03006D68
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	mov r0, #0
 	str r0, [sp, #8]
 	mvn r0, #0
 	str r0, [sp]
-	b _0802E1B8
-_0802E120:
+	b _03006E1C
+_03006D84:
 	str r0, [sp]
-	ldr r4, _0802E278
+	ldr r4, _03006EDC
 	add r4, r4, r0, lsl #3
-	ldr r1, _0802E270
+	ldr r1, _03006ED4
 	ldm r4, {r2, r3}
 	ldr r5, [r1]
 	subs r2, r2, r5
 	sbcs r3, r3, #0
 	stm r4, {r2, r3}
-	bpl _0802E1B8
-	ldr fp, _0802E29C
+	bpl _03006E1C
+	ldr fp, _03006F00
 	ldr r0, [sp]
 	ldr fp, [fp, r0, lsl #2]
-_0802E154:
+_03006DB8:
 	add ip, pc, #0x98
-_0802E158:
+_03006DBC:
 	ldrb r0, [fp], #1
 	cmp r0, #0xd
-	blt _0802E180
-
-	.global sub_0802E164
-	.type sub_0802E164, %function
-sub_0802E164: @ 0802E164
+	blt _03006DE4
 	push {r0, r1, lr}
-	ldr r0, _0802E2A0
+	ldr r0, _03006F04
 	add lr, pc, #4
-	ldr r1, _0802E260
+	ldr r1, _03006EC4
 	bx r1
 	.byte 0x03, 0x40, 0xBD, 0xE8, 0xFF, 0xFF, 0xFF, 0xE7
-_0802E180:
+_03006DE4:
 	ldr r0, [ip, r0, lsl #2]
 	add pc, r0, ip
 	.byte 0xFF, 0xFF, 0xFF, 0xE7
-_0802E18C:
+_03006DF0:
 	ldr r0, [sp]
-	ldr r1, _0802E2A4
+	ldr r1, _03006F08
 	ldr r1, [r1, r0, lsl #3]
 	cmp r1, #0
-	bmi _0802E1A4
-	b _0802E1A8
-_0802E1A4:
-	b _0802E154
-_0802E1A8:
+	bmi _03006E08
+	b _03006E0C
+_03006E08:
+	b _03006DB8
+_03006E0C:
 	mov r0, r0
-_0802E1AC:
+_03006E10:
 	ldr r0, [sp]
-	ldr r2, _0802E29C
+	ldr r2, _03006F00
 	str fp, [r2, r0, lsl #2]
-_0802E1B8:
-	ldr r1, _0802E2A8
+_03006E1C:
+	ldr r1, _03006F0C
 	ldr r1, [r1]
 	ldr r0, [sp]
 	adds r0, r0, #1
 	cmp r0, r1
-	bne _0802E120
+	bne _03006D84
 	ldr r0, [sp, #8]
 	cmp r0, r1
-	bne _0802E1E8
-	ldr r0, _0802E2AC
+	bne _03006E4C
+	ldr r0, _03006F10
 	mvn r1, #0
 	str r1, [r0]
-_0802E1E8:
+_03006E4C:
 	add sp, sp, #0xc
 	ldm sp!, {lr}
 	bx lr
@@ -685,185 +707,185 @@ _0802E1E8:
 	.byte 0x68, 0xFD, 0xFF, 0xFF, 0x84, 0xFD, 0xFF, 0xFF, 0xBC, 0x00, 0x00, 0x00, 0x18, 0x01, 0x00, 0x00
 	.byte 0xBC, 0x01, 0x00, 0x00, 0x08, 0x02, 0x00, 0x00, 0x10, 0x02, 0x00, 0x00, 0x2C, 0x02, 0x00, 0x00
 	.byte 0x40, 0x02, 0x00, 0x00
-_0802E228:
+_03006E8C:
 	.4byte 0x03005F8C
-_0802E22C:
+_03006E90:
 	.4byte 0x0202EFF8
-_0802E230:
+_03006E94:
 	.4byte gUnk_080537C8
-_0802E234:
+_03006E98:
 	.4byte 0x0300632C
-_0802E238:
+_03006E9C:
 	.4byte 0x0202F018
-_0802E23C:
+_03006EA0:
 	.4byte gUnk_080537C0
-_0802E240:
+_03006EA4:
 	.4byte 0x02003020
-_0802E244:
+_03006EA8:
 	.4byte sub_0802F2B0
-_0802E248:
+_03006EAC:
 	.4byte 0x03005A74
-_0802E24C:
+_03006EB0:
 	.4byte gUnk_080537B0
-_0802E250:
+_03006EB4:
 	.4byte gUnk_080537B8
-_0802E254:
+_03006EB8:
 	.4byte 0x0202F008
-_0802E258:
+_03006EBC:
 	.4byte 0x007FFFFF
-_0802E25C:
+_03006EC0:
 	.4byte gUnk_0802FB98
-_0802E260:
+_03006EC4:
 	.4byte sub_0802F27C
-_0802E264:
+_03006EC8:
 	.4byte gUnk_0802F6A4
-_0802E268:
+_03006ECC:
 	.4byte 0x03005B08
-_0802E26C:
+_03006ED0:
 	.4byte 0x03938700
-_0802E270:
+_03006ED4:
 	.4byte 0x03005B00
-_0802E274:
+_03006ED8:
 	.4byte 0x03005B04
-_0802E278:
+_03006EDC:
 	.4byte 0x03005A80
-_0802E27C:
+_03006EE0:
 	.4byte gUnk_0802FBE9
-_0802E280:
+_03006EE4:
 	.4byte gUnk_0802FC0F
-_0802E284:
+_03006EE8:
 	.4byte gUnk_080537C4
-_0802E288:
+_03006EEC:
 	.4byte 0x0300631C
-_0802E28C:
+_03006EF0:
 	.4byte sub_0802F380
-_0802E290:
+_03006EF4:
 	.4byte 0x03006414
-_0802E294:
+_03006EF8:
 	.4byte gUnk_08030506
-_0802E298:
+_03006EFC:
 	.4byte gUnk_0803057E
-_0802E29C:
+_03006F00:
 	.4byte 0x03006458
-_0802E2A0:
+_03006F04:
 	.4byte gUnk_0802FBBF
-_0802E2A4:
+_03006F08:
 	.4byte 0x03005A84
-_0802E2A8:
+_03006F0C:
 	.4byte 0x0300640C
-_0802E2AC:
+_03006F10:
 	.4byte 0x03005A78
-_0802E2B0:
+_03006F14:
 	ldrb r1, [fp], #1
 	ldrb r6, [fp], #1
 	ldrb r7, [fp], #1
-	ldr r4, _0802E6B8
+	ldr r4, _0300731C
 	ldr r4, [r4]
-	ldr r3, _0802E6BC
+	ldr r3, _03007320
 	add r3, r3, r4
 	mla r5, r1, r4, r3
-	ldr r2, _0802E6B8
+	ldr r2, _0300731C
 	ldr r2, [r2]
-_0802E2D8:
+_03006F3C:
 	ldrb r0, [r5, -r2]
 	cmp r0, #0x11
-	bleq sub_0802E2F0
+	bleq sub_03006F54
 	subs r2, r2, #0x30
-	bgt _0802E2D8
-	b _0802E308
+	bgt _03006F3C
+	b _03006F6C
 
-	.global sub_0802E2F0
-	.type sub_0802E2F0, %function
-sub_0802E2F0: @ 0802E2F0
+	.global sub_03006F54
+	.type sub_03006F54, %function
+sub_03006F54: @ 03006F54
 	sub r0, r5, r2
 	ldrb r1, [r0, #2]
 	cmp r1, r6
 	bxne lr
 	mov r1, #0x12
 	strb r1, [r0]
-_0802E308:
+_03006F6C:
 	sub pc, pc, #0x1b8
-_0802E30C:
+_03006F70:
 	ldrb r1, [fp], #1
 	ldrb r2, [fp], #1
 	ldrb r3, [fp], #1
 	cmp r2, #1
-	beq _0802E34C
+	beq _03006FB0
 	cmp r2, #7
-	beq _0802E360
+	beq _03006FC4
 	cmp r2, #0x66
-	beq _0802E36C
+	beq _03006FD0
 	cmp r2, #0x67
-	beq _0802E37C
+	beq _03006FE0
 	cmp r2, #0x7e
-	beq _0802E38C
+	beq _03006FF0
 	cmp r2, #0x7f
-	beq _0802E39C
-	b _0802E3AC
-_0802E34C:
-	ldr r5, _0802E6C0
+	beq _03007000
+	b _03007010
+_03006FB0:
+	ldr r5, _03007324
 	mov r2, #8
 	mla r5, r1, r2, r5
 	str r3, [r5]
-	b _0802E3AC
-_0802E360:
-	ldr r5, _0802E6C4
+	b _03007010
+_03006FC4:
+	ldr r5, _03007328
 	strb r3, [r5, r1]
-	b _0802E3AC
-_0802E36C:
+	b _03007010
+_03006FD0:
 	ldr r4, [sp]
-	ldr r5, _0802E6C8
+	ldr r5, _0300732C
 	str fp, [r5, r4, lsl #2]
-	b _0802E3AC
-_0802E37C:
+	b _03007010
+_03006FE0:
 	ldr r4, [sp]
-	ldr r5, _0802E6C8
+	ldr r5, _0300732C
 	ldr fp, [r5, r4, lsl #2]
-	b _0802E3AC
-_0802E38C:
-	ldr r5, _0802E6CC
+	b _03007010
+_03006FF0:
+	ldr r5, _03007330
 	mov r3, #1
 	strb r3, [r5, r1]
-	b _0802E3AC
-_0802E39C:
-	ldr r5, _0802E6CC
+	b _03007010
+_03007000:
+	ldr r5, _03007330
 	mov r3, #0
 	strb r3, [r5, r1]
-	b _0802E3AC
-_0802E3AC:
+	b _03007010
+_03007010:
 	sub pc, pc, #0x25c
-_0802E3B0:
+_03007014:
 	ldrb r1, [fp], #1
 	ldrb r3, [fp], #1
 	cmp r1, #0x10
-	blt _0802E3C4
+	blt _03007028
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E3C4:
-	ldr r2, _0802E6D0
+_03007028:
+	ldr r2, _03007334
 	ldr r2, [r2]
 	ldrb r2, [r2, r3]
 	cmp r2, #0xff
-	bne _0802E3DC
+	bne _03007040
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E3DC:
-	ldr r3, _0802E6D4
+_03007040:
+	ldr r3, _03007338
 	ldr r3, [r3]
 	ldr r4, [r3, r2, lsl #2]
-	ldr r8, _0802E6D8
+	ldr r8, _0300733C
 	mov r2, #4
 	mla r8, r2, r1, r8
 	str r4, [r8]
 	sub pc, pc, #0x2a8
 	.byte 0x02, 0xB0, 0x8B, 0xE2, 0x2B, 0xFE, 0x4F, 0xE2
-_0802E404:
+_03007068:
 	ldrb r3, [fp], #1
 	ldrb r0, [fp], #1
 	ldrb r1, [fp], #1
 	orr r1, r0, r1, lsl #8
-	ldr r2, _0802E6DC
+	ldr r2, _03007340
 	str r1, [r2, r3, lsl #2]
 	sub pc, pc, #0x2cc
-_0802E420:
+_03007084:
 	sub fp, fp, #1
 	ldr r0, [sp, #8]
 	add r0, r0, #1
@@ -871,21 +893,21 @@ _0802E420:
 	sub pc, pc, #0x28c
 	.byte 0xFF, 0xFF, 0xFF, 0xE7, 0xBA, 0xFF, 0x4F, 0xE2
 
-	.global sub_0802E43C
-	.type sub_0802E43C, %function
-sub_0802E43C: @ 0802E43C
+	.global sub_030070A0
+	.type sub_030070A0, %function
+sub_030070A0: @ 030070A0
 	stmdb sp!, {r1}
 	lsl r1, r1, #0x10
 	cmp r1, r0
-	bgt _0802E450
+	bgt _030070B4
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E450:
+_030070B4:
 	ldm sp!, {r1}
 	rsb r1, r1, #0
 	lsls r1, r1, #0xf
-	bne _0802E464
+	bne _030070C8
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E464:
+_030070C8:
 	adds r0, r1, r0
 	rsblo r0, r1, r0
 	adcs r0, r1, r0, lsl #1
@@ -923,24 +945,24 @@ _0802E464:
 	bic r0, r0, r1, lsl #16
 	bx lr
 
-	.global sub_0802E4F4
-	.type sub_0802E4F4, %function
-sub_0802E4F4: @ 0802E4F4
+	.global sub_03007158
+	.type sub_03007158, %function
+sub_03007158: @ 03007158
 	cmp r0, r2
-	blt _0802E500
+	blt _03007164
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E500:
+_03007164:
 	movs r3, r2
-	bne _0802E50C
+	bne _03007170
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E50C:
+_03007170:
 	rsbpl r2, r2, #0
 	lsr r3, r3, #1
 	eors r3, r3, r0, asr #1
-	bpl _0802E524
+	bpl _03007188
 	rsbs r1, r1, #0
 	rsc r0, r0, #0
-_0802E524:
+_03007188:
 	adds r1, r1, r1
 	adcs r0, r2, r0, lsl #1
 	rsblo r0, r2, r0
@@ -1042,48 +1064,48 @@ _0802E524:
 	rsbmi r1, r1, #0
 	rsbhs r0, r0, #0
 	bx lr
-_0802E6B8:
+_0300731C:
 	.4byte gUnk_080537C4
-_0802E6BC:
+_03007320:
 	.4byte 0x02003020
-_0802E6C0:
+_03007324:
 	.4byte 0x0300628C
-_0802E6C4:
+_03007328:
 	.4byte 0x0300630C
-_0802E6C8:
+_0300732C:
 	.4byte 0x03007884
-_0802E6CC:
+_03007330:
 	.4byte 0x0300631C
-_0802E6D0:
+_03007334:
 	.4byte 0x03006410
-_0802E6D4:
+_03007338:
 	.4byte 0x03006454
-_0802E6D8:
+_0300733C:
 	.4byte 0x03006414
-_0802E6DC:
+_03007340:
 	.4byte 0x0300624C
 
-	.global sub_0802E6E0
-	.type sub_0802E6E0, %function
-sub_0802E6E0: @ 0802E6E0
+	.global sub_03007344
+	.type sub_03007344, %function
+sub_03007344: @ 03007344
 	str lr, [sp, #0x1c]
 	str r0, [sp, #0x20]
-	bl sub_0802E8CC
+	bl sub_03007530
 	str r7, [r0, #8]
 	ldrsb r6, [r0, #6]
 	cmp r6, #0
-	.4byte 0xE59F1394 @ ldr r1, [pc, #0x394]
-	bmi _0802E704
-	.4byte 0xE59F1390 @ ldr r1, [pc, #0x390]
-_0802E704:
+	ldr r1, _030076F8
+	bmi _03007368
+	ldr r1, _030076FC
+_03007368:
 	ldr r4, [r1]
-	bmi _0802E720
-	.4byte 0xE59F3388 @ ldr r3, [pc, #0x388]
+	bmi _03007384
+	ldr r3, _03007700
 	ldrb r3, [r3, r6]
 	add r3, r3, #1
 	mul r4, r3, r4
 	lsr r4, r4, #7
-_0802E720:
+_03007384:
 	ldrb r3, [r0, #3]
 	mul r4, r3, r4
 	lsr r4, r4, #7
@@ -1096,20 +1118,20 @@ _0802E720:
 	add r7, r7, sl, lsl #16
 	mov r6, #0
 	mov r3, #0
-	.4byte 0xE59F9348 @ ldr sb, [pc, #0x348]
+	ldr sb, _03007704
 	ldr sb, [sb]
 	add sb, r5, sb, lsl #1
 	ldr r6, [r0, #0x10]
 	ldr sl, [r0, #0x20]
 	ldr sl, [sl, #0x18]
 	ldr r0, [r0, #0xc]
-	.4byte 0xE59FB330 @ ldr fp, [pc, #0x330]
-	.4byte 0xE59F3330 @ ldr r3, [pc, #0x330]
+	ldr fp, _03007708
+	ldr r3, _0300770C
 	ldr r3, [r3]
 	ldr r8, [sp, #0x10]
 	cmp r3, r8
-	bne _0802E7C4
-_0802E784:
+	bne _03007428
+_030073E8:
 	ldrsb r1, [r0]
 	ldrsb r2, [r0, #1]
 	sub r2, r2, r1
@@ -1122,11 +1144,11 @@ _0802E784:
 	add r0, r0, r6, lsr #23
 	and r6, r6, fp
 	cmp r0, sl
-	blge sub_0802E840
+	blge sub_030074A4
 	cmp r5, sb
-	bne _0802E784
-	b _0802E8B4
-_0802E7C4:
+	bne _030073E8
+	b _03007518
+_03007428:
 	ldrsb r1, [r0]
 	ldrsb r2, [r0, #1]
 	sub r2, r2, r1
@@ -1140,7 +1162,7 @@ _0802E7C4:
 	add r0, r0, r6, lsr #23
 	and r6, r6, fp
 	cmp r0, sl
-	blge sub_0802E840
+	blge sub_030074A4
 	ldrsb r1, [r0]
 	ldrsb r2, [r0, #1]
 	sub r2, r2, r1
@@ -1154,84 +1176,84 @@ _0802E7C4:
 	add r0, r0, r6, lsr #23
 	and r6, r6, fp
 	cmp r0, sl
-	blge sub_0802E840
+	blge sub_030074A4
 	cmp r5, sb
-	bne _0802E7C4
-	b _0802E8B4
+	bne _03007428
+	b _03007518
 
-	.global sub_0802E840
-	.type sub_0802E840, %function
-sub_0802E840: @ 0802E840
+	.global sub_030074A4
+	.type sub_030074A4, %function
+sub_030074A4: @ 030074A4
 	ldr r8, [sp, #0x20]
 	ldrb r3, [r8, #1]
 	cmp r3, #1
-	beq _0802E86C
+	beq _030074D0
 	cmp r3, #2
-	beq _0802E8A4
+	beq _03007508
 	cmp r3, #3
-	beq _0802E898
+	beq _030074FC
 	cmp r3, #4
-	beq _0802E8A4
+	beq _03007508
 	.4byte 0xE7FFFFFF @ debug trap
-_0802E86C:
+_030074D0:
 	ldr r3, [r8, #0x20]
 	lsr r3, r3, #0x18
 	cmp r3, #2
-	bne _0802E88C
-	.4byte 0xE59F3228 @ ldr r3, [pc, #0x228]
+	bne _030074F0
+	ldr r3, _03007710
 	cmp r8, r3
-	blt _0802E88C
-	b _0802E898
-_0802E88C:
+	blt _030074F0
+	b _030074FC
+_030074F0:
 	mov r3, #0x10
 	strb r3, [r8]
-	b _0802E8C4
-_0802E898:
+	b _03007528
+_030074FC:
 	mov r3, #0x10
 	strb r3, [r8]
-	b _0802E8C4
-_0802E8A4:
+	b _03007528
+_03007508:
 	ldr r3, [r8, #0x20]
 	ldr r3, [r3, #0x14]
 	sub r0, r0, r3
 	bx lr
-_0802E8B4:
+_03007518:
 	mov r1, r0
 	ldr r0, [sp, #0x20]
 	str r1, [r0, #0x28]
 	str r6, [r0, #0x2c]
-_0802E8C4:
+_03007528:
 	ldr lr, [sp, #0x1c]
 	bx lr
 
-	.global sub_0802E8CC
-	.type sub_0802E8CC, %function
-sub_0802E8CC: @ 0802E8CC
+	.global sub_03007530
+	.type sub_03007530, %function
+sub_03007530: @ 03007530
 	ldr r4, [r0, #0x20]
 	ldr r3, [r4, #0x34]
-	.4byte 0xE59F71D4 @ ldr r7, [pc, #0x1d4]
+	ldr r7, _03007714
 	smull r1, r2, r7, r3
 	push {r1, r2}
 	ldrsb r8, [r0, #6]
 	cmp r8, #0
-	bmi _0802E8F0
-	b _0802E904
-_0802E8F0:
+	bmi _03007554
+	b _03007568
+_03007554:
 	mov r1, #0
 	mov r2, #0
 	push {r1, r2}
 	push {r1, r2}
-	b _0802E9D0
-_0802E904:
+	b _03007634
+_03007568:
 	mov r7, #4
-	.4byte 0xE59F61A4 @ ldr r6, [pc, #0x1a4]
+	ldr r6, _03007718
 	mla r2, r8, r7, r6
 	ldr r2, [r2]
 	ldr r3, [r2, #0x38]
 	mov r7, #0x80000
 	mul r3, r7, r3
 	ldrsb r7, [r0, #6]
-	.4byte 0xE59F818C @ ldr r8, [pc, #0x18c]
+	ldr r8, _0300771C
 	mov r1, #4
 	mla r8, r7, r1, r8
 	ldr r7, [r8]
@@ -1240,23 +1262,23 @@ _0802E904:
 	push {r1, r2}
 	ldrsb r8, [r0, #6]
 	mov r7, #4
-	.4byte 0xE59F6164 @ ldr r6, [pc, #0x164]
+	ldr r6, _03007718
 	mla r2, r8, r7, r6
 	ldr r2, [r2]
 	ldr r2, [r2, #0x40]
 	ldrsb r8, [r0, #6]
 	mov r7, #8
-	.4byte 0xE59F9154 @ ldr sb, [pc, #0x154]
+	ldr sb, _03007720
 	mla r8, r7, r8, sb
 	mov r1, #0
 	mov r2, #0
 	ldr sb, [r8]
 	cmp sb, #0
-	beq _0802E9CC
+	beq _03007630
 	ldr r7, [r8, #4]
 	lsr r1, r7, #0x10
 	sub r7, r7, r1, lsl #16
-	.4byte 0xE59F6130 @ ldr r6, [pc, #0x130]
+	ldr r6, _03007724
 	add r6, r6, r1, lsl #2
 	ldm r6, {r1, r2}
 	sub r2, r2, r1
@@ -1268,14 +1290,14 @@ _0802E904:
 	mul sb, r1, sb
 	ldrsb r8, [r0, #6]
 	mov r7, #4
-	.4byte 0xE59F60F4 @ ldr r6, [pc, #0xf4]
+	ldr r6, _03007718
 	mla r2, r8, r7, r6
 	ldr r2, [r2]
 	ldr r2, [r2, #0x40]
 	smull r1, r2, sb, r2
-_0802E9CC:
+_03007630:
 	push {r1, r2}
-_0802E9D0:
+_03007634:
 	pop {r1, r2, r3, r7, r8, sb}
 	adds r1, r1, r3
 	adc r2, r2, r7
@@ -1285,9 +1307,85 @@ _0802E9D0:
 	ldrb sb, [r0, #5]
 	sub r3, sb, r3
 	add r3, r3, r2
-	.4byte 0xE59F60C8 @ ldr r6, [pc, #0xc8]
+	ldr r6, _03007728
 	push {r1, r2}
 	add r1, r6, r3, lsl #2
-	.4byte 0xE59F20C0 @ ldr r2, [pc, #0xc0]
+	ldr r2, _0300772C
 	cmp r1, r2
-	bge _0802EA2C
+	bge _03007690
+	push {r0, r1, lr}
+	ldr r0, _03007730
+	add lr, pc, #4
+	ldr r1, _03007734
+	bx r1
+	.byte 0x03, 0x40, 0xBD, 0xE8, 0x3F, 0x30, 0xE0, 0xE3, 0x09, 0x00, 0x00, 0xEA
+_03007690:
+	ldr r2, _03007738
+	cmp r1, r2
+	blt _030076B8
+	push {r0, r1, lr}
+	ldr r0, _0300773C
+	add lr, pc, #4
+	ldr r1, _03007734
+	bx r1
+
+	.global sub_030076B0
+	.type sub_030076B0, %function
+sub_030076B0: @ 030076B0
+	pop {r0, r1, lr}
+	mov r3, #0x3e
+_030076B8:
+	pop {r1, r2}
+	add r2, r6, r3, lsl #2
+	ldm r2, {r3, r7}
+	sub r2, r7, r3
+	umull sb, sl, r1, r2
+	add r7, r3, sl
+	ldr r1, _03007740
+	ldr r1, [r1]
+	ldr r2, [r4, #8]
+	umull r8, sb, r1, r2
+	lsr r8, r8, #0xe
+	add r8, r8, sb, lsl #18
+	umull sl, r4, r7, r8
+	lsr sl, sl, #0x18
+	orr r7, sl, r4, lsl #8
+	bx lr
+_030076F8:
+	.4byte 0x030078C8
+_030076FC:
+	.4byte 0x030078C4
+_03007700:
+	.4byte 0x0300630C
+_03007704:
+	.4byte 0x0202F008
+_03007708:
+	.4byte 0x007FFFFF
+_0300770C:
+	.4byte 0x0202EFF8
+_03007710:
+	.4byte 0x0300632C
+_03007714:
+	.4byte 0x028F5C29
+_03007718:
+	.4byte 0x03006414
+_0300771C:
+	.4byte 0x0300624C
+_03007720:
+	.4byte 0x0300628C
+_03007724:
+	.4byte gUnk_0802F708
+_03007728:
+	.4byte gUnk_0802F5A4
+_0300772C:
+	.4byte gUnk_0802F4A4
+_03007730:
+	.4byte gUnk_0802FB4B
+_03007734:
+	.4byte sub_0802F27C
+_03007738:
+	.4byte gUnk_0802F6A0
+_0300773C:
+	.4byte gUnk_0802FB71
+_03007740:
+	.4byte 0x0202F004

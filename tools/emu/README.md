@@ -63,3 +63,7 @@ records the code it executes, e.g.
 `DKP_COVER=build/emu/cover_race.bin python3 tools/emu/repro_zinger_buzz.py`.
 `tools/unused.py --cover` uses this file. Recording does not change the
 emulation: the repro gives the same result with and without it.
+`cover_hints.py build/db.json <cover files>` turns coverage into `code`
+hints for `config/dkp.cfg`: code that ran but that the analyzer did not
+decode. Add its output, run `tools/regen.sh`, and repeat until it prints
+nothing.

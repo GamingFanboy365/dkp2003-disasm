@@ -59,10 +59,11 @@
 0x02C45C asm/weaponboss.s
 0x02CA98 asm/act_bossweapon.s
 0x02D338 asm/act_life_meter.s
-0x02D880 asm/audio_arm.s
-0x02EA0C asm/audio.s
+0x02D834 asm/audio_arm.s
+0x02EAE0 asm/audio.s
 0x02F4A4 data/audio_rodata.s
 0x03222C asm/libagbprint.s
 0x0325DC asm/libc.s
 0x0385FC asm/iwram.s
-0x03C5C4 asm/arm_rom.s
+0x03C5C4 asm/ovl_a.s
+0x03DC1C asm/ovl_b.s

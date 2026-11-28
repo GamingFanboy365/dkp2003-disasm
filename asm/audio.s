@@ -1,88 +1,10 @@
-@ asm/audio.s: ROM 0x02EA0C-0x02F4A4 (rom, VMA 0x0802EA0C)
+@ asm/audio.s: ROM 0x02EAE0-0x02F4A4 (rom, VMA 0x0802EAE0)
 
 	.include "asm/macros.inc"
 
 	.section .text, "ax", %progbits
 	.balign 4
 
-	.arm
-	push {r0, r1, lr}
-	ldr r0, _0802EACC
-	add lr, pc, #4
-	ldr r1, _0802EAD0
-	bx r1
-	.byte 0x03, 0x40, 0xBD, 0xE8, 0x3F, 0x30, 0xE0, 0xE3, 0x09, 0x00, 0x00, 0xEA
-	.global _0802EA2C
-_0802EA2C:
-	ldr r2, _0802EAD4
-	cmp r1, r2
-	blt _0802EA54
-	push {r0, r1, lr}
-	ldr r0, _0802EAD8
-	add lr, pc, #4
-	ldr r1, _0802EAD0
-	bx r1
-
-	.global sub_0802EA4C
-	.type sub_0802EA4C, %function
-sub_0802EA4C: @ 0802EA4C
-	pop {r0, r1, lr}
-	mov r3, #0x3e
-_0802EA54:
-	pop {r1, r2}
-	add r2, r6, r3, lsl #2
-	ldm r2, {r3, r7}
-	sub r2, r7, r3
-	umull sb, sl, r1, r2
-	add r7, r3, sl
-	ldr r1, _0802EADC
-	ldr r1, [r1]
-	ldr r2, [r4, #8]
-	umull r8, sb, r1, r2
-	lsr r8, r8, #0xe
-	add r8, r8, sb, lsl #18
-	umull sl, r4, r7, r8
-	lsr sl, sl, #0x18
-	orr r7, sl, r4, lsl #8
-	bx lr
-_0802EA94:
-	.4byte 0x030078C8
-_0802EA98:
-	.4byte 0x030078C4
-_0802EA9C:
-	.4byte 0x0300630C
-_0802EAA0:
-	.4byte 0x0202F008
-_0802EAA4:
-	.4byte 0x007FFFFF
-_0802EAA8:
-	.4byte 0x0202EFF8
-_0802EAAC:
-	.4byte 0x0300632C
-_0802EAB0:
-	.4byte 0x028F5C29
-_0802EAB4:
-	.4byte 0x03006414
-_0802EAB8:
-	.4byte 0x0300624C
-_0802EABC:
-	.4byte 0x0300628C
-_0802EAC0:
-	.4byte gUnk_0802F708
-_0802EAC4:
-	.4byte gUnk_0802F5A4
-_0802EAC8:
-	.4byte gUnk_0802F4A4
-_0802EACC:
-	.4byte gUnk_0802FB4B
-_0802EAD0:
-	.4byte sub_0802F27C
-_0802EAD4:
-	.4byte gUnk_0802F6A0
-_0802EAD8:
-	.4byte gUnk_0802FB71
-_0802EADC:
-	.4byte 0x0202F004
 	.thumb
 
 	.global music_play
@@ -570,9 +492,9 @@ _0802EE18:
 _0802EE1C:
 	.4byte 0x04000089
 _0802EE20:
-	.4byte sub_0802D834
+	.4byte __audio_lma
 _0802EE24:
-	.4byte 0x03006498
+	.4byte sub_03006498
 _0802EE28:
 	.4byte gUnk_0802D830
 _0802EE2C:
@@ -620,17 +542,17 @@ _0802EE7C:
 _0802EE80:
 	.4byte 0x0202F018
 _0802EE84:
-	.4byte 0x03006D68
+	.4byte sub_03006D68
 _0802EE88:
-	.4byte 0x030067CC
+	.4byte sub_030067CC
 _0802EE8C:
-	.4byte 0x030067B4
+	.4byte sub_030067B4
 _0802EE90:
-	.4byte 0x030064E4
+	.4byte sub_030064E4
 _0802EE94:
-	.4byte 0x03006654
+	.4byte sub_03006654
 _0802EE98:
-	.4byte 0x0300663C
+	.4byte sub_0300663C
 _0802EE9C:
 	.4byte sub_0802EDA0
 
@@ -1066,7 +988,7 @@ _0802F144:
 _0802F148:
 	.4byte 0x0202F00C
 _0802F14C:
-	.4byte 0x03006498
+	.4byte sub_03006498
 _0802F150:
 	.4byte 0x03006350
 _0802F154:
@@ -1079,7 +1001,7 @@ _0802F160:
 	.4byte 0x030078C8
 	.byte 0x08, 0x5B, 0x00, 0x03
 _0802F168:
-	.4byte 0x03006A20
+	.4byte sub_03006A20
 _0802F16C:
 	.4byte 0x0202F018
 _0802F170:
@@ -1579,4 +1501,4 @@ _0802F498:
 _0802F49C:
 	.4byte sub_0802F39C
 _0802F4A0:
-	.4byte gUnk_0802DFE0
+	.4byte 0x0802DFE0

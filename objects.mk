@@ -65,7 +65,8 @@ OBJS := \
 	build/asm/libagbprint.o \
 	build/asm/libc.o \
 	build/asm/iwram.o \
-	build/asm/arm_rom.o \
+	build/asm/ovl_a.o \
+	build/asm/ovl_b.o \
 	build/data/data_0803EA90.o \
 	build/data/data_08102B00.o \
 	build/data/data_08200000.o \
