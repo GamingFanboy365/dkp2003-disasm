@@ -46,19 +46,20 @@ offsets, sizes and types.
 | Checkpoints (42) | `levels/NN/checkpoints*.s` | the lines that count laps, one `checkpoint x, z, next, prev, nx, nz, d` each |
 | Hit polygons (21) | `levels/NN/hits.txt` | the ground's polygons as text: the play area, then `poly <drag> <kind>` and the vertices; the build computes boxes, grid masks and edge deltas |
 | Track edges (84) | `levels/NN/edges_*.s` | the inside and outside walls of each track, one `track_edge` per segment |
+| Flyby camera paths (42) | `levels/NN/flyby*.s` | the course flyby's camera, one `flyby_point x, y, z, pitch, yaw, speed` per point |
 | Camera and autopilot points (84) | `levels/NN/camera*.s`, `autopilot*.s` | one `path_point x, y, z, next, a, b` per point |
-| Tables (6) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
+| Tables (4) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
 | Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
 | Audio samples (343) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–48000 Hz) |
 | Animation scripts (1) | `graphics/sprites/anims.s` | every sprite animation, written with `anim_*` macros (frames, delay, goto, stop); three of them are unused |
 | Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
-| Other (116) | `*.bin` | level data blocks, named by the code that reads them (camera operations, …; see [`docs/levels.md`](docs/levels.md)); their formats are mostly not decoded yet |
+| Other (76) | `*.bin` | level data blocks whose use is not known yet (`data_14`, `data_1c`…`data_24`) and the track records' icon positions (see [`docs/levels.md`](docs/levels.md)) |
 
 Layout:
 ```
 assets/levels/NN/            33 levels: palette.pal, bg_a/bg_c/bg_d.png (tilesets),
-                             objects.s, ai_path.s, checkpoints.s, hits.txt, edges_*.s, camera*.s,
+                             objects.s, ai_path.s, checkpoints.s, hits.txt, edges_*.s, flyby*.s, camera*.s,
                              autopilot*.s, ... (docs/levels.md: which code reads each),
                              data_XX.bin for fields whose use is not known yet
 assets/levels/tracks/        48 track records: sky gradients, palettes, map/theme sprites (PNG)

@@ -21,7 +21,7 @@ inside and outside, then the same for Reverse. `make extract` names the files
 | `+0x40` | `hits` (`.txt`) | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined"), `hits_floor_type` | the ground's polygons, with a drag value (below) |
 | `+0x44` / `+0x48` | `edges_in`, `edges_out` (`.s`) | `playerInit`, `player_track_edges` | the inside and outside walls of the track (below) |
 | `+0x4C` / `+0x50` | `edges_in_rev`, `edges_out_rev` (`.s`) | the same in Reverse | |
-| `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |
+| `+0x54` / `+0x58` | `flyby`, `flyby_rev` (`.s`) | `camera_op_set` → `cam_path_load` | the course flyby's camera path (below) |
 | `+0x5C` / `+0x60` | `checkpoints`, `checkpoints_rev` (`.s`) | `init_race_monitor`, `race_check_checkpoint` | the checkpoint lines that count laps (below) |
 | `+0x64` / `+0x68` | `camera`, `camera_rev` (`.s`) | `init_camera` | the race camera's points (below) |
 | `+0x6C` / `+0x70` | `autopilot`, `autopilot_rev` (`.s`) | `player_touch_booster_autopilot`, `plane_autopilot` | the path the autopilot booster flies (below) |
@@ -127,6 +127,23 @@ edge[count]   13 words:
   s32 dx, dz            its direction, 16.16
   u16 next, prev        neighbouring edges (the list is a loop)
 ```
+
+## Flyby camera path (`flyby`, `flyby_rev`)
+
+The camera path of the course flyby before a race (and the debug menu's
+Flyby). `camera_op_set(1)` passes it to `cam_path_load` (`+0x58` in Reverse
+and in the flyby editor's mode 4), and `cam_path_eval` flies the camera
+along it as a cubic spline. `make extract` writes it with the `flyby_point`
+macro (`tools/flyby.py`); all 42 lists are exact.
+
+```
+s16 count
+point[count]   s16 x, y, z; s16 pitch, yaw; s16 speed (128)     (12 bytes)
+s16 0          padding
+```
+
+Checked in mGBA: with every point of Steamy Swoop's path raised by 150, the
+flyby before the race looks down on the course from higher up.
 
 ## Camera and autopilot points (`camera*`, `autopilot*`)
 

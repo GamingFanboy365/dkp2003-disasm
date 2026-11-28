@@ -351,7 +351,7 @@ class Gen:
     # -- extracted assets -----------------------------------------------------
     ASSET_SOURCE = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
                     'gfx': '.bin', 'bin': '.bin',
-                    'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s'}
+                    'objects': '.s', 'sdata': '.s', 'text': '.txt', 'anim': '.s', 'aipath': '.s', 'checkpoints': '.s', 'hits': '.txt', 'edges': '.s', 'points': '.s', 'flyby': '.s'}
 
     def emit_asset(self, out, off):
         end = self.emit_asset_body(out, off)
@@ -377,7 +377,7 @@ class Gen:
         base = self.dlabel.get(off, '.Lasset_%06X' % off)
         if off not in self.dlabel:
             out.append('%s:' % base)
-        if typ in ('objects', 'sdata', 'aipath', 'checkpoints', 'edges', 'points'):
+        if typ in ('objects', 'sdata', 'aipath', 'checkpoints', 'edges', 'points', 'flyby'):
             out.append('\t.include "assets/%s.s"' % name)
         else:
             out.append('\t.incbin "build/assets/%s.bin"   @ from assets/%s%s' % (name, name, self.ASSET_SOURCE[typ]))

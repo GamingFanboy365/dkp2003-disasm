@@ -49,11 +49,11 @@ gUnk_0881AE50:
 	.balign 4
 	.global gUnk_0881B404
 gUnk_0881B404:
-	.incbin "build/assets/levels/17/camera_ops.bin"   @ from assets/levels/17/camera_ops.bin
+	.include "assets/levels/17/flyby.s"
 	.balign 8
 	.global gUnk_0881B438
 gUnk_0881B438:
-	.incbin "build/assets/levels/17/camera_ops_rev.bin"   @ from assets/levels/17/camera_ops_rev.bin
+	.include "assets/levels/17/flyby_rev.s"
 	.balign 8
 	.global gUnk_0881B4D8
 gUnk_0881B4D8:
@@ -110,11 +110,11 @@ gUnk_0881F61C:
 	.balign 16
 	.global gUnk_0881F620
 gUnk_0881F620:
-	.incbin "build/assets/levels/21/camera_ops.bin"   @ from assets/levels/21/camera_ops.bin
+	.include "assets/levels/21/flyby.s"
 	.balign 8
 	.global gUnk_0881F678
 gUnk_0881F678:
-	.incbin "build/assets/levels/21/camera_ops_rev.bin"   @ from assets/levels/21/camera_ops_rev.bin
+	.include "assets/levels/21/flyby_rev.s"
 	.balign 4
 	.global gUnk_0881F67C
 gUnk_0881F67C:
@@ -166,11 +166,11 @@ gUnk_0881FF64:
 	.balign 8
 	.global gUnk_0881FF68
 gUnk_0881FF68:
-	.incbin "build/assets/levels/22/camera_ops.bin"   @ from assets/levels/22/camera_ops.bin
+	.include "assets/levels/22/flyby.s"
 	.balign 16
 	.global gUnk_0881FFF0
 gUnk_0881FFF0:
-	.incbin "build/assets/levels/22/camera_ops_rev.bin"   @ from assets/levels/22/camera_ops_rev.bin
+	.include "assets/levels/22/flyby_rev.s"
 	.balign 4
 	.global gUnk_0881FFF4
 gUnk_0881FFF4:
@@ -222,11 +222,11 @@ gUnk_08820A7C:
 	.balign 16
 	.global gUnk_08820A80
 gUnk_08820A80:
-	.incbin "build/assets/levels/23/camera_ops.bin"   @ from assets/levels/23/camera_ops.bin
+	.include "assets/levels/23/flyby.s"
 	.balign 4
 	.global gUnk_08820AE4
 gUnk_08820AE4:
-	.incbin "build/assets/levels/23/camera_ops_rev.bin"   @ from assets/levels/23/camera_ops_rev.bin
+	.include "assets/levels/23/flyby_rev.s"
 	.balign 8
 	.global gUnk_08820AE8
 gUnk_08820AE8:
@@ -278,11 +278,11 @@ gUnk_088215A4:
 	.balign 8
 	.global gUnk_088215A8
 gUnk_088215A8:
-	.incbin "build/assets/levels/24/camera_ops.bin"   @ from assets/levels/24/camera_ops.bin
+	.include "assets/levels/24/flyby.s"
 	.balign 8
 	.global gUnk_08821618
 gUnk_08821618:
-	.incbin "build/assets/levels/24/camera_ops_rev.bin"   @ from assets/levels/24/camera_ops_rev.bin
+	.include "assets/levels/24/flyby_rev.s"
 	.balign 4
 	.global gUnk_0882161C
 gUnk_0882161C:

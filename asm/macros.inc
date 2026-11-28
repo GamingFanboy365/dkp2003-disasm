@@ -69,3 +69,8 @@
 .macro path_point x, y, z, next, a, b
 	.2byte \x, \y, \z, \next, \a, \b
 .endm
+
+@ a point of a level's flyby camera path (tools/flyby.py)
+.macro flyby_point x, y, z, pitch, yaw, speed
+	.2byte \x, \y, \z, \pitch, \yaw, \speed
+.endm
