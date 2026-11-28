@@ -8,6 +8,9 @@ and print what changed.
 
   stepprof.py LEFT,UP 0x08005E3C 0x08006238 ...
 
+$STEPPROF_STATE picks another saved state, $STEPPROF_MAX the number of
+instructions to search for the function (default 3000000, about 10 frames).
+
 Used to name plane_bank, plane_pitch_input and plane_vertical_speed.
 """
 import sys, re, os
@@ -28,8 +31,8 @@ def where(i):
 FN = {a: int(a, 16) for a in sys.argv[2:]}
 for key in sys.argv[1].split(','):
     for nm,a in FN.items():
-        e.load('build/emu/race.ss'); e.cmd('run 2 %s'%key)
-        e.cmd('until 0x%x 3000000'%(a+2)); l=e.p.stdout.readline()
+        e.load(os.environ.get('STEPPROF_STATE', 'build/emu/race.ss')); e.cmd('run 2 %s'%key)
+        e.cmd('until 0x%x %s'%(a+2, os.environ.get('STEPPROF_MAX', '3000000'))); l=e.p.stdout.readline()
         if 'timeout' in l: print(key,nm,'not reached'); continue
         r=regs(); before=snap()
         e.cmd('until 0x%x 3000000'%((r['lr']&~1)+2)); e.p.stdout.readline()
