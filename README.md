@@ -118,7 +118,9 @@ and end fields are symbols (`<label>` and `<label>_len`), so they follow.
 Tested by halving the length of `000_11025hz.wav`. The record's fields
 changed to match (length 7375 → 3687) and the ROM still built.
 
-Music sequences, which follow the samples in the ROM, are not decoded yet.
+The music is decoded too: [`docs/audio.md`](docs/audio.md) describes
+Rare's sequence format (MIDI events in its own encoding), and `make extract`
+converts the 28 songs to standard MIDI files in `assets/audio/music/`.
 
 ### Front-end text
 
@@ -338,4 +340,4 @@ headless mGBA harness that reproduces it from power-on and verifies the fix.
 * A few areas are still emitted as bytes: undecoded parts of the ARM audio
   engine (computed `sub pc, pc, #imm` dispatch) and some small gaps.
 * Decode the remaining level data blocks (`data_XX.bin`).
-* Music sequences are still `.incbin` from `baserom.gba`.
+* Music sequences are decoded (MIDI export) but still `.incbin` in the build.

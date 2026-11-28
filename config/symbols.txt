@@ -617,3 +617,6 @@
 0x08002E78 particle_new             # -> a free particle, or 0
 0x080031A4 anims_update             # every frame: count each player's timer down; then the next script byte = frame, or 0xFF + command 0..4; delay halved at double speed
 0x08003288 anims_clear              # DMA-clear the 128 players
+# music and instruments (tools/music.py, docs/audio.md)
+0x088506A8 gSongTable               # 28 pointers to song records {tracks, division, track list, 2 tables}
+0x088502A8 gInstrumentTable         # 256 pointers to 0x44-byte instrument records (rate, base note, sample)

@@ -508,11 +508,11 @@ _0802EE38:
 _0802EE3C:
 	.4byte 0x0202F010
 _0802EE40:
-	.4byte gUnk_088506A8
+	.4byte gSongTable
 _0802EE44:
 	.4byte 0x0202F00C
 _0802EE48:
-	.4byte gUnk_088502A8
+	.4byte gInstrumentTable
 _0802EE4C:
 	.4byte 0x00003443
 _0802EE50:

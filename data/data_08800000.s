@@ -1457,8 +1457,8 @@ gUnk_0885021C:
 	.4byte gUnk_08852DD8
 	.4byte gUnk_08852E1C
 	.4byte gUnk_08852E60
-	.global gUnk_088502A8
-gUnk_088502A8:
+	.global gInstrumentTable
+gInstrumentTable:
 	.4byte gUnk_08852EA4
 	.4byte gUnk_08852EE8
 	.4byte gUnk_08852F2C
@@ -1715,8 +1715,8 @@ gUnk_088502A8:
 	.4byte gUnk_088571D8
 	.4byte gUnk_0885721C
 	.4byte gUnk_08857260
-	.global gUnk_088506A8
-gUnk_088506A8:
+	.global gSongTable
+gSongTable:
 	.4byte gUnk_08850718
 	.4byte gUnk_0885072C
 	.4byte gUnk_08850740

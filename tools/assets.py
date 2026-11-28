@@ -310,6 +310,12 @@ def extract(rom_path):
             if name.endswith('_tilemap'):
                 bg_preview(rom, by_name, name, data)
         count[typ] = count.get(typ, 0) + 1
+    # the music as standard MIDI files (a view: the build does not use them)
+    import music
+    mdir = os.path.join(SRC, 'audio', 'music')
+    os.makedirs(mdir, exist_ok=True)
+    for k, (division, tracks) in enumerate(music.songs(rom)):
+        open(os.path.join(mdir, 'song_%02d.mid' % k), 'wb').write(music.to_midi(division, tracks))
     open(os.path.join(SRC, 'README.txt'), 'w').write(
         'Generated from your baserom.gba by `make extract` (tools/assets.py).\n'
         'Edit these files and run `make`; see config/assets.txt for offsets and types.\n')
