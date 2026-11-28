@@ -867,7 +867,7 @@ _0802B3CA:
 	str r2, [r6, #4]
 	b _0802B384
 _0802B3D4:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _0802B3D8:
 	.4byte gGameSetup
 _0802B3DC:

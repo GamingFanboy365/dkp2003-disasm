@@ -472,7 +472,7 @@ _080182BC:
 _080182C0:
 	.4byte 0x000003FF
 _080182C4:
-	.4byte sub_03003EB4
+	.4byte pal_slot_get
 _080182C8:
 	.4byte gUnk_080514FC
 _080182CC:

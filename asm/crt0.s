@@ -35,38 +35,38 @@ _080000F0:
 	.4byte AgbMain
 	.thumb
 
-	.global sub_080000F4
+	.global sdiv_veneer
 	.thumb_func
-	.type sub_080000F4, %function
-sub_080000F4: @ 080000F4
+	.type sdiv_veneer, %function
+sdiv_veneer: @ 080000F4
 	ldr r2, _08000104
 	bx r2
 
-	.global sub_080000F8
+	.global udiv_veneer
 	.thumb_func
-	.type sub_080000F8, %function
-sub_080000F8: @ 080000F8
+	.type udiv_veneer, %function
+udiv_veneer: @ 080000F8
 	ldr r2, _08000108
 	bx r2
 
-	.global sub_080000FC
+	.global smod_veneer
 	.thumb_func
-	.type sub_080000FC, %function
-sub_080000FC: @ 080000FC
+	.type smod_veneer, %function
+smod_veneer: @ 080000FC
 	ldr r2, _0800010C
 	bx r2
 
-	.global sub_08000100
+	.global umod_veneer
 	.thumb_func
-	.type sub_08000100, %function
-sub_08000100: @ 08000100
+	.type umod_veneer, %function
+umod_veneer: @ 08000100
 	ldr r2, _08000110
 	bx r2
 _08000104:
-	.4byte sub_03000518
+	.4byte sdiv
 _08000108:
 	.4byte udiv
 _0800010C:
-	.4byte sub_0300055C
+	.4byte smod
 _08000110:
 	.4byte umod

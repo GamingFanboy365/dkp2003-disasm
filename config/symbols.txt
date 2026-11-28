@@ -707,3 +707,20 @@
 0x08020204 gamesfx_hold             # (frames): gGamesfxHold; the pending sfx queue waits until it runs out (act_banana: 60)
 0x0801EEF2 mcp_to_mode_menu         # inside mcp_process: fe_spotscreen_init(0), the mode menu
 0x0801F132 mcp_state_0E8            # inside mcp_process: the handler of state 0xE8
+0x03000104 IntrMain_return          # back from the interrupt handler: restore IE/IME, SPSR, IRQ mode
+0x03000518 sdiv                     # signed (a, b): negates a positive b and calls udiv, so b > 0 gives 0 (broken; only the unused veneer calls it)
+0x0300055C smod                     # sdiv, remainder (same bug)
+0x0300083C mtx_mul_vec              # (3x4 matrix, vector) in place, >> 8 plus translation; the z term uses the y column (r7, not r8); unused
+0x080000F4 sdiv_veneer              # Thumb -> IWRAM veneers (no callers)
+0x080000F8 udiv_veneer
+0x080000FC smod_veneer              # (no callers)
+0x08000100 umod_veneer
+0x030027F0 obj_tiles_upload         # (src, tile) -> OBJ VRAM 0x06010000 + tile*32; header bit 15 = raw (one DMA), else RLE: u16 codes, bit 7 copy n+1 halfwords, else fill n+1 with the high byte; 0 ends
+0x03002F3C hit_test_vectors         # obj_check_hits: two objects' moves this frame (+0x84 -> +0x24) as segments
+0x03003224 hit_test_static          # obj_check_hits: an object against a static hit entry
+0x03003750 obj_update_sweep_box     # bounding box over last and this frame's position (+0x84.., +0x24..) +- size (+0x5C) -> +0x6C..+0x80, and 32-cell x/z grid masks +0x64/+0x68
+0x030038B4 obj_process_staggered    # on frames with bit 3 set: act_* of every process-list object whose flags hold 8 | (frame & 7)
+0x03003938 hit_test_spheres         # swept sphere test (flag 0x400): time of contact -> *out, 1 if within this frame
+0x03003A14 hit_test_cylinders       # swept xz-circle test with a height check (+0x5E) (flag 0x800, classes 0x16/0x17)
+0x03003ACC color_fade               # (BGR555, level): 0 black, 16 unchanged, 32 white; per-channel scaling with the 0x3DEF masks (ovl_a, ovl_b)
+0x03003EB4 pal_slot_get             # (palette) -> OBJ palette bank: binary search tree of up to 16 palettes, double-buffered by gModeFlags bit 9; 0 if full

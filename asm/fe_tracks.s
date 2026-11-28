@@ -2909,7 +2909,7 @@ _08017EF8:
 _08017EFC:
 	.4byte 0x020243B4
 _08017F00:
-	.4byte sub_030027F0
+	.4byte obj_tiles_upload
 _08017F04:
 	.4byte 0x020245B8
 _08017F08:

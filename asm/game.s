@@ -484,7 +484,7 @@ _08000874:
 _08000878:
 	.4byte 0x00000001
 _0800087C:
-	.4byte sub_030038B4
+	.4byte obj_process_staggered
 _08000880:
 	.4byte obj_draw_all
 _08000884:

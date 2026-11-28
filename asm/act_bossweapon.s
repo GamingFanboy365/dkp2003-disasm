@@ -499,7 +499,7 @@ _0802CE48:
 	mov r8, r2
 	b _0802CB9C
 _0802CE54:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _0802CE58:
 	.4byte gGameSetup
 _0802CE5C:

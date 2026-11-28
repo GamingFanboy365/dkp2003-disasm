@@ -98,6 +98,9 @@ Established from the code (the asserts name some of them):
 | `+0x50` | s32 | speed | A (accelerate) raises it; written by `planePlayer` |
 | `+0x54` | s32 | heading in the top 16 bits, pitch in the bottom 16 (16-bit angles) | LEFT/RIGHT change the top half, UP/DOWN the bottom; written by `planeControl` |
 | `+0x6C`..`+0x80` | s32 | bounding box: x, y, z each minus and plus the hitbox size | `obj_set_hitbox`; moves with the position |
+| `+0x84`, `+0x88`, `+0x8C` | s32 | position before this frame's move | `obj_update_sweep_box` and the swept hit tests (`hit_test_spheres`, `hit_test_cylinders`, `hit_test_vectors`) go from here to `+0x24` |
+| `+0x64`, `+0x68` | u32 | which of 32 x and 32 z grid cells the swept box covers | `obj_update_sweep_box`; a quick reject before the hit tests |
+| `+0x5C`, `+0x5E` | u16 | hitbox radius and height | `obj_set_hitbox`, `hit_test_cylinders` |
 | `+0x4C` | s32 | vertical speed | −0x28 diving (UP), +0x28 climbing (DOWN); written by `plane_vertical_speed` |
 | `+0xB0` | s32 | turn rate | LEFT/RIGHT; written by `plane_turn` |
 | `+0xB8` | s32 | bank | +0x1F turning left, −0x21 right; written by `plane_bank` |

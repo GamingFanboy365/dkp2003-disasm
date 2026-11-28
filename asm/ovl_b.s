@@ -386,7 +386,7 @@ _ovl_b_030044AC:
 	ldr r1, [r6, #4]
 	ldrh r0, [r1]
 	ldr r1, [r4]
-	bl sub_03003ACC
+	bl color_fade
 	cmp r5, #0
 	lsl lr, r0, #0x10
 	asr r0, lr, #0x10
@@ -412,7 +412,7 @@ _ovl_b_03004578:
 	ldr r2, [r3, #4]
 	ldr r1, [r5]
 	ldrh r0, [r4, r2]
-	bl sub_03003ACC
+	bl color_fade
 	subs r6, r6, #1
 	strh r0, [sl], #2
 	add r4, r4, #2
@@ -425,7 +425,7 @@ _ovl_b_0300459C:
 	ldr lr, [r0]
 	ldr r1, [r8]
 	ldrh r0, [lr]
-	bl sub_03003ACC
+	bl color_fade
 	cmp r7, #0
 	lsl ip, r0, #0x10
 	asr r0, ip, #0x10

@@ -3418,7 +3418,7 @@ _08002C24:
 	pop {r0}
 	bx r0
 _08002CB8:
-	.4byte sub_030027F0
+	.4byte obj_tiles_upload
 
 	.global particles_update
 	.thumb_func

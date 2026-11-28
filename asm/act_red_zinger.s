@@ -637,7 +637,7 @@ _080296CC:
 	bl obj_free
 	b _08029366
 _080296D4:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _080296D8:
 	.4byte gGameSetup
 _080296DC:
@@ -2430,7 +2430,7 @@ _0802A488:
 _0802A48C:
 	.4byte cos_fx
 _0802A490:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _0802A494:
 	.4byte gGameSetup
 _0802A498:

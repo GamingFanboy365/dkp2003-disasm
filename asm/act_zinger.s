@@ -255,7 +255,7 @@ _080130DC:
 _080130E0:
 	.4byte sin_fx
 _080130E4:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _080130E8:
 	.4byte gUnk_08050D90
 _080130EC:

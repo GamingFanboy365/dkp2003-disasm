@@ -10536,7 +10536,7 @@ _08009B84:
 _08009B88:
 	.4byte _08009984
 _08009B8C:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _08009B90:
 	.4byte 0xFFFCFFFF
 _08009B94:

@@ -1225,7 +1225,7 @@ _08024FC0:
 _08024FC4:
 	.4byte sin_fx
 _08024FC8:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _08024FCC:
 	mov r6, fp
 	adds r6, #0xf8

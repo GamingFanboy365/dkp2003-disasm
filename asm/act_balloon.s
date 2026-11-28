@@ -601,7 +601,7 @@ _08020704:
 	b _080203E6
 	.byte 0x00, 0x00
 _08020710:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _08020714:
 	.4byte gRacerObjects
 _08020718:

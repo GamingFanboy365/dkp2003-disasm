@@ -7345,7 +7345,7 @@ _0800E2EC:
 _0800E2F0:
 	.4byte gAiRacers
 _0800E2F4:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _0800E2F8:
 	.4byte 0xFFFCFFFF
 _0800E2FC:

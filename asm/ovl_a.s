@@ -642,7 +642,7 @@ _ovl_a_03004818:
 	ldr ip, [r0, #4]
 	ldr r1, [r2]
 	ldrh r0, [ip]
-	bl sub_03003ACC
+	bl color_fade
 	cmp r4, #0
 	lsl r1, r0, #0x10
 	asr r0, r1, #0x10
@@ -669,7 +669,7 @@ _ovl_a_03004914:
 	ldr r1, [r3, #4]
 	ldrh r0, [r4, r1]
 	ldr r1, [r2]
-	bl sub_03003ACC
+	bl color_fade
 	subs r8, r8, #1
 	strh r0, [r5, #6]
 	add r4, r4, #2
@@ -683,7 +683,7 @@ _ovl_a_03004940:
 	ldr r1, [r0]
 	ldrh r0, [r1]
 	ldr r1, [lr]
-	bl sub_03003ACC
+	bl color_fade
 	cmp sl, #0
 	lsl ip, r0, #0x10
 	asr r0, ip, #0x10

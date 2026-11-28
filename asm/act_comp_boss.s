@@ -925,7 +925,7 @@ _08027B40:
 _08027B44:
 	.4byte sin_fx
 _08027B48:
-	.4byte sub_03003750
+	.4byte obj_update_sweep_box
 _08027B4C:
 	movs r2, #0x84
 	lsls r3, r2, #1

@@ -78,9 +78,9 @@ _030000D0:
 	add lr, pc, #0
 	bx r0
 
-	.global sub_03000104
-	.type sub_03000104, %function
-sub_03000104: @ 03000104
+	.global IntrMain_return
+	.type IntrMain_return, %function
+IntrMain_return: @ 03000104
 	ldm sp!, {lr}
 	mrs r3, apsr
 	bic r3, r3, #0xdf
@@ -365,9 +365,9 @@ _03000390:
 	mov r1, r2
 	bx lr
 
-	.global sub_03000518
-	.type sub_03000518, %function
-sub_03000518: @ 03000518
+	.global sdiv
+	.type sdiv, %function
+sdiv: @ 03000518
 	stmdb sp!, {lr}
 	cmp r1, #0
 	lsr ip, r1, #1
@@ -390,11 +390,11 @@ umod: @ 03000548
 	ldm sp!, {ip}
 	bx ip
 
-	.global sub_0300055C
-	.type sub_0300055C, %function
-sub_0300055C: @ 0300055C
+	.global smod
+	.type smod, %function
+smod: @ 0300055C
 	stmdb sp!, {lr}
-	bl sub_03000518
+	bl sdiv
 	mov r0, r1
 	ldm sp!, {ip}
 	bx ip
@@ -592,9 +592,9 @@ _03000830:
 _03000838:
 	.4byte gUnk_0803F09A
 
-	.global sub_0300083C
-	.type sub_0300083C, %function
-sub_0300083C: @ 0300083C
+	.global mtx_mul_vec
+	.type mtx_mul_vec, %function
+mtx_mul_vec: @ 0300083C
 	push {r4, r5, r6, r7, r8, sb, lr}
 	ldm r1!, {r3, r4, r5}
 	ldm r0!, {r6, r7, r8, sb}
@@ -977,7 +977,7 @@ _03000D8C:
 	ldr lr, _030015E4
 	add r4, ip, #0x10
 	ldr r0, [lr, r4]
-	bl sub_03003EB4
+	bl pal_slot_get
 	mov r1, r5
 	mov r2, r0
 	mov r0, r6
@@ -1288,7 +1288,7 @@ _0300123C:
 	cmp r4, #0x7f
 	bhi _03001404
 	ldr r0, _030015C4
-	bl sub_03003EB4
+	bl pal_slot_get
 	lsl sl, r0, #0x1c
 	sub ip, sl, #0x10000
 	asr r8, ip, #0x10
@@ -2107,7 +2107,7 @@ _03001E48:
 	ldr r1, _030015E4
 	add r4, r0, #0x10
 	ldr r0, [r1, r4]
-	bl sub_03003EB4
+	bl pal_slot_get
 	ldrh r2, [r6, #4]
 	mov r5, r0
 	lsr r1, r7, #0x10
@@ -2366,7 +2366,7 @@ _03002224:
 	add r5, r0, #0x10
 	ldr r0, [sl, r5]
 	lsr sb, r2, #0x10
-	bl sub_03003EB4
+	bl pal_slot_get
 	mov r1, sb
 	mov ip, r0
 	ldr r0, [fp, #-0x32c]
@@ -2746,9 +2746,9 @@ _030027E8:
 _030027EC:
 	.4byte gUnk_080537D8
 
-	.global sub_030027F0
-	.type sub_030027F0, %function
-sub_030027F0: @ 030027F0
+	.global obj_tiles_upload
+	.type obj_tiles_upload, %function
+obj_tiles_upload: @ 030027F0
 	push {r4, r5, r6, r7, lr}
 	mov ip, r0
 	ldrh lr, [ip], #2
@@ -2979,7 +2979,7 @@ _03002B0C:
 	mov r0, r6
 	mov r1, r4
 	ldr r2, [fp, #-0xd4]
-	bl sub_03003224
+	bl hit_test_static
 	b _03002A10
 _03002B24:
 	ldrb r0, [r4, #2]
@@ -3086,7 +3086,7 @@ _03002C84:
 	mov r0, r6
 	mov r1, r4
 	sub r2, fp, #0xcc
-	bl sub_03003938
+	bl hit_test_spheres
 _03002CAC:
 	cmp r0, #0
 	beq _03002CE8
@@ -3191,7 +3191,7 @@ _03002E10:
 	mov r0, r6
 	mov r1, r4
 	sub r2, fp, #0xd0
-	bl sub_03002F3C
+	bl hit_test_vectors
 	mov r5, r0
 	cmp r5, #0
 	beq _03002D10
@@ -3245,7 +3245,7 @@ _03002ED4:
 	mov r0, r6
 	mov r1, r4
 	sub r2, fp, #0xcc
-	bl sub_03003A14
+	bl hit_test_cylinders
 	b _03002CAC
 _03002EF0:
 	ldrb r3, [r4, #2]
@@ -3275,9 +3275,9 @@ _03002F34:
 _03002F38:
 	.4byte gObjStaticHitList
 
-	.global sub_03002F3C
-	.type sub_03002F3C, %function
-sub_03002F3C: @ 03002F3C
+	.global hit_test_vectors
+	.type hit_test_vectors, %function
+hit_test_vectors: @ 03002F3C
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	sub fp, ip, #4
@@ -3468,9 +3468,9 @@ _030031E4:
 	movge sl, #2
 	b _030031D0
 
-	.global sub_03003224
-	.type sub_03003224, %function
-sub_03003224: @ 03003224
+	.global hit_test_static
+	.type hit_test_static, %function
+hit_test_static: @ 03003224
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	sub fp, ip, #4
@@ -3695,7 +3695,7 @@ _03003540:
 	str r3, [sl, #0x24]
 	mov r0, sl
 	str ip, [sl, #0x2c]
-	bl sub_03003750
+	bl obj_update_sweep_box
 	ldr r2, [sl, #0xa0]
 	ldr r0, [fp, #-0x44]
 	orr r1, r2, #0x10000
@@ -3792,7 +3792,7 @@ _030036B4:
 	str r0, [r8, #0x2c]
 	str r3, [r8, #0x24]
 	mov r0, r8
-	bl sub_03003750
+	bl obj_update_sweep_box
 	ldr r2, [r8, #0xa0]
 	ldr r1, [fp, #-0x44]
 	orr ip, r2, #0x10000
@@ -3818,9 +3818,9 @@ _03003728:
 	mov r6, r0
 	b _030032E8
 
-	.global sub_03003750
-	.type sub_03003750, %function
-sub_03003750: @ 03003750
+	.global obj_update_sweep_box
+	.type obj_update_sweep_box, %function
+obj_update_sweep_box: @ 03003750
 	push {r4, r5, r6, r7, r8, sl, lr}
 	mov lr, r0
 	ldr r6, [lr, #0x84]
@@ -3917,9 +3917,9 @@ _030038AC:
 _030038B0:
 	.4byte 0x02004290
 
-	.global sub_030038B4
-	.type sub_030038B4, %function
-sub_030038B4: @ 030038B4
+	.global obj_process_staggered
+	.type obj_process_staggered, %function
+obj_process_staggered: @ 030038B4
 	mov ip, sp
 	push {r4, r5, r6, fp, ip, lr, pc}
 	ldr r0, _0300392C
@@ -3961,9 +3961,9 @@ _03003930:
 _03003934:
 	.4byte gUnk_08713FD0
 
-	.global sub_03003938
-	.type sub_03003938, %function
-sub_03003938: @ 03003938
+	.global hit_test_spheres
+	.type hit_test_spheres, %function
+hit_test_spheres: @ 03003938
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, fp, ip, lr, pc}
 	sub fp, ip, #4
@@ -4021,9 +4021,9 @@ _03003A08:
 	ldmdb fp, {r4, r5, r6, r7, r8, fp, sp, lr}
 	bx lr
 
-	.global sub_03003A14
-	.type sub_03003A14, %function
-sub_03003A14: @ 03003A14
+	.global hit_test_cylinders
+	.type hit_test_cylinders, %function
+hit_test_cylinders: @ 03003A14
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, fp, ip, lr, pc}
 	mov r7, r0
@@ -4072,9 +4072,9 @@ _03003AC4:
 	ldmdb fp, {r4, r5, r6, r7, r8, fp, sp, lr}
 	bx lr
 
-	.global sub_03003ACC
-	.type sub_03003ACC, %function
-sub_03003ACC: @ 03003ACC
+	.global color_fade
+	.type color_fade, %function
+color_fade: @ 03003ACC
 	cmp r1, #0
 	mov r2, r0
 	str lr, [sp, #-4]!
@@ -4357,9 +4357,9 @@ _03003EAC:
 _03003EB0:
 	.4byte gBrightness
 
-	.global sub_03003EB4
-	.type sub_03003EB4, %function
-sub_03003EB4: @ 03003EB4
+	.global pal_slot_get
+	.type pal_slot_get, %function
+pal_slot_get: @ 03003EB4
 	push {r4, lr}
 	ldr r4, _03003F9C
 	ldr r3, _03003FA0
