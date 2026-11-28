@@ -20,6 +20,8 @@ The list of assets is config/assets.txt (see tools/find_assets.py).  Formats:
             definition keeps the real rate; the WAV's rate is ignored).
             Its length may change: the definition's end pointer and length
             follow it.
+  text      the front end's strings and language tables, one string per line
+            (tools/fetext.py); strings may change length
   gfx, bin  raw binary
 
 assets/ is generated from your ROM and is not committed.
@@ -35,7 +37,7 @@ SRC = os.path.join(ROOT, 'assets')
 OUT = os.path.join(ROOT, 'build', 'assets')
 EXT = {'pal': '.pal', 'tiles4': '.png', 'tiles8': '.png', 'rsprite': '.png', 'sample': '.wav',
        'gfx': '.bin', 'bin': '.bin',
-       'objects': '.s', 'sdata': '.s'}
+       'objects': '.s', 'sdata': '.s', 'text': '.txt'}
 TILES_PER_ROW = 16
 
 
@@ -292,6 +294,11 @@ def extract(rom_path):
             wav_write(path, int(name.rsplit('_', 1)[1][:-2]), data)
         elif typ in ('objects', 'sdata'):
             open(path, 'w').write('\n'.join(g.asset_text(off)) + '\n')
+        elif typ == 'text':
+            import fetext
+            tables, strings = fetext.parse(rom, off, size)
+            labels = [g.dlabel.get(t, 'gUnk_%08X' % (0x08000000 + t)) for t, _ in tables]
+            open(path, 'w', encoding='utf-8').write(fetext.to_text(tables, strings, labels))
         else:
             open(path, 'wb').write(data)
             if name.endswith('_tilemap'):
@@ -342,7 +349,7 @@ def build():
         if typ in ('objects', 'sdata'):
             continue
         src = os.path.join(SRC, name + EXT[typ])
-        dst = os.path.join(OUT, name + '.bin')
+        dst = os.path.join(OUT, name + ('.s' if typ == 'text' else '.bin'))
         if not os.path.exists(src):
             raise SystemExit('missing %s -- run `make extract` first' % os.path.relpath(src, ROOT))
         srcs = [src] + ([src[:-4] + '.json'] if typ == 'rsprite' else [])
@@ -363,6 +370,10 @@ def build():
             counts = [m['tiles'] for m in meta['frames']]
             w, h, px = png_read(src)
             data = rare_sprite.build(meta, rare_sprite.from_pixels(counts, w, h, px, src))
+        elif typ == 'text':
+            import fetext
+            tables, strings = fetext.from_text(open(src, encoding='utf-8').read(), os.path.relpath(src, ROOT))
+            data = fetext.to_asm(tables, strings).encode()
         else:
             data = open(src, 'rb').read()
         os.makedirs(os.path.dirname(dst), exist_ok=True)

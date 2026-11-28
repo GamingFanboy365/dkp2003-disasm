@@ -360,6 +360,7 @@
 0x63FA80 0x000020 pal      levels/tracks/5f_theme_pal
 0x63FB40 0x000020 pal      levels/tracks/58_theme_pal
 0x63FC40 0x000020 pal      graphics/sprites/122_palette
+0x63FFDC 0x0037AE text     text/frontend
 0x713650 0x000980 sdata    graphics/sprites/sprite_table
 0x7146C0 0x0013A8 sdata    levels/level_headers
 0x716AF0 0x000230 rsprite  graphics/sprites/084

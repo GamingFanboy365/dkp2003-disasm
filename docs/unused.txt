@@ -18,7 +18,7 @@ Summary
 -------
      88 functions never called                     11678 bytes
     146 data blocks never referenced              108799 bytes
-    135 blocks possibly unused (section 5)         13376 bytes
+    136 blocks possibly unused (section 5)         13434 bytes
   unused level: 25; a debug menu; the credits screen; a cup-win screen;
   a second spot screen; intro, banana and null actors
 
@@ -508,6 +508,7 @@ Summary
   1B905C        520  graphics/frontend/tilemap_1b885c
   1BF714        520  graphics/frontend/tilemap_1bef14
   639210         16  graphics/sprites/042_2
+  64378A         58  text/frontend
   7494F0      10784  graphics/sprites/093: a sprite container no sprite table entry points to; its frames do not decode with the format all other sprite sets use
   BB52AC       1016  gUnk_08BB52A4 (126 blocks): newlib malloc bin headers; malloc reaches them from its state by index
 

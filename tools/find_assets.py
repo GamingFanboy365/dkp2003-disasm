@@ -20,6 +20,7 @@ Asset types:
   rsprite   Rare sprite container (sprite sets, track maps/themes)
                                               -> assets/<name>.png + .json
   sample    8-bit signed PCM audio sample     -> assets/<name>.wav
+  text      front-end strings + language tables -> assets/<name>.txt
   gfx       other pointer-free graphics (tilemaps)
                                               -> assets/<name>.bin
   bin       anything else                     -> assets/<name>.bin
@@ -150,6 +151,8 @@ def collect(g, data):
         add(off, 'graphics/frontend/tiles_%06x' % off, 'tiles%d' % bpp, 2 + n * 32 * (bpp // 4))
     for off in FRONTEND_TILEMAPS:
         add(off, 'graphics/frontend/tilemap_%06x' % off, 'gfx', 0x800)
+    # front-end text: six language tables and the strings (tools/fetext.py)
+    add(0x63FFDC, 'text/frontend', 'text', 0x64378A - 0x63FFDC)
     for off, name, typ, size in DEBUG_MENU:
         if typ in ('tiles4', 'tiles8'):
             size = 2 + u16(off) * (32 if typ == 'tiles4' else 64)

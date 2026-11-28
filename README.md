@@ -44,6 +44,7 @@ offsets, sizes and types.
 | Tables (7) | `*.s` | level headers, track records, sprite table, with symbolic pointers |
 | Sprites (418) | `*.png` + `*.json` | Rare's sprite containers, decoded (below): one indexed PNG sprite sheet per set, colour 0 transparent, in the set's palette |
 | Audio samples (343) | `*.wav` | 8-bit mono PCM at the sample's own rate (8000–48000 Hz) |
+| Front-end text (1) | `text/frontend.txt` | all menu and dialogue text, one string per line, plus the six language tables (below) |
 | Tilemaps (2) | `*.bin` | front-end BG tilemaps |
 | Other (399) | `*.bin` | level data blocks whose format is not known yet (track paths, collision, …) |
 
@@ -114,6 +115,27 @@ Tested by halving the length of `000_11025hz.wav`. The record's fields
 changed to match (length 7375 → 3687) and the ROM still built.
 
 Music sequences, which follow the samples in the ROM, are not decoded yet.
+
+### Front-end text
+
+All of the front end's text, including the big menu titles, Cranky's
+dialogue and the credits, is in one block at `0x63FFDC`. It holds six
+language tables of 183 entries, then the strings. `make extract` writes it to
+`assets/text/frontend.txt`, one string per line:
+
+```
+000: CHARACTERS
+145: ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{11}.{05}
+```
+
+`\n` starts a new line and `\p` a new page (Cranky's speeches have several).
+`{XX}` is a code whose character is not known. The font has A–Z, a–z, 0–9,
+`! ' , . ?`, ç, ñ and space. Each `[table]` lists the string number of each
+entry; in this build most entries of all six languages point at the English
+strings. Strings can change length: the page offsets, padding and table
+pointers are recomputed (`tools/fetext.py`). Tested in mGBA: renaming
+"CHARACTERS" to "KHARAKTERS" and "Diddy Kong" to "Diddy Kong Jr" changes the
+character-select screen.
 
 ### Modding: the build is shiftable
 
