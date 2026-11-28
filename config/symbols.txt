@@ -593,3 +593,6 @@
 0x08028250 weapon_launch            # called by weaponManager/weaponbossManager: new projectile object, aimed (atan2_fx, isqrt), sounds; runs when B is pressed
 0x08001C28 obj_set_hitbox           # (obj, sx, sy, sz, flags): sizes at obj+0x5C.., bounding box around the position; most init_* call it
 0x08005CE0 plane_turn               # planeControl step: turn rate obj+0xB0 from LEFT/RIGHT (and L/R); found with dkprun `watch`
+0x08005E3C plane_bank               # LEFT/RIGHT: obj+0xB8 (+0x1F / -0x21) and pd+0x9C..0xB0 (tools/emu/stepprof.py)
+0x08006238 plane_pitch_input        # UP/DOWN: pd+0xB4..0xBC (+0x100 / -0x100)
+0x08006368 plane_vertical_speed     # obj+0x4C, pd+0xE8 from the pitch (-0x28 diving, +0x28 climbing)

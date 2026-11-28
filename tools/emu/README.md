@@ -70,3 +70,6 @@ nothing.
 `keycover.py` finds code that runs only while a button is held during a
 race: it records coverage from a saved state once per button and compares
 with no input. B, for example, runs `weapon_launch` and the pellet object.
+`stepprof.py BUTTONS ADDR...` shows what one call of a player function
+changes in a real race (object, player data, input block), with the given
+buttons held.

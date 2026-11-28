@@ -47,7 +47,9 @@ Established from the code (the asserts name some of them):
 | `+0x50` | s32 | speed | A (accelerate) raises it; written by `planePlayer` |
 | `+0x54` | s32 | heading in the top 16 bits, pitch in the bottom 16 (16-bit angles) | LEFT/RIGHT change the top half, UP/DOWN the bottom; written by `planeControl` |
 | `+0x6C`..`+0x80` | s32 | bounding box: x, y, z each minus and plus the hitbox size | `obj_set_hitbox`; moves with the position |
+| `+0x4C` | s32 | vertical speed | −0x28 diving (UP), +0x28 climbing (DOWN); written by `plane_vertical_speed` |
 | `+0xB0` | s32 | turn rate | LEFT/RIGHT; written by `plane_turn` |
+| `+0xB8` | s32 | bank | +0x1F turning left, −0x21 right; written by `plane_bank` |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
 | `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x2000`, `0x100`, `0x200000` switch the CPU's `ai_wobble` / `ai_ease_offsets`; `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |
@@ -62,3 +64,6 @@ state, comparing the object with a run without input, and then running
 `watch <address>` in `tools/emu/dkprun` to find the instruction that writes
 the field. UP dives and DOWN climbs (`+0x28` falls with UP), A accelerates,
 and B fires.
+`tools/emu/stepprof.py` does the same per function: it stops at the
+function during a race with a button held and prints what the call
+changes.

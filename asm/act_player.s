@@ -2128,10 +2128,10 @@ _08005E34:
 _08005E38:
 	.4byte _03000814
 
-	.global sub_08005E3C
+	.global plane_bank
 	.thumb_func
-	.type sub_08005E3C, %function
-sub_08005E3C: @ 08005E3C
+	.type plane_bank, %function
+plane_bank: @ 08005E3C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2720,10 +2720,10 @@ _08006230:
 _08006234:
 	.4byte 0x00001AA8
 
-	.global sub_08006238
+	.global plane_pitch_input
 	.thumb_func
-	.type sub_08006238, %function
-sub_08006238: @ 08006238
+	.type plane_pitch_input, %function
+plane_pitch_input: @ 08006238
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -2902,10 +2902,10 @@ _08006362:
 _08006364:
 	.4byte udiv
 
-	.global sub_08006368
+	.global plane_vertical_speed
 	.thumb_func
-	.type sub_08006368, %function
-sub_08006368: @ 08006368
+	.type plane_vertical_speed, %function
+plane_vertical_speed: @ 08006368
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -8209,7 +8209,7 @@ _080089F0:
 	adds r1, r7, #0
 	mov r0, sl
 	adds r2, r6, #0
-	bl sub_08006368
+	bl plane_vertical_speed
 _080089FA:
 	mov r1, sl
 	str r0, [r1, #0x40]
@@ -8317,11 +8317,11 @@ _08008AA8:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_08005E3C
+	bl plane_bank
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_08006238
+	bl plane_pitch_input
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
