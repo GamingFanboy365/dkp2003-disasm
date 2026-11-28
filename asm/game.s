@@ -456,7 +456,7 @@ game_process: @ 08000824
 	ldr r4, _08000880
 	bl _call_via_r4
 	ldr r5, _08000874
-	bl sub_080020F4
+	bl obj_flush_deletes
 	bl sub_0801E314
 	bl gamesfx_update
 	ldr r0, _08000884
@@ -486,7 +486,7 @@ _08000878:
 _0800087C:
 	.4byte sub_030038B4
 _08000880:
-	.4byte sub_03000BBC
+	.4byte obj_draw_all
 _08000884:
 	.4byte 0x04000208
 _08000888:
@@ -504,7 +504,7 @@ _08000896:
 	ands r0, r1
 	cmp r0, #0
 	beq _08000964
-	bl sub_08002098
+	bl obj_free_all
 	bl gamesfx_stop_all
 	ldr r4, _08000940
 	ldr r5, _08000944
@@ -765,7 +765,7 @@ sub_08000A90: @ 08000A90
 	.type sub_08000A9C, %function
 sub_08000A9C: @ 08000A9C
 	push {r4, r5, lr}
-	bl sub_08002098
+	bl obj_free_all
 	bl gamesfx_stop_all
 	ldr r4, _08000AFC
 	ldr r5, _08000B00
@@ -1959,15 +1959,15 @@ _08001340:
 _08001344:
 	.4byte gObjProcessList
 _08001348:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 _0800134C:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _08001350:
 	.4byte gObjFreeList
 _08001354:
 	.4byte gObjStaticHitList
 _08001358:
-	.4byte 0x0200437C
+	.4byte gObjVectorHitList
 _0800135C:
 	.4byte gRacerObjects
 _08001360:
@@ -2028,8 +2028,8 @@ _080013C4:
 _080013C8:
 	.4byte gObjFreeList
 _080013CC:
-	.4byte 0x02018594
+	.4byte gObjDeleteCount
 _080013D0:
-	.4byte 0x02018394
+	.4byte gObjDeleteList
 _080013D4:
 	.4byte 0x02018390

@@ -228,9 +228,9 @@ _08001544:
 	.2byte 0xEFFF @ debug trap
 	b _080014CA
 _0800155C:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 _08001560:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _08001564:
 	.4byte gUnk_0804F748
 _08001568:
@@ -432,7 +432,7 @@ _080016D4:
 _080016D8:
 	.4byte 0xFFFFFD3F
 _080016DC:
-	.4byte 0x0200437C
+	.4byte gObjVectorHitList
 _080016E0:
 	.4byte gUnk_0804F85C
 _080016E4:
@@ -811,7 +811,7 @@ _08001996:
 _080019A0:
 	.4byte 0x00000010
 _080019A4:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 _080019A8:
 	add sp, #4
 	pop {r3}
@@ -871,7 +871,7 @@ _080019FE:
 	.2byte 0xEFFF @ debug trap
 	b _08001872
 _08001A18:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _08001A1C:
 	.4byte gUnk_0804F8D0
 _08001A20:
@@ -1680,9 +1680,9 @@ _08002000:
 	bl AGBPrintf
 	b _08001FFA
 _08002020:
-	.4byte 0x02018594
+	.4byte gObjDeleteCount
 _08002024:
-	.4byte 0x02018394
+	.4byte gObjDeleteList
 _08002028:
 	.4byte gUnk_0804F9C8
 
@@ -1745,12 +1745,12 @@ _08002090:
 _08002094:
 	.4byte 0x000001FD
 
-	.global sub_08002098
+	.global obj_free_all
 	.thumb_func
-	.type sub_08002098, %function
-sub_08002098: @ 08002098
+	.type obj_free_all, %function
+obj_free_all: @ 08002098
 	push {r4, lr}
-	bl sub_080020F4
+	bl obj_flush_deletes
 	ldr r0, _080020E8
 	ldr r1, [r0]
 	cmp r1, #0
@@ -1794,14 +1794,14 @@ _080020E0:
 _080020E8:
 	.4byte gObjProcessList
 _080020EC:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _080020F0:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 
-	.global sub_080020F4
+	.global obj_flush_deletes
 	.thumb_func
-	.type sub_080020F4, %function
-sub_080020F4: @ 080020F4
+	.type obj_flush_deletes, %function
+obj_flush_deletes: @ 080020F4
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, r8
@@ -1836,9 +1836,9 @@ _08002124:
 	pop {r0}
 	bx r0
 _08002134:
-	.4byte 0x02018594
+	.4byte gObjDeleteCount
 _08002138:
-	.4byte 0x02018394
+	.4byte gObjDeleteList
 
 	.global obj_remove_process
 	.thumb_func
@@ -1975,7 +1975,7 @@ _0800221E:
 _08002228:
 	.4byte 0x00000010
 _0800222C:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 _08002230:
 	add sp, #4
 	pop {r4}
@@ -2016,7 +2016,7 @@ _08002262:
 	b _080021F2
 	.byte 0x00, 0x00
 _0800227C:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _08002280:
 	.4byte gUnk_0804F8D0
 _08002284:
@@ -2169,7 +2169,7 @@ _08002388:
 _0800238C:
 	.4byte gUnk_08713FD0
 _08002390:
-	.4byte 0x0200437C
+	.4byte gObjVectorHitList
 _08002394:
 	add sp, #4
 	pop {r4}

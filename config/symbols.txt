@@ -600,3 +600,6 @@
 # one of them is the local player; obj+0x10E picks one of two clips
 0x08020210 voice_hit_victim         # the victim's voice (categories 7/8)
 0x0802026C voice_hit_attacker       # the attacker's voice (categories 5/6)
+0x080020F4 obj_flush_deletes        # obj_really_free on each object queued by obj_free, then empty the delete list
+0x08002098 obj_free_all             # flush deletes, then free everything on the process and draw lists
+0x03000BBC obj_draw_all             # IWRAM renderer: walks the draw lists, queues sprite frames (rspr_queue_frame); "overflow:%i"

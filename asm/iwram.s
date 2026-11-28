@@ -852,9 +852,9 @@ _03000BB4:
 _03000BB8:
 	.4byte 0x02018E30
 
-	.global sub_03000BBC
-	.type sub_03000BBC, %function
-sub_03000BBC: @ 03000BBC
+	.global obj_draw_all
+	.type obj_draw_all, %function
+obj_draw_all: @ 03000BBC
 	mov ip, sp
 	push {r4, r5, r6, r7, r8, sb, sl, fp, ip, lr, pc}
 	ldr r0, _030015CC
@@ -1522,7 +1522,7 @@ _0300157C:
 	ldr r1, [sb, #8]
 	b _03001530
 _030015A8:
-	.4byte 0x02004380
+	.4byte gObjDrawList
 _030015AC:
 	.4byte 0x03005674
 _030015B0:
@@ -1532,7 +1532,7 @@ _030015B4:
 _030015B8:
 	.4byte 0x0201A734
 _030015BC:
-	.4byte 0x02004384
+	.4byte gObjDrawList2
 _030015C0:
 	.4byte 0x03005660
 _030015C4:
@@ -3265,7 +3265,7 @@ _03002F08:
 	bne _03002BC8
 	b _03002F00
 _03002F28:
-	.4byte 0x0200437C
+	.4byte gObjVectorHitList
 _03002F2C:
 	.4byte gUnk_08713FD0
 _03002F30:

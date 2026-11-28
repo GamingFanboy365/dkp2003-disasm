@@ -16,10 +16,12 @@ fixed 0x140-byte objects:
 `obj_new(class)` pops a free object and stores the class; it prints
 "failed to allocate object, class=%i" when none are left.
 `obj_spawn_level_object` creates the objects of a level's object list.
-`obj_free` queues an object for deletion ("object delete list full").
+`obj_free` queues an object on `gObjDeleteList` ("object delete list
+full"); `obj_flush_deletes` frees the queued objects every frame, and
+`obj_free_all` frees everything at the end of a race.
 Live objects are kept on lists: `gObjProcessList` (updated every frame,
-`obj_add_process`/`obj_remove_process`), a draw list (`obj_add_draw`,
-`obj_remove_draw`) and the hit lists (`obj_add_static_hit`,
+`obj_add_process`/`obj_remove_process`), two draw lists (`gObjDrawList`, `gObjDrawList2`; `obj_add_draw`,
+`obj_remove_draw`), drawn by `obj_draw_all` in IWRAM, and the hit lists (`obj_add_static_hit`,
 `obj_add_vector_hit`, `gObjStaticHitList`).
 
 ## Classes

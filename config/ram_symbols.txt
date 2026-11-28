@@ -39,3 +39,8 @@
 0x020234A8 gAiPathHeader
 0x020234AA gAiPathCount
 0x020234AC gAiRacers                # 8 x 0x158-byte CPU racer states (0x560 halfwords, cleared by aiPlayerInit)
+0x0200437C gObjVectorHitList        # obj_add_vector_hit / obj_remove_vector_hit
+0x02004380 gObjDrawList             # obj_add_draw / obj_remove_draw (two lists)
+0x02004384 gObjDrawList2
+0x02018394 gObjDeleteList           # objects queued by obj_free (128 entries)
+0x02018594 gObjDeleteCount
