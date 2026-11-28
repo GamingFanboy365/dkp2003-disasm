@@ -250,7 +250,7 @@ _0800067A:
 	cmp r1, r3
 	blt _0800067A
 _08000688:
-	bl sub_080139F0
+	bl hits_find_play_area
 	ldr r1, _080007B4
 	movs r0, #0
 	ldrsh r2, [r1, r0]

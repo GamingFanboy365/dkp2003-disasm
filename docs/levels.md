@@ -17,7 +17,7 @@ and one for Reverse (play mode 1). `make extract` names the files
 | `+0x18` | | | a number (1) |
 | `+0x34` | `objects` | `game_init` → `obj_spawn_level_object` | object list `{x, y, z, classinfo*}` |
 | `+0x38` / `+0x3C` | `ai_path`, `ai_path_rev` | `aiPlayerInit`, `ai_boss_init_1/2` | the CPU racers' path (below) |
-| `+0x40` | `hits` | `sub_080139F0` ("init_hits: no hit polygons exist") | collision polygons |
+| `+0x40` | `hits` | `hits_find_play_area` ("no hit polygons exist, so play area cannot be determined") | collision polygons |
 | `+0x44` / `+0x48` | `edges1`, `edges1_rev` | `playerInit`, `sub_0800567C` | track edges ("not enough edge mask space for %d inside edges") |
 | `+0x4C` / `+0x50` | `edges2`, `edges2_rev` | `playerInit`, `sub_0800567C` | track edges |
 | `+0x54` / `+0x58` | `camera_ops`, `camera_ops_rev` | `camera_op_set` | camera operations |

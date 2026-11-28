@@ -577,3 +577,4 @@
 0x0802B578 yellow_zinger_sfx_pitch_cb
 0x08026388 ai_boss_init_1               # 94% aiPlayerInit; prints "playerbossInit: No AI path found"
 0x08023074 ai_boss_init_2               # the same; game_init calls both in boss mode
+0x080139F0 hits_find_play_area       # level +0x40 collision polygons; "no hit polygons exist, so play area cannot be determined"

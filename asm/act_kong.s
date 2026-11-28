@@ -962,10 +962,10 @@ _080139E8:
 _080139EC:
 	.4byte gUnk_08050EE8
 
-	.global sub_080139F0
+	.global hits_find_play_area
 	.thumb_func
-	.type sub_080139F0, %function
-sub_080139F0: @ 080139F0
+	.type hits_find_play_area, %function
+hits_find_play_area: @ 080139F0
 	push {lr}
 	ldr r2, _08013A40
 	adds r2, #0x86
