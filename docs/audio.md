@@ -15,10 +15,10 @@ Every sound is described by a 0x44-byte record whose first word is its type:
 | `0x23` | keyboard split: `+0x1C` points to 128 bytes (note → index), `+0x20` to a list of `0x20` records |
 | `0x22` | drum kit: the same shape; notes 24–58 are the drums |
 
-The mode is 1–4. In modes 1 and 3, length is always end − start (one-shot
-samples). In mode 2 and mostly in mode 4, it is shorter: by the data, those
-samples loop from start + length to the end (inferred, not yet checked in the
-mixer).
+The mode is 1–4. The mixer (in `audio_arm.s`, where a voice reaches the
+record's end) stops the voice in modes 1 and 3, and in modes 2 and 4 moves the
+play position back by `length` bytes: those samples loop over their last
+`length` bytes. In modes 1 and 3, length is always end − start.
 
 * `gSfxTable` (`0x088502A8`): 256 sound effects, the ids of `snd_play`.
 * `gMusicProgramMap` (`0x08850948`): 128 bytes mapping a song's program
@@ -68,8 +68,8 @@ sequence data.
 
 `make extract` also writes `assets/audio/music/dkp.sf2`, a SoundFont of the
 41 music instruments built from the game's own samples (`tools/soundfont.py`:
-90 samples, with the keyboard splits and the drum kit, and loops where the
-records have them). With it, a SoundFont player plays the MIDI files with
+90 samples, with the keyboard splits, the drum kit and the loops of modes 2
+and 4). With it, a SoundFont player plays the MIDI files with
 the game's sounds, for example
 `fluidsynth -ni -F out.wav dkp.sf2 song_00.mid`. It has no envelopes,
 vibrato or volume curves, so it is a close preview, not an exact copy of

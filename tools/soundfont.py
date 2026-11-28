@@ -8,13 +8,13 @@ table at 0x08850948 (0xFF = none) to one of 41 instrument records listed at
 0x0885010C.  A record is 0x44 bytes; its first word is the type:
 
   0x20  one sample: mode, rate, base note, start*, length, end* (last byte)
-        mode 2 (and mostly 4): looped, apparently from start + length to the
-        end (in modes 1 and 3 length is always end - start: no loop)
+        modes 2 and 4 loop: at the end the mixer jumps back by `length`
+        bytes; modes 1 and 3 play once (length = end - start)
   0x23  keyboard split: +0x1C points to 128 bytes (note -> index into the
         list at +0x20), the list holds 0x20 records
   0x22  drum kit: the same shape; the keys play the drums at their own pitch
 
-The loop reading and the drum pitch are inferred from the data, so the
+The drum pitch (each drum at its own pitch) is inferred, and the
 result is a close preview, not an exact copy of the engine (no envelopes,
 vibrato or volume curves).
 
@@ -49,14 +49,14 @@ def build(rom):
             sdata.extend(b''.join(struct.pack('<h', (b - 256 if b > 127 else b) << 8) for b in pcm))
             s1 = len(sdata) // 2
             sdata.extend(bytes(46 * 2))                       # SF2 requires 46 zero samples after each
-            if mode in (2, 4) and length != end - start:
-                loop = (s0 + length, s1)
-            else:
-                loop = (s0, s1)
+            # the mixer (audio_arm.s, at the end of a voice's sample): modes 2
+            # and 4 jump back by `length` bytes, i.e. loop the last `length`
+            # bytes before the end; modes 1 and 3 stop the voice
+            loop_end = s0 + (end - start)
+            loop = (loop_end - length, loop_end) if mode in (2, 4) else (s0, s1)
             samples[key] = len(shdr)
             shdr.append(('s%06X' % (start - ROM_BASE), s0, s1, loop[0], loop[1], rate, 60))
-        looped = mode in (2, 4) and length != end - start
-        return samples[key], base, looped
+        return samples[key], base, mode in (2, 4)
 
     insts = []            # (name, [zones]); zone = (lo, hi, sample, root, looped)
     for k in range(41):
