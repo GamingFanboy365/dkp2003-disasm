@@ -144,7 +144,7 @@ _08000218:
 _0800021C:
 	.4byte 0x03007FFC
 _08000220:
-	.4byte sub_08000418
+	.4byte irq_null
 _08000224:
 	.4byte gIrqHandler
 _08000228:
@@ -387,10 +387,10 @@ _08000410:
 _08000414:
 	.4byte 0x000002C9
 
-	.global sub_08000418
+	.global irq_null
 	.thumb_func
-	.type sub_08000418, %function
-sub_08000418: @ 08000418
+	.type irq_null, %function
+irq_null: @ 08000418
 	bx lr
 	.byte 0x00, 0x00
 

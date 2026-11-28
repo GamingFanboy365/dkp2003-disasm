@@ -680,10 +680,10 @@ _08028F18:
 _08028F1C:
 	.4byte gGameSetup
 
-	.global sub_08028F20
+	.global weapon_fire_red_zinger
 	.thumb_func
-	.type sub_08028F20, %function
-sub_08028F20: @ 08028F20
+	.type weapon_fire_red_zinger, %function
+weapon_fire_red_zinger: @ 08028F20
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1049,7 +1049,7 @@ _080291CC:
 _080291D0:
 	.4byte 0x0202EC00
 _080291D4:
-	.4byte sub_08029E60
+	.4byte red_zinger_sfx_cb2
 _080291D8:
 	.4byte 0x0000062C
 _080291DC:

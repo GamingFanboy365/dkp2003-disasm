@@ -845,7 +845,7 @@ fe_tracks_process: @ 08016F48
 	lsrs r2, r4, #2
 	strh r2, [r0]
 _08016F64:
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_draw_title
 	bl fe_load_screen_sprites
 	ldr r6, _08017098
@@ -1492,10 +1492,10 @@ _0801744C:
 _08017450:
 	.4byte gUnk_0863FDE8
 
-	.global sub_08017454
+	.global fe_timesheet_wave
 	.thumb_func
-	.type sub_08017454, %function
-sub_08017454: @ 08017454
+	.type fe_timesheet_wave, %function
+fe_timesheet_wave: @ 08017454
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1772,7 +1772,7 @@ _08017664:
 	adds r0, #1
 	cmp r0, #2
 	ble _08017636
-	bl sub_08017454
+	bl fe_timesheet_wave
 	bl fe_spr_init
 	movs r0, #3
 	bl music_play_if_changed
@@ -1852,8 +1852,8 @@ fe_tracks_timesheet_process: @ 080176EC
 	lsrs r2, r4, #2
 	strh r2, [r0]
 _08017706:
-	bl sub_08017E1C
-	bl sub_08017454
+	bl fe_frame_end
+	bl fe_timesheet_wave
 	bl fe_timesheet_draw
 	ldr r4, _080177C8
 	ldr r3, [r4]
@@ -1953,10 +1953,10 @@ _080177C8:
 _080177CC:
 	.4byte gKeysNew
 
-	.global sub_080177D0
+	.global fe_tracks_store_record
 	.thumb_func
-	.type sub_080177D0, %function
-sub_080177D0: @ 080177D0
+	.type fe_tracks_store_record, %function
+fe_tracks_store_record: @ 080177D0
 	push {lr}
 	ldr r0, _08017810
 	ldr r1, [r0, #0xc]
@@ -2050,11 +2050,11 @@ _08017874:
 _08017878:
 	.4byte 0x04000004
 _0801787C:
-	.4byte sub_08017DD8
+	.4byte fe_gradient_vblank
 _08017880:
 	.4byte gIrqHandler
 _08017884:
-	.4byte sub_08017DF4
+	.4byte fe_gradient_hblank
 _08017888:
 	str r1, [r0, #4]
 	movs r2, #0x80
@@ -2311,10 +2311,10 @@ _08017A84:
 _08017A88:
 	.4byte gUnk_080514F0
 
-	.global sub_08017A8C
+	.global fe_cranky_draw
 	.thumb_func
-	.type sub_08017A8C, %function
-sub_08017A8C: @ 08017A8C
+	.type fe_cranky_draw, %function
+fe_cranky_draw: @ 08017A8C
 	push {r4, r5, lr}
 	ldr r2, _08017B04
 	ldr r5, _08017B08
@@ -2407,7 +2407,7 @@ fe_cranky_process: @ 08017B24
 	sub sp, #0x10
 	bl _call_via_r5
 	bl fade_update
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r7, _08017DAC
 	ldr r3, [r7, #8]
 	cmp r3, #1
@@ -2658,7 +2658,7 @@ _08017D22:
 	beq _08017D2C
 	b _08017B56
 _08017D2C:
-	bl sub_08017A8C
+	bl fe_cranky_draw
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	ble _08017D5A
@@ -2685,10 +2685,10 @@ _08017D5A:
 	str r0, [r7, #8]
 	b _08017B56
 _08017D62:
-	bl sub_08017A8C
+	bl fe_cranky_draw
 	b _08017B56
 _08017D68:
-	bl sub_08017A8C
+	bl fe_cranky_draw
 	ldr r0, [r7, #4]
 	cmp r0, #0xf
 	bgt _08017D96
@@ -2744,10 +2744,10 @@ _08017DD0:
 _08017DD4:
 	.4byte sin_fx
 
-	.global sub_08017DD8
+	.global fe_gradient_vblank
 	.thumb_func
-	.type sub_08017DD8, %function
-sub_08017DD8: @ 08017DD8
+	.type fe_gradient_vblank, %function
+fe_gradient_vblank: @ 08017DD8
 	push {lr}
 	bl vblank_handler_noaudio
 	ldr r0, _08017DF0
@@ -2761,10 +2761,10 @@ sub_08017DD8: @ 08017DD8
 _08017DF0:
 	.4byte 0x02023FA4
 
-	.global sub_08017DF4
+	.global fe_gradient_hblank
 	.thumb_func
-	.type sub_08017DF4, %function
-sub_08017DF4: @ 08017DF4
+	.type fe_gradient_hblank, %function
+fe_gradient_hblank: @ 08017DF4
 	push {lr}
 	ldr r0, _08017E14
 	ldrh r1, [r0]
@@ -2787,10 +2787,10 @@ _08017E14:
 _08017E18:
 	.4byte 0x02023FA4
 
-	.global sub_08017E1C
+	.global fe_frame_end
 	.thumb_func
-	.type sub_08017E1C, %function
-sub_08017E1C: @ 08017E1C
+	.type fe_frame_end, %function
+fe_frame_end: @ 08017E1C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

@@ -540,7 +540,7 @@ _0802D70C:
 	ble _0802D740
 _0802D71A:
 	mov r0, r8
-	bl sub_0802D240
+	bl life_meter_pal_pulse
 	mov r2, sl
 	ldr r6, _0802D7E4
 	ldr r5, _0802D7E8

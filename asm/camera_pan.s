@@ -838,7 +838,7 @@ _08004E14:
 fe_credits_screen_process: @ 08004E18
 	push {lr}
 	bl fade_update
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r0, _08004E88
 	ldr r3, [r0]
 	cmp r3, #1

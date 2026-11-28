@@ -3234,10 +3234,10 @@ _08002B3E:
 	rsbs r5, r5, #0
 	b _08002AF2
 
-	.global sub_08002B48
+	.global debug_menu_init_alt
 	.thumb_func
-	.type sub_08002B48, %function
-sub_08002B48: @ 08002B48
+	.type debug_menu_init_alt, %function
+debug_menu_init_alt: @ 08002B48
 	push {r4, r5, r6, r7, lr}
 	bl dbg_setup_screen
 	ldr r2, _08002BB0
@@ -3529,10 +3529,10 @@ _08002D74:
 _08002D78:
 	.4byte 0xFFFFFB00
 
-	.global sub_08002D7C
+	.global particles_collect
 	.thumb_func
-	.type sub_08002D7C, %function
-sub_08002D7C: @ 08002D7C
+	.type particles_collect, %function
+particles_collect: @ 08002D7C
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -3945,10 +3945,10 @@ _08003054:
 _08003058:
 	.4byte gSpriteNext
 
-	.global sub_0800305C
+	.global rspr_queue_reset
 	.thumb_func
-	.type sub_0800305C, %function
-sub_0800305C: @ 0800305C
+	.type rspr_queue_reset, %function
+rspr_queue_reset: @ 0800305C
 	push {lr}
 	ldr r2, _08003088
 	ldr r0, [r2]

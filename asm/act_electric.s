@@ -168,9 +168,9 @@ _0802BFEE:
 	cmp r1, #0
 	beq _0802C006
 _0802BFF6:
-	bl sub_0802B544
-	bl sub_08029E10
-	bl sub_0802ABEC
+	bl yellow_zinger_reset
+	bl red_zinger_buzz_reset
+	bl blue_zinger_buzz_reset
 	pop {r0}
 	bx r0
 _0802C006:

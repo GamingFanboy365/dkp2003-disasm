@@ -472,7 +472,7 @@ game_process: @ 08000824
 	eors r6, r3
 	str r6, [r4]
 	strh r1, [r0]
-	bl sub_0800305C
+	bl rspr_queue_reset
 	bl pal_slots_reset
 	ldr r1, _0800088C
 	movs r2, #2
@@ -583,7 +583,7 @@ _08000940:
 _08000944:
 	.4byte vblank_handler
 _08000948:
-	.4byte sub_08000418
+	.4byte irq_null
 _0800094C:
 	.4byte 0x04000200
 _08000950:
@@ -815,7 +815,7 @@ _08000AFC:
 _08000B00:
 	.4byte vblank_handler
 _08000B04:
-	.4byte sub_08000418
+	.4byte irq_null
 _08000B08:
 	.4byte 0x04000200
 _08000B0C:

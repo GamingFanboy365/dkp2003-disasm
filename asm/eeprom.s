@@ -3387,7 +3387,7 @@ _0801EAE4:
 	str r3, [r1]
 	b _0801EDB4
 _0801EAEC:
-	bl sub_080177D0
+	bl fe_tracks_store_record
 	bl save_write
 	movs r2, #0xdd
 	b _0801F144

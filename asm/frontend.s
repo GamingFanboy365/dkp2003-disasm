@@ -1405,7 +1405,7 @@ fe_title_process: @ 08014EAC
 	asrs r0, r4, #2
 	asrs r2, r4, #4
 	bl fe_title_draw
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r5, _080151D8
 	adds r0, r5, #0
 	adds r0, #0x26
@@ -3923,7 +3923,7 @@ _080161CE:
 	bne _080161D4
 	b _080166D6
 _080161D4:
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r3, _08016328
 	movs r1, #0
 	ldr r0, [r3]

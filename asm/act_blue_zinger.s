@@ -221,10 +221,10 @@ _0802ABE4:
 _0802ABE8:
 	.4byte gUnk_08052F1C
 
-	.global sub_0802ABEC
+	.global blue_zinger_buzz_reset
 	.thumb_func
-	.type sub_0802ABEC, %function
-sub_0802ABEC: @ 0802ABEC
+	.type blue_zinger_buzz_reset, %function
+blue_zinger_buzz_reset: @ 0802ABEC
 	ldr r0, _0802ABFC
 	movs r1, #0
 	str r1, [r0]
@@ -260,10 +260,10 @@ _0802AC20:
 _0802AC24:
 	.4byte gRacerObjects
 
-	.global sub_0802AC28
+	.global blue_zinger_sfx_vol_cb
 	.thumb_func
-	.type sub_0802AC28, %function
-sub_0802AC28: @ 0802AC28
+	.type blue_zinger_sfx_vol_cb, %function
+blue_zinger_sfx_vol_cb: @ 0802AC28
 	adds r0, #0xa0
 	ldr r2, [r0, #0x38]
 	movs r0, #0x80
@@ -275,10 +275,10 @@ sub_0802AC28: @ 0802AC28
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_0802AC3C
+	.global blue_zinger_sfx_cb2
 	.thumb_func
-	.type sub_0802AC3C, %function
-sub_0802AC3C: @ 0802AC3C
+	.type blue_zinger_sfx_cb2, %function
+blue_zinger_sfx_cb2: @ 0802AC3C
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -306,10 +306,10 @@ _0802AC5C:
 _0802AC64:
 	.4byte 0x00000133
 
-	.global sub_0802AC68
+	.global blue_zinger_sfx_vol2_cb
 	.thumb_func
-	.type sub_0802AC68, %function
-sub_0802AC68: @ 0802AC68
+	.type blue_zinger_sfx_vol2_cb, %function
+blue_zinger_sfx_vol2_cb: @ 0802AC68
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #0x1c]
@@ -331,10 +331,10 @@ _0802AC88:
 	movs r0, #0
 	b _0802AC84
 
-	.global sub_0802AC8C
+	.global blue_zinger_sfx_pitch2_cb
 	.thumb_func
-	.type sub_0802AC8C, %function
-sub_0802AC8C: @ 0802AC8C
+	.type blue_zinger_sfx_pitch2_cb, %function
+blue_zinger_sfx_pitch2_cb: @ 0802AC8C
 	push {lr}
 	adds r0, #0xa0
 	ldr r2, [r0, #0x1c]
@@ -394,7 +394,7 @@ _0802ACC2:
 	str r2, [r0, #0x24]
 	str r2, [r0, #0x2c]
 	adds r0, r4, #0
-	bl sub_08012174
+	bl blue_zinger_set_velocity
 	movs r1, #0x80
 	b _0802AD08
 	.byte 0x00, 0x00

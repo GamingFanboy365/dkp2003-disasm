@@ -819,3 +819,39 @@
 0x08004BAC cam_path_next_point      # (&pos, &look) -> 0 at the end
 0x08004C0C cam_path_close_loop      # append the first 3 points again (a closed spline); 0 if full
 0x08004C64 angle_unwrap             # (&a, &b): move b by 0x10000 steps to within 0x8000 of a
+0x08017454 fe_timesheet_wave        # time sheet sprites on a sine wave (like fe_scoreboard_wave)
+0x080177D0 fe_tracks_store_record   # a new best lap / race time (+0x24) into the course's records at gGameSetup+0x200 + course*8
+0x08017A8C fe_cranky_draw           # Cranky's screen: his sprites and the text box
+0x08017DD8 fe_gradient_vblank       # vblank: backdrop colour = gradient[0] (0x02023FA4), then the audio update
+0x08017DF4 fe_gradient_hblank       # hblank: backdrop colour per line from the gradient
+0x08017E1C fe_frame_end             # end of a front-end frame: IME off, flip the palette-bank buffer (gModeFlags bit 9), pal_flush, upload sprite tiles, hide unused OAM, IME on
+0x08029E10 red_zinger_buzz_reset    # weaponInit: no red zinger owns the buzz (gRedZingerBuzzOwner = -1)
+0x08029E4C red_zinger_sfx_vol_cb    # sound callbacks: (0x10000 - +0xD0) x 127 >> 16
+0x08029E60 red_zinger_sfx_cb2       # +0xA4 x 0x133 >> 8, clamped to 0..180 (0 -> -1)
+0x08029E8C red_zinger_sfx_vol2_cb   # (0x800 - +0xBC) x 127 >> 11, clamped to 0..127
+0x08029EB0 red_zinger_sfx_pitch2_cb # 0x8000 + (0x800 - +0xBC) << 4, clamped to 0x8000..0x10000
+0x0802ABEC blue_zinger_buzz_reset   # the same five for the blue zinger
+0x0802AC28 blue_zinger_sfx_vol_cb
+0x0802AC3C blue_zinger_sfx_cb2
+0x0802AC68 blue_zinger_sfx_vol2_cb
+0x0802AC8C blue_zinger_sfx_pitch2_cb
+0x0802B544 yellow_zinger_reset      # weaponInit: clear the yellow zinger table (0x0202EC10, 10 words) and owner -1
+0x0802B59C yellow_zinger_sfx_vol_cb
+0x0802C42C grid_mask                # (lo, hi, origin, size) -> mask of the 32 grid cells [lo, hi] covers (as in obj_update_sweep_box)
+0x08000418 irq_null                 # empty interrupt handler
+0x08028F20 weapon_fire_red_zinger   # weaponManager: obj_new(0x16), aimed at the racer ahead
+0x0802A000 weapon_fire_blue_zinger  # weaponManager: obj_new(0x17), the buzz sound
+0x0802AE80 weapon_fire_yellow_zinger # weaponManager: obj_new(0x15) in front of the racer
+0x0802B5B0 weapon_drop_tnt_barrel   # weaponManager: obj_new(0x22), sound 0xCA
+0x08002B48 debug_menu_init_alt      # a second debug menu setup (dbg_setup_screen, the item list from row 0xB); no caller
+0x08002D7C particles_collect        # (obj): particles with flag 0x200 whose move this frame passes within the object's radius (+0x5C) end (life 0) -> how many
+0x0800305C rspr_queue_reset         # empty this frame's rspr_queue_frame list (double-buffered by gModeFlags bit 9)
+0x08011F80 blue_zinger_path_point   # (obj, &x, &z): the point it heads for on its path (+0x110 index into the list at +0xE8)
+0x08012174 blue_zinger_set_velocity # init_blue_zinger: velocity from the heading (+0x56) with sin/cos
+0x080122AC blue_zinger_steer        # act_blue_zinger: turn the heading (+0x56) towards blue_zinger_path_point (atan2)
+0x0802D108 bossweapon_reset         # weaponbossInit: boss weapon state (0x0202EC4C.., owner -1)
+0x0802D128 bossweapon_sfx_vol_cb    # (0x8000 - +0xF0) x table[+0xA0] >> 15
+0x0802D240 life_meter_pal_pulse     # act_life_meter: palette = base + delta x sin^2 (like racer_pal_pulse_update, 0xE8 per entry)
+0x0802C828 weaponboss_fire          # weaponbossManager: obj_new(0x38) bossweapon from the boss, aimed with its heading
+0x0802C950 bossweapon_sfx_pitch_cb  # sfx_doppler against the local player
+0x0802C9C8 bossweapon_explode       # sprite swap, sound off, obj_new(0x31) bossbomb_fire

@@ -38,7 +38,7 @@ Summary
       (0x03005670) at the language screen, or apply patches/debug_menu.ips;
       see docs/debug_menu.md.
       functions: dbg_putc, dbg_draw_values, dbg_setup_screen,
-      debug_menu_init, debug_menu_process, dbg_putnum, sub_08002B48,
+      debug_menu_init, debug_menu_process, dbg_putnum, debug_menu_init_alt,
       fe_cups_win_init, fe_cups_win_draw_spin, fe_cups_win_process
       strings: "7.increase polyphony RAM\n           ...", "Level",
       "Player", "Cups scoreboard", "Flyby", "Edit Flyby", "New Frontend",
@@ -89,8 +89,8 @@ Summary
       newlib (libc) code that was linked in but is never called
       functions: __b2d, __ratio
 
-  sub_08002D7C: 1 function(s), 0 data block(s), 252 bytes
-      functions: sub_08002D7C
+  particles_collect: 1 function(s), 0 data block(s), 252 bytes
+      functions: particles_collect
 
   obj_remove_process: 1 function(s), 1 data block(s), 196 bytes
       functions: obj_remove_process
@@ -265,8 +265,8 @@ Summary
   0800271C     212  object.s                 debug_menu_init
   080027F0     760  object.s                 debug_menu_process
   08002AE8      96  object.s                 dbg_putnum
-  08002B48     132  object.s                 sub_08002B48
-  08002D7C     252  object.s                 sub_08002D7C
+  08002B48     132  object.s                 debug_menu_init_alt
+  08002D7C     252  object.s                 particles_collect
   08004454      40  ghost.s                  ghost_discard
   080044AC      36  ghost.s                  ghost_keep
   08004B34      72  camera_pan.s             cam_path_set

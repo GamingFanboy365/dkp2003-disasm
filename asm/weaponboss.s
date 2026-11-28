@@ -38,9 +38,9 @@ _0802C484:
 	cmp r1, #0
 	beq _0802C49E
 _0802C48C:
-	bl sub_0802B544
-	bl sub_08029E10
-	bl sub_0802D108
+	bl yellow_zinger_reset
+	bl red_zinger_buzz_reset
+	bl bossweapon_reset
 	add sp, #4
 	pop {r0}
 	bx r0
@@ -351,7 +351,7 @@ _0802C6C4:
 	.global _0802C6F0
 _0802C6F0:
 	adds r0, r4, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 _0802C6F6:
 	ldr r2, _0802C71C
 _0802C6F8:
@@ -373,7 +373,7 @@ _0802C6FC:
 	.global _0802C712
 _0802C712:
 	adds r0, r4, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 	ldr r0, _0802C724
 	b _0802C74E
 _0802C71C:
@@ -387,14 +387,14 @@ _0802C728:
 	.global _0802C72C
 _0802C72C:
 	adds r0, r4, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C6FC
 	b _0802C772
 	.global _0802C738
 _0802C738:
 	adds r0, r4, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C6FC
 	ldr r2, _0802C764
@@ -402,7 +402,7 @@ _0802C738:
 	.global _0802C746
 _0802C746:
 	adds r0, r4, #0
-	bl sub_0802B5B0
+	bl weapon_drop_tnt_barrel
 	ldr r0, _0802C768
 _0802C74E:
 	movs r7, #1
@@ -438,14 +438,14 @@ _0802C77A:
 	.global _0802C782
 _0802C782:
 	adds r0, r4, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 	movs r7, #1
 	strh r7, [r5]
 	b _0802C6FC
 	.global _0802C78E
 _0802C78E:
 	adds r0, r4, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C6FC
 	ldr r2, _0802C7A4
@@ -459,7 +459,7 @@ _0802C7A4:
 	.global _0802C7A8
 _0802C7A8:
 	adds r0, r4, #0
-	bl sub_0802C828
+	bl weaponboss_fire
 	b _0802C6F6
 _0802C7B0:
 	ldr r1, [r6]
@@ -524,10 +524,10 @@ _0802C820:
 _0802C824:
 	.4byte 0x0000010B
 
-	.global sub_0802C828
+	.global weaponboss_fire
 	.thumb_func
-	.type sub_0802C828, %function
-sub_0802C828: @ 0802C828
+	.type weaponboss_fire, %function
+weaponboss_fire: @ 0802C828
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -669,10 +669,10 @@ _0802C948:
 _0802C94C:
 	.4byte gUnk_0885003C
 
-	.global sub_0802C950
+	.global bossweapon_sfx_pitch_cb
 	.thumb_func
-	.type sub_0802C950, %function
-sub_0802C950: @ 0802C950
+	.type bossweapon_sfx_pitch_cb, %function
+bossweapon_sfx_pitch_cb: @ 0802C950
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r1, r5, #0
@@ -737,10 +737,10 @@ _0802C9C0:
 _0802C9C4:
 	.4byte gUnk_0884FF9C
 
-	.global sub_0802C9C8
+	.global bossweapon_explode
 	.thumb_func
-	.type sub_0802C9C8, %function
-sub_0802C9C8: @ 0802C9C8
+	.type bossweapon_explode, %function
+bossweapon_explode: @ 0802C9C8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

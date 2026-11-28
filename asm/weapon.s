@@ -248,7 +248,7 @@ _0802C288:
 	.global _0802C2B0
 _0802C2B0:
 	adds r0, r5, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 _0802C2B6:
 	ldr r2, _0802C2E4
 _0802C2B8:
@@ -287,13 +287,13 @@ _0802C2F0:
 	.global _0802C2F4
 _0802C2F4:
 	adds r0, r5, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 	ldr r1, _0802C324
 	b _0802C36C
 	.global _0802C2FE
 _0802C2FE:
 	adds r0, r5, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C2BC
 	ldr r0, _0802C328
@@ -301,7 +301,7 @@ _0802C2FE:
 	.global _0802C30C
 _0802C30C:
 	adds r0, r5, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C2BC
 	ldr r2, _0802C32C
@@ -309,7 +309,7 @@ _0802C30C:
 	.global _0802C31A
 _0802C31A:
 	adds r0, r5, #0
-	bl sub_0802B5B0
+	bl weapon_drop_tnt_barrel
 	b _0802C36A
 	.byte 0x00, 0x00
 _0802C324:
@@ -349,7 +349,7 @@ _0802C35C:
 	.global _0802C360
 _0802C360:
 	adds r0, r5, #0
-	bl sub_0802A000
+	bl weapon_fire_blue_zinger
 	cmp r0, #0
 	beq _0802C2BC
 _0802C36A:
@@ -361,14 +361,14 @@ _0802C36C:
 	.global _0802C372
 _0802C372:
 	adds r0, r5, #0
-	bl sub_0802AE80
+	bl weapon_fire_yellow_zinger
 	movs r6, #1
 	strh r6, [r4]
 	b _0802C2BC
 	.global _0802C37E
 _0802C37E:
 	adds r0, r5, #0
-	bl sub_08028F20
+	bl weapon_fire_red_zinger
 	cmp r0, #0
 	beq _0802C2BC
 	ldr r0, _0802C394
@@ -456,10 +456,10 @@ _0802C424:
 _0802C428:
 	.4byte gUnk_08053494
 
-	.global sub_0802C42C
+	.global grid_mask
 	.thumb_func
-	.type sub_0802C42C, %function
-sub_0802C42C: @ 0802C42C
+	.type grid_mask, %function
+grid_mask: @ 0802C42C
 	push {r4, r5, r6, r7, lr}
 	adds r7, r0, #0
 	asrs r0, r3, #5

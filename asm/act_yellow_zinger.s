@@ -168,10 +168,10 @@ _0802AE78:
 _0802AE7C:
 	.4byte gUnk_08052F98
 
-	.global sub_0802AE80
+	.global weapon_fire_yellow_zinger
 	.thumb_func
-	.type sub_0802AE80, %function
-sub_0802AE80: @ 0802AE80
+	.type weapon_fire_yellow_zinger, %function
+weapon_fire_yellow_zinger: @ 0802AE80
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -480,7 +480,7 @@ _0802B0C2:
 	ldr r2, [r3]
 	ldr r3, _0802B3E8
 	ldr r3, [r3]
-	bl sub_0802C42C
+	bl grid_mask
 	str r0, [r6, #0x44]
 	ldr r3, [r7, #0x2c]
 	ldr r1, _0802B3E0
@@ -490,7 +490,7 @@ _0802B0C2:
 	ldr r2, [r3]
 	ldr r3, _0802B3F0
 	ldr r3, [r3]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r1, _0802B3F4
 	str r0, [r6, #0x48]
 	ldr r2, [r1]
@@ -887,7 +887,7 @@ _0802B3F4:
 _0802B3F8:
 	.4byte gRacerObjects
 _0802B3FC:
-	.4byte sub_0802B59C
+	.4byte yellow_zinger_sfx_vol_cb
 _0802B400:
 	.4byte yellow_zinger_sfx_pitch_cb
 _0802B404:
@@ -1054,10 +1054,10 @@ _0802B53C:
 _0802B540:
 	.4byte 0x00000205
 
-	.global sub_0802B544
+	.global yellow_zinger_reset
 	.thumb_func
-	.type sub_0802B544, %function
-sub_0802B544: @ 0802B544
+	.type yellow_zinger_reset, %function
+yellow_zinger_reset: @ 0802B544
 	push {lr}
 	ldr r2, _0802B568
 	movs r1, #0
@@ -1108,10 +1108,10 @@ _0802B594:
 _0802B598:
 	.4byte gRacerObjects
 
-	.global sub_0802B59C
+	.global yellow_zinger_sfx_vol_cb
 	.thumb_func
-	.type sub_0802B59C, %function
-sub_0802B59C: @ 0802B59C
+	.type yellow_zinger_sfx_vol_cb, %function
+yellow_zinger_sfx_vol_cb: @ 0802B59C
 	adds r0, #0xa0
 	ldr r2, [r0, #0x3c]
 	movs r0, #0x80
@@ -1123,10 +1123,10 @@ sub_0802B59C: @ 0802B59C
 	bx lr
 	.byte 0xC0, 0x46
 
-	.global sub_0802B5B0
+	.global weapon_drop_tnt_barrel
 	.thumb_func
-	.type sub_0802B5B0, %function
-sub_0802B5B0: @ 0802B5B0
+	.type weapon_drop_tnt_barrel, %function
+weapon_drop_tnt_barrel: @ 0802B5B0
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r0, #0x56

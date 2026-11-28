@@ -1284,7 +1284,7 @@ fe_cups_win2_process: @ 080219F8
 	ldr r0, _08021D78
 	ldr r4, _08021D7C
 	bl _call_via_r4
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r1, _08021D80
 	mov r8, r1
 	mov r2, r8
@@ -2913,7 +2913,7 @@ fe_cups_trophy_process: @ 08022690
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	bl fade_update
-	bl sub_08017E1C
+	bl fe_frame_end
 	movs r1, #0
 	movs r0, #0xaf
 	bl fe_get_text
@@ -3425,7 +3425,7 @@ fe_boss_win_process: @ 08022A7C
 	ldr r0, _08022B5C
 	ldr r4, _08022B60
 	bl _call_via_r4
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r0, _08022B64
 	ldr r7, [r0, #8]
 	cmp r7, #0

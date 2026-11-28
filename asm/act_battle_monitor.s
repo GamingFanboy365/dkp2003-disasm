@@ -512,7 +512,7 @@ fe_credits_process: @ 0801429C
 	push {r4, r5, lr}
 	sub sp, #0x10
 	bl fade_update
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r5, _08014450
 	ldr r3, [r5]
 	cmp r3, #6

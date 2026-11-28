@@ -209,7 +209,7 @@ _0802CBFE:
 	beq _0802CBDA
 	adds r0, r7, #0
 	movs r1, #0
-	bl sub_0802C9C8
+	bl bossweapon_explode
 	b _0802CBDA
 _0802CC18:
 	movs r2, #1
@@ -239,7 +239,7 @@ _0802CC28:
 	ldr r2, [r3]
 	ldr r3, _0802CE70
 	ldr r3, [r3]
-	bl sub_0802C42C
+	bl grid_mask
 	str r0, [r6, #0x44]
 	ldr r2, [r7, #0x2c]
 	ldr r1, _0802CE68
@@ -249,7 +249,7 @@ _0802CC28:
 	ldr r2, [r4]
 	ldr r4, _0802CE78
 	ldr r3, [r4]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r2, _0802CE7C
 	str r0, [r6, #0x48]
 	ldr r1, [r2]
@@ -525,9 +525,9 @@ _0802CE80:
 _0802CE84:
 	.4byte gUnk_0884FF9C
 _0802CE88:
-	.4byte sub_0802C950
+	.4byte bossweapon_sfx_pitch_cb
 _0802CE8C:
-	.4byte sub_0802D128
+	.4byte bossweapon_sfx_vol_cb
 _0802CE90:
 	.4byte gSprites
 _0802CE94:
@@ -662,7 +662,7 @@ _0802CF80:
 _0802CF94:
 	adds r0, r7, #0
 	movs r1, #0
-	bl sub_0802C9C8
+	bl bossweapon_explode
 	movs r3, #0x84
 	adds r2, r3, r7
 	adds r5, r7, #0
@@ -741,7 +741,7 @@ _0802D008:
 	beq _0802D054
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0802C9C8
+	bl bossweapon_explode
 	movs r3, #2
 	str r3, [sp, #8]
 	movs r3, #0xa
@@ -765,7 +765,7 @@ _0802D048:
 _0802D054:
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0802C9C8
+	bl bossweapon_explode
 	adds r0, r6, #0
 	ldr r2, _0802D0E4
 	adds r0, #0xa0
@@ -851,10 +851,10 @@ _0802D100:
 _0802D104:
 	.4byte 0x00000285
 
-	.global sub_0802D108
+	.global bossweapon_reset
 	.thumb_func
-	.type sub_0802D108, %function
-sub_0802D108: @ 0802D108
+	.type bossweapon_reset, %function
+bossweapon_reset: @ 0802D108
 	movs r0, #1
 	rsbs r3, r0, #0
 	ldr r2, _0802D11C
@@ -872,10 +872,10 @@ _0802D120:
 _0802D124:
 	.4byte 0x0202EC54
 
-	.global sub_0802D128
+	.global bossweapon_sfx_vol_cb
 	.thumb_func
-	.type sub_0802D128, %function
-sub_0802D128: @ 0802D128
+	.type bossweapon_sfx_vol_cb, %function
+bossweapon_sfx_vol_cb: @ 0802D128
 	adds r0, #0xa0
 	ldr r3, [r0, #0x50]
 	movs r1, #0x80
@@ -1027,10 +1027,10 @@ _0802D238:
 _0802D23C:
 	.4byte 0x000002C5
 
-	.global sub_0802D240
+	.global life_meter_pal_pulse
 	.thumb_func
-	.type sub_0802D240, %function
-sub_0802D240: @ 0802D240
+	.type life_meter_pal_pulse, %function
+life_meter_pal_pulse: @ 0802D240
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl

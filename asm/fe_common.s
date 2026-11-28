@@ -1058,7 +1058,7 @@ fe_cups_process: @ 080195CC
 	lsrs r2, r5, #2
 	strh r2, [r0]
 _080195F4:
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_draw_title
 	bl fe_load_screen_sprites
 	movs r2, #0
@@ -2936,7 +2936,7 @@ _0801A43C:
 	asrs r0, r2, #0xc
 	subs r0, #0x20
 	str r0, [r1]
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_scoreboard_wave
 	ldr r2, _0801A76C
 	ldr r3, [r2]
@@ -4006,7 +4006,7 @@ _0801AC78:
 fe_cups_win_process: @ 0801AC7C
 	push {r4, r5, lr}
 	bl fade_update
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r5, _0801AD98
 	movs r4, #0
 _0801AC8A:
@@ -5381,7 +5381,7 @@ _0801B65A:
 	adds r2, r0, r1
 	ldr r0, _0801B920
 	strh r2, [r0]
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r2, _0801B924
 	movs r1, #0x3c
 	ldr r0, [r2]
@@ -6801,7 +6801,7 @@ fe_options_process: @ 0801C14C
 	lsrs r2, r4, #2
 	strh r2, [r0]
 _0801C168:
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_draw_title
 	add r6, sp, #0x10
 	adds r0, r6, #0
@@ -7537,7 +7537,7 @@ fe_retry_process: @ 0801C6F0
 	lsrs r2, r4, #2
 	strh r2, [r0]
 _0801C70A:
-	bl sub_08017E1C
+	bl fe_frame_end
 	ldr r5, _0801C7E8
 	ldr r4, [r5]
 	cmp r4, #1
@@ -8121,7 +8121,7 @@ fe_name_process: @ 0801CB54
 	lsrs r2, r4, #2
 	strh r2, [r0]
 _0801CB70:
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_draw_title
 	movs r1, #0
 	movs r0, #0x8e
@@ -9045,7 +9045,7 @@ fe_spotscreen2_process: @ 0801D254
 	lsrs r2, r1, #2
 	strh r2, [r0]
 _0801D270:
-	bl sub_08017E1C
+	bl fe_frame_end
 	bl fe_draw_title
 	movs r1, #0
 	movs r0, #1

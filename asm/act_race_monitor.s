@@ -643,10 +643,10 @@ _08011F78:
 _08011F7C:
 	.4byte gUnk_08050A60
 
-	.global sub_08011F80
+	.global blue_zinger_path_point
 	.thumb_func
-	.type sub_08011F80, %function
-sub_08011F80: @ 08011F80
+	.type blue_zinger_path_point, %function
+blue_zinger_path_point: @ 08011F80
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -912,10 +912,10 @@ _0801216A:
 _08012170:
 	.4byte 0x02023F88
 
-	.global sub_08012174
+	.global blue_zinger_set_velocity
 	.thumb_func
-	.type sub_08012174, %function
-sub_08012174: @ 08012174
+	.type blue_zinger_set_velocity, %function
+blue_zinger_set_velocity: @ 08012174
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -1075,10 +1075,10 @@ _080122A4:
 _080122A8:
 	.4byte 0x02023F88
 
-	.global sub_080122AC
+	.global blue_zinger_steer
 	.thumb_func
-	.type sub_080122AC, %function
-sub_080122AC: @ 080122AC
+	.type blue_zinger_steer, %function
+blue_zinger_steer: @ 080122AC
 	push {r4, r5, r6, lr}
 	mov r6, r8
 	push {r6}
@@ -1086,7 +1086,7 @@ sub_080122AC: @ 080122AC
 	add r1, sp, #4
 	mov r2, sp
 	adds r6, r0, #0
-	bl sub_08011F80
+	bl blue_zinger_path_point
 	ldr r2, [r6, #0x2c]
 	ldr r1, [sp, #4]
 	ldr r4, [sp]

@@ -377,7 +377,7 @@ _080294B6:
 	ldr r2, [r3]
 	ldr r3, _080296F0
 	ldr r3, [r3]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r2, [sp, #0x44]
 	str r0, [r2, #0x38]
 	ldr r3, [r7, #0x2c]
@@ -388,7 +388,7 @@ _080294B6:
 	ldr r2, [r4]
 	ldr r4, _080296F8
 	ldr r3, [r4]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r1, [sp, #0x44]
 	str r0, [r1, #0x3c]
 	ldr r2, [r5]
@@ -659,7 +659,7 @@ _080296F8:
 _080296FC:
 	.4byte gRacerObjects
 _08029700:
-	.4byte sub_08029E4C
+	.4byte red_zinger_sfx_vol_cb
 _08029704:
 	.4byte red_zinger_sfx_pitch_cb
 _08029708:
@@ -1306,9 +1306,9 @@ _08029C00:
 _08029C38:
 	.4byte gLocalPlayerIndex
 _08029C3C:
-	.4byte sub_08029E8C
+	.4byte red_zinger_sfx_vol2_cb
 _08029C40:
-	.4byte sub_08029EB0
+	.4byte red_zinger_sfx_pitch2_cb
 _08029C44:
 	.4byte atan2_fx
 _08029C48:
@@ -1536,10 +1536,10 @@ _08029E08:
 _08029E0C:
 	.4byte 0x00000386
 
-	.global sub_08029E10
+	.global red_zinger_buzz_reset
 	.thumb_func
-	.type sub_08029E10, %function
-sub_08029E10: @ 08029E10
+	.type red_zinger_buzz_reset, %function
+red_zinger_buzz_reset: @ 08029E10
 	ldr r0, _08029E20
 	movs r1, #0
 	str r1, [r0]
@@ -1575,10 +1575,10 @@ _08029E44:
 _08029E48:
 	.4byte gRacerObjects
 
-	.global sub_08029E4C
+	.global red_zinger_sfx_vol_cb
 	.thumb_func
-	.type sub_08029E4C, %function
-sub_08029E4C: @ 08029E4C
+	.type red_zinger_sfx_vol_cb, %function
+red_zinger_sfx_vol_cb: @ 08029E4C
 	adds r0, #0xa0
 	ldr r2, [r0, #0x30]
 	movs r0, #0x80
@@ -1590,10 +1590,10 @@ sub_08029E4C: @ 08029E4C
 	bx lr
 	.byte 0x00, 0x00
 
-	.global sub_08029E60
+	.global red_zinger_sfx_cb2
 	.thumb_func
-	.type sub_08029E60, %function
-sub_08029E60: @ 08029E60
+	.type red_zinger_sfx_cb2, %function
+red_zinger_sfx_cb2: @ 08029E60
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #4]
@@ -1621,10 +1621,10 @@ _08029E80:
 _08029E88:
 	.4byte 0x00000133
 
-	.global sub_08029E8C
+	.global red_zinger_sfx_vol2_cb
 	.thumb_func
-	.type sub_08029E8C, %function
-sub_08029E8C: @ 08029E8C
+	.type red_zinger_sfx_vol2_cb, %function
+red_zinger_sfx_vol2_cb: @ 08029E8C
 	push {lr}
 	adds r0, #0xa0
 	ldr r3, [r0, #0x1c]
@@ -1646,10 +1646,10 @@ _08029EAC:
 	movs r0, #0
 	b _08029EA8
 
-	.global sub_08029EB0
+	.global red_zinger_sfx_pitch2_cb
 	.thumb_func
-	.type sub_08029EB0, %function
-sub_08029EB0: @ 08029EB0
+	.type red_zinger_sfx_pitch2_cb, %function
+red_zinger_sfx_pitch2_cb: @ 08029EB0
 	push {lr}
 	adds r0, #0xa0
 	ldr r2, [r0, #0x1c]
@@ -1823,10 +1823,10 @@ _08029FF8:
 _08029FFC:
 	.4byte gGameSetup
 
-	.global sub_0802A000
+	.global weapon_fire_blue_zinger
 	.thumb_func
-	.type sub_0802A000, %function
-sub_0802A000: @ 0802A000
+	.type weapon_fire_blue_zinger, %function
+weapon_fire_blue_zinger: @ 0802A000
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -2051,7 +2051,7 @@ _0802A19C:
 _0802A1A0:
 	.4byte 0x0202EC08
 _0802A1A4:
-	.4byte sub_0802AC3C
+	.4byte blue_zinger_sfx_cb2
 _0802A1A8:
 	.4byte 0x00000684
 _0802A1AC:
@@ -2307,7 +2307,7 @@ _0802A37C:
 	ldr r2, [r3]
 	ldr r3, _0802A4AC
 	ldr r3, [r3]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r2, [sp, #0x14]
 	str r0, [r2, #0x40]
 	ldr r3, [r7, #0x2c]
@@ -2318,7 +2318,7 @@ _0802A37C:
 	ldr r2, [r4]
 	ldr r4, _0802A4B4
 	ldr r3, [r4]
-	bl sub_0802C42C
+	bl grid_mask
 	ldr r1, [sp, #0x14]
 	str r0, [r1, #0x44]
 	ldr r2, [r5]
@@ -2452,7 +2452,7 @@ _0802A4B4:
 _0802A4B8:
 	.4byte gRacerObjects
 _0802A4BC:
-	.4byte sub_0802AC28
+	.4byte blue_zinger_sfx_vol_cb
 _0802A4C0:
 	.4byte blue_zinger_sfx_pitch_cb
 	.global _0802A4C4
@@ -2476,7 +2476,7 @@ _0802A4D2:
 	str r3, [sp, #0x1c]
 	str r0, [r4, #0x10]
 	adds r0, r7, #0
-	bl sub_080122AC
+	bl blue_zinger_steer
 	movs r3, #0xfa
 	ldr r2, [r7, #0x28]
 	lsls r1, r3, #4
@@ -2937,9 +2937,9 @@ _0802A884:
 _0802A888:
 	.4byte gLocalPlayerIndex
 _0802A88C:
-	.4byte sub_0802AC8C
+	.4byte blue_zinger_sfx_pitch2_cb
 _0802A890:
-	.4byte sub_0802AC68
+	.4byte blue_zinger_sfx_vol2_cb
 	.global _0802A894
 _0802A894:
 	ldr r3, [sp, #0x14]
