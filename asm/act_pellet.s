@@ -409,7 +409,7 @@ init_pellet: @ 0802884C
 _08028856:
 	ldr r0, _08028864
 	strh r0, [r4]
-	bl sub_08002E78
+	bl particle_new
 	cmp r0, #0
 	beq _080288AE
 	b _08028868

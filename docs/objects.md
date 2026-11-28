@@ -38,6 +38,16 @@ sprite table entry 43, a flat grey oval, marked with 0x80 in `+0x06`.
 reference to a decoded frame in `gSpriteFrameCache`. The object then goes
 on one of the two draw lists, linked through `obj+0x0C`/`+0x10`.
 
+## Particles
+
+Sparks and debris are not objects but particles: `gParticles`, 64 entries
+of 0x20 bytes (`x, y, z, vx, vy, vz, life, flags`). `particle_new` takes a
+free one; `particles_update` (every other frame, from `game_process`) moves
+them, counts their life down by 2 and frees them when it runs out. Flag
+0x400 adds gravity and 0x800 makes them bounce off the ground. Their
+graphics are sprite table entry 42, small sparks, debris and stars in
+several colours. The pellet, the zingers and the player make them.
+
 ## Classes
 
 The class table at `0x08713FD0` has 16 bytes per class:

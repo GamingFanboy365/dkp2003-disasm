@@ -610,3 +610,8 @@
 0x08002FE0 spr_set_shadow_size      # (slot): shadow slots (flag 0x80) get 3/4 of the sprite's size (+0x0A)
 0x08003020 spr_hide_shadow          # (slot): shadow slots lose their graphics (collected Kong letters, coins)
 0x080032B8 spr_release_frame        # (slot): drop its reference to a cached frame (gSpriteFrameCache)
+# particles: 64 x 0x20 bytes {x, y, z, vx, vy, vz, life, flags}; graphics =
+# sprite table entry 42 (sparks, debris, stars)
+0x08002BCC particles_init           # clear, fill the free stack, pre-decode sprite 42's frames
+0x08002CBC particles_update         # every other frame: move, life -= 2; flag 0x400 gravity, 0x800 bounce; free when done
+0x08002E78 particle_new             # -> a free particle, or 0

@@ -5985,7 +5985,7 @@ _08023CDA:
 	str r4, [sp]
 	mov sb, r3
 	asrs r6, r2, #2
-	bl sub_08002E78
+	bl particle_new
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08023D20
@@ -6009,7 +6009,7 @@ _08023CDA:
 	str r1, [r4, #0x18]
 	str r0, [r4, #0x1c]
 _08023D20:
-	bl sub_08002E78
+	bl particle_new
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08023CB6

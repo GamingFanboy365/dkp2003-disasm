@@ -3305,10 +3305,10 @@ _08002BC4:
 _08002BC8:
 	.4byte gStateFunc
 
-	.global sub_08002BCC
+	.global particles_init
 	.thumb_func
-	.type sub_08002BCC, %function
-sub_08002BCC: @ 08002BCC
+	.type particles_init, %function
+particles_init: @ 08002BCC
 	push {r4, r5, r6, lr}
 	sub sp, #4
 	mov r0, sp
@@ -3344,13 +3344,13 @@ _08002BEA:
 _08002C0C:
 	.4byte 0x00000000
 _08002C10:
-	.4byte 0x020185AC
+	.4byte gParticles
 _08002C14:
 	.4byte 0x01000400
 _08002C18:
-	.4byte 0x02018E2C
+	.4byte gParticleFreeCount
 _08002C1C:
-	.4byte 0x02018DAC
+	.4byte gParticleFree
 _08002C20:
 	.4byte gUnk_08713650
 _08002C24:
@@ -3420,10 +3420,10 @@ _08002C24:
 _08002CB8:
 	.4byte sub_030027F0
 
-	.global sub_08002CBC
+	.global particles_update
 	.thumb_func
-	.type sub_08002CBC, %function
-sub_08002CBC: @ 08002CBC
+	.type particles_update, %function
+particles_update: @ 08002CBC
 	push {r4, r5, r6, r7, lr}
 	ldr r2, _08002D68
 	ldr r0, [r2]
@@ -3521,11 +3521,11 @@ _08002D5C:
 _08002D68:
 	.4byte gFrameCount
 _08002D6C:
-	.4byte 0x020185AC
+	.4byte gParticles
 _08002D70:
-	.4byte 0x02018DAC
+	.4byte gParticleFree
 _08002D74:
-	.4byte 0x02018E2C
+	.4byte gParticleFreeCount
 _08002D78:
 	.4byte 0xFFFFFB00
 
@@ -3660,12 +3660,12 @@ _08002E52:
 	pop {r1}
 	bx r1
 _08002E74:
-	.4byte 0x020185AC
+	.4byte gParticles
 
-	.global sub_08002E78
+	.global particle_new
 	.thumb_func
-	.type sub_08002E78, %function
-sub_08002E78: @ 08002E78
+	.type particle_new, %function
+particle_new: @ 08002E78
 	push {lr}
 	ldr r1, _08002EA0
 	ldrh r2, [r1]
@@ -3689,13 +3689,13 @@ _08002E9C:
 	movs r0, #0
 	b _08002E98
 _08002EA0:
-	.4byte 0x02018E2C
+	.4byte gParticleFreeCount
 _08002EA4:
 	.4byte 0x0000FFFF
 _08002EA8:
-	.4byte 0x02018DAC
+	.4byte gParticleFree
 _08002EAC:
-	.4byte 0x020185AC
+	.4byte gParticles
 
 	.global spr_init
 	.thumb_func

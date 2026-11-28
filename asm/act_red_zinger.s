@@ -270,7 +270,7 @@ _080293D6:
 	asrs r5, r6, #2
 	mov r8, r3
 	asrs r6, r0, #2
-	bl sub_08002E78
+	bl particle_new
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0802942A
@@ -297,7 +297,7 @@ _080293D6:
 	str r1, [r4, #0x18]
 	str r2, [r4, #0x1c]
 _0802942A:
-	bl sub_08002E78
+	bl particle_new
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0802946C
@@ -2214,7 +2214,7 @@ _0802A2C4:
 	asrs r4, r6, #2
 	mov r8, r3
 	asrs r6, r2, #2
-	bl sub_08002E78
+	bl particle_new
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0802A318
@@ -2241,7 +2241,7 @@ _0802A2C4:
 	str r1, [r5, #0x18]
 	str r0, [r5, #0x1c]
 _0802A318:
-	bl sub_08002E78
+	bl particle_new
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0802A35A

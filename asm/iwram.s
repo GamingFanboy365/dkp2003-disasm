@@ -1538,7 +1538,7 @@ _030015C0:
 _030015C4:
 	.4byte gUnk_08638C30
 _030015C8:
-	.4byte 0x020185AC
+	.4byte gParticles
 _030015CC:
 	.4byte gModeFlags
 _030015D0:

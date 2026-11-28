@@ -490,7 +490,7 @@ _080051B2:
 	mov r8, r2
 	mov sl, r3
 _08005222:
-	bl sub_08002E78
+	bl particle_new
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _08005286
@@ -1848,7 +1848,7 @@ sub_08005BE0: @ 08005BE0
 	asrs r6, r0, #0xc
 	cmp r6, #0x20
 	ble _08005CCE
-	bl sub_08002E78
+	bl particle_new
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08005C7C
@@ -1886,7 +1886,7 @@ sub_08005BE0: @ 08005BE0
 	orrs r0, r1
 	str r0, [r5, #0x1c]
 _08005C7C:
-	bl sub_08002E78
+	bl particle_new
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08005CCE
@@ -3414,7 +3414,7 @@ _0800669E:
 	str r5, [sp, #0x14]
 	mov r8, r1
 _080066F6:
-	bl sub_08002E78
+	bl particle_new
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0800675C
@@ -4167,7 +4167,7 @@ _08006C36:
 	mov sb, r0
 	mov fp, r2
 _08006C48:
-	bl sub_08002E78
+	bl particle_new
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _08006CC6
@@ -4487,7 +4487,7 @@ _08006EB0:
 	ldr r7, [r0, #0x44]
 	asrs r4, r5, #2
 	asrs r5, r2, #2
-	bl sub_08002E78
+	bl particle_new
 	asrs r6, r7, #2
 	adds r7, r0, #0
 	cmp r7, #0
@@ -4513,7 +4513,7 @@ _08006EB0:
 	str r1, [r7, #0x18]
 	str r0, [r7, #0x1c]
 _08006EF6:
-	bl sub_08002E78
+	bl particle_new
 	adds r7, r0, #0
 	cmp r7, #0
 	bne _08006F02
@@ -4736,7 +4736,7 @@ _08007080:
 	str r2, [sp, #0x14]
 	mov sb, r3
 _0800708E:
-	bl sub_08002E78
+	bl particle_new
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _0800710C

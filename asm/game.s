@@ -112,7 +112,7 @@ _08000580:
 	bl race_setup_ovl_b
 _08000584:
 	bl spr_init
-	bl sub_08002BCC
+	bl particles_init
 	bl sub_08003288
 	ldr r3, _080005BC
 	ldr r1, _080005D4
@@ -451,7 +451,7 @@ game_process: @ 08000824
 	push {r4, r5, r6, lr}
 	ldr r5, _0800087C
 	bl _call_via_r5
-	bl sub_08002CBC
+	bl particles_update
 	bl sub_080031A4
 	ldr r4, _08000880
 	bl _call_via_r4
