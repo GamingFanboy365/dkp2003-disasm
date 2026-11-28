@@ -204,7 +204,7 @@ print through AGBPrint and then hit an undefined-instruction trap
 
 ### Names
 
-900 functions are disassembled and 528 have real names:
+900 functions are disassembled and 529 have real names:
 * most were recovered automatically from the `__FUNCTION__` strings passed to
   asserts and debug prints (`tools/find_names.py`), e.g. `AgbMain`,
   `game_process`, `obj_add_process`, `planeControl`, `init_banana`,
@@ -301,6 +301,12 @@ python3 tools/unused.py baserom.gba build/db.json config/dkp.cfg --why 0x4FA64
 The coverage file comes from `DKP_COVER=build/emu/cover_race.bin python3
 tools/emu/repro_zinger_buzz.py`. `--why` explains why a block counts as
 used or unused.
+
+## Objects
+
+[`docs/objects.md`](docs/objects.md) describes the object system: the
+0x140-byte objects (8 racer slots plus 246 others), their lists, the class
+table and the fields established so far.
 
 ## Front-end flow
 

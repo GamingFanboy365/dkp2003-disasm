@@ -2969,10 +2969,10 @@ _0800C2E0:
 _0800C2E4:
 	.4byte 0x00007FFF
 
-	.global sub_0800C2E8
+	.global ai_aim_at_node
 	.thumb_func
-	.type sub_0800C2E8, %function
-sub_0800C2E8: @ 0800C2E8
+	.type ai_aim_at_node, %function
+ai_aim_at_node: @ 0800C2E8
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -5688,7 +5688,7 @@ _0800D670:
 	adds r1, r7, #0
 	adds r2, r5, #0
 	adds r3, r4, #0
-	bl sub_0800C2E8
+	bl ai_aim_at_node
 	mov r0, r8
 	adds r1, r7, #0
 	adds r2, r5, #0

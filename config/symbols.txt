@@ -586,3 +586,4 @@
 0x0800E8C8 comp_sfx_vol_cb2
 0x0800DD5C comp_sfx_pitch_cb1       # pitch callbacks (r1)
 0x0800E940 comp_sfx_pitch_cb2
+0x0800C2E8 ai_aim_at_node           # angle (atan2_fx) and distance (udiv) to the target node
