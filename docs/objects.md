@@ -42,8 +42,12 @@ Established from the code (the asserts name some of them):
 | `+0x02` | u8 | class | `obj_new` |
 | `+0x04` | ptr | next object in a list (free list, process list) | `obj_reset_all`, `obj_new` |
 | `+0x24`, `+0x28`, `+0x2C` | s32 | position x, y, z, with 8 fraction bits | `obj_spawn_level_object` stores the object list's x, y, z shifted left by 8 |
-| `+0x3C`, `+0x40`, `+0x44` | s32 | velocity x, y, z | `ai_update` writes them from `sin_fx`/`cos_fx` |
-| `+0x54` | s32 | heading in the top 16 bits (16-bit angle) | `tools/emu/repro_zinger_buzz.py` reads it to steer the player |
+| `+0x30`, `+0x34`, `+0x38` | s32 | a second position (follows `+0x24`..), probably last frame's | moves with the position |
+| `+0x3C`, `+0x40`, `+0x44` | s32 | velocity x, y, z | `ai_update` writes them from `sin_fx`/`cos_fx`; `planePlayer` for the player |
+| `+0x50` | s32 | speed | A (accelerate) raises it; written by `planePlayer` |
+| `+0x54` | s32 | heading in the top 16 bits, pitch in the bottom 16 (16-bit angles) | LEFT/RIGHT change the top half, UP/DOWN the bottom; written by `planeControl` |
+| `+0x6C`..`+0x80` | s32 | bounding box: x, y, z each minus and plus the hitbox size | `obj_set_hitbox`; moves with the position |
+| `+0xB0` | s32 | turn rate | LEFT/RIGHT; written by `plane_turn` |
 | `+0x9C` | ptr | the class info record it was made from | `obj_spawn_level_object` |
 | `+0xA0` | u32 | racer flags; bit 0 = holds a weapon; `0x2000`, `0x100`, `0x200000` switch the CPU's `ai_wobble` / `ai_ease_offsets`; `0x01000000` = went through a zipper | the zinger-buzz reproduction and fix, `ai_wobble`, `ai_ease_offsets` |
 | `+0x108` | u32 | racer weapon slot; weapon type in bits 16+ (3 = red zinger) | the zinger-buzz reproduction |
@@ -52,3 +56,9 @@ CPU racers also have a 0x158-byte AI state each (`gAiRacers`, 8 of them),
 passed with the object: `ai_update(obj, ai)`. A breakpoint in mGBA shows
 racer 2 as `obj = 0x0200460C` (`gObjRacerPool + 2 * 0x140`) with
 `ai = 0x0202375C` (`gAiRacers + 2 * 0x158`).
+
+The player's fields were found by holding each button from a saved race
+state, comparing the object with a run without input, and then running
+`watch <address>` in `tools/emu/dkprun` to find the instruction that writes
+the field. UP dives and DOWN climbs (`+0x28` falls with UP), A accelerates,
+and B fires.

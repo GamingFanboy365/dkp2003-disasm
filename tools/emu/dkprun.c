@@ -13,6 +13,7 @@
 //   cover <file>|off       while on, frames are single-stepped and each executed
 //                          instruction address (ROM, IWRAM) is marked; 'off' writes
 //                          the bitmap (1 bit per halfword: 16MB ROM then 32KB IWRAM)
+//   watch <addr> [max]     run until the word at addr changes; prints the writing instruction
 //   echo <text>
 #include <mgba-util/common.h>
 #include <mgba/core/core.h>
@@ -219,6 +220,23 @@ int main(int argc, char** argv) {
 				free(cover);
 				cover = NULL;
 			}
+		} else if (!strcmp(cmd, "watch")) {
+			// watch <addr> [maxinsns]: single-step until the 32-bit word at addr
+			// changes; print the address of the instruction that changed it
+			uint32_t a = strtoul(a1, 0, 0);
+			long max = n > 2 ? atol(a2) : 20000000L;
+			struct ARMCore* cpu = core->cpu;
+			uint32_t old = r32(a), prev = 0;
+			long i;
+			for (i = 0; i < max; ++i) {
+				prev = cpu->gprs[ARM_PC] - (cpu->executionMode == MODE_THUMB ? 2 : 4);
+				core->step(core);
+				if (r32(a) != old) break;
+			}
+			if (i < max)
+				printf("watch: %08x changed %08x -> %08x at pc %08x (lr %08x)\n", a, old, r32(a), prev, cpu->gprs[ARM_LR]);
+			else
+				printf("watch: no change\n");
 		} else if (!strcmp(cmd, "echo")) {
 			printf("%s", line + 5);
 		}

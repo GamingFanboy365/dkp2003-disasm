@@ -592,3 +592,4 @@
 0x0800C628 ai_forward               # aiPlayerForward wrapper in ai_update: writes the velocity (obj+0x40/0x44) (tools/fprofile.py)
 0x08028250 weapon_launch            # called by weaponManager/weaponbossManager: new projectile object, aimed (atan2_fx, isqrt), sounds; runs when B is pressed
 0x08001C28 obj_set_hitbox           # (obj, sx, sy, sz, flags): sizes at obj+0x5C.., bounding box around the position; most init_* call it
+0x08005CE0 plane_turn               # planeControl step: turn rate obj+0xB0 from LEFT/RIGHT (and L/R); found with dkprun `watch`

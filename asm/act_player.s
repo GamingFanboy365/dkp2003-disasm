@@ -1934,10 +1934,10 @@ _08005CCE:
 _08005CDC:
 	.4byte gUnk_0884E08C
 
-	.global sub_08005CE0
+	.global plane_turn
 	.thumb_func
-	.type sub_08005CE0, %function
-sub_08005CE0: @ 08005CE0
+	.type plane_turn, %function
+plane_turn: @ 08005CE0
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -8313,7 +8313,7 @@ _08008AA8:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_08005CE0
+	bl plane_turn
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r4, #0

@@ -34,7 +34,7 @@ It takes about 2 minutes per ROM.
 
 | File | Purpose |
 |---|---|
-| `dkprun.c` | Harness: reads commands on stdin: `run N KEYS`, `tap`, `peek`, `poke`, `str`, `save`/`load` states, `shot x.png`, `vlog` (per-frame dump of the gamesfx voices and pending queue), `regs`, `step N`, `until PC`, `trace FILE N` (pc, r0–r3, r6, r12, lr per instruction), `log on/off` (mGBA log, e.g. DMA sources), `cover FILE` / `cover off` (single-step every frame and record each executed instruction address in a bitmap: 1 bit per halfword, 16 MB of ROM then 32 KB of IWRAM; written on `cover off`). |
+| `dkprun.c` | Harness: reads commands on stdin: `run N KEYS`, `tap`, `peek`, `poke`, `str`, `save`/`load` states, `shot x.png`, `vlog` (per-frame dump of the gamesfx voices and pending queue), `regs`, `step N`, `until PC`, `trace FILE N` (pc, r0–r3, r6, r12, lr per instruction), `log on/off` (mGBA log, e.g. DMA sources), `watch ADDR [MAX]` (run until the word at ADDR changes and print the instruction that wrote it), `cover FILE` / `cover off` (single-step every frame and record each executed instruction address in a bitmap: 1 bit per halfword, 16 MB of ROM then 32 KB of IWRAM; written on `cover off`). |
 | `drv.py` | Python wrapper; walks the object process list (`0x02004374`). |
 | `auto.py` | Autopilot: follows a recorded CPU racing line, with a forced waypoint (the zipper). |
 | `comp_tracks.json` | CPU racer positions recorded on Steamy Swoop, used as the racing line. |
