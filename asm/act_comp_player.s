@@ -3427,10 +3427,10 @@ _0800C620:
 _0800C624:
 	.4byte 0x0000044D
 
-	.global sub_0800C628
+	.global ai_forward
 	.thumb_func
-	.type sub_0800C628, %function
-sub_0800C628: @ 0800C628
+	.type ai_forward, %function
+ai_forward: @ 0800C628
 	push {r4, r5, r6, r7, lr}
 	mov r7, fp
 	mov r6, sl
@@ -5694,7 +5694,7 @@ _0800D670:
 	adds r2, r5, #0
 	adds r3, r6, #0
 	str r4, [sp]
-	bl sub_0800C628
+	bl ai_forward
 	mov r0, r8
 	adds r1, r7, #0
 	bl ai_wobble
